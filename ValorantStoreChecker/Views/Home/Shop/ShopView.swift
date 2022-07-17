@@ -9,15 +9,19 @@ import SwiftUI
 
 struct ShopView: View {
     
+    @State var tabIndex = 1
+    
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
-    let gradient = Gradient(colors: [.black, .black, .pink])
+    let gradient = Gradient(colors: [Color(red: 50/255, green: 50/255, blue: 50/255), .pink])
     
 
         var body: some View {
                 
             GeometryReader{ geo in
+                
                 VStack{
+                    
                     Image("logo")
                         .resizable()
                         .scaledToFit()
@@ -37,19 +41,9 @@ struct ShopView: View {
                 }
                 .padding()
                 
-                
-                
                  
             }
             .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))
-            
-            
-            
-        }
-
-        private func emoji(_ value: Int) -> String {
-            guard let scalar = UnicodeScalar(value) else { return "?" }
-            return String(Character(scalar))
         }
     }
 
