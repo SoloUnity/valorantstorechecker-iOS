@@ -11,14 +11,11 @@ struct ShopView: View {
     
     @State var tabIndex = 1
     
-    let columns = [GridItem(.flexible()), GridItem(.flexible())]
-    
-    let gradient = Gradient(colors: [Color(red: 50/255, green: 50/255, blue: 50/255), .pink])
-    
 
         var body: some View {
                 
             GeometryReader{ geo in
+                
                 
                 VStack{
                     
@@ -26,19 +23,21 @@ struct ShopView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: geo.size.width/4)
+                        .padding(.bottom)
                     
-                    Spacer()
                     
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(0..<4) { value in
-                                WeaponCardView(colour: Color(red: 31/255, green: 30/255, blue: 30/255))
-                                .frame(width: (geo.size.width / 2) - 40, height: (geo.size.height / 2) - 100)
-                                .shadow(color: .pink, radius: 5)
+                    ScrollView{
+                        VStack(spacing: 10) {
+                            ForEach(0..<4) { value in
+                                    WeaponCardView(colour: Color(red: 40/255, green: 40/255, blue: 40/255))
+                                    .frame(height: (geo.size.height / 5.5))
                                     
+                                        
+                            }
                         }
                     }
                     
-                    Spacer()
+                    
                 }
                 .padding()
                 
@@ -47,7 +46,7 @@ struct ShopView: View {
                 
                  
             }
-            .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))
+            
         }
     }
 

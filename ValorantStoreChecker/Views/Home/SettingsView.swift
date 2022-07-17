@@ -12,23 +12,33 @@ struct SettingsView: View {
     @State var dark = false
     
     var body: some View {
-        VStack(alignment: .leading){
-            Text("Settings lmao")
-                .font(.title)
-                .padding()
-            
-            Toggle("Dark Mode", isOn: $dark)
-                .frame(width: 200)
-            
-            Spacer()
+        
+        GeometryReader{ geo in
+            VStack(alignment: .leading){
+                Text("Settings lmao")
+                    .font(.title)
+                    .padding()
+                
+                Toggle("Dark Mode", isOn: $dark)
+                    .frame(width: 200)
+                
+                Spacer()
+            }
+            .foregroundColor(.white)
         }
+        
+        
         
             
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
+    
     static var previews: some View {
         SettingsView()
     }
 }
+
+
+
