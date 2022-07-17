@@ -29,10 +29,11 @@ struct ShopView: View {
                     
                     Spacer()
                     
-                    LazyVGrid(columns: columns) {
+                    LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(0..<4) { value in
                                 WeaponCardView(colour: Color(red: 31/255, green: 30/255, blue: 30/255))
-                                .frame(width: (geo.size.width / 2) - 20, height: (geo.size.height / 2) - 100)
+                                .frame(width: (geo.size.width / 2) - 40, height: (geo.size.height / 2) - 100)
+                                .shadow(color: .pink, radius: 5)
                                     
                         }
                     }
@@ -40,6 +41,9 @@ struct ShopView: View {
                     Spacer()
                 }
                 .padding()
+                
+                
+                
                 
                  
             }

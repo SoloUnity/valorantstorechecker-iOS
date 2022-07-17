@@ -11,23 +11,25 @@ struct HomeView: View {
     @State var tabIndex = 0
     
     var body: some View {
-        TabView(selection: $tabIndex) {        // $ is a 2 way binding, where TabView is notified on change of TabIndex and tapped buttons notify/change tabIndex value
-            ShopView()                                   // What’s shown in the first tab
-                .tabItem{                                    // What displays on the tab in the bottom
+        TabView(selection: $tabIndex) {
+            ShopView()
+                .tabItem{
                     Image(systemName: "rectangle.grid.2x2")
-                        .accentColor(.white)
                     Text("Shop")
                 }
-                .tag(0)                                    // Sets @State tabIndex  value
+                .tag(0)
+                                
+            
 
-            SettingsView()                                        // What’s shown in the second tab
+            SettingsView()
                 .tabItem{
                     Image(systemName: "gear")
-                        .accentColor(.white)
                     Text("Settings")
                 }
                 .tag(1)
         }
+        .accentColor(.white)
+        
         
         
     }
