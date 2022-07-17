@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    
+    
     @State var tabIndex = 0
     let gradient = Gradient(colors: [Color(red: 20/255, green: 20/255, blue: 20/255),Color(red: 20/255, green: 20/255, blue: 20/255), .pink])
     
@@ -17,12 +20,11 @@ struct HomeView: View {
             ShopView()
                 .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
-                    Image(systemName: "rectangle.grid.2x2")
+                    Image(systemName: "rectangle.grid.1x2.fill")
                     Text("Shop")
                 }
                 .tag(0)
                                 
-            
 
             SettingsView()
                 .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))

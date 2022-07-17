@@ -16,10 +16,12 @@
 		8B29E2082881CCD10081F69A /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E2072881CCD10081F69A /* RectangleView.swift */; };
 		8B29E20A2881CEDC0081F69A /* TextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E2092881CEDC0081F69A /* TextfieldView.swift */; };
 		8B29E20C2881D6D30081F69A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E20B2881D6D30081F69A /* CircleView.swift */; };
+		8B33A5BF2884687C00BCB1F2 /* WeaponCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33A5BE2884687C00BCB1F2 /* WeaponCardDetailView.swift */; };
 		8B62AFCF2883A0FD0070173F /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFCE2883A0FD0070173F /* ShopView.swift */; };
 		8B62AFD12883A1230070173F /* WeaponCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD02883A1230070173F /* WeaponCardView.swift */; };
 		8B62AFD72883B4E10070173F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD62883B4E10070173F /* HomeView.swift */; };
 		8B62AFDA2883B53B0070173F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD92883B53B0070173F /* SettingsView.swift */; };
+		8BE6111C28846E1700E8BDD6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE6111B28846E1700E8BDD6 /* AVKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,10 +35,12 @@
 		8B29E2072881CCD10081F69A /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
 		8B29E2092881CEDC0081F69A /* TextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldView.swift; sourceTree = "<group>"; };
 		8B29E20B2881D6D30081F69A /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		8B33A5BE2884687C00BCB1F2 /* WeaponCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponCardDetailView.swift; sourceTree = "<group>"; };
 		8B62AFCE2883A0FD0070173F /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		8B62AFD02883A1230070173F /* WeaponCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponCardView.swift; sourceTree = "<group>"; };
 		8B62AFD62883B4E10070173F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8B62AFD92883B53B0070173F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8BE6111B28846E1700E8BDD6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE6111C28846E1700E8BDD6 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +60,7 @@
 			children = (
 				8B29E1ED2881C87D0081F69A /* ValorantStoreChecker */,
 				8B29E1EC2881C87D0081F69A /* Products */,
+				8BE6111A28846E1700E8BDD6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,7 +79,7 @@
 				8B29E1FC2881C9850081F69A /* Views */,
 				8B29E1FD2881C9890081F69A /* ViewModels */,
 				8B29E1FE2881C99A0081F69A /* Models */,
-				8B29E1F22881C8800081F69A /* Assets.xcassets */,
+				8B33A5C228846B5400BCB1F2 /* Ressources */,
 				8B29E1F42881C8800081F69A /* Preview Content */,
 			);
 			path = ValorantStoreChecker;
@@ -131,11 +137,20 @@
 			path = Commons;
 			sourceTree = "<group>";
 		};
+		8B33A5C228846B5400BCB1F2 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				8B29E1F22881C8800081F69A /* Assets.xcassets */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
 		8B62AFCD2883A0DC0070173F /* Shop */ = {
 			isa = PBXGroup;
 			children = (
 				8B62AFCE2883A0FD0070173F /* ShopView.swift */,
 				8B62AFD02883A1230070173F /* WeaponCardView.swift */,
+				8B33A5BE2884687C00BCB1F2 /* WeaponCardDetailView.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -148,6 +163,14 @@
 				8B62AFCD2883A0DC0070173F /* Shop */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		8BE6111A28846E1700E8BDD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BE6111B28846E1700E8BDD6 /* AVKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +246,7 @@
 				8B29E1F12881C87D0081F69A /* LaunchView.swift in Sources */,
 				8B29E1EF2881C87D0081F69A /* ValorantStoreCheckerApp.swift in Sources */,
 				8B29E2032881CAEC0081F69A /* LoginView.swift in Sources */,
+				8B33A5BF2884687C00BCB1F2 /* WeaponCardDetailView.swift in Sources */,
 				8B62AFD72883B4E10070173F /* HomeView.swift in Sources */,
 				8B29E2002881CA000081F69A /* ContentModel.swift in Sources */,
 				8B62AFD12883A1230070173F /* WeaponCardView.swift in Sources */,

@@ -14,6 +14,7 @@ struct WeaponCardView: View {
     var body: some View {
         ZStack{
             RectangleView(colour: colour)
+                .shadow(color: Color(red: 235/255, green: 152/255, blue: 100/255), radius: 5, x: 3, y: 3)
                 
             ZStack{
                 Image("knife")
@@ -40,14 +41,16 @@ struct WeaponCardView: View {
                         
                         Spacer()
                         
-                        Text("4350")
-                            .foregroundColor(.white)
-                            .bold()
-                        
                         Image("vp")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 22, height: 22)
+                        
+                        Text("4350")
+                            .foregroundColor(.white)
+                            .bold()
+                        
+                        
                             
                             
                     }
@@ -57,8 +60,6 @@ struct WeaponCardView: View {
             }
             
         }
-        
-        
         
     }
 }
