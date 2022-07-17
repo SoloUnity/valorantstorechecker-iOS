@@ -11,7 +11,7 @@ import SwiftUI
 struct ValorantStoreCheckerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LaunchView()
         }
     }
 }
