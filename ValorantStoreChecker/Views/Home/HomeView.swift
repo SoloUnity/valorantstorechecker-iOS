@@ -9,8 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     
-    
-    
     @State var tabIndex = 0
     let gradient = Gradient(colors: [Color(red: 20/255, green: 20/255, blue: 20/255),Color(red: 20/255, green: 20/255, blue: 20/255), .pink])
     

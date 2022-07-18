@@ -12,8 +12,12 @@ class ContentModel: ObservableObject{
     init(){
         
         
+        
     }
     
+    func getSkins(){
+        
+    }
 
     /* 2 factor authentication
      Method: PUT

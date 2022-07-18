@@ -53,11 +53,6 @@ struct ShopView: View {
                     
                 }
                 .padding()
-                
-                
-                
-                
-                 
             }
             
         }
