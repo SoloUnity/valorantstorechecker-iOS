@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 
-struct WeaponCardDetailView: View {
+struct SkinCardDetailView: View {
     
     let player = AVPlayer()
                     
@@ -46,7 +46,7 @@ struct WeaponCardDetailView: View {
 
 struct WeaponCardDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        WeaponCardDetailView()
+        SkinCardDetailView()
     }
 }
 

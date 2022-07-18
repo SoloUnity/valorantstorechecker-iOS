@@ -20,11 +20,8 @@ struct ShopView: View {
 
                 VStack{
                     
-                    Image("logo")
-                        .resizable()
-                        .scaledToFit()
+                    LogoView()
                         .frame(width: geo.size.width/4)
-                        .padding(.bottom)
                     
                     
                     ScrollView{
@@ -35,11 +32,11 @@ struct ShopView: View {
                                     self.isDetailViewShowing = true
                                     
                                 } label: {
-                                    WeaponCardView(colour: Color(red: 40/255, green: 40/255, blue: 40/255))
-                                    .frame(height: (geo.size.height / 5.5))
+                                    SkinCardView(colour: Color(red: 40/255, green: 40/255, blue: 40/255))
+                                        .frame(height: (geo.size.height / 5.75))
                                 }
                                 .sheet(isPresented: $isDetailViewShowing) {
-                                    WeaponCardDetailView()
+                                    SkinCardDetailView()
                                 }
 
                                     

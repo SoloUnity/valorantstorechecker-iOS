@@ -16,14 +16,18 @@
 		8B29E2082881CCD10081F69A /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E2072881CCD10081F69A /* RectangleView.swift */; };
 		8B29E20A2881CEDC0081F69A /* TextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E2092881CEDC0081F69A /* TextfieldView.swift */; };
 		8B29E20C2881D6D30081F69A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E20B2881D6D30081F69A /* CircleView.swift */; };
-		8B33A5BF2884687C00BCB1F2 /* WeaponCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33A5BE2884687C00BCB1F2 /* WeaponCardDetailView.swift */; };
+		8B33A5BF2884687C00BCB1F2 /* SkinCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */; };
 		8B62AFCF2883A0FD0070173F /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFCE2883A0FD0070173F /* ShopView.swift */; };
-		8B62AFD12883A1230070173F /* WeaponCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD02883A1230070173F /* WeaponCardView.swift */; };
+		8B62AFD12883A1230070173F /* SkinCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD02883A1230070173F /* SkinCardView.swift */; };
 		8B62AFD72883B4E10070173F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD62883B4E10070173F /* HomeView.swift */; };
 		8B62AFDA2883B53B0070173F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD92883B53B0070173F /* SettingsView.swift */; };
+		8B9A83752885A426009CE268 /* SkinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A83742885A426009CE268 /* SkinListView.swift */; };
+		8B9A837B28860BE8009CE268 /* CustomTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 8B9A837A28860BE8009CE268 /* CustomTextField */; };
+		8B9A838128861097009CE268 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A838028861097009CE268 /* LogoView.swift */; };
 		8BE6111C28846E1700E8BDD6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE6111B28846E1700E8BDD6 /* AVKit.framework */; };
-		8BE6111E28847B0C00E8BDD6 /* WeaponData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6111D28847B0C00E8BDD6 /* WeaponData.json */; };
-		8BE6112028847B9100E8BDD6 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6111F28847B9100E8BDD6 /* Weapon.swift */; };
+		8BE6111E28847B0C00E8BDD6 /* SkinData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6111D28847B0C00E8BDD6 /* SkinData.json */; };
+		8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6111F28847B9100E8BDD6 /* Skin.swift */; };
+		8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4D7642885A298000404D8 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,14 +41,17 @@
 		8B29E2072881CCD10081F69A /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
 		8B29E2092881CEDC0081F69A /* TextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldView.swift; sourceTree = "<group>"; };
 		8B29E20B2881D6D30081F69A /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
-		8B33A5BE2884687C00BCB1F2 /* WeaponCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponCardDetailView.swift; sourceTree = "<group>"; };
+		8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCardDetailView.swift; sourceTree = "<group>"; };
 		8B62AFCE2883A0FD0070173F /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
-		8B62AFD02883A1230070173F /* WeaponCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponCardView.swift; sourceTree = "<group>"; };
+		8B62AFD02883A1230070173F /* SkinCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCardView.swift; sourceTree = "<group>"; };
 		8B62AFD62883B4E10070173F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8B62AFD92883B53B0070173F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8B9A83742885A426009CE268 /* SkinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinListView.swift; sourceTree = "<group>"; };
+		8B9A838028861097009CE268 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		8BE6111B28846E1700E8BDD6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
-		8BE6111D28847B0C00E8BDD6 /* WeaponData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WeaponData.json; sourceTree = "<group>"; };
-		8BE6111F28847B9100E8BDD6 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		8BE6111D28847B0C00E8BDD6 /* SkinData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SkinData.json; sourceTree = "<group>"; };
+		8BE6111F28847B9100E8BDD6 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
+		8BF4D7642885A298000404D8 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +60,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BE6111C28846E1700E8BDD6 /* AVKit.framework in Frameworks */,
+				8B9A837B28860BE8009CE268 /* CustomTextField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +127,7 @@
 		8B29E1FE2881C99A0081F69A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8BE6111F28847B9100E8BDD6 /* Weapon.swift */,
+				8BE6111F28847B9100E8BDD6 /* Skin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -138,6 +146,7 @@
 				8B29E2072881CCD10081F69A /* RectangleView.swift */,
 				8B29E2092881CEDC0081F69A /* TextfieldView.swift */,
 				8B29E20B2881D6D30081F69A /* CircleView.swift */,
+				8B9A838028861097009CE268 /* LogoView.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -146,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				8B29E1F22881C8800081F69A /* Assets.xcassets */,
-				8BE6111D28847B0C00E8BDD6 /* WeaponData.json */,
+				8BE6111D28847B0C00E8BDD6 /* SkinData.json */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -155,8 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				8B62AFCE2883A0FD0070173F /* ShopView.swift */,
-				8B62AFD02883A1230070173F /* WeaponCardView.swift */,
-				8B33A5BE2884687C00BCB1F2 /* WeaponCardDetailView.swift */,
+				8B62AFD02883A1230070173F /* SkinCardView.swift */,
+				8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -167,6 +176,7 @@
 				8B62AFD62883B4E10070173F /* HomeView.swift */,
 				8B62AFD92883B53B0070173F /* SettingsView.swift */,
 				8B62AFCD2883A0DC0070173F /* Shop */,
+				8BF4D761288594E5000404D8 /* SkinList */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -177,6 +187,15 @@
 				8BE6111B28846E1700E8BDD6 /* AVKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8BF4D761288594E5000404D8 /* SkinList */ = {
+			isa = PBXGroup;
+			children = (
+				8BF4D7642885A298000404D8 /* SearchBar.swift */,
+				8B9A83742885A426009CE268 /* SkinListView.swift */,
+			);
+			path = SkinList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +214,9 @@
 			dependencies = (
 			);
 			name = ValorantStoreChecker;
+			packageProductDependencies = (
+				8B9A837A28860BE8009CE268 /* CustomTextField */,
+			);
 			productName = ValorantStoreChecker;
 			productReference = 8B29E1EB2881C87D0081F69A /* ValorantStoreChecker.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +245,9 @@
 				Base,
 			);
 			mainGroup = 8B29E1E22881C87D0081F69A;
+			packageReferences = (
+				8B9A837928860BE8009CE268 /* XCRemoteSwiftPackageReference "CustomTextField" */,
+			);
 			productRefGroup = 8B29E1EC2881C87D0081F69A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -238,7 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B29E1F62881C8800081F69A /* Preview Assets.xcassets in Resources */,
-				8BE6111E28847B0C00E8BDD6 /* WeaponData.json in Resources */,
+				8BE6111E28847B0C00E8BDD6 /* SkinData.json in Resources */,
 				8B29E1F32881C8800081F69A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,16 +277,19 @@
 			files = (
 				8B29E1F12881C87D0081F69A /* LaunchView.swift in Sources */,
 				8B29E1EF2881C87D0081F69A /* ValorantStoreCheckerApp.swift in Sources */,
+				8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */,
 				8B29E2032881CAEC0081F69A /* LoginView.swift in Sources */,
-				8B33A5BF2884687C00BCB1F2 /* WeaponCardDetailView.swift in Sources */,
-				8BE6112028847B9100E8BDD6 /* Weapon.swift in Sources */,
+				8B33A5BF2884687C00BCB1F2 /* SkinCardDetailView.swift in Sources */,
+				8B9A838128861097009CE268 /* LogoView.swift in Sources */,
+				8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */,
 				8B62AFD72883B4E10070173F /* HomeView.swift in Sources */,
 				8B29E2002881CA000081F69A /* ContentModel.swift in Sources */,
-				8B62AFD12883A1230070173F /* WeaponCardView.swift in Sources */,
+				8B62AFD12883A1230070173F /* SkinCardView.swift in Sources */,
 				8B29E20A2881CEDC0081F69A /* TextfieldView.swift in Sources */,
 				8B62AFCF2883A0FD0070173F /* ShopView.swift in Sources */,
 				8B29E20C2881D6D30081F69A /* CircleView.swift in Sources */,
 				8B29E2082881CCD10081F69A /* RectangleView.swift in Sources */,
+				8B9A83752885A426009CE268 /* SkinListView.swift in Sources */,
 				8B62AFDA2883B53B0070173F /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,7 +426,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -427,7 +455,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -463,6 +491,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8B9A837928860BE8009CE268 /* XCRemoteSwiftPackageReference "CustomTextField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MAAlsaleh0/CustomTextField.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8B9A837A28860BE8009CE268 /* CustomTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B9A837928860BE8009CE268 /* XCRemoteSwiftPackageReference "CustomTextField" */;
+			productName = CustomTextField;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8B29E1E32881C87D0081F69A /* Project object */;
 }

@@ -9,16 +9,42 @@ import Foundation
 
 class ContentModel: ObservableObject{
 
+    @Published var skins = [Skin]()
+    
     init(){
         
-        
+        getLocalSkins()
         
     }
     
-    func getSkins(){
+    func getLocalSkins(){
+        
+        // Get a url to the json file
+        let jsonUrl = Bundle.main.url(forResource: "SkinData", withExtension: "json")
+        
+        do{
+            // Read the file into a data object
+            let jsonData = try String(contentsOf: jsonUrl!).data(using: .utf8)
+            
+            // Try to decode json into an array of modules
+            let jsonDecoder = JSONDecoder()
+            
+            // get jsonDecode.decode(type, from) type is what you want obtained from the jsonData you input
+            let skins = try jsonDecoder.decode([Skin].self, from: jsonData!)
+            
+            
+            // Assign parse modules to modules property, updates @Published
+            self.skins = skins
+            
+            
+        }
+        catch{
+            print("Rip JSON doesn't work")
+        }
         
     }
-
+            
+        
     /* 2 factor authentication
      Method: PUT
      URL: https://auth.riotgames.com/api/v1/authorization
@@ -112,3 +138,4 @@ class ContentModel: ObservableObject{
      
    
     
+

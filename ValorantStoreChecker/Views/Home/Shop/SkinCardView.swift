@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WeaponCardView: View {
+struct SkinCardView: View {
     
     var colour = Color.black
     
@@ -49,10 +49,7 @@ struct WeaponCardView: View {
                         Text("4350")
                             .foregroundColor(.white)
                             .bold()
-                        
-                        
-                            
-                            
+
                     }
                     .padding()
                     
@@ -67,7 +64,7 @@ struct WeaponCardView: View {
 struct WeaponCardView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader{ geo in
-                WeaponCardView(colour: Color(red: 40/255, green: 40/255, blue: 40/255))
+                SkinCardView(colour: Color(red: 40/255, green: 40/255, blue: 40/255))
                 .frame(height: (geo.size.height / 5.5))
                 .padding()
                                

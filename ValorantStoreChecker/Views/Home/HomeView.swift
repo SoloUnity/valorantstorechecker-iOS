@@ -9,8 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @EnvironmentObject var model:ContentModel
     @State var tabIndex = 0
+    
     let gradient = Gradient(colors: [Color(red: 20/255, green: 20/255, blue: 20/255),Color(red: 20/255, green: 20/255, blue: 20/255), .pink])
+    
     
     var body: some View {
         
@@ -23,7 +26,7 @@ struct HomeView: View {
                 }
                 .tag(0)
                                 
-
+            
             SettingsView()
                 .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
@@ -34,10 +37,7 @@ struct HomeView: View {
             
         }
         .accentColor(.white)
-
-        
-        
-        
+        .preferredColorScheme(.dark)
         
     }
 }
