@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct SkinListView: View {
+    @State var searchText:String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader{ geo in
+            SearchBar(text: $searchText)
+                .padding()
+        }
     }
 }
 

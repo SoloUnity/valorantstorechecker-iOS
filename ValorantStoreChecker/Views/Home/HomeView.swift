@@ -12,7 +12,7 @@ struct HomeView: View {
     @EnvironmentObject var model:ContentModel
     @State var tabIndex = 0
     
-    let gradient = Gradient(colors: [Color(red: 20/255, green: 20/255, blue: 20/255),Color(red: 20/255, green: 20/255, blue: 20/255), .pink])
+    let gradient = Gradient(colors: [Color(red: 28/255, green: 28/255, blue: 30/255),Color(red: 28/255, green: 28/255, blue: 30/255), .pink])
     
     
     var body: some View {
@@ -21,11 +21,26 @@ struct HomeView: View {
             ShopView()
                 .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
-                    Image(systemName: "rectangle.grid.1x2.fill")
-                    Text("Shop")
+                    Image(systemName: "cart")
+                    Text("Store")
                 }
                 .tag(0)
                                 
+            SkinListView()
+                .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))
+                .tabItem{
+                    Image(systemName: "list.bullet")
+                    Text("Skins Index")
+                }
+                .tag(1)
+            
+            WishListView()
+                .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))
+                .tabItem{
+                    Image(systemName: "heart.fill")
+                    Text("Wish List")
+                }
+                .tag(2)
             
             SettingsView()
                 .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))
@@ -33,7 +48,7 @@ struct HomeView: View {
                     Image(systemName: "gear")
                     Text("Settings")
                 }
-                .tag(1)
+                .tag(3)
             
         }
         .accentColor(.white)

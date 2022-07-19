@@ -13,10 +13,12 @@ struct SkinCardView: View {
     
     var body: some View {
         ZStack{
-            RectangleView(colour: colour)
-                .shadow(color: Color(red: 235/255, green: 152/255, blue: 100/255), radius: 5, x: 3, y: 3)
+            RectangleView(colour: Color.black)
+                .shadow(color: .white, radius: 2)
                 
             ZStack{
+                
+                // Skin Image
                 Image("knife")
                     .resizable()
                     .scaledToFit()
@@ -24,10 +26,9 @@ struct SkinCardView: View {
                 
                 
                 VStack{
+                    // Price Tier
                     HStack{
-                        Image("orange")
-                            .resizable()
-                            .scaledToFit()
+                        ExclusiveEditionView()
                             .frame(width: 30, height: 30)
                         
                         Spacer()
@@ -35,10 +36,9 @@ struct SkinCardView: View {
                     .padding()
                     
                     Spacer()
+                    
+                    // Price
                     HStack{
-                        
-                        
-                        
                         Spacer()
                         
                         Image("vp")

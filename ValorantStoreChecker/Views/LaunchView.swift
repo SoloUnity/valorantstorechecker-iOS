@@ -14,6 +14,12 @@ struct LaunchView: View {
     @EnvironmentObject var model:ContentModel
     
     var body: some View {
+        
+        // Login View
+        
+        // Notifications Permissions View
+        
+        // Home View
         HomeView()
     }
 }

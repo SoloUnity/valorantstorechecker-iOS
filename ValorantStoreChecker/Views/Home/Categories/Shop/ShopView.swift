@@ -38,10 +38,6 @@ struct ShopView: View {
                                 .sheet(isPresented: $isDetailViewShowing) {
                                     SkinCardDetailView()
                                 }
-
-                                    
-                                    
-                                        
                             }
                         }
                         .padding(10)
