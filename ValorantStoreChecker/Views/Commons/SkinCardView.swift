@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SkinCardView: View {
     
-    var colour = Color.black
+    var colour:Color
     
     var body: some View {
         ZStack{
-            RectangleView(colour: Color.black)
+            RectangleView(colour: colour)
                 .shadow(color: .white, radius: 2)
                 
             ZStack{

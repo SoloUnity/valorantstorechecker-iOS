@@ -29,6 +29,7 @@
 		8B9A838D28861C6E009CE268 /* PremiumEditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A838C28861C6E009CE268 /* PremiumEditionView.swift */; };
 		8B9A838F28861C78009CE268 /* UltraEditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A838E28861C78009CE268 /* UltraEditionView.swift */; };
 		8B9A8395288630F0009CE268 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A8394288630F0009CE268 /* WishListView.swift */; };
+		8B9A839828863E51009CE268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9A839728863E51009CE268 /* LaunchScreen.storyboard */; };
 		8BE6111C28846E1700E8BDD6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE6111B28846E1700E8BDD6 /* AVKit.framework */; };
 		8BE6111E28847B0C00E8BDD6 /* SkinData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6111D28847B0C00E8BDD6 /* SkinData.json */; };
 		8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6111F28847B9100E8BDD6 /* Skin.swift */; };
@@ -58,6 +59,8 @@
 		8B9A838C28861C6E009CE268 /* PremiumEditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumEditionView.swift; sourceTree = "<group>"; };
 		8B9A838E28861C78009CE268 /* UltraEditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraEditionView.swift; sourceTree = "<group>"; };
 		8B9A8394288630F0009CE268 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
+		8B9A839628863D52009CE268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8B9A839728863E51009CE268 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BE6111B28846E1700E8BDD6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		8BE6111D28847B0C00E8BDD6 /* SkinData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SkinData.json; sourceTree = "<group>"; };
 		8BE6111F28847B9100E8BDD6 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 		8B29E1ED2881C87D0081F69A /* ValorantStoreChecker */ = {
 			isa = PBXGroup;
 			children = (
+				8B9A839628863D52009CE268 /* Info.plist */,
 				8B29E1EE2881C87D0081F69A /* ValorantStoreCheckerApp.swift */,
 				8B29E1FC2881C9850081F69A /* Views */,
 				8B29E1FD2881C9890081F69A /* ViewModels */,
@@ -118,6 +122,7 @@
 		8B29E1FC2881C9850081F69A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8B9A839728863E51009CE268 /* LaunchScreen.storyboard */,
 				8B29E1F02881C87D0081F69A /* LaunchView.swift */,
 				8B62AFD82883B51F0070173F /* Home */,
 				8B29E2012881CA440081F69A /* Onboarding */,
@@ -310,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B29E1F62881C8800081F69A /* Preview Assets.xcassets in Resources */,
+				8B9A839828863E51009CE268 /* LaunchScreen.storyboard in Resources */,
 				8BE6111E28847B0C00E8BDD6 /* SkinData.json in Resources */,
 				8B29E1F32881C8800081F69A /* Assets.xcassets in Resources */,
 			);
@@ -474,9 +480,11 @@
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ValorantStoreChecker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -503,9 +511,11 @@
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ValorantStoreChecker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
