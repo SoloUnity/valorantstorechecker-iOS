@@ -1,4 +1,3 @@
-//
 //  ContentView.swift
 //  ValorantStoreChecker
 //
@@ -6,7 +5,6 @@
 //
 
 import SwiftUI
-
 
 
 struct LaunchView: View {

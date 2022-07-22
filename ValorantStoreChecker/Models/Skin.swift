@@ -7,56 +7,108 @@
 
 import Foundation
 
-struct Skin: Identifiable, Decodable{
-    
-    var id:UUID?
-    var status:Int?
-    var data:Data
-    
-}
 
-struct Data: Decodable, Identifiable{
+
+class Skin: Identifiable, Codable, ObservableObject{
     
-    var id:UUID?
-    var uuid:String?
-    var displayName:String?
+    @Published var imageData: Data?
+    
+    var id : UUID
+    var displayName:String
     var themeUuid:String?
     var contentTierUuid:String?
     var displayIcon:String?
-    var wallpaper:String?
-    var assetPath:String?
-    var chromas: [Chromas]
-    var levels: [Levels]
+    //var wallpaper:String?
+    //var assetPath:String?
+    var chromas: [Chromas]?
+    var levels: [Levels]?
     
+    enum CodingKeys:String, CodingKey{
+        case id = "uuid"
+        
+        case displayName
+        case themeUuid
+        case contentTierUuid
+        case displayIcon
+        //case wallpaper
+        //case assetPath
+        case chromas
+        case levels
+    }
+    
+    // Convert image url to data object
+    /*
+     func getImageData() {
+         
+         // Check that image url isn't nil
+         guard displayIcon != nil else {
+             return
+         }
+         
+         // Download the data for the image
+         if let url = URL(string: displayIcon!) {
+             
+             // Get a session
+             let session = URLSession.shared
+             let dataTask = session.dataTask(with: url) { (data, response, error) in
+                 
+                 if error == nil {
+                     
+                     DispatchQueue.main.async {
+                         // Set the image data
+                         self.imageData = data!
+                     }
+                 }
+             }
+             dataTask.resume()
+         }
+     }
+     */
     
     
 }
 
-struct Chromas: Decodable, Identifiable{
+struct Chromas: Codable, Identifiable{
     
-    var id:UUID?
-    var uuid:String?
+    var id : UUID
     var displayName:String?
     var displayIcon:String?
     var fullRender:String?
-    var swatch:String?
+    //var swatch:String?
     var streamedVideo:String?
-    var assetPath:String?
+    //var assetPath:String?
     
+    enum CodingKeys:String, CodingKey{
+        case id = "uuid"
+        
+        case displayName
+        case displayIcon
+        case fullRender
+        case streamedVideo
+    }
 
 }
 
-struct Levels: Decodable, Identifiable{
+struct Levels: Codable, Identifiable{
     
-    var id:UUID?
-    var uuid:String?
+    var id:UUID
     var displayName:String?
     var levelItem:String?
     var displayIcon:String?
     var streamedVideo:String?
-    var assetPath:String?
+    //var assetPath:String?
     
-
-    
+    enum CodingKeys:String, CodingKey{
+        case id = "uuid"
+        
+        case displayName
+        case levelItem
+        case displayIcon
+        case streamedVideo
+    }
 }
 
+struct Skins: Codable {
+    
+    var data:[Skin]
+}

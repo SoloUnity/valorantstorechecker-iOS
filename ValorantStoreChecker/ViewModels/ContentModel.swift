@@ -6,17 +6,189 @@
 //
 
 import Foundation
+import Combine
 
 class ContentModel: ObservableObject{
+    @Published var data : [Skin] = []
+    @Published var errorMessage = ""
+    @Published var error = false
+    @Published var isDone = true
 
+    private var task: AnyCancellable? //combine has support for cancellation
+    
+    func fetchData(urlString: String) {
+        guard let url = URL(string: urlString) else {
+            error = true
+            isDone = true
+            errorMessage = "Problem with URL string"
+            return
+        }
+        
+        task = URLSession.shared.dataTaskPublisher(for: url)
+            .tryMap{ data, response in // data and response header
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    self.error = true
+                    self.errorMessage = "Bad response"
+                    throw URLError(.badServerResponse)
+                } // guard
+                
+                
+                guard httpResponse.statusCode == 200 else {
+                    //return "Bad Status Code: \(httpResponse.statusCode)"
+                    // need an array
+                    return [Skin]()
+                }
+                
+                print(httpResponse)
+                
+                let decoder = JSONDecoder()
+                let skinList = try! decoder.decode(Skins.self, from: data)
+                
+                // convert to string
+                let encoder = JSONEncoder()
+                let skinData = try! encoder.encode(skinList.self)
+                
+                //convert binary data to string UTF-A UTF-16
+                let str = String.init(data: skinData, encoding: .utf8)
+                                
+                self.saveData(string: str ?? "")
+           
+                print(skinList.data);
+
+                return skinList.data.sorted(by: {$0.displayName < $1.displayName})
+            } // tryMap
+            .receive(on: RunLoop.main) // need this here so we can update on the main thread for errors as well as our sink
+            .catch({(Error) -> Just<[Skin]> in
+                print(Error)
+                self.error = true
+                self.errorMessage = "Bad Response"
+                //return Just("Something bad happened")
+                return Just<[Skin]>([Skin]())
+            })
+            .eraseToAnyPublisher()
+                    .sink(receiveValue: { results in
+                        self.isDone = true
+                        self.data = results
+                    })
+                    
+        
+    } // fetchData
+    
+    private func saveData(string: String) {
+        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        
+        let fileUrl = dir!.appendingPathComponent("data.txt")
+        print(fileUrl)
+        
+        do {
+            //write it
+            try string.write(to: fileUrl, atomically: true, encoding: .utf8)
+            
+            // read it back in
+            let string = try String(contentsOf: fileUrl, encoding: .utf8)
+            print(string)
+
+        } catch {
+            print("Problem saving to disk")
+        }
+    } //saveData
+    
+    /*
     @Published var skins = [Skin]()
+    @Published var errorMessage = ""
+    @Published var error = false
+    @Published var isDone = true
+    
     
     init(){
         
         getLocalSkins()
+        //getRemoteSkins()
+    }
+    
+    func getLocalSkins(){
+        // Get a url to the json file
+        let jsonUrl = Bundle.main.url(forResource: "SkinData", withExtension: "json")
+        
+        do{
+            // Read the file into a data object
+            let jsonData = try Data(contentsOf: jsonUrl!)
+            
+            // Try to decode json into an array of modules
+            let jsonDecoder = JSONDecoder()
+            
+            // get jsonDecode.decode(type, from) type is what you want obtained from the jsonData you input
+            let modules = try jsonDecoder.decode([Skin].self, from: jsonData)
+            
+            print(modules)
+            
+            // Assign parse modules to modules property, updates @Published
+            self.skins = modules
+            
+            
+        }
+        catch{
+            print("Rip JSON doesn't work")
+        }
+        
         
     }
     
+    func getRemoteSkins(){
+        
+        
+        
+        let urlString = "https://valorant-api.com/v1/weapons/skins"
+
+        var request = URLRequest(url: URL(string: urlString)!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10.0)
+        
+        request.httpMethod = "GET"  //Endpoint type of GET from API docs
+           
+        // Get the session and kick off the task
+        let session = URLSession.shared
+        
+        let dataTask = session.dataTask(with: request){ data, response, error in
+            
+            if error == nil{
+                do{
+                    guard let httpResponse = response as? HTTPURLResponse else {
+                        self.error = true
+                        self.errorMessage = "Bad response"
+                        throw URLError(.badServerResponse)
+                    }
+                    
+                    if httpResponse.statusCode == 200{
+                        let decoder = JSONDecoder()
+                        let result = try decoder.decode(SkinSearch.self, from: data!)
+                        
+                        // Sort array alphabetically based on name
+                        var skinz = result.skinz
+                        skinz.sort{(x1,x2) -> Bool in
+                            return x1.displayName  < x2.displayName
+                        }
+                        
+                        // Call the get image function of the businesses
+                        for x in skinz{
+                            x.getImageData()
+                        }
+                        
+                        // Background thread
+                        DispatchQueue.main.async{
+                            self.skins = skinz
+                        }
+                    } 
+                }
+                catch{
+                    // Couldn't parse data
+                    print("Error parsing Json")
+                    print(error)
+                }
+            }
+        }
+        // Kick off data task
+        dataTask.resume()
+    }
+    /*
     func getLocalSkins(){
         
         // Get a url to the json file
@@ -43,6 +215,7 @@ class ContentModel: ObservableObject{
         }
         
     }
+     */
             
         
     /* 2 factor authentication
@@ -133,6 +306,7 @@ class ContentModel: ObservableObject{
              // Start the Data Task
              dataTask.resume()
          }
+     */
      */
  }
      

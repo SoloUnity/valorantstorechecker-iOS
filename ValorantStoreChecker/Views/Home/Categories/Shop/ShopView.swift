@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ShopView: View {
     
+    @EnvironmentObject var model:ContentModel
     @State var tabIndex = 1
     @State var isDetailViewShowing = false
     
@@ -26,14 +27,19 @@ struct ShopView: View {
                     
                     ScrollView{
                         VStack(spacing: 13) {
+                            // Shop stuff
                             ForEach(0..<4) { value in
                                 
                                 Button {
                                     self.isDetailViewShowing = true
                                     
                                 } label: {
-                                    SkinCardView(colour: Color(red: 40/255, green: 40/255, blue: 40/255))
-                                        .frame(height: (geo.size.height / 5.75))
+                                    
+                                    /*
+                                     SkinCardView(skin: skin, priceTier: skin.contentTierUuid, vp:"500")
+                                         .frame(height: (geo.size.height / 5.75))
+                                     */
+                                    
                                 }
                                 .sheet(isPresented: $isDetailViewShowing) {
                                     SkinCardDetailView()

@@ -9,17 +9,15 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var model:ContentModel
+    @EnvironmentObject var model:ContentModel 
     @State var tabIndex = 0
     
-    let gradient = Gradient(colors: [Color(red: 28/255, green: 28/255, blue: 30/255),Color(red: 28/255, green: 28/255, blue: 30/255), .pink])
-    
-    
+
     var body: some View {
         
         TabView(selection: $tabIndex) {
             ShopView()
-                .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))
+                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
                     Image(systemName: "cart")
                     Text("Store")
@@ -27,7 +25,7 @@ struct HomeView: View {
                 .tag(0)
                                 
             SkinListView()
-                .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))
+                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
                     Image(systemName: "list.bullet")
                     Text("Skins Index")
@@ -35,7 +33,7 @@ struct HomeView: View {
                 .tag(1)
             
             WishListView()
-                .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))
+                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
                     Image(systemName: "heart.fill")
                     Text("Wish List")
@@ -43,7 +41,7 @@ struct HomeView: View {
                 .tag(2)
             
             SettingsView()
-                .background(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom))
+                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
                     Image(systemName: "gear")
                     Text("Settings")
@@ -53,7 +51,6 @@ struct HomeView: View {
         }
         .accentColor(.white)
         .preferredColorScheme(.dark)
-        
     }
 }
 

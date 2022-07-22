@@ -21,6 +21,7 @@
 		8B62AFD12883A1230070173F /* SkinCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD02883A1230070173F /* SkinCardView.swift */; };
 		8B62AFD72883B4E10070173F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD62883B4E10070173F /* HomeView.swift */; };
 		8B62AFDA2883B53B0070173F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD92883B53B0070173F /* SettingsView.swift */; };
+		8B91A90B288893BF0087B479 /* CustomTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 8B91A90A288893BF0087B479 /* CustomTextField */; };
 		8B9A83752885A426009CE268 /* SkinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A83742885A426009CE268 /* SkinListView.swift */; };
 		8B9A838128861097009CE268 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A838028861097009CE268 /* LogoView.swift */; };
 		8B9A8385288612DD009CE268 /* SelectEditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A8384288612DD009CE268 /* SelectEditionView.swift */; };
@@ -33,6 +34,9 @@
 		8BE6111C28846E1700E8BDD6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE6111B28846E1700E8BDD6 /* AVKit.framework */; };
 		8BE6111E28847B0C00E8BDD6 /* SkinData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6111D28847B0C00E8BDD6 /* SkinData.json */; };
 		8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6111F28847B9100E8BDD6 /* Skin.swift */; };
+		8BF1DB482888B87F004491A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DB472888B87F004491A1 /* Constants.swift */; };
+		8BF1DB4C2888D8B3004491A1 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8BF1DB4B2888D8B3004491A1 /* KeychainSwift */; };
+		8BF1DB4E2889EE6A004491A1 /* SkinSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DB4D2889EE6A004491A1 /* SkinSectionView.swift */; };
 		8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4D7642885A298000404D8 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +67,8 @@
 		8BE6111B28846E1700E8BDD6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		8BE6111D28847B0C00E8BDD6 /* SkinData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SkinData.json; sourceTree = "<group>"; };
 		8BE6111F28847B9100E8BDD6 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
+		8BF1DB472888B87F004491A1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8BF1DB4D2889EE6A004491A1 /* SkinSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinSectionView.swift; sourceTree = "<group>"; };
 		8BF4D7642885A298000404D8 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +78,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B39A2BA28888E4F009FEC82 /* ValorantAPI in Frameworks */,
+				8B91A90B288893BF0087B479 /* CustomTextField in Frameworks */,
+				8BF1DB4C2888D8B3004491A1 /* KeychainSwift in Frameworks */,
 				8BE6111C28846E1700E8BDD6 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +178,7 @@
 				8B9A839728863E51009CE268 /* LaunchScreen.storyboard */,
 				8B29E1F22881C8800081F69A /* Assets.xcassets */,
 				8BE6111D28847B0C00E8BDD6 /* SkinData.json */,
+				8BF1DB472888B87F004491A1 /* Constants.swift */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -244,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				8B9A83742885A426009CE268 /* SkinListView.swift */,
+				8BF1DB4D2889EE6A004491A1 /* SkinSectionView.swift */,
 			);
 			path = SkinList;
 			sourceTree = "<group>";
@@ -266,6 +276,8 @@
 			name = ValorantStoreChecker;
 			packageProductDependencies = (
 				8B39A2B928888E4F009FEC82 /* ValorantAPI */,
+				8B91A90A288893BF0087B479 /* CustomTextField */,
+				8BF1DB4B2888D8B3004491A1 /* KeychainSwift */,
 			);
 			productName = ValorantStoreChecker;
 			productReference = 8B29E1EB2881C87D0081F69A /* ValorantStoreChecker.app */;
@@ -297,6 +309,8 @@
 			mainGroup = 8B29E1E22881C87D0081F69A;
 			packageReferences = (
 				8B39A2B828888E4F009FEC82 /* XCRemoteSwiftPackageReference "ValorantAPI" */,
+				8B91A909288893BF0087B479 /* XCRemoteSwiftPackageReference "CustomTextField" */,
+				8BF1DB4A2888D8B3004491A1 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 8B29E1EC2881C87D0081F69A /* Products */;
 			projectDirPath = "";
@@ -327,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B29E1F12881C87D0081F69A /* LaunchView.swift in Sources */,
+				8BF1DB482888B87F004491A1 /* Constants.swift in Sources */,
 				8B9A838B28861C5B009CE268 /* DeluxeEditionView.swift in Sources */,
 				8B9A8385288612DD009CE268 /* SelectEditionView.swift in Sources */,
 				8B29E1EF2881C87D0081F69A /* ValorantStoreCheckerApp.swift in Sources */,
@@ -335,6 +350,7 @@
 				8B33A5BF2884687C00BCB1F2 /* SkinCardDetailView.swift in Sources */,
 				8B9A838728861304009CE268 /* ExclusiveEditionView.swift in Sources */,
 				8B9A8395288630F0009CE268 /* WishListView.swift in Sources */,
+				8BF1DB4E2889EE6A004491A1 /* SkinSectionView.swift in Sources */,
 				8B9A838128861097009CE268 /* LogoView.swift in Sources */,
 				8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */,
 				8B62AFD72883B4E10070173F /* HomeView.swift in Sources */,
@@ -561,6 +577,22 @@
 				kind = branch;
 			};
 		};
+		8B91A909288893BF0087B479 /* XCRemoteSwiftPackageReference "CustomTextField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MAAlsaleh0/CustomTextField.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		8BF1DB4A2888D8B3004491A1 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -568,6 +600,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8B39A2B828888E4F009FEC82 /* XCRemoteSwiftPackageReference "ValorantAPI" */;
 			productName = ValorantAPI;
+		};
+		8B91A90A288893BF0087B479 /* CustomTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B91A909288893BF0087B479 /* XCRemoteSwiftPackageReference "CustomTextField" */;
+			productName = CustomTextField;
+		};
+		8BF1DB4B2888D8B3004491A1 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BF1DB4A2888D8B3004491A1 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

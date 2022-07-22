@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    @EnvironmentObject var model:ContentModel
     @State var dark = false
     @State var isDetailViewShowing = false
     
@@ -46,8 +47,6 @@ struct SettingsView: View {
         }
         .padding()
         .padding(10)
-        
-        
         
             
     }

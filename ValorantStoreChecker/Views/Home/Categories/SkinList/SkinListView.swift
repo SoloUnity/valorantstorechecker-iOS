@@ -8,13 +8,36 @@
 import SwiftUI
 
 struct SkinListView: View {
+    
+    @ObservedObject var model = ContentModel()
     @State var searchText:String = ""
+    var urlString = "https://valorant-api.com/v1/weapons/skins"
+    
     
     var body: some View {
-        GeometryReader{ geo in
+        VStack(alignment: .leading){
+            ScrollView{
+                if model.data.isEmpty{
+                    ProgressView()
+                        .onAppear() {
+                            model.isDone = false
+                            model.fetchData(urlString: urlString)
+                        }
+                        .disabled(!model.isDone)
+                }
+                else{
+                    SkinSectionView(skins: model.data)
+                }
+                
+                
+            }
+            
             SearchBar(text: $searchText)
                 .padding()
+            
         }
+
+        
     }
 }
 
@@ -23,3 +46,4 @@ struct SkinListView_Previews: PreviewProvider {
         SkinListView()
     }
 }
+
