@@ -14,20 +14,16 @@ struct SkinSectionView: View {
     var body: some View {
         GeometryReader{ geo in
             VStack(spacing: 13){
-                
-                Text(" Hello")
-                
-                ForEach(skins){ skin in
-                    NavigationLink(destination: SkinCardDetailView()) {
-                        SkinCardView(skin: skin)
-                        
+                ScrollView{
+                    ForEach(skins){ skin in
+                        NavigationLink(destination: SkinCardDetailView()) {
+                            SkinCardView(skin: skin)
+                            
+                        }
                     }
                 }
             }
         }
-        
-        
-        
     }
 }
 
