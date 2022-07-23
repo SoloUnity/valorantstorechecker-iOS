@@ -40,9 +40,27 @@ class Skin: Identifiable, Codable, ObservableObject{
     
      func getImageData() {
          
-         if let url = URL(string: "\(Constants.apiUrl)\(levels!.first!.id.description.lowercased()).png") {
+         /*
+         var image:String
+                  
+          // Check that image url isn't nil
+          if displayIcon != nil{
+              image = displayIcon!
+          }
+          else if chromas!.first!.displayIcon != nil{
+              image = chromas!.first!.displayIcon!
+          }
+          else if levels!.first!.displayIcon != nil{
+              image = levels!.last!.displayIcon!
+          }
+          else{
+              return
+          }
+          */
+                  
+         
+         if let url = URL(string: "\(Constants.apiUrl)\(levels!.first!.id.description.lowercased())/displayicon.png") {
              
-             print(url)
              
              // Get a session
              let session = URLSession.shared

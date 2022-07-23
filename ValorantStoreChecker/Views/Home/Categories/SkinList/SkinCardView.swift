@@ -15,6 +15,7 @@ struct SkinCardView: View {
     var colour:Color = Color(red: 40/255, green: 40/255, blue: 40/255)
     var priceTier:String? = nil
     var vp:String? = nil
+    var displayName:String? = nil
 
     
     var body: some View {
@@ -58,6 +59,13 @@ struct SkinCardView: View {
                     
                     // Price
                     HStack{
+                        
+                        if displayName != nil{
+                            Text(String(skin.displayName))
+                                .foregroundColor(.white)
+                                .bold()
+                        }
+                        
                         Spacer()
                         
                         if vp != nil{
@@ -70,11 +78,7 @@ struct SkinCardView: View {
                                 .foregroundColor(.white)
                                 .bold()
                         }
-                        else{
-                            Text(String(skin.displayName))
-                                .foregroundColor(.white)
-                                .bold()
-                        }
+                        
                     }
                     .padding()
                 }
@@ -83,5 +87,3 @@ struct SkinCardView: View {
         
     }
 }
-
-

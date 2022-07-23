@@ -32,6 +32,7 @@ struct HomeView: View {
                 }
                 .tag(1)
             
+            /*
             WishListView()
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
@@ -39,6 +40,7 @@ struct HomeView: View {
                     Text("Wish List")
                 }
                 .tag(2)
+             */
             
             SettingsView()
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
@@ -46,7 +48,7 @@ struct HomeView: View {
                     Image(systemName: "gear")
                     Text("Settings")
                 }
-                .tag(3)
+                .tag(2)
             
         }
         .accentColor(.white)
