@@ -37,16 +37,12 @@ class Skin: Identifiable, Codable, ObservableObject{
     }
     
     // Convert image url to data object
-    /*
+    
      func getImageData() {
          
-         // Check that image url isn't nil
-         guard displayIcon != nil else {
-             return
-         }
-         
-         // Download the data for the image
-         if let url = URL(string: displayIcon!) {
+         if let url = URL(string: "\(Constants.apiUrl)\(levels!.first!.id.description.lowercased()).png") {
+             
+             print(url)
              
              // Get a session
              let session = URLSession.shared
@@ -62,10 +58,9 @@ class Skin: Identifiable, Codable, ObservableObject{
              }
              dataTask.resume()
          }
+        
+         
      }
-     */
-    
-    
 }
 
 struct Chromas: Codable, Identifiable{

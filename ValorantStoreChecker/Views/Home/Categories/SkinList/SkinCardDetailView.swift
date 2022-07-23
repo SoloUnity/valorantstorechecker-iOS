@@ -12,8 +12,8 @@ struct SkinCardDetailView: View {
     
     @EnvironmentObject var model:ContentModel
     let player = AVPlayer()
-    var displayName:String?
-    var streamedVideo:String?
+    var displayName:String = ""
+    var streamedVideo:String = ""
     
                     
     var body: some View {
@@ -23,7 +23,7 @@ struct SkinCardDetailView: View {
                     ExclusiveEditionView()
                         .frame(width:30)
 
-                    Text (displayName!)
+                    Text (String(displayName))
                         .font(.title)
                         .bold()
                         .foregroundColor(.white)
@@ -35,7 +35,7 @@ struct SkinCardDetailView: View {
                     .aspectRatio(CGSize(width: 1920, height: 1080), contentMode: .fit)
                     .onAppear{
                           if player.currentItem == nil {
-                                let item = AVPlayerItem(url: URL(string: streamedVideo!)!)
+                                let item = AVPlayerItem(url: URL(string: "https://media.valorant-api.com/streamedvideos/VALskinpreview_Alien_Odin_01.mp4")!)
                                 player.replaceCurrentItem(with: item)
                             }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
@@ -50,10 +50,6 @@ struct SkinCardDetailView: View {
     }
 }
 
-struct WeaponCardDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        SkinCardDetailView()
-    }
-}
+
 
 

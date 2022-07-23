@@ -9,30 +9,52 @@ import SwiftUI
 
 struct SkinListView: View {
     
-    @ObservedObject var model = ContentModel()
+    @EnvironmentObject var model:ContentModel
+    @State var isDetailViewShowing = false
     @State var searchText:String = ""
 
     
     
     var body: some View {
-        VStack(alignment: .leading){
-            
-                if model.data.isEmpty{
-                    ProgressView()
-                }
-                else{
-                    SkinSectionView(skins: model.data)
-                }
+        
+        GeometryReader{ geo in
+            VStack{
                 
                 
-            
-            
-            SearchBar(text: $searchText)
-                .padding()
+                ScrollView{
+                    if model.data.isEmpty{
+                        ProgressView()
+                    }
+                    else{
+                        
+                        
+                        
+                        VStack(spacing: 13){
+                            ForEach(model.data){ skin in
+                                
+                                Button {
+                                    self.isDetailViewShowing = true
+                                    
+                                } label: {
+                                    
+                                    SkinCardView(skin: skin)
+                                        .frame(height: (geo.size.height / 5.75))
+
+                                }
+                            
+                            }
+                            
+                        }
+                        .padding(10)
+                         
+                         
+                    }
+                    
+                }
+            }
+            .padding()
             
         }
-
-        
     }
 }
 

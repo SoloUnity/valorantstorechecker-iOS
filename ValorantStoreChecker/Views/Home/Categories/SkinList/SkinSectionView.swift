@@ -9,22 +9,34 @@ import SwiftUI
 
 struct SkinSectionView: View {
     
-    var skins: [Skin]
+    @EnvironmentObject var model:ContentModel
+    @State var isDetailViewShowing = false
     
     var body: some View {
         GeometryReader{ geo in
-            VStack(spacing: 13){
-                ScrollView{
-                    ForEach(skins){ skin in
-                        NavigationLink(destination: SkinCardDetailView()) {
-                            SkinCardView(skin: skin)
+            ScrollView{
+                VStack(spacing: 13){
+                    ForEach(model.data){ skin in
+                        
+                        Button {
+                            self.isDetailViewShowing = true
                             
+                        } label: {
+                            
+                            SkinCardView(skin: skin)
+                                .frame(height: (geo.size.height / 5.75))
+
                         }
+                    
                     }
+                    
                 }
             }
+            .padding(10)
         }
+        .padding()
     }
 }
+
 
 

@@ -36,13 +36,16 @@ struct ShopView: View {
                                 } label: {
                                     
                                     /*
-                                     SkinCardView(skin: skin, priceTier: skin.contentTierUuid, vp:"500")
-                                         .frame(height: (geo.size.height / 5.75))
+                                     SkinCardView()
+                                          .frame(height: (geo.size.height / 5.75))
+                                     
                                      */
+                                    
+                                     
                                     
                                 }
                                 .sheet(isPresented: $isDetailViewShowing) {
-                                    SkinCardDetailView()
+                                    
                                 }
                             }
                         }

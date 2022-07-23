@@ -36,7 +36,6 @@
 		8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6111F28847B9100E8BDD6 /* Skin.swift */; };
 		8BF1DB482888B87F004491A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DB472888B87F004491A1 /* Constants.swift */; };
 		8BF1DB4C2888D8B3004491A1 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8BF1DB4B2888D8B3004491A1 /* KeychainSwift */; };
-		8BF1DB4E2889EE6A004491A1 /* SkinSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DB4D2889EE6A004491A1 /* SkinSectionView.swift */; };
 		8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4D7642885A298000404D8 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +67,6 @@
 		8BE6111D28847B0C00E8BDD6 /* SkinData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SkinData.json; sourceTree = "<group>"; };
 		8BE6111F28847B9100E8BDD6 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		8BF1DB472888B87F004491A1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		8BF1DB4D2889EE6A004491A1 /* SkinSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinSectionView.swift; sourceTree = "<group>"; };
 		8BF4D7642885A298000404D8 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				8B9A838028861097009CE268 /* LogoView.swift */,
-				8B62AFD02883A1230070173F /* SkinCardView.swift */,
 				8BF4D7642885A298000404D8 /* SearchBar.swift */,
 				8B9A8383288612AC009CE268 /* PriceTiers */,
 				8B9A83822886129C009CE268 /* Shapes */,
@@ -187,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				8B62AFCE2883A0FD0070173F /* ShopView.swift */,
-				8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -253,7 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				8B9A83742885A426009CE268 /* SkinListView.swift */,
-				8BF1DB4D2889EE6A004491A1 /* SkinSectionView.swift */,
+				8B62AFD02883A1230070173F /* SkinCardView.swift */,
+				8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */,
 			);
 			path = SkinList;
 			sourceTree = "<group>";
@@ -350,7 +347,6 @@
 				8B33A5BF2884687C00BCB1F2 /* SkinCardDetailView.swift in Sources */,
 				8B9A838728861304009CE268 /* ExclusiveEditionView.swift in Sources */,
 				8B9A8395288630F0009CE268 /* WishListView.swift in Sources */,
-				8BF1DB4E2889EE6A004491A1 /* SkinSectionView.swift in Sources */,
 				8B9A838128861097009CE268 /* LogoView.swift in Sources */,
 				8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */,
 				8B62AFD72883B4E10070173F /* HomeView.swift in Sources */,
