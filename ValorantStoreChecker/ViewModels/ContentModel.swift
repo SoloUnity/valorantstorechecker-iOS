@@ -11,8 +11,7 @@ import Combine
 class ContentModel: ObservableObject{
     @Published var data : [Skin] = []
     @Published var errorMessage = ""
-    @Published var error = false
-    
+
     init(){
         getLocalData()
         getRemoteData()
@@ -70,13 +69,10 @@ class ContentModel: ObservableObject{
             
             // Check if there is an error
             guard error == nil else{
-                // There was an error
-                self.error = true
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse else {
-                self.error = true
                 self.errorMessage = "Bad response"
                 return
             }
@@ -106,6 +102,9 @@ class ContentModel: ObservableObject{
         dataTask.resume()
         
     }
+    
+    
+    
  }
      
    

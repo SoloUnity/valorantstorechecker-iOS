@@ -11,78 +11,93 @@ struct SkinCardView: View {
     
     @EnvironmentObject var model:ContentModel
     @ObservedObject var skin:Skin
+    @State var isDetailViewShowing = false
     
     var colour:Color = Color(red: 40/255, green: 40/255, blue: 40/255)
-    var priceTier:String? = nil
     var vp:String? = nil
-    var displayName:String? = nil
+    var showPriceTier = false
 
-    
     var body: some View {
         
-        
-        ZStack{
-            RectangleView(colour: colour)
-                .shadow(color: .white, radius: 2)
-                
+        Button {
+            isDetailViewShowing = true
+        } label: {
             ZStack{
-                
-                // Image from json
-                if skin.imageData != nil{
-                    let uiImage = UIImage(data: skin.imageData ?? Data())
-                                    
-                    Image(uiImage: uiImage ?? UIImage())
-                        .resizable()
+                RectangleView(colour: colour)
+                    .shadow(color: .white, radius: 2)
+                    
+                ZStack{
+                    
+                    
+                    // Image from json
+                    if skin.imageData != nil{
+                        let uiImage = UIImage(data: skin.imageData ?? Data())
+                                        
+                        Image(uiImage: uiImage ?? UIImage())
+                            .resizable()
+                            .scaledToFit()
+                            .padding()
+                    }
+                    else{
+                        // Quicker load time but a data muncher
+                        AsyncImage(url: URL(string: skin.levels!.first!.displayIcon!)) { image in
+                            image.resizable()
+                        } placeholder: {
+                            ProgressView()
+                        }
                         .scaledToFit()
                         .padding()
-                }
-                else{
-                    ProgressView()
-                }
+                    }
+                     
                     
-                
                     
-                VStack{
-                    // Price Tier
-                    HStack{
-                        // TODO: Price Tier
-                        if priceTier != nil{
-                            ExclusiveEditionView()
-                                .frame(width: 30, height: 30)
+                        
+                    VStack{
+                        // Price Tier
+                        HStack{
+                            if showPriceTier{
+                                PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 30)
+                            }
+
+                            Spacer()
                         }
+                        .padding()
                         
                         Spacer()
-                    }
-                    .padding()
-                    
-                    Spacer()
-                    
-                    // Price
-                    HStack{
                         
-                        if displayName != nil{
+                        // Price
+                        HStack{
+                            
+                            
                             Text(String(skin.displayName))
                                 .foregroundColor(.white)
                                 .bold()
-                        }
-                        
-                        Spacer()
-                        
-                        if vp != nil{
-                            Image("vp")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 22, height: 22)
+                                .shadow(color:.black, radius: 3)
+                                .font(.caption)
                             
-                            Text("4350")
-                                .foregroundColor(.white)
-                                .bold()
+                            
+                            Spacer()
+                            
+                            if vp != nil{
+                                Image("vp")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 22, height: 22)
+                                
+                                Text("4350")
+                                    .foregroundColor(.white)
+                                    .bold()
+                            }
+                            
                         }
-                        
+                        .padding()
                     }
-                    .padding()
                 }
             }
+        }
+        .sheet(isPresented: $isDetailViewShowing) {
+            SkinCardDetailView(skin: skin)
+                .preferredColorScheme(.dark)
         }
         
     }

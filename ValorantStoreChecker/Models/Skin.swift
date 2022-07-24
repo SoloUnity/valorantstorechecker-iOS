@@ -59,7 +59,7 @@ class Skin: Identifiable, Codable, ObservableObject{
           */
                   
          
-         if let url = URL(string: "\(Constants.apiUrl)\(levels!.first!.id.description.lowercased())/displayicon.png") {
+         if let url = URL(string: "\(Constants.apiUrl)weaponskinlevels/\(levels!.first!.id.description.lowercased()).png") {
              
              
              // Get a session
