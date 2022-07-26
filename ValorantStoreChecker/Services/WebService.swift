@@ -129,17 +129,22 @@ class WebService{
         
         cookieTask.resume()
         
-        let asidCookie = HTTPCookieStorage.shared.cookies![2].value
+        let asidCookie = HTTPCookieStorage.shared.cookies!
         print(asidCookie)
+        
+        print(HTTPCookieStorage.shared.cookies![3].name , HTTPCookieStorage.shared.cookies![3].value)
         let requestBody = AuthRequestBody(/*username: username, password: password*/)
+        
+        
         
         var authRequest = URLRequest(url: url)
         authRequest.httpMethod = "PUT"
-        authRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        authRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         //authRequest.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: [cookies[2]]) // From https://stackoverflow.com/questions/41612937/cookies-setting-automatically-in-swift
-        authRequest.addValue("asid=\(asidCookie)", forHTTPHeaderField: "Cookie")
+        authRequest.setValue("asid=\(asidCookie)", forHTTPHeaderField: "Cookie")
         authRequest.httpBody = try? JSONEncoder().encode(requestBody)
-    
+        
+        
         
         
         // Retrieve token
