@@ -36,9 +36,16 @@ struct AuthRequestBody: Encodable{
 }
 
 struct AuthResponse: Codable{
-    let uri:String?
+    let response: Response?
 }
 
+struct Response : Codable{
+    let parameters: URI?
+}
+
+struct URI: Codable{
+    let uri : String?
+}
 
 class WebService{
     
@@ -70,16 +77,11 @@ class WebService{
         
     }
     
-    
-    func login(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
-        
-        
+    func getCookies(completion: @escaping(Result<String ,AuthenticationError>) -> Void){
         guard let url = URL(string: "https://auth.riotgames.com/api/v1/authorization") else{
-            completion(.failure(.custom(errorMessage: "URL is not correct")))
+            completion(.failure(.custom(errorMessage: "Bad URL")))
             return
         }
-        
-        
         
         let cookieBody = AuthCookies()
         
@@ -92,93 +94,53 @@ class WebService{
         
         // Perform cookie request, from https://stackoverflow.com/a/29596772
         let cookieTask = URLSession.shared.dataTask(with: cookieRequest){ data, request, error in
-            
-            
-            let cookieName = "MYCOOKIE"
-            if let cookie = HTTPCookieStorage.shared.cookies?.first(where: { $0.name == cookieName }) {
-                print("\(cookieName): \(cookie.value)")
-            }
-            
-            
-            /*
-            guard
-                    let url = request?.url,
-                    let httpResponse = request as? HTTPURLResponse,
-                    let fields = httpResponse.allHeaderFields as? [String: String]
-                        
-                else { return }
-
-                let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: url)
-                HTTPCookieStorage.shared.setCookies(cookies, for: url, mainDocumentURL: nil)
-                for cookie in cookies {
-                    var cookieProperties = [HTTPCookiePropertyKey: Any]()
-                    cookieProperties[.name] = cookie.name
-                    cookieProperties[.value] = cookie.value
-                    cookieProperties[.domain] = cookie.domain
-                    cookieProperties[.path] = cookie.path
-                    cookieProperties[.version] = cookie.version
-                    cookieProperties[.expires] = Date().addingTimeInterval(3600)
-
-                    let newCookie = HTTPCookie(properties: cookieProperties)
-                    HTTPCookieStorage.shared.setCookie(newCookie!)
-                }
-             */
-             
-            
+            let data = String(data: data!, encoding: .utf8)
+            completion(.success(data!))
+        }
+        cookieTask.resume()
+    }
+    
+    func getToken(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void){
+        guard let url = URL(string: "https://auth.riotgames.com/api/v1/authorization") else{
+            return
         }
         
-        cookieTask.resume()
-        
-        let asidCookie = HTTPCookieStorage.shared.cookies!
-        print(asidCookie)
-        
-        print(HTTPCookieStorage.shared.cookies![3].name , HTTPCookieStorage.shared.cookies![3].value)
         let requestBody = AuthRequestBody(/*username: username, password: password*/)
-        
-        
         
         var authRequest = URLRequest(url: url)
         authRequest.httpMethod = "PUT"
         authRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        //authRequest.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: [cookies[2]]) // From https://stackoverflow.com/questions/41612937/cookies-setting-automatically-in-swift
-        authRequest.setValue("asid=\(asidCookie)", forHTTPHeaderField: "Cookie")
         authRequest.httpBody = try? JSONEncoder().encode(requestBody)
         
-        
-        
-        
+
         // Retrieve token
         let authTask = URLSession.shared.dataTask(with: authRequest){ data, request, error in
             
             print(String(data: data!, encoding: .utf8))
-            /*
-            // Create data
-            guard let data = data, error == nil else{
+            
+            guard let data = data, error == nil else {
                 completion(.failure(.custom(errorMessage: "No data")))
                 return
             }
             
+            try! JSONDecoder().decode(AuthResponse.self, from: data)
             
-            // Decode incoming auth response json
-            guard let loginResponse = try? JSONDecoder().decode(AuthResponse.self, from: data) else{
+            guard let authResponse = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
                 completion(.failure(.invalidCredentials))
                 return
             }
             
-            // Use login response to get the token
-            guard let token = loginResponse.uri else{
+            guard let token = authResponse.response?.parameters?.uri else {
                 completion(.failure(.invalidCredentials))
                 return
             }
             
-            print(token)
-            
-            // Successful token received
             completion(.success(token))
-            */
         }
         authTask.resume()
     }
+    
+
 }
 
 
