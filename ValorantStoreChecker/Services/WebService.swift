@@ -9,48 +9,55 @@
 
 import Foundation
 
-enum AuthenticationError: Error{
+enum AuthenticationError: Error {
     case invalidCredentials
     case custom(errorMessage: String)
     case serverError
 }
 
-enum NetworkError: Error{
+enum NetworkError: Error {
     case invalidURL
     case noData
     case decodingError
 }
 
-struct AuthCookies: Encodable{
+struct AuthCookies: Encodable {
     let client_id = "play-valorant-web-prod"
     let nonce = 1 // Yo what is a nonce
     let redirect_uri = "https://playvalorant.com/opt_in"
     let response_type = "token id_token"
 }
 
-struct AuthRequestBody: Encodable{
+struct AuthRequestBody: Encodable {
     let type = "auth"
     let username = "rintohsakalover69"
     let password = "Banana11!!!"
     let remember = "true"
 }
 
-struct AuthResponse: Codable{
+struct AuthResponse: Codable {
     let response: Response?
 }
 
-struct Response : Codable{
+struct Response : Codable {
     let parameters: URI?
 }
 
-struct URI: Codable{
+struct URI: Codable {
     let uri : String?
 }
 
-class WebService{
+
+
+class WebService {
+    static let sessionManager: URLSession = {
+            let configuration = URLSessionConfiguration.default
+            configuration.timeoutIntervalForRequest = 30 // seconds
+            configuration.timeoutIntervalForResource = 30 // seconds
+            return URLSession(configuration: configuration)
+    }()
     
-    
-    func getAllAccounts(token:String, completion: @escaping(Result<[Account], NetworkError>) -> Void){
+    func getAllAccounts(token:String, completion: @escaping(Result<[Account], NetworkError>) -> Void) {
         
         guard let url = URL(string: "https://strong-spangled-apartment.glitch.me/accounts") else{
             completion(.failure(.invalidURL))
@@ -60,7 +67,7 @@ class WebService{
         var request = URLRequest(url: url)
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        URLSession.shared.dataTask(with: request){ (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             guard let data = data, error == nil else{
                 completion(.failure(.noData))
@@ -76,6 +83,8 @@ class WebService{
         }.resume()
         
     }
+    
+    
     
     func getCookies(completion: @escaping(Result<String ,AuthenticationError>) -> Void){
         guard let url = URL(string: "https://auth.riotgames.com/api/v1/authorization") else{
@@ -93,7 +102,7 @@ class WebService{
         
         
         // Perform cookie request, from https://stackoverflow.com/a/29596772
-        let cookieTask = URLSession.shared.dataTask(with: cookieRequest){ data, request, error in
+        let cookieTask = WebService.sessionManager.dataTask(with: cookieRequest){ data, request, error in
             let data = String(data: data!, encoding: .utf8)
             completion(.success(data!))
         }
@@ -114,7 +123,7 @@ class WebService{
         
 
         // Retrieve token
-        let authTask = URLSession.shared.dataTask(with: authRequest){ data, request, error in
+        let authTask = WebService.sessionManager.dataTask(with: authRequest){ data, request, error in
             
             print(String(data: data!, encoding: .utf8))
             

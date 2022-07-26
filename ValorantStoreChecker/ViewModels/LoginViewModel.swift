@@ -13,19 +13,19 @@ class LoginViewModel: ObservableObject{
     var username: String = ""
     var password: String = ""
     
-    
     func login(){
         
         let defaults = UserDefaults.standard
+        let webService = WebService()
         
-        WebService().getCookies(){ result in
+        webService.getCookies(){ result in
             switch result{
             case .success(let data):
                 print("cookie stuff", data)
-                WebService().getToken(username: self.username, password: self.password){ result in
+                webService.getToken(username: self.username, password: self.password){ result in
                     switch result {
                         case .success(let token):
-                            print(token)
+                            print("token",token)
                             defaults.setValue(token, forKey: "jsonwebtoken")
                             DispatchQueue.main.async {
                                 self.isAuthenticated = true
@@ -39,27 +39,6 @@ class LoginViewModel: ObservableObject{
                 
             }
         }
-        
-        
-        
-        
-        /*
-        WebService().login(username: username, password: password) { result in
-            
-            switch result{
-                
-            case .success(let token):
-                print(token)
-                defaults.setValue(token, forKey: "jsonwebtoken")
-                DispatchQueue.main.async{
-                    self.isAuthenticated = true
-                }
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-         */
     }
     
     func signout() {
