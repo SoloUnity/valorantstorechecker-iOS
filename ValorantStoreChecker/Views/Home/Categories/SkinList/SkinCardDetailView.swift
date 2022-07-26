@@ -11,7 +11,7 @@ import AZVideoPlayer
 
 struct SkinCardDetailView: View {
     
-    @EnvironmentObject var model:ContentModel
+    @EnvironmentObject var model:SkinModel
     @ObservedObject var skin:Skin
     @State var selectedLevel = 0
     @State var selectedChroma = 0

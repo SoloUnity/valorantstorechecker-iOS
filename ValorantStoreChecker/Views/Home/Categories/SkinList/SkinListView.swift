@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SkinListView: View {
     
-    @EnvironmentObject var model:ContentModel
+    @EnvironmentObject var model:SkinModel
     @State var searchText:String = ""
 
     

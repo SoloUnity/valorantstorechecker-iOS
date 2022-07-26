@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WishListView: View {
     
-    @EnvironmentObject var model:ContentModel
+    @EnvironmentObject var model:SkinModel
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }

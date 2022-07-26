@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class ContentModel: ObservableObject{
+class SkinModel: ObservableObject{
     @Published var data : [Skin] = []
     @Published var errorMessage = ""
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ShopView: View {
     
-    @EnvironmentObject var model:ContentModel
+    @EnvironmentObject var model:SkinModel
     @State var tabIndex = 1
     @State var isDetailViewShowing = false
     

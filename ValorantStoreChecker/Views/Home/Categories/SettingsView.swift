@@ -9,9 +9,13 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @EnvironmentObject var model:ContentModel
+    @EnvironmentObject var model:SkinModel
+    @StateObject private var loginModel = LoginViewModel()
+    @StateObject private var accountListVM = AccountListViewModel()
+    
     @State var dark = false
     @State var isDetailViewShowing = false
+    
     
     var body: some View {
         
@@ -27,6 +31,8 @@ struct SettingsView: View {
                      
                 // TODO: Send user back to default login screen
                 Button {
+                    loginModel.signout()
+                    accountListVM.accounts.removeAll()
                     isDetailViewShowing = true
                 } label: {
                     ZStack{

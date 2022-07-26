@@ -8,7 +8,11 @@
 import SwiftUI
 import CustomTextField
 
+
 struct LoginView: View {
+    
+        @StateObject private var accountListVM = AccountListViewModel()
+        @StateObject private var loginModel = LoginViewModel()
     
         @State private var email: String = ""
         @State private var password: String = ""
@@ -33,32 +37,39 @@ struct LoginView: View {
                         }
                     }
                     
+                    // TODO: Picker for region
+
+                    Picker("Region", selection: $region){
+                        Text("North America")
+                            .tag("NA")
+                        Text("Europe")
+                            .tag("EU")
+                        Text("Asia Pacific")
+                            .tag("AP")
+                        Text("South Korea")
+                            .tag("KO")
+                    }
+                    
+                    
+                    
                     // Username
-                    CustomTF(text: $email, placeholder: "Username", ImageTF: Image(systemName: "person"), isPassword: false, StylesType: .Style2, KeyboardType: .default, color: nil)
+                    CustomTF(text: $loginModel.username, placeholder: "Username", ImageTF: Image(systemName: "person"), isPassword: false, StylesType: .Style2, KeyboardType: .default, color: nil)
                     
                     //Password
-                    CustomTF(text: $password, placeholder: "Password", ImageTF: Image(systemName: "key"), isPassword: true, StylesType: .Style2, KeyboardType: .default, color: nil)
+                    CustomTF(text: $loginModel.password, placeholder: "Password", ImageTF: Image(systemName: "key"), isPassword: true, StylesType: .Style2, KeyboardType: .default, color: nil)
 
-                    // TODO: Picker for region
-                    HStack{
-                        Text("Pick your region:")
-                        Picker("Tap Me", selection: $region){
-                                        Text("North America")
-                                            .tag("NA")
-                                        Text("Europe")
-                                            .tag("EU")
-                                        Text("Asia Pacific")
-                                            .tag("AP")
-                                        Text("South Korea")
-                                            .tag("KO")
-                                    }
-                    }
-                    .accentColor(.white)
+                    Image(systemName: loginModel.isAuthenticated ? "lock.fill" : "lock.open")
                     
                     Spacer()
                     
+                    
+                    LoginTestView()
+                    
+                    
                     Button {
-                        print("Logged in!")
+                        
+                        loginModel.login()
+                        
                     } label: {
                         ZStack{
                             CircleView(colour: .red)
@@ -100,7 +111,6 @@ struct LoginView: View {
                 }
                 .padding(50)
             }
-            .background(Color(red: 28/255, green: 28/255, blue: 30/255))
             .ignoresSafeArea(.all, edges: .top)
         }
 }
