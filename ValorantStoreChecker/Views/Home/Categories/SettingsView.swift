@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @EnvironmentObject var model:SkinModel
-    @StateObject private var loginModel = LoginViewModel()
+    @StateObject private var loginModel = LoginModel()
     @StateObject private var accountListVM = AccountListViewModel()
     
     @State var dark = false

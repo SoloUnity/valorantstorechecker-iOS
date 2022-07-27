@@ -10,7 +10,7 @@ import SwiftUI
 struct LoginTestView: View {
     
     @StateObject private var accountListVM = AccountListViewModel()
-    @StateObject private var loginModel = LoginViewModel()
+    @StateObject private var loginModel = LoginModel()
     
     var body: some View {
         Button("Get Accounts") {

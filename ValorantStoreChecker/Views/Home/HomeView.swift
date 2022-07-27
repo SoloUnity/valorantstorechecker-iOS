@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject var model:SkinModel 
-    @State var tabIndex = 1
+    @State var tabIndex = 0
     
 
     var body: some View {

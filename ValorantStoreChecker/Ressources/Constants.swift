@@ -10,6 +10,11 @@ import SwiftUI
 
 struct Constants{
     static var bgGradient = Gradient(colors:[Color(red: 28/255, green: 28/255, blue: 30/255), Color(red: 28/255, green: 28/255, blue: 30/255), .pink])
-    static var apiUrl = "https://s3.valorantstore.net/"
     
+    struct URL{
+        static var valStore = "https://s3.valorantstore.net/"
+        static var auth = "https://auth.riotgames.com/api/v1/authorization"
+        
+    }
 }
+

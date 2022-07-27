@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginViewModel: ObservableObject{
+class LoginModel: ObservableObject{
     
     @Published var isAuthenticated: Bool = false
     var username: String = ""
@@ -20,12 +20,10 @@ class LoginViewModel: ObservableObject{
         
         webService.getCookies(){ result in
             switch result{
-            case .success(let data):
-                print("cookie stuff", data)
+            case .success(let cookie):
                 webService.getToken(username: self.username, password: self.password){ result in
                     switch result {
                         case .success(let token):
-                            print("token",token)
                             defaults.setValue(token, forKey: "jsonwebtoken")
                             DispatchQueue.main.async {
                                 self.isAuthenticated = true
@@ -42,12 +40,13 @@ class LoginViewModel: ObservableObject{
     }
     
     func signout() {
-           
-       let defaults = UserDefaults.standard
-       defaults.removeObject(forKey: "jsonwebtoken")
-       DispatchQueue.main.async {
-           self.isAuthenticated = false
-       }
+        
+        
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "jsonwebtoken")
+        DispatchQueue.main.async {
+            self.isAuthenticated = false
+        }
        
     }
     

@@ -10,15 +10,17 @@ import SwiftUI
 struct LaunchView: View {
     
     @EnvironmentObject var model:SkinModel
+    @EnvironmentObject var loginModel:LoginModel
     
     var body: some View {
         
-        // Login View
+        if loginModel.isAuthenticated{
+            HomeView()
+        }else{
+            LoginView()
+        }
         
-        // Notifications Permissions View
         
-        // Home View
-        HomeView()
     }
 }
 

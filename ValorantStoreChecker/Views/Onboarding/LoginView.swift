@@ -12,7 +12,7 @@ import CustomTextField
 struct LoginView: View {
     
         @StateObject private var accountListVM = AccountListViewModel()
-        @StateObject private var loginModel = LoginViewModel()
+        @EnvironmentObject var loginModel:LoginModel
     
         @State private var email: String = ""
         @State private var password: String = ""
@@ -63,8 +63,24 @@ struct LoginView: View {
                     Spacer()
                     
                     
-                    LoginTestView()
+                    //LoginTestView()
                     
+                    Button {
+                        loginModel.username = "rintohsakalover69"
+                        loginModel.password = "Banana11!!!"
+                        loginModel.login()
+                        
+                    } label: {
+                        ZStack{
+                            CircleView(colour: .red)
+                                .shadow(color:.pink, radius: 5)
+                            
+                            Text("Test")
+                                .foregroundColor(.white)
+                                
+                        }
+                        .frame(width: 60, height: 60)
+                    }
                     
                     Button {
                         

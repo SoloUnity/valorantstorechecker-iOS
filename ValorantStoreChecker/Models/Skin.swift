@@ -40,26 +40,7 @@ class Skin: Identifiable, Codable, ObservableObject{
     
      func getImageData() {
          
-         /*
-         var image:String
-                  
-          // Check that image url isn't nil
-          if displayIcon != nil{
-              image = displayIcon!
-          }
-          else if chromas!.first!.displayIcon != nil{
-              image = chromas!.first!.displayIcon!
-          }
-          else if levels!.first!.displayIcon != nil{
-              image = levels!.last!.displayIcon!
-          }
-          else{
-              return
-          }
-          */
-                  
-         
-         if let url = URL(string: "\(Constants.apiUrl)weaponskinlevels/\(levels!.first!.id.description.lowercased()).png") {
+         if let url = URL(string: "\(Constants.URL.valStore)weaponskinlevels/\(levels!.first!.id.description.lowercased()).png") {
              
              
              // Get a session
@@ -77,7 +58,6 @@ class Skin: Identifiable, Codable, ObservableObject{
              dataTask.resume()
          }
         
-         
      }
 }
 
@@ -122,6 +102,5 @@ struct Levels: Codable, Identifiable{
 }
 
 struct Skins: Codable {
-    
     var data:[Skin]
 }

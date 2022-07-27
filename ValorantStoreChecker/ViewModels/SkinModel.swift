@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 class SkinModel: ObservableObject{
     @Published var data : [Skin] = []
