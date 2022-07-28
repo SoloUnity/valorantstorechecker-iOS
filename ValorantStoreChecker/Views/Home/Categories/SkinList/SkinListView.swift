@@ -31,7 +31,7 @@ struct SkinListView: View {
                         LazyVStack(spacing: 13){
                             ForEach(model.data.filter({ searchText.isEmpty ? true : $0.displayName.lowercased().contains(searchText.lowercased()) })){ skin in
                                 
-                                SkinCardView(skin: skin, showPriceTier: false)
+                                SkinCardView(skin: skin, showPrice: true, showPriceTier: false)
                                     .frame(height: (geo.size.height / 5.75))
                                 
                             

@@ -14,7 +14,7 @@ struct SkinCardView: View {
     @State var isDetailViewShowing = false
     
     var colour:Color = Color(red: 40/255, green: 40/255, blue: 40/255)
-    var vp:String? = nil
+    var showPrice = false
     var showPriceTier = false
 
     var body: some View {
@@ -27,7 +27,6 @@ struct SkinCardView: View {
                     .shadow(color: .white, radius: 2)
                     
                 ZStack{
-                    
                     
                     // Image from json
                     if skin.imageData != nil{
@@ -53,40 +52,34 @@ struct SkinCardView: View {
                     
                         
                     VStack{
-                        // Price Tier
-                        HStack{
-                            if showPriceTier{
-                                PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 30)
-                            }
-
-                            Spacer()
-                        }
-                        .padding()
                         
                         Spacer()
                         
                         // Price
                         HStack{
-                            
-                            
+                            if showPriceTier{
+                                PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 18)
+                            }
                             Text(String(skin.displayName))
                                 .foregroundColor(.white)
+                                .font(.subheadline)
                                 .bold()
-                                .shadow(color:.black, radius: 3)
-                                .font(.caption)
+                                .shadow(color:.black, radius: 10)
+                                
                             
                             
                             Spacer()
                             
-                            if vp != nil{
+                            if showPrice{
                                 Image("vp")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 22, height: 22)
+                                    .frame(width: 18, height: 18)
                                 
                                 Text("4350")
                                     .foregroundColor(.white)
                                     .bold()
+                                    .font(.subheadline)
                             }
                             
                         }

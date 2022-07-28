@@ -1,14 +1,27 @@
 //
-//  WebService.swift
+//  WebService2.swift
 //  ValorantStoreChecker
 //
-//  Created by Gordon Ng on 2022-07-24.
-//  Made with the help of https://github.com/juliand665
-
-
+//  Created by Gordon Ng on 2022-07-27.
+//
+/*
 import Foundation
 
-class WebService {
+private actor getCookiesStore{
+    private var url: URL
+    
+    private var urlComponents: URLComponents{
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "auth.riotgames.com"
+        components.path = "/api/v1"
+        
+        return components
+    }
+    
+}
+
+class WebService2 {
     // Common URLSession
     static let session: URLSession = {
             let configuration = URLSessionConfiguration.ephemeral
@@ -17,27 +30,8 @@ class WebService {
             return URLSession(configuration: configuration)
     }()
     
-    func getCookies(completion: @escaping(Result<String ,AuthenticationError>) -> Void){
-        guard let url = URL(string: Constants.URL.auth) else{
-            completion(.failure(.invalidURL))
-            return
-        }
+    @MainActor func getCookies() async throws{
         
-        let cookieBody = AuthCookies()
-        
-        // Create cookie request
-        var cookieRequest = URLRequest(url: url)
-        cookieRequest.httpMethod = "POST"
-        cookieRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        cookieRequest.httpBody = try! JSONEncoder().encode(cookieBody)
-        
-        
-        // Perform cookie request, from https://stackoverflow.com/a/29596772
-        let cookieTask = WebService.session.dataTask(with: cookieRequest){ data, request, error in
-        let data = String(data: data!, encoding: .utf8) //For debugging
-        completion(.success(data!))
-        }
-        cookieTask.resume()
     }
     
     func getToken(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void){
@@ -203,4 +197,4 @@ class WebService {
      
 }
 
-
+*/

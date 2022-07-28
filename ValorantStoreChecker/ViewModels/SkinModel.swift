@@ -8,6 +8,7 @@
 import Foundation
 
 class SkinModel: ObservableObject{
+    
     @Published var data : [Skin] = []
     @Published var errorMessage = ""
 

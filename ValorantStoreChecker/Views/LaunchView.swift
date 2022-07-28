@@ -14,11 +14,15 @@ struct LaunchView: View {
     
     var body: some View {
         
-        if loginModel.isAuthenticated{
-            HomeView()
-        }else{
+        if !loginModel.isAuthenticated{
             LoginView()
+                .animation(.easeInOut, value: loginModel.isAuthenticated)
         }
+        else{
+            HomeView()
+                .animation(.easeInOut, value: loginModel.isAuthenticated)
+        }
+            
         
         
     }

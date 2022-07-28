@@ -222,6 +222,7 @@ struct SkinCardDetailView: View {
 
                 
             }
+            .foregroundColor(.white)
             .padding()
         }
         .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))

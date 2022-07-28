@@ -10,8 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @EnvironmentObject var model:SkinModel
-    @StateObject private var loginModel = LoginModel()
-    @StateObject private var accountListVM = StoreModel()
+    @EnvironmentObject var loginModel:LoginModel
     
     @State var dark = false
     @State var isDetailViewShowing = false
@@ -32,7 +31,6 @@ struct SettingsView: View {
                 // TODO: Send user back to default login screen
                 Button {
                     loginModel.signout()
-                    isDetailViewShowing = true
                 } label: {
                     ZStack{
                         RectangleView(colour: .pink)
@@ -43,17 +41,12 @@ struct SettingsView: View {
                             .padding()
                     }
                 }
-                .sheet(isPresented: $isDetailViewShowing) {
-                    LoginView()
-                }
                 Spacer()
             }
             .foregroundColor(.white)
         }
         .padding()
         .padding(10)
-        
-            
     }
 }
 

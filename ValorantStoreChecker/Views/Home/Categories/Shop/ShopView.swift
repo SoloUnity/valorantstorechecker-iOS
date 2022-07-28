@@ -17,8 +17,8 @@ struct ShopView: View {
         var body: some View {
                 
             GeometryReader{ geo in
+    
                 
-
                 VStack{
                     
                     LogoView()
@@ -39,7 +39,7 @@ struct ShopView: View {
                                         
                                     } label: {
                                         
-                                        SkinCardView(skin: skin, showPriceTier: true)
+                                        SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
                                             .frame(height: (geo.size.height / 5.75))
                                         
                                     }
@@ -53,7 +53,7 @@ struct ShopView: View {
                     
                     
                 }
-                .padding()
+                .padding(10)
             }
             
         }

@@ -19,44 +19,40 @@ class LoginModel: ObservableObject{
     var username: String = ""
     var password: String = ""
     
+    var webService = WebService()
+    
     func login(){
         
         let defaults = UserDefaults.standard
-        let webService = WebService()
+        
         
         // TODO: Make this async/await instead of this dinosaur bozo shit
-        
-        
-        webService.getCookies(){ result in
+        self.webService.getCookies(){ result in
             switch result{
             case .success:
                 // TODO: Implement saving cookies for reauthentication
-                
-                
-                
-                webService.getToken(username: self.username, password: self.password){ result in
+                self.webService.getToken(username: self.username, password: self.password){ result in
                     switch result {
                         case .success(let token):
                             defaults.setValue(token, forKey: "token")
                         DispatchQueue.main.async {
                             self.token = token
                         }
-                        webService.getRiotEntitlement(token: token) { result in
+                        self.webService.getRiotEntitlement(token: token) { result in
                             switch result{
                             case .success(let entitlement):
                                 DispatchQueue.main.async {
                                     self.riotEntitlement = entitlement
                                 }
                                 
-                                webService.getPlayerInfo(token: token) { result in
+                                self.webService.getPlayerInfo(token: token) { result in
                                     switch result{
                                     case .success(let puuid):
                                         DispatchQueue.main.async {
                                             self.puuid = puuid
-                                            self.isAuthenticated = true
                                         }
                                         
-                                        webService.getStorefront(token: self.token, riotEntitlement: self.riotEntitlement, puuid: puuid, region: self.region) { result in
+                                        self.webService.getStorefront(token: self.token, riotEntitlement: self.riotEntitlement, puuid: puuid, region: self.region) { result in
                                                     // TODO: Make this more efficient
                                                     switch result{
                                                     case .success(let storefront):
@@ -71,6 +67,9 @@ class LoginModel: ObservableObject{
                                                                     }
                                                                 }
                                                             }
+                                                        }
+                                                        DispatchQueue.main.async {
+                                                            self.isAuthenticated = true
                                                         }
                                                     case .failure(let error):
                                                         print(error.localizedDescription)
@@ -95,10 +94,9 @@ class LoginModel: ObservableObject{
     }
     
     func signout() {
-        
-        
+        self.webService = WebService()
         let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "jsonwebtoken")
+        defaults.removeObject(forKey: "token")
         DispatchQueue.main.async {
             self.isAuthenticated = false
         }
