@@ -11,13 +11,12 @@ import CustomTextField
 
 struct LoginView: View {
     
-        @StateObject private var accountListVM = AccountListViewModel()
+        @StateObject private var accountListVM = StoreModel()
         @EnvironmentObject var loginModel:LoginModel
     
         @State private var email: String = ""
         @State private var password: String = ""
         @State private var agreedToTerms: Bool = false
-        @State private var region = ""
     
         var body: some View {
             
@@ -37,34 +36,23 @@ struct LoginView: View {
                         }
                     }
                     
-                    // TODO: Picker for region
-
-                    Picker("Region", selection: $region){
-                        Text("North America")
-                            .tag("NA")
-                        Text("Europe")
-                            .tag("EU")
-                        Text("Asia Pacific")
-                            .tag("AP")
-                        Text("South Korea")
-                            .tag("KO")
-                    }
-                    
-                    
                     
                     // Username
                     CustomTF(text: $loginModel.username, placeholder: "Username", ImageTF: Image(systemName: "person"), isPassword: false, StylesType: .Style2, KeyboardType: .default, color: nil)
                     
                     //Password
                     CustomTF(text: $loginModel.password, placeholder: "Password", ImageTF: Image(systemName: "key"), isPassword: true, StylesType: .Style2, KeyboardType: .default, color: nil)
-
-                    Image(systemName: loginModel.isAuthenticated ? "lock.fill" : "lock.open")
+                    
+                    RegionSelectorView()
                     
                     Spacer()
                     
                     
                     //LoginTestView()
                     
+                    
+                    
+                    // Test Button
                     Button {
                         loginModel.username = "rintohsakalover69"
                         loginModel.password = "Banana11!!!"
@@ -73,7 +61,7 @@ struct LoginView: View {
                     } label: {
                         ZStack{
                             CircleView(colour: .red)
-                                .shadow(color:.pink, radius: 5)
+                                .shadow(color:.pink, radius: 2)
                             
                             Text("Test")
                                 .foregroundColor(.white)
@@ -89,7 +77,7 @@ struct LoginView: View {
                     } label: {
                         ZStack{
                             CircleView(colour: .red)
-                                .shadow(color:.pink, radius: 5)
+                                .shadow(color:.pink, radius: 2)
                             
                             Image(systemName: "arrow.right")
                                 .resizable()
@@ -128,7 +116,10 @@ struct LoginView: View {
                 .padding(50)
             }
             .ignoresSafeArea(.all, edges: .top)
+            .background(Color(red: 28/255, green: 28/255, blue: 30/255))
+            .preferredColorScheme(.dark)
         }
+    
 }
 
 struct LoginView_Previews: PreviewProvider {

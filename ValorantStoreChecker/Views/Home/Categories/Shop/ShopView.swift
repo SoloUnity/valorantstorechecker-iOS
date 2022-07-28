@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ShopView: View {
     
-    @EnvironmentObject var model:SkinModel
+    @EnvironmentObject var loginModel:LoginModel
     @State var tabIndex = 1
     @State var isDetailViewShowing = false
     
@@ -28,26 +28,25 @@ struct ShopView: View {
                     ScrollView{
                         VStack(spacing: 13) {
                             // Shop stuff
-                            ForEach(0..<4) { value in
-                                
-                                Button {
-                                    self.isDetailViewShowing = true
-                                    
-                                } label: {
-                                    
-                                    /*
-                                     SkinCardView()
-                                          .frame(height: (geo.size.height / 5.75))
-                                     
-                                     */
-                                    
-                                     
-                                    
-                                }
-                                .sheet(isPresented: $isDetailViewShowing) {
-                                    
-                                }
+                            if loginModel.storefront.isEmpty{
+                                ProgressView()
                             }
+                            else{
+                                ForEach(loginModel.storefront) { skin in
+                                    
+                                    Button {
+                                        self.isDetailViewShowing = true
+                                        
+                                    } label: {
+                                        
+                                        SkinCardView(skin: skin, showPriceTier: true)
+                                            .frame(height: (geo.size.height / 5.75))
+                                        
+                                    }
+                                }
+                                
+                            }
+                            
                         }
                         .padding(10)
                     }

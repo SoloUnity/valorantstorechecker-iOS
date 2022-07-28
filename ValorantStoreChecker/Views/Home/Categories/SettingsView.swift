@@ -11,7 +11,7 @@ struct SettingsView: View {
     
     @EnvironmentObject var model:SkinModel
     @StateObject private var loginModel = LoginModel()
-    @StateObject private var accountListVM = AccountListViewModel()
+    @StateObject private var accountListVM = StoreModel()
     
     @State var dark = false
     @State var isDetailViewShowing = false
@@ -32,7 +32,6 @@ struct SettingsView: View {
                 // TODO: Send user back to default login screen
                 Button {
                     loginModel.signout()
-                    accountListVM.accounts.removeAll()
                     isDetailViewShowing = true
                 } label: {
                     ZStack{

@@ -18,39 +18,9 @@ class WebService {
     }()
     
     
-    
-    func getAllAccounts(token:String, completion: @escaping(Result<[Account], NetworkError>) -> Void) {
-        
-        guard let url = URL(string: "https://strong-spangled-apartment.glitch.me/accounts") else{
-            completion(.failure(.invalidURL))
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            guard let data = data, error == nil else{
-                completion(.failure(.noData))
-                return
-            }
-            
-            guard let accounts = try? JSONDecoder().decode([Account].self, from: data) else{
-                completion(.failure(.decodingError))
-                return
-            }
-            
-            completion(.success(accounts))
-        }.resume()
-        
-    }
-    
-    
-    
     func getCookies(completion: @escaping(Result<String ,AuthenticationError>) -> Void){
         guard let url = URL(string: Constants.URL.auth) else{
-            completion(.failure(.custom(errorMessage: "Bad URL")))
+            completion(.failure(.invalidURL))
             return
         }
         
@@ -65,7 +35,7 @@ class WebService {
         
         // Perform cookie request, from https://stackoverflow.com/a/29596772
         let cookieTask = WebService.session.dataTask(with: cookieRequest){ data, request, error in
-        let data = String(data: data!, encoding: .utf8)
+        let data = String(data: data!, encoding: .utf8) //For debugging
         completion(.success(data!))
         }
         cookieTask.resume()
@@ -73,6 +43,7 @@ class WebService {
     
     func getToken(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void){
         guard let url = URL(string: Constants.URL.auth) else{
+            completion(.failure(.invalidURL))
             return
         }
         
@@ -102,26 +73,135 @@ class WebService {
                 return
             }
             
+            
             // Funny way to get the token
             // TODO: Do this but better
             let split = uri.split(separator: "=")
             let token = String(split[1].split(separator: "&")[0])
-            
+
+
             
             completion(.success(token))
         }
         authTask.resume()
     }
     
-    func getEntitlement(){
+    
+    func getRiotEntitlement(token: String, completion: @escaping(Result<String ,AuthenticationError>) -> Void){
+        guard let url = URL(string: Constants.URL.entitlement) else{
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        var entitlementRequest = URLRequest(url: url)
+        entitlementRequest.httpMethod = "POST"
+        entitlementRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        entitlementRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        // Perform cookie request, from https://stackoverflow.com/a/29596772
+        let entitlementTask = WebService.session.dataTask(with: entitlementRequest){ data, request, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.serverError))
+                return
+            }
+            
+            guard let entitlementResponse = try? JSONDecoder().decode(Entitlement.self, from: data) else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            
+            guard let riotEntitlement = entitlementResponse.entitlements_token else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            
+        completion(.success(riotEntitlement))
+        }
+        entitlementTask.resume()
+    }
+    
+    func getPlayerInfo(token:String, completion: @escaping(Result<String, AuthenticationError>) -> Void){
+        guard let url = URL(string: Constants.URL.playerInfo) else{
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        
+        var puuidRequest = URLRequest(url: url)
+        puuidRequest.httpMethod = "GET"
+        puuidRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        
+        let puuidTask = WebService.session.dataTask(with: puuidRequest){ data, request, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.serverError))
+                return
+            }
+            
+            guard let puuidResponse = try? JSONDecoder().decode(PUUID.self, from: data) else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            
+            guard let puuid = puuidResponse.sub else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            
+        completion(.success(puuid))
+        }
+        puuidTask.resume()
         
     }
     
+    func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String, completion: @escaping(Result<[String], AuthenticationError>) -> Void){
+        
+        guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v2/storefront/\(puuid)") else{
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        var storefrontRequest = URLRequest(url: url)
+        storefrontRequest.httpMethod = "GET"
+        storefrontRequest.addValue(riotEntitlement, forHTTPHeaderField: "X-Riot-Entitlements-JWT")
+        storefrontRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        
+        let storefrontTask = WebService.session.dataTask(with: storefrontRequest){ data, request, error in
+    
+            guard let data = data, error == nil else {
+                completion(.failure(.serverError))
+                return
+            }
+            
+            
+            guard let storefrontResponse = try? JSONDecoder().decode(Storefront.self, from: data) else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            
+            guard let storefront = storefrontResponse.SkinsPanelLayout!.SingleItemOffers else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            
+        completion(.success(storefront))
+        }
+        storefrontTask.resume()
+        
+    }
+    
+    func getStorePrices(token:String, completion: @escaping(Result<String, AuthenticationError>) -> Void){
+        
+    }
+    
+
     /*
     func logout() async{
         await WebService.session.flush()
     }
      */
+     
 }
 
 

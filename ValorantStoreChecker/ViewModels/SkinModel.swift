@@ -92,7 +92,6 @@ class SkinModel: ObservableObject{
             
             // Background thread
             DispatchQueue.main.async{
-                
                 self.data = skinList.data.sorted(by: {$0.displayName < $1.displayName}).filter({!$0.displayName.contains("Standard")}).filter({!$0.displayName.contains("Melee")}) //Sorts alphabetically and filters out Standard skin
             }
 

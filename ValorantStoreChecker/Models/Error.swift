@@ -12,10 +12,9 @@ enum AuthenticationError: Error {
     case invalidCredentials
     case custom(errorMessage: String)
     case serverError
-}
-
-enum NetworkError: Error {
     case invalidURL
     case noData
     case decodingError
 }
+
+

@@ -14,6 +14,7 @@ struct ValorantStoreCheckerApp: App {
             LaunchView()
                 .environmentObject(SkinModel())
                 .environmentObject(LoginModel())
+                .environmentObject(StoreModel())
         }
     }
 }

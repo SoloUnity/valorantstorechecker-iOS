@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Cookie bodies
+// Cookies
 struct AuthCookies: Encodable {
     let client_id = "play-valorant-web-prod"
     let nonce = 1 // Yo what is a nonce
@@ -15,7 +15,7 @@ struct AuthCookies: Encodable {
     let response_type = "token id_token"
 }
 
-// Authentication bodies
+// Authentication
 struct AuthRequestBody: Encodable {
     let type = "auth"
     let username : String
@@ -33,4 +33,14 @@ struct Response : Codable {
 
 struct URI: Codable {
     let uri : String?
+}
+
+// Entitlement
+struct Entitlement: Decodable{
+    let entitlements_token : String?
+}
+
+// PUUID
+struct PUUID: Codable{
+    let sub : String?
 }
