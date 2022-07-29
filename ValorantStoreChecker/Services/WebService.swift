@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WebService {
+struct WebService {
     // Common URLSession
     static let session: URLSession = {
             let configuration = URLSessionConfiguration.ephemeral
@@ -17,27 +17,43 @@ class WebService {
             return URLSession(configuration: configuration)
     }()
     
-    func getCookies(completion: @escaping(Result<String ,AuthenticationError>) -> Void){
+    
+    static func getCookies() async throws -> String {
         guard let url = URL(string: Constants.URL.auth) else{
-            completion(.failure(.invalidURL))
-            return
+            throw APIError.invalidURL
         }
         
-        let cookieBody = AuthCookies()
         
-        // Create cookie request
-        var cookieRequest = URLRequest(url: url)
-        cookieRequest.httpMethod = "POST"
-        cookieRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        cookieRequest.httpBody = try! JSONEncoder().encode(cookieBody)
-        
-        
-        // Perform cookie request, from https://stackoverflow.com/a/29596772
-        let cookieTask = WebService.session.dataTask(with: cookieRequest){ data, request, error in
-        let data = String(data: data!, encoding: .utf8) //For debugging
-        completion(.success(data!))
+        do{
+            let cookieBody = AuthCookies()
+            
+            // Create cookie request
+            var cookieRequest = URLRequest(url: url)
+            cookieRequest.httpMethod = "POST"
+            cookieRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            cookieRequest.httpBody = try! JSONEncoder().encode(cookieBody)
+            
+            print("Description", cookieRequest.description)
+            print("URL", cookieRequest.url)
+            print("URL Description", cookieRequest.url?.description)
+            
+            let (data,response) = try await session.data(from: cookieRequest.url!)
+            
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw APIError.invalidResponseStatus
+            }
+            
+            let cookie = String(data: data, encoding: .utf8)
+            print(cookie)
+            return cookie!
+            
+        }catch{
+            throw APIError.dataTaskError(error.localizedDescription)
         }
-        cookieTask.resume()
+        
     }
     
     func getToken(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void){

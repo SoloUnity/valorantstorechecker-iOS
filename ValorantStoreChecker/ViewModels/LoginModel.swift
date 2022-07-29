@@ -19,13 +19,18 @@ class LoginModel: ObservableObject{
     var username: String = ""
     var password: String = ""
     
-    var webService = WebService()
-    
-    func login(){
+    @MainActor
+    func login() async{
         
         let defaults = UserDefaults.standard
+        do{
+            let cookie = try await WebService.getCookies()
+        }catch{
+            print(error.localizedDescription)
+        }
         
         
+        /*
         // TODO: Make this async/await instead of this dinosaur bozo shit
         self.webService.getCookies(){ result in
             switch result{
@@ -91,10 +96,10 @@ class LoginModel: ObservableObject{
                 print(error.localizedDescription)
             }
         }
+         */
     }
     
     func signout() {
-        self.webService = WebService()
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "token")
         DispatchQueue.main.async {

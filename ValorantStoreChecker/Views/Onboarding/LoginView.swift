@@ -54,9 +54,12 @@ struct LoginView: View {
                     
                     // Test Button
                     Button {
-                        loginModel.username = "rintohsakalover69"
-                        loginModel.password = "Banana11!!!"
-                        loginModel.login()
+                        Task{
+                            loginModel.username = "rintohsakalover69"
+                            loginModel.password = "Banana11!!!"
+                            await loginModel.login()
+                        }
+                        
                         
                     } label: {
                         ZStack{
@@ -71,8 +74,10 @@ struct LoginView: View {
                     }
                     
                     Button {
+                        Task{
+                            await loginModel.login()
+                        }
                         
-                        loginModel.login()
                         
                     } label: {
                         ZStack{
