@@ -33,11 +33,8 @@ struct WebService {
             cookieRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             cookieRequest.httpBody = try! JSONEncoder().encode(cookieBody)
             
-            print("Description", cookieRequest.description)
-            print("URL", cookieRequest.url)
-            print("URL Description", cookieRequest.url?.description)
             
-            let (data,response) = try await session.data(from: cookieRequest.url!)
+            let (data,response) = try await session.data(for: cookieRequest)
             
             guard
                 let httpResponse = response as? HTTPURLResponse,
@@ -47,7 +44,7 @@ struct WebService {
             }
             
             let cookie = String(data: data, encoding: .utf8)
-            print(cookie)
+            print(cookie!)
             return cookie!
             
         }catch{
@@ -55,6 +52,7 @@ struct WebService {
         }
         
     }
+    
     
     func getToken(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void){
         guard let url = URL(string: Constants.URL.auth) else{
