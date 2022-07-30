@@ -18,6 +18,7 @@ class StoreModel: ObservableObject {
         
         let webService = WebService()
         
+        /*
         webService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: region) { result in
             
             // TODO: Make this more efficient
@@ -42,6 +43,7 @@ class StoreModel: ObservableObject {
             }
              
         }
+        */
     }
 }
 

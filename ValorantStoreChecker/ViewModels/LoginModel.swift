@@ -22,81 +22,36 @@ class LoginModel: ObservableObject{
     @MainActor
     func login() async{
         
-        let defaults = UserDefaults.standard
+        //let defaults = UserDefaults.standard
+        
         do{
-            let cookie = try await WebService.getCookies()
+            try await WebService.getCookies()
+            let token = try await WebService.getToken(username: self.username, password: self.password)
+            self.token = token
+            let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
+            self.riotEntitlement = riotEntitlement
+            let puuid = try await WebService.getPlayerInfo(token: token)
+            self.puuid = puuid
+            let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: self.region)
+            
+            let skinModel = SkinModel()
+            
+            for skin in skinModel.data{
+                for level in skin.levels!{
+                    for item in storefront{
+                        if item == level.id.description.lowercased(){
+                            self.storefront.append(skin)
+                        }
+                    }
+                }
+            }
+            
+            self.isAuthenticated = true
+            
         }catch{
             print(error.localizedDescription)
         }
         
-        
-        /*
-        // TODO: Make this async/await instead of this dinosaur bozo shit
-        self.webService.getCookies(){ result in
-            switch result{
-            case .success:
-                // TODO: Implement saving cookies for reauthentication
-                self.webService.getToken(username: self.username, password: self.password){ result in
-                    switch result {
-                        case .success(let token):
-                            defaults.setValue(token, forKey: "token")
-                        DispatchQueue.main.async {
-                            self.token = token
-                        }
-                        self.webService.getRiotEntitlement(token: token) { result in
-                            switch result{
-                            case .success(let entitlement):
-                                DispatchQueue.main.async {
-                                    self.riotEntitlement = entitlement
-                                }
-                                
-                                self.webService.getPlayerInfo(token: token) { result in
-                                    switch result{
-                                    case .success(let puuid):
-                                        DispatchQueue.main.async {
-                                            self.puuid = puuid
-                                        }
-                                        
-                                        self.webService.getStorefront(token: self.token, riotEntitlement: self.riotEntitlement, puuid: puuid, region: self.region) { result in
-                                                    // TODO: Make this more efficient
-                                                    switch result{
-                                                    case .success(let storefront):
-                                                        let skinModel = SkinModel()
-                                                        for skin in skinModel.data{
-                                                            for level in skin.levels!{
-                                                                for item in storefront{
-                                                                    if item == level.id.description.lowercased(){
-                                                                        DispatchQueue.main.async {
-                                                                            self.storefront.append(skin)
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                        DispatchQueue.main.async {
-                                                            self.isAuthenticated = true
-                                                        }
-                                                    case .failure(let error):
-                                                        print(error.localizedDescription)
-                                                    }
-                                                }
-                                    case .failure(let error):
-                                        print(error.localizedDescription)
-                                    }
-                                }
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                            }
-                        }
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                    }
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-         */
     }
     
     func signout() {

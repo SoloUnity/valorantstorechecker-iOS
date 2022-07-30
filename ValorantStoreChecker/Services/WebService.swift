@@ -4,6 +4,7 @@
 //
 //  Created by Gordon Ng on 2022-07-24.
 //  Made with the help of https://github.com/juliand665
+//  Used https://github.com/techchrism/valorant-api-docs/tree/trunk/docs for docs
 
 
 import Foundation
@@ -18,7 +19,7 @@ struct WebService {
     }()
     
     
-    static func getCookies() async throws -> String {
+    static func getCookies() async throws -> Void {
         guard let url = URL(string: Constants.URL.auth) else{
             throw APIError.invalidURL
         }
@@ -27,14 +28,87 @@ struct WebService {
         do{
             let cookieBody = AuthCookies()
             
-            // Create cookie request
+            // Create request
             var cookieRequest = URLRequest(url: url)
             cookieRequest.httpMethod = "POST"
             cookieRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             cookieRequest.httpBody = try! JSONEncoder().encode(cookieBody)
             
+            // Get cookies
+            let (_ , response) = try await WebService.session.data(for: cookieRequest)
             
-            let (data,response) = try await session.data(for: cookieRequest)
+            // Verify server request
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw APIError.invalidResponseStatus
+            }
+            
+        }catch{
+            throw APIError.dataTaskError(error.localizedDescription)
+        }
+        
+    }
+    
+    static func getToken(username: String, password: String) async throws -> String {
+        guard let url = URL(string: Constants.URL.auth) else{
+            throw APIError.invalidURL
+        }
+        
+        do{
+            let requestBody = AuthRequestBody(username: username, password: password)
+            
+            // Create authentication request
+            var authRequest = URLRequest(url: url)
+            authRequest.httpMethod = "PUT"
+            authRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            authRequest.httpBody = try! JSONEncoder().encode(requestBody)
+            
+            // Get token
+            let (data , response) = try await WebService.session.data(for: authRequest)
+            
+            // Verify server request
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw APIError.invalidResponseStatus
+            }
+            
+            guard let authResponse = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
+                throw APIError.invalidCredentials
+            }
+            
+            guard let uri = authResponse.response?.parameters?.uri else {
+                throw APIError.invalidCredentials
+            }
+            
+            
+            // Split uri and obtain access token
+            let split = uri.split(separator: "=")
+            let token = String(split[1].split(separator: "&")[0])
+
+            return token
+            
+        }catch{
+            throw APIError.dataTaskError(error.localizedDescription)
+        }
+    }
+    
+    static func getRiotEntitlement(token: String) async throws -> String {
+        guard let url = URL(string: Constants.URL.entitlement) else{
+            throw APIError.invalidURL
+        }
+        
+        do{
+            // Create request
+            var entitlementRequest = URLRequest(url: url)
+            entitlementRequest.httpMethod = "POST"
+            entitlementRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            entitlementRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let (data,response) = try await WebService.session.data(for: entitlementRequest)
             
             guard
                 let httpResponse = response as? HTTPURLResponse,
@@ -43,166 +117,94 @@ struct WebService {
                 throw APIError.invalidResponseStatus
             }
             
-            let cookie = String(data: data, encoding: .utf8)
-            print(cookie!)
-            return cookie!
+            guard let entitlementResponse = try? JSONDecoder().decode(Entitlement.self, from: data) else {
+                throw APIError.invalidCredentials
+            }
+            
+            guard let riotEntitlement = entitlementResponse.entitlements_token else {
+                throw APIError.invalidCredentials
+            }
+            
+            return riotEntitlement
             
         }catch{
             throw APIError.dataTaskError(error.localizedDescription)
         }
-        
     }
     
     
-    func getToken(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void){
-        guard let url = URL(string: Constants.URL.auth) else{
-            completion(.failure(.invalidURL))
-            return
-        }
-        
-        let requestBody = AuthRequestBody(username: username, password: password)
-        
-        var authRequest = URLRequest(url: url)
-        authRequest.httpMethod = "PUT"
-        authRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        authRequest.httpBody = try! JSONEncoder().encode(requestBody)
-        
-
-        // Retrieve token
-        let authTask = WebService.session.dataTask(with: authRequest){ data, request, error in
-            
-            guard let data = data, error == nil else {
-                completion(.failure(.serverError))
-                return
-            }
-            
-            guard let authResponse = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
-                completion(.failure(.invalidCredentials))
-                return
-            }
-            
-            guard let uri = authResponse.response?.parameters?.uri else {
-                completion(.failure(.invalidCredentials))
-                return
-            }
-            
-            
-            // Funny way to get the token
-            // TODO: Do this but better
-            let split = uri.split(separator: "=")
-            let token = String(split[1].split(separator: "&")[0])
-
-
-            
-            completion(.success(token))
-        }
-        authTask.resume()
-    }
-    
-    
-    func getRiotEntitlement(token: String, completion: @escaping(Result<String ,AuthenticationError>) -> Void){
-        guard let url = URL(string: Constants.URL.entitlement) else{
-            completion(.failure(.invalidURL))
-            return
-        }
-        
-        var entitlementRequest = URLRequest(url: url)
-        entitlementRequest.httpMethod = "POST"
-        entitlementRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        entitlementRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // Perform cookie request, from https://stackoverflow.com/a/29596772
-        let entitlementTask = WebService.session.dataTask(with: entitlementRequest){ data, request, error in
-            guard let data = data, error == nil else {
-                completion(.failure(.serverError))
-                return
-            }
-            
-            guard let entitlementResponse = try? JSONDecoder().decode(Entitlement.self, from: data) else {
-                completion(.failure(.invalidCredentials))
-                return
-            }
-            
-            guard let riotEntitlement = entitlementResponse.entitlements_token else {
-                completion(.failure(.invalidCredentials))
-                return
-            }
-            
-        completion(.success(riotEntitlement))
-        }
-        entitlementTask.resume()
-    }
-    
-    func getPlayerInfo(token:String, completion: @escaping(Result<String, AuthenticationError>) -> Void){
+    static func getPlayerInfo(token:String) async throws -> String {
         guard let url = URL(string: Constants.URL.playerInfo) else{
-            completion(.failure(.invalidURL))
-            return
+            throw APIError.invalidURL
         }
         
-        
-        var puuidRequest = URLRequest(url: url)
-        puuidRequest.httpMethod = "GET"
-        puuidRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-
-        
-        let puuidTask = WebService.session.dataTask(with: puuidRequest){ data, request, error in
-            guard let data = data, error == nil else {
-                completion(.failure(.serverError))
-                return
+        do{
+            // Create puuid request
+            var puuidRequest = URLRequest(url: url)
+            puuidRequest.httpMethod = "GET"
+            puuidRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            
+            let (data,response) = try await WebService.session.data(for: puuidRequest)
+            
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw APIError.invalidResponseStatus
             }
             
             guard let puuidResponse = try? JSONDecoder().decode(PUUID.self, from: data) else {
-                completion(.failure(.invalidCredentials))
-                return
+                throw APIError.invalidCredentials
             }
             
             guard let puuid = puuidResponse.sub else {
-                completion(.failure(.invalidCredentials))
-                return
+                throw APIError.invalidCredentials
             }
             
-        completion(.success(puuid))
+            return puuid
+            
+        }catch{
+            throw APIError.dataTaskError(error.localizedDescription)
         }
-        puuidTask.resume()
-        
     }
-    
-    func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String, completion: @escaping(Result<[String], AuthenticationError>) -> Void){
-        
+
+    static func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String) async throws -> [String] {
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v2/storefront/\(puuid)") else{
-            completion(.failure(.invalidURL))
-            return
+            throw APIError.invalidURL
         }
         
-        var storefrontRequest = URLRequest(url: url)
-        storefrontRequest.httpMethod = "GET"
-        storefrontRequest.addValue(riotEntitlement, forHTTPHeaderField: "X-Riot-Entitlements-JWT")
-        storefrontRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-
-        
-        let storefrontTask = WebService.session.dataTask(with: storefrontRequest){ data, request, error in
-    
-            guard let data = data, error == nil else {
-                completion(.failure(.serverError))
-                return
-            }
+        do{
+            // Create request
+            var storefrontRequest = URLRequest(url: url)
+            storefrontRequest.httpMethod = "GET"
+            storefrontRequest.addValue(riotEntitlement, forHTTPHeaderField: "X-Riot-Entitlements-JWT")
+            storefrontRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             
+            let (data,response) = try await WebService.session.data(for: storefrontRequest)
+            
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw APIError.invalidResponseStatus
+            }
             
             guard let storefrontResponse = try? JSONDecoder().decode(Storefront.self, from: data) else {
-                completion(.failure(.invalidCredentials))
-                return
+                throw APIError.invalidCredentials
             }
             
             guard let storefront = storefrontResponse.SkinsPanelLayout!.SingleItemOffers else {
-                completion(.failure(.invalidCredentials))
-                return
+                throw APIError.invalidCredentials
             }
             
-        completion(.success(storefront))
+            return storefront
+            
+        }catch{
+            throw APIError.dataTaskError(error.localizedDescription)
         }
-        storefrontTask.resume()
-        
     }
+    
+   
     
     func getStorePrices(token:String, completion: @escaping(Result<String, AuthenticationError>) -> Void){
         

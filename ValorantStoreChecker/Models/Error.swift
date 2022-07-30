@@ -22,4 +22,6 @@ enum APIError: Error{
     case invalidURL
     case dataTaskError(String)
     case invalidResponseStatus
+    case noData
+    case invalidCredentials
 }
