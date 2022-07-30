@@ -49,6 +49,9 @@ struct SearchBar: View {
  
             if isEditing {
                 Button(action: {
+                    // Dismiss keyboard
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    
                     self.isEditing = false
                     self.text = ""
  
@@ -56,10 +59,9 @@ struct SearchBar: View {
                     Text("Cancel")
                 }
                 .padding(.trailing, 10)
-                .transition(.move(edge: .trailing))
+                .transition(.scale)
             }
         }
-        
     }
 }
 

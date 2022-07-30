@@ -16,6 +16,7 @@ struct SkinCardView: View {
     var colour:Color = Color(red: 40/255, green: 40/255, blue: 40/255)
     var showPrice = false
     var showPriceTier = false
+    var price = ""
 
     var body: some View {
         
@@ -48,8 +49,6 @@ struct SkinCardView: View {
                         .padding()
                     }
                      
-                    
-                    
                         
                     VStack{
                         
@@ -57,9 +56,14 @@ struct SkinCardView: View {
                         
                         // Price
                         HStack{
-                            if showPriceTier{
+                            if skin.contentTierUuid != nil && showPriceTier{
                                 PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 18)
                             }
+                            else{
+                                Image(systemName: "questionmark.circle")
+                                    .frame(width:10, height: 10)
+                            }
+                            
                             Text(String(skin.displayName))
                                 .foregroundColor(.white)
                                 .font(.subheadline)
@@ -76,10 +80,15 @@ struct SkinCardView: View {
                                     .scaledToFit()
                                     .frame(width: 18, height: 18)
                                 
-                                Text("4350")
-                                    .foregroundColor(.white)
-                                    .bold()
-                                    .font(.subheadline)
+                                if skin.contentTierUuid != nil{
+                                    Text(PriceTier.getLocalPrice(contentTierUuid: skin.contentTierUuid!))
+                                        .foregroundColor(.white)
+                                        .bold()
+                                }
+                                else{
+                                    Text("Unknown")
+                                }
+                                
                             }
                             
                         }

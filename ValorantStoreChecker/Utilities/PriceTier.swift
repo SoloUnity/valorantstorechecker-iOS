@@ -10,7 +10,7 @@ import Foundation
 struct PriceTier{
     
     // Determine price of skin
-    static func getPrice(contentTierUuid:String) -> String{
+    static func getLocalPrice(contentTierUuid:String) -> String{
         switch contentTierUuid{
         case "12683d76-48d7-84a3-4e09-6985794f0445":
             return "875"

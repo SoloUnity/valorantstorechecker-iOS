@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ShopView: View {
     
-    @EnvironmentObject var loginModel:LoginModel
+    @EnvironmentObject var authAPIModel : AuthAPIModel
+    
     @State var tabIndex = 1
     @State var isDetailViewShowing = false
     
@@ -27,31 +28,40 @@ struct ShopView: View {
                     
                     ScrollView{
                         VStack(spacing: 13) {
-                            // Shop stuff
-                            if loginModel.storefront.isEmpty{
-                                ProgressView()
-                            }
-                            else{
-                                ForEach(loginModel.storefront) { skin in
+                            
+                            // Display ShopStuff
+                            if authAPIModel.storefront.isEmpty{
+                                
+                                VStack{
+                                    Spacer()
                                     
-                                    Button {
-                                        self.isDetailViewShowing = true
+                                    HStack{
                                         
-                                    } label: {
+                                        Spacer()
                                         
-                                        SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
-                                            .frame(height: (geo.size.height / 5.75))
+                                        ProgressView()
+                                        
+                                        Spacer()
                                         
                                     }
+                                    
+                                    Spacer()
                                 }
                                 
+                            }
+                            else{
+                                
+                                ForEach(authAPIModel.storefront) { skin in
+                                    
+                                    SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
+                                        .frame(height: (UIScreen.main.bounds.height / 6.5))
+                                    
+                                }
                             }
                             
                         }
                         .padding(10)
                     }
-                    
-                    
                 }
                 .padding(10)
             }

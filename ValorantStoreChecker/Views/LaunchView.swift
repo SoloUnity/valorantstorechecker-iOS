@@ -10,7 +10,7 @@ import SwiftUI
 struct LaunchView: View {
     
     @EnvironmentObject var model:SkinModel
-    @EnvironmentObject var loginModel:LoginModel
+    @EnvironmentObject var loginModel:AuthAPIModel
     
     var body: some View {
         

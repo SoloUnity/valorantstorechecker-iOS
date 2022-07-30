@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RegionSelectorView: View {
     
-    @EnvironmentObject var storeModel:StoreModel
+    @EnvironmentObject var authAPIModel : AuthAPIModel
     @State var expand = false
     @State var title = "Select region"
     
@@ -17,6 +17,10 @@ struct RegionSelectorView: View {
         VStack(alignment: .leading, spacing: 10){
             
             Button {
+                
+                // Dismiss keyboard
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                
                 expand.toggle()
             } label: {
                 
@@ -33,42 +37,50 @@ struct RegionSelectorView: View {
             
             if expand{
                 
-                Button {
-                    storeModel.region = "na"
-                    title = "North America"
-                    expand = false
-                    
-                } label: {
-                    Text("North America")
+                if title != "North America" {
+                    Button {
+                        authAPIModel.region = "na"
+                        title = "North America"
+                        expand = false
+                        
+                    } label: {
+                        Text("North America")
+                    }
                 }
                 
-                Button {
-                    storeModel.region = "eu"
-                    title = "Europe"
-                    expand = false
-                } label: {
-                    Text("Europe")
+                
+                if title != "Europe" {
+                    Button {
+                        authAPIModel.region = "eu"
+                        title = "Europe"
+                        expand = false
+                    } label: {
+                        Text("Europe")
+                    }
                 }
                 
-                Button {
-                    storeModel.region = "ap"
-                    title = "Asia Pacific"
-                    expand = false
-                } label: {
-                    Text("Asia Pacific")
+                
+                if title != "Asia Pacific" {
+                    Button {
+                        authAPIModel.region = "ap"
+                        title = "Asia Pacific"
+                        expand = false
+                    } label: {
+                        Text("Asia Pacific")
+                    }
                 }
                 
-                Button {
-                    storeModel.region = "kr"
-                    title = "South Korea"
-                    expand = false
-                } label: {
-                    Text("South Korea")
+                
+                if title != "South Korea" {
+                    Button {
+                        authAPIModel.region = "kr"
+                        title = "South Korea"
+                        expand = false
+                    } label: {
+                        Text("South Korea")
+                    }
                 }
             }
-            
-            
-
         }
         .foregroundColor(.white)
         .padding(7)

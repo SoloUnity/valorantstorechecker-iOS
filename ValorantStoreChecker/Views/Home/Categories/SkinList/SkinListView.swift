@@ -14,7 +14,7 @@ struct SkinListView: View {
 
     
     var body: some View {
-
+        
         GeometryReader{ geo in
             VStack{
                 
@@ -31,8 +31,8 @@ struct SkinListView: View {
                         LazyVStack(spacing: 13){
                             ForEach(model.data.filter({ searchText.isEmpty ? true : $0.displayName.lowercased().contains(searchText.lowercased()) })){ skin in
                                 
-                                SkinCardView(skin: skin, showPrice: true, showPriceTier: false)
-                                    .frame(height: (geo.size.height / 5.75))
+                                SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
+                                    .frame(height: (UIScreen.main.bounds.height / 6.5))
                                 
                             
                             }
@@ -47,7 +47,6 @@ struct SkinListView: View {
             .padding(10)
             
         }
-        
     }
 }
 

@@ -6,13 +6,10 @@
 //
 
 import SwiftUI
-import CustomTextField
-
 
 struct LoginView: View {
     
-        @StateObject private var accountListVM = StoreModel()
-        @EnvironmentObject var loginModel:LoginModel
+    @EnvironmentObject var authAPIModel : AuthAPIModel
     
         @State private var email: String = ""
         @State private var password: String = ""
@@ -22,7 +19,7 @@ struct LoginView: View {
             
             
             GeometryReader{ geo in
-                VStack() {
+                VStack(spacing: 15){
                     
                     LogoView()
                         .frame(width: geo.size.width/4)
@@ -38,10 +35,43 @@ struct LoginView: View {
                     
                     
                     // Username
-                    CustomTF(text: $loginModel.username, placeholder: "Username", ImageTF: Image(systemName: "person"), isPassword: false, StylesType: .Style2, KeyboardType: .default, color: nil)
-                    
+                    ZStack {
+                        HStack {
+                            
+                            Image(systemName: "person.circle")
+                            
+                            TextField("Riot Account Username" , text: $authAPIModel.username)
+                                .keyboardType(.default)
+                                .autocorrectionDisabled()
+                            
+                        }.padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                        
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 1)
+                            .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                            .shadow(color: .white, radius: 2)
+                            .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                    }
+                                   
                     //Password
-                    CustomTF(text: $loginModel.password, placeholder: "Password", ImageTF: Image(systemName: "key"), isPassword: true, StylesType: .Style2, KeyboardType: .default, color: nil)
+                    ZStack {
+                        HStack {
+                            
+                            Image(systemName: "key")
+                            
+                            SecureField("Password" , text: $authAPIModel.username)
+                                .keyboardType(.default)
+                                .autocorrectionDisabled()
+                            
+                        }.padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                        
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 1)
+                            .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                            .shadow(color: .white, radius: 2)
+                            .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                    }
+                        
                     
                     RegionSelectorView()
                     
@@ -55,9 +85,9 @@ struct LoginView: View {
                     // Test Button
                     Button {
                         Task{
-                            loginModel.username = "rintohsakalover69"
-                            loginModel.password = "Banana11!!!"
-                            await loginModel.login()
+                            authAPIModel.username = "rintohsakalover69"
+                            authAPIModel.password = "Banana11!!!"
+                            await authAPIModel.login()
                         }
                         
                         
@@ -75,7 +105,7 @@ struct LoginView: View {
                     
                     Button {
                         Task{
-                            await loginModel.login()
+                            await authAPIModel.login()
                         }
                         
                         

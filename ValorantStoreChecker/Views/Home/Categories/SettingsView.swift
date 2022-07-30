@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @EnvironmentObject var model:SkinModel
-    @EnvironmentObject var loginModel:LoginModel
+    @EnvironmentObject var skinModel : SkinModel
+    @EnvironmentObject var authAPIModel : AuthAPIModel
     
     @State var dark = false
     @State var isDetailViewShowing = false
@@ -19,6 +19,7 @@ struct SettingsView: View {
     var body: some View {
         
         GeometryReader{ geo in
+            
             VStack(alignment: .leading){
                 
                 Text("Settings")
@@ -28,20 +29,26 @@ struct SettingsView: View {
                 Toggle("Wish List Notifications", isOn: $dark)
                     .tint(.pink)
                      
-                // TODO: Send user back to default login screen
                 Button {
-                    loginModel.signout()
+                    
+                    authAPIModel.signout()
+                    
                 } label: {
+                    
                     ZStack{
+                        
                         RectangleView(colour: .pink)
                             .frame(height: 48)
                             .shadow(color: .pink, radius: 5)
                         Text("Log Out")
                             .foregroundColor(.white)
                             .padding()
+                        
                     }
                 }
+                
                 Spacer()
+                
             }
             .foregroundColor(.white)
         }

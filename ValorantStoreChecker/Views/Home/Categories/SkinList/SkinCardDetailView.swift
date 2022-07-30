@@ -26,7 +26,13 @@ struct SkinCardDetailView: View {
                 
                 // MARK: Header
                 HStack{
-                    PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 30)
+                    if skin.contentTierUuid != nil{
+                        PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 30)
+                    }else{
+                        Image(systemName: "questionmark.circle")
+                            .frame(width: 30, height: 30)
+                    }
+                    
 
                     Text (String(skin.displayName))
                         .font(.title)
@@ -51,14 +57,20 @@ struct SkinCardDetailView: View {
                             .scaledToFit()
                             .frame(width: 18, height: 18)
                         
+                        if skin.contentTierUuid != nil{
+                            Text(PriceTier.getLocalPrice(contentTierUuid: skin.contentTierUuid!))
+                                .foregroundColor(.white)
+                                .bold()
+                        }else{
+                            Text("Unknown")
+                                .foregroundColor(.white)
+                                .bold()
+                        }
                         
-                        Text(PriceTier.getPrice(contentTierUuid: skin.contentTierUuid!))
-                            .foregroundColor(.white)
-                            .bold()
                         
                         Spacer()
                         
-                        if PriceTier.getPrice(contentTierUuid: skin.contentTierUuid!) == "2475+"{
+                        if skin.contentTierUuid != nil && PriceTier.getLocalPrice(contentTierUuid: skin.contentTierUuid!) == "2475+"{
                             Button {
                                showAlert = true
                             } label: {
@@ -66,9 +78,22 @@ struct SkinCardDetailView: View {
                                     .accentColor(.white)
                             }
                             .alert(isPresented: $showAlert) { () -> Alert in
-                                        Alert(title: Text("As there is no database for exclusive tier skins, this skin is marked as costing 2475+ VP."))
+                                        Alert(title: Text("There is unfortunately no price database for this skin."))
                                     }
                         }
+                        else if skin.contentTierUuid == nil{
+                            Button {
+                               showAlert = true
+                            } label: {
+                                Image(systemName: "info.circle")
+                                    .accentColor(.white)
+                            }
+                            .alert(isPresented: $showAlert) { () -> Alert in
+                                        Alert(title: Text("There is unfortunately no price database for this skin."))
+                                    }
+                        }
+   
+                        
                         
 
                         

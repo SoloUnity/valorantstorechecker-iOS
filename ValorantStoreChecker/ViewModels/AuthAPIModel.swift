@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginModel: ObservableObject{
+class AuthAPIModel: ObservableObject {
     
     @Published var storefront : [Skin] = []
     @Published var isAuthenticated: Bool = false
@@ -22,9 +22,10 @@ class LoginModel: ObservableObject{
     @MainActor
     func login() async{
         
-        //let defaults = UserDefaults.standard
+        let defaults = UserDefaults.standard
         
         do{
+            
             try await WebService.getCookies()
             let token = try await WebService.getToken(username: self.username, password: self.password)
             self.token = token
@@ -46,7 +47,9 @@ class LoginModel: ObservableObject{
                 }
             }
             
+            //let storePrices = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: self.region)
             self.isAuthenticated = true
+            
             
         }catch{
             print(error.localizedDescription)

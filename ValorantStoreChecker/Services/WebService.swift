@@ -206,7 +206,36 @@ struct WebService {
     
    
     
-    func getStorePrices(token:String, completion: @escaping(Result<String, AuthenticationError>) -> Void){
+    static func getStorePrices(token : String, riotEntitlement: String,region: String) async throws -> Void {
+        
+        guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v1/offers/") else{
+            throw APIError.invalidURL
+        }
+        
+        // Create request
+        var storePriceRequest = URLRequest(url: url)
+        storePriceRequest.httpMethod = "GET"
+        storePriceRequest.addValue(riotEntitlement, forHTTPHeaderField: "X-Riot-Entitlements-JWT")
+        storePriceRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let (data , response) = try await WebService.session.data(for: storePriceRequest)
+        
+        guard
+            let httpResponse = response as? HTTPURLResponse,
+            httpResponse.statusCode == 200
+        else{
+            throw APIError.invalidResponseStatus
+        }
+        
+        guard let storePriceResponse = try? JSONDecoder().decode(Storefront.self, from: data) else {
+            throw APIError.invalidCredentials
+        }
+        
+        guard let storefront = storePriceResponse.SkinsPanelLayout!.SingleItemOffers else {
+            throw APIError.invalidCredentials
+        }
+        
+        
         
     }
     
