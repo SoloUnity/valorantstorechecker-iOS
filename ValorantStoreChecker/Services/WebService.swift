@@ -11,7 +11,7 @@ import Foundation
 
 struct WebService {
     // Common URLSession
-    static let session: URLSession = {
+    static var session: URLSession = {
             let configuration = URLSessionConfiguration.ephemeral
             configuration.timeoutIntervalForRequest = 30 // seconds
             configuration.timeoutIntervalForResource = 30 // seconds
@@ -168,7 +168,7 @@ struct WebService {
         }
     }
 
-    static func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String) async throws -> [String] {
+    static func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String) async throws -> SkinsPanelLayout {
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v2/storefront/\(puuid)") else{
             throw APIError.invalidURL
         }
@@ -193,7 +193,7 @@ struct WebService {
                 throw APIError.invalidCredentials
             }
             
-            guard let storefront = storefrontResponse.SkinsPanelLayout!.SingleItemOffers else {
+            guard let storefront = storefrontResponse.SkinsPanelLayout else {
                 throw APIError.invalidCredentials
             }
             
@@ -206,7 +206,7 @@ struct WebService {
     
    
     
-    static func getStorePrices(token : String, riotEntitlement: String,region: String) async throws -> Void {
+    static func getStorePrices(token : String, riotEntitlement: String,region: String) async throws ->  [Offer] {
         
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v1/offers/") else{
             throw APIError.invalidURL
@@ -227,16 +227,15 @@ struct WebService {
             throw APIError.invalidResponseStatus
         }
         
-        guard let storePriceResponse = try? JSONDecoder().decode(Storefront.self, from: data) else {
+        guard let storePriceResponse = try? JSONDecoder().decode(StorePrice.self, from: data) else {
             throw APIError.invalidCredentials
         }
         
-        guard let storefront = storePriceResponse.SkinsPanelLayout!.SingleItemOffers else {
+        guard let storePrice = storePriceResponse.offers else {
             throw APIError.invalidCredentials
         }
         
-        
-        
+        return storePrice
     }
     
 

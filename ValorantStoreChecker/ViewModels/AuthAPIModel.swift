@@ -10,59 +10,134 @@ import Foundation
 class AuthAPIModel: ObservableObject {
     
     @Published var storefront : [Skin] = []
+    @Published var storePrice : [Offer] = []
     @Published var isAuthenticated: Bool = false
-    @Published var token = ""
-    @Published var riotEntitlement = ""
-    @Published var puuid = ""
-    @Published var region = "na"
+    @Published var failedLogin : Bool = false
     
     var username: String = ""
     var password: String = ""
     
+    let defaults = UserDefaults.standard
+    
+    init() {
+        
+        // TODO: Learn coredata and not do this bozo shit
+        if let objects = defaults.value(forKey: "storefront") as? Data {
+            let decoder = JSONDecoder()
+            if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Skin] {
+                DispatchQueue.main.async{
+                    self.storefront = objectsDecoded
+                }
+            }
+        }
+        
+        if let objects = defaults.value(forKey: "storePrice") as? Data {
+            let decoder = JSONDecoder()
+            if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Offer] {
+                DispatchQueue.main.async{
+                    self.storePrice = objectsDecoded
+                }
+            }
+        }
+    }
+    
     @MainActor
     func login() async{
         
-        let defaults = UserDefaults.standard
+        WebService.session = {
+            let configuration = URLSessionConfiguration.ephemeral
+            configuration.timeoutIntervalForRequest = 30 // seconds
+            configuration.timeoutIntervalForResource = 30 // seconds
+            return URLSession(configuration: configuration)
+        }()
         
         do{
             
+            if defaults.string(forKey: "username") == nil || defaults.string(forKey: "password") == nil {
+                defaults.set(self.username, forKey: "username")
+                defaults.set(self.password, forKey: "password")
+            }
+                
             try await WebService.getCookies()
-            let token = try await WebService.getToken(username: self.username, password: self.password)
-            self.token = token
+            let token = try await WebService.getToken(username: defaults.string(forKey: "username") ?? "", password: defaults.string(forKey: "password") ?? "")
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
-            self.riotEntitlement = riotEntitlement
             let puuid = try await WebService.getPlayerInfo(token: token)
-            self.puuid = puuid
-            let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: self.region)
+            let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
             
             let skinModel = SkinModel()
             
+            var tempStore : [Skin] = []
+            
             for skin in skinModel.data{
                 for level in skin.levels!{
-                    for item in storefront{
+                    for item in storefront.SingleItemOffers!{
                         if item == level.id.description.lowercased(){
-                            self.storefront.append(skin)
+                            tempStore.append(skin)
                         }
                     }
                 }
             }
+
+            self.storefront = tempStore
             
-            //let storePrices = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: self.region)
+            let storefrontEncoder = JSONEncoder()
+            if let encoded = try? storefrontEncoder.encode(tempStore){
+                defaults.set(encoded, forKey: "storefront")
+            }
+            
+            let storePrice = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: defaults.string(forKey: "region") ?? "na")
+            
+            self.storePrice = storePrice
+            
+            let priceEncoder = JSONEncoder()
+            if let encoded = try? priceEncoder.encode(storePrice){
+                defaults.set(encoded, forKey: "storePrice")
+            }
+            
+            defaults.set(storefront.SingleItemOffersRemainingDurationInSeconds, forKey: "timeLeft")
+            
             self.isAuthenticated = true
+            defaults.set(self.isAuthenticated, forKey: "authentication")
             
+            self.failedLogin = false
+            
+            self.username = ""
+            self.password = ""
             
         }catch{
+            self.failedLogin = true
+            self.username = ""
+            self.password = ""
+            
+            defaults.removeObject(forKey: "username")
+            defaults.removeObject(forKey: "password")
+            defaults.removeObject(forKey: "authentication")
+            
             print(error.localizedDescription)
         }
-        
     }
     
+    @MainActor
     func signout() {
-        let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "token")
-        DispatchQueue.main.async {
-            self.isAuthenticated = false
-        }
+        // Create a new session
+        WebService.session = {
+            let configuration = URLSessionConfiguration.ephemeral
+            configuration.timeoutIntervalForRequest = 30 // seconds
+            configuration.timeoutIntervalForResource = 30 // seconds
+            return URLSession(configuration: configuration)
+        }()
+        
+        self.username = ""
+        self.password = ""
+        
+        // Reset UserDefaults
+        defaults.removeObject(forKey: "username")
+        defaults.removeObject(forKey: "password")
+        defaults.removeObject(forKey: "authentication")
+        defaults.removeObject(forKey: "storefront")
+        defaults.removeObject(forKey: "storePrice")
+        
+        self.isAuthenticated = false
        
     }
     

@@ -11,8 +11,6 @@ struct LoginView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     
-        @State private var email: String = ""
-        @State private var password: String = ""
         @State private var agreedToTerms: Bool = false
     
         var body: some View {
@@ -24,62 +22,28 @@ struct LoginView: View {
                     LogoView()
                         .frame(width: geo.size.width/4)
                     
-                    HStack{
-                        Text("Login to your Riot Account")
-                        Button {
-                                                    
-                        } label: {
-                            Image(systemName: "info.circle")
+                    if !authAPIModel.failedLogin{
+                        HStack{
+                            Text("Login to your Riot Account")
+                                .bold()
+                            Button {
+                                                        
+                            } label: {
+                                Image(systemName: "info.circle")
+                            }
                         }
+                        
+                    }else{
+                        Text("Invalid Credentials")
+                            .bold()
                     }
                     
                     
-                    // Username
-                    ZStack {
-                        HStack {
-                            
-                            Image(systemName: "person.circle")
-                            
-                            TextField("Riot Account Username" , text: $authAPIModel.username)
-                                .keyboardType(.default)
-                                .autocorrectionDisabled()
-                            
-                        }.padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                        
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 1)
-                            .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                            .shadow(color: .white, radius: 2)
-                            .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                    }
-                                   
-                    //Password
-                    ZStack {
-                        HStack {
-                            
-                            Image(systemName: "key")
-                            
-                            SecureField("Password" , text: $authAPIModel.username)
-                                .keyboardType(.default)
-                                .autocorrectionDisabled()
-                            
-                        }.padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                        
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 1)
-                            .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                            .shadow(color: .white, radius: 2)
-                            .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                    }
-                        
+                    LoginBoxView()
                     
                     RegionSelectorView()
                     
                     Spacer()
-                    
-                    
-                    //LoginTestView()
-                    
                     
                     
                     // Test Button
@@ -103,12 +67,11 @@ struct LoginView: View {
                         .frame(width: 60, height: 60)
                     }
                     
+                    // Log in button
                     Button {
                         Task{
                             await authAPIModel.login()
-                        }
-                        
-                        
+                        }       
                     } label: {
                         ZStack{
                             CircleView(colour: .red)

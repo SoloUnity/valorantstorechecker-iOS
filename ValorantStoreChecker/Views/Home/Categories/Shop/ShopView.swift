@@ -14,6 +14,7 @@ struct ShopView: View {
     @State var tabIndex = 1
     @State var isDetailViewShowing = false
     
+    let defaults = UserDefaults.standard
 
         var body: some View {
                 
@@ -22,12 +23,21 @@ struct ShopView: View {
                 
                 VStack{
                     
+                        
                     LogoView()
                         .frame(width: geo.size.width/4)
-                    
-                    
+                                  
                     ScrollView{
+                        
+                        PullToRefresh(coordinateSpaceName: "pullToRefresh") {
+                            Task{
+                                await authAPIModel.login()
+                            }
+                        }
+
                         VStack(spacing: 13) {
+                            
+                            ShopTopBarView(referenceDate: Date() + Double(defaults.integer(forKey: "timeLeft")))
                             
                             // Display ShopStuff
                             if authAPIModel.storefront.isEmpty{
@@ -54,7 +64,7 @@ struct ShopView: View {
                                 ForEach(authAPIModel.storefront) { skin in
                                     
                                     SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
-                                        .frame(height: (UIScreen.main.bounds.height / 6.5))
+                                        .frame(height: (UIScreen.main.bounds.height / 7.25))
                                     
                                 }
                             }
@@ -62,6 +72,7 @@ struct ShopView: View {
                         }
                         .padding(10)
                     }
+                    .coordinateSpace(name: "pullToRefresh")
                 }
                 .padding(10)
             }

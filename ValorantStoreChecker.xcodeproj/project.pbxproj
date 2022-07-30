@@ -18,6 +18,9 @@
 		8B33A5BF2884687C00BCB1F2 /* SkinCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */; };
 		8B3651542891DCCA00FE762E /* RegionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3651532891DCCA00FE762E /* RegionSelectorView.swift */; };
 		8B3685CE2894F3F8000BB3CF /* StorePrice.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B3685CD2894F3F8000BB3CF /* StorePrice.json */; };
+		8B3685D02895BBD3000BB3CF /* LoginBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3685CF2895BBD3000BB3CF /* LoginBoxView.swift */; };
+		8B3685D22895D2D5000BB3CF /* ShopTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3685D12895D2D5000BB3CF /* ShopTopBarView.swift */; };
+		8B3685D42895D576000BB3CF /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3685D32895D576000BB3CF /* PullToRefreshView.swift */; };
 		8B62AFCF2883A0FD0070173F /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFCE2883A0FD0070173F /* ShopView.swift */; };
 		8B62AFD12883A1230070173F /* SkinCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD02883A1230070173F /* SkinCardView.swift */; };
 		8B62AFD72883B4E10070173F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD62883B4E10070173F /* HomeView.swift */; };
@@ -38,7 +41,7 @@
 		8B9A839828863E51009CE268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9A839728863E51009CE268 /* LaunchScreen.storyboard */; };
 		8BB00EC4288E3D41001AE90A /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC3288E3D41001AE90A /* WebService.swift */; };
 		8BB00EC7288E418E001AE90A /* AuthAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC6288E418E001AE90A /* AuthAPIModel.swift */; };
-		8BB00EC9288E4679001AE90A /* Storefront.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC8288E4679001AE90A /* Storefront.swift */; };
+		8BB00EC9288E4679001AE90A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC8288E4679001AE90A /* Store.swift */; };
 		8BE6111C28846E1700E8BDD6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE6111B28846E1700E8BDD6 /* AVKit.framework */; };
 		8BE6111E28847B0C00E8BDD6 /* SkinData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6111D28847B0C00E8BDD6 /* SkinData.json */; };
 		8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6111F28847B9100E8BDD6 /* Skin.swift */; };
@@ -59,6 +62,9 @@
 		8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCardDetailView.swift; sourceTree = "<group>"; };
 		8B3651532891DCCA00FE762E /* RegionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectorView.swift; sourceTree = "<group>"; };
 		8B3685CD2894F3F8000BB3CF /* StorePrice.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StorePrice.json; sourceTree = "<group>"; };
+		8B3685CF2895BBD3000BB3CF /* LoginBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBoxView.swift; sourceTree = "<group>"; };
+		8B3685D12895D2D5000BB3CF /* ShopTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTopBarView.swift; sourceTree = "<group>"; };
+		8B3685D32895D576000BB3CF /* PullToRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
 		8B62AFCE2883A0FD0070173F /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		8B62AFD02883A1230070173F /* SkinCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCardView.swift; sourceTree = "<group>"; };
 		8B62AFD62883B4E10070173F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -78,7 +84,7 @@
 		8B9A839728863E51009CE268 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BB00EC3288E3D41001AE90A /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		8BB00EC6288E418E001AE90A /* AuthAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPIModel.swift; sourceTree = "<group>"; };
-		8BB00EC8288E4679001AE90A /* Storefront.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storefront.swift; sourceTree = "<group>"; };
+		8BB00EC8288E4679001AE90A /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		8BE6111B28846E1700E8BDD6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		8BE6111D28847B0C00E8BDD6 /* SkinData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SkinData.json; sourceTree = "<group>"; };
 		8BE6111F28847B9100E8BDD6 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
@@ -163,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				8BE6111F28847B9100E8BDD6 /* Skin.swift */,
-				8BB00EC8288E4679001AE90A /* Storefront.swift */,
+				8BB00EC8288E4679001AE90A /* Store.swift */,
 				8B682C7F2890C176003A3B9C /* Authentication.swift */,
 				8B682C812890C2BE003A3B9C /* Error.swift */,
 			);
@@ -174,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				8B29E2022881CAEC0081F69A /* LoginView.swift */,
+				8B3685CF2895BBD3000BB3CF /* LoginBoxView.swift */,
 				8B3651532891DCCA00FE762E /* RegionSelectorView.swift */,
 			);
 			path = Onboarding;
@@ -183,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				8B9A838028861097009CE268 /* LogoView.swift */,
-				8BF4D7642885A298000404D8 /* SearchBar.swift */,
 				8B65F849288CA608004282DD /* PriceTierView.swift */,
 				8B9A8383288612AC009CE268 /* PriceTiers */,
 				8B9A83822886129C009CE268 /* Shapes */,
@@ -207,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				8B62AFCE2883A0FD0070173F /* ShopView.swift */,
+				8B3685D12895D2D5000BB3CF /* ShopTopBarView.swift */,
+				8B3685D32895D576000BB3CF /* PullToRefreshView.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -290,6 +298,7 @@
 				8B9A83742885A426009CE268 /* SkinListView.swift */,
 				8B62AFD02883A1230070173F /* SkinCardView.swift */,
 				8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */,
+				8BF4D7642885A298000404D8 /* SearchBar.swift */,
 			);
 			path = SkinList;
 			sourceTree = "<group>";
@@ -379,15 +388,18 @@
 				8BF1DB482888B87F004491A1 /* Constants.swift in Sources */,
 				8B9A838B28861C5B009CE268 /* DeluxeEditionView.swift in Sources */,
 				8B9A8385288612DD009CE268 /* SelectEditionView.swift in Sources */,
+				8B3685D42895D576000BB3CF /* PullToRefreshView.swift in Sources */,
 				8B29E1EF2881C87D0081F69A /* ValorantStoreCheckerApp.swift in Sources */,
 				8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */,
 				8BB00EC7288E418E001AE90A /* AuthAPIModel.swift in Sources */,
 				8B29E2032881CAEC0081F69A /* LoginView.swift in Sources */,
 				8B33A5BF2884687C00BCB1F2 /* SkinCardDetailView.swift in Sources */,
 				8B9A838728861304009CE268 /* ExclusiveEditionView.swift in Sources */,
+				8B3685D22895D2D5000BB3CF /* ShopTopBarView.swift in Sources */,
 				8B682C822890C2BE003A3B9C /* Error.swift in Sources */,
+				8B3685D02895BBD3000BB3CF /* LoginBoxView.swift in Sources */,
 				8B9A8395288630F0009CE268 /* WishListView.swift in Sources */,
-				8BB00EC9288E4679001AE90A /* Storefront.swift in Sources */,
+				8BB00EC9288E4679001AE90A /* Store.swift in Sources */,
 				8B9A838128861097009CE268 /* LogoView.swift in Sources */,
 				8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */,
 				8B62AFD72883B4E10070173F /* HomeView.swift in Sources */,

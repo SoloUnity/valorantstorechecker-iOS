@@ -11,14 +11,15 @@ import AZVideoPlayer
 
 struct SkinCardDetailView: View {
     
-    @EnvironmentObject var model:SkinModel
+    @EnvironmentObject var skinModel:SkinModel
+    @EnvironmentObject var authAPIModel : AuthAPIModel
     @ObservedObject var skin:Skin
     @State var selectedLevel = 0
     @State var selectedChroma = 0
     @State var showAlert = false
     
     let player = AVPlayer()
-    
+
     var body: some View {
         GeometryReader{ geo in
             
@@ -57,8 +58,8 @@ struct SkinCardDetailView: View {
                             .scaledToFit()
                             .frame(width: 18, height: 18)
                         
-                        if skin.contentTierUuid != nil{
-                            Text(PriceTier.getLocalPrice(contentTierUuid: skin.contentTierUuid!))
+                        if skin.contentTierUuid != nil {
+                            Text(PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!))
                                 .foregroundColor(.white)
                                 .bold()
                         }else{
@@ -67,10 +68,10 @@ struct SkinCardDetailView: View {
                                 .bold()
                         }
                         
-                        
                         Spacer()
                         
-                        if skin.contentTierUuid != nil && PriceTier.getLocalPrice(contentTierUuid: skin.contentTierUuid!) == "2475+"{
+                        
+                        if skin.contentTierUuid == nil || (skin.contentTierUuid != nil && PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!) == "2475+"){
                             Button {
                                showAlert = true
                             } label: {
@@ -78,24 +79,9 @@ struct SkinCardDetailView: View {
                                     .accentColor(.white)
                             }
                             .alert(isPresented: $showAlert) { () -> Alert in
-                                        Alert(title: Text("There is unfortunately no price database for this skin."))
+                                        Alert(title: Text("The price of this skin is unfortunately not in our database."))
                                     }
                         }
-                        else if skin.contentTierUuid == nil{
-                            Button {
-                               showAlert = true
-                            } label: {
-                                Image(systemName: "info.circle")
-                                    .accentColor(.white)
-                            }
-                            .alert(isPresented: $showAlert) { () -> Alert in
-                                        Alert(title: Text("There is unfortunately no price database for this skin."))
-                                    }
-                        }
-   
-                        
-                        
-
                         
 
                     }
@@ -117,7 +103,7 @@ struct SkinCardDetailView: View {
                         
                         AZVideoPlayer(player: player)
                             .cornerRadius(10)
-                            .aspectRatio(CGSize(width: 1920, height: 1080), contentMode: .fit)
+                            .aspectRatio(16/9, contentMode: .fit)
                             .shadow(color: .white, radius: 2)
                             .onAppear{
                                 if player.currentItem == nil {
@@ -144,60 +130,59 @@ struct SkinCardDetailView: View {
                             }
                         
                         // Skin tier picker
+                    if skin.levels!.count != 1{
                         HStack{
                             Text("Tier")
                             Picker("Video Number", selection: $selectedLevel){
                                 ForEach(0..<skin.levels!.count, id: \.self){ level in
                                     
-                                    
                                     Text(String(level + 1))
                                         .tag(level)
-                                    
                                     
                                 }
                             }
                             .pickerStyle(SegmentedPickerStyle())
                             
                         }
+                    }
+                        
                     
                     
                 }
                 
                 
                 // MARK: Skin Variants / Chromas
-                if skin.chromas!.count != 1{
+                ZStack{
+                    // Skin level images
+                    RectangleView(colour: Color(red: 40/255, green: 40/255, blue: 40/255))
+                        .shadow(color: .white, radius: 2)
                     
-                    ZStack{
-                        // Skin level images
-                        RectangleView(colour: Color(red: 40/255, green: 40/255, blue: 40/255))
-                            .shadow(color: .white, radius: 2)
+                    if skin.chromas![selectedChroma].displayIcon != nil{
                         
-                        if skin.chromas![selectedChroma].displayIcon != nil{
-                            
-                            AsyncImage(url: URL(string: skin.chromas![selectedChroma].displayIcon!)) { image in
-                                image.resizable()
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            .scaledToFit()
-                            .padding()
-                            
+                        AsyncImage(url: URL(string: skin.chromas![selectedChroma].displayIcon!)) { image in
+                            image.resizable()
+                        } placeholder: {
+                            ProgressView()
                         }
-                        else if skin.chromas![selectedChroma].fullRender != nil{
-                            
-                            AsyncImage(url: URL(string: skin.chromas![selectedChroma].fullRender!)) { image in
-                                image.resizable()
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            .scaledToFit()
-                            .padding()
-                            
-                        }
+                        .scaledToFit()
+                        .padding()
+                        
                     }
-                    .frame(height: (geo.size.height / 5.75))
-                    
-                    
+                    else if skin.chromas![selectedChroma].fullRender != nil{
+                        
+                        AsyncImage(url: URL(string: skin.chromas![selectedChroma].fullRender!)) { image in
+                            image.resizable()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .scaledToFit()
+                        .padding()
+                        
+                    }
+                }
+                .frame(height: (geo.size.height / 5.75))
+                
+                if skin.chromas!.count != 1{
                     HStack{
                         Text("Variant")
                         Picker("Video Number", selection: $selectedChroma){
@@ -209,39 +194,6 @@ struct SkinCardDetailView: View {
                         .pickerStyle(SegmentedPickerStyle())
                         .accentColor(.red)
                     }
-                    
-                }
-                else{
-                    ZStack{
-                        // Skin level images
-                        RectangleView(colour: Color(red: 40/255, green: 40/255, blue: 40/255))
-                            .shadow(color: .white, radius: 2)
-                        
-                        if skin.chromas![selectedChroma].displayIcon != nil{
-                            
-                            AsyncImage(url: URL(string: skin.chromas![selectedChroma].displayIcon!)) { image in
-                                image.resizable()
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            .scaledToFit()
-                            .padding()
-                            
-                        }
-                        else if skin.chromas![selectedChroma].fullRender != nil{
-                            
-                            AsyncImage(url: URL(string: skin.chromas![selectedChroma].fullRender!)) { image in
-                                image.resizable()
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            .scaledToFit()
-                            .padding()
-                            
-                        }
-                    }
-                    .frame(height: (geo.size.height / 5.75))
-                    
                 }
                 
 

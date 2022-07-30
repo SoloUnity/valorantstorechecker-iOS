@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SkinCardView: View {
     
-    @EnvironmentObject var model:SkinModel
+    @EnvironmentObject var skinModel : SkinModel
+    @EnvironmentObject var authAPIModel : AuthAPIModel
     @ObservedObject var skin:Skin
     @State var isDetailViewShowing = false
     
@@ -54,8 +55,9 @@ struct SkinCardView: View {
                         
                         Spacer()
                         
-                        // Price
                         HStack{
+                            
+                            // Price Tier Icon
                             if skin.contentTierUuid != nil && showPriceTier{
                                 PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 18)
                             }
@@ -64,30 +66,35 @@ struct SkinCardView: View {
                                     .frame(width:10, height: 10)
                             }
                             
+                            // Skin Name
                             Text(String(skin.displayName))
                                 .foregroundColor(.white)
                                 .font(.subheadline)
                                 .bold()
                                 .shadow(color:.black, radius: 10)
                                 
-                            
-                            
                             Spacer()
                             
+                            // Price
                             if showPrice{
                                 Image("vp")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 18, height: 18)
                                 
-                                if skin.contentTierUuid != nil{
-                                    Text(PriceTier.getLocalPrice(contentTierUuid: skin.contentTierUuid!))
+                                if skin.contentTierUuid != nil {
+                                    Text(PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!))
+                                        .font(.subheadline)
+                                        .foregroundColor(.white)
+                                        .bold()
+                                }else{
+                                    Text("Unknown")
+                                        .font(.subheadline)
                                         .foregroundColor(.white)
                                         .bold()
                                 }
-                                else{
-                                    Text("Unknown")
-                                }
+                                
+                                
                                 
                             }
                             

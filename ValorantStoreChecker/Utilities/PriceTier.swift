@@ -9,8 +9,18 @@ import Foundation
 
 struct PriceTier{
     
+    static func getRemotePrice(authAPIModel: AuthAPIModel ,uuid : String, contentTierUuid : String) -> String {
+        
+        for skin in authAPIModel.storePrice {
+            if uuid == skin.offerID && skin.cost != nil{
+                return String(skin.cost!.price)
+            }
+        }
+        return getLocalPrice(contentTierUuid: contentTierUuid)
+    }
+    
     // Determine price of skin
-    static func getLocalPrice(contentTierUuid:String) -> String{
+    static func getLocalPrice(contentTierUuid:String) -> String {
         switch contentTierUuid{
         case "12683d76-48d7-84a3-4e09-6985794f0445":
             return "875"

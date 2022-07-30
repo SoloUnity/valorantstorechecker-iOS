@@ -15,20 +15,27 @@ struct SettingsView: View {
     @State var dark = false
     @State var isDetailViewShowing = false
     
+    let defaults = UserDefaults.standard
     
     var body: some View {
         
         GeometryReader{ geo in
             
-            VStack(alignment: .leading){
+            VStack(alignment: .leading, spacing: 10){
                 
                 Text("Settings")
                     .font(.title)
                     .bold()
                 
-                Toggle("Wish List Notifications", isOn: $dark)
-                    .tint(.pink)
+                //Toggle("Wish List Notifications", isOn: $dark)
+                //    .tint(.pink)
                      
+                HStack{
+                    Image(systemName: "person.circle")
+                    Text(defaults.string(forKey: "username") ?? "")
+                }
+                
+                
                 Button {
                     
                     authAPIModel.signout()

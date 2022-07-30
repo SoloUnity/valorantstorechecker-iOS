@@ -13,6 +13,8 @@ struct RegionSelectorView: View {
     @State var expand = false
     @State var title = "Select region"
     
+    let defaults = UserDefaults.standard
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10){
             
@@ -39,7 +41,7 @@ struct RegionSelectorView: View {
                 
                 if title != "North America" {
                     Button {
-                        authAPIModel.region = "na"
+                        defaults.set("na", forKey: "region")
                         title = "North America"
                         expand = false
                         
@@ -51,7 +53,7 @@ struct RegionSelectorView: View {
                 
                 if title != "Europe" {
                     Button {
-                        authAPIModel.region = "eu"
+                        defaults.set("eu", forKey: "region")
                         title = "Europe"
                         expand = false
                     } label: {
@@ -62,7 +64,7 @@ struct RegionSelectorView: View {
                 
                 if title != "Asia Pacific" {
                     Button {
-                        authAPIModel.region = "ap"
+                        defaults.set("ap", forKey: "region")
                         title = "Asia Pacific"
                         expand = false
                     } label: {
@@ -73,7 +75,7 @@ struct RegionSelectorView: View {
                 
                 if title != "South Korea" {
                     Button {
-                        authAPIModel.region = "kr"
+                        defaults.set("kr", forKey: "region")
                         title = "South Korea"
                         expand = false
                     } label: {
@@ -84,7 +86,7 @@ struct RegionSelectorView: View {
         }
         .foregroundColor(.white)
         .padding(7)
-        .background(Color.pink)
+        .background(Color.red)
         .cornerRadius(10)
         .animation(.spring(), value: expand)
         .shadow(color:.pink, radius: 2)

@@ -20,7 +20,7 @@ struct AuthRequestBody: Encodable {
     let type = "auth"
     let username : String
     let password : String
-    let remember = "true"
+    let remember = true
 }
 
 struct AuthResponse: Codable {
