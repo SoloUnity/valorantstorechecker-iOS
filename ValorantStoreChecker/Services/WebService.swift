@@ -12,7 +12,7 @@ import Foundation
 struct WebService {
     // Common URLSession
     static var session: URLSession = {
-            let configuration = URLSessionConfiguration.ephemeral
+            let configuration = URLSessionConfiguration.default
             configuration.timeoutIntervalForRequest = 30 // seconds
             configuration.timeoutIntervalForResource = 30 // seconds
             return URLSession(configuration: configuration)
@@ -238,6 +238,36 @@ struct WebService {
         return storePrice
     }
     
+    static func cookieReauth () async throws -> String {
+        guard let url = URL(string: Constants.URL.cookieReauth) else{
+            throw APIError.invalidURL
+        }
+        
+        do{
+            // Create request
+            var cookieReauthRequest = URLRequest(url: url)
+            cookieReauthRequest.httpMethod = "GET"
+            
+            // Get token
+            let (_ , response) = try await WebService.session.data(for: cookieReauthRequest)
+            
+            
+            guard let urlString = response.url?.absoluteString else{
+                throw APIError.noData
+            }
+            
+            // Split uri and obtain access token
+            let split = urlString.split(separator: "=")
+            let token = String(split[1].split(separator: "&")[0])
+            
+            print(token)
+            print ("Reload Sucessful")
+            return token
+            
+        }catch{
+            throw APIError.dataTaskError(error.localizedDescription)
+        }
+    }
 
     /*
     func logout() async{

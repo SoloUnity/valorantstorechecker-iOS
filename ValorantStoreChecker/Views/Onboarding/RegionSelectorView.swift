@@ -28,6 +28,7 @@ struct RegionSelectorView: View {
                 
                 HStack{
                     Text(title)
+                        .padding(.bottom, 4)
                     
                     Image(systemName: expand ? "chevron.up" : "chevron.down")
                         .resizable()

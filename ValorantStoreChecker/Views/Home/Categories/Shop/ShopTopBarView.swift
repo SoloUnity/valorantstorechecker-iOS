@@ -27,11 +27,17 @@ struct ShopTopBarView: View {
             
             HStack {
                 
+                Image(systemName: "clock")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.vertical, 5)
+                    .padding(.leading)
+                    .frame(width: 28, height: 28)
+                
                 Text(countDownString(from: referenceDate))
                             .onAppear(perform: {
                                 _ = self.timer
                             })
-                            .padding(.leading)
                             .font(.caption)
                             
                 
@@ -40,7 +46,7 @@ struct ShopTopBarView: View {
                 Button {
                     authAPIModel.reloading = true
                     Task{
-                        await authAPIModel.login()
+                        await authAPIModel.reload()
                     }
                 } label: {
                     if !authAPIModel.reloading{
@@ -67,7 +73,7 @@ struct ShopTopBarView: View {
                             to: date)
         
         
-        return String(format: "%02dh:%02dm:%02ds",
+        return String(format: "%02d:%02d:%02d",
                       components.hour ?? 00,
                       components.minute ?? 00,
                       components.second ?? 00)

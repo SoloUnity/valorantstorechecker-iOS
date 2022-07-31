@@ -46,12 +46,7 @@ class AuthAPIModel: ObservableObject {
     @MainActor
     func login() async{
         
-        WebService.session = {
-            let configuration = URLSessionConfiguration.ephemeral
-            configuration.timeoutIntervalForRequest = 30 // seconds
-            configuration.timeoutIntervalForResource = 30 // seconds
-            return URLSession(configuration: configuration)
-        }()
+        
         
         do{
             
@@ -125,6 +120,60 @@ class AuthAPIModel: ObservableObject {
     }
     
     @MainActor
+    func reload() async {
+        do{
+            
+            let token = try await WebService.cookieReauth()
+            let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
+            let puuid = try await WebService.getPlayerInfo(token: token)
+            let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
+            
+            let skinModel = SkinModel()
+            
+            var tempStore : [Skin] = []
+            
+            for skin in skinModel.data{
+                for level in skin.levels!{
+                    for item in storefront.SingleItemOffers!{
+                        if item == level.id.description.lowercased(){
+                            tempStore.append(skin)
+                        }
+                    }
+                }
+            }
+
+            self.storefront = tempStore
+            
+            let storefrontEncoder = JSONEncoder()
+            if let encoded = try? storefrontEncoder.encode(tempStore){
+                defaults.set(encoded, forKey: "storefront")
+            }
+            
+            let storePrice = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: defaults.string(forKey: "region") ?? "na")
+            
+            self.storePrice = storePrice
+            
+            let priceEncoder = JSONEncoder()
+            if let encoded = try? priceEncoder.encode(storePrice){
+                defaults.set(encoded, forKey: "storePrice")
+            }
+            
+            let referenceDate = Date() + Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0)
+            
+            defaults.set(referenceDate, forKey: "timeLeft")
+            
+            self.reloading = false
+            
+            
+            
+        }catch{
+
+            self.reloading = false
+            print(error.localizedDescription)
+        }
+    }
+    
+    @MainActor
     func signout() {
         // Create a new session
         WebService.session = {
@@ -133,18 +182,18 @@ class AuthAPIModel: ObservableObject {
             configuration.timeoutIntervalForResource = 30 // seconds
             return URLSession(configuration: configuration)
         }()
-        
+        // Reset user defaults
+        self.isAuthenticating = false
+        self.isAuthenticated = false
         self.username = ""
         self.password = ""
         
-        // Reset UserDefaults
         defaults.removeObject(forKey: "username")
         defaults.removeObject(forKey: "password")
         defaults.removeObject(forKey: "authentication")
         defaults.removeObject(forKey: "storefront")
         defaults.removeObject(forKey: "storePrice")
         
-        self.isAuthenticated = false
        
     }
     

@@ -27,7 +27,7 @@ struct HomeView: View {
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
                     Image(systemName: "list.bullet")
-                    Text("Skins Index")
+                    Text("Skin Index")
                 }
                 .tag(1)
             
@@ -41,13 +41,13 @@ struct HomeView: View {
                 .tag(2)
              */
             
-            SettingsView()
+            AccountView()
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
-                    Image(systemName: "gear")
-                    Text("Settings")
+                    Image(systemName: "person.circle")
+                    Text("Account")
                 }
-                .tag(2)
+                .tag(3)
             
         }
         .accentColor(.white)

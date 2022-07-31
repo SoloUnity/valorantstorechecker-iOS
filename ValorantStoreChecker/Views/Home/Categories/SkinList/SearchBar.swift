@@ -10,19 +10,19 @@ import SwiftUI
 struct SearchBar: View {
     
     @Binding var text: String
-     
     @State private var isEditing = false
  
     var body: some View {
         HStack {
  
             TextField("Search ...", text: $text)
-                .disableAutocorrection(true)
+                .autocorrectionDisabled()
                 .padding(7)
                 .padding(.horizontal, 25)
                 .background(Constants.cardGrey)
                 .cornerRadius(8)
                 .shadow(color: .white, radius: 2)
+                .submitLabel(.search)
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
@@ -32,6 +32,9 @@ struct SearchBar: View {
                  
                         if isEditing {
                             Button(action: {
+                                // Dismiss keyboard
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                self.isEditing = false
                                 self.text = ""
                             }) {
                                 Image(systemName: "multiply.circle.fill")
@@ -46,21 +49,6 @@ struct SearchBar: View {
                     self.isEditing = true
                 }
             
- 
-            if isEditing {
-                Button(action: {
-                    // Dismiss keyboard
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                    
-                    self.isEditing = false
-                    self.text = ""
- 
-                }) {
-                    Text("Cancel")
-                }
-                .padding(.trailing, 10)
-                .transition(.scale)
-            }
         }
     }
 }

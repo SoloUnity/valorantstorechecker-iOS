@@ -38,9 +38,7 @@ struct ShopView: View {
                         
                         
                         VStack(spacing: 13) {
-                            
-                            ShopTopBarView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
-                            
+
                             // Display ShopStuff
                             if authAPIModel.storefront.isEmpty{
                                 
@@ -56,6 +54,7 @@ struct ShopView: View {
                                 
                             }
                             else{
+                                ShopTopBarView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
                                 
                                 ForEach(authAPIModel.storefront) { skin in
                                     
@@ -63,6 +62,7 @@ struct ShopView: View {
                                         .frame(height: (UIScreen.main.bounds.height / 7.4))
                                     
                                 }
+                                
                             }
                             
                         }

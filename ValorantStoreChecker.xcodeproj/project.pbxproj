@@ -24,7 +24,7 @@
 		8B62AFCF2883A0FD0070173F /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFCE2883A0FD0070173F /* ShopView.swift */; };
 		8B62AFD12883A1230070173F /* SkinCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD02883A1230070173F /* SkinCardView.swift */; };
 		8B62AFD72883B4E10070173F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD62883B4E10070173F /* HomeView.swift */; };
-		8B62AFDA2883B53B0070173F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD92883B53B0070173F /* SettingsView.swift */; };
+		8B62AFDA2883B53B0070173F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD92883B53B0070173F /* AccountView.swift */; };
 		8B65F843288C9D94004282DD /* AZVideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 8B65F842288C9D94004282DD /* AZVideoPlayer */; };
 		8B65F84A288CA608004282DD /* PriceTierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B65F849288CA608004282DD /* PriceTierView.swift */; };
 		8B65F850288CCFF0004282DD /* PriceTier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B65F84F288CCFF0004282DD /* PriceTier.swift */; };
@@ -68,7 +68,7 @@
 		8B62AFCE2883A0FD0070173F /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		8B62AFD02883A1230070173F /* SkinCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCardView.swift; sourceTree = "<group>"; };
 		8B62AFD62883B4E10070173F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		8B62AFD92883B53B0070173F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8B62AFD92883B53B0070173F /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		8B65F849288CA608004282DD /* PriceTierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTierView.swift; sourceTree = "<group>"; };
 		8B65F84F288CCFF0004282DD /* PriceTier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTier.swift; sourceTree = "<group>"; };
 		8B682C7F2890C176003A3B9C /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 		8B9A839028862439009CE268 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				8B62AFD92883B53B0070173F /* SettingsView.swift */,
+				8B62AFD92883B53B0070173F /* AccountView.swift */,
 				8B62AFCD2883A0DC0070173F /* Shop */,
 				8BF4D761288594E5000404D8 /* SkinList */,
 				8B9A8393288630D8009CE268 /* WishList */,
@@ -414,7 +414,7 @@
 				8B65F84A288CA608004282DD /* PriceTierView.swift in Sources */,
 				8B29E2082881CCD10081F69A /* RectangleView.swift in Sources */,
 				8B9A83752885A426009CE268 /* SkinListView.swift in Sources */,
-				8B62AFDA2883B53B0070173F /* SettingsView.swift in Sources */,
+				8B62AFDA2883B53B0070173F /* AccountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -525,7 +525,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -559,7 +559,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -595,7 +595,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

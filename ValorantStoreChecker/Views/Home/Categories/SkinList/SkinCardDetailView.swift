@@ -100,10 +100,10 @@ struct SkinCardDetailView: View {
                     
                     
                         //let url = URL(string: skin.levels![selectedLevel].streamedVideo!)
-                    
+                        
                         AZVideoPlayer(player: player)
                             .cornerRadius(10)
-                            .aspectRatio(16/9, contentMode: .fit)
+                            .aspectRatio(CGSize(width: 1920, height: 1080), contentMode: .fit)
                             .shadow(color: .white, radius: 2)
                             .onAppear{
                                 if player.currentItem == nil {
@@ -180,7 +180,7 @@ struct SkinCardDetailView: View {
                         
                     }
                 }
-                
+                .frame(height: (geo.size.height / 5.75))
                 
                 if skin.chromas!.count != 1{
                     HStack{
