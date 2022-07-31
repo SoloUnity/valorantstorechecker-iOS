@@ -45,7 +45,7 @@ struct SkinCardDetailView: View {
                 // MARK: Price
                 ZStack{
                     
-                    RectangleView(colour: Color(red: 40/255, green: 40/255, blue: 40/255))
+                    RectangleView(colour: Constants.cardGrey)
                         .shadow(color: .white, radius: 2)
                     
                     HStack{
@@ -100,7 +100,7 @@ struct SkinCardDetailView: View {
                     
                     
                         //let url = URL(string: skin.levels![selectedLevel].streamedVideo!)
-                        
+                    
                         AZVideoPlayer(player: player)
                             .cornerRadius(10)
                             .aspectRatio(16/9, contentMode: .fit)
@@ -154,7 +154,7 @@ struct SkinCardDetailView: View {
                 // MARK: Skin Variants / Chromas
                 ZStack{
                     // Skin level images
-                    RectangleView(colour: Color(red: 40/255, green: 40/255, blue: 40/255))
+                    RectangleView(colour: Constants.cardGrey)
                         .shadow(color: .white, radius: 2)
                     
                     if skin.chromas![selectedChroma].displayIcon != nil{
@@ -180,7 +180,7 @@ struct SkinCardDetailView: View {
                         
                     }
                 }
-                .frame(height: (geo.size.height / 5.75))
+                
                 
                 if skin.chromas!.count != 1{
                     HStack{

@@ -27,35 +27,31 @@ struct ShopView: View {
                     LogoView()
                         .frame(width: geo.size.width/4)
                                   
-                    ScrollView{
+                    ScrollView(showsIndicators: false) {
+                        
                         
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                             Task{
                                 await authAPIModel.login()
                             }
                         }
-
+                        
+                        
                         VStack(spacing: 13) {
                             
-                            ShopTopBarView(referenceDate: Date() + Double(defaults.integer(forKey: "timeLeft")))
+                            ShopTopBarView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
                             
                             // Display ShopStuff
                             if authAPIModel.storefront.isEmpty{
                                 
-                                VStack{
-                                    Spacer()
-                                    
-                                    HStack{
-                                        
-                                        Spacer()
-                                        
-                                        ProgressView()
-                                        
-                                        Spacer()
-                                        
-                                    }
+                                HStack{
                                     
                                     Spacer()
+                                    
+                                    ProgressView()
+                                    
+                                    Spacer()
+                                    
                                 }
                                 
                             }
@@ -64,7 +60,7 @@ struct ShopView: View {
                                 ForEach(authAPIModel.storefront) { skin in
                                     
                                     SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
-                                        .frame(height: (UIScreen.main.bounds.height / 7.25))
+                                        .frame(height: (UIScreen.main.bounds.height / 7.4))
                                     
                                 }
                             }

@@ -13,7 +13,7 @@ struct CircleView: View {
     var body: some View {
         Circle()
             .foregroundColor(colour)
-            .shadow(color: Color(.sRGB, red: 1, green: 0, blue: 0, opacity: 0.5), radius: 5)
+            
     }
 }
 

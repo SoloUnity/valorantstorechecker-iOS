@@ -13,6 +13,8 @@ class AuthAPIModel: ObservableObject {
     @Published var storePrice : [Offer] = []
     @Published var isAuthenticated: Bool = false
     @Published var failedLogin : Bool = false
+    @Published var isAuthenticating : Bool = false
+    @Published var reloading : Bool = false
     
     var username: String = ""
     var password: String = ""
@@ -94,17 +96,20 @@ class AuthAPIModel: ObservableObject {
                 defaults.set(encoded, forKey: "storePrice")
             }
             
-            defaults.set(storefront.SingleItemOffersRemainingDurationInSeconds, forKey: "timeLeft")
+            let referenceDate = Date() + Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0)
             
+            defaults.set(referenceDate, forKey: "timeLeft")
+            
+            self.isAuthenticating = false
+            self.reloading = false
             self.isAuthenticated = true
             defaults.set(self.isAuthenticated, forKey: "authentication")
-            
-            self.failedLogin = false
             
             self.username = ""
             self.password = ""
             
         }catch{
+            self.isAuthenticating = false
             self.failedLogin = true
             self.username = ""
             self.password = ""
@@ -112,6 +117,8 @@ class AuthAPIModel: ObservableObject {
             defaults.removeObject(forKey: "username")
             defaults.removeObject(forKey: "password")
             defaults.removeObject(forKey: "authentication")
+            defaults.removeObject(forKey: "storefront")
+            defaults.removeObject(forKey: "storePrice")
             
             print(error.localizedDescription)
         }

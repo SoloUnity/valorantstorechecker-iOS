@@ -13,8 +13,7 @@ struct SkinCardView: View {
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @ObservedObject var skin:Skin
     @State var isDetailViewShowing = false
-    
-    var colour:Color = Color(red: 40/255, green: 40/255, blue: 40/255)
+
     var showPrice = false
     var showPriceTier = false
     var price = ""
@@ -25,7 +24,7 @@ struct SkinCardView: View {
             isDetailViewShowing = true
         } label: {
             ZStack{
-                RectangleView(colour: colour)
+                RectangleView(colour: Constants.cardGrey)
                     .shadow(color: .white, radius: 2)
                     
                 ZStack{
@@ -72,7 +71,8 @@ struct SkinCardView: View {
                                 .font(.subheadline)
                                 .bold()
                                 .shadow(color:.black, radius: 10)
-                                
+                                .lineLimit(1)
+                            
                             Spacer()
                             
                             // Price
@@ -93,9 +93,6 @@ struct SkinCardView: View {
                                         .foregroundColor(.white)
                                         .bold()
                                 }
-                                
-                                
-                                
                             }
                             
                         }

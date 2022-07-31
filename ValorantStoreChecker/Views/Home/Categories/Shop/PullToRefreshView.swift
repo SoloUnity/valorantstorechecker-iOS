@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PullToRefresh: View {
     
+    @EnvironmentObject var authAPIModel : AuthAPIModel
     var coordinateSpaceName: String
     var onRefresh: ()->Void
     
@@ -20,6 +21,7 @@ struct PullToRefresh: View {
                 Spacer()
                     .onAppear {
                         needRefresh = true
+                        authAPIModel.reloading = true
                     }
             } else if (geo.frame(in: .named(coordinateSpaceName)).maxY < 10) {
                 Spacer()

@@ -11,68 +11,73 @@ struct LoginView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     
-        @State private var agreedToTerms: Bool = false
+    @State private var agreedToTerms: Bool = false
     
-        var body: some View {
-            
-            
-            GeometryReader{ geo in
-                VStack(spacing: 15){
-                    
-                    LogoView()
-                        .frame(width: geo.size.width/4)
-                    
-                    if !authAPIModel.failedLogin{
-                        HStack{
-                            Text("Login to your Riot Account")
-                                .bold()
-                            Button {
-                                                        
-                            } label: {
-                                Image(systemName: "info.circle")
-                            }
-                        }
-                        
-                    }else{
-                        Text("Invalid Credentials")
+    var body: some View {
+        
+        
+        GeometryReader{ geo in
+            VStack(spacing: 15){
+                
+                LogoView()
+                    .frame(width: geo.size.width/4)
+                    .padding(.top, 30)
+                
+                
+                
+                if !authAPIModel.failedLogin{
+                    HStack{
+                        Text("Login to your Riot Account")
                             .bold()
-                    }
-                    
-                    
-                    LoginBoxView()
-                    
-                    RegionSelectorView()
-                    
-                    Spacer()
-                    
-                    
-                    // Test Button
-                    Button {
-                        Task{
-                            authAPIModel.username = "rintohsakalover69"
-                            authAPIModel.password = "Banana11!!!"
-                            await authAPIModel.login()
-                        }
-                        
-                        
-                    } label: {
-                        ZStack{
-                            CircleView(colour: .red)
-                                .shadow(color:.pink, radius: 2)
+                        Button {
                             
-                            Text("Test")
-                                .foregroundColor(.white)
-                                
+                        } label: {
+                            Image(systemName: "info.circle")
                         }
-                        .frame(width: 60, height: 60)
                     }
                     
-                    // Log in button
+                }else{
+                    Text("Invalid Credentials")
+                        .bold()
+                }
+                
+                
+                
+                LoginBoxView()
+                
+                //Terms and Conditions
+                HStack{
                     Button {
-                        Task{
-                            await authAPIModel.login()
-                        }       
+                        
                     } label: {
+                        Text("I read the terms and conditions.")
+                            .foregroundColor(.white)
+                    }
+                    
+                    // Checkbox
+                    Button {
+                        agreedToTerms.toggle()
+                    } label: {
+                        HStack{
+                            Image(systemName: agreedToTerms ? "checkmark.square" : "square")
+                                .foregroundColor(.red)
+                        }
+                    }
+                }
+                
+                RegionSelectorView()
+                
+                Spacer()
+                
+                // Log in button
+                Button {
+                    authAPIModel.failedLogin = false
+                    authAPIModel.isAuthenticating = true
+                    Task{
+                        await authAPIModel.login()
+                    }
+                } label: {
+                    if authAPIModel.isAuthenticating == false {
                         ZStack{
                             CircleView(colour: .red)
                                 .shadow(color:.pink, radius: 2)
@@ -82,41 +87,28 @@ struct LoginView: View {
                                 .scaledToFit()
                                 .padding(15)
                                 .foregroundColor(.white)
-                                
+                            
                         }
                         .frame(width: 60, height: 60)
                     }
-                    
-                    //Terms and Conditions
-                    /*
-                     HStack{
-                         // TODO: Link to terms and conditions
-                         Button {
-                             
-                         } label: {
-                             Text("I have read the terms and conditions")
-                         }
-
-                         // Checkbox
-                         Button {
-                             agreedToTerms.toggle()
-                         } label: {
-                             HStack{
-                                 Image(systemName: agreedToTerms ? "checkmark.square" : "square")
-                                     .foregroundColor(.red)
-                             }
-                         }
-                     }.padding()
-                     */
-                    
+                    else{
+                        ProgressView()
+                            .frame(width: 60, height: 60)
+                    }
                     
                 }
-                .padding(50)
+                
+                
+                
+                
+                
             }
-            .ignoresSafeArea(.all, edges: .top)
-            .background(Color(red: 28/255, green: 28/255, blue: 30/255))
-            .preferredColorScheme(.dark)
+            .padding(50)
         }
+        .ignoresSafeArea(.all, edges: .top)
+        .background(Constants.bgGrey)
+        .preferredColorScheme(.dark)
+    }
     
 }
 

@@ -20,7 +20,7 @@ struct SearchBar: View {
                 .disableAutocorrection(true)
                 .padding(7)
                 .padding(.horizontal, 25)
-                .background(Color(red: 40/255, green: 40/255, blue: 40/255))
+                .background(Constants.cardGrey)
                 .cornerRadius(8)
                 .shadow(color: .white, radius: 2)
                 .overlay(

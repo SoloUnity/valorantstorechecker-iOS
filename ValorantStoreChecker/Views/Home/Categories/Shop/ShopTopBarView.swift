@@ -12,8 +12,6 @@ struct ShopTopBarView: View {
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @State var nowDate: Date = Date()
     
-    var colour:Color = Color(red: 40/255, green: 40/255, blue: 40/255)
-    
     let referenceDate: Date
     var timer: Timer {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
@@ -24,7 +22,7 @@ struct ShopTopBarView: View {
     var body: some View {
         
         ZStack {
-            RectangleView(colour: colour)
+            RectangleView(colour: Constants.cardGrey)
                 .shadow(color: .white, radius: 2)
             
             HStack {
@@ -40,14 +38,21 @@ struct ShopTopBarView: View {
                 Spacer()
                 
                 Button {
+                    authAPIModel.reloading = true
                     Task{
                         await authAPIModel.login()
                     }
                 } label: {
-                    Image(systemName: "arrow.clockwise")
-                        .foregroundColor(.red)
-                        .padding(.vertical, 5)
-                        .padding(.trailing)
+                    if !authAPIModel.reloading{
+                        Image(systemName: "arrow.clockwise")
+                            .padding(.vertical, 5)
+                            .padding(.trailing)
+                    }else{
+                        ProgressView()
+                            .padding(.vertical, 5)
+                            .padding(.trailing)
+                    }
+                    
                 }
             }
         }

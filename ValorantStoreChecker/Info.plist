@@ -7,12 +7,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 		<key>NSExceptionDomains</key>
-		<dict>
-			<key>s3.valorantstore.net</key>
-			<string></string>
-			<key>valorant-api.com</key>
-			<string></string>
-		</dict>
+		<dict/>
 	</dict>
 </dict>
 </plist>

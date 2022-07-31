@@ -11,20 +11,19 @@ struct LaunchView: View {
     
     @EnvironmentObject var model:SkinModel
     @EnvironmentObject var loginModel:AuthAPIModel
+
     
     let defaults = UserDefaults.standard
     
     var body: some View {
         
-        
-        
+        // Displays login if the user is not authenticated
         if !loginModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
             LoginView()
-                .animation(.easeInOut, value: loginModel.isAuthenticated)
         }
         else{
             HomeView()
-                .animation(.easeInOut, value: loginModel.isAuthenticated)
+              
         }
             
         
