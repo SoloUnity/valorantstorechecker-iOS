@@ -11,7 +11,6 @@ struct LoginBoxView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     
-    
     var body: some View {
         VStack{
             // Username

@@ -8,6 +8,7 @@
 
 
 import Foundation
+import Keychain
 
 struct WebService {
     // Common URLSession
@@ -36,7 +37,6 @@ struct WebService {
             
             // Get cookies
             let (_ , response) = try await WebService.session.data(for: cookieRequest)
-            
             
             // Verify server request
             guard
@@ -71,21 +71,6 @@ struct WebService {
             // Get token
             let (data , response) = try await WebService.session.data(for: authRequest)
             
-            // The really stupid way of obtaining ssid and tdid
-            let defaults = UserDefaults.standard
-            
-            let httpResponse2 = response as? HTTPURLResponse
-            let field = httpResponse2!.value(forHTTPHeaderField: "Set-Cookie")
-            let fieldString = String(field!)
-            let fieldStringList = fieldString.split(separator: "=")
-            let tdid = fieldStringList[1].split(separator: ";")[0]
-            let ssid = fieldStringList[12].split(separator: ";")[0]
-            
-            defaults.set(tdid, forKey: "tdid")
-            defaults.set(ssid, forKey: "ssid")
-
-            
-            
             // Verify server request
             guard
                 let httpResponse = response as? HTTPURLResponse,
@@ -93,6 +78,20 @@ struct WebService {
             else{
                 throw APIError.invalidResponseStatus
             }
+            
+            // The really stupid way of obtaining ssid and tdid for cookieReauth, but it works so I'm not touching it
+            // TODO: Make this in a way where a change on rito's end wont break it
+            let keychain = Keychain()
+            
+            let field = httpResponse.value(forHTTPHeaderField: "Set-Cookie")
+            let fieldString = String(field!)
+            let fieldStringList = fieldString.split(separator: "=")
+            let tdid = fieldStringList[1].split(separator: ";")[0]
+            let ssid = fieldStringList[12].split(separator: ";")[0]
+            
+            // Securing with keychain
+            let _ = keychain.save(tdid, forKey: "tdid")
+            let _ = keychain.save(ssid, forKey: "ssid")
             
             guard let authResponse = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
                 throw APIError.invalidCredentials
@@ -103,7 +102,7 @@ struct WebService {
             }
             
             
-            // Split uri and obtain access token
+            // TODO: Make this in a way where a change on rito's end wont break it
             let split = uri.split(separator: "=")
             let token = String(split[1].split(separator: "&")[0])
 
@@ -263,13 +262,11 @@ struct WebService {
         
         do{
 
-            let defaults = UserDefaults.standard
+            let keychain = Keychain()
 
-            try await setCookie(named: "tdid", to: defaults.string(forKey: "tdid")!)
-            try await setCookie(named: "ssid", to: defaults.string(forKey: "ssid")!)
+            try await setCookie(named: "tdid", to: keychain.value(forKey: "tdid") as? String ?? "")
+            try await setCookie(named: "ssid", to: keychain.value(forKey: "ssid") as? String ?? "")
 
-            
-            
             // Create request
             var cookieReauthRequest = URLRequest(url: url)
             cookieReauthRequest.httpMethod = "GET"

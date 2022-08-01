@@ -39,7 +39,7 @@
 		8B9A838F28861C78009CE268 /* UltraEditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A838E28861C78009CE268 /* UltraEditionView.swift */; };
 		8B9A8395288630F0009CE268 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A8394288630F0009CE268 /* WishListView.swift */; };
 		8B9A839828863E51009CE268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9A839728863E51009CE268 /* LaunchScreen.storyboard */; };
-		8BAB20B328972F8B0041A5BB /* ValorantAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 8BAB20B228972F8B0041A5BB /* ValorantAPI */; };
+		8BAB20BE2897616D0041A5BB /* Keychain in Frameworks */ = {isa = PBXBuildFile; productRef = 8BAB20BD2897616D0041A5BB /* Keychain */; };
 		8BB00EC4288E3D41001AE90A /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC3288E3D41001AE90A /* WebService.swift */; };
 		8BB00EC7288E418E001AE90A /* AuthAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC6288E418E001AE90A /* AuthAPIModel.swift */; };
 		8BB00EC9288E4679001AE90A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC8288E4679001AE90A /* Store.swift */; };
@@ -98,8 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BAB20B328972F8B0041A5BB /* ValorantAPI in Frameworks */,
 				8B65F843288C9D94004282DD /* AZVideoPlayer in Frameworks */,
+				8BAB20BE2897616D0041A5BB /* Keychain in Frameworks */,
 				8BE6111C28846E1700E8BDD6 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,7 +130,6 @@
 				8B29E1EE2881C87D0081F69A /* ValorantStoreCheckerApp.swift */,
 				8B29E1FC2881C9850081F69A /* Views */,
 				8B29E1FD2881C9890081F69A /* ViewModels */,
-				8BB00EC5288E416F001AE90A /* Services */,
 				8B29E1FE2881C99A0081F69A /* Models */,
 				8B65F84E288CCFD6004282DD /* Utilities */,
 				8B33A5C228846B5400BCB1F2 /* Ressources */,
@@ -163,6 +162,7 @@
 			children = (
 				8B29E1FF2881CA000081F69A /* SkinModel.swift */,
 				8BB00EC6288E418E001AE90A /* AuthAPIModel.swift */,
+				8BB00EC5288E416F001AE90A /* Services */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -323,7 +323,7 @@
 			name = ValorantStoreChecker;
 			packageProductDependencies = (
 				8B65F842288C9D94004282DD /* AZVideoPlayer */,
-				8BAB20B228972F8B0041A5BB /* ValorantAPI */,
+				8BAB20BD2897616D0041A5BB /* Keychain */,
 			);
 			productName = ValorantStoreChecker;
 			productReference = 8B29E1EB2881C87D0081F69A /* ValorantStoreChecker.app */;
@@ -355,7 +355,7 @@
 			mainGroup = 8B29E1E22881C87D0081F69A;
 			packageReferences = (
 				8B65F841288C9D94004282DD /* XCRemoteSwiftPackageReference "AZVideoPlayer" */,
-				8BAB20B128972F8A0041A5BB /* XCRemoteSwiftPackageReference "ValorantAPI" */,
+				8BAB20BC2897616D0041A5BB /* XCRemoteSwiftPackageReference "Keychain" */,
 			);
 			productRefGroup = 8B29E1EC2881C87D0081F69A /* Products */;
 			projectDirPath = "";
@@ -643,11 +643,11 @@
 				kind = branch;
 			};
 		};
-		8BAB20B128972F8A0041A5BB /* XCRemoteSwiftPackageReference "ValorantAPI" */ = {
+		8BAB20BC2897616D0041A5BB /* XCRemoteSwiftPackageReference "Keychain" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/juliand665/ValorantAPI";
+			repositoryURL = "https://github.com/GroupeMINASTE/Keychain.swift";
 			requirement = {
-				branch = main;
+				branch = master;
 				kind = branch;
 			};
 		};
@@ -659,10 +659,10 @@
 			package = 8B65F841288C9D94004282DD /* XCRemoteSwiftPackageReference "AZVideoPlayer" */;
 			productName = AZVideoPlayer;
 		};
-		8BAB20B228972F8B0041A5BB /* ValorantAPI */ = {
+		8BAB20BD2897616D0041A5BB /* Keychain */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8BAB20B128972F8A0041A5BB /* XCRemoteSwiftPackageReference "ValorantAPI" */;
-			productName = ValorantAPI;
+			package = 8BAB20BC2897616D0041A5BB /* XCRemoteSwiftPackageReference "Keychain" */;
+			productName = Keychain;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

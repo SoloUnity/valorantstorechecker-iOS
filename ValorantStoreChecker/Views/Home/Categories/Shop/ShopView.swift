@@ -32,7 +32,7 @@ struct ShopView: View {
                         
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                             Task{
-                                await authAPIModel.login()
+                                await authAPIModel.reload()
                             }
                         }
                         

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Keychain
 
 class AuthAPIModel: ObservableObject {
     
@@ -20,7 +21,7 @@ class AuthAPIModel: ObservableObject {
     var password: String = ""
     
     let defaults = UserDefaults.standard
-    
+    let keychain = Keychain()
         
     init() {
         
@@ -50,15 +51,15 @@ class AuthAPIModel: ObservableObject {
         
         
         do{
-
-            if defaults.string(forKey: "username") == nil || defaults.string(forKey: "password") == nil {
-                defaults.set(self.username, forKey: "username")
-                defaults.set(self.password, forKey: "password")
-            }
-                
-            try await WebService.getCookies()
             
-            let token = try await WebService.getToken(username: defaults.string(forKey: "username") ?? "", password: defaults.string(forKey: "password") ?? "")
+            // Save the username for further display
+            if defaults.string(forKey: "username") == nil{
+                defaults.set(self.username, forKey: "username")
+            }
+            
+            try await WebService.getCookies()
+            let token = try await WebService.getToken(username: defaults.string(forKey: "username") ?? "", password: self.password)
+            self.password = String(repeating: "a", count: (self.password.count)) // Clear password from memory and put in a placeholder
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
             let puuid = try await WebService.getPlayerInfo(token: token)
             let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
@@ -112,10 +113,11 @@ class AuthAPIModel: ObservableObject {
             self.password = ""
             
             defaults.removeObject(forKey: "username")
-            defaults.removeObject(forKey: "password")
             defaults.removeObject(forKey: "authentication")
             defaults.removeObject(forKey: "storefront")
             defaults.removeObject(forKey: "storePrice")
+            let _ = keychain.remove(forKey: "ssid")
+            let _ = keychain.remove(forKey: "tdid")
             
             print(error.localizedDescription)
         }
@@ -191,26 +193,9 @@ class AuthAPIModel: ObservableObject {
         self.password = ""
         
         defaults.removeObject(forKey: "username")
-        defaults.removeObject(forKey: "password")
         defaults.removeObject(forKey: "authentication")
         defaults.removeObject(forKey: "storefront")
         defaults.removeObject(forKey: "storePrice")
         
-       
     }
-    
-    private func cookie(named name: String) -> String? {
-        WebService.session.configuration.httpCookieStorage!.cookies!
-            .first { $0.name == name }?.value
-    }
-    
-    private func setCookie(named name: String, to value: String) {
-        WebService.session.configuration.httpCookieStorage!.setCookie(.init(properties: [
-            .name: name,
-            .value: value,
-            .path: "/",
-            .domain: "auth.riotgames.com",
-        ])!)
-    }
-    
 }
