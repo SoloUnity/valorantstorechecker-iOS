@@ -39,6 +39,7 @@
 		8B9A838F28861C78009CE268 /* UltraEditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A838E28861C78009CE268 /* UltraEditionView.swift */; };
 		8B9A8395288630F0009CE268 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A8394288630F0009CE268 /* WishListView.swift */; };
 		8B9A839828863E51009CE268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9A839728863E51009CE268 /* LaunchScreen.storyboard */; };
+		8BAB20B328972F8B0041A5BB /* ValorantAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 8BAB20B228972F8B0041A5BB /* ValorantAPI */; };
 		8BB00EC4288E3D41001AE90A /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC3288E3D41001AE90A /* WebService.swift */; };
 		8BB00EC7288E418E001AE90A /* AuthAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC6288E418E001AE90A /* AuthAPIModel.swift */; };
 		8BB00EC9288E4679001AE90A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC8288E4679001AE90A /* Store.swift */; };
@@ -97,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BAB20B328972F8B0041A5BB /* ValorantAPI in Frameworks */,
 				8B65F843288C9D94004282DD /* AZVideoPlayer in Frameworks */,
 				8BE6111C28846E1700E8BDD6 /* AVKit.framework in Frameworks */,
 			);
@@ -321,6 +323,7 @@
 			name = ValorantStoreChecker;
 			packageProductDependencies = (
 				8B65F842288C9D94004282DD /* AZVideoPlayer */,
+				8BAB20B228972F8B0041A5BB /* ValorantAPI */,
 			);
 			productName = ValorantStoreChecker;
 			productReference = 8B29E1EB2881C87D0081F69A /* ValorantStoreChecker.app */;
@@ -352,6 +355,7 @@
 			mainGroup = 8B29E1E22881C87D0081F69A;
 			packageReferences = (
 				8B65F841288C9D94004282DD /* XCRemoteSwiftPackageReference "AZVideoPlayer" */,
+				8BAB20B128972F8A0041A5BB /* XCRemoteSwiftPackageReference "ValorantAPI" */,
 			);
 			productRefGroup = 8B29E1EC2881C87D0081F69A /* Products */;
 			projectDirPath = "";
@@ -639,6 +643,14 @@
 				kind = branch;
 			};
 		};
+		8BAB20B128972F8A0041A5BB /* XCRemoteSwiftPackageReference "ValorantAPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/juliand665/ValorantAPI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -646,6 +658,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8B65F841288C9D94004282DD /* XCRemoteSwiftPackageReference "AZVideoPlayer" */;
 			productName = AZVideoPlayer;
+		};
+		8BAB20B228972F8B0041A5BB /* ValorantAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BAB20B128972F8A0041A5BB /* XCRemoteSwiftPackageReference "ValorantAPI" */;
+			productName = ValorantAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

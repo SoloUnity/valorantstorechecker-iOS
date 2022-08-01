@@ -21,6 +21,7 @@ class AuthAPIModel: ObservableObject {
     
     let defaults = UserDefaults.standard
     
+        
     init() {
         
         // TODO: Learn coredata and not do this bozo shit
@@ -49,13 +50,14 @@ class AuthAPIModel: ObservableObject {
         
         
         do{
-            
+
             if defaults.string(forKey: "username") == nil || defaults.string(forKey: "password") == nil {
                 defaults.set(self.username, forKey: "username")
                 defaults.set(self.password, forKey: "password")
             }
                 
             try await WebService.getCookies()
+            
             let token = try await WebService.getToken(username: defaults.string(forKey: "username") ?? "", password: defaults.string(forKey: "password") ?? "")
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
             let puuid = try await WebService.getPlayerInfo(token: token)
@@ -195,6 +197,20 @@ class AuthAPIModel: ObservableObject {
         defaults.removeObject(forKey: "storePrice")
         
        
+    }
+    
+    private func cookie(named name: String) -> String? {
+        WebService.session.configuration.httpCookieStorage!.cookies!
+            .first { $0.name == name }?.value
+    }
+    
+    private func setCookie(named name: String, to value: String) {
+        WebService.session.configuration.httpCookieStorage!.setCookie(.init(properties: [
+            .name: name,
+            .value: value,
+            .path: "/",
+            .domain: "auth.riotgames.com",
+        ])!)
     }
     
 }

@@ -12,12 +12,11 @@ import Foundation
 struct WebService {
     // Common URLSession
     static var session: URLSession = {
-            let configuration = URLSessionConfiguration.default
-            configuration.timeoutIntervalForRequest = 30 // seconds
-            configuration.timeoutIntervalForResource = 30 // seconds
-            return URLSession(configuration: configuration)
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.timeoutIntervalForRequest = 30 // seconds
+        configuration.timeoutIntervalForResource = 30 // seconds
+        return URLSession(configuration: configuration)
     }()
-    
     
     static func getCookies() async throws -> Void {
         guard let url = URL(string: Constants.URL.auth) else{
@@ -26,6 +25,7 @@ struct WebService {
         
         
         do{
+            
             let cookieBody = AuthCookies()
             
             // Create request
@@ -37,6 +37,7 @@ struct WebService {
             // Get cookies
             let (_ , response) = try await WebService.session.data(for: cookieRequest)
             
+            
             // Verify server request
             guard
                 let httpResponse = response as? HTTPURLResponse,
@@ -44,6 +45,8 @@ struct WebService {
             else{
                 throw APIError.invalidResponseStatus
             }
+            
+            
             
         }catch{
             throw APIError.dataTaskError(error.localizedDescription)
@@ -67,6 +70,21 @@ struct WebService {
             
             // Get token
             let (data , response) = try await WebService.session.data(for: authRequest)
+            
+            // The really stupid way of obtaining ssid and tdid
+            let defaults = UserDefaults.standard
+            
+            let httpResponse2 = response as? HTTPURLResponse
+            let field = httpResponse2!.value(forHTTPHeaderField: "Set-Cookie")
+            let fieldString = String(field!)
+            let fieldStringList = fieldString.split(separator: "=")
+            let tdid = fieldStringList[1].split(separator: ";")[0]
+            let ssid = fieldStringList[12].split(separator: ";")[0]
+            
+            defaults.set(tdid, forKey: "tdid")
+            defaults.set(ssid, forKey: "ssid")
+
+            
             
             // Verify server request
             guard
@@ -244,6 +262,14 @@ struct WebService {
         }
         
         do{
+
+            let defaults = UserDefaults.standard
+
+            try await setCookie(named: "tdid", to: defaults.string(forKey: "tdid")!)
+            try await setCookie(named: "ssid", to: defaults.string(forKey: "ssid")!)
+
+            
+            
             // Create request
             var cookieReauthRequest = URLRequest(url: url)
             cookieReauthRequest.httpMethod = "GET"
@@ -269,11 +295,16 @@ struct WebService {
         }
     }
 
-    /*
-    func logout() async{
-        await WebService.session.flush()
+    
+    static func setCookie(named name: String, to value: String) async throws -> Void{
+        WebService.session.configuration.httpCookieStorage!.setCookie(.init(properties: [
+            .name: name,
+            .value: value,
+            .path: "/",
+            .domain: "auth.riotgames.com",
+        ])!)
     }
-     */
+
      
 }
 

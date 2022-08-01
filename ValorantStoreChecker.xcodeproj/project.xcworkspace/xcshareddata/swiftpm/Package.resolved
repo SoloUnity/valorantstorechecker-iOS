@@ -1,12 +1,57 @@
 {
   "pins" : [
     {
+      "identity" : "arraybuilder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/juliand665/ArrayBuilder",
+      "state" : {
+        "revision" : "f713ffd1432c5fb7cbf47a84bd634b18256957b6",
+        "version" : "1.1.0"
+      }
+    },
+    {
       "identity" : "azvideoplayer",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adamzarn/AZVideoPlayer",
       "state" : {
         "branch" : "main",
         "revision" : "1969f9f637d9b083abece0253695e5ea3d7adc48"
+      }
+    },
+    {
+      "identity" : "ergonomiccodable",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/juliand665/ErgonomicCodable.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d377cb1bffdd928ae957cc693641edef6d627c41"
+      }
+    },
+    {
+      "identity" : "handyoperators",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/juliand665/HandyOperators",
+      "state" : {
+        "revision" : "39f39ae74471112d54152227bb70053b59ea796f",
+        "version" : "2.1.0"
+      }
+    },
+    {
+      "identity" : "protoquest",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/juliand665/Protoquest.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "42dbee77dd963220e704a60c05d659acb33b2a47"
+      }
+    },
+    {
+      "identity" : "valorantapi",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/juliand665/ValorantAPI",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ee20706c37dec073bd2b42afc126675a017243b5"
       }
     }
   ],
