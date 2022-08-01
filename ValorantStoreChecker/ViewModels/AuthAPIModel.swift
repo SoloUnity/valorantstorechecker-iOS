@@ -25,9 +25,9 @@ class AuthAPIModel: ObservableObject {
     
     @Published var email : String = ""
     
-    var username: String = ""
-    var password: String = ""
-    var multifactor : String = ""
+    @Published var username: String = ""
+    @Published var password: String = ""
+    @Published var multifactor : String = ""
 
     
     

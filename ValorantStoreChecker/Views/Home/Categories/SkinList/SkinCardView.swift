@@ -23,10 +23,6 @@ struct SkinCardView: View {
         Button {
             isDetailViewShowing = true
         } label: {
-            /*
-            RectangleView(colour: Constants.cardGrey)
-                .shadow(color: .white, radius: 2)
-            */
             
             ZStack{
                 
@@ -38,6 +34,7 @@ struct SkinCardView: View {
                         .resizable()
                         .scaledToFit()
                         .padding()
+
                 }
                 else{
                     // Quicker load time but a data muncher
@@ -48,6 +45,7 @@ struct SkinCardView: View {
                     }
                     .scaledToFit()
                     .padding()
+
                 }
                  
                     
@@ -71,7 +69,7 @@ struct SkinCardView: View {
                             .foregroundColor(.white)
                             .font(.subheadline)
                             .bold()
-                            .shadow(color:.black, radius: 10)
+                            .shadow(color:.black, radius: 3)
                             .lineLimit(1)
                         
                         Spacer()
@@ -82,12 +80,15 @@ struct SkinCardView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 18, height: 18)
+                                .shadow(color:.black, radius: 3)
                             
                             if skin.contentTierUuid != nil {
                                 Text(PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!))
                                     .font(.subheadline)
                                     .foregroundColor(.white)
                                     .bold()
+                                    .shadow(color:.black, radius: 10)
+                                
                             }else{
                                 Text("Unknown")
                                     .font(.subheadline)

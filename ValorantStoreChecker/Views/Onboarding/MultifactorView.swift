@@ -22,10 +22,16 @@ struct MultifactorView: View {
 
                 VStack{
                     
-                    Text("Enter the code sent to")
-                        .bold()
-                    Text(authAPIModel.email)
-                        .bold()
+                    if !authAPIModel.failedLogin{
+                        Text("Enter the code sent to")
+                            .bold()
+                        Text(authAPIModel.email)
+                            .bold()
+                    }else{
+                        Text("Invalid Code")
+                            .bold()
+                    }
+                    
                     
                     ZStack {
                         HStack {
@@ -34,9 +40,9 @@ struct MultifactorView: View {
                                 .foregroundColor(.white)
                             
                             TextField("Two Factor Authentication" , text: $authAPIModel.multifactor)
-                                .keyboardType(.default)
+                                .keyboardType(.numberPad)
                                 .autocorrectionDisabled()
-                                .foregroundColor(.white)
+                                .foregroundColor(authAPIModel.failedLogin ? .red : .white)
                                 .disableAutocorrection(true)
                                 
                             
@@ -50,7 +56,7 @@ struct MultifactorView: View {
                             
                     }
                 }
-                .padding(.top, 40)
+                .padding(.top, 25)
                 
                 Spacer()
                 

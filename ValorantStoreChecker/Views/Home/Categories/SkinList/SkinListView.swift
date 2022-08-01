@@ -48,10 +48,7 @@ struct SkinListView: View {
                                     } label: {
                                         
                                         HStack{
-                                            /*
-                                            RectangleView(colour: Constants.cardGrey)
-                                                .shadow(color:.white, radius: 2)
-                                            */
+
                                             Spacer()
                                             
                                             Image(systemName: "arrow.up")
