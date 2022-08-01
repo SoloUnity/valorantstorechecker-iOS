@@ -54,7 +54,7 @@ struct WebService {
         
     }
     
-    static func getToken(username: String, password: String) async throws -> String {
+    static func getToken(username: String, password: String) async throws -> [String] {
         guard let url = URL(string: Constants.URL.auth) else{
             throw APIError.invalidURL
         }
@@ -86,34 +86,50 @@ struct WebService {
             
             if authResponse.type == "multifactor" {
                 
-                return "multifactor"
+                return ["multifactor" , (authResponse.multifactor?.email)!]
                 
             }
             else{
                 
                 // The really stupid way of obtaining ssid and tdid for cookieReauth, but it works so I'm not touching it
-                // TODO: Make this in a way where a change on rito's end wont break it
                 let keychain = Keychain()
                 
                 let field = httpResponse.value(forHTTPHeaderField: "Set-Cookie")
                 let fieldString = String(field!)
-                let fieldStringList = fieldString.split(separator: "=")
-                let tdid = fieldStringList[1].split(separator: ";")[0]
-                let ssid = fieldStringList[12].split(separator: ";")[0]
+                let fieldStringList = fieldString.split(separator: ";")
                 
-                // Securing with keychain
-                let _ = keychain.save(tdid, forKey: "tdid")
-                let _ = keychain.save(ssid, forKey: "ssid")
+                var cleanedArray: [String] = []
+                
+                for item in fieldStringList {
+                    let newList = item.split(separator: ",")
+                    for thing in newList {
+                        let newString = thing.trimmingCharacters(in: .whitespaces)
+                        cleanedArray.append(newString)
+                    }
+                }
+                
+                for item in cleanedArray {
+                    if item.contains("tdid") {
+                        let _ = keychain.save(item.split(separator: "=")[1], forKey: "tdid")
+                    }
+                    else if item.contains("ssid") {
+                        let _ = keychain.save(item.split(separator: "=")[1], forKey: "ssid")
+                    }
+                }
+                
                 
                 guard let uri = authResponse.response?.parameters?.uri else {
                     throw APIError.invalidCredentials
                 }
                 
-                // TODO: Make this in a way where a change on rito's end wont break it
-                let split = uri.split(separator: "=")
-                let token = String(split[1].split(separator: "&")[0])
-
-                return token
+                
+                let uriList = uri.split(separator: "&")
+                for item in uriList {
+                    if item.contains("access_token") {
+                        return [String(item.split(separator: "=")[1])]
+                    }
+                }
+                return ["NO TOKEN"]
             }
             
             
@@ -153,28 +169,44 @@ struct WebService {
             }
             
             // The really stupid way of obtaining ssid and tdid for cookieReauth, but it works so I'm not touching it
-            // TODO: Make this in a way where a change on rito's end wont break it
             let keychain = Keychain()
             
             let field = httpResponse.value(forHTTPHeaderField: "Set-Cookie")
             let fieldString = String(field!)
-            let fieldStringList = fieldString.split(separator: "=")
-            let tdid = fieldStringList[1].split(separator: ";")[0]
-            let ssid = fieldStringList[12].split(separator: ";")[0]
+            let fieldStringList = fieldString.split(separator: ";")
             
-            // Securing with keychain
-            let _ = keychain.save(tdid, forKey: "tdid")
-            let _ = keychain.save(ssid, forKey: "ssid")
+            var cleanedArray: [String] = []
+            
+            for item in fieldStringList {
+                let newList = item.split(separator: ",")
+                for thing in newList {
+                    let newString = thing.trimmingCharacters(in: .whitespaces)
+                    cleanedArray.append(newString)
+                }
+            }
+            
+            for item in cleanedArray {
+                if item.contains("tdid") {
+                    let _ = keychain.save(item.split(separator: "=")[1], forKey: "tdid")
+                }
+                else if item.contains("ssid") {
+                    let _ = keychain.save(item.split(separator: "=")[1], forKey: "ssid")
+                }
+            }
+            
             
             guard let uri = multifactorResponse.response?.parameters?.uri else {
                 throw APIError.invalidCredentials
             }
             
-            // TODO: Make this in a way where a change on rito's end wont break it
-            let split = uri.split(separator: "=")
-            let token = String(split[1].split(separator: "&")[0])
-
-            return token
+            
+            let uriList = uri.split(separator: "&")
+            for item in uriList {
+                if item.contains("access_token") {
+                    return String(item.split(separator: "=")[1])
+                }
+            }
+            return "NO TOKEN"
 
         }catch{
             throw APIError.dataTaskError(error.localizedDescription)

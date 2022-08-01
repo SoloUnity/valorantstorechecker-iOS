@@ -21,10 +21,6 @@ struct ShopTopBarView: View {
     
     var body: some View {
         
-        /*
-        RectangleView(colour: Constants.cardGrey)
-            .shadow(color: .white, radius: 2)
-        */
         HStack {
             
             Image(systemName: "clock")

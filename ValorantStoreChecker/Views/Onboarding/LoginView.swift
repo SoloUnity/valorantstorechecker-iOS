@@ -98,10 +98,6 @@ struct LoginView: View {
                     
                 }
                 
-                
-                
-                
-                
             }
             .padding(50)
         }

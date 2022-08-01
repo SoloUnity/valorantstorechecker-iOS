@@ -12,63 +12,79 @@ struct MultifactorView: View {
     @EnvironmentObject var authAPIModel : AuthAPIModel
     
     var body: some View {
-        VStack{
-            Spacer()
-            
-            ZStack {
-                HStack {
-                    
-                    Image(systemName: "lock")
-                        .foregroundColor(.white)
-                    
-                    TextField("Two Factor Authentication" , text: $authAPIModel.multifactor)
-                        .keyboardType(.default)
-                        .autocorrectionDisabled()
-                        .foregroundColor(.white)
-                        .disableAutocorrection(true)
-                        
-                    
-                }.padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+        
+        GeometryReader { geo in
+            VStack{
                 
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(lineWidth: 1)
-                    .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                    .shadow(color: authAPIModel.failedLogin ? .red : .white, radius: 2)
-                    .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                Logo()
+                    .frame(width: geo.size.width/4)
+                
+
+                VStack{
                     
-            }
-            
-            Spacer()
-            
-            Button {
-                authAPIModel.enteredMultifactor = true
-                Task {
-                    await authAPIModel.multifactor()
-                }
-            } label: {
-                if !authAPIModel.enteredMultifactor {
-                    ZStack{
-                        CircleView(colour: .pink)
-                            .shadow(color:.pink, radius: 2)
+                    Text("Enter the code sent to")
+                        .bold()
+                    Text(authAPIModel.email)
+                        .bold()
+                    
+                    ZStack {
+                        HStack {
+                            
+                            Image(systemName: "lock")
+                                .foregroundColor(.white)
+                            
+                            TextField("Two Factor Authentication" , text: $authAPIModel.multifactor)
+                                .keyboardType(.default)
+                                .autocorrectionDisabled()
+                                .foregroundColor(.white)
+                                .disableAutocorrection(true)
+                                
+                            
+                        }.padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
                         
-                        Image(systemName: "arrow.right")
-                            .resizable()
-                            .scaledToFit()
-                            .padding(15)
-                            .foregroundColor(.white)
-                        
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 1)
+                            .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                            .shadow(color: authAPIModel.failedLogin ? .red : .white, radius: 2)
+                            .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                            
                     }
-                    .frame(width: 60, height: 60)
                 }
-                else{
-                    ProgressView()
+                .padding(.top, 40)
+                
+                Spacer()
+                
+                Button {
+                    authAPIModel.enteredMultifactor = true
+                    Task {
+                        await authAPIModel.multifactor()
+                    }
+                } label: {
+                    if !authAPIModel.enteredMultifactor {
+                        ZStack{
+                            CircleView(colour: .pink)
+                                .shadow(color:.pink, radius: 2)
+                            
+                            Image(systemName: "arrow.right")
+                                .resizable()
+                                .scaledToFit()
+                                .padding(15)
+                                .foregroundColor(.white)
+                            
+                        }
                         .frame(width: 60, height: 60)
+                    }
+                    else{
+                        ProgressView()
+                            .frame(width: 60, height: 60)
+                    }
+                    
                 }
                 
             }
-            
+            .padding(50)
         }
-        .padding(50)
+        
         
     }
 }

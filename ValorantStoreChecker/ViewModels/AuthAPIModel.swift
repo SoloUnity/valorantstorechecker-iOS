@@ -12,12 +12,18 @@ class AuthAPIModel: ObservableObject {
     
     @Published var storefront : [Skin] = []
     @Published var storePrice : [Offer] = []
+    
     @Published var isAuthenticated: Bool = false
-    @Published var failedLogin : Bool = false
     @Published var isAuthenticating : Bool = false
+    @Published var failedLogin : Bool = false
+    
+    
     @Published var reloading : Bool = false
+    
     @Published var showMultifactor : Bool = false
     @Published var enteredMultifactor : Bool = false
+    
+    @Published var email : String = ""
     
     var username: String = ""
     var password: String = ""
@@ -61,18 +67,16 @@ class AuthAPIModel: ObservableObject {
             }
             
             try await WebService.getCookies()
-            var token = try await WebService.getToken(username: defaults.string(forKey: "username") ?? "", password: self.password)
+            let tokenList = try await WebService.getToken(username: defaults.string(forKey: "username") ?? "", password: self.password)
             
             
-
-            // TODO: Multifactor
-            print(token)
-            if token == "multifactor"{
-                
+            if tokenList.count == 2 {
+                self.email = tokenList[1]
                 self.showMultifactor = true
-                
+                self.isAuthenticating = false
             }
             else{
+                let token = tokenList[0]
                 await loginHelper(token: token)
             }
             
@@ -144,6 +148,7 @@ class AuthAPIModel: ObservableObject {
             
             self.username = ""
             self.password = ""
+            self.multifactor = ""
             
         }catch {
             self.isAuthenticating = false
@@ -175,11 +180,11 @@ class AuthAPIModel: ObservableObject {
             catch{
                 self.enteredMultifactor = false
                 self.multifactor = ""
+                self.password = ""
                 
                 self.isAuthenticating = false
                 self.failedLogin = true
-                self.username = ""
-                self.password = ""
+                
                 
                 defaults.removeObject(forKey: "username")
                 defaults.removeObject(forKey: "authentication")

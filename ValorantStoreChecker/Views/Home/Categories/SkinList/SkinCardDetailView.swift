@@ -163,7 +163,9 @@ struct SkinCardDetailView: View {
                 
                 
                 // MARK: Skin Variants / Chromas
-                ZStack{
+                HStack{
+                    Spacer()
+                    
                     // Skin level images
                     
                     if skin.chromas![selectedChroma].displayIcon != nil{
@@ -188,6 +190,7 @@ struct SkinCardDetailView: View {
                         .padding()
                         
                     }
+                    Spacer()
                 }
                 .background(Blur(radius: 25, opaque: true))
                 .cornerRadius(10)
