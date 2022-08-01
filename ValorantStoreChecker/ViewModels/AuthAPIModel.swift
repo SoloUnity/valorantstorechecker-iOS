@@ -170,11 +170,24 @@ class AuthAPIModel: ObservableObject {
                 let token = try await WebService.multifactor(code: self.multifactor)
                 await loginHelper(token: token)
                 self.showMultifactor = false
-                
+                self.enteredMultifactor = false
             }
             catch{
                 self.enteredMultifactor = false
                 self.multifactor = ""
+                
+                self.isAuthenticating = false
+                self.failedLogin = true
+                self.username = ""
+                self.password = ""
+                
+                defaults.removeObject(forKey: "username")
+                defaults.removeObject(forKey: "authentication")
+                defaults.removeObject(forKey: "storefront")
+                defaults.removeObject(forKey: "storePrice")
+                let _ = keychain.remove(forKey: "ssid")
+                let _ = keychain.remove(forKey: "tdid")
+
             }
             
         }

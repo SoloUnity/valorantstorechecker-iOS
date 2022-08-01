@@ -88,7 +88,8 @@ struct WebService {
                 
                 return "multifactor"
                 
-            }else if authResponse.type == "auth"{
+            }
+            else{
                 
                 // The really stupid way of obtaining ssid and tdid for cookieReauth, but it works so I'm not touching it
                 // TODO: Make this in a way where a change on rito's end wont break it
@@ -115,7 +116,6 @@ struct WebService {
                 return token
             }
             
-            return ""
             
             
         }catch{
@@ -148,10 +148,34 @@ struct WebService {
                 throw APIError.invalidResponseStatus
             }
             
+            guard let multifactorResponse = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
+                throw APIError.invalidCredentials
+            }
             
-            return ""
+            // The really stupid way of obtaining ssid and tdid for cookieReauth, but it works so I'm not touching it
+            // TODO: Make this in a way where a change on rito's end wont break it
+            let keychain = Keychain()
             
+            let field = httpResponse.value(forHTTPHeaderField: "Set-Cookie")
+            let fieldString = String(field!)
+            let fieldStringList = fieldString.split(separator: "=")
+            let tdid = fieldStringList[1].split(separator: ";")[0]
+            let ssid = fieldStringList[12].split(separator: ";")[0]
             
+            // Securing with keychain
+            let _ = keychain.save(tdid, forKey: "tdid")
+            let _ = keychain.save(ssid, forKey: "ssid")
+            
+            guard let uri = multifactorResponse.response?.parameters?.uri else {
+                throw APIError.invalidCredentials
+            }
+            
+            // TODO: Make this in a way where a change on rito's end wont break it
+            let split = uri.split(separator: "=")
+            let token = String(split[1].split(separator: "&")[0])
+
+            return token
+
         }catch{
             throw APIError.dataTaskError(error.localizedDescription)
         }
