@@ -87,7 +87,7 @@ struct RegionSelectorView: View {
         }
         .foregroundColor(.white)
         .padding(7)
-        .background(Color.red)
+        .background(Color.pink)
         .cornerRadius(10)
         .animation(.spring(), value: expand)
         .shadow(color:.pink, radius: 2)

@@ -23,84 +23,99 @@ struct SkinCardView: View {
         Button {
             isDetailViewShowing = true
         } label: {
+            /*
+            RectangleView(colour: Constants.cardGrey)
+                .shadow(color: .white, radius: 2)
+            */
+            
             ZStack{
-                RectangleView(colour: Constants.cardGrey)
-                    .shadow(color: .white, radius: 2)
-                    
-                ZStack{
-                    
-                    // Image from json
-                    if skin.imageData != nil{
-                        let uiImage = UIImage(data: skin.imageData ?? Data())
-                                        
-                        Image(uiImage: uiImage ?? UIImage())
-                            .resizable()
-                            .scaledToFit()
-                            .padding()
-                    }
-                    else{
-                        // Quicker load time but a data muncher
-                        AsyncImage(url: URL(string: skin.levels!.first!.displayIcon!)) { image in
-                            image.resizable()
-                        } placeholder: {
-                            ProgressView()
-                        }
+                
+                // Image from json
+                if skin.imageData != nil{
+                    let uiImage = UIImage(data: skin.imageData ?? Data())
+                                    
+                    Image(uiImage: uiImage ?? UIImage())
+                        .resizable()
                         .scaledToFit()
                         .padding()
+                }
+                else{
+                    // Quicker load time but a data muncher
+                    AsyncImage(url: URL(string: skin.levels!.first!.displayIcon!)) { image in
+                        image.resizable()
+                    } placeholder: {
+                        ProgressView()
                     }
-                     
+                    .scaledToFit()
+                    .padding()
+                }
+                 
+                    
+                VStack{
+                    
+                    Spacer()
+                    
+                    HStack{
                         
-                    VStack{
+                        // Price Tier Icon
+                        if skin.contentTierUuid != nil && showPriceTier{
+                            PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 18)
+                        }
+                        else{
+                            Image(systemName: "questionmark.circle")
+                                .frame(width:10, height: 10)
+                        }
+                        
+                        // Skin Name
+                        Text(String(skin.displayName))
+                            .foregroundColor(.white)
+                            .font(.subheadline)
+                            .bold()
+                            .shadow(color:.black, radius: 10)
+                            .lineLimit(1)
                         
                         Spacer()
                         
-                        HStack{
+                        // Price
+                        if showPrice{
+                            Image("vp")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 18, height: 18)
                             
-                            // Price Tier Icon
-                            if skin.contentTierUuid != nil && showPriceTier{
-                                PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 18)
+                            if skin.contentTierUuid != nil {
+                                Text(PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!))
+                                    .font(.subheadline)
+                                    .foregroundColor(.white)
+                                    .bold()
+                            }else{
+                                Text("Unknown")
+                                    .font(.subheadline)
+                                    .foregroundColor(.white)
+                                    .bold()
                             }
-                            else{
-                                Image(systemName: "questionmark.circle")
-                                    .frame(width:10, height: 10)
-                            }
-                            
-                            // Skin Name
-                            Text(String(skin.displayName))
-                                .foregroundColor(.white)
-                                .font(.subheadline)
-                                .bold()
-                                .shadow(color:.black, radius: 10)
-                                .lineLimit(1)
-                            
-                            Spacer()
-                            
-                            // Price
-                            if showPrice{
-                                Image("vp")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 18, height: 18)
-                                
-                                if skin.contentTierUuid != nil {
-                                    Text(PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!))
-                                        .font(.subheadline)
-                                        .foregroundColor(.white)
-                                        .bold()
-                                }else{
-                                    Text("Unknown")
-                                        .font(.subheadline)
-                                        .foregroundColor(.white)
-                                        .bold()
-                                }
-                            }
-                            
                         }
-                        .padding()
+                        
                     }
+                    .padding()
                 }
             }
+            .background(Blur(radius: 50, opaque: true))
+            .cornerRadius(10)
+            .overlay{
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.white, lineWidth: 3)
+                    .offset(y: -1)
+                    .offset(x: -1)
+                    .blendMode(.overlay)
+                    .blur(radius: 0)
+                    .mask {
+                        RoundedRectangle(cornerRadius: 10)
+                    }
+            }
+            
         }
+        
         .sheet(isPresented: $isDetailViewShowing) {
             SkinCardDetailView(skin: skin)
                 .preferredColorScheme(.dark)

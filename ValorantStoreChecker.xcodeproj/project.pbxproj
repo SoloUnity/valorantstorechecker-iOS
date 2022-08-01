@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0AE9E32898390C00275A30 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AE9E22898390C00275A30 /* Blur.swift */; };
+		8B0AE9E528984AFA00275A30 /* MultifactorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AE9E428984AFA00275A30 /* MultifactorView.swift */; };
 		8B29E1EF2881C87D0081F69A /* ValorantStoreCheckerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E1EE2881C87D0081F69A /* ValorantStoreCheckerApp.swift */; };
 		8B29E1F12881C87D0081F69A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E1F02881C87D0081F69A /* LaunchView.swift */; };
 		8B29E1F32881C8800081F69A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B29E1F22881C8800081F69A /* Assets.xcassets */; };
@@ -31,7 +33,7 @@
 		8B682C802890C176003A3B9C /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B682C7F2890C176003A3B9C /* Authentication.swift */; };
 		8B682C822890C2BE003A3B9C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B682C812890C2BE003A3B9C /* Error.swift */; };
 		8B9A83752885A426009CE268 /* SkinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A83742885A426009CE268 /* SkinListView.swift */; };
-		8B9A838128861097009CE268 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A838028861097009CE268 /* LogoView.swift */; };
+		8B9A838128861097009CE268 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A838028861097009CE268 /* Logo.swift */; };
 		8B9A8385288612DD009CE268 /* SelectEditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A8384288612DD009CE268 /* SelectEditionView.swift */; };
 		8B9A838728861304009CE268 /* ExclusiveEditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A838628861304009CE268 /* ExclusiveEditionView.swift */; };
 		8B9A838B28861C5B009CE268 /* DeluxeEditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A838A28861C5B009CE268 /* DeluxeEditionView.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B0AE9E22898390C00275A30 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
+		8B0AE9E428984AFA00275A30 /* MultifactorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultifactorView.swift; sourceTree = "<group>"; };
 		8B29E1EB2881C87D0081F69A /* ValorantStoreChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValorantStoreChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B29E1EE2881C87D0081F69A /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
 		8B29E1F02881C87D0081F69A /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -75,7 +79,7 @@
 		8B682C7F2890C176003A3B9C /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		8B682C812890C2BE003A3B9C /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8B9A83742885A426009CE268 /* SkinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinListView.swift; sourceTree = "<group>"; };
-		8B9A838028861097009CE268 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		8B9A838028861097009CE268 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		8B9A8384288612DD009CE268 /* SelectEditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEditionView.swift; sourceTree = "<group>"; };
 		8B9A838628861304009CE268 /* ExclusiveEditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExclusiveEditionView.swift; sourceTree = "<group>"; };
 		8B9A838A28861C5B009CE268 /* DeluxeEditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeluxeEditionView.swift; sourceTree = "<group>"; };
@@ -150,8 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				8B29E1F02881C87D0081F69A /* LaunchView.swift */,
-				8B62AFD82883B51F0070173F /* Home */,
 				8B29E2012881CA440081F69A /* Onboarding */,
+				8B62AFD82883B51F0070173F /* Home */,
 				8B29E2042881CC890081F69A /* Commons */,
 			);
 			path = Views;
@@ -184,6 +188,7 @@
 				8B29E2022881CAEC0081F69A /* LoginView.swift */,
 				8B3685CF2895BBD3000BB3CF /* LoginBoxView.swift */,
 				8B3651532891DCCA00FE762E /* RegionSelectorView.swift */,
+				8B0AE9E428984AFA00275A30 /* MultifactorView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -191,7 +196,8 @@
 		8B29E2042881CC890081F69A /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				8B9A838028861097009CE268 /* LogoView.swift */,
+				8B0AE9E22898390C00275A30 /* Blur.swift */,
+				8B9A838028861097009CE268 /* Logo.swift */,
 				8B65F849288CA608004282DD /* PriceTierView.swift */,
 				8B9A8383288612AC009CE268 /* PriceTiers */,
 				8B9A83822886129C009CE268 /* Shapes */,
@@ -392,6 +398,7 @@
 				8BF1DB482888B87F004491A1 /* Constants.swift in Sources */,
 				8B9A838B28861C5B009CE268 /* DeluxeEditionView.swift in Sources */,
 				8B9A8385288612DD009CE268 /* SelectEditionView.swift in Sources */,
+				8B0AE9E32898390C00275A30 /* Blur.swift in Sources */,
 				8B3685D42895D576000BB3CF /* PullToRefreshView.swift in Sources */,
 				8B29E1EF2881C87D0081F69A /* ValorantStoreCheckerApp.swift in Sources */,
 				8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */,
@@ -404,7 +411,7 @@
 				8B3685D02895BBD3000BB3CF /* LoginBoxView.swift in Sources */,
 				8B9A8395288630F0009CE268 /* WishListView.swift in Sources */,
 				8BB00EC9288E4679001AE90A /* Store.swift in Sources */,
-				8B9A838128861097009CE268 /* LogoView.swift in Sources */,
+				8B9A838128861097009CE268 /* Logo.swift in Sources */,
 				8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */,
 				8B62AFD72883B4E10070173F /* HomeView.swift in Sources */,
 				8B29E2002881CA000081F69A /* SkinModel.swift in Sources */,
@@ -414,6 +421,7 @@
 				8B62AFCF2883A0FD0070173F /* ShopView.swift in Sources */,
 				8B682C802890C176003A3B9C /* Authentication.swift in Sources */,
 				8B29E20C2881D6D30081F69A /* CircleView.swift in Sources */,
+				8B0AE9E528984AFA00275A30 /* MultifactorView.swift in Sources */,
 				8B9A838F28861C78009CE268 /* UltraEditionView.swift in Sources */,
 				8B65F84A288CA608004282DD /* PriceTierView.swift in Sources */,
 				8B29E2082881CCD10081F69A /* RectangleView.swift in Sources */,

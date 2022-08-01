@@ -88,7 +88,7 @@ struct WebService {
                 
                 return "multifactor"
                 
-            }else{
+            }else if authResponse.type == "auth"{
                 
                 // The really stupid way of obtaining ssid and tdid for cookieReauth, but it works so I'm not touching it
                 // TODO: Make this in a way where a change on rito's end wont break it
@@ -115,7 +115,7 @@ struct WebService {
                 return token
             }
             
-            
+            return ""
             
             
         }catch{
@@ -147,6 +147,7 @@ struct WebService {
             else{
                 throw APIError.invalidResponseStatus
             }
+            
             
             return ""
             

@@ -16,6 +16,7 @@ struct RectangleView: View {
             .foregroundColor(colour)
             .cornerRadius(10)
             .shadow(radius: 5)
+        
     }
 }
 

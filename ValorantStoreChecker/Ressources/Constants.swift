@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Constants{
-    static var bgGradient = Gradient(colors:[Color(red: 28/255, green: 28/255, blue: 30/255), Color(red: 28/255, green: 28/255, blue: 30/255), .pink])
+    static var bgGradient = Gradient(colors:[Color(red: 20/255, green: 20/255, blue: 20/255), Color(red: 28/255, green: 28/255, blue: 30/255), .pink])
     static var bgGrey = Color(red: 28/255, green: 28/255, blue: 30/255)
     static var cardGrey = Color(red: 40/255, green: 40/255, blue: 40/255)
     

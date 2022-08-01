@@ -16,10 +16,14 @@ class AuthAPIModel: ObservableObject {
     @Published var failedLogin : Bool = false
     @Published var isAuthenticating : Bool = false
     @Published var reloading : Bool = false
+    @Published var showMultifactor : Bool = false
+    @Published var enteredMultifactor : Bool = false
     
     var username: String = ""
     var password: String = ""
     var multifactor : String = ""
+
+    
     
     let defaults = UserDefaults.standard
     let keychain = Keychain()
@@ -48,9 +52,7 @@ class AuthAPIModel: ObservableObject {
     
     @MainActor
     func login() async{
-        
-        
-        
+
         do{
             
             // Save the username for further display
@@ -62,11 +64,40 @@ class AuthAPIModel: ObservableObject {
             var token = try await WebService.getToken(username: defaults.string(forKey: "username") ?? "", password: self.password)
             
             
+
             // TODO: Multifactor
+            print(token)
             if token == "multifactor"{
-                token = try await WebService.multifactor(code: self.multifactor)
+                
+                self.showMultifactor = true
+                
+            }
+            else{
+                await loginHelper(token: token)
             }
             
+            
+            
+        }catch{
+            self.isAuthenticating = false
+            self.failedLogin = true
+            self.username = ""
+            self.password = ""
+            
+            defaults.removeObject(forKey: "username")
+            defaults.removeObject(forKey: "authentication")
+            defaults.removeObject(forKey: "storefront")
+            defaults.removeObject(forKey: "storePrice")
+            let _ = keychain.remove(forKey: "ssid")
+            let _ = keychain.remove(forKey: "tdid")
+            
+            print(error.localizedDescription)
+        }
+    }
+    
+    @MainActor
+    func loginHelper(token : String) async {
+        do {
             self.password = String(repeating: "a", count: (self.password.count)) // Clear password from memory and put in a placeholder
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
             let puuid = try await WebService.getPlayerInfo(token: token)
@@ -114,7 +145,7 @@ class AuthAPIModel: ObservableObject {
             self.username = ""
             self.password = ""
             
-        }catch{
+        }catch {
             self.isAuthenticating = false
             self.failedLogin = true
             self.username = ""
@@ -129,6 +160,25 @@ class AuthAPIModel: ObservableObject {
             
             print(error.localizedDescription)
         }
+        
+    }
+    
+    @MainActor
+    func multifactor() async {
+        if enteredMultifactor{
+            do{
+                let token = try await WebService.multifactor(code: self.multifactor)
+                await loginHelper(token: token)
+                self.showMultifactor = false
+                
+            }
+            catch{
+                self.enteredMultifactor = false
+                self.multifactor = ""
+            }
+            
+        }
+        
     }
     
     @MainActor

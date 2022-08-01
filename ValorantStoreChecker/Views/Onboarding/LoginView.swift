@@ -19,7 +19,7 @@ struct LoginView: View {
         GeometryReader{ geo in
             VStack(spacing: 15){
                 
-                LogoView()
+                Logo()
                     .frame(width: geo.size.width/4)
                     .padding(.top, 30)
                 
@@ -77,9 +77,9 @@ struct LoginView: View {
                         await authAPIModel.login()
                     }
                 } label: {
-                    if authAPIModel.isAuthenticating == false {
+                    if !authAPIModel.isAuthenticating {
                         ZStack{
-                            CircleView(colour: .red)
+                            CircleView(colour: .pink)
                                 .shadow(color:.pink, radius: 2)
                             
                             Image(systemName: "arrow.right")
@@ -108,6 +108,11 @@ struct LoginView: View {
         .ignoresSafeArea(.all, edges: .top)
         .background(Constants.bgGrey)
         .preferredColorScheme(.dark)
+        .sheet(isPresented: $authAPIModel.showMultifactor) {
+            MultifactorView()
+                .preferredColorScheme(.dark)
+                .background(Constants.bgGrey)
+        }
     }
     
 }

@@ -24,8 +24,8 @@ struct ShopView: View {
                 VStack{
                     
                         
-                    LogoView()
-                        .frame(width: geo.size.width/4)
+                    Logo()
+                        .frame(width: geo.size.width/5)
                                   
                     ScrollView(showsIndicators: false) {
                         

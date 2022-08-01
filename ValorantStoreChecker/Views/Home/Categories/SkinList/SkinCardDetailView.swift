@@ -44,9 +44,7 @@ struct SkinCardDetailView: View {
                 
                 // MARK: Price
                 ZStack{
-                    
-                    RectangleView(colour: Constants.cardGrey)
-                        .shadow(color: .white, radius: 2)
+                
                     
                     HStack{
                         Text("Cost:")
@@ -90,6 +88,19 @@ struct SkinCardDetailView: View {
                     
                     
                     
+                }
+                .background(Blur(radius: 25, opaque: true))
+                .cornerRadius(10)
+                .overlay{
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.white, lineWidth: 3)
+                        .offset(y: -1)
+                        .offset(x: -1)
+                        .blendMode(.overlay)
+                        .blur(radius: 0)
+                        .mask {
+                            RoundedRectangle(cornerRadius: 10)
+                        }
                 }
                 .frame(height: 35)
                 
@@ -154,8 +165,6 @@ struct SkinCardDetailView: View {
                 // MARK: Skin Variants / Chromas
                 ZStack{
                     // Skin level images
-                    RectangleView(colour: Constants.cardGrey)
-                        .shadow(color: .white, radius: 2)
                     
                     if skin.chromas![selectedChroma].displayIcon != nil{
                         
@@ -179,6 +188,19 @@ struct SkinCardDetailView: View {
                         .padding()
                         
                     }
+                }
+                .background(Blur(radius: 25, opaque: true))
+                .cornerRadius(10)
+                .overlay{
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.white, lineWidth: 3)
+                        .offset(y: -1)
+                        .offset(x: -1)
+                        .blendMode(.overlay)
+                        .blur(radius: 0)
+                        .mask {
+                            RoundedRectangle(cornerRadius: 10)
+                        }
                 }
                 .frame(height: (geo.size.height / 5.75))
                 

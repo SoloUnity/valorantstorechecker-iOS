@@ -19,9 +19,20 @@ struct SearchBar: View {
                 .autocorrectionDisabled()
                 .padding(7)
                 .padding(.horizontal, 25)
-                .background(Constants.cardGrey)
+                .accentColor(.pink)
+                .background(Blur(radius: 25, opaque: true))
                 .cornerRadius(8)
-                .shadow(color: .white, radius: 2)
+                .overlay{
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.white, lineWidth: 3)
+                        .offset(y: -1)
+                        .offset(x: -1)
+                        .blendMode(.overlay)
+                        .blur(radius: 0)
+                        .mask {
+                            RoundedRectangle(cornerRadius: 10)
+                        }
+                }
                 .submitLabel(.search)
                 .overlay(
                     HStack {
