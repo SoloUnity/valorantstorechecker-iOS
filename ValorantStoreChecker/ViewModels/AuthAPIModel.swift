@@ -19,6 +19,7 @@ class AuthAPIModel: ObservableObject {
     
     var username: String = ""
     var password: String = ""
+    var multifactor : String = ""
     
     let defaults = UserDefaults.standard
     let keychain = Keychain()
@@ -58,7 +59,14 @@ class AuthAPIModel: ObservableObject {
             }
             
             try await WebService.getCookies()
-            let token = try await WebService.getToken(username: defaults.string(forKey: "username") ?? "", password: self.password)
+            var token = try await WebService.getToken(username: defaults.string(forKey: "username") ?? "", password: self.password)
+            
+            
+            // TODO: Multifactor
+            if token == "multifactor"{
+                token = try await WebService.multifactor(code: self.multifactor)
+            }
+            
             self.password = String(repeating: "a", count: (self.password.count)) // Clear password from memory and put in a placeholder
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
             let puuid = try await WebService.getPlayerInfo(token: token)

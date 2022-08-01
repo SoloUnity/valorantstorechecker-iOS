@@ -24,15 +24,29 @@ struct AuthRequestBody: Encodable {
 }
 
 struct AuthResponse: Codable {
+    let type : String?
     let response: Response?
+    let multifactor: Multifactor?
 }
 
 struct Response : Codable {
     let parameters: URI?
 }
 
+// Token url, access via acess_token in response
 struct URI: Codable {
     let uri : String?
+}
+
+// Multifactor
+struct Multifactor: Codable {
+    let email : String?
+}
+
+struct MultifactorBody: Encodable {
+    let type = "multifactor"
+    let code : String
+    let rememberDevice = true
 }
 
 // Entitlement

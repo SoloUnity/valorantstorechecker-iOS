@@ -3,7 +3,7 @@
 //  ValorantStoreChecker
 //
 //  Created by Gordon Ng on 2022-07-24.
-//  Made with the help of https://github.com/juliand665
+//  Thanks to https://github.com/juliand665 for invaluable insight
 //  Used https://github.com/techchrism/valorant-api-docs/tree/trunk/docs for docs
 
 
@@ -79,34 +79,77 @@ struct WebService {
                 throw APIError.invalidResponseStatus
             }
             
-            // The really stupid way of obtaining ssid and tdid for cookieReauth, but it works so I'm not touching it
-            // TODO: Make this in a way where a change on rito's end wont break it
-            let keychain = Keychain()
-            
-            let field = httpResponse.value(forHTTPHeaderField: "Set-Cookie")
-            let fieldString = String(field!)
-            let fieldStringList = fieldString.split(separator: "=")
-            let tdid = fieldStringList[1].split(separator: ";")[0]
-            let ssid = fieldStringList[12].split(separator: ";")[0]
-            
-            // Securing with keychain
-            let _ = keychain.save(tdid, forKey: "tdid")
-            let _ = keychain.save(ssid, forKey: "ssid")
             
             guard let authResponse = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
                 throw APIError.invalidCredentials
             }
             
-            guard let uri = authResponse.response?.parameters?.uri else {
-                throw APIError.invalidCredentials
+            if authResponse.type == "multifactor" {
+                
+                return "multifactor"
+                
+            }else{
+                
+                // The really stupid way of obtaining ssid and tdid for cookieReauth, but it works so I'm not touching it
+                // TODO: Make this in a way where a change on rito's end wont break it
+                let keychain = Keychain()
+                
+                let field = httpResponse.value(forHTTPHeaderField: "Set-Cookie")
+                let fieldString = String(field!)
+                let fieldStringList = fieldString.split(separator: "=")
+                let tdid = fieldStringList[1].split(separator: ";")[0]
+                let ssid = fieldStringList[12].split(separator: ";")[0]
+                
+                // Securing with keychain
+                let _ = keychain.save(tdid, forKey: "tdid")
+                let _ = keychain.save(ssid, forKey: "ssid")
+                
+                guard let uri = authResponse.response?.parameters?.uri else {
+                    throw APIError.invalidCredentials
+                }
+                
+                // TODO: Make this in a way where a change on rito's end wont break it
+                let split = uri.split(separator: "=")
+                let token = String(split[1].split(separator: "&")[0])
+
+                return token
             }
             
             
-            // TODO: Make this in a way where a change on rito's end wont break it
-            let split = uri.split(separator: "=")
-            let token = String(split[1].split(separator: "&")[0])
-
-            return token
+            
+            
+        }catch{
+            throw APIError.dataTaskError(error.localizedDescription)
+        }
+    }
+    
+    static func multifactor (code: String) async throws -> String {
+        guard let url = URL(string: Constants.URL.auth) else{
+            throw APIError.invalidURL
+        }
+        
+        do{
+            let multifactorBody = MultifactorBody(code: code)
+            
+            // Create authentication request
+            var multifactorRequest = URLRequest(url: url)
+            multifactorRequest.httpMethod = "PUT"
+            multifactorRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            multifactorRequest.httpBody = try! JSONEncoder().encode(multifactorBody)
+            
+            // Get token
+            let (data , response) = try await WebService.session.data(for: multifactorRequest)
+            
+            // Verify server request
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw APIError.invalidResponseStatus
+            }
+            
+            return ""
+            
             
         }catch{
             throw APIError.dataTaskError(error.localizedDescription)
