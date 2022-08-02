@@ -103,7 +103,7 @@ struct SkinCardView: View {
                     .padding(10)
                 }
             }
-            .background(Blur(radius: 50, opaque: true))
+            .background(Blur(radius: 25, opaque: true))
             .cornerRadius(10)
             .overlay{
                 RoundedRectangle(cornerRadius: 10)

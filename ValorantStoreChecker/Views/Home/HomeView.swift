@@ -44,8 +44,8 @@ struct HomeView: View {
             AboutView()
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
-                    Image(systemName: "person.circle")
-                    Text("Account")
+                    Image(systemName: "info.circle.fill")
+                    Text("About")
                 }
                 .tag(3)
             
