@@ -13,7 +13,7 @@ struct LoginBoxView: View {
     
     var body: some View {
         VStack{
-            // Username
+            // MARK: Username Box
             ZStack {
                 HStack {
                     
@@ -25,7 +25,7 @@ struct LoginBoxView: View {
                         .autocorrectionDisabled()
                         .foregroundColor(.white)
                         .disableAutocorrection(true)
-                        
+                    
                     
                 }.padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
                 
@@ -34,16 +34,16 @@ struct LoginBoxView: View {
                     .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
                     .shadow(color: authAPIModel.failedLogin ? .red : .white, radius: 2)
                     .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                    
+                
             }
-                           
-            //Password
+            
+            // MARK: Password Box
             ZStack {
                 HStack {
                     
                     Image(systemName: "key")
                         .foregroundColor(.white)
-
+                    
                     SecureField("Password" , text: $authAPIModel.password)
                         .keyboardType(.default)
                         .autocorrectionDisabled()

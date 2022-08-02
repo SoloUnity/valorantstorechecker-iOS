@@ -24,7 +24,7 @@ struct LoginView: View {
                     .padding(.top, 30)
                 
                 
-                
+                // MARK: General Info
                 if !authAPIModel.failedLogin{
                     HStack{
                         Text("Login to your Riot Account")
@@ -45,7 +45,8 @@ struct LoginView: View {
                 
                 LoginBoxView()
                 
-                //Terms and Conditions
+                
+                // MARK: Terms and Conditions
                 HStack{
                     Button {
                         
@@ -69,7 +70,7 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                // Log in button
+                // MARK: Log in button
                 Button {
                     authAPIModel.failedLogin = false
                     authAPIModel.isAuthenticating = true

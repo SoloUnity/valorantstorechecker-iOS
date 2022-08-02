@@ -11,7 +11,7 @@ struct HomeView: View {
     
     @EnvironmentObject var skinModel : SkinModel
     @State var tabIndex = 0
-
+    
     var body: some View {
         
         TabView(selection: $tabIndex) {
@@ -22,7 +22,7 @@ struct HomeView: View {
                     Text("Store")
                 }
                 .tag(0)
-                                
+            
             SkinListView()
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
@@ -32,13 +32,13 @@ struct HomeView: View {
                 .tag(1)
             
             /*
-            WishListView()
-                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                .tabItem{
-                    Image(systemName: "heart.fill")
-                    Text("Wish List")
-                }
-                .tag(2)
+             WishListView()
+             .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
+             .tabItem{
+             Image(systemName: "heart.fill")
+             Text("Wish List")
+             }
+             .tag(2)
              */
             
             AboutView()

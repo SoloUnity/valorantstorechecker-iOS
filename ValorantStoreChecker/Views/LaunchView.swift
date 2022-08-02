@@ -23,11 +23,8 @@ struct LaunchView: View {
         }
         else{
             HomeView()
-              
         }
-            
-        
-        
+
     }
 }
 

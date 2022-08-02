@@ -19,7 +19,7 @@ struct MultifactorView: View {
                 Logo()
                     .frame(width: geo.size.width/4)
                 
-
+                // MARK: General info
                 VStack{
                     
                     if !authAPIModel.failedLogin{
@@ -32,7 +32,7 @@ struct MultifactorView: View {
                             .bold()
                     }
                     
-                    
+                    // MARK: 2fa code box
                     ZStack {
                         HStack {
                             
@@ -90,8 +90,6 @@ struct MultifactorView: View {
             }
             .padding(50)
         }
-        
-        
     }
 }
 

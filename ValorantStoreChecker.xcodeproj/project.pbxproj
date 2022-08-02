@@ -113,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B0AE9E828998D5100275A30 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				8B62AFD92883B53B0070173F /* AboutView.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		8B29E1E22881C87D0081F69A = {
 			isa = PBXGroup;
 			children = (
@@ -271,7 +279,7 @@
 		8B9A839028862439009CE268 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				8B62AFD92883B53B0070173F /* AboutView.swift */,
+				8B0AE9E828998D5100275A30 /* About */,
 				8B62AFCD2883A0DC0070173F /* Shop */,
 				8BF4D761288594E5000404D8 /* SkinList */,
 				8B9A8393288630D8009CE268 /* WishList */,

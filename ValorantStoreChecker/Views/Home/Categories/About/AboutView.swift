@@ -12,9 +12,6 @@ struct AboutView: View {
     @EnvironmentObject var skinModel : SkinModel
     @EnvironmentObject var authAPIModel : AuthAPIModel
     
-    @State var dark = false
-    @State var isDetailViewShowing = false
-    
     let defaults = UserDefaults.standard
     
     var body: some View {
