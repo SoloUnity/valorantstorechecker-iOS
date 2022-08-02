@@ -21,11 +21,11 @@ struct ShopView: View {
             GeometryReader{ geo in
     
                 
-                VStack{
+                VStack(spacing: 0){
                     
                         
                     Logo()
-                        .frame(width: geo.size.width/5)
+                        .frame(width: geo.size.width/6.5)
                                   
                     ScrollView(showsIndicators: false) {
                         
@@ -37,7 +37,7 @@ struct ShopView: View {
                         }
                         
                         
-                        VStack(spacing: 13) {
+                        VStack(spacing: 11) {
 
                             // Display ShopStuff
                             if authAPIModel.storefront.isEmpty{
@@ -62,6 +62,8 @@ struct ShopView: View {
                                         .frame(height: (UIScreen.main.bounds.height / 7.4))
                                     
                                 }
+                                
+                                ShopBottomBarView()
                                 
                             }
                             

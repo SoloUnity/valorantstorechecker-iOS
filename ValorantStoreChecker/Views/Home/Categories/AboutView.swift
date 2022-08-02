@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AccountView: View {
+struct AboutView: View {
     
     @EnvironmentObject var skinModel : SkinModel
     @EnvironmentObject var authAPIModel : AuthAPIModel
@@ -158,7 +158,7 @@ struct AccountView: View {
 struct SettingsView_Previews: PreviewProvider {
     
     static var previews: some View {
-        AccountView()
+        AboutView()
     }
 }
 

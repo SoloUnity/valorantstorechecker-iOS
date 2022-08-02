@@ -10,8 +10,12 @@ import Keychain
 
 class AuthAPIModel: ObservableObject {
     
+    @Published var keychain = Keychain()
+    @Published var defaults = UserDefaults.standard
+    
     @Published var storefront : [Skin] = []
     @Published var storePrice : [Offer] = []
+    
     
     @Published var isAuthenticated: Bool = false
     @Published var isAuthenticating : Bool = false
@@ -29,11 +33,6 @@ class AuthAPIModel: ObservableObject {
     @Published var password: String = ""
     @Published var multifactor : String = ""
 
-    
-    
-    let defaults = UserDefaults.standard
-    let keychain = Keychain()
-        
     init() {
         
         // TODO: Learn coredata and not do this bozo shit
@@ -106,12 +105,14 @@ class AuthAPIModel: ObservableObject {
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
             let puuid = try await WebService.getPlayerInfo(token: token)
             let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
+            let wallet = try await WebService.getWallet(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
             
-            let skinModel = SkinModel()
+            self.defaults.set(wallet[0], forKey: "vp")
+            self.defaults.set(wallet[1], forKey: "rp")
             
             var tempStore : [Skin] = []
             
-            for skin in skinModel.data{
+            for skin in SkinModel().data{
                 for level in skin.levels!{
                     for item in storefront.SingleItemOffers!{
                         if item == level.id.description.lowercased(){
@@ -207,6 +208,10 @@ class AuthAPIModel: ObservableObject {
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
             let puuid = try await WebService.getPlayerInfo(token: token)
             let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
+            let wallet = try await WebService.getWallet(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
+            
+            self.defaults.set(wallet[0], forKey: "vp")
+            self.defaults.set(wallet[1], forKey: "rp")
             
             let skinModel = SkinModel()
             

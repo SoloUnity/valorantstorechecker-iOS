@@ -62,6 +62,8 @@ struct SkinCardView: View {
                         else{
                             Image(systemName: "questionmark.circle")
                                 .frame(width:10, height: 10)
+                                .foregroundColor(.white)
+                                .shadow(color: .white, radius: 1)
                         }
                         
                         // Skin Name
@@ -69,7 +71,7 @@ struct SkinCardView: View {
                             .foregroundColor(.white)
                             .font(.subheadline)
                             .bold()
-                            .shadow(color:.black, radius: 3)
+                            .shadow(color: .black, radius: 3)
                             .lineLimit(1)
                         
                         Spacer()
@@ -80,14 +82,14 @@ struct SkinCardView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 18, height: 18)
-                                .shadow(color:.black, radius: 3)
+                                .shadow(color: .white, radius: 2)
                             
                             if skin.contentTierUuid != nil {
                                 Text(PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!))
                                     .font(.subheadline)
                                     .foregroundColor(.white)
                                     .bold()
-                                    .shadow(color:.black, radius: 10)
+                                    .shadow(color: .black, radius: 3)
                                 
                             }else{
                                 Text("Unknown")
@@ -98,7 +100,7 @@ struct SkinCardView: View {
                         }
                         
                     }
-                    .padding()
+                    .padding(10)
                 }
             }
             .background(Blur(radius: 50, opaque: true))

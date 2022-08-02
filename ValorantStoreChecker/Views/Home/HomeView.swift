@@ -41,7 +41,7 @@ struct HomeView: View {
                 .tag(2)
              */
             
-            AccountView()
+            AboutView()
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
                     Image(systemName: "person.circle")

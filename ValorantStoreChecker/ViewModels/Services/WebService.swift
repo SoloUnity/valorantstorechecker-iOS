@@ -355,6 +355,39 @@ struct WebService {
         return storePrice
     }
     
+    static func getWallet(token : String, riotEntitlement: String, puuid: String, region: String) async throws ->  [String] {
+        
+        guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v1/wallet/\(puuid)") else{
+            throw APIError.invalidURL
+        }
+        
+        // Create request
+        var walletRequest = URLRequest(url: url)
+        walletRequest.httpMethod = "GET"
+        walletRequest.addValue(riotEntitlement, forHTTPHeaderField: "X-Riot-Entitlements-JWT")
+        walletRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let (data , response) = try await WebService.session.data(for: walletRequest)
+        
+        guard
+            let httpResponse = response as? HTTPURLResponse,
+            httpResponse.statusCode == 200
+        else{
+            throw APIError.invalidResponseStatus
+        }
+        
+        guard let walletResponse = try? JSONDecoder().decode(Wallet.self, from: data) else {
+            throw APIError.invalidCredentials
+        }
+        
+        guard let vp = walletResponse.balances?.vp, let rp = walletResponse.balances?.rp else {
+            throw APIError.invalidCredentials
+        }
+        
+        return [String(vp), String(rp)]
+        
+    }
+    
     static func cookieReauth () async throws -> String {
         guard let url = URL(string: Constants.URL.cookieReauth) else{
             throw APIError.invalidURL

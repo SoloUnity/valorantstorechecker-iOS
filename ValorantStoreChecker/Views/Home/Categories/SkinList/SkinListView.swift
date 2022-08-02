@@ -16,7 +16,7 @@ struct SkinListView: View {
     var body: some View {
         
         GeometryReader{ geo in
-            VStack{
+            VStack(spacing: 0){
                 
                 SearchBar(text: $searchText)
                 
@@ -30,7 +30,7 @@ struct SkinListView: View {
                             
                             let search = model.data.filter({ searchText.isEmpty ? true : $0.displayName.lowercased().contains(searchText.lowercased()) })
                             
-                            LazyVStack(spacing: 13){
+                            LazyVStack(spacing: 11){
                                 
                                 ForEach(search){ skin in
                                     

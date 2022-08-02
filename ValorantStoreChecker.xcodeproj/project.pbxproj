@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8B0AE9E32898390C00275A30 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AE9E22898390C00275A30 /* Blur.swift */; };
 		8B0AE9E528984AFA00275A30 /* MultifactorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AE9E428984AFA00275A30 /* MultifactorView.swift */; };
+		8B0AE9E72898A8B300275A30 /* ShopBottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AE9E62898A8B300275A30 /* ShopBottomBarView.swift */; };
 		8B29E1EF2881C87D0081F69A /* ValorantStoreCheckerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E1EE2881C87D0081F69A /* ValorantStoreCheckerApp.swift */; };
 		8B29E1F12881C87D0081F69A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E1F02881C87D0081F69A /* LaunchView.swift */; };
 		8B29E1F32881C8800081F69A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B29E1F22881C8800081F69A /* Assets.xcassets */; };
@@ -26,7 +27,7 @@
 		8B62AFCF2883A0FD0070173F /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFCE2883A0FD0070173F /* ShopView.swift */; };
 		8B62AFD12883A1230070173F /* SkinCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD02883A1230070173F /* SkinCardView.swift */; };
 		8B62AFD72883B4E10070173F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD62883B4E10070173F /* HomeView.swift */; };
-		8B62AFDA2883B53B0070173F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD92883B53B0070173F /* AccountView.swift */; };
+		8B62AFDA2883B53B0070173F /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD92883B53B0070173F /* AboutView.swift */; };
 		8B65F843288C9D94004282DD /* AZVideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 8B65F842288C9D94004282DD /* AZVideoPlayer */; };
 		8B65F84A288CA608004282DD /* PriceTierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B65F849288CA608004282DD /* PriceTierView.swift */; };
 		8B65F850288CCFF0004282DD /* PriceTier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B65F84F288CCFF0004282DD /* PriceTier.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		8B0AE9E22898390C00275A30 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		8B0AE9E428984AFA00275A30 /* MultifactorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultifactorView.swift; sourceTree = "<group>"; };
+		8B0AE9E62898A8B300275A30 /* ShopBottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBottomBarView.swift; sourceTree = "<group>"; };
 		8B29E1EB2881C87D0081F69A /* ValorantStoreChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValorantStoreChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B29E1EE2881C87D0081F69A /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
 		8B29E1F02881C87D0081F69A /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -73,7 +75,7 @@
 		8B62AFCE2883A0FD0070173F /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		8B62AFD02883A1230070173F /* SkinCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCardView.swift; sourceTree = "<group>"; };
 		8B62AFD62883B4E10070173F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		8B62AFD92883B53B0070173F /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		8B62AFD92883B53B0070173F /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		8B65F849288CA608004282DD /* PriceTierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTierView.swift; sourceTree = "<group>"; };
 		8B65F84F288CCFF0004282DD /* PriceTier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTier.swift; sourceTree = "<group>"; };
 		8B682C7F2890C176003A3B9C /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				8B62AFCE2883A0FD0070173F /* ShopView.swift */,
 				8B3685D12895D2D5000BB3CF /* ShopTopBarView.swift */,
+				8B0AE9E62898A8B300275A30 /* ShopBottomBarView.swift */,
 				8B3685D32895D576000BB3CF /* PullToRefreshView.swift */,
 			);
 			path = Shop;
@@ -268,7 +271,7 @@
 		8B9A839028862439009CE268 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				8B62AFD92883B53B0070173F /* AccountView.swift */,
+				8B62AFD92883B53B0070173F /* AboutView.swift */,
 				8B62AFCD2883A0DC0070173F /* Shop */,
 				8BF4D761288594E5000404D8 /* SkinList */,
 				8B9A8393288630D8009CE268 /* WishList */,
@@ -405,6 +408,7 @@
 				8BB00EC7288E418E001AE90A /* AuthAPIModel.swift in Sources */,
 				8B29E2032881CAEC0081F69A /* LoginView.swift in Sources */,
 				8B33A5BF2884687C00BCB1F2 /* SkinCardDetailView.swift in Sources */,
+				8B0AE9E72898A8B300275A30 /* ShopBottomBarView.swift in Sources */,
 				8B9A838728861304009CE268 /* ExclusiveEditionView.swift in Sources */,
 				8B3685D22895D2D5000BB3CF /* ShopTopBarView.swift in Sources */,
 				8B682C822890C2BE003A3B9C /* Error.swift in Sources */,
@@ -426,7 +430,7 @@
 				8B65F84A288CA608004282DD /* PriceTierView.swift in Sources */,
 				8B29E2082881CCD10081F69A /* RectangleView.swift in Sources */,
 				8B9A83752885A426009CE268 /* SkinListView.swift in Sources */,
-				8B62AFDA2883B53B0070173F /* AccountView.swift in Sources */,
+				8B62AFDA2883B53B0070173F /* AboutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,7 +557,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
@@ -589,7 +593,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;

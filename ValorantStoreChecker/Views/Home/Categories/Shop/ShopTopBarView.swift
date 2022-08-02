@@ -26,15 +26,19 @@ struct ShopTopBarView: View {
             Image(systemName: "clock")
                 .resizable()
                 .scaledToFit()
-                .padding(.vertical, 5)
+                .shadow(color: .white, radius: 1)
+                .frame(width: 15, height: 15)
                 .padding(.leading)
-                .frame(width: 28, height: 28)
+                .padding(.vertical, 10)
             
             Text(countDownString(from: referenceDate))
-                        .onAppear(perform: {
-                            _ = self.timer
-                        })
-                        .font(.caption)
+                .bold()
+                .onAppear(perform: {
+                    _ = self.timer
+                })
+                .font(.caption)
+                .padding(.vertical, 5)
+                        
                         
             
             Spacer()
@@ -47,12 +51,18 @@ struct ShopTopBarView: View {
             } label: {
                 if !authAPIModel.reloading{
                     Image(systemName: "arrow.clockwise")
-                        .padding(.vertical, 5)
+                        .resizable()
+                        .scaledToFit()
+                        .shadow(color: .white, radius: 1)
+                        .frame(width: 15, height: 15)
                         .padding(.trailing)
+                        .padding(.vertical, 10)
                 }else{
                     ProgressView()
-                        .padding(.vertical, 5)
+                        .shadow(color: .white, radius: 1)
+                        .frame(width: 15, height: 15)
                         .padding(.trailing)
+                        .padding(.vertical, 10)
                 }
                 
             }

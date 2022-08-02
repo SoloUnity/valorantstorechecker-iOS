@@ -21,7 +21,7 @@ struct SearchBar: View {
                 .padding(.horizontal, 25)
                 .accentColor(.pink)
                 .background(Blur(radius: 25, opaque: true))
-                .cornerRadius(8)
+                .cornerRadius(10)
                 .overlay{
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(.white, lineWidth: 3)

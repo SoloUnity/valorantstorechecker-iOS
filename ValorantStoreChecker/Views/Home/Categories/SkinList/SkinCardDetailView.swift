@@ -47,9 +47,23 @@ struct SkinCardDetailView: View {
                 
                     
                     HStack{
-                        Text("Cost:")
+                        if skin.contentTierUuid == nil || (skin.contentTierUuid != nil && PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!) == "2475+"){
+                            Button {
+                               showAlert = true
+                            } label: {
+                                Image(systemName: "info.circle")
+                                    .accentColor(.white)
+                            }
+                            .alert(isPresented: $showAlert) { () -> Alert in
+                                        Alert(title: Text("The price of this skin is unfortunately not in our database."))
+                                    }
+                        }
+                        
+                        Text("Cost")
                             .foregroundColor(.white)
                             .bold()
+                        
+                        Spacer()
                         
                         Image("vp")
                             .resizable()
@@ -64,21 +78,6 @@ struct SkinCardDetailView: View {
                             Text("Unknown")
                                 .foregroundColor(.white)
                                 .bold()
-                        }
-                        
-                        Spacer()
-                        
-                        
-                        if skin.contentTierUuid == nil || (skin.contentTierUuid != nil && PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!) == "2475+"){
-                            Button {
-                               showAlert = true
-                            } label: {
-                                Image(systemName: "info.circle")
-                                    .accentColor(.white)
-                            }
-                            .alert(isPresented: $showAlert) { () -> Alert in
-                                        Alert(title: Text("The price of this skin is unfortunately not in our database."))
-                                    }
                         }
                         
 
@@ -115,10 +114,20 @@ struct SkinCardDetailView: View {
                         AZVideoPlayer(player: player)
                             .cornerRadius(10)
                             .aspectRatio(CGSize(width: 1920, height: 1080), contentMode: .fit)
-                            .shadow(color: .white, radius: 2)
+                            .overlay{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color(red: 60/255, green: 60/255, blue: 60/255), lineWidth: 3)
+                                    .offset(y: -1)
+                                    .offset(x: -1)
+                                    .blendMode(.overlay)
+                                    .blur(radius: 0)
+                                    .mask {
+                                        RoundedRectangle(cornerRadius: 10)
+                                    }
+                            }
+                                    
                             .onAppear{
                                 if player.currentItem == nil {
-                                    //"\(Constants.apiUrl)streamedVideo/\(skin.levels!.last!.id.description.lowercased()).mp4"
                                     
                                     let item = AVPlayerItem(url: URL(string: skin.levels![selectedLevel].streamedVideo!)!)
                                     player.replaceCurrentItem(with: item)
@@ -140,20 +149,44 @@ struct SkinCardDetailView: View {
                                 })
                             }
                         
-                        // Skin tier picker
+                    // MARK: Video Tier Picker
                     if skin.levels!.count != 1{
+                        
                         HStack{
-                            Text("Tier")
+                            Text("Tier \(selectedLevel + 1)")
+                            
+                            Spacer()
+                            
                             Picker("Video Number", selection: $selectedLevel){
                                 ForEach(0..<skin.levels!.count, id: \.self){ level in
                                     
-                                    Text(String(level + 1))
+                                    Text(cleanLevelName(name: String(skin.levels![level].levelItem ?? "Default")))
                                         .tag(level)
                                     
                                 }
                             }
-                            .pickerStyle(SegmentedPickerStyle())
+                            .padding(.horizontal, 8)
+                            .accentColor(.white)
+                            .pickerStyle(MenuPickerStyle())
+                            .background(.ultraThinMaterial)
+                            .cornerRadius(7)
                             
+                            
+                            
+                        }
+                        .padding()
+                        .background(Blur(radius: 25, opaque: true))
+                        .cornerRadius(10)
+                        .overlay{
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.white, lineWidth: 3)
+                                .offset(y: -1)
+                                .offset(x: -1)
+                                .blendMode(.overlay)
+                                .blur(radius: 0)
+                                .mask {
+                                    RoundedRectangle(cornerRadius: 10)
+                                }
                         }
                     }
                         
@@ -192,6 +225,7 @@ struct SkinCardDetailView: View {
                     }
                     Spacer()
                 }
+                .frame(height: (UIScreen.main.bounds.height / 6.5))
                 .background(Blur(radius: 25, opaque: true))
                 .cornerRadius(10)
                 .overlay{
@@ -207,17 +241,36 @@ struct SkinCardDetailView: View {
                 }
                 .frame(height: (geo.size.height / 5.75))
                 
+                // MARK: Skin Chroma Picker
                 if skin.chromas!.count != 1{
                     HStack{
                         Text("Variant")
+                        
+                        Spacer()
+                        
                         Picker("Video Number", selection: $selectedChroma){
                             ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
-                                Text(String(chroma + 1))
+                                Text(cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default")))
                                     .tag(chroma)
                             }
                         }
                         .pickerStyle(SegmentedPickerStyle())
                         .accentColor(.red)
+                        
+                    }
+                    .padding()
+                    .background(Blur(radius: 25, opaque: true))
+                    .cornerRadius(10)
+                    .overlay{
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.white, lineWidth: 3)
+                            .offset(y: -1)
+                            .offset(x: -1)
+                            .blendMode(.overlay)
+                            .blur(radius: 0)
+                            .mask {
+                                RoundedRectangle(cornerRadius: 10)
+                            }
                     }
                 }
                 
@@ -232,21 +285,71 @@ struct SkinCardDetailView: View {
 }
 
 
+// MARK: Helper Functions
+func cleanLevelName(name : String) -> String {
+    
+    if name == "Default"{
+        return "Default"
+    }else{
+        let nameList = name.split(separator: ":")
+        
+        guard let last = nameList.last else{
+            return "Unknown"
+        }
+        
+        if last == last.uppercased(){
+            return String(last)
+        }else{
+            var characters = last.map{ String($0) }
+            
+            var count = 0
+            
+            for letter in characters {
+                
+                if letter == letter.uppercased(){
+                    characters.insert(" ", at: count)
+                    count += 1
+                }
+                count += 1
+                
+            }
+
+            var finalString = ""
+            
+            for item in characters {
+                finalString += item
+            }
+            
+            return finalString.trimmingCharacters(in: .whitespaces)
+        }
+    }
+}
+
+func cleanChromaName(name: String) -> String {
+    
+    if name == "Default" {
+        return "Default"
+    }else{
+        
+        if name.contains("(") {
+            let bracket1 = name.split(separator: "(")
+            let bracket2 = bracket1[1].split(separator: ")")
+            var nameList = bracket2[0].split(separator: " ")
+            nameList.removeFirst()
+            nameList.removeFirst()
+            
+            var finalString = ""
+            
+            for item in nameList {
+                finalString += item
+            }
+            
+            return finalString
+        }
+        else{
+            return "Default"
+        }
+    }
+}
 
 
-/*
- if PriceTier.getPrice(contentTierUuid: skin.contentTierUuid!) == "2475+"{
- 
- Button {
- showPopover.toggle()
- } label: {
- Image(systemName: "info.circle")
- .foregroundColor(.white)
- }
- .popover(isPresented: $showPopover) {
- Text("There is no known price database for exclusive tier skins.")
- }
- 
- 
- }
- */
