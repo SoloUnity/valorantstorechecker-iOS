@@ -60,32 +60,49 @@ struct MultifactorView: View {
                 
                 Spacer()
                 
-                Button {
-                    authAPIModel.enteredMultifactor = true
-                    Task {
-                        await authAPIModel.multifactor()
-                    }
-                } label: {
-                    if !authAPIModel.enteredMultifactor {
-                        ZStack{
-                            CircleView(colour: .pink)
-                                .shadow(color:.pink, radius: 2)
-                            
-                            Image(systemName: "arrow.right")
-                                .resizable()
-                                .scaledToFit()
-                                .padding(15)
-                                .foregroundColor(.white)
-                            
+                if authAPIModel.multifactor.count >= 6 {
+                    Button {
+                        authAPIModel.enteredMultifactor = true
+                        Task {
+                            await authAPIModel.multifactor()
                         }
-                        .frame(width: 60, height: 60)
-                    }
-                    else{
-                        ProgressView()
+                    } label: {
+                        if !authAPIModel.enteredMultifactor {
+                            ZStack {
+                                CircleView(colour: .pink)
+                                    .shadow(color:.pink, radius: 2)
+                                
+                                Image(systemName: "arrow.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(15)
+                                    .foregroundColor(.white)
+                                
+                            }
                             .frame(width: 60, height: 60)
+                        }
+                        else {
+                            ProgressView()
+                                .frame(width: 60, height: 60)
+                        }
                     }
-                    
                 }
+                else {
+                    ZStack {
+                        CircleView(colour: .pink)
+                            .shadow(color:.pink, radius: 2)
+                        
+                        Image(systemName: "arrow.right")
+                            .resizable()
+                            .scaledToFit()
+                            .padding(15)
+                            .foregroundColor(.white)
+                        
+                    }
+                    .frame(width: 60, height: 60)
+                    .opacity(0.5)
+                }
+                
                 
             }
             .padding(50)

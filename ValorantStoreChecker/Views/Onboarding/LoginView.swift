@@ -51,8 +51,14 @@ struct LoginView: View {
                     Button {
                         
                     } label: {
-                        Text("I read the terms and conditions.")
-                            .foregroundColor(.white)
+                        HStack {
+                            Text("I read the terms and conditions.")
+                                .foregroundColor(.white)
+                            
+                            Image(systemName: "link")
+                            
+                        }
+                        
                     }
                     
                     // Checkbox
@@ -71,31 +77,53 @@ struct LoginView: View {
                 Spacer()
                 
                 // MARK: Log in button
-                Button {
-                    authAPIModel.failedLogin = false
-                    authAPIModel.isAuthenticating = true
-                    Task{
-                        await authAPIModel.login()
-                    }
-                } label: {
-                    if !authAPIModel.isAuthenticating {
-                        ZStack{
-                            CircleView(colour: .pink)
-                                .shadow(color:.pink, radius: 2)
-                            
-                            Image(systemName: "arrow.right")
-                                .resizable()
-                                .scaledToFit()
-                                .padding(15)
-                                .foregroundColor(.white)
-                            
+                if agreedToTerms && authAPIModel.region != "" {
+                    Button {
+                        authAPIModel.failedLogin = false
+                        authAPIModel.isAuthenticating = true
+                        Task{
+                            await authAPIModel.login()
                         }
-                        .frame(width: 60, height: 60)
-                    }
-                    else{
-                        ProgressView()
+                    } label: {
+                        if !authAPIModel.isAuthenticating {
+                            ZStack{
+                                CircleView(colour: .pink)
+                                    .shadow(color:.pink, radius: 2)
+                                
+                                Image(systemName: "arrow.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(15)
+                                    .foregroundColor(.white)
+                                
+                            }
                             .frame(width: 60, height: 60)
+                        }
+                        else{
+                            ProgressView()
+                                .frame(width: 60, height: 60)
+                        }
+                        
                     }
+                    
+                }
+                else {
+                    
+                    ZStack{
+                        CircleView(colour: .pink)
+                            .shadow(color:.pink, radius: 2)
+                        
+                        Image(systemName: "arrow.right")
+                            .resizable()
+                            .scaledToFit()
+                            .padding(15)
+                            .foregroundColor(.white)
+                        
+                    }
+                    .frame(width: 60, height: 60)
+                    .opacity(0.5)
+                    
+                    
                     
                 }
                 

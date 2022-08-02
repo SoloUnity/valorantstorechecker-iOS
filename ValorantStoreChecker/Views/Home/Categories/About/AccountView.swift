@@ -21,6 +21,8 @@ struct AccountView: View {
                         .bold()
                         .font(.title3)
                     
+                    Spacer()
+                    
                     Button {
                         
                         authAPIModel.logOut()

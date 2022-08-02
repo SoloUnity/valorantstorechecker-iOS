@@ -29,9 +29,11 @@ class AuthAPIModel: ObservableObject {
     @Published var enteredMultifactor : Bool = false // Handle multifactor loading animation
     @Published var email : String = "" // Displayed email for multifactor popout
     
+    // User Information
     @Published var username: String = "" // Variable used by username box in LoginBoxView
     @Published var password: String = "" // Used by password box in LoginBoxView
     @Published var multifactor : String = "" // Used by multifactor box in MultifactorView
+    @Published var region : String = ""
     
     // User saved information
     @Published var keychain = Keychain() // For sensitive information
@@ -299,6 +301,6 @@ class AuthAPIModel: ObservableObject {
         defaults.removeObject(forKey: "authentication")
         defaults.removeObject(forKey: "storefront")
         defaults.removeObject(forKey: "storePrice")
-        
+        defaults.removeObject(forKey: "region")
     }
 }
