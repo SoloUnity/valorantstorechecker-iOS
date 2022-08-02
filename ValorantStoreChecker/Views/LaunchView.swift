@@ -21,7 +21,7 @@ struct LaunchView: View {
         if !loginModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
             LoginView()
         }
-        else{
+        else {
             HomeView()
         }
 

@@ -11,7 +11,7 @@ struct SkinListView: View {
     
     @EnvironmentObject var model:SkinModel
     @State var searchText:String = ""
-
+    
     
     var body: some View {
         
@@ -28,6 +28,7 @@ struct SkinListView: View {
                         }
                         else{
                             
+                            // MARK: Search
                             let search = model.data.filter({ searchText.isEmpty ? true : $0.displayName.lowercased().contains(searchText.lowercased()) })
                             
                             LazyVStack(spacing: 11){
@@ -37,9 +38,10 @@ struct SkinListView: View {
                                     SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
                                         .frame(height: (UIScreen.main.bounds.height / 6.5))
                                     
-                                
+                                    
                                 }
                                 
+                                // MARK: Scroll to top button
                                 if search.count > 5{
                                     Button {
                                         // Scroll to top
@@ -48,7 +50,7 @@ struct SkinListView: View {
                                     } label: {
                                         
                                         HStack{
-
+                                            
                                             Spacer()
                                             
                                             Image(systemName: "arrow.up")
@@ -88,7 +90,7 @@ struct SkinListView: View {
                     }
                 }
                 
-
+                
             }
             .padding(10)
             

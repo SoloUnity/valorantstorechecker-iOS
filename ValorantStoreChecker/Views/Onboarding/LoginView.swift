@@ -16,8 +16,8 @@ struct LoginView: View {
     var body: some View {
         
         
-        GeometryReader{ geo in
-            VStack(spacing: 15){
+        GeometryReader { geo in
+            VStack(spacing: 15) {
                 
                 Logo()
                     .frame(width: geo.size.width/4)
@@ -26,7 +26,7 @@ struct LoginView: View {
                 
                 // MARK: General Info
                 if !authAPIModel.failedLogin{
-                    HStack{
+                    HStack {
                         Text("Login to your Riot Account")
                             .bold()
                         Button {
@@ -61,7 +61,7 @@ struct LoginView: View {
                     } label: {
                         HStack{
                             Image(systemName: agreedToTerms ? "checkmark.square" : "square")
-                                .foregroundColor(.red)
+                                .foregroundColor(.pink)
                         }
                     }
                 }

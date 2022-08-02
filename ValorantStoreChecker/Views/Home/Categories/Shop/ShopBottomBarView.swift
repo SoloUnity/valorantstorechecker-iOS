@@ -15,6 +15,7 @@ struct ShopBottomBarView: View {
         
         HStack {
             
+            // MARK: VP
             Image("vp")
                 .resizable()
                 .scaledToFit()
@@ -23,14 +24,23 @@ struct ShopBottomBarView: View {
                 .padding(.leading)
                 .padding(.vertical, 10)
             
-            Text(authAPIModel.defaults.string(forKey: "vp") ?? "Unknown")
-                .font(.caption)
-                .bold()
-                .padding(.vertical, 5)
-                        
+            if authAPIModel.vp != "" {
+                Text(authAPIModel.vp)
+                    .font(.caption)
+                    .bold()
+                    .padding(.vertical, 5)
+            }
+            else {
+                Text(authAPIModel.defaults.string(forKey: "vp") ?? "Unknown")
+                    .font(.caption)
+                    .bold()
+                    .padding(.vertical, 5)
+            }
+            
             
             Spacer()
             
+            // MARK: RP
             Image("rp")
                 .resizable()
                 .scaledToFit()
@@ -38,11 +48,20 @@ struct ShopBottomBarView: View {
                 .frame(width: 15, height: 15)
                 .padding(.vertical, 10)
             
-            Text(authAPIModel.defaults.string(forKey: "rp") ?? "Unknown")
-                .font(.caption)
-                .bold()
-                .padding(.vertical, 5)
-                .padding(.trailing)
+            if authAPIModel.rp != "" {
+                Text(authAPIModel.rp)
+                    .font(.caption)
+                    .bold()
+                    .padding(.vertical, 5)
+                    .padding(.trailing)
+            }
+            else {
+                Text(authAPIModel.defaults.string(forKey: "rp") ?? "Unknown")
+                    .font(.caption)
+                    .bold()
+                    .padding(.vertical, 5)
+                    .padding(.trailing)
+            }
         }
         .background(Blur(radius: 25, opaque: true))
         .cornerRadius(10)

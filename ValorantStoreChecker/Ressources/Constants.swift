@@ -15,6 +15,7 @@ struct Constants{
     
     struct URL{
         static var valStore = "https://s3.valorantstore.net/"
+        static var valSkins = "https://valorant-api.com/v1/weapons/skins"
         static var auth = "https://auth.riotgames.com/api/v1/authorization"
         static var entitlement = "https://entitlements.auth.riotgames.com/api/token/v1"
         static var playerInfo = "https://auth.riotgames.com/userinfo"

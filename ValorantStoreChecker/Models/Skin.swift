@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 class Skin: Identifiable, Codable, ObservableObject{
     
     @Published var imageData: Data?
@@ -18,8 +16,6 @@ class Skin: Identifiable, Codable, ObservableObject{
     var themeUuid:String?
     var contentTierUuid:String?
     var displayIcon:String?
-    //var wallpaper:String?
-    //var assetPath:String?
     var chromas: [Chromas]?
     var levels: [Levels]?
     
@@ -30,8 +26,6 @@ class Skin: Identifiable, Codable, ObservableObject{
         case themeUuid
         case contentTierUuid
         case displayIcon
-        //case wallpaper
-        //case assetPath
         case chromas
         case levels
     }
@@ -67,9 +61,7 @@ struct Chromas: Codable, Identifiable{
     var displayName:String?
     var displayIcon:String?
     var fullRender:String?
-    //var swatch:String?
     var streamedVideo:String?
-    //var assetPath:String?
     
     enum CodingKeys:String, CodingKey{
         case id = "uuid"
@@ -89,7 +81,6 @@ struct Levels: Codable, Identifiable{
     var levelItem:String?
     var displayIcon:String?
     var streamedVideo:String?
-    //var assetPath:String?
     
     enum CodingKeys:String, CodingKey{
         case id = "uuid"

@@ -10,7 +10,7 @@ import Foundation
 // Cookies
 struct AuthCookies: Encodable {
     let client_id = "play-valorant-web-prod"
-    let nonce = 1 // Yo what is a nonce
+    let nonce = 1 // Idk what nonce is
     let redirect_uri = "https://playvalorant.com/opt_in"
     let response_type = "token id_token"
 }

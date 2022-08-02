@@ -17,7 +17,7 @@ struct HomeView: View {
         TabView(selection: $tabIndex) {
             ShopView()
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                .tabItem{
+                .tabItem {
                     Image(systemName: "cart")
                     Text("Store")
                 }
@@ -25,7 +25,7 @@ struct HomeView: View {
             
             SkinListView()
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                .tabItem{
+                .tabItem {
                     Image(systemName: "list.bullet")
                     Text("Skin Index")
                 }
@@ -43,7 +43,7 @@ struct HomeView: View {
             
             AboutView()
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                .tabItem{
+                .tabItem {
                     Image(systemName: "info.circle.fill")
                     Text("About")
                 }

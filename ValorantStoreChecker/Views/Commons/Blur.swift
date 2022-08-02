@@ -3,7 +3,7 @@
 //  ValorantStoreChecker
 //
 //  Created by Gordon Ng on 2022-08-01.
-//
+//  From: https://github.com/Dara-To/WeatherApp
 
 import SwiftUI
 

@@ -26,7 +26,7 @@ struct SkinCardView: View {
             
             ZStack{
                 
-                // Image from json
+                // MARK: Image
                 if skin.imageData != nil{
                     let uiImage = UIImage(data: skin.imageData ?? Data())
                                     
@@ -55,7 +55,7 @@ struct SkinCardView: View {
                     
                     HStack{
                         
-                        // Price Tier Icon
+                        // MARK: Price Tier
                         if skin.contentTierUuid != nil && showPriceTier{
                             PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 18)
                         }
@@ -66,7 +66,7 @@ struct SkinCardView: View {
                                 .shadow(color: .white, radius: 1)
                         }
                         
-                        // Skin Name
+                        // MARK: Name
                         Text(String(skin.displayName))
                             .foregroundColor(.white)
                             .font(.subheadline)
@@ -76,7 +76,7 @@ struct SkinCardView: View {
                         
                         Spacer()
                         
-                        // Price
+                        // MARK: Price
                         if showPrice{
                             Image("vp")
                                 .resizable()

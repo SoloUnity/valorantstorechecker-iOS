@@ -48,7 +48,7 @@ class SkinModel: ObservableObject{
     func getRemoteData(){
         
         // String path
-        let urlString = "https://valorant-api.com/v1/weapons/skins"
+        let urlString = Constants.URL.valSkins
         
         // URL object
         let url = URL(string: urlString)
@@ -101,9 +101,6 @@ class SkinModel: ObservableObject{
         dataTask.resume()
         
     }
-    
-    
-    
  }
      
    

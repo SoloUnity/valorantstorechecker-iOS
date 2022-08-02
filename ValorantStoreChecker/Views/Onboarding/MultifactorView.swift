@@ -22,12 +22,12 @@ struct MultifactorView: View {
                 // MARK: General info
                 VStack{
                     
-                    if !authAPIModel.failedLogin{
+                    if !authAPIModel.failedLogin {
                         Text("Enter the code sent to")
                             .bold()
                         Text(authAPIModel.email)
                             .bold()
-                    }else{
+                    }else {
                         Text("Invalid Code")
                             .bold()
                     }

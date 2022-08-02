@@ -25,7 +25,7 @@ struct SkinCardDetailView: View {
             
             VStack(alignment: .leading, spacing: 30){
                 
-                // MARK: Header
+                // MARK: Title header
                 HStack{
                     if skin.contentTierUuid != nil{
                         PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 30)
@@ -105,12 +105,8 @@ struct SkinCardDetailView: View {
                 
                 
                 // MARK: Skin tier videos
-                // Skin Video Player
                 if skin.levels![selectedLevel].streamedVideo != nil{
                     
-                    
-                        //let url = URL(string: skin.levels![selectedLevel].streamedVideo!)
-                        
                         AZVideoPlayer(player: player)
                             .cornerRadius(10)
                             .aspectRatio(CGSize(width: 1920, height: 1080), contentMode: .fit)
@@ -170,9 +166,7 @@ struct SkinCardDetailView: View {
                             .pickerStyle(MenuPickerStyle())
                             .background(.ultraThinMaterial)
                             .cornerRadius(7)
-                            
-                            
-                            
+ 
                         }
                         .padding()
                         .background(Blur(radius: 25, opaque: true))
@@ -189,9 +183,6 @@ struct SkinCardDetailView: View {
                                 }
                         }
                     }
-                        
-                    
-                    
                 }
                 
                 
@@ -199,7 +190,6 @@ struct SkinCardDetailView: View {
                 HStack{
                     Spacer()
                     
-                    // Skin level images
                     
                     if skin.chromas![selectedChroma].displayIcon != nil{
                         
@@ -273,9 +263,6 @@ struct SkinCardDetailView: View {
                             }
                     }
                 }
-                
-
-                
             }
             .foregroundColor(.white)
             .padding()
@@ -297,13 +284,16 @@ func cleanLevelName(name : String) -> String {
             return "Unknown"
         }
         
+        // Check if all string is uppercased
         if last == last.uppercased(){
             return String(last)
         }else{
+            // Split into list of individual letters
             var characters = last.map{ String($0) }
             
             var count = 0
             
+            // Insert space before Capital letters
             for letter in characters {
                 
                 if letter == letter.uppercased(){
@@ -314,6 +304,7 @@ func cleanLevelName(name : String) -> String {
                 
             }
 
+            // Assemble into string
             var finalString = ""
             
             for item in characters {
@@ -331,6 +322,7 @@ func cleanChromaName(name: String) -> String {
         return "Default"
     }else{
         
+        // Remove irrelevant information
         if name.contains("(") {
             let bracket1 = name.split(separator: "(")
             let bracket2 = bracket1[1].split(separator: ")")

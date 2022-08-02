@@ -14,8 +14,8 @@
             filePath = "ValorantStoreChecker/Models/Skin.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "getImageData()"
             landmarkType = "7">
          </BreakpointContent>

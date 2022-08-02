@@ -10,32 +10,37 @@ import Keychain
 
 class AuthAPIModel: ObservableObject {
     
-    @Published var keychain = Keychain()
-    @Published var defaults = UserDefaults.standard
-    
+    // Store
     @Published var storefront : [Skin] = []
     @Published var storePrice : [Offer] = []
+    @Published var vp : String = ""
+    @Published var rp : String = ""
     
+    // Authentication
+    @Published var isAuthenticated: Bool = false // Keeps user logged in
+    @Published var isAuthenticating : Bool = false // Handles loading animation
+    @Published var failedLogin : Bool = false // Handles login error message
     
-    @Published var isAuthenticated: Bool = false
-    @Published var isAuthenticating : Bool = false
-    @Published var failedLogin : Bool = false
-    
-    
+    // Handles reload animation
     @Published var reloading : Bool = false
     
-    @Published var showMultifactor : Bool = false
-    @Published var enteredMultifactor : Bool = false
+    // Multifactor
+    @Published var showMultifactor : Bool = false // Show multifactor popout
+    @Published var enteredMultifactor : Bool = false // Handle multifactor loading animation
+    @Published var email : String = "" // Displayed email for multifactor popout
     
-    @Published var email : String = ""
+    @Published var username: String = "" // Variable used by username box in LoginBoxView
+    @Published var password: String = "" // Used by password box in LoginBoxView
+    @Published var multifactor : String = "" // Used by multifactor box in MultifactorView
     
-    @Published var username: String = ""
-    @Published var password: String = ""
-    @Published var multifactor : String = ""
-
+    // User saved information
+    @Published var keychain = Keychain() // For sensitive information
+    @Published var defaults = UserDefaults.standard // For general information
+    
+    
     init() {
         
-        // TODO: Learn coredata and not do this bozo shit
+        // TODO: Implement CoreData
         if let objects = defaults.value(forKey: "storefront") as? Data {
             let decoder = JSONDecoder()
             if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Skin] {
@@ -55,9 +60,10 @@ class AuthAPIModel: ObservableObject {
         }
     }
     
+    // MARK: Login
     @MainActor
     func login() async{
-
+        
         do{
             
             // Save the username for further display
@@ -70,11 +76,13 @@ class AuthAPIModel: ObservableObject {
             
             
             if tokenList.count == 2 {
+                // Multifactor login
                 self.email = tokenList[1]
                 self.showMultifactor = true
                 self.isAuthenticating = false
             }
             else{
+                // Regular login
                 let token = tokenList[0]
                 await loginHelper(token: token)
             }
@@ -82,6 +90,7 @@ class AuthAPIModel: ObservableObject {
             
             
         }catch{
+            // Reset user defaults
             self.isAuthenticating = false
             self.failedLogin = true
             self.username = ""
@@ -98,6 +107,7 @@ class AuthAPIModel: ObservableObject {
         }
     }
     
+    // MARK: LoginHelper
     @MainActor
     func loginHelper(token : String) async {
         do {
@@ -107,9 +117,14 @@ class AuthAPIModel: ObservableObject {
             let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
             let wallet = try await WebService.getWallet(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
             
+            // Save user's wallet info
+            self.vp = wallet[0]
+            self.rp = wallet[1]
+            
             self.defaults.set(wallet[0], forKey: "vp")
             self.defaults.set(wallet[1], forKey: "rp")
             
+            // Match user's store with database
             var tempStore : [Skin] = []
             
             for skin in SkinModel().data{
@@ -121,7 +136,7 @@ class AuthAPIModel: ObservableObject {
                     }
                 }
             }
-
+            
             self.storefront = tempStore
             
             let storefrontEncoder = JSONEncoder()
@@ -145,13 +160,14 @@ class AuthAPIModel: ObservableObject {
             self.isAuthenticating = false
             self.reloading = false
             self.isAuthenticated = true
-            defaults.set(self.isAuthenticated, forKey: "authentication")
+            defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
             
             self.username = ""
             self.password = ""
             self.multifactor = ""
             
         }catch {
+            // Reset user defaults
             self.isAuthenticating = false
             self.failedLogin = true
             self.username = ""
@@ -169,6 +185,7 @@ class AuthAPIModel: ObservableObject {
         
     }
     
+    // MARK: Multifactor
     @MainActor
     func multifactor() async {
         if enteredMultifactor{
@@ -179,6 +196,7 @@ class AuthAPIModel: ObservableObject {
                 self.enteredMultifactor = false
             }
             catch{
+                // Reset user defaults
                 self.enteredMultifactor = false
                 self.multifactor = ""
                 self.password = ""
@@ -193,13 +211,14 @@ class AuthAPIModel: ObservableObject {
                 defaults.removeObject(forKey: "storePrice")
                 let _ = keychain.remove(forKey: "ssid")
                 let _ = keychain.remove(forKey: "tdid")
-
+                
             }
             
         }
         
     }
     
+    // MARK: Reload
     @MainActor
     func reload() async {
         do{
@@ -226,7 +245,7 @@ class AuthAPIModel: ObservableObject {
                     }
                 }
             }
-
+            
             self.storefront = tempStore
             
             let storefrontEncoder = JSONEncoder()
@@ -252,14 +271,16 @@ class AuthAPIModel: ObservableObject {
             
             
         }catch{
-
+            
             self.reloading = false
             print(error.localizedDescription)
         }
     }
     
+    // MARK: Log Out
     @MainActor
-    func signout() {
+    func logOut() {
+        
         // Create a new session
         WebService.session = {
             let configuration = URLSessionConfiguration.ephemeral
@@ -267,6 +288,7 @@ class AuthAPIModel: ObservableObject {
             configuration.timeoutIntervalForResource = 30 // seconds
             return URLSession(configuration: configuration)
         }()
+        
         // Reset user defaults
         self.isAuthenticating = false
         self.isAuthenticated = false

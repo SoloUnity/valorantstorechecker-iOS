@@ -4,7 +4,7 @@
 //
 //  Created by Gordon Ng on 2022-07-24.
 //  Thanks to https://github.com/juliand665 for invaluable insight
-//  Used https://github.com/techchrism/valorant-api-docs/tree/trunk/docs for docs
+//  ⚠️Documentation: https://github.com/techchrism/valorant-api-docs/tree/trunk/docs⚠️
 
 
 import Foundation
@@ -19,6 +19,7 @@ struct WebService {
         return URLSession(configuration: configuration)
     }()
     
+    // MARK: Cookies
     static func getCookies() async throws -> Void {
         guard let url = URL(string: Constants.URL.auth) else{
             throw APIError.invalidURL
@@ -54,6 +55,7 @@ struct WebService {
         
     }
     
+    // MARK: Token
     static func getToken(username: String, password: String) async throws -> [String] {
         guard let url = URL(string: Constants.URL.auth) else{
             throw APIError.invalidURL
@@ -84,6 +86,7 @@ struct WebService {
                 throw APIError.invalidCredentials
             }
             
+            // Determine if multifactor is required
             if authResponse.type == "multifactor" {
                 
                 return ["multifactor" , (authResponse.multifactor?.email)!]
@@ -91,9 +94,9 @@ struct WebService {
             }
             else{
                 
-                // The really stupid way of obtaining ssid and tdid for cookieReauth, but it works so I'm not touching it
                 let keychain = Keychain()
                 
+                // Obtain SSID and TDID for reloading store
                 let field = httpResponse.value(forHTTPHeaderField: "Set-Cookie")
                 let fieldString = String(field!)
                 let fieldStringList = fieldString.split(separator: ";")
@@ -108,6 +111,7 @@ struct WebService {
                     }
                 }
                 
+                // Store securely in keychain
                 for item in cleanedArray {
                     if item.contains("tdid") {
                         let _ = keychain.save(item.split(separator: "=")[1], forKey: "tdid")
@@ -122,13 +126,14 @@ struct WebService {
                     throw APIError.invalidCredentials
                 }
                 
-                
+                // Obtain uri and parse for the token
                 let uriList = uri.split(separator: "&")
                 for item in uriList {
                     if item.contains("access_token") {
                         return [String(item.split(separator: "=")[1])]
                     }
                 }
+                
                 return ["NO TOKEN"]
             }
             
@@ -139,6 +144,7 @@ struct WebService {
         }
     }
     
+    // MARK: Multifactor
     static func multifactor (code: String) async throws -> String {
         guard let url = URL(string: Constants.URL.auth) else{
             throw APIError.invalidURL
@@ -168,15 +174,17 @@ struct WebService {
                 throw APIError.invalidCredentials
             }
             
-            // The really stupid way of obtaining ssid and tdid for cookieReauth, but it works so I'm not touching it
+            
             let keychain = Keychain()
             
+            // Parse for and store SSID and TDID for reloading
             let field = httpResponse.value(forHTTPHeaderField: "Set-Cookie")
             let fieldString = String(field!)
             let fieldStringList = fieldString.split(separator: ";")
             
             var cleanedArray: [String] = []
             
+            // Store securely in keychain
             for item in fieldStringList {
                 let newList = item.split(separator: ",")
                 for thing in newList {
@@ -207,12 +215,13 @@ struct WebService {
                 }
             }
             return "NO TOKEN"
-
+            
         }catch{
             throw APIError.dataTaskError(error.localizedDescription)
         }
     }
     
+    // MARK: Entitlement
     static func getRiotEntitlement(token: String) async throws -> String {
         guard let url = URL(string: Constants.URL.entitlement) else{
             throw APIError.invalidURL
@@ -249,7 +258,7 @@ struct WebService {
         }
     }
     
-    
+    // MARK: Player Info
     static func getPlayerInfo(token:String) async throws -> String {
         guard let url = URL(string: Constants.URL.playerInfo) else{
             throw APIError.invalidURL
@@ -284,7 +293,8 @@ struct WebService {
             throw APIError.dataTaskError(error.localizedDescription)
         }
     }
-
+    
+    // MARK: Storefront
     static func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String) async throws -> SkinsPanelLayout {
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v2/storefront/\(puuid)") else{
             throw APIError.invalidURL
@@ -321,8 +331,8 @@ struct WebService {
         }
     }
     
-   
     
+    // MARK: Store Prices
     static func getStorePrices(token : String, riotEntitlement: String,region: String) async throws ->  [Offer] {
         
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v1/offers/") else{
@@ -355,6 +365,7 @@ struct WebService {
         return storePrice
     }
     
+    // MARK: Wallet
     static func getWallet(token : String, riotEntitlement: String, puuid: String, region: String) async throws ->  [String] {
         
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v1/wallet/\(puuid)") else{
@@ -388,18 +399,19 @@ struct WebService {
         
     }
     
+    // MARK: Reauthentication / Reloading
     static func cookieReauth () async throws -> String {
         guard let url = URL(string: Constants.URL.cookieReauth) else{
             throw APIError.invalidURL
         }
         
         do{
-
+            
             let keychain = Keychain()
-
+            
             try await setCookie(named: "tdid", to: keychain.value(forKey: "tdid") as? String ?? "")
             try await setCookie(named: "ssid", to: keychain.value(forKey: "ssid") as? String ?? "")
-
+            
             // Create request
             var cookieReauthRequest = URLRequest(url: url)
             cookieReauthRequest.httpMethod = "GET"
@@ -424,8 +436,9 @@ struct WebService {
             throw APIError.dataTaskError(error.localizedDescription)
         }
     }
-
     
+    // MARK: Helper function
+    // Configure websession for reloading / reauthentication
     static func setCookie(named name: String, to value: String) async throws -> Void{
         WebService.session.configuration.httpCookieStorage!.setCookie(.init(properties: [
             .name: name,
@@ -434,8 +447,8 @@ struct WebService {
             .domain: "auth.riotgames.com",
         ])!)
     }
-
-     
+    
+    
 }
 
 

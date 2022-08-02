@@ -11,72 +11,71 @@ struct ShopView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     
-    @State var tabIndex = 1
-    @State var isDetailViewShowing = false
-    
     let defaults = UserDefaults.standard
-
-        var body: some View {
-                
-            GeometryReader{ geo in
     
+    var body: some View {
+        
+        GeometryReader{ geo in
+            
+            
+            VStack(spacing: 0){
                 
-                VStack(spacing: 0){
+                
+                Logo()
+                    .frame(width: geo.size.width/6.5)
+                
+                ScrollView(showsIndicators: false) {
                     
-                        
-                    Logo()
-                        .frame(width: geo.size.width/6.5)
-                                  
-                    ScrollView(showsIndicators: false) {
-                        
-                        
-                        PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                            Task{
-                                await authAPIModel.reload()
-                            }
+                    
+                    PullToRefresh(coordinateSpaceName: "pullToRefresh") {
+                        Task{
+                            await authAPIModel.reload()
                         }
+                    }
+                    
+                    
+                    VStack(spacing: 11) {
                         
-                        
-                        VStack(spacing: 11) {
-
-                            // Display ShopStuff
-                            if authAPIModel.storefront.isEmpty{
+                        // Determine if the data has been fetched
+                        if authAPIModel.storefront.isEmpty{
+                            
+                            HStack{
                                 
-                                HStack{
-                                    
-                                    Spacer()
-                                    
-                                    ProgressView()
-                                    
-                                    Spacer()
-                                    
-                                }
+                                Spacer()
                                 
-                            }
-                            else{
-                                ShopTopBarView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
+                                ProgressView()
                                 
-                                ForEach(authAPIModel.storefront) { skin in
-                                    
-                                    SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
-                                        .frame(height: (UIScreen.main.bounds.height / 7.4))
-                                    
-                                }
-                                
-                                ShopBottomBarView()
+                                Spacer()
                                 
                             }
                             
                         }
-                        .padding(10)
+                        else{
+                            
+                            // MARK: Displayed elements
+                            ShopTopBarView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
+                            
+                            ForEach(authAPIModel.storefront) { skin in
+                                
+                                SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
+                                    .frame(height: (UIScreen.main.bounds.height / 7.4))
+                                
+                            }
+                            
+                            ShopBottomBarView()
+                            
+                        }
+                        
                     }
-                    .coordinateSpace(name: "pullToRefresh")
+                    .padding(10)
                 }
-                .padding(10)
+                .coordinateSpace(name: "pullToRefresh")
             }
-            
+            .padding(10)
         }
+        
     }
+}
 
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {

@@ -23,6 +23,7 @@ struct ShopTopBarView: View {
         
         HStack {
             
+            // MARK: Countdown timer
             Image(systemName: "clock")
                 .resizable()
                 .scaledToFit()
@@ -38,11 +39,12 @@ struct ShopTopBarView: View {
                 })
                 .font(.caption)
                 .padding(.vertical, 5)
-                        
-                        
+            
+            
             
             Spacer()
             
+            // MARK: Store refresh button
             Button {
                 authAPIModel.reloading = true
                 Task{
@@ -82,6 +84,7 @@ struct ShopTopBarView: View {
         }
     }
     
+    // MARK: Helper function
     func countDownString(from date: Date) -> String {
         let calendar = Calendar(identifier: .gregorian)
         
