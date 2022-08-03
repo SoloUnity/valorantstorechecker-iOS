@@ -11,13 +11,15 @@ class SkinModel: ObservableObject{
     
     @Published var data : [Skin] = []
     @Published var errorMessage = ""
-    @Published var assetsDownloaded = false
+    @Published var isDownloading = false
 
     let defaults = UserDefaults.standard
     
     init () {
+        
         getLocalData()
         getRemoteData()
+        
     }
     
     func getLocalData(){
@@ -85,18 +87,30 @@ class SkinModel: ObservableObject{
             let jsonDecoder = JSONDecoder()
             let skinList = try! jsonDecoder.decode(Skins.self, from: data!)
             
+            let skinCount = skinList.data.count
             
-            for s in skinList.data{
-                s.getImageLevelData()
-                s.getImageChromaData()
+            if skinCount > self.defaults.integer(forKey: "skinCount") {
+                
+                DispatchQueue.main.async{
+                    self.isDownloading = true
+                }
+                
+                for s in skinList.data{
+                    s.getImageLevelData()
+                    s.getImageChromaData()
+                }
+            
+                DispatchQueue.main.async{
+                    self.isDownloading = false
+                }
             }
+            
+            self.defaults.set(skinCount, forKey: "skinCount")
             
             // Background thread
             DispatchQueue.main.async{
                 self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter({!$0.displayName.contains("Melee")}) //Sorts alphabetically and filters out Standard skin
                 
-                self.assetsDownloaded = true
-                self.defaults.set(true, forKey: "assetDownloads")
             }
         }
         // Kick off data task

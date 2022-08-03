@@ -19,14 +19,17 @@ struct LaunchView: View {
         
         // Displays login if the user is not authenticated
         if !loginModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
+         
             LoginView()
+                
         }
-        //else if !skinModel.assetsDownloaded {
-            //AssetsView()
-        //}
         else {
             HomeView()
         }
+        
+        //else if !skinModel.assetsDownloaded {
+            //AssetsView()
+        //}
 
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
+    @EnvironmentObject var skinModel : SkinModel
     
     @State private var agreedToTerms: Bool = false
     @State private var showTerms : Bool = false
@@ -23,7 +24,6 @@ struct LoginView: View {
                 Logo()
                     .frame(width: geo.size.width/4)
                     .padding(.top, 30)
-                
                 
                 // MARK: General Info
                 if !authAPIModel.failedLogin{

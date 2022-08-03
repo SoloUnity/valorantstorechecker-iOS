@@ -15,8 +15,6 @@ struct AssetsView: View {
     
     var body: some View {
         
-        let multiplier = width / 100
-        
         GeometryReader { geo in
             HStack{
                 Spacer()
@@ -49,12 +47,13 @@ struct AssetsView: View {
                     Spacer()
                     
                     Button {
+                        /*
                         Task {
-                            await skinModel.getLocalData()
-                            await skinModel.getRemoteData()
-                            await authAPIModel.reload()
+                            skinModel.getLocalData()
+                            skinModel.getRemoteData()
+                            authAPIModel.reload()
                         }
-                        
+                        */
                         
                     } label: {
                         ZStack {

@@ -213,6 +213,17 @@ struct SkinCardDetailView: View {
                         .padding()
                         
                     }
+                    else if skin.chromas![selectedChroma].fullRender != nil{
+                        
+                        AsyncImage(url: URL(string: skin.chromas![selectedChroma].fullRender!)) { image in
+                            image.resizable()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .scaledToFit()
+                        .padding()
+                        
+                    }
 
                     Spacer()
                 }
