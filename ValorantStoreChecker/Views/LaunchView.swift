@@ -27,9 +27,6 @@ struct LaunchView: View {
             HomeView()
         }
         
-        //else if !skinModel.assetsDownloaded {
-            //AssetsView()
-        //}
 
     }
 }
