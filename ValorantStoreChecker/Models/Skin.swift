@@ -33,39 +33,50 @@ class Skin: Identifiable, Codable, ObservableObject{
     
     func getImageLevelData() {
         
-        if let url = URL(string: "\(Constants.URL.valStore)weaponskinlevels/\(levels!.first!.id.description.lowercased()).png") {
+        if let _ = UserDefaults.standard.data(forKey: self.levels!.first!.id.description) {
             
-            dataHelper(url: url, key: self.levels!.first!.id.description)
-            
+        } else {
+            if let url = URL(string: "\(Constants.URL.valStore)weaponskinlevels/\(levels!.first!.id.description.lowercased()).png") {
+                
+                dataHelper(url: url, key: self.levels!.first!.id.description)
+                
+            }
+            else if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinlevels/\(levels!.first!.id.description.lowercased())/fullrender.png") {
+                
+                dataHelper(url: url, key: self.levels!.first!.id.description)
+                
+            }
+            else if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinlevels/\(levels!.first!.id.description.lowercased())/displayicon.png") {
+                
+                dataHelper(url: url, key: self.levels!.first!.id.description)
+                
+            }
         }
-        else if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinlevels/\(levels!.first!.id.description.lowercased())/fullrender.png") {
-            
-            dataHelper(url: url, key: self.levels!.first!.id.description)
-            
-        }
-        else if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinlevels/\(levels!.first!.id.description.lowercased())/displayicon.png") {
-            
-            dataHelper(url: url, key: self.levels!.first!.id.description)
-            
-        }
+        
+        
     }
 
     func getImageChromaData() {
         
+        
+        
         for chroma in self.chromas! {
             
-            if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinchromas/\(chroma.id.description.lowercased())/fullrender.png") {
+            if let _ = UserDefaults.standard.data(forKey: chroma.id.description) {
                 
-                
-                dataHelper(url: url, key: chroma.id.description)
-                
+            } else {
+                if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinchromas/\(chroma.id.description.lowercased())/fullrender.png") {
+                    
+                    
+                    dataHelper(url: url, key: chroma.id.description)
+                    
+                }
+                else if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinchromas/\(chroma.id.description.lowercased())/displayicon.png") {
+                    
+                    dataHelper(url: url, key: chroma.id.description)
+                    
+                }
             }
-            else if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinchromas/\(chroma.id.description.lowercased())/displayicon.png") {
-                
-                dataHelper(url: url, key: chroma.id.description)
-                
-            }
-
         }
         
     }

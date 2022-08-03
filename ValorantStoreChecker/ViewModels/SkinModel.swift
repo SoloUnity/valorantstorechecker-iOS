@@ -87,25 +87,12 @@ class SkinModel: ObservableObject{
             let jsonDecoder = JSONDecoder()
             let skinList = try! jsonDecoder.decode(Skins.self, from: data!)
             
-            let skinCount = skinList.data.count
-            
-            if skinCount > self.defaults.integer(forKey: "skinCount") {
+            for s in skinList.data{
                 
-                DispatchQueue.main.async{
-                    self.isDownloading = true
-                }
-                
-                for s in skinList.data{
-                    s.getImageLevelData()
-                    s.getImageChromaData()
-                }
-            
-                DispatchQueue.main.async{
-                    self.isDownloading = false
-                }
+                s.getImageLevelData()
+                s.getImageChromaData()
             }
             
-            self.defaults.set(skinCount, forKey: "skinCount")
             
             // Background thread
             DispatchQueue.main.async{
