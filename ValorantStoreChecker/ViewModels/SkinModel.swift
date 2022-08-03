@@ -12,6 +12,8 @@ class SkinModel: ObservableObject{
     @Published var data : [Skin] = []
     @Published var errorMessage = ""
 
+    let defaults = UserDefaults.standard
+    
     init(){
         getLocalData()
         getRemoteData()
@@ -32,13 +34,9 @@ class SkinModel: ObservableObject{
             // get jsonDecode.decode(type, from) type is what you want obtained from the jsonData you input
             let skinList = try jsonDecoder.decode(Skins.self, from: jsonData)
             
-            // Call get image function
-            for s in skinList.data{
-                s.getImageData()
-            }
-            
             // Assign parse modules to modules property, updates @Published data
-            self.data = skinList.data.sorted(by: {$0.displayName < $1.displayName}).filter({!$0.displayName.contains("Standard")}).filter({!$0.displayName.contains("Melee")}) //Sorts alphabetically and filters out Standard skin
+            self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter({!$0.displayName.contains("Melee")}) //Sorts alphabetically and filters out Standard skin
+            
         }
         catch{
             print("Rip JSON doesn't work")
@@ -48,7 +46,7 @@ class SkinModel: ObservableObject{
     func getRemoteData(){
         
         // String path
-        let urlString = Constants.URL.valSkins
+        let urlString = Constants.URL.valAPISkins
         
         // URL object
         let url = URL(string: urlString)
@@ -86,16 +84,32 @@ class SkinModel: ObservableObject{
             let jsonDecoder = JSONDecoder()
             let skinList = try! jsonDecoder.decode(Skins.self, from: data!)
             
-            // Call get image function
+            
             for s in skinList.data{
-                s.getImageData()
+                s.getImageLevelData()
+                s.getImageChromaData()
             }
             
+            /*
+            let total = skinList.data.count
+            
+            if total > self.defaults.integer(forKey: "skinList") {
+                
+                // Call get image function
+                for s in skinList.data{
+                    s.getImageLevelData()
+                    s.getImageChromaData()
+                }
+                
+            }
+            
+            self.defaults.set(total, forKey: "skinList")
+            */
             // Background thread
             DispatchQueue.main.async{
                 self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter({!$0.displayName.contains("Melee")}) //Sorts alphabetically and filters out Standard skin
+                
             }
-
         }
         // Kick off data task
         dataTask.resume()

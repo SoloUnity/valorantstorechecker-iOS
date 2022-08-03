@@ -18,7 +18,7 @@ struct ShopView: View {
         GeometryReader{ geo in
             
             
-            VStack(spacing: 0){
+            LazyVStack(spacing: 0){
                 
                 
                 Logo()

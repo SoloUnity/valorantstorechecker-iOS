@@ -27,14 +27,18 @@ struct SkinCardView: View {
             ZStack{
                 
                 // MARK: Image
-                if skin.imageData != nil{
-                    let uiImage = UIImage(data: skin.imageData ?? Data())
+                
+                if UserDefaults.standard.data(forKey: skin.levels!.first!.id.description) != nil {
+                    
+                    let decoded = try! PropertyListDecoder().decode(Data.self, from: UserDefaults.standard.data(forKey: skin.levels!.first!.id.description)!)
+                    
+                    let uiImage = UIImage(data: decoded)
                                     
                     Image(uiImage: uiImage ?? UIImage())
                         .resizable()
                         .scaledToFit()
                         .padding()
-
+                    
                 }
                 else{
                     // Quicker load time but a data muncher
@@ -47,7 +51,7 @@ struct SkinCardView: View {
                     .padding()
 
                 }
-                 
+
                     
                 VStack{
                     
@@ -118,11 +122,16 @@ struct SkinCardView: View {
             }
             
         }
-        
         .sheet(isPresented: $isDetailViewShowing) {
             SkinCardDetailView(skin: skin)
                 .preferredColorScheme(.dark)
         }
-        
     }
+}
+
+func getImageData (skin: Skin) -> UIImage{
+    guard let data = UserDefaults.standard.data(forKey: "\(skin.levels!.first!.id)") else { return UIImage()}
+    let decoded = try! PropertyListDecoder().decode(Data.self, from: data)
+    let uiImage = UIImage(data: decoded)
+    return uiImage!
 }

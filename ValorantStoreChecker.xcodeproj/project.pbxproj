@@ -29,6 +29,8 @@
 		8B3685D02895BBD3000BB3CF /* LoginBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3685CF2895BBD3000BB3CF /* LoginBoxView.swift */; };
 		8B3685D22895D2D5000BB3CF /* ShopTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3685D12895D2D5000BB3CF /* ShopTopBarView.swift */; };
 		8B3685D42895D576000BB3CF /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3685D32895D576000BB3CF /* PullToRefreshView.swift */; };
+		8B4200882899E620000D7FC2 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4200872899E620000D7FC2 /* TermsView.swift */; };
+		8B42008A2899E977000D7FC2 /* CopyrightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4200892899E977000D7FC2 /* CopyrightView.swift */; };
 		8B62AFCF2883A0FD0070173F /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFCE2883A0FD0070173F /* ShopView.swift */; };
 		8B62AFD12883A1230070173F /* SkinCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD02883A1230070173F /* SkinCardView.swift */; };
 		8B62AFD72883B4E10070173F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62AFD62883B4E10070173F /* HomeView.swift */; };
@@ -82,6 +84,8 @@
 		8B3685CF2895BBD3000BB3CF /* LoginBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBoxView.swift; sourceTree = "<group>"; };
 		8B3685D12895D2D5000BB3CF /* ShopTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTopBarView.swift; sourceTree = "<group>"; };
 		8B3685D32895D576000BB3CF /* PullToRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
+		8B4200872899E620000D7FC2 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+		8B4200892899E977000D7FC2 /* CopyrightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyrightView.swift; sourceTree = "<group>"; };
 		8B62AFCE2883A0FD0070173F /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		8B62AFD02883A1230070173F /* SkinCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCardView.swift; sourceTree = "<group>"; };
 		8B62AFD62883B4E10070173F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				8B0AE9ED28998E9400275A30 /* CommunityView.swift */,
 				8B0AE9EF28998EAC00275A30 /* HelpView.swift */,
 				8B0AE9F128998EC600275A30 /* AcknowledgementsView.swift */,
+				8B4200892899E977000D7FC2 /* CopyrightView.swift */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				8B3685CF2895BBD3000BB3CF /* LoginBoxView.swift */,
 				8B3651532891DCCA00FE762E /* RegionSelectorView.swift */,
 				8B0AE9E428984AFA00275A30 /* MultifactorView.swift */,
+				8B4200872899E620000D7FC2 /* TermsView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -439,6 +445,7 @@
 				8B682C822890C2BE003A3B9C /* Error.swift in Sources */,
 				8B3685D02895BBD3000BB3CF /* LoginBoxView.swift in Sources */,
 				8B9A8395288630F0009CE268 /* WishListView.swift in Sources */,
+				8B42008A2899E977000D7FC2 /* CopyrightView.swift in Sources */,
 				8BB00EC9288E4679001AE90A /* Store.swift in Sources */,
 				8B9A838128861097009CE268 /* Logo.swift in Sources */,
 				8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */,
@@ -452,6 +459,7 @@
 				8B682C802890C176003A3B9C /* Authentication.swift in Sources */,
 				8B29E20C2881D6D30081F69A /* CircleView.swift in Sources */,
 				8B0AE9F228998EC600275A30 /* AcknowledgementsView.swift in Sources */,
+				8B4200882899E620000D7FC2 /* TermsView.swift in Sources */,
 				8B0AE9EE28998E9400275A30 /* CommunityView.swift in Sources */,
 				8B0AE9E528984AFA00275A30 /* MultifactorView.swift in Sources */,
 				8B9A838F28861C78009CE268 /* UltraEditionView.swift in Sources */,
@@ -585,14 +593,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ValorantStoreChecker/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = VSC;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -603,7 +611,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -621,14 +629,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ValorantStoreChecker/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = VSC;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -639,7 +647,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

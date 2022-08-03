@@ -14,7 +14,7 @@ struct AboutView: View {
         GeometryReader{ geo in
             
             ScrollView(showsIndicators: false){
-                VStack (spacing: 20){
+                LazyVStack (spacing: 20){
                     
                     HStack{
                         Text("About")
@@ -34,6 +34,8 @@ struct AboutView: View {
                     HelpView()
                     
                     AcknowledgementsView()
+                    
+                    CopyrightView()
                     
                     HStack {
                         Spacer()

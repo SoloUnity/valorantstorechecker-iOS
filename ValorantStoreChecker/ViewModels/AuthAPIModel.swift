@@ -33,7 +33,7 @@ class AuthAPIModel: ObservableObject {
     @Published var username: String = "" // Variable used by username box in LoginBoxView
     @Published var password: String = "" // Used by password box in LoginBoxView
     @Published var multifactor : String = "" // Used by multifactor box in MultifactorView
-    @Published var region : String = ""
+    @Published var regionCheck : Bool = false
     
     // User saved information
     @Published var keychain = Keychain() // For sensitive information
@@ -162,6 +162,7 @@ class AuthAPIModel: ObservableObject {
             self.isAuthenticating = false
             self.reloading = false
             self.isAuthenticated = true
+            
             defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
             
             self.username = ""
@@ -294,8 +295,10 @@ class AuthAPIModel: ObservableObject {
         // Reset user defaults
         self.isAuthenticating = false
         self.isAuthenticated = false
+        self.regionCheck = false
         self.username = ""
         self.password = ""
+        
         
         defaults.removeObject(forKey: "username")
         defaults.removeObject(forKey: "authentication")

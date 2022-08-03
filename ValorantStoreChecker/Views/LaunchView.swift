@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LaunchView: View {
     
-    @EnvironmentObject var model:SkinModel
+    @EnvironmentObject var skinModel:SkinModel
     @EnvironmentObject var loginModel:AuthAPIModel
 
     

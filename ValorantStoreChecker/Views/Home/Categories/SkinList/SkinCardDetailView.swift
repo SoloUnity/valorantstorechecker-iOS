@@ -191,7 +191,18 @@ struct SkinCardDetailView: View {
                     Spacer()
                     
                     
-                    if skin.chromas![selectedChroma].displayIcon != nil{
+                    if UserDefaults.standard.data(forKey: skin.chromas![selectedChroma].id.description) != nil {
+                        
+                        let decoded = try! PropertyListDecoder().decode(Data.self, from: UserDefaults.standard.data(forKey: skin.chromas![selectedChroma].id.description)!)
+                        
+                        let uiImage = UIImage(data: decoded)
+                        
+                        Image(uiImage: uiImage ?? UIImage())
+                            .resizable()
+                            .scaledToFit()
+                            .padding()
+                    }
+                    else if skin.chromas![selectedChroma].displayIcon != nil{
                         
                         AsyncImage(url: URL(string: skin.chromas![selectedChroma].displayIcon!)) { image in
                             image.resizable()
@@ -202,17 +213,7 @@ struct SkinCardDetailView: View {
                         .padding()
                         
                     }
-                    else if skin.chromas![selectedChroma].fullRender != nil{
-                        
-                        AsyncImage(url: URL(string: skin.chromas![selectedChroma].fullRender!)) { image in
-                            image.resizable()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .scaledToFit()
-                        .padding()
-                        
-                    }
+
                     Spacer()
                 }
                 .frame(height: (UIScreen.main.bounds.height / 6.5))

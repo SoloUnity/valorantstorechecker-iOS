@@ -42,7 +42,7 @@ struct MultifactorView: View {
                             TextField("Two Factor Authentication" , text: $authAPIModel.multifactor)
                                 .keyboardType(.numberPad)
                                 .autocorrectionDisabled()
-                                .foregroundColor(authAPIModel.failedLogin ? .red : .white)
+                                .foregroundColor(.white)
                                 .disableAutocorrection(true)
                                 
                             
@@ -53,6 +53,7 @@ struct MultifactorView: View {
                             .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
                             .shadow(color: authAPIModel.failedLogin ? .red : .white, radius: 2)
                             .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                            .foregroundColor(authAPIModel.failedLogin ? .red : .white)
                             
                     }
                 }
@@ -107,6 +108,7 @@ struct MultifactorView: View {
             }
             .padding(50)
         }
+        .background(Constants.bgGrey)
     }
 }
 

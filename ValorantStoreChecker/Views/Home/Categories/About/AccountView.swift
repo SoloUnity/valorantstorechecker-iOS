@@ -10,6 +10,7 @@ import SwiftUI
 struct AccountView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
+    @EnvironmentObject var skinModel : SkinModel
     let defaults = UserDefaults.standard
     
     var body: some View {
@@ -128,6 +129,8 @@ struct AccountView: View {
                         }
                     }
                 }
+                
+
                 
                 
                 

@@ -12,6 +12,7 @@ struct LoginView: View {
     @EnvironmentObject var authAPIModel : AuthAPIModel
     
     @State private var agreedToTerms: Bool = false
+    @State private var showTerms : Bool = false
     
     var body: some View {
         
@@ -50,12 +51,19 @@ struct LoginView: View {
                 HStack{
                     Button {
                         
+                        showTerms = true
+                        
                     } label: {
                         HStack {
+                            Image(systemName: "link")
+                                .resizable()
+                                .frame(width: 10, height: 10)
+                                .accentColor(.white)
+                                .frame(width:10, height: 10)
+                            
                             Text("I read the terms and conditions.")
                                 .foregroundColor(.white)
-                            
-                            Image(systemName: "link")
+                                .font(.footnote)
                             
                         }
                         
@@ -77,13 +85,15 @@ struct LoginView: View {
                 Spacer()
                 
                 // MARK: Log in button
-                if agreedToTerms && authAPIModel.region != "" {
+                if agreedToTerms && authAPIModel.regionCheck {
                     Button {
-                        authAPIModel.failedLogin = false
-                        authAPIModel.isAuthenticating = true
+                        authAPIModel.failedLogin = false // Remove error message of authentication
+                        authAPIModel.isAuthenticating = true // Start loading animation
+                        
                         Task{
                             await authAPIModel.login()
                         }
+                        
                     } label: {
                         if !authAPIModel.isAuthenticating {
                             ZStack{
@@ -137,6 +147,11 @@ struct LoginView: View {
             MultifactorView()
                 .preferredColorScheme(.dark)
                 .background(Constants.bgGrey)
+        }
+        .sheet(isPresented: $showTerms) {
+            TermsView()
+                .background(Constants.bgGrey)
+                .preferredColorScheme(.dark)
         }
     }
     

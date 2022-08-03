@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
 class Skin: Identifiable, Codable, ObservableObject{
-    
-    @Published var imageData: Data?
     
     var id : UUID
     var displayName:String
@@ -32,27 +31,63 @@ class Skin: Identifiable, Codable, ObservableObject{
     
     // Convert image url to data object
     
-     func getImageData() {
-         
-         if let url = URL(string: "\(Constants.URL.valStore)weaponskinlevels/\(levels!.first!.id.description.lowercased()).png") {
-             
-             
-             // Get a session
-             let session = URLSession.shared
-             let dataTask = session.dataTask(with: url) { (data, response, error) in
-                 
-                 if error == nil {
-                     
-                     DispatchQueue.main.async {
-                         // Set the image data
-                         self.imageData = data!
-                     }
-                 }
-             }
-             dataTask.resume()
-         }
+    func getImageLevelData() {
         
-     }
+        if let url = URL(string: "\(Constants.URL.valStore)weaponskinlevels/\(levels!.first!.id.description.lowercased()).png") {
+            
+            dataHelper(url: url, key: self.levels!.first!.id.description)
+            
+        }
+        else if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinlevels/\(levels!.first!.id.description.lowercased())/fullrender.png") {
+            
+            dataHelper(url: url, key: self.levels!.first!.id.description)
+            
+        }
+        else if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinlevels/\(levels!.first!.id.description.lowercased())/displayicon.png") {
+            
+            dataHelper(url: url, key: self.levels!.first!.id.description)
+            
+        }
+    }
+
+    func getImageChromaData() {
+        
+        for chroma in self.chromas! {
+            
+            if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinchromas/\(chroma.id.description.lowercased())/fullrender.png") {
+                
+                
+                dataHelper(url: url, key: chroma.id.description)
+                
+            }
+            else if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinchromas/\(chroma.id.description.lowercased())/displayicon.png") {
+                
+                dataHelper(url: url, key: chroma.id.description)
+                
+            }
+
+        }
+        
+    }
+    
+    func dataHelper (url : URL, key : String) {
+        // Get a session
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
+            
+            if error == nil {
+                
+                DispatchQueue.main.async {
+                    // Set the image data
+                    
+                    let encoded = try! PropertyListEncoder().encode(data)
+                    UserDefaults.standard.set(encoded, forKey: key)
+                    
+                }
+            }
+        }
+        dataTask.resume()
+    }
 }
 
 struct Chromas: Codable, Identifiable{
@@ -71,7 +106,7 @@ struct Chromas: Codable, Identifiable{
         case fullRender
         case streamedVideo
     }
-
+    
 }
 
 struct Levels: Codable, Identifiable{

@@ -42,6 +42,7 @@ struct RegionSelectorView: View {
                 
                 if title != "North America" {
                     Button {
+                        authAPIModel.regionCheck = true
                         defaults.set("na", forKey: "region")
                         title = "North America"
                         expand = false
@@ -54,6 +55,7 @@ struct RegionSelectorView: View {
                 
                 if title != "Europe" {
                     Button {
+                        authAPIModel.regionCheck = true
                         defaults.set("eu", forKey: "region")
                         title = "Europe"
                         expand = false
@@ -65,6 +67,7 @@ struct RegionSelectorView: View {
                 
                 if title != "Asia Pacific" {
                     Button {
+                        authAPIModel.regionCheck = true
                         defaults.set("ap", forKey: "region")
                         title = "Asia Pacific"
                         expand = false
@@ -76,6 +79,7 @@ struct RegionSelectorView: View {
                 
                 if title != "South Korea" {
                     Button {
+                        authAPIModel.regionCheck = true
                         defaults.set("kr", forKey: "region")
                         title = "South Korea"
                         expand = false
