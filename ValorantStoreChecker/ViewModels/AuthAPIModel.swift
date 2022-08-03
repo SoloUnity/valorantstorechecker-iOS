@@ -42,7 +42,7 @@ class AuthAPIModel: ObservableObject {
     
     init() {
         
-        // TODO: Implement CoreData
+        // TODO: Implement CoreData, but for now lmao this works
         if let objects = defaults.value(forKey: "storefront") as? Data {
             let decoder = JSONDecoder()
             if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Skin] {
@@ -87,6 +87,9 @@ class AuthAPIModel: ObservableObject {
                 // Regular login
                 let token = tokenList[0]
                 await loginHelper(token: token)
+                
+                self.isAuthenticated = true
+                defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
             }
             
             
@@ -115,9 +118,12 @@ class AuthAPIModel: ObservableObject {
         do {
             self.password = String(repeating: "a", count: (self.password.count)) // Clear password from memory and put in a placeholder
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
+            
             let puuid = try await WebService.getPlayerInfo(token: token)
             let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
             let wallet = try await WebService.getWallet(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
+            
+            
             
             // Save user's wallet info
             self.vp = wallet[0]
@@ -142,6 +148,7 @@ class AuthAPIModel: ObservableObject {
             self.storefront = tempStore
             
             let storefrontEncoder = JSONEncoder()
+            
             if let encoded = try? storefrontEncoder.encode(tempStore){
                 defaults.set(encoded, forKey: "storefront")
             }
@@ -161,9 +168,7 @@ class AuthAPIModel: ObservableObject {
             
             self.isAuthenticating = false
             self.reloading = false
-            self.isAuthenticated = true
             
-            defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
             
             self.username = ""
             self.password = ""
@@ -194,6 +199,10 @@ class AuthAPIModel: ObservableObject {
         if enteredMultifactor{
             do{
                 let token = try await WebService.multifactor(code: self.multifactor)
+                
+                self.isAuthenticated = true
+                defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
+                
                 await loginHelper(token: token)
                 self.showMultifactor = false
                 self.enteredMultifactor = false

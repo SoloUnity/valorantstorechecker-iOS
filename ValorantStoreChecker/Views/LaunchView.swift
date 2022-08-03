@@ -21,6 +21,9 @@ struct LaunchView: View {
         if !loginModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
             LoginView()
         }
+        else if !skinModel.assetsDownloaded {
+            AssetsView()
+        }
         else {
             HomeView()
         }

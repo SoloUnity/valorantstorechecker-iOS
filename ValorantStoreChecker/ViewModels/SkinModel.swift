@@ -11,13 +11,10 @@ class SkinModel: ObservableObject{
     
     @Published var data : [Skin] = []
     @Published var errorMessage = ""
+    @Published var assetsDownloaded = false
 
     let defaults = UserDefaults.standard
     
-    init(){
-        getLocalData()
-        getRemoteData()
-    }
     
     func getLocalData(){
         
@@ -109,11 +106,12 @@ class SkinModel: ObservableObject{
             DispatchQueue.main.async{
                 self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter({!$0.displayName.contains("Melee")}) //Sorts alphabetically and filters out Standard skin
                 
+                self.assetsDownloaded = true
+                self.defaults.set(true, forKey: "assetDownloads")
             }
         }
         // Kick off data task
         dataTask.resume()
-        
     }
  }
      
