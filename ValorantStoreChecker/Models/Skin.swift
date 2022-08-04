@@ -10,6 +10,7 @@ import UIKit
 
 class Skin: Identifiable, Codable, ObservableObject{
     
+        
     var id : UUID
     var displayName:String
     var themeUuid:String?
@@ -52,7 +53,6 @@ class Skin: Identifiable, Codable, ObservableObject{
                 
             }
         }
-        
         
     }
 

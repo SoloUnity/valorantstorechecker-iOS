@@ -51,7 +51,7 @@ struct SplashScreenView: View {
             .padding(120)
             .background(Constants.bgGrey)
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {   // Duration of splash screen
                     withAnimation {
                         
                         self.isActive = true

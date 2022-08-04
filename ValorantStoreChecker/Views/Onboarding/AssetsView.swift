@@ -30,18 +30,18 @@ struct AssetsView: View {
                         .padding()
                         .multilineTextAlignment(.center)
                     
-                    /*
+                    
                     ZStack (alignment: .leading){
                         RoundedRectangle (cornerRadius: 20, style: .continuous)
                             .frame (width: width, height: 20)
                             .foregroundColor(Color.white.opacity (0.1))
                         
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .frame(width: skinModel.percent * multiplier, height: 20)
+                            .frame(width: skinModel.percent, height: 20)
                             .foregroundColor(.pink)
                             .animation(.spring(), value: skinModel.percent)
                     }
-                    */
+                    
                     
                     
                     Spacer()

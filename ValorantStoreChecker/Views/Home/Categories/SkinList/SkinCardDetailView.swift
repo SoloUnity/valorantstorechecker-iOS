@@ -47,7 +47,8 @@ struct SkinCardDetailView: View {
                 
                     
                     HStack{
-                        if skin.contentTierUuid == nil || (skin.contentTierUuid != nil && PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!) == "2475+"){
+                        
+                        if skin.contentTierUuid == nil || (skin.contentTierUuid != nil && PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!) == "2475+") {
                             Button {
                                showAlert = true
                             } label: {
@@ -190,8 +191,7 @@ struct SkinCardDetailView: View {
                 HStack{
                     Spacer()
                     
-                    
-                    if UserDefaults.standard.data(forKey: skin.chromas![selectedChroma].id.description) != nil {
+                    if let imageData = UserDefaults.standard.data(forKey: skin.chromas![selectedChroma].id.description) {
                         
                         let decoded = try! PropertyListDecoder().decode(Data.self, from: UserDefaults.standard.data(forKey: skin.chromas![selectedChroma].id.description)!)
                         
@@ -201,6 +201,7 @@ struct SkinCardDetailView: View {
                             .resizable()
                             .scaledToFit()
                             .padding()
+                        
                     }
                     else if skin.chromas![selectedChroma].displayIcon != nil{
                         
@@ -224,6 +225,7 @@ struct SkinCardDetailView: View {
                         .padding()
                         
                     }
+                    
 
                     Spacer()
                 }

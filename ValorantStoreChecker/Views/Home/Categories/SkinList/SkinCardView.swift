@@ -13,11 +13,11 @@ struct SkinCardView: View {
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @ObservedObject var skin:Skin
     @State var isDetailViewShowing = false
-
+    
     var showPrice = false
     var showPriceTier = false
     var price = ""
-
+    
     var body: some View {
         
         Button {
@@ -28,19 +28,19 @@ struct SkinCardView: View {
                 
                 // MARK: Image
                 
-                if UserDefaults.standard.data(forKey: skin.levels!.first!.id.description) != nil {
+                
+                if let imageData = UserDefaults.standard.data(forKey: skin.levels!.first!.id.description) {
                     
-                    let decoded = try! PropertyListDecoder().decode(Data.self, from: UserDefaults.standard.data(forKey: skin.levels!.first!.id.description)!)
+                    let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData )
                     
                     let uiImage = UIImage(data: decoded)
-                                    
+                    
                     Image(uiImage: uiImage ?? UIImage())
                         .resizable()
                         .scaledToFit()
                         .padding()
                     
-                }
-                else{
+                } else {
                     // Quicker load time but a data muncher
                     AsyncImage(url: URL(string: skin.levels!.first!.displayIcon!)) { image in
                         image.resizable()
@@ -49,10 +49,10 @@ struct SkinCardView: View {
                     }
                     .scaledToFit()
                     .padding()
-
-                }
-
                     
+                }
+                
+                
                 VStack{
                     
                     Spacer()

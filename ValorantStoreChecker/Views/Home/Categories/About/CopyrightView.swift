@@ -18,7 +18,7 @@ struct CopyrightView: View {
                     .font(.title3)
                 
                 
-                Text("VSC (Valorant Store Tracker) is not associated, connected, or endorsed by Valorant or Riot Games.  Additionally, Riot Games and Valorant are trademarks registered under Riot Games Inc.")
+                Text("VSC (Valorant Store Checker) is not associated, connected, or endorsed by Valorant or Riot Games.  Additionally, Riot Games and Valorant are trademarks registered under Riot Games Inc.")
                     .font(.footnote)
                 
                 
