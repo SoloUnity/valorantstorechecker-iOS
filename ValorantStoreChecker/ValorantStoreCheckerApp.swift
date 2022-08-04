@@ -11,9 +11,8 @@ import SwiftUI
 struct ValorantStoreCheckerApp: App {
     var body: some Scene {
         WindowGroup {
-            LaunchView()
-                .environmentObject(SkinModel())
-                .environmentObject(AuthAPIModel())
+            SplashScreenView()
+                .preferredColorScheme(.dark)
         }
     }
 }

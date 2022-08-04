@@ -28,7 +28,7 @@ struct TermsView: View {
                     
                     """)
                 
-                Text("VSC (Valorant Store Tracker) is not associated, or connected, with Valorant and the company Riot Games. In addition, VSC is not connected, supported, or endorsed by Riot Games. Additionally, Riot Games and Valorant are trademarks registered under Riot Games Inc.")
+                Text("VSC (Valorant Store Tracker) is not associated, connected, or endorsed by Valorant or Riot Games.  Additionally, Riot Games and Valorant are trademarks registered under Riot Games Inc.")
                 
             }
             .padding()

@@ -301,18 +301,30 @@ class AuthAPIModel: ObservableObject {
             return URLSession(configuration: configuration)
         }()
         
-        // Reset user defaults
-        self.isAuthenticating = false
-        self.isAuthenticated = false
+
+        
+        self.isAuthenticated = false // Keeps user logged in
+        self.isAuthenticating = false // Handles loading animation
+        self.failedLogin = false // Handles login error message
+        self.reloading = false
+        self.showMultifactor = false // Show multifactor popout
+        self.enteredMultifactor = false // Handle multifactor loading animation
+        self.email = "" // Displayed email for multifactor popout
+        self.username = "" // Variable used by username box in LoginBoxView
+        self.password = "" // Used by password box in LoginBoxView
+        self.multifactor = "" // Used by multifactor box in MultifactorView
         self.regionCheck = false
-        self.username = ""
-        self.password = ""
         
-        
-        defaults.removeObject(forKey: "username")
         defaults.removeObject(forKey: "authentication")
+        defaults.removeObject(forKey: "region")
+        defaults.removeObject(forKey: "timeLeft")
+        defaults.removeObject(forKey: "vp")
+        defaults.removeObject(forKey: "rp")
+        defaults.removeObject(forKey: "username")
         defaults.removeObject(forKey: "storefront")
         defaults.removeObject(forKey: "storePrice")
-        defaults.removeObject(forKey: "region")
+        
+        let _ = keychain.remove(forKey: "ssid")
+        let _ = keychain.remove(forKey: "tdid")
     }
 }

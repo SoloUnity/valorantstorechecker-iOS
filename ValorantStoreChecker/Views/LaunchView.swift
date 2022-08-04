@@ -24,7 +24,13 @@ struct LaunchView: View {
                 
         }
         else {
-            HomeView()
+            
+            withAnimation {
+                
+                HomeView()
+                
+            }
+            
         }
         
 

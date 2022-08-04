@@ -15,6 +15,7 @@
 		8B0AE9EE28998E9400275A30 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AE9ED28998E9400275A30 /* CommunityView.swift */; };
 		8B0AE9F028998EAC00275A30 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AE9EF28998EAC00275A30 /* HelpView.swift */; };
 		8B0AE9F228998EC600275A30 /* AcknowledgementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AE9F128998EC600275A30 /* AcknowledgementsView.swift */; };
+		8B280797289B4544004A3720 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B280796289B4544004A3720 /* SplashScreenView.swift */; };
 		8B29E1EF2881C87D0081F69A /* ValorantStoreCheckerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E1EE2881C87D0081F69A /* ValorantStoreCheckerApp.swift */; };
 		8B29E1F12881C87D0081F69A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E1F02881C87D0081F69A /* LaunchView.swift */; };
 		8B29E1F32881C8800081F69A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B29E1F22881C8800081F69A /* Assets.xcassets */; };
@@ -49,7 +50,6 @@
 		8B9A838D28861C6E009CE268 /* PremiumEditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A838C28861C6E009CE268 /* PremiumEditionView.swift */; };
 		8B9A838F28861C78009CE268 /* UltraEditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A838E28861C78009CE268 /* UltraEditionView.swift */; };
 		8B9A8395288630F0009CE268 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A8394288630F0009CE268 /* WishListView.swift */; };
-		8B9A839828863E51009CE268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9A839728863E51009CE268 /* LaunchScreen.storyboard */; };
 		8BAB20BE2897616D0041A5BB /* Keychain in Frameworks */ = {isa = PBXBuildFile; productRef = 8BAB20BD2897616D0041A5BB /* Keychain */; };
 		8BB00EC4288E3D41001AE90A /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC3288E3D41001AE90A /* WebService.swift */; };
 		8BB00EC7288E418E001AE90A /* AuthAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC6288E418E001AE90A /* AuthAPIModel.swift */; };
@@ -70,6 +70,7 @@
 		8B0AE9ED28998E9400275A30 /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		8B0AE9EF28998EAC00275A30 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		8B0AE9F128998EC600275A30 /* AcknowledgementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsView.swift; sourceTree = "<group>"; };
+		8B280796289B4544004A3720 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		8B29E1EB2881C87D0081F69A /* ValorantStoreChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValorantStoreChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B29E1EE2881C87D0081F69A /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
 		8B29E1F02881C87D0081F69A /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -104,7 +105,6 @@
 		8B9A838C28861C6E009CE268 /* PremiumEditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumEditionView.swift; sourceTree = "<group>"; };
 		8B9A838E28861C78009CE268 /* UltraEditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraEditionView.swift; sourceTree = "<group>"; };
 		8B9A8394288630F0009CE268 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
-		8B9A839728863E51009CE268 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BB00EC3288E3D41001AE90A /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		8BB00EC6288E418E001AE90A /* AuthAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPIModel.swift; sourceTree = "<group>"; };
 		8BB00EC8288E4679001AE90A /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -164,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				8B29E1EE2881C87D0081F69A /* ValorantStoreCheckerApp.swift */,
+				8B280796289B4544004A3720 /* SplashScreenView.swift */,
 				8B29E1FC2881C9850081F69A /* Views */,
 				8B29E1FD2881C9890081F69A /* ViewModels */,
 				8B29E1FE2881C99A0081F69A /* Models */,
@@ -242,7 +243,6 @@
 		8B33A5C228846B5400BCB1F2 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
-				8B9A839728863E51009CE268 /* LaunchScreen.storyboard */,
 				8BF1DB472888B87F004491A1 /* Constants.swift */,
 				8B29E1F22881C8800081F69A /* Assets.xcassets */,
 				8BE6111D28847B0C00E8BDD6 /* SkinData.json */,
@@ -414,7 +414,6 @@
 			files = (
 				8B29E1F62881C8800081F69A /* Preview Assets.xcassets in Resources */,
 				8B3685CE2894F3F8000BB3CF /* StorePrice.json in Resources */,
-				8B9A839828863E51009CE268 /* LaunchScreen.storyboard in Resources */,
 				8BE6111E28847B0C00E8BDD6 /* SkinData.json in Resources */,
 				8B29E1F32881C8800081F69A /* Assets.xcassets in Resources */,
 			);
@@ -429,6 +428,7 @@
 			files = (
 				8BB00EC4288E3D41001AE90A /* WebService.swift in Sources */,
 				8B2AA907289B1E4400984AB7 /* AssetsView.swift in Sources */,
+				8B280797289B4544004A3720 /* SplashScreenView.swift in Sources */,
 				8B29E1F12881C87D0081F69A /* LaunchView.swift in Sources */,
 				8B65F850288CCFF0004282DD /* PriceTier.swift in Sources */,
 				8BF1DB482888B87F004491A1 /* Constants.swift in Sources */,
@@ -615,7 +615,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -623,7 +623,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -651,7 +651,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -659,7 +659,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -11,7 +11,19 @@ struct WishListView: View {
     
     @EnvironmentObject var model:SkinModel
     var body: some View {
-        Text("Coming Soon")
+        GeometryReader{ geo in
+            
+            
+            LazyVStack(spacing: 0){
+                
+                
+                Logo()
+                    .padding(80)
+                
+                
+            }
+            .padding(10)
+        }
     }
 }
 
