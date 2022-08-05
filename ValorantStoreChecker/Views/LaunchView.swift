@@ -11,27 +11,64 @@ struct LaunchView: View {
     
     @EnvironmentObject var skinModel:SkinModel
     @EnvironmentObject var loginModel:AuthAPIModel
-
+    @State private var loadingBar : Bool = false
+    @State private var percent : Int = 0
     
     let defaults = UserDefaults.standard
     
     var body: some View {
         
-        // Displays login if the user is not authenticated
-        if !loginModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
-         
-            LoginView()
-                
-        }
-        else {
+        ZStack (alignment: .top){
             
-            withAnimation {
+            
+            // Displays login if the user is not authenticated
+            if !loginModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
+                
+                LoginView()
+                
+                    
+            }
+            else {
                 
                 HomeView()
                 
             }
             
+            if !loadingBar && !UserDefaults.standard.bool(forKey: "progress") {
+                
+                VStack {
+                    
+                    ZStack (alignment: .leading){
+                        RoundedRectangle (cornerRadius: 20, style: .continuous)
+                            .frame (width: UIScreen.main.bounds.width - 50, height: 2)
+                            .foregroundColor(Color.white.opacity (0.1))
+                        
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .frame(width: (UIScreen.main.bounds.width - 50) * CGFloat(self.percent), height: 2)
+                            .foregroundColor(.pink)
+                            .animation(.linear(duration: 25), value: self.percent)
+                            .onAppear{
+                                self.percent = 1
+                                
+                                Timer.scheduledTimer(withTimeInterval: 25, repeats: true) { timer in
+                                    withAnimation(.easeIn(duration: 1)) {
+                                        self.loadingBar = true
+                                        timer.invalidate()
+                                    }
+                                }
+                            }
+                        
+                    }
+                    
+                    Text("Downloading Assets | Slowdowns Expected")
+                        .font(.caption2)
+                }
+                
+                
+            }
+            
         }
+        
         
 
     }

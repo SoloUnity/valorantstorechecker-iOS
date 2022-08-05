@@ -7,6 +7,7 @@
 
 import Foundation
 import Keychain
+import SwiftUI
 
 class AuthAPIModel: ObservableObject {
     
@@ -68,6 +69,9 @@ class AuthAPIModel: ObservableObject {
         
         do{
             
+            // Make funny download bar stop
+            UserDefaults.standard.set(true, forKey: "download")
+            
             // Save the username for further display
             if defaults.string(forKey: "username") == nil{
                 defaults.set(self.username, forKey: "username")
@@ -88,8 +92,10 @@ class AuthAPIModel: ObservableObject {
                 let token = tokenList[0]
                 await loginHelper(token: token)
                 
-                self.isAuthenticated = true
-                defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
+                
+                declareAuthentication()
+                
+                
             }
             
             
@@ -200,8 +206,7 @@ class AuthAPIModel: ObservableObject {
             do{
                 let token = try await WebService.multifactor(code: self.multifactor)
                 
-                self.isAuthenticated = true
-                defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
+                declareAuthentication()
                 
                 await loginHelper(token: token)
                 self.showMultifactor = false
@@ -327,4 +332,15 @@ class AuthAPIModel: ObservableObject {
         let _ = keychain.remove(forKey: "ssid")
         let _ = keychain.remove(forKey: "tdid")
     }
+    
+    @MainActor
+    func declareAuthentication() {
+        withAnimation(.easeIn(duration: 0.5)) {
+            self.isAuthenticated = true
+            defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
+            defaults.set(true, forKey: "progress")
+        }
+       
+    }
+    
 }

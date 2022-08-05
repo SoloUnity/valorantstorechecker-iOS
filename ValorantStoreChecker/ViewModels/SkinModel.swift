@@ -11,7 +11,6 @@ class SkinModel: ObservableObject{
     
     @Published var data : [Skin] = []
     @Published var errorMessage = ""
-    @Published var percent : CGFloat = 0
 
     let defaults = UserDefaults.standard
     

@@ -24,7 +24,6 @@
 		8B29E2032881CAEC0081F69A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E2022881CAEC0081F69A /* LoginView.swift */; };
 		8B29E2082881CCD10081F69A /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E2072881CCD10081F69A /* RectangleView.swift */; };
 		8B29E20C2881D6D30081F69A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E20B2881D6D30081F69A /* CircleView.swift */; };
-		8B2AA907289B1E4400984AB7 /* AssetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2AA906289B1E4400984AB7 /* AssetsView.swift */; };
 		8B33A5BF2884687C00BCB1F2 /* SkinCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */; };
 		8B3651542891DCCA00FE762E /* RegionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3651532891DCCA00FE762E /* RegionSelectorView.swift */; };
 		8B3685CE2894F3F8000BB3CF /* StorePrice.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B3685CD2894F3F8000BB3CF /* StorePrice.json */; };
@@ -80,7 +79,6 @@
 		8B29E2022881CAEC0081F69A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8B29E2072881CCD10081F69A /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
 		8B29E20B2881D6D30081F69A /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
-		8B2AA906289B1E4400984AB7 /* AssetsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsView.swift; sourceTree = "<group>"; };
 		8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCardDetailView.swift; sourceTree = "<group>"; };
 		8B3651532891DCCA00FE762E /* RegionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectorView.swift; sourceTree = "<group>"; };
 		8B3685CD2894F3F8000BB3CF /* StorePrice.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StorePrice.json; sourceTree = "<group>"; };
@@ -223,7 +221,6 @@
 				8B3651532891DCCA00FE762E /* RegionSelectorView.swift */,
 				8B0AE9E428984AFA00275A30 /* MultifactorView.swift */,
 				8B4200872899E620000D7FC2 /* TermsView.swift */,
-				8B2AA906289B1E4400984AB7 /* AssetsView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -427,7 +424,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BB00EC4288E3D41001AE90A /* WebService.swift in Sources */,
-				8B2AA907289B1E4400984AB7 /* AssetsView.swift in Sources */,
 				8B280797289B4544004A3720 /* SplashScreenView.swift in Sources */,
 				8B29E1F12881C87D0081F69A /* LaunchView.swift in Sources */,
 				8B65F850288CCFF0004282DD /* PriceTier.swift in Sources */,
