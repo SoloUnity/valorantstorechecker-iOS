@@ -46,15 +46,17 @@ struct LaunchView: View {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
                             .frame(width: (UIScreen.main.bounds.width - 50) * CGFloat(self.percent), height: 2)
                             .foregroundColor(.pink)
-                            .animation(.linear(duration: 25), value: self.percent)
+                            .animation(.linear(duration: 30), value: self.percent)
                             .onAppear{
                                 self.percent = 1
                                 
-                                Timer.scheduledTimer(withTimeInterval: 25, repeats: true) { timer in
+                                Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { timer in
                                     withAnimation(.easeIn(duration: 1)) {
                                         self.loadingBar = true
-                                        timer.invalidate()
+                                        defaults.set(true, forKey: "progress")
                                     }
+                                    
+                                    timer.invalidate()
                                 }
                             }
                         
@@ -63,8 +65,6 @@ struct LaunchView: View {
                     Text("Downloading Assets | Slowdowns Expected")
                         .font(.caption2)
                 }
-                
-                
             }
             
         }

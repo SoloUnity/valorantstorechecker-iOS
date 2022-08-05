@@ -193,7 +193,7 @@ struct SkinCardDetailView: View {
                     
                     if let imageData = UserDefaults.standard.data(forKey: skin.chromas![selectedChroma].id.description) {
                         
-                        let decoded = try! PropertyListDecoder().decode(Data.self, from: UserDefaults.standard.data(forKey: skin.chromas![selectedChroma].id.description)!)
+                        let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData)
                         
                         let uiImage = UIImage(data: decoded)
                         

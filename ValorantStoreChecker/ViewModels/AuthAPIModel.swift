@@ -308,7 +308,7 @@ class AuthAPIModel: ObservableObject {
         
 
         
-        self.isAuthenticated = false // Keeps user logged in
+        
         self.isAuthenticating = false // Handles loading animation
         self.failedLogin = false // Handles login error message
         self.reloading = false
@@ -320,7 +320,6 @@ class AuthAPIModel: ObservableObject {
         self.multifactor = "" // Used by multifactor box in MultifactorView
         self.regionCheck = false
         
-        defaults.removeObject(forKey: "authentication")
         defaults.removeObject(forKey: "region")
         defaults.removeObject(forKey: "timeLeft")
         defaults.removeObject(forKey: "vp")
@@ -331,6 +330,11 @@ class AuthAPIModel: ObservableObject {
         
         let _ = keychain.remove(forKey: "ssid")
         let _ = keychain.remove(forKey: "tdid")
+        
+        withAnimation(.easeIn(duration: 0.5)) {
+            self.isAuthenticated = false // Keeps user logged in
+            defaults.removeObject(forKey: "authentication")
+        }
     }
     
     @MainActor
@@ -338,7 +342,7 @@ class AuthAPIModel: ObservableObject {
         withAnimation(.easeIn(duration: 0.5)) {
             self.isAuthenticated = true
             defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
-            defaults.set(true, forKey: "progress")
+            
         }
        
     }
