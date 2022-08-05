@@ -34,6 +34,7 @@ struct LaunchView: View {
                 
             }
             
+            // Fake loading bar
             if !loadingBar && !UserDefaults.standard.bool(forKey: "progress") {
                 
                 VStack {
@@ -62,7 +63,7 @@ struct LaunchView: View {
                         
                     }
                     
-                    Text("Downloading Assets | Slowdowns Expected")
+                    Text("Downloading Assets (60mb) | Slowdowns Expected")
                         .font(.caption2)
                 }
             }
