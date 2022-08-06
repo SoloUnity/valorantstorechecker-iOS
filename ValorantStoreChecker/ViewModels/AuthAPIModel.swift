@@ -40,6 +40,9 @@ class AuthAPIModel: ObservableObject {
     @Published var keychain = Keychain() // For sensitive information
     @Published var defaults = UserDefaults.standard // For general information
     
+    // Error messages
+    @Published var isError : Bool = false
+    @Published var errorMessage : String = ""
     
     init() {
         
@@ -113,8 +116,6 @@ class AuthAPIModel: ObservableObject {
             
             let _ = keychain.remove(forKey: "username")
             
-            
-            print(error.localizedDescription)
         }
     }
     
@@ -193,7 +194,8 @@ class AuthAPIModel: ObservableObject {
             let _ = keychain.remove(forKey: "ssid")
             let _ = keychain.remove(forKey: "tdid")
             
-            print(error.localizedDescription)
+            self.errorMessage = "Login Helper error: \(error.localizedDescription)"
+            self.isError = true
         }
         
     }
@@ -228,6 +230,7 @@ class AuthAPIModel: ObservableObject {
                 let _ = keychain.remove(forKey: "username")
                 let _ = keychain.remove(forKey: "ssid")
                 let _ = keychain.remove(forKey: "tdid")
+                
                 
             }
             
@@ -289,8 +292,8 @@ class AuthAPIModel: ObservableObject {
             
         }catch{
             
-            self.reloading = false
-            print(error.localizedDescription)
+            self.errorMessage = "Reloading error: \(error.localizedDescription)"
+            self.isError = true
         }
     }
     

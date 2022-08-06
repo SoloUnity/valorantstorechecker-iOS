@@ -17,7 +17,7 @@ struct MultifactorView: View {
             VStack{
                 
                 Logo()
-                    .frame(width: geo.size.width/4)
+                    .frame(width: geo.size.width / Constants.dimensions.onboardingLogoSize)
                 
                 // MARK: General info
                 VStack{
@@ -80,11 +80,11 @@ struct MultifactorView: View {
                                     .foregroundColor(.white)
                                 
                             }
-                            .frame(width: 60, height: 60)
+                            .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
                         }
                         else {
                             ProgressView()
-                                .frame(width: 60, height: 60)
+                                .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
                         }
                     }
                 }
@@ -100,7 +100,7 @@ struct MultifactorView: View {
                             .foregroundColor(.white)
                         
                     }
-                    .frame(width: 60, height: 60)
+                    .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
                     .opacity(0.5)
                 }
                 

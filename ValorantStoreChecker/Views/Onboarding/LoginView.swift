@@ -36,8 +36,8 @@ struct LoginView: View {
                     
                     
                     Logo()
-                        .frame(width: geo.size.width/4)
-                        .padding(.top, 30)
+                        .frame(width: geo.size.width / Constants.dimensions.onboardingLogoSize)
+                        .padding(.top)
                     
                     // MARK: General Info
                     if !authAPIModel.failedLogin {
@@ -82,10 +82,8 @@ struct LoginView: View {
                         } label: {
                             HStack {
                                 Image(systemName: "link")
-                                    .resizable()
-                                    .frame(width: 10, height: 10)
                                     .accentColor(.white)
-                                    .frame(width:10, height: 10)
+
                                 
                                 Text("I read the terms and conditions.")
                                     .foregroundColor(.white)
@@ -113,6 +111,10 @@ struct LoginView: View {
                     // MARK: Log in button
                     if agreedToTerms && authAPIModel.regionCheck {
                         Button {
+                            
+                            // Dismiss keyboard
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            
                             authAPIModel.failedLogin = false // Remove error message of authentication
                             authAPIModel.isAuthenticating = true // Start loading animation
                             
@@ -133,11 +135,11 @@ struct LoginView: View {
                                         .foregroundColor(.white)
                                     
                                 }
-                                .frame(width: 60, height: 60)
+                                .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
                             }
                             else{
                                 ProgressView()
-                                    .frame(width: 60, height: 60)
+                                    .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
                             }
                             
                         }
@@ -156,7 +158,7 @@ struct LoginView: View {
                                 .foregroundColor(.white)
                             
                         }
-                        .frame(width: 60, height: 60)
+                        .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
                         .opacity(0.5)
                         
                         

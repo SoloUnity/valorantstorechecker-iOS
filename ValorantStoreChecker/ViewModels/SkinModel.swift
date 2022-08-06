@@ -73,7 +73,6 @@ class SkinModel: ObservableObject{
             }
             
             guard let httpResponse = response as? HTTPURLResponse else {
-                self.errorMessage = "Bad response"
                 return
             }
             
