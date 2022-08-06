@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import Keychain
 
 struct AccountView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @EnvironmentObject var skinModel : SkinModel
+    
     let defaults = UserDefaults.standard
+    let keychain = Keychain()
     
     var body: some View {
         HStack{
@@ -54,7 +57,7 @@ struct AccountView: View {
                 
                 HStack{
                     
-                    switch defaults.string(forKey: "region") ?? ""{
+                    switch keychain.value(forKey: "region") as? String ?? "na" {
                     case "na":
                         
                         Image(systemName: "globe.americas.fill")

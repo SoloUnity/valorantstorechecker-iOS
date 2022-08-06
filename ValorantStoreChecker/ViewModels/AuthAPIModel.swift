@@ -34,7 +34,7 @@ class AuthAPIModel: ObservableObject {
     @Published var username: String = "" // Variable used by username box in LoginBoxView
     @Published var password: String = "" // Used by password box in LoginBoxView
     @Published var multifactor : String = "" // Used by multifactor box in MultifactorView
-    @Published var regionCheck : Bool = false
+    @Published var regionCheck : Bool = false // COnfirm user has selected region
     
     // User saved information
     @Published var keychain = Keychain() // For sensitive information
@@ -72,48 +72,47 @@ class AuthAPIModel: ObservableObject {
         do{
 
             
-            // Save the username for further display
-            if defaults.string(forKey: "username") == nil{
-                defaults.set(self.username, forKey: "username")
+            // Save the username to keychain
+            if keychain.value(forKey: "username") == nil{
+                let _ = keychain.save(self.username, forKey: "username")
             }
             
+            
             try await WebService.getCookies()
-            let tokenList = try await WebService.getToken(username: defaults.string(forKey: "username") ?? "", password: self.password)
+            let tokenList = try await WebService.getToken(username: keychain.value(forKey: "username") as? String ?? "", password: self.password)
             
             
             if tokenList.count == 2 {
                 // Multifactor login
                 self.email = tokenList[1]
                 self.showMultifactor = true
-                self.isAuthenticating = false
+                self.isAuthenticating = false // Disable loading button in case user swipes away multifactor
             }
             else{
-                // Regular login
+                // Default login (non-multifactor)
                 let token = tokenList[0]
                 await loginHelper(token: token)
                 
-                
+                // Save authentication state for next launch
                 self.isAuthenticated = true
-                defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
-                
+                defaults.set(self.isAuthenticated, forKey: "authentication")
                 
             }
             
-            
-            
         }catch{
             // Reset user defaults
+            self.email = ""
+            self.showMultifactor = false
             self.isAuthenticating = false
+            
             self.failedLogin = true
             self.username = ""
             self.password = ""
             
-            defaults.removeObject(forKey: "username")
             defaults.removeObject(forKey: "authentication")
-            defaults.removeObject(forKey: "storefront")
-            defaults.removeObject(forKey: "storePrice")
-            let _ = keychain.remove(forKey: "ssid")
-            let _ = keychain.remove(forKey: "tdid")
+            
+            let _ = keychain.remove(forKey: "username")
+            
             
             print(error.localizedDescription)
         }
@@ -123,13 +122,12 @@ class AuthAPIModel: ObservableObject {
     @MainActor
     func loginHelper(token : String) async {
         do {
-            self.password = String(repeating: "a", count: (self.password.count)) // Clear password from memory and put in a placeholder
+            self.password = "" // Clear password
+            
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
-            
             let puuid = try await WebService.getPlayerInfo(token: token)
-            let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
-            let wallet = try await WebService.getWallet(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
-            
+            let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
+            let wallet = try await WebService.getWallet(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
             
             
             // Save user's wallet info
@@ -160,23 +158,22 @@ class AuthAPIModel: ObservableObject {
                 defaults.set(encoded, forKey: "storefront")
             }
             
-            let storePrice = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: defaults.string(forKey: "region") ?? "na")
-            
+            // Get store price
+            let storePrice = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: keychain.value(forKey: "region") as? String ?? "na")
             self.storePrice = storePrice
             
+            // Save store prices
             let priceEncoder = JSONEncoder()
             if let encoded = try? priceEncoder.encode(storePrice){
                 defaults.set(encoded, forKey: "storePrice")
             }
             
+            // Set the time left in shop
             let referenceDate = Date() + Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0)
-            
             defaults.set(referenceDate, forKey: "timeLeft")
             
             self.isAuthenticating = false
-            self.reloading = false
-            
-            
+
             self.username = ""
             self.password = ""
             self.multifactor = ""
@@ -188,10 +185,11 @@ class AuthAPIModel: ObservableObject {
             self.username = ""
             self.password = ""
             
-            defaults.removeObject(forKey: "username")
             defaults.removeObject(forKey: "authentication")
             defaults.removeObject(forKey: "storefront")
             defaults.removeObject(forKey: "storePrice")
+            
+            let _ = keychain.remove(forKey: "username")
             let _ = keychain.remove(forKey: "ssid")
             let _ = keychain.remove(forKey: "tdid")
             
@@ -207,12 +205,12 @@ class AuthAPIModel: ObservableObject {
             do{
                 let token = try await WebService.multifactor(code: self.multifactor)
                 
-                self.isAuthenticated = true
-                defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
-                
                 await loginHelper(token: token)
                 self.showMultifactor = false
                 self.enteredMultifactor = false
+                
+                self.isAuthenticated = true
+                defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
             }
             catch{
                 // Reset user defaults
@@ -223,11 +221,11 @@ class AuthAPIModel: ObservableObject {
                 self.isAuthenticating = false
                 self.failedLogin = true
                 
-                
-                defaults.removeObject(forKey: "username")
                 defaults.removeObject(forKey: "authentication")
                 defaults.removeObject(forKey: "storefront")
                 defaults.removeObject(forKey: "storePrice")
+                
+                let _ = keychain.remove(forKey: "username")
                 let _ = keychain.remove(forKey: "ssid")
                 let _ = keychain.remove(forKey: "tdid")
                 
@@ -245,10 +243,10 @@ class AuthAPIModel: ObservableObject {
             let token = try await WebService.cookieReauth()
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
             let puuid = try await WebService.getPlayerInfo(token: token)
-            let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
-            let wallet = try await WebService.getWallet(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: defaults.string(forKey: "region") ?? "na")
+            let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
+            let wallet = try await WebService.getWallet(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
             
-            self.defaults.set(wallet[0], forKey: "vp")
+            self.defaults.set(wallet[0], forKey: "vp") // Store wallet for future launch
             self.defaults.set(wallet[1], forKey: "rp")
             
             let skinModel = SkinModel()
@@ -272,7 +270,7 @@ class AuthAPIModel: ObservableObject {
                 defaults.set(encoded, forKey: "storefront")
             }
             
-            let storePrice = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: defaults.string(forKey: "region") ?? "na")
+            let storePrice = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: keychain.value(forKey: "region") as? String ?? "na")
             
             self.storePrice = storePrice
             
@@ -308,9 +306,7 @@ class AuthAPIModel: ObservableObject {
             return URLSession(configuration: configuration)
         }()
         
-        // Unauthenticate user
-        self.isAuthenticated = false // Keeps user logged in
-        defaults.removeObject(forKey: "authentication")
+        
         
         // Reset Defaults
         self.isAuthenticating = false // Handles loading animation
@@ -335,7 +331,9 @@ class AuthAPIModel: ObservableObject {
         let _ = keychain.remove(forKey: "ssid")
         let _ = keychain.remove(forKey: "tdid")
         
-        
+        // Unauthenticate user
+        self.isAuthenticated = false // Keeps user logged in
+        defaults.removeObject(forKey: "authentication")
 
     }
     

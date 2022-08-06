@@ -25,13 +25,12 @@ struct LaunchView: View {
             if !loginModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
                 
                 LoginView()
-                
                     
             }
             else {
                 
                 HomeView()
-                
+
             }
             
             // Fake loading bar
@@ -56,7 +55,6 @@ struct LaunchView: View {
                                         self.loadingBar = true
                                         defaults.set(true, forKey: "progress")
                                     }
-                                    
                                     timer.invalidate()
                                 }
                             }

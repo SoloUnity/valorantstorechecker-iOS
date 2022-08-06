@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Keychain
 
 struct RegionSelectorView: View {
     
@@ -14,6 +15,7 @@ struct RegionSelectorView: View {
     @State var title = "Select region"
     
     let defaults = UserDefaults.standard
+    let keychain = Keychain()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10){
@@ -43,7 +45,8 @@ struct RegionSelectorView: View {
                 if title != "North America" {
                     Button {
                         authAPIModel.regionCheck = true
-                        defaults.set("na", forKey: "region")
+                        let  _ = keychain.save("na", forKey: "region")
+
                         title = "North America"
                         expand = false
                         
@@ -56,7 +59,8 @@ struct RegionSelectorView: View {
                 if title != "Europe" {
                     Button {
                         authAPIModel.regionCheck = true
-                        defaults.set("eu", forKey: "region")
+                        let  _ = keychain.save("eu", forKey: "region")
+
                         title = "Europe"
                         expand = false
                     } label: {
@@ -68,7 +72,8 @@ struct RegionSelectorView: View {
                 if title != "Asia Pacific" {
                     Button {
                         authAPIModel.regionCheck = true
-                        defaults.set("ap", forKey: "region")
+                        let  _ = keychain.save("ap", forKey: "region")
+                        
                         title = "Asia Pacific"
                         expand = false
                     } label: {
@@ -80,7 +85,8 @@ struct RegionSelectorView: View {
                 if title != "South Korea" {
                     Button {
                         authAPIModel.regionCheck = true
-                        defaults.set("kr", forKey: "region")
+                        let  _ = keychain.save("kr", forKey: "region")
+                        
                         title = "South Korea"
                         expand = false
                     } label: {
