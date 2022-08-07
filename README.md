@@ -1,8 +1,5 @@
 
+<img width="512" alt="VSC-1 (dragged)" src="https://user-images.githubusercontent.com/77747704/183313304-d6343e5b-6679-4783-ad26-f277af996b6b.png">
 
-<h1>
-<img src="https://github.com/SoloUnity/Valorant-Store-Checker-App/files/9277687/VSC.app.zip" width="100">
-Valorant-Store-Checker-App
-</h1>
 
 ### Frequently Asked Questions
