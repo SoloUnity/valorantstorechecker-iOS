@@ -13,11 +13,11 @@ struct HelpView: View {
             
             VStack(alignment: .leading, spacing: 20) {
                 
-                Text("Help Out the Developper!")
+                Text(LocalizedStringKey("Help"))
                     .bold()
                     .font(.title3)
                 
-                Text("Hi! I'm a sleep deprived university student just trying to make life a little bit better 😄. Please consider helping me out through any method below!")
+                Text(LocalizedStringKey("HelpMessage"))
                 
                 HStack{
                     Image(systemName: "star.fill")
@@ -31,7 +31,7 @@ struct HelpView: View {
                             UIApplication.shared.open(url)
                         }
                     } label: {
-                        Text("Leave a Review")
+                        Text(LocalizedStringKey("Review"))
                             .bold()
                         
                         
@@ -56,7 +56,7 @@ struct HelpView: View {
                             UIApplication.shared.open(url)
                         }
                     } label: {
-                        Text("Sponsor Me")
+                        Text(LocalizedStringKey("Sponsor"))
                             .bold()
                         
                         Image(systemName: "link")

@@ -19,7 +19,7 @@ struct HomeView: View {
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem {
                     Image(systemName: "cart")
-                    Text("Store")
+                    Text(LocalizedStringKey("Store"))
                 }
                 .tag(0)
             
@@ -27,7 +27,7 @@ struct HomeView: View {
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem {
                     Image(systemName: "list.bullet")
-                    Text("Skin Index")
+                    Text(LocalizedStringKey("SkinIndex"))
                 }
                 .tag(1)
             
@@ -45,7 +45,7 @@ struct HomeView: View {
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem {
                     Image(systemName: "info.circle.fill")
-                    Text("About")
+                    Text(LocalizedStringKey("About"))
                 }
                 .tag(3)
             

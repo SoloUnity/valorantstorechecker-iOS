@@ -23,12 +23,12 @@ struct MultifactorView: View {
                 VStack{
                     
                     if !authAPIModel.failedLogin {
-                        Text("Enter the code sent to")
+                        Text(LocalizedStringKey("EnterTheCode"))
                             .bold()
                         Text(authAPIModel.email)
                             .bold()
                     }else {
-                        Text("Invalid Code")
+                        Text(LocalizedStringKey("InvalidCode"))
                             .bold()
                     }
                     
@@ -39,9 +39,8 @@ struct MultifactorView: View {
                             Image(systemName: "lock")
                                 .foregroundColor(.white)
                             
-                            TextField("Two Factor Authentication" , text: $authAPIModel.multifactor)
+                            TextField(LocalizedStringKey("TwoFactorAuthentication") , text: $authAPIModel.multifactor)
                                 .keyboardType(.numberPad)
-                                .autocorrectionDisabled()
                                 .foregroundColor(.white)
                                 .disableAutocorrection(true)
                                 

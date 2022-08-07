@@ -13,7 +13,7 @@ struct AcknowledgementsView: View {
             
             VStack(alignment: .leading, spacing: 20) {
                 
-                Text("Acknowledgements")
+                Text(LocalizedStringKey("Acknowledgements"))
                     .bold()
                     .font(.title3)
                 
@@ -44,7 +44,7 @@ struct AcknowledgementsView: View {
                             }
                             
                             
-                            Text("Thank you for your help in answering my many questions!")
+                            Text(LocalizedStringKey("ThankJulian"))
                                 .multilineTextAlignment(.leading)
                                 .font(.footnote)
                                 
@@ -83,7 +83,7 @@ struct AcknowledgementsView: View {
                                     .padding(.trailing)
                             }
                             
-                            Text("Thank you for your continuous support!")
+                            Text(LocalizedStringKey("ThankLunac"))
                                 .font(.footnote)
                             
                         }

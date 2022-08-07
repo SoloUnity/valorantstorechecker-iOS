@@ -17,7 +17,7 @@ struct AboutView: View {
                 LazyVStack (spacing: 20){
                     
                     HStack{
-                        Text("About")
+                        Text(LocalizedStringKey("About"))
                             .font(.title)
                             .bold()
                         
@@ -40,7 +40,7 @@ struct AboutView: View {
                     HStack {
                         Spacer()
                         
-                        Text("Made with SwiftUI")
+                        Text(LocalizedStringKey("MadeWith"))
                         
                         Image("swiftui")
                             .resizable()

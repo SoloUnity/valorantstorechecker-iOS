@@ -20,11 +20,11 @@ struct LoginBoxView: View {
                     Image(systemName: "person.circle")
                         .foregroundColor(.white)
                     
-                    TextField("Username" , text: $authAPIModel.username)
+                    TextField(LocalizedStringKey("Username") , text: $authAPIModel.username)
                         .keyboardType(.default)
-                        .autocorrectionDisabled()
                         .foregroundColor(.white)
                         .disableAutocorrection(true)
+
                     
                     
                 }.padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
@@ -44,9 +44,8 @@ struct LoginBoxView: View {
                     Image(systemName: "key")
                         .foregroundColor(.white)
                     
-                    SecureField("Password" , text: $authAPIModel.password)
+                    SecureField(LocalizedStringKey("Password"), text: $authAPIModel.password)
                         .keyboardType(.default)
-                        .autocorrectionDisabled()
                         .foregroundColor(.white)
                         .disableAutocorrection(true)
                     

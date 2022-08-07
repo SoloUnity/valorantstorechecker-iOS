@@ -21,7 +21,7 @@ struct AccountView: View {
             VStack(alignment: .leading, spacing: 20){
                 
                 HStack{
-                    Text("Account")
+                    Text(LocalizedStringKey("Account"))
                         .bold()
                         .font(.title3)
                     
@@ -32,7 +32,7 @@ struct AccountView: View {
                         authAPIModel.logOut()
                         
                     } label: {
-                        Text("Sign Out")
+                        Text(LocalizedStringKey("SignOut"))
                             .font(.callout)
                             .foregroundColor(.pink)
                     }
@@ -47,9 +47,9 @@ struct AccountView: View {
                         .padding(.trailing)
                     
                     VStack(alignment: .leading) {
-                        Text ("Username")
+                        Text (LocalizedStringKey("Username"))
                             .bold()
-                        Text(defaults.string(forKey: "username") ?? "")
+                        Text(keychain.value(forKey: "username") as? String ?? "")
                             .font(.footnote)
                         
                     }
@@ -67,9 +67,9 @@ struct AccountView: View {
                             .padding(.trailing)
                         
                         VStack(alignment: .leading) {
-                            Text ("Region")
+                            Text (LocalizedStringKey("Region"))
                                 .bold()
-                            Text("North America")
+                            Text(LocalizedStringKey("North America"))
                                 .font(.footnote)
                         }
                         
@@ -81,9 +81,9 @@ struct AccountView: View {
                             .padding(.trailing)
                         
                         VStack(alignment: .leading) {
-                            Text ("Region")
+                            Text (LocalizedStringKey("Region"))
                                 .bold()
-                            Text("Europe")
+                            Text(LocalizedStringKey("Europe"))
                                 .font(.footnote)
                             
                         }
@@ -96,9 +96,9 @@ struct AccountView: View {
                             .padding(.trailing)
                         
                         VStack(alignment: .leading) {
-                            Text ("Region")
+                            Text (LocalizedStringKey("Region"))
                                 .bold()
-                            Text("Asia Pacific")
+                            Text(LocalizedStringKey("Asia Pacific"))
                                 .font(.footnote)
                         }
                         
@@ -110,9 +110,9 @@ struct AccountView: View {
                             .padding(.trailing)
                         
                         VStack(alignment: .leading) {
-                            Text ("Region")
+                            Text (LocalizedStringKey("Region"))
                                 .bold()
-                            Text("South korea")
+                            Text(LocalizedStringKey("South korea"))
                                 .font(.footnote)
                         }
                         
@@ -124,9 +124,9 @@ struct AccountView: View {
                             .padding(.trailing)
                         
                         VStack(alignment: .leading) {
-                            Text ("Region")
+                            Text (LocalizedStringKey("Region"))
                                 .bold()
-                            Text("North America")
+                            Text(LocalizedStringKey("North America"))
                                 .font(.footnote)
                             
                         }

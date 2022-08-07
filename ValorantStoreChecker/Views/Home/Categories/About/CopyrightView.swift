@@ -13,12 +13,12 @@ struct CopyrightView: View {
             
             VStack(alignment: .leading, spacing: 20) {
                 
-                Text("Copyright")
+                Text(LocalizedStringKey("Copyright"))
                     .bold()
                     .font(.title3)
                 
                 
-                Text("VSC (Valorant Store Checker) is not associated, connected, or endorsed by Valorant or Riot Games.  Additionally, Riot Games and Valorant are trademarks registered under Riot Games Inc.")
+                Text(LocalizedStringKey("CopyrightNotice"))
                     .font(.footnote)
                 
                 

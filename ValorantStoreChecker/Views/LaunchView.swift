@@ -64,7 +64,7 @@ struct LaunchView: View {
                     
                     
                     
-                    Text("Downloading Assets (60mb)")
+                    Text(LocalizedStringKey("DownloadingAssets"))
                         .font(.caption2)
                     
                 }
@@ -76,10 +76,10 @@ struct LaunchView: View {
         }
         .alert(isPresented: $loginModel.isError) { () -> Alert in
             Alert(title: Text(loginModel.errorMessage),
-                  primaryButton: .default(Text("OK")) {
+                  primaryButton: .default(Text(LocalizedStringKey("OK"))) {
                 loginModel.isError = false
             },
-                  secondaryButton: .default(Text("Copy Error")) {
+                  secondaryButton: .default(Text(LocalizedStringKey("CopyError"))) {
                 
                 let pasteboard = UIPasteboard.general
                 pasteboard.string = loginModel.errorMessage

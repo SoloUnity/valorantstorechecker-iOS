@@ -1,0 +1,95 @@
+/*
+  Localizable.strings
+  ValorantStoreChecker
+
+  Created by Gordon on 2022-08-07.
+  
+*/
+
+// Errors
+"DownloadingAssets" = "Téléchargement d'images (60mb)";
+"CopyError" = "Copier l'erreur";
+"Unknown" = "Inconnu";
+
+// Login Screen
+"Login" = "Connectez-vous à votre compte Riot";
+"Information" = "Des mesures de sécurité strictes sont en place, notamment le fait de ne jamais sauvegarder votre mot de passe et de sécuriser les informations sensibles à l'aide de Keychain. Une FAQ, ainsi que le code source de cette application sont également disponibles via le lien ci-dessous.";
+"OpenLink" = "Ouvrir le lien";
+"InvalidCredentials" = "Informations d'identification non valides";
+"IRead" = "J'ai lu les termes et conditions.";
+
+// LoginBoxView
+"Username" = "Identifiant";
+"Password" = "Mot de passe";
+
+// RegionSelectorView
+"SelectRegion" = "Sélectionner la région";
+"NorthAmerica" = "Amérique du Nord";
+"Europe" = "Europe";
+"AsiaPacific" = "Asie-Pacifique";
+"SouthKorea" = "Corée du Sud";
+
+// MultifactorView
+"EnterTheCode" = "Entrez le code envoyé à";
+"InvalidCode" = "Code invalide";
+"TwoFactorAuthentication" = "Authentification à deux facteurs";
+
+// TermsView
+"TermsAndConditions" = "Termes et conditions";
+"MITLicense" = "Licence MIT";
+"CopyrightGordon" = "Copyright (c) 2022 Gordon Ng";
+"Paragraph1" = "L'autorisation est accordée par la présente, gratuitement, à toute personne obtenant une copie de ce logiciel et des fichiers de documentation associés (le logiciel), de traiter le logiciel sans restriction, y compris, mais sans s'y limiter, les droits d'utilisation, de copie, de modification, de fusion, de publication, de distribution, de sous-licence et/ou de vente de copies du logiciel, et d'autoriser les personnes à qui le logiciel est fourni à le faire, sous réserve des conditions suivantes : L'avis de copyright ci-dessus et cet avis d'autorisation doivent être inclus dans toutes les copies ou parties substantielles du logiciel.";
+"Paragraph2" = "LE LOGICIEL EST FOURNI TEL QUEL, SANS GARANTIE D'AUCUNE SORTE, EXPRESSE OU IMPLICITE, Y COMPRIS, MAIS SANS S'Y LIMITER, LES GARANTIES DE QUALITÉ MARCHANDE, D'ADÉQUATION À UN USAGE PARTICULIER ET DE NON-VIOLATION. EN AUCUN CAS, LES AUTEURS OU LES DÉTENTEURS DE DROITS D'AUTEUR NE POURRONT ÊTRE TENUS RESPONSABLES DE TOUTE RÉCLAMATION, DE TOUT DOMMAGE OU DE TOUTE AUTRE RESPONSABILITÉ, QUE CE SOIT DANS LE CADRE D'UNE ACTION CONTRACTUELLE, DÉLICTUELLE OU AUTRE, DÉCOULANT DE OU LIÉE AU LOGICIEL OU À SON UTILISATION OU À D'AUTRES TRANSACTIONS.";
+"AdditionalInformation" = "Informations complémentaires";
+
+// HomeView
+"Store" = "Page d'accueil";
+"SkinIndex" = "Index des skins";
+"About" = "Renseignements";
+
+// SkinCardDetailView
+"InfoPrice" = "Le prix de cette skin n'est malheureusement pas dans notre base de données.";
+"Cost" = "Coût";
+"Tier" = "Niveau";
+"Default" = "Défaut";
+"Variant" = "Variante";
+
+// SearchBar
+"Search" = "Recherche ...";
+
+// AboutView
+// About in HomeView
+"MadeWith" = "Fabriqué avec SwiftUI";
+
+// AccountView
+"Account" = "Compte";
+"SignOut" = "Sign Out";
+"Username" = "Déconnecter";
+"Region" = "Région";
+// Region Names in RegionSelectorView
+
+// SupportView
+"Support" = "Soutien";
+"Create" = "Créer un billet d'assistance";
+"FAQ" = "FAQ";
+"SourceCode" = "Code Source";
+
+// CommunityView
+"Community" = "Communauté";
+"Website" = "Site web";
+"DiscordServer" = "Server Discord";
+
+// HelpView
+"Help" = "Aidez le développeur!";
+"HelpMessage" = "Salut ! Je suis simplement un étudiant universitaire qui est privé de sommeil. J'essaie seulement de rendre la vie un petit peu meilleure pour tout le monde 😄. S'il vous plaît pensez à de m'aider à travers n'importe quelle méthode ci-dessous !";
+"Review" = "Laisser un avis";
+"Sponsor" = "Pourboire";
+
+// AcknowledgementsView
+"Acknowledgements" = "Remerciements";
+"ThankJulian" = "Merci de votre aide pour répondre à mes nombreuses questions.!"; // juliand665
+"ThankLunac" = "Merci pour votre soutien continu!"; // Lunac
+
+// CopyrightView
+"Copyright" = "Copyright";
+"CopyrightNotice" = "VSC (Valorant Store Checker) n'est pas associé, connecté ou approuvé par Valorant ou Riot Games. En outre, Riot Games et Valorant sont des marques enregistré par Riot Games Inc.";

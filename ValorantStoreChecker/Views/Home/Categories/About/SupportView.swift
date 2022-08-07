@@ -13,7 +13,7 @@ struct SupportView: View {
             
             VStack(alignment: .leading, spacing: 20) {
                 
-                Text("Support")
+                Text(LocalizedStringKey("Support"))
                     .bold()
                     .font(.title3)
                 
@@ -29,7 +29,7 @@ struct SupportView: View {
                             UIApplication.shared.open(url)
                         }
                     } label: {
-                        Text("Create a Support Ticket")
+                        Text(LocalizedStringKey("Create"))
                             .bold()
                         
                         Image(systemName: "link")
@@ -53,7 +53,7 @@ struct SupportView: View {
                             UIApplication.shared.open(url)
                         }
                     } label: {
-                        Text("FAQ")
+                        Text(LocalizedStringKey("FAQ"))
                             .bold()
                         
                         
@@ -78,7 +78,7 @@ struct SupportView: View {
                             UIApplication.shared.open(url)
                         }
                     } label: {
-                        Text("Source Code")
+                        Text(LocalizedStringKey("SourceCode"))
                             .bold()
                         
                         Image(systemName: "link")

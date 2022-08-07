@@ -56,11 +56,11 @@ struct SkinCardDetailView: View {
                                     .accentColor(.white)
                             }
                             .alert(isPresented: $showAlert) { () -> Alert in
-                                        Alert(title: Text("The price of this skin is unfortunately not in our database."))
+                                        Alert(title: Text(LocalizedStringKey("InfoPrice")))
                                     }
                         }
                         
-                        Text("Cost")
+                        Text(LocalizedStringKey("Cost"))
                             .foregroundColor(.white)
                             .bold()
                         
@@ -76,7 +76,7 @@ struct SkinCardDetailView: View {
                                 .foregroundColor(.white)
                                 .bold()
                         }else{
-                            Text("Unknown")
+                            Text(LocalizedStringKey("Unknown"))
                                 .foregroundColor(.white)
                                 .bold()
                         }
@@ -150,7 +150,10 @@ struct SkinCardDetailView: View {
                     if skin.levels!.count != 1{
                         
                         HStack{
-                            Text("Tier \(selectedLevel + 1)")
+                            HStack {
+                                Text(LocalizedStringKey("Tier"))
+                                Text(" \(selectedLevel + 1)")
+                            }
                             
                             Spacer()
                             
@@ -248,7 +251,7 @@ struct SkinCardDetailView: View {
                 // MARK: Skin Chroma Picker
                 if skin.chromas!.count != 1{
                     HStack{
-                        Text("Variant")
+                        Text(LocalizedStringKey("Variant"))
                         
                         Spacer()
                         

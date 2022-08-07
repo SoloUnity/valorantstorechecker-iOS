@@ -42,7 +42,7 @@ struct LoginView: View {
                     // MARK: General Info
                     if !authAPIModel.failedLogin {
                         HStack {
-                            Text("Login to your Riot Account")
+                            Text(LocalizedStringKey("Login"))
                                 .bold()
                             Button {
                                 showAlert = true
@@ -50,9 +50,9 @@ struct LoginView: View {
                                 Image(systemName: "info.circle")
                             }
                             .alert(isPresented: $showAlert) { () -> Alert in
-                                Alert(title: Text("Severe security measures are in place, including never storing your password and securing sensitive information using Keychain. An FAQ, along with this app's source code is also available through the link below."),
-                                      primaryButton: .default(Text("OK")),
-                                      secondaryButton: .default(Text("Open Link")) {
+                                Alert(title: Text(LocalizedStringKey("Information")),
+                                      primaryButton: .default(Text(LocalizedStringKey("OK"))),
+                                      secondaryButton: .default(Text(LocalizedStringKey("OpenLink"))) {
                                     
                                     if let url = URL(string: "https://github.com/SoloUnity/Valorant-Store-Checker-App") {
                                         UIApplication.shared.open(url)
@@ -64,7 +64,7 @@ struct LoginView: View {
                         }
                         
                     }else {
-                        Text("Invalid Credentials")
+                        Text(LocalizedStringKey("InvalidCredentials"))
                             .bold()
                     }
                     
@@ -85,7 +85,7 @@ struct LoginView: View {
                                     .accentColor(.white)
 
                                 
-                                Text("I read the terms and conditions.")
+                                Text(LocalizedStringKey("IRead"))
                                     .foregroundColor(.white)
                                     .font(.footnote)
                                 

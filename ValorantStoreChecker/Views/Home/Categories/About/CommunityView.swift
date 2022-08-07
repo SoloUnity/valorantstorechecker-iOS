@@ -13,7 +13,7 @@ struct CommunityView: View {
             
             VStack(alignment: .leading, spacing: 20) {
                 
-                Text("Community")
+                Text(LocalizedStringKey("Community"))
                     .bold()
                     .font(.title3)
                 
@@ -29,7 +29,7 @@ struct CommunityView: View {
                             UIApplication.shared.open(url)
                         }
                     } label: {
-                        Text("Website")
+                        Text(LocalizedStringKey("Website"))
                             .bold()
                         
                         
@@ -54,7 +54,7 @@ struct CommunityView: View {
                             UIApplication.shared.open(url)
                         }
                     } label: {
-                        Text("Discord Server")
+                        Text(LocalizedStringKey("DiscordServer"))
                             .bold()
                         
                         Image(systemName: "link")

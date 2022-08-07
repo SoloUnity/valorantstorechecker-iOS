@@ -12,7 +12,7 @@ struct RegionSelectorView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @State var expand = false
-    @State var title = "Select region"
+    @State var title = LocalizedStringKey("SelectRegion")
     
     let defaults = UserDefaults.standard
     let keychain = Keychain()
@@ -42,55 +42,55 @@ struct RegionSelectorView: View {
             
             if expand{
                 
-                if title != "North America" {
+                if title != LocalizedStringKey("NorthAmerica") {
                     Button {
                         authAPIModel.regionCheck = true
                         let  _ = keychain.save("na", forKey: "region")
 
-                        title = "North America"
+                        title = LocalizedStringKey("NorthAmerica")
                         expand = false
                         
                     } label: {
-                        Text("North America")
+                        Text(LocalizedStringKey("NorthAmerica"))
                     }
                 }
                 
                 
-                if title != "Europe" {
+                if title != LocalizedStringKey("Europe") {
                     Button {
                         authAPIModel.regionCheck = true
                         let  _ = keychain.save("eu", forKey: "region")
 
-                        title = "Europe"
+                        title = LocalizedStringKey("Europe")
                         expand = false
                     } label: {
-                        Text("Europe")
+                        Text(LocalizedStringKey("Europe"))
                     }
                 }
                 
                 
-                if title != "Asia Pacific" {
+                if title != LocalizedStringKey("AsiaPacific") {
                     Button {
                         authAPIModel.regionCheck = true
                         let  _ = keychain.save("ap", forKey: "region")
                         
-                        title = "Asia Pacific"
+                        title = LocalizedStringKey("AsiaPacific")
                         expand = false
                     } label: {
-                        Text("Asia Pacific")
+                        Text(LocalizedStringKey("AsiaPacific"))
                     }
                 }
                 
                 
-                if title != "South Korea" {
+                if title != LocalizedStringKey("SouthKorea") {
                     Button {
                         authAPIModel.regionCheck = true
                         let  _ = keychain.save("kr", forKey: "region")
                         
-                        title = "South Korea"
+                        title = LocalizedStringKey("SouthKorea")
                         expand = false
                     } label: {
-                        Text("South Korea")
+                        Text(LocalizedStringKey("SouthKorea"))
                     }
                 }
             }
