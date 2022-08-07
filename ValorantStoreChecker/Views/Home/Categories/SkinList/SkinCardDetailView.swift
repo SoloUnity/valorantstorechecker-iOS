@@ -152,8 +152,10 @@ struct SkinCardDetailView: View {
                         HStack{
                             HStack {
                                 Text(LocalizedStringKey("Tier"))
-                                Text(" \(selectedLevel + 1)")
+                                Text(String(selectedLevel + 1))
+                                    .padding(-4)
                             }
+
                             
                             Spacer()
                             

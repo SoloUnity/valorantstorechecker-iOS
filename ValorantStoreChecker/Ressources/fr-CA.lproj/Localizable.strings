@@ -14,6 +14,7 @@
 // Login Screen
 "Login" = "Connectez-vous à votre compte Riot";
 "Information" = "Des mesures de sécurité strictes sont en place, notamment le fait de ne jamais sauvegarder votre mot de passe et de sécuriser les informations sensibles à l'aide de Keychain. Une FAQ, ainsi que le code source de cette application sont également disponibles via le lien ci-dessous.";
+"OK" = "OK";
 "OpenLink" = "Ouvrir le lien";
 "InvalidCredentials" = "Informations d'identification non valides";
 "IRead" = "J'ai lu les termes et conditions.";

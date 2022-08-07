@@ -16,13 +16,13 @@ struct TermsView: View {
                     .font(.title)
                     .padding(.bottom)
                 
-                Text(LocalizedStringKey("MITLicense \n"))
+                Text(LocalizedStringKey("MITLicense"))
 
-                Text(LocalizedStringKey("CopyrightGordon \n"))
+                Text(LocalizedStringKey("CopyrightGordon"))
 
-                Text(LocalizedStringKey("Paragraph1 \n"))
+                Text(LocalizedStringKey("Paragraph1"))
                 
-                Text(LocalizedStringKey("Paragraph2 \n"))
+                Text(LocalizedStringKey("Paragraph2"))
 
                 Text(LocalizedStringKey("CopyrightNotice"))
                 

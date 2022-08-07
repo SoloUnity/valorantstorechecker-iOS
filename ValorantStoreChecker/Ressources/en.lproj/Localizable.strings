@@ -1,0 +1,96 @@
+/*
+  Localizable.strings
+  ValorantStoreChecker
+
+  Created by Gordon on 2022-08-07.
+  
+*/
+
+// Errors
+"DownloadingAssets" = "Downloading Assets (60mb)";
+"CopyError" = "Copy Error";
+"Unknown" = "Unknown";
+
+// Login Screen
+"Login" = "Login to your Riot Account";
+"Information" = "Severe security measures are in place, including never storing your password and securing sensitive information using Keychain. An FAQ, along with this app's source code is also available through the link below.";
+"OK" = "OK";
+"OpenLink" = "Open Link";
+"InvalidCredentials" = "Invalid Credentials";
+"IRead" = "I read the terms and conditions.";
+
+// LoginBoxView
+"Username" = "Username";
+"Password" = "Password";
+
+// RegionSelectorView
+"SelectRegion" = "Select region";
+"NorthAmerica" = "North America";
+"Europe" = "Europe";
+"AsiaPacific" = "Asia Pacific";
+"SouthKorea" = "South Korea";
+
+// MultifactorView
+"EnterTheCode" = "Enter the code sent to";
+"InvalidCode" = "Invalid Code";
+"TwoFactorAuthentication" = "Two Factor Authentication";
+
+// TermsView
+"TermsAndConditions" = "Terms and Conditions";
+"MITLicense" = "MIT License";
+"CopyrightGordon" = "Copyright (c) 2022 Gordon Ng";
+"Paragraph1" = "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the Software), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.";
+"Paragraph2" = "THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.";
+"AdditionalInformation" = "Additional Information";
+
+// HomeView
+"Store" = "Store";
+"SkinIndex" = "Skin Index";
+"About" = "About";
+
+// SkinCardDetailView
+"InfoPrice" = "The price of this skin is unfortunately not in our database.";
+"Cost" = "Cost";
+"Tier" = "Tier";
+"Default" = "Default";
+"Variant" = "Variant";
+
+// SearchBar
+"Search" = "Search ...";
+
+// AboutView
+// About in HomeView
+"MadeWith" = "Made with SwiftUI";
+
+// AccountView
+"Account" = "Account";
+"SignOut" = "Sign Out";
+"Username" = "Username";
+"Region" = "Region";
+// Region Names in RegionSelectorView
+
+// SupportView
+"Support" = "Support";
+"Create" = "Create a Support Ticket";
+"FAQ" = "FAQ";
+"SourceCode" = "Source Code";
+
+// CommunityView
+"Community" = "Community";
+"Website" = "Website";
+"DiscordServer" = "Discord Server";
+
+// HelpView
+"Help" = "Help Out the Developper!";
+"HelpMessage" = "Hi! I'm a sleep deprived university student just trying to make life a little bit better 😄. Please consider helping me out through any method below!";
+"Review" = "Leave a Review";
+"Sponsor" = "Sponsor Me";
+
+// AcknowledgementsView
+"Acknowledgements" = "Acknowledgements";
+"ThankJulian" = "Thank you for your help in answering my many questions!"; // juliand665
+"ThankLunac" = "Thank you for your continuous support!"; // Lunac
+
+// CopyrightView
+"Copyright" = "Copyright";
+"CopyrightNotice" = "VSC (Valorant Store Checker) is not associated, connected, or endorsed by Valorant or Riot Games. Additionally, Riot Games and Valorant are trademarks registered under Riot Games Inc.";

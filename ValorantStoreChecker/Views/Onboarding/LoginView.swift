@@ -45,22 +45,18 @@ struct LoginView: View {
                             Text(LocalizedStringKey("Login"))
                                 .bold()
                             Button {
-                                showAlert = true
+                                self.showAlert = true
                             } label: {
                                 Image(systemName: "info.circle")
                             }
-                            .alert(isPresented: $showAlert) { () -> Alert in
-                                Alert(title: Text(LocalizedStringKey("Information")),
-                                      primaryButton: .default(Text(LocalizedStringKey("OK"))),
-                                      secondaryButton: .default(Text(LocalizedStringKey("OpenLink"))) {
-                                    
-                                    if let url = URL(string: "https://github.com/SoloUnity/Valorant-Store-Checker-App") {
-                                        UIApplication.shared.open(url)
-                                    }
+                            .alert(LocalizedStringKey("Information"), isPresented: $showAlert) {
+                                    Button(LocalizedStringKey("OK"), action: {})
+                                    Button(LocalizedStringKey("OpenLink"), action: {
+                                        if let url = URL(string: "https://github.com/SoloUnity/Valorant-Store-Checker-App") {
+                                            UIApplication.shared.open(url)
+                                        }
+                                    })
                                 }
-                                
-                                )
-                            }
                         }
                         
                     }else {
