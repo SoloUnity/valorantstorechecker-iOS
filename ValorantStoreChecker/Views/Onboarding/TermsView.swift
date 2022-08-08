@@ -27,7 +27,7 @@ struct TermsView: View {
                 Text(LocalizedStringKey("CopyrightNotice"))
                 
                 Button {
-                    if let url = URL(string: "https://lunacnet.notion.site/lunacnet/Valorant-Store-Chcecker-ce4ed87caebb4fbc94e1af3debb5b7b8") {
+                    if let url = URL(string: "https://solounity.notion.site/solounity/Valorant-Store-Checker-App-Privacy-Policy-761932ab3fcb4fea95564b2b63d2d5b5") {
                         UIApplication.shared.open(url)
                     }
                 } label: {

@@ -11,8 +11,9 @@ struct LaunchView: View {
     
     @EnvironmentObject var skinModel:SkinModel
     @EnvironmentObject var loginModel:AuthAPIModel
+    @Environment(\.scenePhase) private var phase
     
-    @State private var loadingBar : Bool = false
+    @State private var loadingBar : Bool = false // False is loading bar showing 
     @State private var percent : Int = 0
     
     
@@ -32,7 +33,14 @@ struct LaunchView: View {
             else {
                 
                 HomeView()
-                
+                /*
+                    .onChange(of: phase) { newPhase in
+                        switch newPhase {
+                        case .background: scheduleAppRefresh()
+                        default: break
+                        }
+                    }
+                */
             }
             
             // Fake loading bar

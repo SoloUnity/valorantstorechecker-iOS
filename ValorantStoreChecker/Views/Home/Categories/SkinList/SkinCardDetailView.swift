@@ -14,9 +14,11 @@ struct SkinCardDetailView: View {
     @EnvironmentObject var skinModel:SkinModel
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @ObservedObject var skin:Skin
+    
     @State var selectedLevel = 0
     @State var selectedChroma = 0
     @State var showAlert = false
+    
     
     let player = AVPlayer()
 
@@ -249,6 +251,7 @@ struct SkinCardDetailView: View {
                         }
                 }
                 .frame(height: (geo.size.height / 5.75))
+
                 
                 // MARK: Skin Chroma Picker
                 if skin.chromas!.count != 1{

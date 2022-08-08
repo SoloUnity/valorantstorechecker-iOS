@@ -7,7 +7,7 @@
 
 import Foundation
 import Keychain
-
+import BackgroundTasks
 
 class AuthAPIModel: ObservableObject {
     
@@ -24,6 +24,7 @@ class AuthAPIModel: ObservableObject {
     
     // Handles reload animation
     @Published var reloading : Bool = false
+    @Published var successfulReload : Bool = false
     
     // Multifactor
     @Published var showMultifactor : Bool = false // Show multifactor popout
@@ -172,6 +173,7 @@ class AuthAPIModel: ObservableObject {
             // Set the time left in shop
             let referenceDate = Date() + Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0)
             defaults.set(referenceDate, forKey: "timeLeft")
+            defaults.set(Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0), forKey: "secondsLeft")
             
             self.isAuthenticating = false
 
@@ -190,9 +192,10 @@ class AuthAPIModel: ObservableObject {
             defaults.removeObject(forKey: "storefront")
             defaults.removeObject(forKey: "storePrice")
             
-            let _ = keychain.remove(forKey: "username")
             let _ = keychain.remove(forKey: "ssid")
             let _ = keychain.remove(forKey: "tdid")
+            let _ = keychain.remove(forKey: "region")
+            let _ = keychain.remove(forKey: "username")
             
             self.errorMessage = "Login Helper error: \(error.localizedDescription)"
             self.isError = true
@@ -227,9 +230,10 @@ class AuthAPIModel: ObservableObject {
                 defaults.removeObject(forKey: "storefront")
                 defaults.removeObject(forKey: "storePrice")
                 
-                let _ = keychain.remove(forKey: "username")
                 let _ = keychain.remove(forKey: "ssid")
                 let _ = keychain.remove(forKey: "tdid")
+                let _ = keychain.remove(forKey: "region")
+                let _ = keychain.remove(forKey: "username")
                 
                 
             }
@@ -289,7 +293,6 @@ class AuthAPIModel: ObservableObject {
             self.reloading = false
             
             
-            
         }catch{
             
             self.errorMessage = "Reloading error: \(error.localizedDescription)"
@@ -322,17 +325,19 @@ class AuthAPIModel: ObservableObject {
         self.password = "" // Used by password box in LoginBoxView
         self.multifactor = "" // Used by multifactor box in MultifactorView
         self.regionCheck = false
+        self.successfulReload = false
         
-        defaults.removeObject(forKey: "region")
         defaults.removeObject(forKey: "timeLeft")
+        defaults.removeObject(forKey: "secondsLeft")
         defaults.removeObject(forKey: "vp")
         defaults.removeObject(forKey: "rp")
-        defaults.removeObject(forKey: "username")
         defaults.removeObject(forKey: "storefront")
         defaults.removeObject(forKey: "storePrice")
         
         let _ = keychain.remove(forKey: "ssid")
         let _ = keychain.remove(forKey: "tdid")
+        let _ = keychain.remove(forKey: "region")
+        let _ = keychain.remove(forKey: "username")
         
         // Unauthenticate user
         self.isAuthenticated = false // Keeps user logged in
@@ -341,4 +346,13 @@ class AuthAPIModel: ObservableObject {
     }
     
     
+}
+
+func scheduleAppRefresh() {
+    let request = BGAppRefreshTaskRequest(identifier: "StoreRetriever")
+    
+    let defaults = UserDefaults.standard
+    
+    request.earliestBeginDate = .now.addingTimeInterval(defaults.double(forKey: "secondsLeft") + (4 * 3600)) // set time for 4 hours after store will refresh
+    try? BGTaskScheduler.shared.submit(request)
 }
