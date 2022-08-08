@@ -10,3 +10,15 @@ Valorant Store Checker
 
 
 ### Frequently Asked Questions
+
+#### Why does the app need my login information?
+
+While many of your statistics are free to access without your password, your store is a notable exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through this [open source API](https://github.com/HeyM1ke/ValorantClientAPI).
+
+#### What are the measures in place to protect me?
+
+In addition to never storing your password, sensitive information including your region is secured behind Keychain. The app is also open source, allowing anybody and everyone to access the code at all times. Your privacyis a priority, and I have done everything in my power to ensure it. For legal mumbo jumbo, see [here](https://solounity.notion.site/solounity/Valorant-Store-Checker-App-Privacy-Policy-761932ab3fcb4fea95564b2b63d2d5b5).
+
+#### What assets are downloaded?
+
+If you are perceptive, you will notice that the app downloads assets on your first launch. These are image assets allowing you to use the app's Skin index feature at all times, even when offline. 
