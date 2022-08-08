@@ -13,11 +13,9 @@ VSC (Valorant Store Tracker) is an open source iOS app that allows you to track 
 
 ### Community
 Join the [Discord](https://discord.gg/vK5mzjvqYM) server to chat around or for support!
-
 See the [Website](https://valorantstore.net) if you wish to check your store on your computer.
 
 ### Screenshots
-
 <p align=center>
   <img width="49%" src="https://user-images.githubusercontent.com/77747704/183316740-c45ca2cc-ed89-4712-be62-2a916a92cd70.png" />
   <img width="49%" src="https://user-images.githubusercontent.com/77747704/183316723-3c5e6e33-a6d7-44d8-acd3-0740acbf2aef.png" />
