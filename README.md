@@ -13,13 +13,17 @@ VSC (Valorant Store Tracker) is an open source iOS app that allows you to track 
 
 ### Screenshots
 
+<p align=center>
 ![Simulator Screen Shot - iPhone 13 Pro - 2022-08-07 at 15 09 16](https://user-images.githubusercontent.com/77747704/183316740-c45ca2cc-ed89-4712-be62-2a916a92cd70.png)
 
 ![Simulator Screen Shot - iPhone 13 Pro - 2022-08-07 at 20 12 03](https://user-images.githubusercontent.com/77747704/183316723-3c5e6e33-a6d7-44d8-acd3-0740acbf2aef.png)
+</p>
 
+<p align=center>
 ![Simulator Screen Shot - iPhone 13 Pro - 2022-08-07 at 15 10 28](https://user-images.githubusercontent.com/77747704/183316785-db7a1716-67cf-4250-a31e-610fc5546035.png)
 
 ![Simulator Screen Shot - iPhone 13 Pro - 2022-08-07 at 15 10 39](https://user-images.githubusercontent.com/77747704/183316789-fa977781-19f3-4e7f-92ee-74d76a3bcb39.png)
+</p>
 
 ### Frequently Asked Questions
 
