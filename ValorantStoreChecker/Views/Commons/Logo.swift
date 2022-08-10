@@ -22,3 +22,4 @@ struct LogoView_Previews: PreviewProvider {
         Logo()
     }
 }
+

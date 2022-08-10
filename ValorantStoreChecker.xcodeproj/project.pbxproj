@@ -59,6 +59,7 @@
 		8BF1DB482888B87F004491A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DB472888B87F004491A1 /* Constants.swift */; };
 		8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4D7642885A298000404D8 /* SearchBar.swift */; };
 		F844AC7128A01BF10009C0C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F844AC7328A01BF10009C0C0 /* Localizable.strings */; };
+		F892C4D928A412DF007158CB /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892C4D828A412DF007158CB /* NotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		F844AC7428A01C080009C0C0 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F844AC7628A037970009C0C0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F844AC7728A0528A0009C0C0 /* ValorantStoreChecker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ValorantStoreChecker.entitlements; sourceTree = "<group>"; };
+		F892C4D828A412DF007158CB /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				8BB00EC3288E3D41001AE90A /* WebService.swift */,
+				F892C4D828A412DF007158CB /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */,
 				8BB00EC7288E418E001AE90A /* AuthAPIModel.swift in Sources */,
 				8B29E2032881CAEC0081F69A /* LoginView.swift in Sources */,
+				F892C4D928A412DF007158CB /* NotificationService.swift in Sources */,
 				8B33A5BF2884687C00BCB1F2 /* SkinCardDetailView.swift in Sources */,
 				8B0AE9F028998EAC00275A30 /* HelpView.swift in Sources */,
 				8B0AE9E72898A8B300275A30 /* ShopBottomBarView.swift in Sources */,

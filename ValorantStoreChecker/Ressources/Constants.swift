@@ -31,7 +31,7 @@ struct Constants{
         static var website = "https://valorantstore.net"
         static var discord = "https://discord.gg/vK5mzjvqYM"
         static var review = "https://apps.apple.com/app/idXXXXXXXXXX?action=write-review"
-        static var donate = "https://github.com/sponsors/SoloUnity?frequency=one-time"
+        static var donate = "https://paypal.me/SoloUnityNA1?country.x=CA&locale.x=en_US"
         static var julian = "https://github.com/juliand665"
         static var lunac = "https://github.com/Lunac-dev"
         static var privacy = "https://solounity.notion.site/solounity/Valorant-Store-Checker-App-Privacy-Policy-761932ab3fcb4fea95564b2b63d2d5b5"
@@ -42,5 +42,6 @@ struct Constants{
         static var onboardingLogoSize : CGFloat = 4
         static var circleButtonSize : CGFloat = 60
     }
+    
 }
 
