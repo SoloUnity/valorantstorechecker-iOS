@@ -25,7 +25,7 @@ struct SupportView: View {
                         .padding(.trailing)
                     
                     Button {
-                        if let url = URL(string: "https://discord.com/channels/781946764168658984/983281981368467486") {
+                        if let url = URL(string: Constants.URL.supportTicket) {
                             UIApplication.shared.open(url)
                         }
                     } label: {
@@ -49,7 +49,7 @@ struct SupportView: View {
                         .padding(.trailing)
                     
                     Button {
-                        if let url = URL(string: "https://github.com/SoloUnity/Valorant-Store-Checker-App/blob/main/README.md#frequently-asked-questions") {
+                        if let url = URL(string: Constants.URL.faq) {
                             UIApplication.shared.open(url)
                         }
                     } label: {
@@ -74,7 +74,7 @@ struct SupportView: View {
                         .padding(.trailing)
                     
                     Button {
-                        if let url = URL(string: "https://github.com/SoloUnity/Valorant-Store-Checker-App") {
+                        if let url = URL(string: Constants.URL.sourceCode) {
                             UIApplication.shared.open(url)
                         }
                     } label: {

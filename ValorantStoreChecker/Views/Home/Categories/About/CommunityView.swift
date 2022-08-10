@@ -25,7 +25,7 @@ struct CommunityView: View {
                         .padding(.trailing)
                     
                     Button {
-                        if let url = URL(string: "https://valorantstore.net") {
+                        if let url = URL(string: Constants.URL.website) {
                             UIApplication.shared.open(url)
                         }
                     } label: {
@@ -50,7 +50,7 @@ struct CommunityView: View {
                         .padding(.trailing)
                     
                     Button {
-                        if let url = URL(string: "https://discord.gg/vK5mzjvqYM") {
+                        if let url = URL(string: Constants.URL.discord) {
                             UIApplication.shared.open(url)
                         }
                     } label: {

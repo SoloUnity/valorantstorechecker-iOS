@@ -26,7 +26,7 @@ struct AcknowledgementsView: View {
                         .padding(.trailing)
                     
                     Button {
-                        if let url = URL(string: "https://github.com/juliand665") {
+                        if let url = URL(string: Constants.URL.julian) {
                             UIApplication.shared.open(url)
                         }
                     } label: {
@@ -66,7 +66,7 @@ struct AcknowledgementsView: View {
                         .padding(.trailing)
                     
                     Button {
-                        if let url = URL(string: "https://github.com/Lunac-dev") {
+                        if let url = URL(string: Constants.URL.lunac) {
                             UIApplication.shared.open(url)
                         }
                     } label: {

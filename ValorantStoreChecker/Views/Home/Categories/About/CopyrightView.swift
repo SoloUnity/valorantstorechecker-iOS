@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CopyrightView: View {
+    
+    @State var showTerms = false
+    
     var body: some View {
         HStack{
             
@@ -20,6 +23,57 @@ struct CopyrightView: View {
                 
                 Text(LocalizedStringKey("CopyrightNotice"))
                     .font(.footnote)
+                
+                HStack{
+                    Image(systemName: "list.bullet.rectangle.portrait.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .padding(.trailing)
+                    
+                    Button {
+                        
+                        self.showTerms = true
+                        
+                    } label: {
+                        
+                        Text(LocalizedStringKey("TermsAndConditions"))
+                            .bold()
+                        
+                        Image(systemName: "link")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 15, height: 15)
+                            .padding(.trailing)
+                    }
+                    
+                }
+                
+                HStack{
+                    Image(systemName: "hand.raised.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .padding(.trailing)
+                    
+                    Button {
+                        if let url = URL(string: Constants.URL.privacy) {
+                            UIApplication.shared.open(url)
+                        }
+                    } label: {
+                        
+                        Text(LocalizedStringKey("Privacy"))
+                            .bold()
+                        
+                        Image(systemName: "link")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 15, height: 15)
+                            .padding(.trailing)
+                    }
+                    
+                }
+                
                 
                 
                 
@@ -42,6 +96,11 @@ struct CopyrightView: View {
                 .mask {
                     RoundedRectangle(cornerRadius: 10)
                 }
+        }
+        .sheet(isPresented: $showTerms) {
+            TermsView()
+                .background(Constants.bgGrey)
+                .preferredColorScheme(.dark)
         }
     }
 }

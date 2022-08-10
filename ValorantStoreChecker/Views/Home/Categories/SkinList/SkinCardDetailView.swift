@@ -18,6 +18,7 @@ struct SkinCardDetailView: View {
     @State var selectedLevel = 0
     @State var selectedChroma = 0
     @State var showAlert = false
+    @State var pickerStyle = SegmentedPickerStyle()
     
     
     let player = AVPlayer()
@@ -260,14 +261,42 @@ struct SkinCardDetailView: View {
                         
                         Spacer()
                         
-                        Picker("Video Number", selection: $selectedChroma){
-                            ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
-                                Text(cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default")))
-                                    .tag(chroma)
+                        if cleanChromaName(name: (skin.chromas!.last?.displayName ?? "Default")).count <= 7 {
+                            
+                            Picker("Video Number", selection: $selectedChroma){
+                                ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
+                                    
+                                    let name = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
+                                    Text(name)
+                                        .tag(chroma)
+                                    
+                                }
                             }
+                            .pickerStyle(SegmentedPickerStyle())
+                            .accentColor(.red)
+                            
                         }
-                        .pickerStyle(SegmentedPickerStyle())
-                        .accentColor(.red)
+                        else {
+                            
+                            
+                            Picker("Video Number", selection: $selectedChroma){
+                                ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
+                                    
+                                    let name = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
+                                    Text(name)
+                                        .tag(chroma)
+                                    
+                                }
+                            }
+                            .padding(.horizontal, 8)
+                            .accentColor(.white)
+                            .pickerStyle(MenuPickerStyle())
+                            .background(.ultraThinMaterial)
+                            .cornerRadius(7)
+                            
+                        }
+                        
+                        
                         
                     }
                     .padding()

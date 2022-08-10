@@ -31,7 +31,7 @@ struct TermsView: View {
                         UIApplication.shared.open(url)
                     }
                 } label: {
-                    Text(LocalizedStringKey("AdditionalInformation"))
+                    Text(LocalizedStringKey("Privacy"))
                         .bold()
                     
                     

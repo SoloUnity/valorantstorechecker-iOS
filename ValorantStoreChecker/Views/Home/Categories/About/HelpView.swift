@@ -18,6 +18,7 @@ struct HelpView: View {
                     .font(.title3)
                 
                 Text(LocalizedStringKey("HelpMessage"))
+                    .font(.footnote)
                 
                 HStack{
                     Image(systemName: "star.fill")
@@ -27,9 +28,14 @@ struct HelpView: View {
                         .padding(.trailing)
                     
                     Button {
-                        if let url = URL(string: "https://www.youtube.com/watch?v=dQw4w9WgXcQ") {
-                            UIApplication.shared.open(url)
-                        }
+                        
+                        // Valid link when app goes live
+                        // Note: Replace the XXXXXXXXXX below with the App Store ID for your app
+                        //       You can find the App Store ID in your app's product URL
+                        guard let writeReviewURL = URL(string: Constants.URL.review)
+                            else { fatalError("Expected a valid URL") }
+                        UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
+                        
                     } label: {
                         Text(LocalizedStringKey("Review"))
                             .bold()
@@ -52,7 +58,7 @@ struct HelpView: View {
                         .padding(.trailing)
                     
                     Button {
-                        if let url = URL(string: "https://github.com/sponsors/SoloUnity?frequency=one-time") {
+                        if let url = URL(string: Constants.URL.donate) {
                             UIApplication.shared.open(url)
                         }
                     } label: {
