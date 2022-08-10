@@ -246,8 +246,8 @@
 		8B33A5C228846B5400BCB1F2 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
-				F844AC7328A01BF10009C0C0 /* Localizable.strings */,
 				8BF1DB472888B87F004491A1 /* Constants.swift */,
+				F844AC7328A01BF10009C0C0 /* Localizable.strings */,
 				8B29E1F22881C8800081F69A /* Assets.xcassets */,
 				8BE6111D28847B0C00E8BDD6 /* SkinData.json */,
 				8B3685CD2894F3F8000BB3CF /* StorePrice.json */,
@@ -617,7 +617,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ValorantStoreChecker/ValorantStoreChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
@@ -655,7 +655,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ValorantStoreChecker/ValorantStoreChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;

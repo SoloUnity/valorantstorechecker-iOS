@@ -261,29 +261,12 @@ struct SkinCardDetailView: View {
                         
                         Spacer()
                         
-                        if cleanChromaName(name: (skin.chromas!.last?.displayName ?? "Default")).count <= 7 {
+                        if pickerStyleChooser(skin: skin) {
                             
                             Picker("Video Number", selection: $selectedChroma){
                                 ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
                                     
-                                    let name = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
-                                    Text(name)
-                                        .tag(chroma)
-                                    
-                                }
-                            }
-                            .pickerStyle(SegmentedPickerStyle())
-                            .accentColor(.red)
-                            
-                        }
-                        else {
-                            
-                            
-                            Picker("Video Number", selection: $selectedChroma){
-                                ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
-                                    
-                                    let name = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
-                                    Text(name)
+                                    Text(cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default")))
                                         .tag(chroma)
                                     
                                 }
@@ -293,6 +276,23 @@ struct SkinCardDetailView: View {
                             .pickerStyle(MenuPickerStyle())
                             .background(.ultraThinMaterial)
                             .cornerRadius(7)
+                            
+                            
+                        }
+                        else {
+                            
+                            
+                            Picker("Video Number", selection: $selectedChroma){
+                                ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
+                                    
+                                    Text(cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default")))
+                                        .tag(chroma)
+                                    
+                                }
+                            }
+                            .pickerStyle(SegmentedPickerStyle())
+                            .accentColor(.red)
+                            
                             
                         }
                         
@@ -393,6 +393,19 @@ func cleanChromaName(name: String) -> String {
             return "Default"
         }
     }
+}
+
+func pickerStyleChooser(skin: Skin) -> Bool {
+    
+    for item in skin.chromas! {
+        if  cleanChromaName(name: (item.displayName ?? "Default")).count > 7 {
+            
+            return true
+        }
+        
+    }
+    return false
+    
 }
 
 
