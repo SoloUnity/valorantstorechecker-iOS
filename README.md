@@ -43,7 +43,7 @@ If you are perceptive, you will notice that the app downloads assets on your fir
 ### Acknowledgements
 Thank you to the following people and repositories:
 
-- **[juliand665](https://github.com/juliand665)** for his invaluable help in answering my many SwiftUI question.
+- **[juliand665](https://github.com/juliand665)** for their invaluable help in answering my many SwiftUI question.
 - **[Lunac-dev](https://github.com/Lunac-dev)** for his continuous support.
 - **[RumbleMike/ValorantClientAPI](https://github.com/RumbleMike/ValorantClientAPI)** for the API that makes it all possible.
 - **[techchrism/valorant-api-docs](https://github.com/techchrism/valorant-api-docs)** for the detailed documentation.
