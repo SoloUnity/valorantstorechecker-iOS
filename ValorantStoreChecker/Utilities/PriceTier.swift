@@ -16,9 +16,11 @@ struct PriceTier{
                 return String(skin.cost!.price)
             }
         }
-        return getLocalPrice(contentTierUuid: contentTierUuid)
+        
+        return "Unknown"
     }
     
+    /*
     // Determine price of skin
     static func getLocalPrice(contentTierUuid:String) -> String {
         switch contentTierUuid{
@@ -42,5 +44,6 @@ struct PriceTier{
    
         }
     }
+     */
 }
 

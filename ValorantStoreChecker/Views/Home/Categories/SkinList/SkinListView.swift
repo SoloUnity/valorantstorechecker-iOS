@@ -10,14 +10,15 @@ import SwiftUI
 struct SkinListView: View {
     
     @EnvironmentObject var model:SkinModel
-    @State var searchText:String = ""
+    @State var searchText : String = ""
+    @State var simulatedPricing : Bool = false
     
     
     var body: some View {
         
         GeometryReader{ geo in
             VStack(spacing: 0){
-                
+
                 SearchBar(text: $searchText)
                 
                 ScrollViewReader{ (proxy: ScrollViewProxy) in

@@ -6,6 +6,7 @@
 //
 
 // Setup notification system
+
 import Foundation
 import UserNotifications
 
@@ -47,3 +48,4 @@ class NotificationService {
         
     }
 }
+

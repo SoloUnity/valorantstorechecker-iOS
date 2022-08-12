@@ -50,39 +50,59 @@ struct SkinCardDetailView: View {
                 
                     
                     HStack{
-                        
-                        if skin.contentTierUuid == nil || (skin.contentTierUuid != nil && PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!) == "2475+") {
-                            Button {
-                               showAlert = true
-                            } label: {
-                                Image(systemName: "info.circle")
-                                    .accentColor(.white)
-                            }
-                            .alert(isPresented: $showAlert) { () -> Alert in
-                                        Alert(title: Text(LocalizedStringKey("InfoPrice")))
-                                    }
-                        }
-                        
-                        Text(LocalizedStringKey("Cost"))
-                            .foregroundColor(.white)
-                            .bold()
-                        
-                        Spacer()
-                        
-                        Image("vp")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 18, height: 18)
+                                                
                         
                         if skin.contentTierUuid != nil {
-                            Text(PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!))
-                                .foregroundColor(.white)
-                                .bold()
-                        }else{
-                            Text(LocalizedStringKey("Unknown"))
-                                .foregroundColor(.white)
-                                .bold()
+                            let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!)
+                            
+                            if price != "Unknown" {
+                                
+                                if skin.contentTierUuid == nil || (skin.contentTierUuid != nil && PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!) == "2475+") {
+                                    
+                                    Button {
+                                       showAlert = true
+                                    } label: {
+                                        Image(systemName: "info.circle")
+                                            .accentColor(.white)
+                                    }
+                                    .alert(isPresented: $showAlert) { () -> Alert in
+                                                Alert(title: Text(LocalizedStringKey("InfoPrice")))
+                                            }
+                                }
+                                
+                                Text(LocalizedStringKey("Cost"))
+                                    .bold()
+                                
+                                Spacer()
+                                
+                                Image("vp")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 18, height: 18)
+                                
+                                Text(price)
+                                    .foregroundColor(.white)
+                                    .bold()
+                                
+                            }
+                            else{
+                                
+                                Text(LocalizedStringKey("ExclusiveSkinMessage"))
+                                    .foregroundColor(.white)
+                                
+                                Spacer()
+                            }
                         }
+                        else{
+                            
+                            Text(LocalizedStringKey("ExclusiveSkinMessage"))
+                                .foregroundColor(.white)
+                            
+                            Spacer()
+                        }
+                        
+                        
+                        
                         
 
                     }
@@ -105,12 +125,13 @@ struct SkinCardDetailView: View {
                             RoundedRectangle(cornerRadius: 10)
                         }
                 }
-                .frame(height: 35)
+                
                 
                 
                 // MARK: Skin tier videos
                 if skin.levels![selectedLevel].streamedVideo != nil{
-                    
+                    HStack {
+                                                
                         AZVideoPlayer(player: player)
                             .cornerRadius(10)
                             .aspectRatio(CGSize(width: 1920, height: 1080), contentMode: .fit)
@@ -148,6 +169,12 @@ struct SkinCardDetailView: View {
                                     player.play() // Autoplay
                                 })
                             }
+                        
+                            .scaledToFill()
+                        
+                    }
+                    
+                        
                         
                     // MARK: Video Tier Picker
                     if skin.levels!.count != 1{

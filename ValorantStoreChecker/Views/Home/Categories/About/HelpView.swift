@@ -3,11 +3,16 @@
 //  ValorantStoreChecker
 //
 //  Created by Gordon Ng on 2022-08-02.
-//
+//  Tipping from https://www.youtube.com/watch?v=JJG3xI5FmFY
 
 import SwiftUI
 
+
 struct HelpView: View {
+    
+    //@StateObject var tipModel = TipModel()
+    
+    
     var body: some View {
         HStack{
             
@@ -50,29 +55,36 @@ struct HelpView: View {
                     
                 }
                 
-                HStack{
-                    Image(systemName: "heart.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .padding(.trailing)
-                    
-                    Button {
-                        if let url = URL(string: Constants.URL.donate) {
-                            UIApplication.shared.open(url)
-                        }
-                    } label: {
-                        Text(LocalizedStringKey("Sponsor"))
-                            .bold()
-                        
-                        Image(systemName: "link")
+                // TODO: Implement tip
+                /*
+                if let tip = tipModel.tips.first {
+                    HStack{
+                        Image(systemName: "heart.fill")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 15, height: 15)
+                            .frame(width: 25, height: 25)
                             .padding(.trailing)
+                        
+                        Button {
+                            
+                            tipModel.purchase()
+                            
+                        } label: {
+                            Text(LocalizedStringKey("Sponsor"))
+                                .bold()
+                            
+                            Image(systemName: "link")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 15, height: 15)
+                                .padding(.trailing)
+                        }
+                        
                     }
-                    
                 }
+                */
+                
+                
                 
             }
             
@@ -94,6 +106,11 @@ struct HelpView: View {
                     RoundedRectangle(cornerRadius: 10)
                 }
         }
+        /*
+        .onAppear {
+            tipModel.fetchTips()
+        }
+         */
     }
 }
 

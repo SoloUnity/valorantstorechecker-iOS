@@ -553,6 +553,87 @@
       ]
     },
     {
+      "uuid": "8dda01a6-4237-f430-ac70-c3ba677963e9",
+      "displayName": "Reaver, EP 5 Odin",
+      "themeUuid": "42110a3e-4363-50cc-5a1f-e4bc80f97916",
+      "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/8dda01a6-4237-f430-ac70-c3ba677963e9/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Soulstealer2/HMG_Soulstealer2_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "cf42ad75-43db-5426-0645-a7a3fac452c5",
+          "displayName": "Reaver, EP 5 Odin",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/cf42ad75-43db-5426-0645-a7a3fac452c5/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/cf42ad75-43db-5426-0645-a7a3fac452c5/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/cf42ad75-43db-5426-0645-a7a3fac452c5/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Soulstealer2/Chromas/Standard/HMG_Soulstealer2_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "0c643904-4cbc-8806-3198-eb86c22472bf",
+          "displayName": "Reaver, EP 5 Odin Level 4\r\n(Variant 1 Red)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/0c643904-4cbc-8806-3198-eb86c22472bf/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/0c643904-4cbc-8806-3198-eb86c22472bf/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/0c643904-4cbc-8806-3198-eb86c22472bf/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Odin_04_chroma_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Soulstealer2/Chromas/v1/HMG_Soulstealer2_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "c8a7b6ae-4aaa-ba5b-9fad-0da1c8b25f9e",
+          "displayName": "Reaver, EP 5 Odin Level 4\r\n(Variant 2 Black)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/c8a7b6ae-4aaa-ba5b-9fad-0da1c8b25f9e/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/c8a7b6ae-4aaa-ba5b-9fad-0da1c8b25f9e/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/c8a7b6ae-4aaa-ba5b-9fad-0da1c8b25f9e/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Odin_04_chroma_02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Soulstealer2/Chromas/v2/HMG_Soulstealer2_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "2f6c84b9-40dd-4c58-8f29-a6af6a31a09f",
+          "displayName": "Reaver, EP 5 Odin Level 4\r\n(Variant 3 White)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/2f6c84b9-40dd-4c58-8f29-a6af6a31a09f/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/2f6c84b9-40dd-4c58-8f29-a6af6a31a09f/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/2f6c84b9-40dd-4c58-8f29-a6af6a31a09f/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Odin_04_chroma_03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Soulstealer2/Chromas/v3/HMG_Soulstealer2_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "f5ce6297-4cd4-4b09-3931-5f8b20a4317d",
+          "displayName": "Reaver, EP 5 Odin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/f5ce6297-4cd4-4b09-3931-5f8b20a4317d/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Odin_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Soulstealer2/Levels/HMG_Soulstealer2_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "2bb3b930-48d4-c32a-2972-6ba60f1e3d96",
+          "displayName": "Reaver, EP 5 Odin Level 2",
+          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Odin_02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Soulstealer2/Levels/HMG_Soulstealer2_Lv2_PrimaryAsset"
+        },
+        {
+          "uuid": "2a4c3d8a-44ec-0097-5afc-1bb1044605b4",
+          "displayName": "Reaver, EP 5 Odin Level 3",
+          "levelItem": "EEquippableSkinLevelItem::Animation",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Odin_03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Soulstealer2/Levels/HMG_Soulstealer2_Lv3_PrimaryAsset"
+        },
+        {
+          "uuid": "606a2388-440f-7858-e5e3-5a94d7aeb64f",
+          "displayName": "Reaver, EP 5 Odin Level 4",
+          "levelItem": "EEquippableSkinLevelItem::Finisher",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Odin_04.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Soulstealer2/Levels/HMG_Soulstealer2_Lv4_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "f454efd1-49cb-372f-7096-d394df615308",
       "displayName": "Standard Odin",
       "themeUuid": "5a629df4-4765-0214-bd40-fbb96542941f",
@@ -2222,7 +2303,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/eef9e539-48dc-f161-a608-ecb1634d3b6b/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/eef9e539-48dc-f161-a608-ecb1634d3b6b/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/eef9e539-48dc-f161-a608-ecb1634d3b6b/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Vandal_04_chroma_01.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Vandal_04_chroma_01NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/DemonStone/Chromas/v4/AK_DemonStone_v4_PrimaryAsset"
         },
         {
@@ -2231,7 +2312,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/9c6107f4-4fbf-0b77-c291-1da85c76894b/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/9c6107f4-4fbf-0b77-c291-1da85c76894b/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/9c6107f4-4fbf-0b77-c291-1da85c76894b/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Vandal_04_chroma_02.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Vandal_04_chroma_02NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/DemonStone/Chromas/v2/AK_DemonStone_v2_PrimaryAsset"
         },
         {
@@ -2240,7 +2321,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/fa0a3567-4a25-1a13-b078-3c97265e3adc/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/fa0a3567-4a25-1a13-b078-3c97265e3adc/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/fa0a3567-4a25-1a13-b078-3c97265e3adc/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Vandal_04_chroma_03.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Vandal_04_chroma_03NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/DemonStone/Chromas/v3/AK_DemonStone_v3_PrimaryAsset"
         }
       ],
@@ -2274,7 +2355,7 @@
           "displayName": "Prelude to Chaos Vandal Level 4",
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": null,
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Vandal_04.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Vandal_04NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/DemonStone/Levels/AK_DemonStone_Lv4_PrimaryAsset"
         }
       ]
@@ -3150,7 +3231,7 @@
       "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
       "displayIcon": "https://media.valorant-api.com/weaponskins/30388628-42f0-606c-82c0-73ad43de997f/displayicon.png",
       "wallpaper": null,
-      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/SoulStealer/AK_Soulstealer_PrimaryAsset",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Soulstealer/AK_Soulstealer_PrimaryAsset",
       "chromas": [
         {
           "uuid": "2bd28382-48c6-8579-83e8-e9b64b783de3",
@@ -3159,7 +3240,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/2bd28382-48c6-8579-83e8-e9b64b783de3/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/2bd28382-48c6-8579-83e8-e9b64b783de3/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/SoulStealer/Chromas/Standard/AK_Soulstealer_Standard_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Soulstealer/Chromas/Standard/AK_Soulstealer_Standard_PrimaryAsset"
         },
         {
           "uuid": "b2a065c0-4632-ccaa-f496-7681dc2a6185",
@@ -3168,7 +3249,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/b2a065c0-4632-ccaa-f496-7681dc2a6185/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/b2a065c0-4632-ccaa-f496-7681dc2a6185/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/SoulStealer/Chromas/Red/AK_Soulstealer_Red_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Soulstealer/Chromas/Red/AK_Soulstealer_Red_PrimaryAsset"
         },
         {
           "uuid": "db4461e5-40dd-1173-3b64-e5836f92f4dd",
@@ -3177,7 +3258,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/db4461e5-40dd-1173-3b64-e5836f92f4dd/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/db4461e5-40dd-1173-3b64-e5836f92f4dd/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/SoulStealer/Chromas/Black/AK_Soulstealer_Black_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Soulstealer/Chromas/Black/AK_Soulstealer_Black_PrimaryAsset"
         },
         {
           "uuid": "b2619c1c-4974-4f06-f37b-c68b1d6d7bd1",
@@ -3186,7 +3267,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/b2619c1c-4974-4f06-f37b-c68b1d6d7bd1/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/b2619c1c-4974-4f06-f37b-c68b1d6d7bd1/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/SoulStealer/Chromas/White/AK_Soulstealer_White_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Soulstealer/Chromas/White/AK_Soulstealer_White_PrimaryAsset"
         }
       ],
       "levels": [
@@ -3196,7 +3277,7 @@
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/ba42fe63-457a-78ce-4499-47950a698129/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/Reaver_Vandal_01_2020-10-16.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/SoulStealer/Levels/AK_Soulstealer_Lv1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Soulstealer/Levels/AK_Soulstealer_Lv1_PrimaryAsset"
         },
         {
           "uuid": "6f9ba692-4618-d0e6-3099-42b4dc5fce89",
@@ -3204,7 +3285,7 @@
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/Reaver_Vandal_02_2020-10-16.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/SoulStealer/Levels/AK_Soulstealer_Lv2_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Soulstealer/Levels/AK_Soulstealer_Lv2_PrimaryAsset"
         },
         {
           "uuid": "98597b95-451c-70cf-46fb-31b4c5a54394",
@@ -3212,7 +3293,7 @@
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/Reaver_Vandal_03_2020-10-26.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/SoulStealer/Levels/AK_Soulstealer_Lv3_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Soulstealer/Levels/AK_Soulstealer_Lv3_PrimaryAsset"
         },
         {
           "uuid": "8c282914-446a-3e99-095a-cd97df201c8b",
@@ -3220,7 +3301,7 @@
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/Reaver_Vandal_04_2020-10-26.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/SoulStealer/Levels/AK_Soulstealer_Lv4_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Soulstealer/Levels/AK_Soulstealer_Lv4_PrimaryAsset"
         }
       ]
     },
@@ -6118,6 +6199,87 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/00eb5b5b-4697-44b5-a926-7e86b730e812/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Snowglobe/Levels/Carbine_Snowglobe_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "044b28ba-4c3b-d315-140d-d9a249da5567",
+      "displayName": "Reaver, EP 5 Phantom",
+      "themeUuid": "42110a3e-4363-50cc-5a1f-e4bc80f97916",
+      "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/044b28ba-4c3b-d315-140d-d9a249da5567/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Soulstealer2/Carbine_Soulstealer2_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "444ee547-4a4a-8202-685f-50b15113a77f",
+          "displayName": "Reaver, EP 5 Phantom",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/444ee547-4a4a-8202-685f-50b15113a77f/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/444ee547-4a4a-8202-685f-50b15113a77f/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/444ee547-4a4a-8202-685f-50b15113a77f/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Soulstealer2/Chromas/Standard/Carbine_Soulstealer2_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "d3d5ab8a-4785-da17-acf9-f6a0cc0e6467",
+          "displayName": "Reaver, EP 5 Phantom Level 4\r\n(Variant 1 Red)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/d3d5ab8a-4785-da17-acf9-f6a0cc0e6467/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/d3d5ab8a-4785-da17-acf9-f6a0cc0e6467/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/d3d5ab8a-4785-da17-acf9-f6a0cc0e6467/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Phantom_04_chroma_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Soulstealer2/Chromas/v1/Carbine_Soulstealer2_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "0e3787c9-47df-1fe3-8643-f3837674c8ed",
+          "displayName": "Reaver, EP 5 Phantom Level 4\r\n(Variant 2 Black)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/0e3787c9-47df-1fe3-8643-f3837674c8ed/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/0e3787c9-47df-1fe3-8643-f3837674c8ed/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/0e3787c9-47df-1fe3-8643-f3837674c8ed/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Phantom_04_chroma_02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Soulstealer2/Chromas/v2/Carbine_Soulstealer2_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "1708505a-4d55-73d3-8e85-b1ac190fe89c",
+          "displayName": "Reaver, EP 5 Phantom Level 4\r\n(Variant 3 White)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/1708505a-4d55-73d3-8e85-b1ac190fe89c/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/1708505a-4d55-73d3-8e85-b1ac190fe89c/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/1708505a-4d55-73d3-8e85-b1ac190fe89c/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Phantom_04_chroma_03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Soulstealer2/Chromas/v3/Carbine_Soulstealer2_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "4c18d802-409d-ec20-f630-d3abfcaa37c7",
+          "displayName": "Reaver, EP 5 Phantom",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/4c18d802-409d-ec20-f630-d3abfcaa37c7/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Phantom_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Soulstealer2/Levels/Carbine_Soulstealer2_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "8f9e6d07-40aa-7ae0-eedf-d391fcf9a00e",
+          "displayName": "Reaver, EP 5 Phantom Level 2",
+          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Phantom_02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Soulstealer2/Levels/Carbine_Soulstealer2_Lv2_PrimaryAsset"
+        },
+        {
+          "uuid": "a32255f0-4c5a-e518-b83e-3585564e4abb",
+          "displayName": "Reaver, EP 5 Phantom Level 3",
+          "levelItem": "EEquippableSkinLevelItem::Animation",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Phantom_03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Soulstealer2/Levels/Carbine_Soulstealer2_Lv3_PrimaryAsset"
+        },
+        {
+          "uuid": "0e321f27-4803-1df8-7414-78b96f1afe7e",
+          "displayName": "Reaver, EP 5 Phantom Level 4",
+          "levelItem": "EEquippableSkinLevelItem::Finisher",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Phantom_04.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Soulstealer2/Levels/Carbine_Soulstealer2_Lv4_PrimaryAsset"
         }
       ]
     },
@@ -10487,7 +10649,7 @@
       "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
       "displayIcon": "https://media.valorant-api.com/weaponskins/d653f4a7-4e92-2559-0a97-2c9d46d009b3/displayicon.png",
       "wallpaper": null,
-      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Hypebeast/BasePistol_HypeBeast_PrimaryAsset",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/HypeBeast/BasePistol_HypeBeast_PrimaryAsset",
       "chromas": [
         {
           "uuid": "d9dce0ec-464c-df67-63a3-1f9a05d322ad",
@@ -10496,7 +10658,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/d9dce0ec-464c-df67-63a3-1f9a05d322ad/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/d9dce0ec-464c-df67-63a3-1f9a05d322ad/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Hypebeast/Chromas/Standard/BasePistol_HypeBeast_Standard_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/HypeBeast/Chromas/Standard/BasePistol_HypeBeast_Standard_PrimaryAsset"
         },
         {
           "uuid": "42280760-422f-b5d1-4255-1e8993a817a4",
@@ -10505,7 +10667,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/42280760-422f-b5d1-4255-1e8993a817a4/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/42280760-422f-b5d1-4255-1e8993a817a4/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Hypebeast/Chromas/Orange/BasePistol_HypeBeast_Orange_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/HypeBeast/Chromas/Orange/BasePistol_HypeBeast_Orange_PrimaryAsset"
         },
         {
           "uuid": "02390051-4309-22d4-b733-c09fbfcf2e7f",
@@ -10514,7 +10676,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/02390051-4309-22d4-b733-c09fbfcf2e7f/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/02390051-4309-22d4-b733-c09fbfcf2e7f/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Hypebeast/Chromas/Blue/BasePistol_HypeBeast_Blue_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/HypeBeast/Chromas/Blue/BasePistol_HypeBeast_Blue_PrimaryAsset"
         },
         {
           "uuid": "9fcc46a1-42f8-6407-787d-cb9d3e0bb718",
@@ -10523,7 +10685,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/9fcc46a1-42f8-6407-787d-cb9d3e0bb718/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/9fcc46a1-42f8-6407-787d-cb9d3e0bb718/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Hypebeast/Chromas/Yellow/BasePistol_HypeBeast_Yellow_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/HypeBeast/Chromas/Yellow/BasePistol_HypeBeast_Yellow_PrimaryAsset"
         }
       ],
       "levels": [
@@ -10533,7 +10695,7 @@
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/c7695ce7-4fc9-1c79-64b3-8c8f9e21571c/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeClassic01_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Hypebeast/BasePistol_HypeBeast_Lv1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/HypeBeast/BasePistol_HypeBeast_Lv1_PrimaryAsset"
         },
         {
           "uuid": "7b2c1232-460b-ab9a-1eca-55b5aee9ad08",
@@ -10541,7 +10703,7 @@
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/7b2c1232-460b-ab9a-1eca-55b5aee9ad08/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeClassic02_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Hypebeast/BasePistol_HypeBeast_Lv2_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/HypeBeast/BasePistol_HypeBeast_Lv2_PrimaryAsset"
         },
         {
           "uuid": "4fc58223-43e7-a868-a6df-5e93be31369c",
@@ -10549,7 +10711,7 @@
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/4fc58223-43e7-a868-a6df-5e93be31369c/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeClassic03_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Hypebeast/BasePistol_HypeBeast_Lv3_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/HypeBeast/BasePistol_HypeBeast_Lv3_PrimaryAsset"
         },
         {
           "uuid": "e8a35ddb-4ce7-3867-154c-94803ed12a24",
@@ -10557,7 +10719,7 @@
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/e8a35ddb-4ce7-3867-154c-94803ed12a24/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeClassic04_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Hypebeast/BasePistol_HypeBeast_Lv4_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/HypeBeast/BasePistol_HypeBeast_Lv4_PrimaryAsset"
         }
       ]
     },
@@ -11781,6 +11943,87 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/04c6f57c-4463-f8b7-a475-6c89b2ec4416/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/SilverWolf/Levels/Luger_SilverWolf_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "c7261be6-47d2-ef86-82f4-6a844e45d33c",
+      "displayName": "Reaver, EP 5 Ghost",
+      "themeUuid": "42110a3e-4363-50cc-5a1f-e4bc80f97916",
+      "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/c7261be6-47d2-ef86-82f4-6a844e45d33c/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Soulstealer2/Luger_Soulstealer2_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "04bcace1-4d82-7093-f812-a5bff8306a54",
+          "displayName": "Reaver, EP 5 Ghost",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/04bcace1-4d82-7093-f812-a5bff8306a54/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/04bcace1-4d82-7093-f812-a5bff8306a54/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/04bcace1-4d82-7093-f812-a5bff8306a54/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Soulstealer2/Chromas/Standard/Luger_Soulstealer2_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "4e3b34c5-4012-7842-3f42-9aaaa6af2f98",
+          "displayName": "Reaver, EP 5 Ghost Level 4\r\n(Variant 1 Red)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/4e3b34c5-4012-7842-3f42-9aaaa6af2f98/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/4e3b34c5-4012-7842-3f42-9aaaa6af2f98/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/4e3b34c5-4012-7842-3f42-9aaaa6af2f98/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Ghost_04_chroma_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Soulstealer2/Chromas/v1/Luger_Soulstealer2_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "b7dc18e4-42bf-d734-1b3e-afa72c497c77",
+          "displayName": "Reaver, EP 5 Ghost Level 4\r\n(Variant 2 Black)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/b7dc18e4-42bf-d734-1b3e-afa72c497c77/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/b7dc18e4-42bf-d734-1b3e-afa72c497c77/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/b7dc18e4-42bf-d734-1b3e-afa72c497c77/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Ghost_04_chroma_02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Soulstealer2/Chromas/v2/Luger_Soulstealer2_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "99f5b206-40d3-025a-9143-828c2ca40bf6",
+          "displayName": "Reaver, EP 5 Ghost Level 4\r\n(Variant 3 White)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/99f5b206-40d3-025a-9143-828c2ca40bf6/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/99f5b206-40d3-025a-9143-828c2ca40bf6/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/99f5b206-40d3-025a-9143-828c2ca40bf6/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Ghost_04_chroma_03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Soulstealer2/Chromas/v3/Luger_Soulstealer2_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "a6fe7710-4edc-5e23-223d-aeaef3d17866",
+          "displayName": "Reaver, EP 5 Ghost",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/a6fe7710-4edc-5e23-223d-aeaef3d17866/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Ghost_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Soulstealer2/Levels/Luger_Soulstealer2_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "aef240db-4587-9d5d-bf89-eab5eeacf28e",
+          "displayName": "Reaver, EP 5 Ghost Level 2",
+          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Ghost_02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Soulstealer2/Levels/Luger_Soulstealer2_Lv2_PrimaryAsset"
+        },
+        {
+          "uuid": "ab52517a-4a6c-0af9-1fc4-dbba07d6cd16",
+          "displayName": "Reaver, EP 5 Ghost Level 3",
+          "levelItem": "EEquippableSkinLevelItem::Animation",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Ghost_03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Soulstealer2/Levels/Luger_Soulstealer2_Lv3_PrimaryAsset"
+        },
+        {
+          "uuid": "8ac0b94e-4b23-d9d2-8bc0-a7a34b477930",
+          "displayName": "Reaver, EP 5 Ghost Level 4",
+          "levelItem": "EEquippableSkinLevelItem::Finisher",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Ghost_04.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Soulstealer2/Levels/Luger_Soulstealer2_Lv4_PrimaryAsset"
         }
       ]
     },
@@ -13503,7 +13746,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/b63b0226-40d0-f52d-1a7c-b6a7555d703d/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/b63b0226-40d0-f52d-1a7c-b6a7555d703d/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/b63b0226-40d0-f52d-1a7c-b6a7555d703d/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Shorty_04_chroma_01.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Shorty_04_chroma_01NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Slim/DemonStone/Chromas/v4/Slim_DemonStone_v4_PrimaryAsset"
         },
         {
@@ -13512,7 +13755,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/51e5bab7-48d8-b8e3-3cf6-cbb1994eae0a/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/51e5bab7-48d8-b8e3-3cf6-cbb1994eae0a/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/51e5bab7-48d8-b8e3-3cf6-cbb1994eae0a/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Shorty_04_chroma_02.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Shorty_04_chroma_02NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Slim/DemonStone/Chromas/v2/Slim_DemonStone_v2_PrimaryAsset"
         },
         {
@@ -13521,7 +13764,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/0164afa0-47dc-3c61-cd5b-8794b73c2540/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/0164afa0-47dc-3c61-cd5b-8794b73c2540/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/0164afa0-47dc-3c61-cd5b-8794b73c2540/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Shorty_04_chroma_03.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Shorty_04_chroma_03NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Slim/DemonStone/Chromas/v3/Slim_DemonStone_v3_PrimaryAsset"
         }
       ],
@@ -13555,7 +13798,7 @@
           "displayName": "Prelude to Chaos Shorty Level 4",
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": null,
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Shorty_04.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Shorty_04NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Slim/DemonStone/Levels/Slim_DemonStone_Lv4_PrimaryAsset"
         }
       ]
@@ -14566,7 +14809,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/9a1e679d-4b6d-b3f9-642a-36a375d8cb7d/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/9a1e679d-4b6d-b3f9-642a-36a375d8cb7d/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/9a1e679d-4b6d-b3f9-642a-36a375d8cb7d/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Operator_04_chroma_01.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Operator_04_chroma_01NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper/DemonStone/Chromas/v4/BoltSniper_DemonStone_v4_PrimaryAsset"
         },
         {
@@ -14575,7 +14818,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/9b36cca5-414d-a43b-5f01-dab940b930d3/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/9b36cca5-414d-a43b-5f01-dab940b930d3/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/9b36cca5-414d-a43b-5f01-dab940b930d3/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Operator_04_chroma_02.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Operator_04_chroma_02NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper/DemonStone/Chromas/v2/BoltSniper_DemonStone_v2_PrimaryAsset"
         },
         {
@@ -14584,7 +14827,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/e1becf17-4a52-0ee9-68b4-85b14dabf552/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e1becf17-4a52-0ee9-68b4-85b14dabf552/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e1becf17-4a52-0ee9-68b4-85b14dabf552/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Operator_04_chroma_03.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Operator_04_chroma_03NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper/DemonStone/Chromas/v3/BoltSniper_DemonStone_v3_PrimaryAsset"
         }
       ],
@@ -14618,7 +14861,7 @@
           "displayName": "Prelude to Chaos Operator Level 4",
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": null,
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Operator_04.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Operator_04NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper/DemonStone/Levels/BoltSniper_DemonStone_Lv4_PrimaryAsset"
         }
       ]
@@ -16219,7 +16462,7 @@
       "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
       "displayIcon": "https://media.valorant-api.com/weaponskins/2a049f35-4bcd-af25-21fd-ec942e2d5007/displayicon.png",
       "wallpaper": null,
-      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_PrimaryAsset",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_PrimaryAsset",
       "chromas": [
         {
           "uuid": "e2f5a979-4e9a-f931-7f52-d99f0ec4a61b",
@@ -16228,7 +16471,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e2f5a979-4e9a-f931-7f52-d99f0ec4a61b/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e2f5a979-4e9a-f931-7f52-d99f0ec4a61b/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/Chromas/Standard/DMR_HypeBeast_Standard_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/Chromas/Standard/DMR_HypeBeast_Standard_PrimaryAsset"
         },
         {
           "uuid": "4ca16478-40c7-2cf6-bdd2-099761921e61",
@@ -16237,7 +16480,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/4ca16478-40c7-2cf6-bdd2-099761921e61/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/4ca16478-40c7-2cf6-bdd2-099761921e61/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/Chromas/Orange/DMR_HypeBeast_Orange_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/Chromas/Orange/DMR_HypeBeast_Orange_PrimaryAsset"
         },
         {
           "uuid": "e866f273-4acc-806f-becd-56a6bef48fbc",
@@ -16246,7 +16489,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e866f273-4acc-806f-becd-56a6bef48fbc/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e866f273-4acc-806f-becd-56a6bef48fbc/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/Chromas/Blue/DMR_HypeBeast_Blue_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/Chromas/Blue/DMR_HypeBeast_Blue_PrimaryAsset"
         },
         {
           "uuid": "22f831db-4e55-6280-9078-d9b63ae93e4d",
@@ -16255,7 +16498,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/22f831db-4e55-6280-9078-d9b63ae93e4d/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/22f831db-4e55-6280-9078-d9b63ae93e4d/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/Chromas/Yellow/DMR_HypeBeast_Yellow_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/Chromas/Yellow/DMR_HypeBeast_Yellow_PrimaryAsset"
         }
       ],
       "levels": [
@@ -16265,7 +16508,7 @@
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/9336ab9d-445c-0872-a283-9f9b61a0098a/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeGuardian01_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_Lv1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_Lv1_PrimaryAsset"
         },
         {
           "uuid": "edc646b0-4a5a-6a76-a860-6b8db95bd132",
@@ -16273,7 +16516,7 @@
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/edc646b0-4a5a-6a76-a860-6b8db95bd132/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeGuardian02_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_Lv2_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_Lv2_PrimaryAsset"
         },
         {
           "uuid": "14b04b38-4359-62a3-ab62-bcbe715e3fa0",
@@ -16281,7 +16524,7 @@
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/14b04b38-4359-62a3-ab62-bcbe715e3fa0/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeGuardian03_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_Lv3_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_Lv3_PrimaryAsset"
         },
         {
           "uuid": "99b7b761-41b3-e26c-ceeb-b9a1c3a67736",
@@ -16289,7 +16532,7 @@
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/99b7b761-41b3-e26c-ceeb-b9a1c3a67736/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeGuardian04_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_Lv4_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_Lv4_PrimaryAsset"
         }
       ]
     },
@@ -19280,6 +19523,87 @@
       ]
     },
     {
+      "uuid": "1cb1ab52-4c7d-0775-77f4-eaac99968261",
+      "displayName": "Reaver, EP 5 Spectre",
+      "themeUuid": "42110a3e-4363-50cc-5a1f-e4bc80f97916",
+      "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/1cb1ab52-4c7d-0775-77f4-eaac99968261/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Soulstealer2/MP5_Soulstealer2_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "1cb0fe08-40f8-431c-0cde-129fcd217cc4",
+          "displayName": "Reaver, EP 5 Spectre",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/1cb0fe08-40f8-431c-0cde-129fcd217cc4/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/1cb0fe08-40f8-431c-0cde-129fcd217cc4/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/1cb0fe08-40f8-431c-0cde-129fcd217cc4/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Soulstealer2/Chromas/Standard/MP5_Soulstealer2_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "3a2ed05c-456e-3d79-c5c6-4eb3a4cedcb7",
+          "displayName": "Reaver, EP 5 Spectre Level 4\r\n(Variant 1 Red)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/3a2ed05c-456e-3d79-c5c6-4eb3a4cedcb7/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/3a2ed05c-456e-3d79-c5c6-4eb3a4cedcb7/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/3a2ed05c-456e-3d79-c5c6-4eb3a4cedcb7/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Spectre_04_chroma_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Soulstealer2/Chromas/v1/MP5_Soulstealer2_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "9ce7d74f-4444-4676-1a31-dba72c553cee",
+          "displayName": "Reaver, EP 5 Spectre Level 4\r\n(Variant 2 Black)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/9ce7d74f-4444-4676-1a31-dba72c553cee/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/9ce7d74f-4444-4676-1a31-dba72c553cee/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/9ce7d74f-4444-4676-1a31-dba72c553cee/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Spectre_04_chroma_02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Soulstealer2/Chromas/v2/MP5_Soulstealer2_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "746c227d-47be-f1c7-b69d-48a9b497268b",
+          "displayName": "Reaver, EP 5 Spectre Level 4\r\n(Variant 3 White)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/746c227d-47be-f1c7-b69d-48a9b497268b/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/746c227d-47be-f1c7-b69d-48a9b497268b/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/746c227d-47be-f1c7-b69d-48a9b497268b/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Spectre_04_chroma_03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Soulstealer2/Chromas/v3/MP5_Soulstealer2_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "0a0237d3-4d57-0ed2-ab65-c898a7bc755b",
+          "displayName": "Reaver, EP 5 Spectre",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/0a0237d3-4d57-0ed2-ab65-c898a7bc755b/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Spectre_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Soulstealer2/Levels/MP5_Soulstealer2_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "3c7e7ebd-4b7f-f475-d714-47a52a116c82",
+          "displayName": "Reaver, EP 5 Spectre Level 2",
+          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Spectre_02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Soulstealer2/Levels/MP5_Soulstealer2_Lv2_PrimaryAsset"
+        },
+        {
+          "uuid": "88257dda-4c34-f3ca-4495-d6b9ebd6ddbf",
+          "displayName": "Reaver, EP 5 Spectre Level 3",
+          "levelItem": "EEquippableSkinLevelItem::Animation",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Spectre_03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Soulstealer2/Levels/MP5_Soulstealer2_Lv3_PrimaryAsset"
+        },
+        {
+          "uuid": "a8849563-498e-d080-85df-df891c878566",
+          "displayName": "Reaver, EP 5 Spectre Level 4",
+          "levelItem": "EEquippableSkinLevelItem::Finisher",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Spectre_04.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Soulstealer2/Levels/MP5_Soulstealer2_Lv4_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "26b1c794-4370-f354-ff4d-3a8b95edff79",
       "displayName": "Recon Spectre",
       "themeUuid": "9b3502f8-424b-1c2d-3b2e-4d9c5c1b4e52",
@@ -19791,7 +20115,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/3b0daf2c-4390-2d67-e489-0f8d38e0ba5c/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/3b0daf2c-4390-2d67-e489-0f8d38e0ba5c/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/3b0daf2c-4390-2d67-e489-0f8d38e0ba5c/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Stinger_04_chroma_01.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Stinger_04_chroma_01NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/DemonStone/Chromas/v1/Vector_DemonStone_v1_PrimaryAsset"
         },
         {
@@ -19800,7 +20124,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/9d0ed9fa-4392-a5b8-3090-9f9627e21739/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/9d0ed9fa-4392-a5b8-3090-9f9627e21739/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/9d0ed9fa-4392-a5b8-3090-9f9627e21739/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Stinger_04_chroma_02.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Stinger_04_chroma_02NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/DemonStone/Chromas/v2/Vector_DemonStone_v2_PrimaryAsset"
         },
         {
@@ -19809,7 +20133,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/a7c03e3b-48b2-7d7e-fb00-70aa1c168dba/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/a7c03e3b-48b2-7d7e-fb00-70aa1c168dba/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/a7c03e3b-48b2-7d7e-fb00-70aa1c168dba/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Stinger_04_chroma_03.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Stinger_04_chroma_03NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/DemonStone/Chromas/v3/Vector_DemonStone_v3_PrimaryAsset"
         }
       ],
@@ -19843,7 +20167,7 @@
           "displayName": "Prelude to Chaos Stinger Level 4",
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": null,
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Demonstone_Stinger_04.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_v2_Demonstone_Stinger_04NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/DemonStone/Levels/Vector_DemonStone_Lv4_PrimaryAsset"
         }
       ]
@@ -21455,7 +21779,7 @@
           "displayName": "Blade of Serket Level 2",
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": null,
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/2022-06-22%20Egypt_Melee_02_1.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/2022-06-22%20Egypt_Melee_02_1NEW.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Melee/Egypt/Levels/Melee_Egypt_Lv2_PrimaryAsset"
         }
       ]
@@ -22703,6 +23027,71 @@
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/Reaver_Melee_02_2020-10-19.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Melee/Soulstealer/Levels/Melee_Soulstealer_Lv2_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "b73d7b16-4652-bc5b-5c4c-068aabb19d0a",
+      "displayName": "Reaver, EP 5 Karambit",
+      "themeUuid": "42110a3e-4363-50cc-5a1f-e4bc80f97916",
+      "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/b73d7b16-4652-bc5b-5c4c-068aabb19d0a/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Melee/Soulstealer2/Melee_Soulstealer2_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "61eb0d02-4dfe-4413-6e29-4d9f9500e6a5",
+          "displayName": "Reaver, EP 5 Karambit",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/61eb0d02-4dfe-4413-6e29-4d9f9500e6a5/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/61eb0d02-4dfe-4413-6e29-4d9f9500e6a5/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/61eb0d02-4dfe-4413-6e29-4d9f9500e6a5/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Soulstealer2/Chromas/Standard/Melee_Soulstealer2_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "9c55fcb9-4710-48fd-642d-fd90c6c3b895",
+          "displayName": "Reaver, EP 5 Karambit Level 2\r\n(Variant 1 Red)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/9c55fcb9-4710-48fd-642d-fd90c6c3b895/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/9c55fcb9-4710-48fd-642d-fd90c6c3b895/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/9c55fcb9-4710-48fd-642d-fd90c6c3b895/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Melee_02_chroma_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Soulstealer2/Chromas/v1/Melee_Soulstealer2_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "517f5413-4859-ab98-fec8-4ebd39a15121",
+          "displayName": "Reaver, EP 5 Karambit Level 2\r\n(Variant 2 Black)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/517f5413-4859-ab98-fec8-4ebd39a15121/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/517f5413-4859-ab98-fec8-4ebd39a15121/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/517f5413-4859-ab98-fec8-4ebd39a15121/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Melee_02_chroma_02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Soulstealer2/Chromas/v2/Melee_Soulstealer2_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "cf9fc0dc-48d9-34a6-95fd-cea860d2df5e",
+          "displayName": "Reaver, EP 5 Karambit Level 2\r\n(Variant 3 White)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/cf9fc0dc-48d9-34a6-95fd-cea860d2df5e/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/cf9fc0dc-48d9-34a6-95fd-cea860d2df5e/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/cf9fc0dc-48d9-34a6-95fd-cea860d2df5e/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Melee_02_chroma_03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Soulstealer2/Chromas/v3/Melee_Soulstealer2_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "5ac106cd-45ef-a26f-2058-f382f20c64db",
+          "displayName": "Reaver, EP 5 Karambit",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/5ac106cd-45ef-a26f-2058-f382f20c64db/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Melee_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Soulstealer2/Levels/Melee_Soulstealer2_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "84d08ce6-468c-b95b-9bbb-408dcdcee76f",
+          "displayName": "Reaver, EP 5 Karambit Level 2",
+          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Melee_02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Soulstealer2/Levels/Melee_Soulstealer2_Lv2_PrimaryAsset"
         }
       ]
     },

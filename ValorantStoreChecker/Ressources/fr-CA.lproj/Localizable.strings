@@ -51,6 +51,7 @@
 // SkinCardDetailView
 "InfoPrice" = "Le prix de cette skin n'est malheureusement pas dans notre base de données.";
 "Cost" = "Coût";
+"ExclusiveSkinMessage" = "Ce skin s'agit soit d'une exclusivité Battlepass, soit d'une exclusivité de personnage, ou d'un skin en édition limitée.";
 "Tier" = "Niveau";
 "Default" = "Défaut";
 "Variant" = "Variante";

@@ -71,36 +71,58 @@ struct SkinCardView: View {
                         }
                         
                         // MARK: Name
-                        Text(String(skin.displayName))
-                            .foregroundColor(.white)
-                            .font(.subheadline)
-                            .bold()
-                            .shadow(color: .black, radius: 3)
-                            .lineLimit(1)
+                        let name = skin.displayName
+                            
+                        if name.count > 27 {
+                            
+                            Text(cleanName(name: name))
+                                .foregroundColor(.white)
+                                .font(.subheadline)
+                                .bold()
+                                .shadow(color: .black, radius: 3)
+                                .lineLimit(1)
+                            
+                        }
+                        else {
+                            
+                            Text(String(skin.displayName))
+                                .foregroundColor(.white)
+                                .font(.subheadline)
+                                .bold()
+                                .shadow(color: .black, radius: 3)
+                                .lineLimit(1)
+                            
+                        }
+                        
                         
                         Spacer()
                         
                         // MARK: Price
                         if showPrice{
-                            Image("vp")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 18, height: 18)
-                                .shadow(color: .white, radius: 2)
+                            
                             
                             if skin.contentTierUuid != nil {
-                                Text(PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!))
-                                    .font(.subheadline)
-                                    .foregroundColor(.white)
-                                    .bold()
-                                    .shadow(color: .black, radius: 3)
+                                let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!)
                                 
-                            }else{
-                                Text("Unknown")
-                                    .font(.subheadline)
-                                    .foregroundColor(.white)
-                                    .bold()
+                                if price != "Unknown" {
+                                    
+                                    Image("vp")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 18, height: 18)
+                                        .shadow(color: .white, radius: 2)
+                                    
+                                    Text(price)
+                                        .font(.subheadline)
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .shadow(color: .black, radius: 3)
+                                    
+                                }
+                                
+                                
                             }
+                            
                         }
                         
                     }
@@ -127,11 +149,25 @@ struct SkinCardView: View {
                 .preferredColorScheme(.dark)
         }
     }
+    
+    
 }
 
-func getImageData (skin: Skin) -> UIImage{
-    guard let data = UserDefaults.standard.data(forKey: "\(skin.levels!.first!.id)") else { return UIImage()}
-    let decoded = try! PropertyListDecoder().decode(Data.self, from: data)
-    let uiImage = UIImage(data: decoded)
-    return uiImage!
+func cleanName(name: String) -> String {
+    let nameList = name.split(separator: " ")
+    
+    var finalName = ""
+    for word in nameList {
+        if finalName.count != 0 {
+            finalName += " "
+        }
+        
+        let tempName = finalName + word
+        if tempName.count > 27 {
+            return finalName
+        }
+        
+        finalName += word
+    }
+    return finalName
 }

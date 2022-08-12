@@ -51,6 +51,7 @@
 // SkinCardDetailView
 "InfoPrice" = "The price of this skin is unfortunately not in our database.";
 "Cost" = "Cost";
+"ExclusiveSkinMessage" = "This is either a Battlepass exclusive, a character exclusive, or a limited edition skin.";
 "Tier" = "Tier";
 "Default" = "Default";
 "Variant" = "Variant";
@@ -84,7 +85,7 @@
 "Help" = "Help Out the Developper!";
 "HelpMessage" = "Hi! I'm a sleep deprived university student just trying to make life a little bit better 😄. Please consider helping me out through any method below!";
 "Review" = "Leave a Review";
-"Sponsor" = "Sponsor Me";
+"Sponsor" = "Tip Me";
 
 // AcknowledgementsView
 "Acknowledgements" = "Acknowledgements";

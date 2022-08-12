@@ -16,7 +16,6 @@
 		8B0AE9F028998EAC00275A30 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AE9EF28998EAC00275A30 /* HelpView.swift */; };
 		8B0AE9F228998EC600275A30 /* AcknowledgementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AE9F128998EC600275A30 /* AcknowledgementsView.swift */; };
 		8B280797289B4544004A3720 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B280796289B4544004A3720 /* SplashScreenView.swift */; };
-		8B29E1EF2881C87D0081F69A /* ValorantStoreCheckerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E1EE2881C87D0081F69A /* ValorantStoreCheckerApp.swift */; };
 		8B29E1F12881C87D0081F69A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E1F02881C87D0081F69A /* LaunchView.swift */; };
 		8B29E1F32881C8800081F69A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B29E1F22881C8800081F69A /* Assets.xcassets */; };
 		8B29E1F62881C8800081F69A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B29E1F52881C8800081F69A /* Preview Assets.xcassets */; };
@@ -26,7 +25,6 @@
 		8B29E20C2881D6D30081F69A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E20B2881D6D30081F69A /* CircleView.swift */; };
 		8B33A5BF2884687C00BCB1F2 /* SkinCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */; };
 		8B3651542891DCCA00FE762E /* RegionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3651532891DCCA00FE762E /* RegionSelectorView.swift */; };
-		8B3685CE2894F3F8000BB3CF /* StorePrice.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B3685CD2894F3F8000BB3CF /* StorePrice.json */; };
 		8B3685D02895BBD3000BB3CF /* LoginBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3685CF2895BBD3000BB3CF /* LoginBoxView.swift */; };
 		8B3685D22895D2D5000BB3CF /* ShopTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3685D12895D2D5000BB3CF /* ShopTopBarView.swift */; };
 		8B3685D42895D576000BB3CF /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3685D32895D576000BB3CF /* PullToRefreshView.swift */; };
@@ -53,13 +51,16 @@
 		8BB00EC4288E3D41001AE90A /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC3288E3D41001AE90A /* WebService.swift */; };
 		8BB00EC7288E418E001AE90A /* AuthAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC6288E418E001AE90A /* AuthAPIModel.swift */; };
 		8BB00EC9288E4679001AE90A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB00EC8288E4679001AE90A /* Store.swift */; };
-		8BE6111C28846E1700E8BDD6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE6111B28846E1700E8BDD6 /* AVKit.framework */; };
 		8BE6111E28847B0C00E8BDD6 /* SkinData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6111D28847B0C00E8BDD6 /* SkinData.json */; };
 		8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6111F28847B9100E8BDD6 /* Skin.swift */; };
 		8BF1DB482888B87F004491A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DB472888B87F004491A1 /* Constants.swift */; };
 		8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4D7642885A298000404D8 /* SearchBar.swift */; };
+		F837D9D428A5B14B00F7C777 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F837D9D328A5B14B00F7C777 /* SettingsView.swift */; };
 		F844AC7128A01BF10009C0C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F844AC7328A01BF10009C0C0 /* Localizable.strings */; };
 		F892C4D928A412DF007158CB /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892C4D828A412DF007158CB /* NotificationService.swift */; };
+		F8D4D4C128A429E400BDBBFE /* ValorantStoreCheckerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */; };
+		F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F69D3328A5E159005A73D2 /* TipModel.swift */; };
+		F8F69D3728A5E4D5005A73D2 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F69D3628A5E4D5005A73D2 /* TipView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +74,6 @@
 		8B0AE9F128998EC600275A30 /* AcknowledgementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsView.swift; sourceTree = "<group>"; };
 		8B280796289B4544004A3720 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		8B29E1EB2881C87D0081F69A /* ValorantStoreChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValorantStoreChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B29E1EE2881C87D0081F69A /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
 		8B29E1F02881C87D0081F69A /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		8B29E1F22881C8800081F69A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B29E1F52881C8800081F69A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -83,7 +83,6 @@
 		8B29E20B2881D6D30081F69A /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCardDetailView.swift; sourceTree = "<group>"; };
 		8B3651532891DCCA00FE762E /* RegionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectorView.swift; sourceTree = "<group>"; };
-		8B3685CD2894F3F8000BB3CF /* StorePrice.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StorePrice.json; sourceTree = "<group>"; };
 		8B3685CF2895BBD3000BB3CF /* LoginBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBoxView.swift; sourceTree = "<group>"; };
 		8B3685D12895D2D5000BB3CF /* ShopTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTopBarView.swift; sourceTree = "<group>"; };
 		8B3685D32895D576000BB3CF /* PullToRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
@@ -113,11 +112,16 @@
 		8BE6111F28847B9100E8BDD6 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		8BF1DB472888B87F004491A1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8BF4D7642885A298000404D8 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		F837D9D328A5B14B00F7C777 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F844AC7228A01BF10009C0C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F844AC7428A01C080009C0C0 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F844AC7628A037970009C0C0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F844AC7728A0528A0009C0C0 /* ValorantStoreChecker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ValorantStoreChecker.entitlements; sourceTree = "<group>"; };
 		F892C4D828A412DF007158CB /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
+		F8F69D3328A5E159005A73D2 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
+		F8F69D3528A5E2F9005A73D2 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		F8F69D3628A5E4D5005A73D2 /* TipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +131,6 @@
 			files = (
 				8B65F843288C9D94004282DD /* AZVideoPlayer in Frameworks */,
 				8BAB20BE2897616D0041A5BB /* Keychain in Frameworks */,
-				8BE6111C28846E1700E8BDD6 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +147,8 @@
 				8B0AE9EF28998EAC00275A30 /* HelpView.swift */,
 				8B0AE9F128998EC600275A30 /* AcknowledgementsView.swift */,
 				8B4200892899E977000D7FC2 /* CopyrightView.swift */,
+				F8F69D3628A5E4D5005A73D2 /* TipView.swift */,
+				F837D9D228A5B08900F7C777 /* Settings */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -169,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				F844AC7728A0528A0009C0C0 /* ValorantStoreChecker.entitlements */,
-				8B29E1EE2881C87D0081F69A /* ValorantStoreCheckerApp.swift */,
+				F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */,
 				8B280796289B4544004A3720 /* SplashScreenView.swift */,
 				8B29E1FC2881C9850081F69A /* Views */,
 				8B29E1FD2881C9890081F69A /* ViewModels */,
@@ -205,6 +210,7 @@
 			children = (
 				8B29E1FF2881CA000081F69A /* SkinModel.swift */,
 				8BB00EC6288E418E001AE90A /* AuthAPIModel.swift */,
+				F8F69D3328A5E159005A73D2 /* TipModel.swift */,
 				8BB00EC5288E416F001AE90A /* Services */,
 			);
 			path = ViewModels;
@@ -252,7 +258,7 @@
 				F844AC7328A01BF10009C0C0 /* Localizable.strings */,
 				8B29E1F22881C8800081F69A /* Assets.xcassets */,
 				8BE6111D28847B0C00E8BDD6 /* SkinData.json */,
-				8B3685CD2894F3F8000BB3CF /* StorePrice.json */,
+				F8F69D3528A5E2F9005A73D2 /* Configuration.storekit */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -353,6 +359,14 @@
 			path = SkinList;
 			sourceTree = "<group>";
 		};
+		F837D9D228A5B08900F7C777 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F837D9D328A5B14B00F7C777 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -423,7 +437,6 @@
 			files = (
 				F844AC7128A01BF10009C0C0 /* Localizable.strings in Resources */,
 				8B29E1F62881C8800081F69A /* Preview Assets.xcassets in Resources */,
-				8B3685CE2894F3F8000BB3CF /* StorePrice.json in Resources */,
 				8BE6111E28847B0C00E8BDD6 /* SkinData.json in Resources */,
 				8B29E1F32881C8800081F69A /* Assets.xcassets in Resources */,
 			);
@@ -437,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BB00EC4288E3D41001AE90A /* WebService.swift in Sources */,
+				F837D9D428A5B14B00F7C777 /* SettingsView.swift in Sources */,
 				8B280797289B4544004A3720 /* SplashScreenView.swift in Sources */,
 				8B29E1F12881C87D0081F69A /* LaunchView.swift in Sources */,
 				8B65F850288CCFF0004282DD /* PriceTier.swift in Sources */,
@@ -445,8 +459,8 @@
 				8B9A8385288612DD009CE268 /* SelectEditionView.swift in Sources */,
 				8B0AE9E32898390C00275A30 /* Blur.swift in Sources */,
 				8B3685D42895D576000BB3CF /* PullToRefreshView.swift in Sources */,
-				8B29E1EF2881C87D0081F69A /* ValorantStoreCheckerApp.swift in Sources */,
 				8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */,
+				F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */,
 				8BB00EC7288E418E001AE90A /* AuthAPIModel.swift in Sources */,
 				8B29E2032881CAEC0081F69A /* LoginView.swift in Sources */,
 				F892C4D928A412DF007158CB /* NotificationService.swift in Sources */,
@@ -458,6 +472,7 @@
 				8B0AE9EA28998E4200275A30 /* AccountView.swift in Sources */,
 				8B682C822890C2BE003A3B9C /* Error.swift in Sources */,
 				8B3685D02895BBD3000BB3CF /* LoginBoxView.swift in Sources */,
+				F8D4D4C128A429E400BDBBFE /* ValorantStoreCheckerApp.swift in Sources */,
 				8B9A8395288630F0009CE268 /* WishListView.swift in Sources */,
 				8B42008A2899E977000D7FC2 /* CopyrightView.swift in Sources */,
 				8BB00EC9288E4679001AE90A /* Store.swift in Sources */,
@@ -466,6 +481,7 @@
 				8B62AFD72883B4E10070173F /* HomeView.swift in Sources */,
 				8B29E2002881CA000081F69A /* SkinModel.swift in Sources */,
 				8B3651542891DCCA00FE762E /* RegionSelectorView.swift in Sources */,
+				F8F69D3728A5E4D5005A73D2 /* TipView.swift in Sources */,
 				8B62AFD12883A1230070173F /* SkinCardView.swift in Sources */,
 				8B9A838D28861C6E009CE268 /* PremiumEditionView.swift in Sources */,
 				8B0AE9EC28998E7600275A30 /* SupportView.swift in Sources */,
@@ -621,7 +637,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ValorantStoreChecker/ValorantStoreChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
@@ -659,7 +675,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ValorantStoreChecker/ValorantStoreChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;

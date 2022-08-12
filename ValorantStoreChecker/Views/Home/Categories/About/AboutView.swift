@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AboutView: View {
     
+    @State var showSettings = false
+    
     var body: some View {
         
         GeometryReader{ geo in
@@ -22,6 +24,18 @@ struct AboutView: View {
                             .bold()
                         
                         Spacer()
+                        
+                        /*
+                        Button {
+                            if let url = URL(string: Constants.URL.supportTicket) {
+                                UIApplication.shared.open(url)
+                            }
+                        } label: {
+                            
+                            Image(systemName: "gear")
+                            
+                        }
+                        */
                         
                     }
                     
@@ -54,10 +68,14 @@ struct AboutView: View {
             
         }
         .padding()
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
+                .preferredColorScheme(.dark)
+        }
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
+struct AboutView_Previews: PreviewProvider {
     
     static var previews: some View {
         AboutView()
