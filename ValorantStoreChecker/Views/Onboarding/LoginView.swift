@@ -32,12 +32,12 @@ struct LoginView: View {
                 
                 
                 VStack(spacing: 15) {
-                    
-                    
+
                     
                     Logo()
                         .frame(width: geo.size.width / Constants.dimensions.onboardingLogoSize)
                         .padding(.top)
+                    
                     
                     // MARK: General Info
                     if !authAPIModel.failedLogin {
@@ -70,7 +70,7 @@ struct LoginView: View {
                     
                     
                     // MARK: Terms and Conditions
-                    HStack{
+                    HStack {
                         Button {
                             
                             showTerms = true
@@ -162,7 +162,7 @@ struct LoginView: View {
                     }
                 }
                 
-                .padding(50)
+                .padding(55)
             }
             
         }
