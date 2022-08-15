@@ -52,7 +52,7 @@ The current way that the reload button requires cookies instead of your username
 Thank you to the following people and repositories:
 
 - **[juliand665](https://github.com/juliand665)** for their invaluable help in answering my many SwiftUI question.
-- **[Lunac-dev](https://github.com/Lunac-dev)** for his continuous support.
+- **[Lunac-dev](https://github.com/Lunac-dev)** for his continuous support and creation of the Valorant Store Checker project.
 - **[RumbleMike/ValorantClientAPI](https://github.com/RumbleMike/ValorantClientAPI)** for the API that makes it all possible.
 - **[techchrism/valorant-api-docs](https://github.com/techchrism/valorant-api-docs)** for the detailed documentation.
 - **[Valorant-API.com](https://valorant-api.com)** for providing assets.
