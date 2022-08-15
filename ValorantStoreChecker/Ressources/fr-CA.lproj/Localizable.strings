@@ -11,13 +11,25 @@
 "CopyError" = "Copier l'erreur";
 "Unknown" = "Inconnu";
 
+"ErrorTitle" = "Erreur";
+"ErrorMessage1" = "Cas d'erreurs de rechargement
+1) Connexion réseau invalide.
+2) 3 jours se sont écoulés depuis le dernier rechargement. Il y a 2 options pour résoudre ce problème :
+2a) Déconnectez-vous et reconnectez-vous.
+2b) La limite de 3 jours de rechargement peut être évitée en activant la fonction de mémorisation du mot de passe dans À propos > Réglages. Il s'agit d'une limitation de l'API sur laquelle je n'ai aucun contrôle.";
+"ErrorMessage2" = "Cas d'erreurs de rechargement
+1) Connexion réseau invalide.
+2) Mauvais mot de passe défini dans Réglages.";
+
+
 // Login Screen
 "Login" = "Connectez-vous à votre compte Riot";
-"Information" = "Des mesures de sécurité strictes sont en place, notamment le fait de ne jamais sauvegarder votre mot de passe et de sécuriser les informations sensibles à l'aide de Keychain. Une FAQ, ainsi que le code source de cette application sont également disponibles via le lien ci-dessous.";
 "OK" = "OK";
 "OpenLink" = "Ouvrir le lien";
 "InvalidCredentials" = "Informations d'identification non valides";
-"IRead" = "J'ai lu les termes et conditions";
+"IRead" = "J'ai lu les termes et conditions d'utilisation";
+"InformationTitle" = "Pourquoi mon compte Riot?";
+"Information" = "Alors que la plupart de vos statistiques sont librement accessibles sans votre mot de passe, votre boutique est une exception car elle est considérée comme information sensible. Pour que l'application puisse accéder à votre boutique, elle a besoin de vos informations de connexion où elle obtient votre boutique via une API open source. Des informations supplémentaires, le code source et une FAQ sont disponibles dans le lien ci-dessous.)";
 
 // LoginBoxView
 "Username" = "Identifiant";
@@ -44,12 +56,16 @@
 "Privacy" = "Politique de confidentialité";
 
 // HomeView
-"Store" = "Page d'accueil";
+"Store" = "Boutique";
 "SkinIndex" = "Index des skins";
-"About" = "Renseignements";
+"About" = "À propos";
+
+// ShopTobBarView
+"AutomaticReload" = "Recharge automatique";
+"AutomaticReloadInfo" = "Recharge automatiquement le boutique lorsqu'il est disponible.";
 
 // SkinCardDetailView
-"InfoPrice" = "Le prix de cette skin n'est malheureusement pas dans notre base de données.";
+"InfoPrice" = "Le prix de ce skin n'est malheureusement pas dans notre base de données.";
 "Cost" = "Coût";
 "ExclusiveSkinMessage" = "Ce skin s'agit soit d'une exclusivité Battlepass, soit d'une exclusivité de personnage, ou d'un skin en édition limitée.";
 "Tier" = "Niveau";
@@ -65,14 +81,14 @@
 
 // AccountView
 "Account" = "Compte";
-"SignOut" = "Sign Out";
-"Username" = "Déconnecter";
+"SignOut" = "Se déconnecter";
+"Username" = "Nom d'utilisateur";
 "Region" = "Région";
 // Region Names in RegionSelectorView
 
 // SupportView
-"Support" = "Soutien";
-"Create" = "Créer un billet d'assistance";
+"Support" = "Aide";
+"Create" = "Créer un ticket d'assistance";
 "FAQ" = "FAQ";
 "SourceCode" = "Code Source";
 
@@ -85,13 +101,18 @@
 "Help" = "Aidez le développeur!";
 "HelpMessage" = "Salut ! Je suis simplement un étudiant universitaire qui est privé de sommeil. J'essaie seulement de rendre la vie un petit peu meilleure pour tout le monde 😄. S'il vous plaît pensez à de m'aider à travers n'importe quelle méthode ci-dessous !";
 "Review" = "Laisser un avis";
-"Sponsor" = "Pourboire";
+"Sponsor" = "Effectuer une donation";
 
 // AcknowledgementsView
 "Acknowledgements" = "Remerciements";
-"ThankJulian" = "Merci de votre aide pour répondre à mes nombreuses questions.!"; // juliand665
+"ThankJulian" = "Merci de votre aide et d'avoir répondu à mes nombreuses questions.!"; // juliand665
 "ThankLunac" = "Merci pour votre soutien continu!"; // Lunac
 
 // CopyrightView
 "Copyright" = "Copyright";
-"CopyrightNotice" = "VSC (Store Checker for Valorant) n'est pas associé, connecté ou approuvé par Valorant ou Riot Games. En outre, Riot Games et Valorant sont des marques enregistré par Riot Games Inc.";
+"CopyrightNotice" = "VSC (Valorant Store Checker) n'est pas associé, connecté ou approuvé par Valorant ou Riot Games. En outre, Riot Games et Valorant sont des marques déposées par Riot Games Inc.";
+
+// SettingsView
+"Settings" = "Réglages";
+"RememberPassword" = "Retenir le mot de passe";
+"RememberPasswordInfo" = "Votre mot de passe est sécurisé par Keychain. Si vous vous déconnectez ou si vous désactivez le commutateur, le mot de passe sera automatiquement oublié. L'activation de cette fonction permet de contourner les limitations de tempds de l'API et de se connecter automatiquement au nom de l'utilisateur.";

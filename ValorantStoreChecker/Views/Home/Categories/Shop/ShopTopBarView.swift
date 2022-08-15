@@ -34,13 +34,32 @@ struct ShopTopBarView: View {
                 .padding(.leading)
                 .padding(.vertical, 10)
             
-            Text(countDownString(from: referenceDate))
-                .bold()
-                .onAppear(perform: {
-                    _ = self.timer
-                })
-                .font(.caption)
-                .padding(.vertical, 5)
+            let countdown = countDownString(from: referenceDate)
+            
+            if countdown == "Reload" && (authAPIModel.autoReload || defaults.bool(forKey: "autoReload")) {
+                
+                // Automatic reloading
+                Text("Reloading")
+                    .bold()
+                    .onAppear {
+                        Task {
+                            authAPIModel.reloading = true
+                            await authAPIModel.reload()
+                        }
+                    }
+                    .font(.caption)
+                    .padding(.vertical, 5)
+            }else {
+                Text(countdown)
+                    .bold()
+                    .onAppear(perform: {
+                        _ = self.timer
+                    })
+                    .font(.caption)
+                    .padding(.vertical, 5)
+            }
+            
+            
             
             
             
@@ -62,7 +81,6 @@ struct ShopTopBarView: View {
                         .frame(width: 15, height: 15)
                         .padding(.trailing)
                         .padding(.vertical, 10)
-                    
                     
                     
                 }
@@ -140,12 +158,8 @@ struct ShopTopBarView: View {
         }
         else {
             
-            if defaults.bool(forKey: "autoReload") {
-                Task{
-                    await authAPIModel.reload()
-                }
-            }
             return "Reload"
+            
         }
         
     }

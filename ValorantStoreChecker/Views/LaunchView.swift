@@ -89,7 +89,16 @@ struct LaunchView: View {
         }
         .alert(LocalizedStringKey("ErrorTitle"), isPresented: $authAPIModel.isError, actions: {
             
-            if authAPIModel.isReloadingError {
+            if authAPIModel.isReloadingError && (authAPIModel.rememberPassword || defaults.bool(forKey: "rememberPassword")) {
+            
+                
+                Button(LocalizedStringKey("OK"), role: nil, action: {
+                    authAPIModel.reloading = false
+                    authAPIModel.isReloadingError = false
+                })
+                
+            }
+            else if authAPIModel.isReloadingError {
                 
                 Button(LocalizedStringKey("SignOut"), role: nil, action: {
                     
@@ -107,21 +116,29 @@ struct LaunchView: View {
                 
             }
             else {
-                Button(LocalizedStringKey("OK"), role: nil, action: {
-                    
-                })
+                
                 Button(LocalizedStringKey("CopyError"), role: nil, action: {
                     
                     let pasteboard = UIPasteboard.general
                     pasteboard.string = authAPIModel.errorMessage
                     
                 })
+                
+                Button(LocalizedStringKey("OK"), role: nil, action: {
+                    
+                })
+                
             }
             
         }, message: {
             
-            if authAPIModel.isReloadingError {
-                Text(LocalizedStringKey("ErrorMessage"))
+            if authAPIModel.isReloadingError && (authAPIModel.rememberPassword || defaults.bool(forKey: "rememberPassword")) {
+                
+                Text(LocalizedStringKey("ErrorMessage2"))
+            }
+            else if authAPIModel.isReloadingError {
+                
+                Text(LocalizedStringKey("ErrorMessage1"))
             }
             else {
                 Text(authAPIModel.errorMessage)

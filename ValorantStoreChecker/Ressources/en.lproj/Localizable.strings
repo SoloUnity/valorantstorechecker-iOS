@@ -6,31 +6,34 @@
   
 */
 
+
+// Errors and Alerts
+"ErrorTitle" = "Error";
+"ErrorMessage1" = "Reloading Error Cases
+1) Invalid network connection.
+2) 3 days has passed since the previous reload. There are 2 options to solve this:
+2a) Sign out and sign back in.
+2b) The 3 day reload limit can be avoided by turning on remember password in About > Settings. This is an API limitation which I have no control over.";
+"ErrorMessage2" = "Reloading Error Cases
+1) Invalid network connection
+2) Wrong password set in Settings";
+
+
+
 // Errors and alerts
 "DownloadingAssets" = "Downloading Assets (60mb)";
 "CopyError" = "Copy Error";
 "Unknown" = "Unknown";
 
 
-"ErrorTitle" = "Error";
-"ErrorMessage" = "Reloading Error Cases
-1) Invalid network connection.
-2a) 3 days has passed since the previous reload, sign out and sign back in to resolve this problem. The 3 day reload limit can be avoided by turning on remember password in About > Settings. This is an API limitation which I have no control over.
-3) The wrong password is set through remember password.";
-
-
-
 // Login Screen
 "Login" = "Login to your Riot Account";
-
-"InformationTitle" = "Why my Riot Account?";
-
-"Information" = "While many of your statistics are free to access without your password, your store is an exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through an open source API. Additional information, the source code, and an FAQ can be found in the link below.";
-
 "OK" = "OK";
 "OpenLink" = "Open Link";
 "InvalidCredentials" = "Invalid Credentials";
 "IRead" = "I read the terms and conditions";
+"InformationTitle" = "Why my Riot Account?";
+"Information" = "While many of your statistics are free to access without your password, your store is an exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through an open source API. Additional information, the source code, and an FAQ can be found in the link below.";
 
 // LoginBoxView
 "Username" = "Username";
@@ -60,6 +63,10 @@
 "Store" = "Store";
 "SkinIndex" = "Skin Index";
 "About" = "About";
+
+// ShopTobBarView
+"AutomaticReload" = "Automatic Reloading";
+"AutomaticReloadInfo" = "Reloads the shop automatically when available.";
 
 // SkinCardDetailView
 "InfoPrice" = "The price of this skin is unfortunately not in our database.";
@@ -108,3 +115,8 @@
 // CopyrightView
 "Copyright" = "Copyright";
 "CopyrightNotice" = "VSC (Store Checker for Valorant) is not associated, connected, or endorsed by Valorant or Riot Games. Additionally, Riot Games and Valorant are trademarks registered under Riot Games Inc.";
+
+// SettingsView
+"Settings" = "Settings";
+"RememberPassword" = "Remember Password";
+"RememberPasswordInfo" = "Your password is secured by Keychain. Signing out or disabling the toggle will automatically forget the password. Enabling this feature bypasses the API time limitations and allows for automatic sign in on the user's behalf.";

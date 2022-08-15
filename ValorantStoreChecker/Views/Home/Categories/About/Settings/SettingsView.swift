@@ -31,28 +31,20 @@ struct SettingsView: View {
                     
                     VStack {
                         
-                        Toggle("Remember password", isOn: $toggleReload)
+                        Toggle(LocalizedStringKey("AutomaticReload"), isOn: $toggleReload)
                             .tint(.pink)
                             .onChange(of: toggleReload) { boolean in
                                 
-                                
-                                
-                                authAPIModel.rememberPassword = boolean
+                                authAPIModel.autoReload = boolean
                                 
                                 if boolean {
                                     defaults.set(boolean, forKey: "autoReload")
-
                                 }
                                 else {
                                     defaults.removeObject(forKey: "autoReload")
                                 }
                                 
                             }
-                        
-                        
-                        
-                            
-                        
                     }
                     .padding()
                     .foregroundColor(.white)
@@ -70,23 +62,28 @@ struct SettingsView: View {
                             }
                     }
                     
+                    Text(LocalizedStringKey("AutomaticReloadInfo"))
+                        .font(.caption2)
+                        .opacity(0.5)
+                        .padding(.horizontal, 5)
+                    
                     // Password toggle
                     VStack {
                         
-                        Toggle("Remember password", isOn: $togglePassword)
+                        Toggle(LocalizedStringKey("RememberPassword"), isOn: $togglePassword)
                             .tint(.pink)
                             .onChange(of: togglePassword) { boolean in
-                                
                                 
                                 
                                 authAPIModel.rememberPassword = boolean
                                 
                                 if boolean {
                                     defaults.set(boolean, forKey: "rememberPassword")
-
+                                    
                                 }
                                 else {
                                     defaults.removeObject(forKey: "rememberPassword")
+                                    authAPIModel.password = ""
                                     let _ = keychain.remove(forKey: "password")
                                 }
                                 
@@ -121,11 +118,12 @@ struct SettingsView: View {
                                     self.unhide.toggle()
                                 } label: {
                                     if unhide {
-                                        Image(systemName: "eye.slash.fill")
+                                        Image(systemName: "eye")
                                         
                                     }
                                     else {
-                                        Image(systemName: "eye")
+                                        Image(systemName: "eye.slash")
+                                        
                                     }
                                 }
 
@@ -154,10 +152,16 @@ struct SettingsView: View {
                             }
                     }
                     .onAppear {
+                        
+                        
                         if defaults.bool(forKey: "rememberPassword") {
                             self.togglePassword = true
                             
                             authAPIModel.password = keychain.value(forKey: "password") as? String ?? ""
+                        }
+                        
+                        if defaults.bool(forKey: "autoReload") {
+                            self.toggleReload = true
                         }
                     }
                     .onDisappear {
@@ -165,7 +169,7 @@ struct SettingsView: View {
                     }
                     
                     
-                    Text("Your password is secured by keychain. Signing out or disabling the toggle will automatically forget the password. Enabling this feature bypasses the API limitations and allows for automatic sign in on the user's behalf.")
+                    Text(LocalizedStringKey("RememberPasswordInfo"))
                         .font(.caption2)
                         .opacity(0.5)
                         .padding(.horizontal, 5)

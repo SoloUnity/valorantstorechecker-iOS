@@ -8,6 +8,7 @@
 import Foundation
 import Keychain
 import BackgroundTasks
+import SwiftUI
 
 class AuthAPIModel: ObservableObject {
     
@@ -25,6 +26,7 @@ class AuthAPIModel: ObservableObject {
     // Handles reload
     @Published var reloading : Bool = false
     @Published var successfulReload : Bool = false
+    @Published var autoReload : Bool = false
     
     // Multifactor
     @Published var showMultifactor : Bool = false // Show multifactor popout
@@ -78,14 +80,12 @@ class AuthAPIModel: ObservableObject {
         
         do{
             
-            if self.rememberPassword || keychain.value(forKey: "rememberPassword") as? Bool ?? false{
-                self.username = defaults.string(forKey: "username") ?? ""
+            if self.rememberPassword || defaults.bool(forKey: "rememberPassword"){
+                self.username = keychain.value(forKey: "username") as? String ?? ""
                 self.password = keychain.value(forKey: "password") as? String ?? ""
-                
+                print("Set username and password")
             }
-            
-            // Save the username to keychain
-            if keychain.value(forKey: "username") == nil {
+            else if keychain.value(forKey: "username") == nil { // Save username to keychain
                 let _ = keychain.save(self.username, forKey: "username")
             }
             
@@ -106,23 +106,33 @@ class AuthAPIModel: ObservableObject {
                 
                 // Save authentication state for next launch
                 self.isAuthenticated = true
-                defaults.set(self.isAuthenticated, forKey: "authentication")
+                defaults.set(true, forKey: "authentication")
                 
             }
+            print("Finished login")
             
         }catch{
             // Reset user defaults
             self.email = ""
             self.showMultifactor = false
-            self.isAuthenticating = false
             
-            self.failedLogin = true
+            if self.rememberPassword || defaults.bool(forKey: "rememberPassword"){
+                
+                self.isError = true
+                self.isReloadingError = true
+                
+            }
+            else {
+                self.isAuthenticating = false
+                self.failedLogin = true
+                defaults.removeObject(forKey: "authentication")
+                let _ = keychain.remove(forKey: "username")
+                print("Login")
+            }
+            
             self.username = ""
             self.password = ""
             
-            defaults.removeObject(forKey: "authentication")
-            
-            let _ = keychain.remove(forKey: "username")
             
         }
     }
@@ -204,6 +214,7 @@ class AuthAPIModel: ObservableObject {
             let _ = keychain.remove(forKey: "tdid")
             let _ = keychain.remove(forKey: "region")
             let _ = keychain.remove(forKey: "username")
+            print("LoginHelper")
             
             self.errorMessage = "Login Helper error: \(error.localizedDescription)"
             self.isError = true
@@ -246,9 +257,7 @@ class AuthAPIModel: ObservableObject {
                 
                 let _ = keychain.remove(forKey: "ssid")
                 let _ = keychain.remove(forKey: "tdid")
-                let _ = keychain.remove(forKey: "region")
-                let _ = keychain.remove(forKey: "username")
-                
+                print("Multifactor")
                 
             }
             
@@ -309,13 +318,13 @@ class AuthAPIModel: ObservableObject {
             
         }catch{
             
-            if self.rememberPassword || keychain.value(forKey: "rememberPassword") as? Bool ?? false{
+            if self.rememberPassword || defaults.bool(forKey: "rememberPassword") {
                 
                 await login()
+                self.reloading = false
                 
             }
             else {
-                self.errorMessage = "Reloading error: \(error.localizedDescription)."
                 self.isError = true
                 self.isReloadingError = true
             }
