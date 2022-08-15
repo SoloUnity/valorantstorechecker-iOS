@@ -51,21 +51,22 @@ struct LoginView: View {
                             }
                             
                             .alert(LocalizedStringKey("InformationTitle"), isPresented: $showAlert, actions: {
-                                Button("Destructive", role: .destructive, action: {})
+                                
+                                Button(LocalizedStringKey("OpenLink"), role: nil, action: {
+                                    
+                                    if let url = URL(string: Constants.URL.sourceCode) {
+                                        UIApplication.shared.open(url)
+                                    }
+                                    
+                                })
+                                
+                                Button(LocalizedStringKey("OK"), role: nil, action: {})
+                                
                             }, message: {
-                                Text("Message")
+                                let info = LocalizedStringKey("Information")
+                                Text(info)
                             })
                             
-                            /*
-                            .alert(LocalizedStringKey("Information"), isPresented: $showAlert) {
-                                    Button(LocalizedStringKey("OK"), action: {})
-                                    Button(LocalizedStringKey("OpenLink"), action: {
-                                        if let url = URL(string: "https://github.com/SoloUnity/Valorant-Store-Checker-App") {
-                                            UIApplication.shared.open(url)
-                                        }
-                                    })
-                                }
-                             */
                         }
                         
                     }else {
@@ -86,9 +87,6 @@ struct LoginView: View {
                             
                         } label: {
                             HStack {
-                                Image(systemName: "link")
-                                    .accentColor(.white)
-
                                 
                                 Text(LocalizedStringKey("IRead"))
                                     .foregroundColor(.white)
@@ -171,18 +169,14 @@ struct LoginView: View {
                     }
                 }
                 
-                .padding(55)
+                .padding(.horizontal, 35)
+                .padding(.vertical, 56)
             }
             
         }
         .ignoresSafeArea(.all, edges: .top)
         .background(Constants.bgGrey)
         .preferredColorScheme(.dark)
-        .sheet(isPresented: $authAPIModel.showMultifactor) {
-            MultifactorView()
-                .preferredColorScheme(.dark)
-                .background(Constants.bgGrey)
-        }
         .sheet(isPresented: $showTerms) {
             TermsView()
                 .background(Constants.bgGrey)

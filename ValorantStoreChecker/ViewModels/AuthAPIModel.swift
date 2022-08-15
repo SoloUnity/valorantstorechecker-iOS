@@ -36,6 +36,7 @@ class AuthAPIModel: ObservableObject {
     @Published var password: String = "" // Used by password box in LoginBoxView
     @Published var multifactor : String = "" // Used by multifactor box in MultifactorView
     @Published var regionCheck : Bool = false // COnfirm user has selected region
+    @Published var rememberPassword : Bool = false
     
     // User saved information
     @Published var keychain = Keychain() // For sensitive information
@@ -43,7 +44,9 @@ class AuthAPIModel: ObservableObject {
     
     // Error messages
     @Published var isError : Bool = false
+    @Published var isReloadingError : Bool = false
     @Published var errorMessage : String = ""
+    
     
     init() {
         
@@ -83,6 +86,7 @@ class AuthAPIModel: ObservableObject {
             
             
             try await WebService.getCookies()
+            
             let tokenList = try await WebService.getToken(username: keychain.value(forKey: "username") as? String ?? "", password: self.password)
             
             
@@ -218,6 +222,12 @@ class AuthAPIModel: ObservableObject {
                 defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
             }
             catch{
+                
+                /*
+                self.errorMessage = "Multifactor error, please enter the correct code."
+                self.isError = true
+                */
+                
                 // Reset user defaults
                 self.enteredMultifactor = false
                 self.multifactor = ""
@@ -295,8 +305,18 @@ class AuthAPIModel: ObservableObject {
             
         }catch{
             
-            self.errorMessage = "Reloading error: \(error.localizedDescription)."
-            self.isError = true
+            if self.rememberPassword || keychain.value(forKey: "rememberPassword") as? Bool ?? false{
+                
+                await login()
+                
+            }
+            else {
+                self.errorMessage = "Reloading error: \(error.localizedDescription)."
+                self.isError = true
+                self.isReloadingError = true
+            }
+            
+            
         }
     }
     
@@ -326,6 +346,7 @@ class AuthAPIModel: ObservableObject {
         self.multifactor = "" // Used by multifactor box in MultifactorView
         self.regionCheck = false
         self.successfulReload = false
+        self.rememberPassword = false
         
         defaults.removeObject(forKey: "timeLeft")
         defaults.removeObject(forKey: "secondsLeft")
@@ -333,11 +354,13 @@ class AuthAPIModel: ObservableObject {
         defaults.removeObject(forKey: "rp")
         defaults.removeObject(forKey: "storefront")
         defaults.removeObject(forKey: "storePrice")
+        defaults.removeObject(forKey: "rememberPassword")
         
         let _ = keychain.remove(forKey: "ssid")
         let _ = keychain.remove(forKey: "tdid")
         let _ = keychain.remove(forKey: "region")
         let _ = keychain.remove(forKey: "username")
+        let _ = keychain.remove(forKey: "password")
         
         // Unauthenticate user
         self.isAuthenticated = false // Keeps user logged in

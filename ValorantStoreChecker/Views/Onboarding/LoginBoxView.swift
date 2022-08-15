@@ -55,7 +55,7 @@ struct LoginBoxView: View {
                     .stroke(lineWidth: 1)
                     .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
                     .shadow(color: authAPIModel.failedLogin ? .red : .white, radius: 2)
-                    .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                    
             }
             
         }

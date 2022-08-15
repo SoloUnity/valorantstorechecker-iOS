@@ -17,7 +17,7 @@
 "OK" = "OK";
 "OpenLink" = "Ouvrir le lien";
 "InvalidCredentials" = "Informations d'identification non valides";
-"IRead" = "J'ai lu les termes et conditions.";
+"IRead" = "J'ai lu les termes et conditions";
 
 // LoginBoxView
 "Username" = "Identifiant";

@@ -25,17 +25,17 @@ struct AboutView: View {
                         
                         Spacer()
                         
-                        /*
+                        
                         Button {
-                            if let url = URL(string: Constants.URL.supportTicket) {
-                                UIApplication.shared.open(url)
-                            }
+                            
+                            self.showSettings = true
+                            
                         } label: {
                             
                             Image(systemName: "gear")
                             
                         }
-                        */
+                        
                         
                     }
                     

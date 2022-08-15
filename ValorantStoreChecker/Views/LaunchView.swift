@@ -10,7 +10,7 @@ import SwiftUI
 struct LaunchView: View {
     
     @EnvironmentObject var skinModel:SkinModel
-    @EnvironmentObject var loginModel:AuthAPIModel
+    @EnvironmentObject var authAPIModel:AuthAPIModel
     @Environment(\.scenePhase) private var phase
     
     @State private var loadingBar : Bool = false // False is loading bar showing 
@@ -25,7 +25,7 @@ struct LaunchView: View {
             
             
             // Displays login if the user is not authenticated
-            if !loginModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
+            if !authAPIModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
                 
                 LoginView()
                 
@@ -82,25 +82,61 @@ struct LaunchView: View {
             }
             
         }
-        .alert(isPresented: $loginModel.isError) { () -> Alert in
-
+        .sheet(isPresented: $authAPIModel.showMultifactor) {
+            MultifactorView()
+                .preferredColorScheme(.dark)
+                .background(Constants.bgGrey)
+        }
+        .alert(LocalizedStringKey("ErrorTitle"), isPresented: $authAPIModel.isError, actions: {
             
-            
-            
-            Alert(title: Text(loginModel.errorMessage),
-                  primaryButton: .default(Text(LocalizedStringKey("OK"))) {
-                loginModel.isError = false
-            },
-                  secondaryButton: .default(Text(LocalizedStringKey("CopyError"))) {
+            if authAPIModel.isReloadingError {
                 
-                let pasteboard = UIPasteboard.general
-                pasteboard.string = loginModel.errorMessage
+                Button(LocalizedStringKey("SignOut"), role: nil, action: {
+                    
+                    authAPIModel.logOut()
+                    
+                    authAPIModel.reloading = false
+                    authAPIModel.isReloadingError = false
+                })
+
+                
+                Button(LocalizedStringKey("OK"), role: nil, action: {
+                    authAPIModel.reloading = false
+                    authAPIModel.isReloadingError = false
+                })
                 
             }
+            else {
+                Button(LocalizedStringKey("OK"), role: nil, action: {
+                    
+                })
+                Button(LocalizedStringKey("CopyError"), role: nil, action: {
+                    
+                    let pasteboard = UIPasteboard.general
+                    pasteboard.string = authAPIModel.errorMessage
+                    
+                })
+            }
             
-            )
+        }, message: {
+            
+            if authAPIModel.isReloadingError {
+                Text(LocalizedStringKey("ErrorMessage"))
+            }
+            else {
+                Text(authAPIModel.errorMessage)
+            }
+            
+            
+            
         }
         
+        
+        
+        
+        )
+        
+
         
         
         
