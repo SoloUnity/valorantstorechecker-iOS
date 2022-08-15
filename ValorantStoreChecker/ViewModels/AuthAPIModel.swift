@@ -22,7 +22,7 @@ class AuthAPIModel: ObservableObject {
     @Published var isAuthenticating : Bool = false // Handles loading animation
     @Published var failedLogin : Bool = false // Handles login error message
     
-    // Handles reload animation
+    // Handles reload
     @Published var reloading : Bool = false
     @Published var successfulReload : Bool = false
     
@@ -77,18 +77,21 @@ class AuthAPIModel: ObservableObject {
     func login() async{
         
         do{
-
             
-            // Save the username to keychain
-            if keychain.value(forKey: "username") == nil{
-                let _ = keychain.save(self.username, forKey: "username")
+            if self.rememberPassword || keychain.value(forKey: "rememberPassword") as? Bool ?? false{
+                self.username = defaults.string(forKey: "username") ?? ""
+                self.password = keychain.value(forKey: "password") as? String ?? ""
+                
             }
             
+            // Save the username to keychain
+            if keychain.value(forKey: "username") == nil {
+                let _ = keychain.save(self.username, forKey: "username")
+            }
             
             try await WebService.getCookies()
             
             let tokenList = try await WebService.getToken(username: keychain.value(forKey: "username") as? String ?? "", password: self.password)
-            
             
             if tokenList.count == 2 {
                 // Multifactor login
@@ -137,6 +140,7 @@ class AuthAPIModel: ObservableObject {
             
             
             // Save user's wallet info
+            
             self.vp = wallet[0]
             self.rp = wallet[1]
             
@@ -355,6 +359,7 @@ class AuthAPIModel: ObservableObject {
         defaults.removeObject(forKey: "storefront")
         defaults.removeObject(forKey: "storePrice")
         defaults.removeObject(forKey: "rememberPassword")
+        defaults.removeObject(forKey: "autoReload")
         
         let _ = keychain.remove(forKey: "ssid")
         let _ = keychain.remove(forKey: "tdid")

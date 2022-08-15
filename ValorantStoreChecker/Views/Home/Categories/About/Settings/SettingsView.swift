@@ -14,6 +14,7 @@ struct SettingsView: View {
     @State var togglePassword = false
     @State var showPassword = false
     @State var unhide = false
+    @State var toggleReload = false
     
     let defaults = UserDefaults.standard
     let keychain = Keychain()
@@ -28,6 +29,46 @@ struct SettingsView: View {
                         .font(.title)
                         .bold()
                     
+                    VStack {
+                        
+                        Toggle("Remember password", isOn: $toggleReload)
+                            .tint(.pink)
+                            .onChange(of: toggleReload) { boolean in
+                                
+                                
+                                
+                                authAPIModel.rememberPassword = boolean
+                                
+                                if boolean {
+                                    defaults.set(boolean, forKey: "autoReload")
+
+                                }
+                                else {
+                                    defaults.removeObject(forKey: "autoReload")
+                                }
+                                
+                            }
+                        
+                        
+                        
+                            
+                        
+                    }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Blur(radius: 25, opaque: true))
+                    .cornerRadius(10)
+                    .overlay{
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.white, lineWidth: 3)
+                            .offset(y: -1)
+                            .offset(x: -1)
+                            .blendMode(.overlay)
+                            .blur(radius: 0)
+                            .mask {
+                                RoundedRectangle(cornerRadius: 10)
+                            }
+                    }
                     
                     // Password toggle
                     VStack {
@@ -118,6 +159,9 @@ struct SettingsView: View {
                             
                             authAPIModel.password = keychain.value(forKey: "password") as? String ?? ""
                         }
+                    }
+                    .onDisappear {
+                        authAPIModel.password = ""
                     }
                     
                     

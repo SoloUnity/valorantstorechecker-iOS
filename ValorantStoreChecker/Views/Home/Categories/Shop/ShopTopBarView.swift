@@ -12,6 +12,8 @@ struct ShopTopBarView: View {
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @State var nowDate: Date = Date()
     
+    let defaults = UserDefaults.standard
+    
     let referenceDate: Date
     var timer: Timer {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
@@ -137,6 +139,12 @@ struct ShopTopBarView: View {
                           components.second ?? 00)
         }
         else {
+            
+            if defaults.bool(forKey: "autoReload") {
+                Task{
+                    await authAPIModel.reload()
+                }
+            }
             return "Reload"
         }
         
