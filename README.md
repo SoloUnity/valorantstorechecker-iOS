@@ -58,7 +58,7 @@ Thank you to the following people and repositories:
 - **[Valorant-API.com](https://valorant-api.com)** for providing assets.
 
 ### TOS and Privacy Policy
-TOS follows the ![MIT License](https://github.com/SoloUnity/Valorant-Store-Checker-App/blob/main/License)
+TOS follows the [MIT License](https://github.com/SoloUnity/Valorant-Store-Checker-App/blob/main/License)
 
 [Privacy Policy](https://solounity.notion.site/solounity/Valorant-Store-Checker-App-Privacy-Policy-761932ab3fcb4fea95564b2b63d2d5b5)
 
