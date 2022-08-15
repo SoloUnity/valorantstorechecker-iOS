@@ -45,6 +45,9 @@ In addition to never storing your password, sensitive information including your
 
 If you are perceptive, you will notice that the app downloads assets on your first launch. These are image assets allowing you to use the app's Skin index feature at all times, even when offline. 
 
+#### What does remember password do?
+The current way that the reload button requires cookies instead of your username and password, allowing the app to not store your password at all. However, these cookies expire after a certain period, requiring the user to sign in again. In order to streamline this process, remember password allows the user to save their password and allow for automatic behind the scenes sign in. If the user wishes to not save the password, they can simply sign out and sign back in to create new cookies.  
+
 ### Acknowledgements
 Thank you to the following people and repositories:
 
