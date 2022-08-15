@@ -83,6 +83,10 @@ struct LaunchView: View {
             
         }
         .alert(isPresented: $loginModel.isError) { () -> Alert in
+
+            
+            
+            
             Alert(title: Text(loginModel.errorMessage),
                   primaryButton: .default(Text(LocalizedStringKey("OK"))) {
                 loginModel.isError = false

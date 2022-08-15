@@ -13,6 +13,7 @@
 
 // Login Screen
 "Login" = "Login to your Riot Account";
+"InformationTitle" = "Why my Riot Account?";
 "Information" = "Severe security measures are in place, including never storing your password and securing sensitive information using Keychain. An FAQ, along with this app's source code is also available through the link below.";
 "OK" = "OK";
 "OpenLink" = "Open Link";

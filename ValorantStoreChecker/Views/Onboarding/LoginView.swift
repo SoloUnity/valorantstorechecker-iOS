@@ -49,6 +49,14 @@ struct LoginView: View {
                             } label: {
                                 Image(systemName: "info.circle")
                             }
+                            
+                            .alert(LocalizedStringKey("InformationTitle"), isPresented: $showAlert, actions: {
+                                Button("Destructive", role: .destructive, action: {})
+                            }, message: {
+                                Text("Message")
+                            })
+                            
+                            /*
                             .alert(LocalizedStringKey("Information"), isPresented: $showAlert) {
                                     Button(LocalizedStringKey("OK"), action: {})
                                     Button(LocalizedStringKey("OpenLink"), action: {
@@ -57,6 +65,7 @@ struct LoginView: View {
                                         }
                                     })
                                 }
+                             */
                         }
                         
                     }else {

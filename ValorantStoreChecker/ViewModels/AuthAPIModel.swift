@@ -295,7 +295,7 @@ class AuthAPIModel: ObservableObject {
             
         }catch{
             
-            self.errorMessage = "Reloading error: \(error.localizedDescription)"
+            self.errorMessage = "Reloading error: \(error.localizedDescription)."
             self.isError = true
         }
     }
