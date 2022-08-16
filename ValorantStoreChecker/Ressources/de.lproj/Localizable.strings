@@ -1,0 +1,119 @@
+/*
+  Localizable.strings
+  ValorantStoreChecker
+
+  Erstellt von Gordon am 2022-08-07.
+  
+*/
+
+
+// Fehler und Warnungen
+"ErrorTitle" = "Fehler";
+"ErrorMessage1" = "Fehlerfälle beim Nachladen
+1) Ungültige Netzwerkverbindung.
+2) Seit dem letzten Nachladen sind 3 Tage vergangen. Es gibt 2 Möglichkeiten, dieses Problem zu lösen:
+2a) Melden Sie sich ab und melden Sie sich erneut an.
+2b) Das 3-Tage-Lade-Limit kann umgangen werden, indem Sie unter Über > Einstellungen die Option Passwort merken aktivieren. Dies ist eine API-Beschränkung, über die ich keine Kontrolle habe.";
+"ErrorMessage2" = "Fehlerfälle beim Nachladen
+1) Ungültige Netzwerkverbindung
+2) Falsches Passwort in den Einstellungen festgelegt";
+"DownloadingAssets" = "Herunterladen von Assets (60mb)";
+"CopyError" = "Kopierfehler";
+"Unbekannt" = "Unbekannt";
+
+
+// Anmeldebildschirm
+"Login" = "Melden Sie sich bei Ihrem Riot-Konto an";
+"OK" = "OK";
+"OpenLink" = "Link öffnen";
+"InvalidCredentials" = "Ungültige Anmeldedaten";
+"IRead" = "Ich habe die Bedingungen und Konditionen gelesen";
+"InformationTitle" = "Warum mein Riot-Konto?";
+"Information" = "Während Sie auf viele Ihrer Statistiken ohne Ihr Passwort zugreifen können, ist Ihr Shop eine Ausnahme, da er als sensible Information gilt. Damit die App auf deinen Shop zugreifen kann, benötigt sie deine Anmeldeinformationen, die sie über eine Open-Source-API erhält. Weitere Informationen, den Quellcode und eine FAQ finden Sie unter folgendem Link.";
+
+// LoginBoxView
+"Username" = "Benutzername";
+"Password" = "Passwort";
+
+// RegionSelectorView
+"SelectRegion" = "Region auswählen";
+"NorthAmerica" = "Nordamerika";
+"Europe" = "Europa";
+"AsiaPacific" = "Asien-Pazifik";
+"SouthKorea" = "Südkorea";
+
+// MultifactorView
+"EnterTheCode" = "Geben Sie den Code ein, der an";
+"InvalidCode" = "Ungültiger Code";
+"TwoFactorAuthentication" = "Zwei-Faktor-Authentifizierung";
+
+// TermsView
+"TermsAndConditions" = "Bedingungen und Konditionen";
+"MITLicense" = "MIT-Lizenz";
+"CopyrightGordon" = "Copyright (c) 2022 Gordon Ng";
+"Paragraph1" = "Hiermit wird jeder Person, die eine Kopie dieser Software und der zugehörigen Dokumentationsdateien (die Software) erwirbt, kostenlos die Erlaubnis erteilt, uneingeschränkt mit der Software zu handeln, einschließlich und ohne Einschränkung der Rechte, Kopien der Software zu verwenden, zu kopieren, zu modifizieren, zusammenzuführen, zu veröffentlichen, zu vertreiben, unterzulizenzieren und/oder zu verkaufen, und Personen, denen die Software zur Verfügung gestellt wird, dies zu gestatten, vorbehaltlich der folgenden Bedingungen: Der obige Copyright-Hinweis und dieser Genehmigungshinweis müssen in allen Kopien oder wesentlichen Teilen der Software enthalten sein.";
+"Paragraph2" = "DIE SOFTWARE WIRD OHNE MÄNGELGEWÄHR, OHNE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GEWÄHRLEISTUNG JEGLICHER ART, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE GEWÄHRLEISTUNG DER HANDELSÜBLICHKEIT, DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK UND DER NICHTVERLETZUNG VON RECHTEN, ZUR VERFÜGUNG gestellt. UNTER KEINEN UMSTÄNDEN HAFTEN DIE AUTOREN ODER URHEBERRECHTSINHABER FÜR JEGLICHE ANSPRÜCHE, SCHÄDEN ODER SONSTIGE HAFTUNG, SEI ES AUS VERTRAG, UNERLAUBTER HANDLUNG ODER ANDERWEITIG, DIE SICH AUS DER SOFTWARE ODER DER NUTZUNG ODER DEM SONSTIGEN UMGANG MIT DER SOFTWARE ERGEBEN.";
+"Privacy" = "Datenschutzrichtlinie";
+
+// HomeView
+"Store" = "Store";
+"SkinIndex" = "Skin-Index";
+"About" = "Über";
+
+// ShopTobBarView
+"AutomaticReload" = "Automatisches Nachladen";
+"AutomaticReloadInfo" = "Lädt den Shop automatisch nach, wenn er verfügbar ist.";
+"Reloading" = "Nachladen";
+"Reload" = "neu laden";
+
+// SkinCardDetailView
+"InfoPrice" = "Der Preis dieses Skins ist leider nicht in unserer Datenbank";
+"Cost" = "Kosten";
+"ExclusiveSkinMessage" = "Dies ist entweder ein Battlepass-exklusiver, ein Charakter-exklusiver oder ein limitierter Skin.";
+"Tier" = "Tier";
+"Default" = "Standard";
+"Variant" = "Variant";
+
+// Suchleiste
+"Search" = "Suche ...";
+
+// AboutView
+// Über in HomeView
+"MadeWith" = "Hergestellt mit SwiftUI";
+
+// AccountView
+"Account" = "Konto";
+"SignOut" = "Abmelden";
+"Region" = "Region";
+// Regionennamen in RegionSelectorView
+
+// SupportView
+"Support" = "Unterstützung";
+"Create" = "Supportanfrage erstellen";
+"FAQ" = "FAQ";
+"SourceCode" = "Quellcode";
+
+// Gemeinschaftsansicht
+"Community" = "Gemeinschaft";
+"Website" = "Website";
+"DiscordServer" = "Discord Server";
+
+// HelpView
+"Help" = "Helfen Sie dem Entwickler!";
+"HelpMessage" = "Hi! Ich bin ein Student mit Schlafmangel, der nur versucht, sein Leben ein bisschen besser zu machen 😄. Bitte denken Sie darüber nach, mir mit einer der folgenden Methoden zu helfen!";
+"Review" = "Hinterlassen Sie eine Rezension";
+"Sponsor" = "Tipp mich";
+
+// AcknowledgementsView
+"Acknowledgements" = "Danksagung";
+"ThankJulian" = "Vielen Dank für die Beantwortung meiner vielen Fragen!"; // juliand665
+"ThankLunac" = "Vielen Dank für deine kontinuierliche Unterstützung!"; // Lunac
+
+// CopyrightView
+"Copyright" = "Urheberrecht";
+"CopyrightNotice" = "VSC (Store Checker for Valorant) ist nicht mit Valorant oder Riot Games assoziiert, verbunden oder von diesen gebilligt. Außerdem sind Riot Games und Valorant eingetragene Marken von Riot Games Inc";
+
+// SettingsView
+"Settings" = "Einstellungen";
+"RememberPassword" = "Passwort merken";
+"RememberPasswordInfo" = "Ihr Passwort ist durch Keychain gesichert. Wenn Sie sich abmelden oder den Schalter deaktivieren, wird das Passwort automatisch vergessen. Die Aktivierung dieser Funktion umgeht die API-Zeitbeschränkungen und ermöglicht die automatische Anmeldung im Namen des Benutzers.";

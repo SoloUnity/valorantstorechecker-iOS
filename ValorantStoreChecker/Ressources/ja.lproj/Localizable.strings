@@ -1,0 +1,118 @@
+/*
+  ローカライズ可能な文字列
+  バロラントストアーチェッカー
+
+  2022-08-07にGordonによって作成されました。
+  
+*/
+// エラーとアラート
+"ErrorTitle" = "エラー";
+"ErrorMessage1" = "リロードエラーケース
+1) 無効なネットワーク接続です。
+2) 前回の再読み込みから3日経過している。これを解決するには、2つの選択肢があります。
+2a) 一度サインアウトして、再度サインインしてください。
+2b) 3日間の再読み込みの制限は、バージョン情報 > 設定でパスワードの記憶をオンにすることで回避できます。これはAPIの制限で、私がコントロールすることはできません";
+"ErrorMessage2" = "リロードエラーケース
+1) 無効なネットワーク接続
+2) 設定で設定されたパスワードが間違っている";
+"DownloadingAssets" = "アセットをダウンロード中（60mb）";
+"CopyError" = "コピーエラー";
+"Unknown" = "不明";
+
+
+// ログイン画面
+"Login" = "Riotアカウントにログインする";
+"OK" = "大丈夫";
+"OpenLink" = "リンクを開く";
+"InvalidCredentials" = "無効な認証情報";
+"IRead" = "利用規約を読みました";
+"InformationTitle" = "なぜ私のRiotアカウント？";
+"Information" = "あなたの統計の多くはパスワードなしで自由にアクセスできますが、あなたのストアは機密情報とみなされるため例外となります。アプリがあなたのストアにアクセスするためには、オープンソースのAPIを通じてあなたのストアを取得するあなたのログイン情報が必要です。追加情報、ソースコード、およびFAQは、以下のリンクに記載されています。";
+
+// LoginBoxView
+"Username" = "ユーザー名";
+"Password" = "パスワード";
+
+// RegionSelectorView
+"SelectRegion" = "地域を選択";
+"NorthAmerica" = "北アメリカ";
+"Europe" = "ヨーロッパ";
+"AsiaPacific" = "アジア太平洋";
+"SouthKorea" = "韓国";
+
+// マルチファクタービュー
+"EnterTheCode" = "送信されたコードを入力してください";
+"InvalidCode" = "無効なコード";
+"TwoFactorAuthentication" = "2ファクタ認証";
+
+// TermsView
+"TermsAndConditions" = "利用規約";
+"MITLicense" = "MITライセンス";
+"CopyrightGordon" = "Copyright (c) 2022 Gordon Ng";
+"Paragraph1" = "本ソフトウェアおよび関連文書ファイル（以下「本ソフトウェア」）の複製を取得する者に対し、本ソフトウェアの使用、複製、変更、結合、出版、配布、サブライセンス、および/または複製物の販売に関する権利を含むがこれに限定されない、無制限の取引を行い、本ソフトウェアを提供される者にこれを認める許可を、以下の条件で、無償で付与するものである。このような場合、以下の条件に従って、本ソフトウェアを提供する人にその使用を許可するものとします。";
+"Paragraph2" = "本ソフトウェアは、商品性、特定目的への適合性および非侵害の保証を含むがこれに限定されない、明示または黙示のいかなる種類の保証もなく、現状のまま提供されるものである。本ソフトウェアの著作権者または著作権所有者は、本ソフトウェアまたは本ソフトウェアの使用またはその他の取引から生じる、契約、不法行為またはその他の行為のいずれであっても、いかなる請求、損害またはその他の責任に対しても責任を負いません。";
+"Privacy" = "プライバシーポリシー";
+
+// ホームビュー
+"Store" = "ストア";
+"SkinIndex" = "スキンインデックス";
+"About" = "バージョン情報";
+
+// ショップトブバービュー
+"AutomaticReload" = "自動リロード";
+"AutomaticReloadInfo" = "利用可能なときに自動的にショップをリロードする";
+"Reloading" = "リローディング";
+"Reload" = "リロード";
+
+// SkinCardDetailView（スキンカードディテールビュー
+"InfoPrice" = "このスキンの価格は、残念ながら私たちのデータベースにはありません。";
+"コスト" = "コスト";
+"ExclusiveSkinMessage" = "これはBattlepass限定、キャラクター限定、限定版のいずれかのスキンです。";
+"Tier" = "ティア";
+"Default" = "デフォルト";
+"Variant" = "バリアント";
+
+// 検索バー
+"Search" = "検索...";
+
+// AboutView
+// HomeViewの中のAbout
+"MadeWith" = "SwiftUIで作られた";
+
+// アカウントビュー
+"Account" = "アカウント";
+"SignOut" = "サインアウト";
+"Username" = "ユーザ名";
+"Region" = "地域";
+// RegionSelectorViewの中の地域名
+
+// SupportView
+"Support" = "サポート";
+"Create" = "サポートチケットの作成";
+"FAQ" = "よくある質問";
+"SourceCode" = "ソースコード";
+
+// コミュニティビュー
+"Community" = "コミュニティ";
+"Website" = "ウェブサイト";
+"DiscordServer" = "Discordサーバー";
+
+// HelpView（ヘルプビュー
+"Help" = "デベロッパーを助けよう";
+"HelpMessage" = "こんにちは！私は人生を少しでも良くしようと思っている寝不足の大学生です😄。以下の方法で私を助けることを検討してください！";
+"Review" = "レビューを残す";
+"Sponsor" = "付け届け";
+
+// 謝辞の表示
+"Acknowledgements" = "謝辞";
+"ThankJulian" = "たくさんの質問に答えてくれてありがとうございます！"; // juliand665
+"ThankLunac" = "いつも応援ありがとうございます！"; // Lunac
+
+// 著作権表示
+"Copyright" = "著作権";
+"CopyrightNotice" = "VSC (Store Checker for Valorant) は、Valorant社やRiot Games社とは関連もつながりもなく、推奨するものでもありません。また、Riot GamesおよびValorantはRiot Games Inc.の下で登録された商標です";
+
+// SettingsView
+"Settings" = "設定";
+"RememberPassword" = "パスワードの記憶";
+"RememberPasswordInfo" = "パスワードはKeychainによって保護されています。サインアウトまたはトグルを無効にすると、パスワードは自動的に忘れられます。この機能を有効にすると、APIの時間制限を回避し、ユーザーの代わりに自動サインインが可能になります。";

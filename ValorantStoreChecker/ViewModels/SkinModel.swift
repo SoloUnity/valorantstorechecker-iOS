@@ -37,7 +37,7 @@ class SkinModel: ObservableObject{
             let skinList = try jsonDecoder.decode(Skins.self, from: jsonData)
             
             // Assign parse modules to modules property, updates @Published data
-            self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter({!$0.displayName.contains("Melee")}) //Sorts alphabetically and filters out Standard skin
+            self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter{$0.displayName != "Melee"} //Sorts alphabetically and filters out Standard skin
             
         }
         catch{
@@ -94,8 +94,8 @@ class SkinModel: ObservableObject{
             
             // Background thread
             DispatchQueue.main.async{
-                self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter({!$0.displayName.contains("Melee")}) //Sorts alphabetically and filters out Standard skin
-                
+                self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter{$0.displayName != "Melee"} //Sorts alphabetically and filters out Standard skin
+  
             }
         }
         // Kick off data task

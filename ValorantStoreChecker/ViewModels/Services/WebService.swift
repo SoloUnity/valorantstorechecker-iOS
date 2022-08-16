@@ -438,6 +438,44 @@ struct WebService {
         }
     }
     
+    // MARK: Owned Skins
+    static func getOwned(token : String, riotEntitlement: String, puuid: String, region: String) async throws ->  [SkinEntitlement] {
+        
+        guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v1/entitlements/\(puuid)/e7c63390-eda7-46e0-bb7a-a6abdacd2433") else{
+            throw APIError.invalidURL
+        }
+        
+        // Create request
+        var ownedRequest = URLRequest(url: url)
+        ownedRequest.httpMethod = "GET"
+        ownedRequest.addValue(riotEntitlement, forHTTPHeaderField: "X-Riot-Entitlements-JWT")
+        ownedRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let (data , response) = try await WebService.session.data(for: ownedRequest)
+        
+        guard
+            let httpResponse = response as? HTTPURLResponse,
+            httpResponse.statusCode == 200
+        else{
+            throw APIError.invalidResponseStatus
+        }
+        
+        guard let ownedResponse = try? JSONDecoder().decode(Owned.self, from: data) else {
+            throw APIError.invalidCredentials
+        }
+        
+        guard let owned = ownedResponse.entitlements else {
+            throw APIError.invalidCredentials
+        }
+        
+        return owned
+        
+    }
+    
+    
+    
+    
+    
     // MARK: Helper function
     // Configure websession for reloading / reauthentication
     static func setCookie(named name: String, to value: String) async throws -> Void{

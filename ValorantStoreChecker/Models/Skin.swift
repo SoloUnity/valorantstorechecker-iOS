@@ -18,6 +18,7 @@ class Skin: Identifiable, Codable, ObservableObject{
     var displayIcon:String?
     var chromas: [Chromas]?
     var levels: [Levels]?
+    var assetPath : String?
     
     enum CodingKeys:String, CodingKey{
         case id = "uuid"
@@ -28,6 +29,7 @@ class Skin: Identifiable, Codable, ObservableObject{
         case displayIcon
         case chromas
         case levels
+        case assetPath
     }
     
     // Convert image url to data object
@@ -90,10 +92,11 @@ class Skin: Identifiable, Codable, ObservableObject{
                 
                 DispatchQueue.main.async {
                     // Set the image data
-                    
-                    let encoded = try! PropertyListEncoder().encode(data)
-                    UserDefaults.standard.set(encoded, forKey: key)
-                    
+                    let defaults = UserDefaults.standard
+                    if data != nil {
+                        let encoded = try! PropertyListEncoder().encode(data)
+                        defaults.set(encoded, forKey: key)
+                    }
                 }
             }
         }

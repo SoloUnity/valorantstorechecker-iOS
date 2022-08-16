@@ -63,6 +63,8 @@
 // ShopTobBarView
 "AutomaticReload" = "Recharge automatique";
 "AutomaticReloadInfo" = "Recharge automatiquement le boutique lorsqu'il est disponible.";
+"Reloading" = "Rechargement";
+"Reload" = "Recharger";
 
 // SkinCardDetailView
 "InfoPrice" = "Le prix de ce skin n'est malheureusement pas dans notre base de données.";

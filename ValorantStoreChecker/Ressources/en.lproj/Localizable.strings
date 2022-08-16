@@ -17,10 +17,6 @@
 "ErrorMessage2" = "Reloading Error Cases
 1) Invalid network connection
 2) Wrong password set in Settings";
-
-
-
-// Errors and alerts
 "DownloadingAssets" = "Downloading Assets (60mb)";
 "CopyError" = "Copy Error";
 "Unknown" = "Unknown";
@@ -67,6 +63,8 @@
 // ShopTobBarView
 "AutomaticReload" = "Automatic Reloading";
 "AutomaticReloadInfo" = "Reloads the shop automatically when available.";
+"Reloading" = "Reloading";
+"Reload" = "Reload";
 
 // SkinCardDetailView
 "InfoPrice" = "The price of this skin is unfortunately not in our database.";

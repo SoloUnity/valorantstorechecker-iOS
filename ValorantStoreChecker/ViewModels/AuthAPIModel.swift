@@ -49,6 +49,8 @@ class AuthAPIModel: ObservableObject {
     @Published var isReloadingError : Bool = false
     @Published var errorMessage : String = ""
     
+    // Owned skins
+    @Published var owned : [String] = []
     
     init() {
         
@@ -145,19 +147,11 @@ class AuthAPIModel: ObservableObject {
             
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
             let puuid = try await WebService.getPlayerInfo(token: token)
-            let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
-            let wallet = try await WebService.getWallet(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
             
-            
-            // Save user's wallet info
-            
-            self.vp = wallet[0]
-            self.rp = wallet[1]
-            
-            self.defaults.set(wallet[0], forKey: "vp")
-            self.defaults.set(wallet[1], forKey: "rp")
             
             // Match user's store with database
+            let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
+            
             var tempStore : [Skin] = []
             
             for skin in SkinModel().data{
@@ -172,11 +166,21 @@ class AuthAPIModel: ObservableObject {
             
             self.storefront = tempStore
             
+            // Save the storefront
             let storefrontEncoder = JSONEncoder()
             
             if let encoded = try? storefrontEncoder.encode(tempStore){
                 defaults.set(encoded, forKey: "storefront")
             }
+            
+            // Save user's wallet info
+            let wallet = try await WebService.getWallet(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
+            
+            self.vp = wallet[0]
+            self.rp = wallet[1]
+            
+            self.defaults.set(wallet[0], forKey: "vp")
+            self.defaults.set(wallet[1], forKey: "rp")
             
             // Get store price
             let storePrice = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: keychain.value(forKey: "region") as? String ?? "na")
@@ -187,6 +191,17 @@ class AuthAPIModel: ObservableObject {
             if let encoded = try? priceEncoder.encode(storePrice){
                 defaults.set(encoded, forKey: "storePrice")
             }
+            
+            // Save list of owned skins
+            let owned = try await WebService.getOwned(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
+            
+            var tempOwned : [String] = []
+            
+            for skin in owned {
+                tempOwned.append(skin.itemID)
+            }
+            
+            self.owned = tempOwned
             
             // Set the time left in shop
             let referenceDate = Date() + Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0)
@@ -203,7 +218,6 @@ class AuthAPIModel: ObservableObject {
             // Reset user defaults
             self.isAuthenticating = false
             self.failedLogin = true
-            self.username = ""
             self.password = ""
             
             defaults.removeObject(forKey: "authentication")
@@ -271,47 +285,8 @@ class AuthAPIModel: ObservableObject {
         do{
             
             let token = try await WebService.cookieReauth()
-            let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
-            let puuid = try await WebService.getPlayerInfo(token: token)
-            let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
-            let wallet = try await WebService.getWallet(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
             
-            self.defaults.set(wallet[0], forKey: "vp") // Store wallet for future launch
-            self.defaults.set(wallet[1], forKey: "rp")
-            
-            let skinModel = SkinModel()
-            
-            var tempStore : [Skin] = []
-            
-            for skin in skinModel.data{
-                for level in skin.levels!{
-                    for item in storefront.SingleItemOffers!{
-                        if item == level.id.description.lowercased(){
-                            tempStore.append(skin)
-                        }
-                    }
-                }
-            }
-            
-            self.storefront = tempStore
-            
-            let storefrontEncoder = JSONEncoder()
-            if let encoded = try? storefrontEncoder.encode(tempStore){
-                defaults.set(encoded, forKey: "storefront")
-            }
-            
-            let storePrice = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: keychain.value(forKey: "region") as? String ?? "na")
-            
-            self.storePrice = storePrice
-            
-            let priceEncoder = JSONEncoder()
-            if let encoded = try? priceEncoder.encode(storePrice){
-                defaults.set(encoded, forKey: "storePrice")
-            }
-            
-            let referenceDate = Date() + Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0)
-            
-            defaults.set(referenceDate, forKey: "timeLeft")
+            await loginHelper(token: token)
             
             self.reloading = false
             

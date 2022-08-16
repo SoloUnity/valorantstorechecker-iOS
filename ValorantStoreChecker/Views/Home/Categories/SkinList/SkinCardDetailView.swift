@@ -182,9 +182,12 @@ struct SkinCardDetailView: View {
                         HStack{
                             HStack {
                                 Text(LocalizedStringKey("Tier"))
+                                    .bold()
                                 Text(String(selectedLevel + 1))
+                                    .bold()
                                     .padding(-4)
                             }
+                            
 
                             
                             Spacer()
@@ -192,8 +195,16 @@ struct SkinCardDetailView: View {
                             Picker("Video Number", selection: $selectedLevel){
                                 ForEach(0..<skin.levels!.count, id: \.self){ level in
                                     
-                                    Text(cleanLevelName(name: String(skin.levels![level].levelItem ?? "Default")))
-                                        .tag(level)
+                                    let videoTierName = cleanLevelName(name: String(skin.levels![level].levelItem ?? "Default"))
+                                    if videoTierName == "Default" {
+                                        Text(LocalizedStringKey("Default"))
+                                            .tag(level)
+                                    }
+                                    else {
+                                        Text(videoTierName)
+                                            .tag(level)
+                                    }
+                                    
                                     
                                 }
                             }
@@ -285,6 +296,7 @@ struct SkinCardDetailView: View {
                 if skin.chromas!.count != 1{
                     HStack{
                         Text(LocalizedStringKey("Variant"))
+                            .bold()
                         
                         Spacer()
                         
@@ -312,8 +324,16 @@ struct SkinCardDetailView: View {
                             Picker("Video Number", selection: $selectedChroma){
                                 ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
                                     
-                                    Text(cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default")))
-                                        .tag(chroma)
+                                    let chromaTierName = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
+                                    if chromaTierName == "Default" {
+                                        Text(LocalizedStringKey("Default"))
+                                            .tag(chroma)
+                                    }
+                                    else {
+                                        Text(chromaTierName)
+                                            .tag(chroma)
+                                    }
+
                                     
                                 }
                             }

@@ -39,7 +39,7 @@ struct ShopTopBarView: View {
             if countdown == "Reload" && (authAPIModel.autoReload || defaults.bool(forKey: "autoReload")) {
                 
                 // Automatic reloading
-                Text("Reloading")
+                Text(LocalizedStringKey("Reloading"))
                     .bold()
                     .onAppear {
                         Task {
@@ -49,7 +49,16 @@ struct ShopTopBarView: View {
                     }
                     .font(.caption)
                     .padding(.vertical, 5)
-            }else {
+            }
+            else if countdown == "Reload" {
+                
+                Text(LocalizedStringKey("Reload"))
+                    .bold()
+                    .font(.caption)
+                    .padding(.vertical, 5)
+                
+            }
+            else {
                 Text(countdown)
                     .bold()
                     .onAppear(perform: {
