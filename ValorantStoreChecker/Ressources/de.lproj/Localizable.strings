@@ -17,7 +17,7 @@
 "ErrorMessage2" = "Fehlerfälle beim Nachladen
 1) Ungültige Netzwerkverbindung
 2) Falsches Passwort in den Einstellungen festgelegt";
-"DownloadingAssets" = "Herunterladen von Assets (60mb)";
+"DownloadingAssets" = "Herunterladen von Assets (75mb)";
 "CopyError" = "Kopierfehler";
 "Unbekannt" = "Unbekannt";
 
@@ -117,3 +117,15 @@
 "Settings" = "Einstellungen";
 "RememberPassword" = "Passwort merken";
 "RememberPasswordInfo" = "Ihr Passwort ist durch Keychain gesichert. Wenn Sie sich abmelden oder den Schalter deaktivieren, wird das Passwort automatisch vergessen. Die Aktivierung dieser Funktion umgeht die API-Zeitbeschränkungen und ermöglicht die automatische Anmeldung im Namen des Benutzers.";
+
+// Skin Index Filter
+"All" = "Alle";
+"Owned" = "Bereits gekauft";
+"Knife" = "Messer";
+"Sidearm" = "Pistole";
+"SMGs" = "Maschinenpistole";
+"Shotguns" = "Schrotflinten";
+"Rifles" = "Gewehre";
+"Sniper" = "Scharfschützengewehr";
+"Heavy" = "Schweres maschinengewehr";
+"EmptySearch" = "Keine Übereinstimmung mit Ihrer Suche";

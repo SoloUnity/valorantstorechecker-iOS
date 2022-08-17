@@ -26,7 +26,7 @@ struct SkinCardDetailView: View {
     var body: some View {
         GeometryReader{ geo in
             
-            VStack(alignment: .leading, spacing: 30){
+            VStack(alignment: .leading, spacing: UIScreen.main.bounds.height / 40) {
                 
                 // MARK: Title header
                 HStack{

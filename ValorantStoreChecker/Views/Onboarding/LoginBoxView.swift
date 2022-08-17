@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginBoxView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
+    @State var showPassword : Bool = false
     
     var body: some View {
         VStack{
@@ -44,10 +45,30 @@ struct LoginBoxView: View {
                     Image(systemName: "key")
                         .foregroundColor(.white)
                     
-                    SecureField(LocalizedStringKey("Password"), text: $authAPIModel.password)
-                        .keyboardType(.default)
-                        .foregroundColor(.white)
-                        .disableAutocorrection(true)
+                    if showPassword {
+                        TextField(LocalizedStringKey("Password"), text: $authAPIModel.password)
+                            .keyboardType(.default)
+                            .foregroundColor(.white)
+                            .disableAutocorrection(true)
+                    }
+                    else {
+                        SecureField(LocalizedStringKey("Password"), text: $authAPIModel.password)
+                            .keyboardType(.default)
+                            .foregroundColor(.white)
+                            .disableAutocorrection(true)
+                    }
+                    
+                    
+                    Button {
+                        showPassword.toggle()
+                    } label: {
+                        
+                        Image(systemName: showPassword ? "eye" : "eye.slash")
+                            .foregroundColor(.white)
+                            .opacity(0.5)
+                        
+                    }
+
                     
                 }.padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
                 

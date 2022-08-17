@@ -74,6 +74,10 @@ class AuthAPIModel: ObservableObject {
                 }
             }
         }
+        
+        if let owned = defaults.array(forKey: "owned") as? [String] {
+            self.owned = owned
+        }
     }
     
     // MARK: Login
@@ -197,11 +201,19 @@ class AuthAPIModel: ObservableObject {
             
             var tempOwned : [String] = []
             
-            for skin in owned {
-                tempOwned.append(skin.itemID)
+            for skin in SkinModel().data {
+                for item in owned {
+                    if skin.levels!.first!.id.uuidString.lowercased() == item.itemID {
+                        tempOwned.append(skin.displayName)
+                    }
+                }
+ 
             }
             
+            print(tempOwned)
             self.owned = tempOwned
+            
+            defaults.set(tempOwned, forKey: "owned")
             
             // Set the time left in shop
             let referenceDate = Date() + Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0)
@@ -320,8 +332,7 @@ class AuthAPIModel: ObservableObject {
             return URLSession(configuration: configuration)
         }()
         
-        
-        
+
         // Reset Defaults
         self.isAuthenticating = false // Handles loading animation
         self.failedLogin = false // Handles login error message

@@ -9,14 +9,14 @@ import SwiftUI
 
 struct SkinListView: View {
     
-    @EnvironmentObject var model:SkinModel
+    @EnvironmentObject var authAPIModel : AuthAPIModel
+    @EnvironmentObject var model : SkinModel
     
     @State var searchText : String = ""
     @State var selectedFilter : String  = ""
     
     @State var simulatedPricing : Bool = false
     @State var filtered : Bool = false
-    @State var selectMelee : Bool = false
     @State var selectOwned : Bool = false
     
     var body: some View {
@@ -24,177 +24,199 @@ struct SkinListView: View {
         GeometryReader{ geo in
             VStack(spacing: 0){
                 
-                HStack {
-                    SearchBar(text: $searchText)
-                        .padding(.trailing, -5)
-                    
-                    Menu {
-                        
-                        // MARK: All
-                        Button {
-                            selectedFilter = ""
-                            filtered = false
-                        } label: {
-                            if selectedFilter == "" {
-                                Label("All", systemImage: "checkmark")
+                ScrollViewReader{ (proxy: ScrollViewProxy) in
+                    HStack {
+                        SearchBar(text: $searchText)
+                            .onChange(of: searchText) { newValue in
+                                proxy.scrollTo("top", anchor: .top)
                             }
-                            else {
-                                Text("All")
-                            }
-                        }
-                        
-                        // MARK: Owned
-                        Button {
-                            selectMelee = false
-                            selectOwned = true
-                            filtered = true
-                        } label: {
-                            if selectedFilter == "Owned" {
-                                Label("Owned", systemImage: "checkmark")
-                            }
-                            else {
-                                Text("Owned")
-                            }
-                        }
-                        
-                        // MARK: Knife
-                        MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Melee", label: "Knife", selectOwned: $selectOwned)
-                        
-                        // MARK: Sidearms
-                        Menu {
+                            .padding(.trailing, -5)
                             
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol", label: "Classic", selectOwned: $selectOwned)
-                            
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Sidearms/Slim", label: "Shorty", selectOwned: $selectOwned)
-                            
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Sidearms/AutoPistol", label: "Frenzy", selectOwned: $selectOwned)
-                            
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Sidearms/Luger", label: "Ghost", selectOwned: $selectOwned)
-                            
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver", label: "Sheriff", selectOwned: $selectOwned)
-                            
-                            
-                        } label: {
-                            if selectedFilter == "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Sidearms/Slim" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Sidearms/AutoPistol" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Sidearms/Luger" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver" {
-                                Label("Sidearm", systemImage: "checkmark")
-                            }
-                            else {
-                                Text("Sidearm")
-                            }
-                        }
-                        
-                        // MARK: SMGs
-                        Menu {
-                            
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector", label: "Stinger", selectOwned: $selectOwned)
-                            
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5", label: "Spectre", selectOwned: $selectOwned)
-                            
-                            
-                        } label: {
-                            if selectedFilter == "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector" || selectedFilter == "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5" {
-                                Label("SMGs", systemImage: "checkmark")
-                            }
-                            else {
-                                Text("SMGs")
-                            }
-                        }
-                        
-                        // MARK: Shotguns
                         
                         Menu {
                             
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Shotguns/PumpShotgun", label: "Bucky", selectOwned: $selectOwned)
+                            // MARK: All
+                            Button {
+                                selectedFilter = ""
+                                selectOwned = false
+                                filtered = false
+                                proxy.scrollTo("top", anchor: .top)
+                            } label: {
+                                if selectedFilter == "" && !selectOwned {
+                                    Label(LocalizedStringKey("All"), systemImage: "checkmark")
+                                }
+                                else {
+                                    Text(LocalizedStringKey("All"))
+                                }
+                            }
                             
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun", label: "Judge", selectOwned: $selectOwned)
+                            // MARK: Owned
+                            Button {
+                                selectOwned = true
+                                filtered = true
+                                selectedFilter = ""
+                                proxy.scrollTo("top", anchor: .top)
+                            } label: {
+                                if selectOwned {
+                                    Label(LocalizedStringKey("Owned"), systemImage: "checkmark")
+                                }
+                                else {
+                                    Text(LocalizedStringKey("Owned"))
+                                }
+                            }
+                            
+                            // MARK: Knife
+                            
+                            Button {
+                                selectedFilter = "ShooterGame/Content/Equippables/Melee"
+                                selectOwned = false
+                                filtered = true
+                                proxy.scrollTo("top", anchor: .top)
+                            } label: {
+                                if selectedFilter == "ShooterGame/Content/Equippables/Melee" {
+                                    Label(LocalizedStringKey("Knife"), systemImage: "checkmark")
+                                }
+                                else {
+                                    Text(LocalizedStringKey("Knife"))
+                                }
+                            }
+                            
+                            // MARK: Sidearms
+                            Menu {
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol", label: "Classic", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Sidearms/Slim", label: "Shorty", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Sidearms/AutoPistol", label: "Frenzy", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Sidearms/Luger", label: "Ghost", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver", label: "Sheriff", selectOwned: $selectOwned, proxy: proxy)
+                                
+                            } label: {
+                                if selectedFilter == "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Sidearms/Slim" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Sidearms/AutoPistol" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Sidearms/Luger" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver" {
+                                    Label(LocalizedStringKey("Sidearm"), systemImage: "checkmark")
+                                }
+                                else {
+                                    Text(LocalizedStringKey("Sidearm"))
+                                }
+                            }
+                            
+                            // MARK: SMGs
+                            Menu {
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector", label: "Stinger", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5", label: "Spectre", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                
+                            } label: {
+                                if selectedFilter == "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector" || selectedFilter == "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5" {
+                                    Label(LocalizedStringKey("SMGs"), systemImage: "checkmark")
+                                }
+                                else {
+                                    Text(LocalizedStringKey("SMGs"))
+                                }
+                            }
+                            
+                            // MARK: Shotguns
+                            
+                            Menu {
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Shotguns/PumpShotgun", label: "Bucky", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun", label: "Judge", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                
+                            } label: {
+                                if selectedFilter == "ShooterGame/Content/Equippables/Guns/Shotguns/PumpShotgun" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun" {
+                                    Label(LocalizedStringKey("Shotguns"), systemImage: "checkmark")
+                                }
+                                else {
+                                    Text(LocalizedStringKey("Shotguns"))
+                                }
+                            }
+                            
+                            // MARK: Rifles
+                            Menu {
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Rifles/Burst", label: "Bulldog", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR", label: "Guardian", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Rifles/Carbine", label: "Phantom", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Rifles/AK", label: "Vandal", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                
+                                
+                            } label: {
+                                if selectedFilter == "ShooterGame/Content/Equippables/Guns/Rifles/Burst" || selectedFilter == "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Rifles/Carbine" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Rifles/AK" {
+                                    Label(LocalizedStringKey("Rifles"), systemImage: "checkmark")
+                                }
+                                else {
+                                    Text(LocalizedStringKey("Rifles"))
+                                }
+                            }
+                            
+                            // MARK: Sniper
+                            
+                            Menu {
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper", label: "Marshal", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper", label: "Operator", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                
+                            } label: {
+                                if selectedFilter == "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper" || selectedFilter == "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper" {
+                                    Label(LocalizedStringKey("Sniper"), systemImage: "checkmark")
+                                }
+                                else {
+                                    Text(LocalizedStringKey("Sniper"))
+                                }
+                            }
+                            
+                            // MARK: Heavy
+                            
+                            Menu {
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/LMG", label: "Ares", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG", label: "Odin", selectOwned: $selectOwned, proxy: proxy)
+                                
+                                
+                            } label: {
+                                if selectedFilter == "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/LMG" || selectedFilter == "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG" {
+                                    Label(LocalizedStringKey("Heavy"), systemImage: "checkmark")
+                                }
+                                else {
+                                    Text(LocalizedStringKey("Heavy"))
+                                }
+                            }
+                            
                             
                             
                         } label: {
-                            if selectedFilter == "ShooterGame/Content/Equippables/Guns/Shotguns/PumpShotgun" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun" {
-                                Label("Shotguns", systemImage: "checkmark")
-                            }
-                            else {
-                                Text("Shotguns")
-                            }
-                        }
-                        
-                        // MARK: Rifles
-                        Menu {
+                            // MARK: Menu label
                             
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Rifles/Burst", label: "Bulldog", selectOwned: $selectOwned)
+                            Image(systemName: filtered ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle" )
+                                .resizable()
+                                .scaledToFit()
+                                .opacity(filtered ? 0.8 : 0.4)
+                                .padding(.trailing, 5)
+                                .frame(height: (UIScreen.main.bounds.height / 40) )
                             
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR", label: "Guardian", selectOwned: $selectOwned)
-                            
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Rifles/Carbine", label: "Phantom", selectOwned: $selectOwned)
-                            
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/Rifles/AK", label: "Vandal", selectOwned: $selectOwned)
-                            
-                            
-                            
-                        } label: {
-                            if selectedFilter == "ShooterGame/Content/Equippables/Guns/Rifles/Burst" || selectedFilter == "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Rifles/Carbine" || selectedFilter == "ShooterGame/Content/Equippables/Guns/Rifles/AK" {
-                                Label("Rifles", systemImage: "checkmark")
-                            }
-                            else {
-                                Text("Rifles")
-                            }
-                        }
-                        
-                        // MARK: Sniper
-                        
-                        Menu {
-                            
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper", label: "Marshal", selectOwned: $selectOwned)
-                            
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper", label: "Operator", selectOwned: $selectOwned)
-                            
-                            
-                        } label: {
-                            if selectedFilter == "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper" || selectedFilter == "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper" {
-                                Label("Sniper", systemImage: "checkmark")
-                            }
-                            else {
-                                Text("Sniper")
-                            }
-                        }
-                        
-                        // MARK: Heavy
-                        
-                        Menu {
-                            
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/LMG", label: "Ares", selectOwned: $selectOwned)
-                            
-                            MenuItem(selectedFilter: $selectedFilter, filtered: $filtered, filter: "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG", label: "Odin", selectOwned: $selectOwned)
-                            
-                            
-                        } label: {
-                            if selectedFilter == "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/LMG" || selectedFilter == "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG" {
-                                Label("Heavy", systemImage: "checkmark")
-                            }
-                            else {
-                                Text("Heavy")
-                            }
                         }
                         
                         
-                        
-                    } label: {
-                        Image(systemName: "line.3.horizontal.decrease.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .opacity(filtered ? 1 : 0.5)
-                            .padding(.trailing, 5)
-                            .frame(height: (UIScreen.main.bounds.height / 40) )
-                        
+                        Spacer()
                     }
                     
-                    
-                    Spacer()
-                }
-                
-                
-                ScrollViewReader{ (proxy: ScrollViewProxy) in
                     ScrollView {
+                        
+                        
                         
                         if model.data.isEmpty{
                             ProgressView()
@@ -205,7 +227,12 @@ struct SkinListView: View {
                             
                             
                             // A foolproof but braindead method to get knife skins
-                            let search = model.data.filter({ searchText.isEmpty ? true : $0.displayName.lowercased().contains(searchText.lowercased())}).filter({selectedFilter.isEmpty ? true : $0.assetPath!.lowercased().contains(selectedFilter.lowercased())})
+                            let search = model.data.filter({ searchText.isEmpty ? true : $0.displayName.lowercased().contains(searchText.lowercased())}).filter({selectedFilter.isEmpty ? true : $0.assetPath!.lowercased().contains(selectedFilter.lowercased())}).filter { one in
+                                selectOwned ? authAPIModel.owned.contains { two in
+                                    one.displayName == two
+                                } : true
+                            }
+                            
                             
                             LazyVStack(spacing: 11){
                                 
@@ -213,7 +240,6 @@ struct SkinListView: View {
                                     
                                     SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
                                         .frame(height: (UIScreen.main.bounds.height / 6.5))
-                                    
                                     
                                 }
                                 
@@ -263,7 +289,7 @@ struct SkinListView: View {
                                             .frame(minWidth: 0, maxWidth: 100)
                                             .foregroundColor(.white)
                                         
-                                        Text("No skins match your search")
+                                        Text(LocalizedStringKey("EmptySearch"))
                                     }
                                     .padding(.top, (UIScreen.main.bounds.height / 4))
                                     .opacity(0.5)
@@ -277,24 +303,16 @@ struct SkinListView: View {
                             .id("top") // Id to identify the top for scrolling
                             .tag("top") // Tag to identify the top for scrolling
                             
-                            
-                            
-                            
                         }
-                        
-                        
-                        
                     }
                 }
-                
-                
             }
             .padding(10)
             
         }
     }
     
-    // Menu Item
+    // MARK: Menu Item
     struct MenuItem: View {
         
         @Binding var selectedFilter : String
@@ -302,15 +320,14 @@ struct SkinListView: View {
         var filter : String
         var label : String
         @Binding var selectOwned : Bool
-        
-        
-        
+        var proxy : ScrollViewProxy
         
         var body: some View {
             Button {
                 selectedFilter = filter
                 selectOwned = false
                 filtered = true
+                proxy.scrollTo("top", anchor: .top)
             } label: {
                 if selectedFilter == filter {
                     Label(label, systemImage: "checkmark")

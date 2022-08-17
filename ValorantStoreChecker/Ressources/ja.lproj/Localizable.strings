@@ -15,7 +15,7 @@
 "ErrorMessage2" = "リロードエラーケース
 1) 無効なネットワーク接続
 2) 設定で設定されたパスワードが間違っている";
-"DownloadingAssets" = "アセットをダウンロード中（60mb）";
+"DownloadingAssets" = "アセットをダウンロード中（75mb）";
 "CopyError" = "コピーエラー";
 "Unknown" = "不明";
 
@@ -116,3 +116,15 @@
 "Settings" = "設定";
 "RememberPassword" = "パスワードの記憶";
 "RememberPasswordInfo" = "パスワードはKeychainによって保護されています。サインアウトまたはトグルを無効にすると、パスワードは自動的に忘れられます。この機能を有効にすると、APIの時間制限を回避し、ユーザーの代わりに自動サインインが可能になります。";
+
+// Skin Index Filter
+"All" = "何れも";
+"Owned" = "かいこみずみ";
+"Knife" = "ナイフ";
+"Sidearm" = "ピストル";
+"SMGs" = "サブマシンガン";
+"Shotguns" = "散弾銃";
+"Rifles" = "ライフル";
+"Sniper" = "狙撃銃";
+"Heavy" = "重機関銃";
+"EmptySearch" = "検索条件に一致するものがない";

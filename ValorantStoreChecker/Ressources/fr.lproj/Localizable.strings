@@ -7,7 +7,7 @@
 */
 
 // Errors
-"DownloadingAssets" = "Téléchargement d'images (60mb)";
+"DownloadingAssets" = "Téléchargement d'images (75mb)";
 "CopyError" = "Copier l'erreur";
 "Unknown" = "Inconnu";
 
@@ -118,3 +118,15 @@
 "Settings" = "Réglages";
 "RememberPassword" = "Retenir le mot de passe";
 "RememberPasswordInfo" = "Votre mot de passe est sécurisé par Keychain. Si vous vous déconnectez ou si vous désactivez le commutateur, le mot de passe sera automatiquement oublié. L'activation de cette fonction permet de contourner les limitations de tempds de l'API et de se connecter automatiquement au nom de l'utilisateur.";
+
+// Skin Index Filter
+"All" = "Tous";
+"Owned" = "Déjà acheté";
+"Knife" = "Couteau";
+"Sidearm" = "Pistolet";
+"SMGs" = "Mitraillette";
+"Shotguns" = "Fusil à pompe";
+"Rifles" = "Fusil";
+"Sniper" = "Fusil de sniper";
+"Heavy" = "Mitrailleuse lourde";
+"EmptySearch" = "Rien ne correspond à votre recherche";

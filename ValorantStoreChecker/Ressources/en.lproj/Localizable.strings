@@ -17,7 +17,7 @@
 "ErrorMessage2" = "Reloading Error Cases
 1) Invalid network connection
 2) Wrong password set in Settings";
-"DownloadingAssets" = "Downloading Assets (60mb)";
+"DownloadingAssets" = "Downloading Assets (75mb)";
 "CopyError" = "Copy Error";
 "Unknown" = "Unknown";
 
@@ -118,3 +118,15 @@
 "Settings" = "Settings";
 "RememberPassword" = "Remember Password";
 "RememberPasswordInfo" = "Your password is secured by Keychain. Signing out or disabling the toggle will automatically forget the password. Enabling this feature bypasses the API time limitations and allows for automatic sign in on the user's behalf.";
+
+// Skin Index Filter
+"All" = "All";
+"Owned" = "Owned";
+"Knife" = "Knife";
+"Sidearm" = "Sidearm";
+"SMGs" = "SMGs";
+"Shotguns" = "Shotguns";
+"Rifles" = "Rifles";
+"Sniper" = "Sniper";
+"Heavy" = "Heavy";
+"EmptySearch" = "Nothing matches your search";
