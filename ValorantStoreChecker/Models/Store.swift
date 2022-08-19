@@ -9,9 +9,57 @@ import Foundation
 
 
 struct Storefront: Codable {
+    let featuredBundle: FeaturedBundle
     let SkinsPanelLayout : SkinsPanelLayout?
 }
 
+// MARK: FeaturedBundle
+struct FeaturedBundle: Codable {
+    let bundle: BundleSkin
+    let bundleRemainingDurationInSeconds: Int
+
+    enum CodingKeys: String, CodingKey {
+        case bundle = "Bundle"
+        case bundleRemainingDurationInSeconds = "BundleRemainingDurationInSeconds"
+    }
+}
+
+// MARK: Bundle
+struct BundleSkin: Codable {
+    let dataAssetID: String
+    let items: [ItemElement]
+    let durationRemainingInSeconds: Int
+
+    enum CodingKeys: String, CodingKey {
+        case dataAssetID = "DataAssetID"
+        case items = "Items"
+        case durationRemainingInSeconds = "DurationRemainingInSeconds"
+    }
+}
+
+// MARK: - ItemElement
+struct ItemElement: Codable {
+    let item: ItemItem
+    let basePrice: Int
+
+    enum CodingKeys: String, CodingKey {
+        case item = "Item"
+        case basePrice = "BasePrice"
+
+    }
+}
+
+// MARK: - ItemItem
+struct ItemItem: Codable {
+    let itemTypeID, itemID: String
+
+    enum CodingKeys: String, CodingKey {
+        case itemTypeID = "ItemTypeID"
+        case itemID = "ItemID"
+    }
+}
+
+// MARK: SkinsPanelLayout
 struct SkinsPanelLayout: Codable {
     let SingleItemOffers : [String]?
     let SingleItemOffersRemainingDurationInSeconds : Int?

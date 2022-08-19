@@ -81,11 +81,11 @@ class Skin: Identifiable, Codable, ObservableObject{
                     dataHelper(url: url, key: chroma.id.description)
                     
                 }
-                else if let url = URL(string: "\(Constants.URL.valStore)weaponskinchromas/\(levels!.first!.id.description.lowercased()).png") {
+                else if let url = URL(string: "\(Constants.URL.valStore)weaponskinchromas/\(chroma.id.description.lowercased()).png") {
                     
-                    dataHelper(url: url, key: self.levels!.first!.id.description)
-                    
+                    dataHelper(url: url, key: chroma.id.description)
                 }
+                
             }
         }
         

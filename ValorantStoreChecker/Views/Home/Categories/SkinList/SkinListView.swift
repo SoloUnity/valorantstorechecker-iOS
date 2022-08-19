@@ -280,6 +280,8 @@ struct SkinListView: View {
                                     }
                                 }
                                 
+                                // MARK: No search item button
+                                
                                 if search.count == 0 {
                                     
                                     VStack {
@@ -289,7 +291,7 @@ struct SkinListView: View {
                                             .frame(minWidth: 0, maxWidth: 100)
                                             .foregroundColor(.white)
                                         
-                                        Text(LocalizedStringKey("EmptySearch"))
+                                        Text(selectOwned ? LocalizedStringKey("NoOwned") : LocalizedStringKey("EmptySearch"))
                                     }
                                     .padding(.top, (UIScreen.main.bounds.height / 4))
                                     .opacity(0.5)

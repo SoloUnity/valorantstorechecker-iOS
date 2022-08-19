@@ -130,3 +130,6 @@
 "Sniper" = "Sniper";
 "Heavy" = "Heavy";
 "EmptySearch" = "Nothing matches your search";
+"NoOwned" = "Please reload the store, or buy some skins :)";
+
+// Tip view

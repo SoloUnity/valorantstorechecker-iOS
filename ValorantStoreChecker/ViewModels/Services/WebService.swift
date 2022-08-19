@@ -296,7 +296,7 @@ struct WebService {
     }
     
     // MARK: Storefront
-    static func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String) async throws -> SkinsPanelLayout {
+    static func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String) async throws -> Storefront {
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v2/storefront/\(puuid)") else{
             throw APIError.invalidURL
         }
@@ -321,17 +321,49 @@ struct WebService {
                 throw APIError.invalidCredentials
             }
             
-            guard let storefront = storefrontResponse.SkinsPanelLayout else {
-                throw APIError.invalidCredentials
-            }
-            
-            return storefront
+
+            return storefrontResponse
             
         }catch{
             throw APIError.dataTaskError(error.localizedDescription)
         }
     }
     
+    
+    // MARK: Bundles
+    static func getBundle(uuid: String) async throws -> [String] {
+        guard let url = URL(string: Constants.URL.bundle + uuid) else{
+            throw APIError.invalidURL
+        }
+        
+        do{
+            // Create request
+            var bundleRequest = URLRequest(url: url)
+            bundleRequest.httpMethod = "GET"
+            
+            let (data,response) = try await WebService.session.data(for: bundleRequest)
+            
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw APIError.invalidResponseStatus
+            }
+            
+            guard let bundleResponse = try? JSONDecoder().decode(BundleData.self, from: data) else {
+                throw APIError.invalidCredentials
+            }
+            
+            if let url = URL(string: bundleResponse.displayIcon) {
+                dataHelper(url: url, key: bundleResponse.uuid)
+            }
+            
+            return [bundleResponse.displayName, bundleResponse.displayIcon]
+            
+        }catch{
+            throw APIError.dataTaskError(error.localizedDescription)
+        }
+    }
     
     // MARK: Store Prices
     static func getStorePrices(token : String, riotEntitlement: String,region: String) async throws ->  [Offer] {
@@ -485,6 +517,33 @@ struct WebService {
             .path: "/",
             .domain: "auth.riotgames.com",
         ])!)
+    }
+    
+    // MARK: Download stuff
+    static func dataHelper (url : URL, key : String) {
+        // Get a session
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
+            
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                return
+            }
+            
+            if error == nil {
+                
+                DispatchQueue.main.async {
+                    // Set the image data
+                    if data != nil {
+                        let encoded = try! PropertyListEncoder().encode(data)
+                        UserDefaults.standard.set(encoded, forKey: key)
+                    }
+                }
+            }
+        }
+        dataTask.resume()
     }
     
     

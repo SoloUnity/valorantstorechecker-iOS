@@ -129,7 +129,7 @@ struct SkinCardDetailView: View {
                 
                 
                 // MARK: Skin tier videos
-                if skin.levels![selectedLevel].streamedVideo != nil{
+                if skin.levels![selectedLevel].streamedVideo != nil {
                     HStack {
                                                 
                         AZVideoPlayer(player: player)
@@ -177,7 +177,7 @@ struct SkinCardDetailView: View {
                         
                         
                     // MARK: Video Tier Picker
-                    if skin.levels!.count != 1{
+                    if skin.levels!.count != 1 {
                         
                         HStack{
                             HStack {

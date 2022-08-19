@@ -10,8 +10,7 @@ import SwiftUI
 
 struct HelpView: View {
     
-    //@StateObject var tipModel = TipModel()
-    
+    @Binding var expand : Bool
     
     var body: some View {
         HStack{
@@ -34,9 +33,6 @@ struct HelpView: View {
                     
                     Button {
                         
-                        // Valid link when app goes live
-                        // Note: Replace the XXXXXXXXXX below with the App Store ID for your app
-                        //       You can find the App Store ID in your app's product URL
                         guard let writeReviewURL = URL(string: Constants.URL.review)
                             else { fatalError("Expected a valid URL") }
                         UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
@@ -55,36 +51,41 @@ struct HelpView: View {
                     
                 }
                 
-                // TODO: Implement tip
-                /*
-                if let tip = tipModel.tips.first {
-                    HStack{
-                        Image(systemName: "heart.fill")
+                HStack{
+                    Image("github")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .padding(.trailing)
+                    
+                    Button {
+                        if let url = URL(string: Constants.URL.sourceCode) {
+                            UIApplication.shared.open(url)
+                        }
+                    } label: {
+                        Text("Star the Repository")
+                            .bold()
+                        
+                        Image(systemName: "link")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 25, height: 25)
+                            .frame(width: 15, height: 15)
                             .padding(.trailing)
-                        
-                        Button {
-                            
-                            tipModel.purchase()
-                            
-                        } label: {
-                            Text(LocalizedStringKey("Sponsor"))
-                                .bold()
-                            
-                            Image(systemName: "link")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 15, height: 15)
-                                .padding(.trailing)
-                        }
-                        
                     }
+                    
                 }
-                */
                 
+                HStack {
+                    Image(systemName: "heart.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .padding(.trailing)
+                    
+                    TipView(expand: $expand)
+                }
                 
+   
                 
             }
             
@@ -106,16 +107,10 @@ struct HelpView: View {
                     RoundedRectangle(cornerRadius: 10)
                 }
         }
-        /*
-        .onAppear {
-            tipModel.fetchTips()
-        }
-         */
+        .animation(.spring(), value: expand)
+        
+         
     }
 }
 
-struct HelpView_Previews: PreviewProvider {
-    static var previews: some View {
-        HelpView()
-    }
-}
+

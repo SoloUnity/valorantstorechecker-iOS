@@ -13,8 +13,6 @@ struct RegionSelectorView: View {
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @State var expand = false
     @State var title = LocalizedStringKey("SelectRegion")
-    
-    let defaults = UserDefaults.standard
     let keychain = Keychain()
     
     var body: some View {
@@ -26,6 +24,7 @@ struct RegionSelectorView: View {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 
                 expand.toggle()
+                
             } label: {
                 
                 HStack{
@@ -40,7 +39,7 @@ struct RegionSelectorView: View {
                 
             }
             
-            if expand{
+            if expand {
                 
                 if title != LocalizedStringKey("NorthAmerica") {
                     Button {

@@ -21,6 +21,8 @@ class SkinModel: ObservableObject{
         
     }
     
+    // I did not learn about async/await when I made this stop laughing at me
+    
     func getLocalData(){
         
         // Local json file
@@ -76,7 +78,6 @@ class SkinModel: ObservableObject{
                 return
             }
             
-            
             guard httpResponse.statusCode == 200 else {
                 return
             }
@@ -100,7 +101,10 @@ class SkinModel: ObservableObject{
         }
         // Kick off data task
         dataTask.resume()
+        
     }
+    
+    
  }
      
    

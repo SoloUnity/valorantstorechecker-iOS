@@ -52,6 +52,11 @@ class AuthAPIModel: ObservableObject {
     // Owned skins
     @Published var owned : [String] = []
     
+    // BundleInformation
+    @Published var bundleImage : String = ""
+    @Published var bundleName : String = ""
+    @Published var bundle : [ItemElement] = []
+    
     init() {
         
         // TODO: Implement CoreData, but for now lmao this works
@@ -154,7 +159,11 @@ class AuthAPIModel: ObservableObject {
             
             
             // Match user's store with database
-            let storefront = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
+            let storefrontResponse = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
+            
+            guard let storefront = storefrontResponse.SkinsPanelLayout else {
+                throw APIError.invalidCredentials
+            }
             
             var tempStore : [Skin] = []
             
@@ -188,6 +197,7 @@ class AuthAPIModel: ObservableObject {
             
             // Get store price
             let storePrice = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: keychain.value(forKey: "region") as? String ?? "na")
+            
             self.storePrice = storePrice
             
             // Save store prices
@@ -203,14 +213,17 @@ class AuthAPIModel: ObservableObject {
             
             for skin in SkinModel().data {
                 for item in owned {
-                    if skin.levels!.first!.id.uuidString.lowercased() == item.itemID {
-                        tempOwned.append(skin.displayName)
+                    let itemUUID = skin.levels!.first!.id.uuidString.lowercased()
+                    if itemUUID == item.itemID {
+                        if !tempOwned.contains(skin.displayName) {
+                            tempOwned.append(skin.displayName)
+                        }
+                        
                     }
                 }
  
             }
             
-            print(tempOwned)
             self.owned = tempOwned
             
             defaults.set(tempOwned, forKey: "owned")
@@ -220,6 +233,35 @@ class AuthAPIModel: ObservableObject {
             defaults.set(referenceDate, forKey: "timeLeft")
             defaults.set(Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0), forKey: "secondsLeft")
             
+            
+            // Set bundle info
+            let bundleUUID = storefrontResponse.featuredBundle.bundle.dataAssetID
+            
+            let bundle = try await WebService.getBundle(uuid: bundleUUID)
+            let bundleDisplayName = bundle[0]
+            let bundleDisplayIcon = bundle[1]
+            
+            self.bundleName = bundleDisplayName
+            self.bundleImage = bundleDisplayIcon
+            
+            defaults.set(bundleDisplayName, forKey: "bundleDisplayName")
+            defaults.set(bundleDisplayIcon, forKey: "bundleDisplayIcon")
+            
+            // Set time left for bundle
+            let bundleReferenceDate = Date() + Double(storefrontResponse.featuredBundle.bundleRemainingDurationInSeconds )
+            defaults.set(bundleReferenceDate, forKey: "bundleTimeLeft")
+            defaults.set(Double(storefrontResponse.featuredBundle.bundleRemainingDurationInSeconds ), forKey: "bundleSecondsLeft")
+            
+            
+            // Save the bundle skins
+            let items = storefrontResponse.featuredBundle.bundle.items
+            self.bundle = items
+            
+            let bundleEncoder = JSONEncoder()
+            if let encoded = try? bundleEncoder.encode(items){
+                defaults.set(encoded, forKey: "items")
+            }
+            
             self.isAuthenticating = false
 
             self.username = ""
@@ -227,20 +269,25 @@ class AuthAPIModel: ObservableObject {
             self.multifactor = ""
             
         }catch {
-            // Reset user defaults
-            self.isAuthenticating = false
-            self.failedLogin = true
-            self.password = ""
             
-            defaults.removeObject(forKey: "authentication")
-            defaults.removeObject(forKey: "storefront")
-            defaults.removeObject(forKey: "storePrice")
+            // To address auto reloading
+            if !self.rememberPassword || !defaults.bool(forKey: "rememberPassword") {
+                // Reset user defaults
+                self.isAuthenticating = false
+                self.failedLogin = true
+                self.password = ""
+                
+                defaults.removeObject(forKey: "authentication")
+                defaults.removeObject(forKey: "storefront")
+                defaults.removeObject(forKey: "storePrice")
+                
+                let _ = keychain.remove(forKey: "ssid")
+                let _ = keychain.remove(forKey: "tdid")
+                let _ = keychain.remove(forKey: "region")
+                let _ = keychain.remove(forKey: "username")
+                print("LoginHelper")
+            }
             
-            let _ = keychain.remove(forKey: "ssid")
-            let _ = keychain.remove(forKey: "tdid")
-            let _ = keychain.remove(forKey: "region")
-            let _ = keychain.remove(forKey: "username")
-            print("LoginHelper")
             
             self.errorMessage = "Login Helper error: \(error.localizedDescription)"
             self.isError = true
@@ -268,6 +315,7 @@ class AuthAPIModel: ObservableObject {
                 self.errorMessage = "Multifactor error, please enter the correct code."
                 self.isError = true
                 */
+                
                 
                 // Reset user defaults
                 self.enteredMultifactor = false

@@ -10,6 +10,7 @@ import SwiftUI
 struct AboutView: View {
     
     @State var showSettings = false
+    @State var expand = false
     
     var body: some View {
         
@@ -45,7 +46,7 @@ struct AboutView: View {
                     
                     CommunityView()
                     
-                    HelpView()
+                    HelpView(expand: $expand)
                     
                     AcknowledgementsView()
                     
@@ -72,6 +73,7 @@ struct AboutView: View {
             SettingsView()
                 .preferredColorScheme(.dark)
         }
+        .animation(.spring(), value: expand)
     }
 }
 

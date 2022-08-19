@@ -7,17 +7,82 @@
     {
       "displayPrice" : "1",
       "familyShareable" : false,
-      "internalID" : "DEC5FCCF",
+      "internalID" : "FBD6D03E",
+      "localizations" : [
+        {
+          "description" : "Tip the developer 1$.",
+          "displayName" : "Small Tip",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.solounity.tip1",
+      "referenceName" : "Tip1",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "5",
+      "familyShareable" : false,
+      "internalID" : "22BEB671",
+      "localizations" : [
+        {
+          "description" : "Tip the developer 5$.",
+          "displayName" : "Medium Tip",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.solounity.tip5",
+      "referenceName" : "Tip5",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "10",
+      "familyShareable" : false,
+      "internalID" : "A8D9EDAF",
+      "localizations" : [
+        {
+          "description" : "Tip the developer 10$.",
+          "displayName" : "Big Tip",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.solounity.tip10",
+      "referenceName" : "Tip10",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "20",
+      "familyShareable" : false,
+      "internalID" : "E5BE1D5C",
       "localizations" : [
         {
           "description" : "",
           "displayName" : "",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Tip the developer 20$.",
+          "displayName" : "Epic Tip",
+          "locale" : "ar"
         }
       ],
-      "productID" : "com.tip",
-      "referenceName" : "TIp",
-      "type" : "NonConsumable"
+      "productID" : "com.solounity.tip20",
+      "referenceName" : "Tip20",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "69",
+      "familyShareable" : false,
+      "internalID" : "396F8C91",
+      "localizations" : [
+        {
+          "description" : "Tip the developer 69$.",
+          "displayName" : "Nice Tip",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.solounity.tip69",
+      "referenceName" : "Tip69",
+      "type" : "Consumable"
     }
   ],
   "settings" : {

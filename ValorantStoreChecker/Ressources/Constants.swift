@@ -24,6 +24,8 @@ struct Constants{
         static var playerInfo = "https://auth.riotgames.com/userinfo"
         static var cookieReauth = "https://auth.riotgames.com/authorize?redirect_uri=https%3A%2F%2Fplayvalorant.com%2Fopt_in&client_id=play-valorant-web-prod&response_type=token%20id_token&nonce=1"
         
+        static var bundle = "https://valorant-api.com/v1/bundles/"
+        
         // About page stuff
         static var supportTicket = "https://discord.com/channels/781946764168658984/983281981368467486"
         static var faq = "https://github.com/SoloUnity/Valorant-Store-Checker-App/blob/main/README.md#frequently-asked-questions"
