@@ -5,7 +5,7 @@
 //  Created by Gordon on 2022-08-10.
 //
 
-// Setup notification system
+// From https://www.youtube.com/watch?v=eI7jYIY5Ie4
 
 import Foundation
 import UserNotifications
@@ -24,28 +24,29 @@ class NotificationService {
         }
     }
     
-    func sendNotification(date: Date, type: String, timeInterval: Double = 10, title: String, body: String) {
+    func sendNotification(date: Date, title: String, body: String) {
+        
+        
         
         var trigger : UNNotificationTrigger?
         
-        if type == "date" {
-            let dateComponents = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: date)
-            
-            trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        }
-        else if type == "time" {
-            trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-        }
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
+        
+        trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
         content.sound = UNNotificationSound.default
-        
+
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request)
         
+    }
+    
+    func disableNotifications() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
 }
 

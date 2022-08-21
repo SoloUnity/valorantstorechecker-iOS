@@ -42,6 +42,9 @@ struct CommunityView: View {
                     
                 }
                 
+                
+                
+                
                 HStack{
                     Image("discord")
                         .resizable()

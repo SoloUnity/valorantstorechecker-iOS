@@ -11,13 +11,17 @@ import Keychain
 struct SettingsView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
-    @State var togglePassword = false
-    @State var showPassword = false
-    @State var unhide = false
-    @State var toggleReload = false
+    @State var togglePassword = false   // Password fallback
+    @State var unhide = false           // Toggle showing / hiding password
+    @State var toggleReload = false     // Toggle reload
+    @State private var selectedDate = Date()
+    @State var toggleNotification = false
     
+    let notify = NotificationService()
     let defaults = UserDefaults.standard
     let keychain = Keychain()
+    
+    let referenceDate: Date
     
     var body: some View {
         
@@ -29,6 +33,7 @@ struct SettingsView: View {
                         .font(.title)
                         .bold()
                     
+                    // MARK: Automatic Reloading
                     VStack {
                         
                         Toggle(LocalizedStringKey("AutomaticReload"), isOn: $toggleReload)
@@ -67,7 +72,101 @@ struct SettingsView: View {
                         .opacity(0.5)
                         .padding(.horizontal, 5)
                     
-                    // Password toggle
+                    // MARK: Language
+                    VStack {
+                        
+                        HStack {
+                            Text("Language")
+                            
+                            Spacer()
+                            
+                            Button {
+                                if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+                                    UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+                                }
+                                
+                            } label: {
+                                                                
+                                Text("Change Language")
+                                    .padding(7)
+                                    .background(.pink)
+                                    .cornerRadius(7)
+                                    .font(.footnote)
+                                    
+                                
+                            }
+                        }
+                    }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Blur(radius: 25, opaque: true))
+                    .cornerRadius(10)
+                    .overlay{
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.white, lineWidth: 3)
+                            .offset(y: -1)
+                            .offset(x: -1)
+                            .blendMode(.overlay)
+                            .blur(radius: 0)
+                            .mask {
+                                RoundedRectangle(cornerRadius: 10)
+                            }
+                    }
+                    
+                    Text("Open app settings")
+                        .font(.caption2)
+                        .opacity(0.5)
+                        .padding(.horizontal, 5)
+                    
+                    // MARK: Notifications
+                    VStack {
+                        
+                        Toggle("Notify Store Refresh", isOn: $toggleNotification)
+                            .tint(.pink)
+                            .onChange(of: toggleNotification) { boolean in
+                                
+                                defaults.set(boolean, forKey: "notification")
+                                
+                                notify.askPermission()
+                                
+                                if boolean {
+                                    notify.sendNotification(date: referenceDate, title: "Store Checker for Valorant", body: "Store has just reset")
+                                    print("set notify")
+                                }
+                                else {
+                                    notify.disableNotifications()
+                                    print("disable notify")
+                                }
+                                
+                            }
+                    }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Blur(radius: 25, opaque: true))
+                    .cornerRadius(10)
+                    .overlay{
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.white, lineWidth: 3)
+                            .offset(y: -1)
+                            .offset(x: -1)
+                            .blendMode(.overlay)
+                            .blur(radius: 0)
+                            .mask {
+                                RoundedRectangle(cornerRadius: 10)
+                            }
+                    }
+                    
+                    
+                    Text("Notify on store refresh.")
+                        .font(.caption2)
+                        .opacity(0.5)
+                        .padding(.horizontal, 5)
+                    
+                    
+                    
+                    
+                    
+                    // MARK: Remember Password
                     VStack {
                         
                         Toggle(LocalizedStringKey("RememberPassword"), isOn: $togglePassword)
@@ -151,22 +250,7 @@ struct SettingsView: View {
                                 RoundedRectangle(cornerRadius: 10)
                             }
                     }
-                    .onAppear {
-                        
-                        
-                        if defaults.bool(forKey: "rememberPassword") {
-                            self.togglePassword = true
-                            
-                            authAPIModel.password = keychain.value(forKey: "password") as? String ?? ""
-                        }
-                        
-                        if defaults.bool(forKey: "autoReload") {
-                            self.toggleReload = true
-                        }
-                    }
-                    .onDisappear {
-                        authAPIModel.password = ""
-                    }
+                    
                     
                     
                     Text(LocalizedStringKey("RememberPasswordInfo"))
@@ -176,6 +260,26 @@ struct SettingsView: View {
                     
                 }
                 .padding()
+                .onAppear {
+                    
+                    
+                    if defaults.bool(forKey: "rememberPassword") {
+                        self.togglePassword = true
+                        
+                        authAPIModel.password = keychain.value(forKey: "password") as? String ?? ""
+                    }
+                    
+                    if defaults.bool(forKey: "autoReload") {
+                        self.toggleReload = true
+                    }
+                    
+                    if defaults.bool(forKey: "notification") {
+                        self.toggleNotification = true
+                    }
+                }
+                .onDisappear {
+                    authAPIModel.password = ""
+                }
             }
         }
         
@@ -184,8 +288,3 @@ struct SettingsView: View {
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
-}

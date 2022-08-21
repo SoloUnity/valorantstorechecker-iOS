@@ -82,7 +82,11 @@ struct HelpView: View {
                         .frame(width: 25, height: 25)
                         .padding(.trailing)
                     
+                    
                     TipView(expand: $expand)
+                    
+                    Spacer()
+                    
                 }
                 
    

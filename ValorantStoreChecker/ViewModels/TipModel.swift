@@ -27,7 +27,6 @@ class TipModel: ObservableObject {
                     "com.solounity.tip5",
                     "com.solounity.tip10",
                     "com.solounity.tip20",
-                    "com.solounity.tip69",
                 ])
                 
                 DispatchQueue.main.async {

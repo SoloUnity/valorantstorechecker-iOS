@@ -9,57 +9,11 @@ import Foundation
 
 
 struct Storefront: Codable {
-    let featuredBundle: FeaturedBundle
+    let FeaturedBundle: FeaturedBundle?
     let SkinsPanelLayout : SkinsPanelLayout?
 }
 
-// MARK: FeaturedBundle
-struct FeaturedBundle: Codable {
-    let bundle: BundleSkin
-    let bundleRemainingDurationInSeconds: Int
-
-    enum CodingKeys: String, CodingKey {
-        case bundle = "Bundle"
-        case bundleRemainingDurationInSeconds = "BundleRemainingDurationInSeconds"
-    }
-}
-
-// MARK: Bundle
-struct BundleSkin: Codable {
-    let dataAssetID: String
-    let items: [ItemElement]
-    let durationRemainingInSeconds: Int
-
-    enum CodingKeys: String, CodingKey {
-        case dataAssetID = "DataAssetID"
-        case items = "Items"
-        case durationRemainingInSeconds = "DurationRemainingInSeconds"
-    }
-}
-
-// MARK: - ItemElement
-struct ItemElement: Codable {
-    let item: ItemItem
-    let basePrice: Int
-
-    enum CodingKeys: String, CodingKey {
-        case item = "Item"
-        case basePrice = "BasePrice"
-
-    }
-}
-
-// MARK: - ItemItem
-struct ItemItem: Codable {
-    let itemTypeID, itemID: String
-
-    enum CodingKeys: String, CodingKey {
-        case itemTypeID = "ItemTypeID"
-        case itemID = "ItemID"
-    }
-}
-
-// MARK: SkinsPanelLayout
+// MARK: Store
 struct SkinsPanelLayout: Codable {
     let SingleItemOffers : [String]?
     let SingleItemOffersRemainingDurationInSeconds : Int?
@@ -114,4 +68,45 @@ struct Currency: Codable {
     }
 }
 
+// MARK: Bundle
+struct FeaturedBundle: Codable {
+    let bundle: StoreBundle
+    let bundleRemainingDurationInSeconds: Int
+
+    enum CodingKeys: String, CodingKey {
+        case bundle = "Bundle"
+        case bundleRemainingDurationInSeconds = "BundleRemainingDurationInSeconds"
+    }
+}
+
+
+struct StoreBundle: Codable {
+    let dataAssetID : String
+    let items: [ItemElement]
+
+    enum CodingKeys: String, CodingKey {
+        case dataAssetID = "DataAssetID"
+        case items = "Items"
+    }
+}
+
+
+struct ItemElement: Codable {
+    let item: ItemItem
+    let discountedPrice: Int
+
+    enum CodingKeys: String, CodingKey {
+        case item = "Item"
+        case discountedPrice = "DiscountedPrice"
+    }
+}
+
+struct ItemItem: Codable {
+    let itemTypeID, itemID: String
+
+    enum CodingKeys: String, CodingKey {
+        case itemTypeID = "ItemTypeID"
+        case itemID = "ItemID"
+    }
+}
 

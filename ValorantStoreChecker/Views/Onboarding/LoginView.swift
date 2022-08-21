@@ -70,8 +70,34 @@ struct LoginView: View {
                         }
                         
                     }else {
-                        Text(LocalizedStringKey("InvalidCredentials"))
-                            .bold()
+                        HStack {
+                            Text(LocalizedStringKey("InvalidCredentials"))
+                                .bold()
+                            Button {
+                                self.showAlert = true
+                            } label: {
+                                Image(systemName: "questionmark.circle")
+                            }
+                            
+                            .alert("Invalid login", isPresented: $showAlert, actions: {
+                                
+                                Button("Reset", role: nil, action: {
+                                    
+                                    authAPIModel.logOut()
+                                    
+                                    authAPIModel.reloading = false
+                                    authAPIModel.isReloadingError = false
+                                })
+                                
+                                Button(LocalizedStringKey("OK"), role: nil, action: {})
+                                
+                            }, message: {
+                                let info = LocalizedStringKey("Information")
+                                Text(info)
+                            })
+                            
+                        }
+                        
                     }
                     
                     

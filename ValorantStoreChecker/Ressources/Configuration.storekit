@@ -68,21 +68,6 @@
       "productID" : "com.solounity.tip20",
       "referenceName" : "Tip20",
       "type" : "Consumable"
-    },
-    {
-      "displayPrice" : "69",
-      "familyShareable" : false,
-      "internalID" : "396F8C91",
-      "localizations" : [
-        {
-          "description" : "Tip the developer 69$.",
-          "displayName" : "Nice Tip",
-          "locale" : "en_US"
-        }
-      ],
-      "productID" : "com.solounity.tip69",
-      "referenceName" : "Tip69",
-      "type" : "Consumable"
     }
   ],
   "settings" : {

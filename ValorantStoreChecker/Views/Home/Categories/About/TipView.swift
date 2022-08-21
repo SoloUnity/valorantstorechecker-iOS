@@ -34,8 +34,11 @@ struct TipView: View {
                             .bold()
                             .padding(.bottom, 4)
                             
-                        
-                        Spacer()
+                        if expand {
+                            
+                            Spacer()
+                            
+                        }
                         
                         Image(systemName: expand ? "chevron.up" : "chevron.down")
                             .resizable()
@@ -56,7 +59,6 @@ struct TipView: View {
                     
                     tipButton(title: $title, expand: $expand, description: "Epic Tip", price: 20, index: 3)
                     
-                    tipButton(title: $title, expand: $expand, description: "Nice Tip", price: 69, index: 4)
                 }
             }
             .foregroundColor(.white)
@@ -65,7 +67,7 @@ struct TipView: View {
             .cornerRadius(10)
             .animation(.spring(), value: expand)
             .shadow(color:.pink, radius: 2)
-            .padding(.trailing, UIScreen.main.bounds.height / 7.5)
+
             
  
         }

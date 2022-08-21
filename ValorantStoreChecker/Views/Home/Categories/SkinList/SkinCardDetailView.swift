@@ -140,8 +140,6 @@ struct SkinCardDetailView: View {
                                     .stroke(Color(red: 60/255, green: 60/255, blue: 60/255), lineWidth: 3)
                                     .offset(y: -1)
                                     .offset(x: -1)
-                                    .blendMode(.overlay)
-                                    .blur(radius: 0)
                                     .mask {
                                         RoundedRectangle(cornerRadius: 10)
                                     }

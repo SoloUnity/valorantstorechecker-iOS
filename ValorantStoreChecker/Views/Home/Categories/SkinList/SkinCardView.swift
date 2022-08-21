@@ -100,7 +100,6 @@ struct SkinCardView: View {
                         // MARK: Price
                         if showPrice{
                             
-                            
                             if skin.contentTierUuid != nil {
                                 let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!)
                                 

@@ -321,7 +321,6 @@ struct WebService {
                 throw APIError.invalidCredentials
             }
             
-
             return storefrontResponse
             
         }catch{
@@ -332,6 +331,7 @@ struct WebService {
     
     // MARK: Bundles
     static func getBundle(uuid: String) async throws -> [String] {
+        
         guard let url = URL(string: Constants.URL.bundle + uuid) else{
             throw APIError.invalidURL
         }
@@ -350,15 +350,15 @@ struct WebService {
                 throw APIError.invalidResponseStatus
             }
             
-            guard let bundleResponse = try? JSONDecoder().decode(BundleData.self, from: data) else {
+            guard let bundleResponse = try? JSONDecoder().decode(BundleResponse.self, from: data) else {
                 throw APIError.invalidCredentials
             }
             
-            if let url = URL(string: bundleResponse.displayIcon) {
-                dataHelper(url: url, key: bundleResponse.uuid)
+            if let url = URL(string: bundleResponse.data.displayIcon) {
+                dataHelper(url: url, key: "bundleDisplayIcon")
             }
             
-            return [bundleResponse.displayName, bundleResponse.displayIcon]
+            return [bundleResponse.data.displayName, bundleResponse.data.displayIcon]
             
         }catch{
             throw APIError.dataTaskError(error.localizedDescription)

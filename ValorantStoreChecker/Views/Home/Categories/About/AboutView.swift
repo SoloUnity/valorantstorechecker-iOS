@@ -12,6 +12,8 @@ struct AboutView: View {
     @State var showSettings = false
     @State var expand = false
     
+    let defaults = UserDefaults.standard
+    
     var body: some View {
         
         GeometryReader{ geo in
@@ -42,9 +44,9 @@ struct AboutView: View {
                     
                     AccountView()
                     
-                    SupportView()
-                    
                     CommunityView()
+                    
+                    SupportView()
                     
                     HelpView(expand: $expand)
                     
@@ -70,7 +72,7 @@ struct AboutView: View {
         }
         .padding()
         .sheet(isPresented: $showSettings) {
-            SettingsView()
+            SettingsView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
                 .preferredColorScheme(.dark)
         }
         .animation(.spring(), value: expand)

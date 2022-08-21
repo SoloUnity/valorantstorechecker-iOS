@@ -155,11 +155,18 @@ struct ShopTopBarView: View {
         let calendar = Calendar(identifier: .gregorian)
         
         let components = calendar
-            .dateComponents([.hour, .minute, .second],
+            .dateComponents([.day, .hour, .minute, .second],
                             from: nowDate,
                             to: date)
         
-        if components.hour! > 0 || components.minute! > 0 || components.second! > 0 {
+        if components.day! > 0 && (components.hour! > 0 || components.minute! > 0 || components.second! > 0) {
+            return String(format: "%02d:%02d:%02d:%02d",
+                          components.day ?? 00,
+                          components.hour ?? 00,
+                          components.minute ?? 00,
+                          components.second ?? 00)
+        }
+        else if components.hour! > 0 || components.minute! > 0 || components.second! > 0 {
             return String(format: "%02d:%02d:%02d",
                           components.hour ?? 00,
                           components.minute ?? 00,

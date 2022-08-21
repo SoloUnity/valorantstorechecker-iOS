@@ -23,21 +23,23 @@ struct HomeView: View {
                 }
                 .tag(0)
             
+            BundleView()
+                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
+                .tabItem{
+                Image(systemName: "archivebox.fill")
+                Text("Bundle")
+                }
+                .tag(1)
+            
             SkinListView()
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem {
                     Image(systemName: "list.bullet")
                     Text(LocalizedStringKey("SkinIndex"))
                 }
-                .tag(1)
-            
-            SpecialView()
-                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                .tabItem{
-                Image(systemName: "heart.fill")
-                Text("Wish List")
-                }
                 .tag(2)
+            
+            
             
             /*
              WishListView()

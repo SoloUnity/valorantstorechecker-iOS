@@ -23,7 +23,7 @@ class SkinModel: ObservableObject{
     
     // I did not learn about async/await when I made this stop laughing at me
     
-    func getLocalData(){
+    func getLocalData() {
         
         // Local json file
         let jsonUrl = Bundle.main.url(forResource: "SkinData", withExtension: "json")

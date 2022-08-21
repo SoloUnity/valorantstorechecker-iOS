@@ -55,7 +55,7 @@ class AuthAPIModel: ObservableObject {
     // BundleInformation
     @Published var bundleImage : String = ""
     @Published var bundleName : String = ""
-    @Published var bundle : [ItemElement] = []
+    @Published var bundle : [Skin] = []
     
     init() {
         
@@ -82,6 +82,15 @@ class AuthAPIModel: ObservableObject {
         
         if let owned = defaults.array(forKey: "owned") as? [String] {
             self.owned = owned
+        }
+        
+        if let objects = defaults.value(forKey: "bundle") as? Data {
+            let decoder = JSONDecoder()
+            if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Skin] {
+                DispatchQueue.main.async{
+                    self.bundle = objectsDecoded
+                }
+            }
         }
     }
     
@@ -165,6 +174,7 @@ class AuthAPIModel: ObservableObject {
                 throw APIError.invalidCredentials
             }
             
+            
             var tempStore : [Skin] = []
             
             for skin in SkinModel().data{
@@ -225,7 +235,6 @@ class AuthAPIModel: ObservableObject {
             }
             
             self.owned = tempOwned
-            
             defaults.set(tempOwned, forKey: "owned")
             
             // Set the time left in shop
@@ -233,11 +242,13 @@ class AuthAPIModel: ObservableObject {
             defaults.set(referenceDate, forKey: "timeLeft")
             defaults.set(Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0), forKey: "secondsLeft")
             
+            guard let bundleUUID = storefrontResponse.FeaturedBundle?.bundle.dataAssetID else {
+                throw APIError.invalidCredentials
+            }
             
-            // Set bundle info
-            let bundleUUID = storefrontResponse.featuredBundle.bundle.dataAssetID
             
             let bundle = try await WebService.getBundle(uuid: bundleUUID)
+            print(bundle)
             let bundleDisplayName = bundle[0]
             let bundleDisplayIcon = bundle[1]
             
@@ -245,22 +256,36 @@ class AuthAPIModel: ObservableObject {
             self.bundleImage = bundleDisplayIcon
             
             defaults.set(bundleDisplayName, forKey: "bundleDisplayName")
-            defaults.set(bundleDisplayIcon, forKey: "bundleDisplayIcon")
             
             // Set time left for bundle
-            let bundleReferenceDate = Date() + Double(storefrontResponse.featuredBundle.bundleRemainingDurationInSeconds )
+            let bundleReferenceDate = Date() + Double(storefrontResponse.FeaturedBundle!.bundleRemainingDurationInSeconds )
             defaults.set(bundleReferenceDate, forKey: "bundleTimeLeft")
-            defaults.set(Double(storefrontResponse.featuredBundle.bundleRemainingDurationInSeconds ), forKey: "bundleSecondsLeft")
+            defaults.set(Double(storefrontResponse.FeaturedBundle!.bundleRemainingDurationInSeconds ), forKey: "bundleSecondsLeft")
             
             
             // Save the bundle skins
-            let items = storefrontResponse.featuredBundle.bundle.items
-            self.bundle = items
+            let items = storefrontResponse.FeaturedBundle!.bundle.items
             
-            let bundleEncoder = JSONEncoder()
-            if let encoded = try? bundleEncoder.encode(items){
-                defaults.set(encoded, forKey: "items")
+            var tempBundleItems : [Skin] = []
+            for skin in SkinModel().data{
+                
+                for item in items {
+                    if skin.levels!.first!.id.description.lowercased() == item.item.itemID {
+                        tempBundleItems.append(skin)
+                    }
+                }
             }
+            
+            self.bundle = tempBundleItems
+            
+            // Save the storefront
+            let bundleEncoder = JSONEncoder()
+            
+            if let encoded = try? storefrontEncoder.encode(tempBundleItems){
+                defaults.set(encoded, forKey: "bundle")
+            }
+            
+             
             
             self.isAuthenticating = false
 
