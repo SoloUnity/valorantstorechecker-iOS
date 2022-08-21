@@ -76,7 +76,8 @@ struct SettingsView: View {
                     VStack {
                         
                         HStack {
-                            Text("Language")
+                            
+                            Text(LocalizedStringKey("Language"))
                             
                             Spacer()
                             
@@ -87,13 +88,10 @@ struct SettingsView: View {
                                 
                             } label: {
                                                                 
-                                Text("Change Language")
-                                    .padding(7)
-                                    .background(.pink)
-                                    .cornerRadius(7)
-                                    .font(.footnote)
+                                Text(LocalizedStringKey("ChangeLanguage"))
+                                    .font(.callout)
+                                    .foregroundColor(.pink)
                                     
-                                
                             }
                         }
                     }
@@ -113,7 +111,7 @@ struct SettingsView: View {
                             }
                     }
                     
-                    Text("Open app settings")
+                    Text(LocalizedStringKey("LanguageDescription"))
                         .font(.caption2)
                         .opacity(0.5)
                         .padding(.horizontal, 5)
@@ -121,7 +119,7 @@ struct SettingsView: View {
                     // MARK: Notifications
                     VStack {
                         
-                        Toggle("Notify Store Refresh", isOn: $toggleNotification)
+                        Toggle(LocalizedStringKey("Notify"), isOn: $toggleNotification)
                             .tint(.pink)
                             .onChange(of: toggleNotification) { boolean in
                                 
@@ -131,11 +129,11 @@ struct SettingsView: View {
                                 
                                 if boolean {
                                     notify.sendNotification(date: referenceDate, title: "Store Checker for Valorant", body: "Store has just reset")
-                                    print("set notify")
+
                                 }
                                 else {
                                     notify.disableNotifications()
-                                    print("disable notify")
+
                                 }
                                 
                             }
@@ -157,7 +155,7 @@ struct SettingsView: View {
                     }
                     
                     
-                    Text("Notify on store refresh.")
+                    Text(LocalizedStringKey("NotifyDescription"))
                         .font(.caption2)
                         .opacity(0.5)
                         .padding(.horizontal, 5)

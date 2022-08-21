@@ -51,15 +51,16 @@ struct TipView: View {
                 
                 if expand {
                     
-                    tipButton(title: $title, expand: $expand, description: "Small Tip", price: 1, index: 0)
+                    tipButton(expand: $expand, index: 0)
                     
-                    tipButton(title: $title, expand: $expand, description: "Medium Tip", price: 5, index: 1)
+                    tipButton(expand: $expand, index: 1)
                     
-                    tipButton(title: $title, expand: $expand, description: "Big Tip", price: 10, index: 2)
+                    tipButton(expand: $expand, index: 2)
                     
-                    tipButton(title: $title, expand: $expand, description: "Epic Tip", price: 20, index: 3)
+                    tipButton(expand: $expand, index: 3)
                     
                 }
+                
             }
             .foregroundColor(.white)
             .padding(7)
@@ -81,10 +82,7 @@ struct TipView: View {
     struct tipButton : View {
         
         @EnvironmentObject var tipModel : TipModel
-        @Binding var title : LocalizedStringKey
         @Binding var expand : Bool
-        var description : String
-        var price : Int
         var index : Int
         
         
@@ -98,11 +96,12 @@ struct TipView: View {
                 
                 HStack {
                     
-                    Text(description)
+                    Text(tipModel.tips[index].displayName)
+                        .bold()
                     
                     Spacer()
                     
-                    Text(String(price) + "$")
+                    Text(tipModel.tips[index].displayPrice)
                 }
             }
         }

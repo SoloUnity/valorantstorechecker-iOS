@@ -27,7 +27,7 @@ struct HomeView: View {
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                 .tabItem{
                 Image(systemName: "archivebox.fill")
-                Text("Bundle")
+                Text(LocalizedStringKey("Bundle"))
                 }
                 .tag(1)
             

@@ -17,6 +17,41 @@ struct AcknowledgementsView: View {
                     .bold()
                     .font(.title3)
                 
+                HStack{
+                    Image("github")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .padding(.trailing)
+                    
+                    Button {
+                        if let url = URL(string: Constants.URL.lunac) {
+                            UIApplication.shared.open(url)
+                        }
+                    } label: {
+                        
+                        VStack(alignment: .leading) {
+                            HStack{
+                                Text("Lunac")
+                                    .bold()
+                                
+                                Image(systemName: "link")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 15, height: 15)
+                                    .padding(.trailing)
+                            }
+                            
+                            Text(LocalizedStringKey("ThankLunac"))
+                                .font(.footnote)
+                            
+                        }
+                        
+                        
+                        Spacer()
+                    }
+                    
+                }
                 
                 HStack{
                     Image("github")
@@ -58,41 +93,7 @@ struct AcknowledgementsView: View {
                     
                 }
                 
-                HStack{
-                    Image("github")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .padding(.trailing)
-                    
-                    Button {
-                        if let url = URL(string: Constants.URL.lunac) {
-                            UIApplication.shared.open(url)
-                        }
-                    } label: {
-                        
-                        VStack(alignment: .leading) {
-                            HStack{
-                                Text("Lunac")
-                                    .bold()
-                                
-                                Image(systemName: "link")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 15, height: 15)
-                                    .padding(.trailing)
-                            }
-                            
-                            Text(LocalizedStringKey("ThankLunac"))
-                                .font(.footnote)
-                            
-                        }
-                        
-                        
-                        Spacer()
-                    }
-                    
-                }
+                
                 
                 
                 

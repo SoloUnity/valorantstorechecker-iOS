@@ -278,14 +278,12 @@ class AuthAPIModel: ObservableObject {
             
             self.bundle = tempBundleItems
             
-            // Save the storefront
+            // Save the bundle
             let bundleEncoder = JSONEncoder()
             
-            if let encoded = try? storefrontEncoder.encode(tempBundleItems){
+            if let encoded = try? bundleEncoder.encode(tempBundleItems){
                 defaults.set(encoded, forKey: "bundle")
             }
-            
-             
             
             self.isAuthenticating = false
 
@@ -428,6 +426,7 @@ class AuthAPIModel: ObservableObject {
         defaults.removeObject(forKey: "storePrice")
         defaults.removeObject(forKey: "rememberPassword")
         defaults.removeObject(forKey: "autoReload")
+        defaults.removeObject(forKey: "notification")
         
         let _ = keychain.remove(forKey: "ssid")
         let _ = keychain.remove(forKey: "tdid")

@@ -21,6 +21,9 @@
 "CopyError" = "Copy Error";
 "Unknown" = "Unknown";
 
+"Reset" = "Reset";
+"ResetApp" = "Reset App";
+"ResetInfo" = "Occasionally due to some bugs, errors may arise. This button allows you to reset the app fully in the event of these errors.";
 
 // Login Screen
 "Login" = "Login to your Riot Account";
@@ -79,7 +82,7 @@
 
 // AboutView
 // About in HomeView
-"MadeWith" = "Made with SwiftUI";
+"MadeWith" = "Built with";
 
 // AccountView
 "Account" = "Account";
@@ -118,6 +121,12 @@
 "Settings" = "Settings";
 "RememberPassword" = "Remember Password";
 "RememberPasswordInfo" = "Your password is secured by Keychain. Signing out or disabling the toggle will automatically forget the password. Enabling this feature bypasses the API time limitations and allows for automatic sign in on the user's behalf.";
+"Notify" = "Store Reset Notification";
+"NotifyDescription" = "Receive a notification when the store resets.";
+"ChangeLanguage" = "Change Language";
+"Language" = "Language";
+"LanguageDescription" = "Opens advanced app settings.";
+
 
 // Skin Index Filter
 "All" = "All";
@@ -132,4 +141,7 @@
 "EmptySearch" = "Nothing matches your search";
 "NoOwned" = "Please reload the store, or buy some skins :)";
 
-// Tip view
+
+// Bundle
+"Bundle" = "Bundle";
+"EmptyBundle" = "Refresh to see the bundle";

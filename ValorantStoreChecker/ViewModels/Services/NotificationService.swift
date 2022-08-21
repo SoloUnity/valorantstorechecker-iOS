@@ -9,6 +9,7 @@
 
 import Foundation
 import UserNotifications
+import SwiftUI
 
 class NotificationService {
     func askPermission() {
@@ -25,8 +26,6 @@ class NotificationService {
     }
     
     func sendNotification(date: Date, title: String, body: String) {
-        
-        
         
         var trigger : UNNotificationTrigger?
         

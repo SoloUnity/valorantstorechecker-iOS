@@ -23,15 +23,16 @@ class TipModel: ObservableObject {
             do {
                 
                 let tips = try await Product.products(for: [
-                    "com.solounity.tip1",
-                    "com.solounity.tip5",
-                    "com.solounity.tip10",
-                    "com.solounity.tip20",
+                    "com.solounity.smallTip",
+                    "com.solounity.mediumTip",
+                    "com.solounity.bigTip",
+                    "com.solounity.epicTip",
                 ])
                 
                 DispatchQueue.main.async {
                     self.tips = tips
                 }
+                
                 
             }
             catch {
@@ -41,7 +42,7 @@ class TipModel: ObservableObject {
 
     }
     
-    func isPurchsed() {
+    func isPurchased() {
         
         guard let product = tips.first else {
             return
@@ -54,6 +55,7 @@ class TipModel: ObservableObject {
             
             switch state {
             case .verified(let transaction):
+                
                 print(transaction.productID)
             
             case .unverified(_ , _):
@@ -61,7 +63,6 @@ class TipModel: ObservableObject {
                 
             }
         }
-        
     }
     
     func purchase(index : Int) {

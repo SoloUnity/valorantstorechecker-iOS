@@ -5,7 +5,7 @@
   ],
   "products" : [
     {
-      "displayPrice" : "1",
+      "displayPrice" : "0.99",
       "familyShareable" : false,
       "internalID" : "FBD6D03E",
       "localizations" : [
@@ -15,12 +15,12 @@
           "locale" : "en_US"
         }
       ],
-      "productID" : "com.solounity.tip1",
-      "referenceName" : "Tip1",
+      "productID" : "com.solounity.smallTip",
+      "referenceName" : "smallTip",
       "type" : "Consumable"
     },
     {
-      "displayPrice" : "5",
+      "displayPrice" : "4.99",
       "familyShareable" : false,
       "internalID" : "22BEB671",
       "localizations" : [
@@ -30,12 +30,12 @@
           "locale" : "en_US"
         }
       ],
-      "productID" : "com.solounity.tip5",
-      "referenceName" : "Tip5",
+      "productID" : "com.solounity.mediumTip",
+      "referenceName" : "mediumTip",
       "type" : "Consumable"
     },
     {
-      "displayPrice" : "10",
+      "displayPrice" : "9.99",
       "familyShareable" : false,
       "internalID" : "A8D9EDAF",
       "localizations" : [
@@ -45,28 +45,23 @@
           "locale" : "en_US"
         }
       ],
-      "productID" : "com.solounity.tip10",
-      "referenceName" : "Tip10",
+      "productID" : "com.solounity.bigTip",
+      "referenceName" : "bigTip",
       "type" : "NonConsumable"
     },
     {
-      "displayPrice" : "20",
+      "displayPrice" : "19.99",
       "familyShareable" : false,
       "internalID" : "E5BE1D5C",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
-          "locale" : "en_US"
-        },
-        {
-          "description" : "Tip the developer 20$.",
+          "description" : "Tip the developer 20$",
           "displayName" : "Epic Tip",
-          "locale" : "ar"
+          "locale" : "en_US"
         }
       ],
-      "productID" : "com.solounity.tip20",
-      "referenceName" : "Tip20",
+      "productID" : "com.solounity.epicTip",
+      "referenceName" : "epicTip",
       "type" : "Consumable"
     }
   ],

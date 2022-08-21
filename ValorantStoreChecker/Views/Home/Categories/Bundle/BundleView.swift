@@ -22,7 +22,7 @@ struct BundleView: View {
                     Logo()
                         .frame(width: geo.size.width/6.5)
                     
-                    ScrollView {
+                    ScrollView(showsIndicators: false) {
                         
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                             Task{
@@ -40,7 +40,7 @@ struct BundleView: View {
                                     .frame(minWidth: 0, maxWidth: 100)
                                     .foregroundColor(.white)
                                 
-                                Text( LocalizedStringKey("EmptySearch"))
+                                Text( LocalizedStringKey("EmptyBundle"))
                             }
                             .padding(.top, (UIScreen.main.bounds.height / 4))
                             .opacity(0.5)
@@ -106,11 +106,15 @@ struct BundleView: View {
                         }
                     }
                     .coordinateSpace(name: "pullToRefresh")
+                    .onAppear{
+                        proxy.scrollTo("top", anchor: .top)
+                    }
                 }
             }
             .padding(10)
             
         }
+        
         
     }
 }

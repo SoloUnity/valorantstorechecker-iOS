@@ -55,14 +55,29 @@ struct AboutView: View {
                     CopyrightView()
                     
                     HStack {
+                        
+                        HStack {
+                            Text("Made in")
+                                .bold()
+                            
+                            Text("🇨🇦")
+                                .shadow(color: .white, radius: 5)
+                        }
+                        
+                        
                         Spacer()
                         
-                        Text(LocalizedStringKey("MadeWith"))
+                        HStack {
+                            Text(LocalizedStringKey("MadeWith"))
+                                .bold()
+                            
+                            Image("swiftui")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 25, height: 25)
+                                .shadow(color: .white, radius: 5)
+                        }
                         
-                        Image("swiftui")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 25, height: 25)
                     }
                     .padding()
                     

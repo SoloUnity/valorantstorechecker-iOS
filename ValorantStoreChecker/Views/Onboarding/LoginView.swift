@@ -73,28 +73,6 @@ struct LoginView: View {
                         HStack {
                             Text(LocalizedStringKey("InvalidCredentials"))
                                 .bold()
-                            Button {
-                                self.showAlert = true
-                            } label: {
-                                Image(systemName: "questionmark.circle")
-                            }
-                            
-                            .alert("Invalid login", isPresented: $showAlert, actions: {
-                                
-                                Button("Reset", role: nil, action: {
-                                    
-                                    authAPIModel.logOut()
-                                    
-                                    authAPIModel.reloading = false
-                                    authAPIModel.isReloadingError = false
-                                })
-                                
-                                Button(LocalizedStringKey("OK"), role: nil, action: {})
-                                
-                            }, message: {
-                                let info = LocalizedStringKey("Information")
-                                Text(info)
-                            })
                             
                         }
                         
@@ -137,8 +115,36 @@ struct LoginView: View {
                     
                     Spacer()
                     
+                    if authAPIModel.failedLogin {
+                        Button {
+                            self.showAlert = true
+                        } label: {
+                            Text(LocalizedStringKey("ResetApp"))
+                        }
+                        
+                        .alert("Invalid login", isPresented: $showAlert, actions: {
+                            
+                            Button(LocalizedStringKey("Reset"), role: nil, action: {
+                                
+                                authAPIModel.logOut()
+                                
+                                authAPIModel.reloading = false
+                                authAPIModel.isReloadingError = false
+                            })
+                            
+                            Button(LocalizedStringKey("OK"), role: nil, action: {})
+                            
+                        }, message: {
+                            let info = LocalizedStringKey("ResetInfo")
+                            Text(info)
+                        })
+                    }
+                    
                     // MARK: Log in button
                     if agreedToTerms && authAPIModel.regionCheck {
+                        
+                        
+                        
                         Button {
                             
                             // Dismiss keyboard
