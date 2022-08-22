@@ -103,7 +103,7 @@ class AuthAPIModel: ObservableObject {
             if self.rememberPassword || defaults.bool(forKey: "rememberPassword"){
                 self.username = keychain.value(forKey: "username") as? String ?? ""
                 self.password = keychain.value(forKey: "password") as? String ?? ""
-                print("Set username and password")
+                
             }
             else if keychain.value(forKey: "username") == nil { // Save username to keychain
                 let _ = keychain.save(self.username, forKey: "username")
@@ -147,7 +147,7 @@ class AuthAPIModel: ObservableObject {
                 self.failedLogin = true
                 defaults.removeObject(forKey: "authentication")
                 let _ = keychain.remove(forKey: "username")
-                print("Login")
+                
             }
             
             self.username = ""
@@ -231,7 +231,6 @@ class AuthAPIModel: ObservableObject {
                         
                     }
                 }
- 
             }
             
             self.owned = tempOwned
@@ -248,7 +247,6 @@ class AuthAPIModel: ObservableObject {
             
             
             let bundle = try await WebService.getBundle(uuid: bundleUUID)
-            print(bundle)
             let bundleDisplayName = bundle[0]
             let bundleDisplayIcon = bundle[1]
             
@@ -297,17 +295,8 @@ class AuthAPIModel: ObservableObject {
             if !self.rememberPassword || !defaults.bool(forKey: "rememberPassword") {
                 // Reset user defaults
                 self.isAuthenticating = false
-                self.failedLogin = true
                 self.password = ""
                 
-                defaults.removeObject(forKey: "authentication")
-                defaults.removeObject(forKey: "storefront")
-                defaults.removeObject(forKey: "storePrice")
-                
-                let _ = keychain.remove(forKey: "ssid")
-                let _ = keychain.remove(forKey: "tdid")
-                let _ = keychain.remove(forKey: "region")
-                let _ = keychain.remove(forKey: "username")
                 print("LoginHelper")
             }
             
@@ -346,14 +335,7 @@ class AuthAPIModel: ObservableObject {
                 self.password = ""
                 
                 self.isAuthenticating = false
-                self.failedLogin = true
                 
-                defaults.removeObject(forKey: "authentication")
-                defaults.removeObject(forKey: "storefront")
-                defaults.removeObject(forKey: "storePrice")
-                
-                let _ = keychain.remove(forKey: "ssid")
-                let _ = keychain.remove(forKey: "tdid")
                 print("Multifactor")
                 
             }
@@ -443,11 +425,3 @@ class AuthAPIModel: ObservableObject {
     
 }
 
-func scheduleAppRefresh() {
-    let request = BGAppRefreshTaskRequest(identifier: "StoreRetriever")
-    
-    let defaults = UserDefaults.standard
-    
-    request.earliestBeginDate = .now.addingTimeInterval(defaults.double(forKey: "secondsLeft") + (4 * 3600)) // set time for 4 hours after store will refresh
-    try? BGTaskScheduler.shared.submit(request)
-}

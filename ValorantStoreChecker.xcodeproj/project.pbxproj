@@ -232,9 +232,9 @@
 				8BE6111F28847B9100E8BDD6 /* Skin.swift */,
 				8BB00EC8288E4679001AE90A /* Store.swift */,
 				8B682C7F2890C176003A3B9C /* Authentication.swift */,
-				8B682C812890C2BE003A3B9C /* Error.swift */,
 				F8A7400128ABD96200717B23 /* Owned.swift */,
 				F87952A728AEA36D005145F6 /* Bundle.swift */,
+				8B682C812890C2BE003A3B9C /* Error.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

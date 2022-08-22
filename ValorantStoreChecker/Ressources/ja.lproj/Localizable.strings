@@ -19,6 +19,9 @@
 "CopyError" = "コピーエラー";
 "Unknown" = "不明";
 
+"Reset" = "リセット";
+"ResetApp" = "アプリをリセットする";
+"ResetInfo" = "まれにバグによりエラーが発生することがあります。このボタンにより、エラーが発生した場合、アプリを完全にリセットすることができます。";
 
 // ログイン画面
 "Login" = "Riotアカウントにログインする";
@@ -116,6 +119,11 @@
 "Settings" = "設定";
 "RememberPassword" = "パスワードの記憶";
 "RememberPasswordInfo" = "パスワードはKeychainによって保護されています。サインアウトまたはトグルを無効にすると、パスワードは自動的に忘れられます。この機能を有効にすると、APIの時間制限を回避し、ユーザーの代わりに自動サインインが可能になります。";
+"Notify" = "ストアリセット通知";
+"NotifyDescription" = "店舗がリセットされたときに通知を受け取る。";
+"ChangeLanguage" = "言語を変更する";
+"Language" = "言語";
+"LanguageDescription" = "アプリの詳細設定を開きます。";
 
 // Skin Index Filter
 "All" = "何れも";
@@ -129,3 +137,7 @@
 "Heavy" = "重機関銃";
 "EmptySearch" = "検索条件に一致するものがない";
 "NoOwned" = "ストアを再読み込みするか、スキンを購入してください :)";
+
+// Bundle
+"Bundle" = "バンドル";
+"EmptyBundle" = "バンドル表示を更新する";

@@ -87,7 +87,6 @@
 // AccountView
 "Account" = "Account";
 "SignOut" = "Sign Out";
-"Username" = "Username";
 "Region" = "Region";
 // Region Names in RegionSelectorView
 
@@ -103,7 +102,7 @@
 "DiscordServer" = "Discord Server";
 
 // HelpView
-"Help" = "Help Out the Developper!";
+"Help" = "Help Out the Developer!";
 "HelpMessage" = "Hi! I'm a sleep deprived university student just trying to make life a little bit better 😄. Please consider helping me out through any method below!";
 "Review" = "Leave a Review";
 "Sponsor" = "Tip Me";
@@ -140,7 +139,6 @@
 "Heavy" = "Heavy";
 "EmptySearch" = "Nothing matches your search";
 "NoOwned" = "Please reload the store, or buy some skins :)";
-
 
 // Bundle
 "Bundle" = "Bundle";

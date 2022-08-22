@@ -35,42 +35,45 @@ struct SettingsView: View {
                     
                     // MARK: Automatic Reloading
                     VStack {
+                        VStack {
+                            
+                            Toggle(LocalizedStringKey("AutomaticReload"), isOn: $toggleReload)
+                                .tint(.pink)
+                                .onChange(of: toggleReload) { boolean in
+                                    
+                                    authAPIModel.autoReload = boolean
+                                    
+                                    if boolean {
+                                        defaults.set(boolean, forKey: "autoReload")
+                                    }
+                                    else {
+                                        defaults.removeObject(forKey: "autoReload")
+                                    }
+                                    
+                                }
+                        }
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Blur(radius: 25, opaque: true))
+                        .cornerRadius(10)
+                        .overlay{
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.white, lineWidth: 3)
+                                .offset(y: -1)
+                                .offset(x: -1)
+                                .blendMode(.overlay)
+                                .blur(radius: 0)
+                                .mask {
+                                    RoundedRectangle(cornerRadius: 10)
+                                }
+                        }
                         
-                        Toggle(LocalizedStringKey("AutomaticReload"), isOn: $toggleReload)
-                            .tint(.pink)
-                            .onChange(of: toggleReload) { boolean in
-                                
-                                authAPIModel.autoReload = boolean
-                                
-                                if boolean {
-                                    defaults.set(boolean, forKey: "autoReload")
-                                }
-                                else {
-                                    defaults.removeObject(forKey: "autoReload")
-                                }
-                                
-                            }
-                    }
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Blur(radius: 25, opaque: true))
-                    .cornerRadius(10)
-                    .overlay{
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(.white, lineWidth: 3)
-                            .offset(y: -1)
-                            .offset(x: -1)
-                            .blendMode(.overlay)
-                            .blur(radius: 0)
-                            .mask {
-                                RoundedRectangle(cornerRadius: 10)
-                            }
+                        Text(LocalizedStringKey("AutomaticReloadInfo"))
+                            .font(.caption2)
+                            .opacity(0.5)
+                            .padding(.horizontal, 5)
                     }
                     
-                    Text(LocalizedStringKey("AutomaticReloadInfo"))
-                        .font(.caption2)
-                        .opacity(0.5)
-                        .padding(.horizontal, 5)
                     
                     // MARK: Language
                     VStack {
@@ -205,24 +208,32 @@ struct SettingsView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(lineWidth: 1)
                                         .opacity(0.5)
+                                    
+                                    HStack {
+                                        Spacer()
+                                        
+                                        Button {
+                                            self.unhide.toggle()
+                                        } label: {
+                                            if unhide {
+                                                Image(systemName: "eye")
+                                                    .padding(.trailing)
+                                                    .opacity(0.5)
+                                            }
+                                            else {
+                                                Image(systemName: "eye.slash")
+                                                    .padding(.trailing)
+                                                    .opacity(0.5)
+                                            }
+                                        }
+                                    }
                                         
                                 }
                                 .onChange(of: authAPIModel.password) { password in
                                     let _ = keychain.save(authAPIModel.password, forKey: "password")
                                 }
                                 
-                                Button {
-                                    self.unhide.toggle()
-                                } label: {
-                                    if unhide {
-                                        Image(systemName: "eye")
-                                        
-                                    }
-                                    else {
-                                        Image(systemName: "eye.slash")
-                                        
-                                    }
-                                }
+                                
 
                             }
                             .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)

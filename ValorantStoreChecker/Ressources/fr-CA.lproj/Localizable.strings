@@ -21,6 +21,9 @@
 1) Connexion réseau invalide.
 2) Mauvais mot de passe défini dans Réglages.";
 
+"Reset" = "Réinitialiser";
+"ResetApp" = "Réinitialisation de l'application";
+"ResetInfo" = "De temps en temps, en raison de certains bugs, des erreurs peuvent survenir. Ce bouton vous permet de réinitialiser complètement l'application en cas de ces erreurs.";
 
 // Login Screen
 "Login" = "Connectez-vous à votre compte Riot";
@@ -79,7 +82,7 @@
 
 // AboutView
 // About in HomeView
-"MadeWith" = "Fabriqué avec SwiftUI";
+"MadeWith" = "Fabriqué avec";
 
 // AccountView
 "Account" = "Compte";
@@ -118,6 +121,11 @@
 "Settings" = "Réglages";
 "RememberPassword" = "Retenir le mot de passe";
 "RememberPasswordInfo" = "Votre mot de passe est sécurisé par Keychain. Si vous vous déconnectez ou si vous désactivez le commutateur, le mot de passe sera automatiquement oublié. L'activation de cette fonction permet de contourner les limitations de tempds de l'API et de se connecter automatiquement au nom de l'utilisateur.";
+"Notify" = "Notification de réinitialisation du boutique";
+"NotifyDescription" = "Recevez une notification lorsque le magasin se réinitialise.";
+"ChangeLanguage" = "Changer de langue";
+"Language" = "Langue";
+"LanguageDescription" = "Ouvrez les paramètres avancés de l'application.";
 
 // Skin Index Filter
 "All" = "Tous";
@@ -131,3 +139,7 @@
 "Heavy" = "Mitrailleuse lourde";
 "EmptySearch" = "Rien ne correspond à votre recherche";
 "NoOwned" = "Veuillez recharger la boutique, ou acheter des skins :)";
+
+// Bundle
+"Bundle" = "Paquet";
+"EmptyBundle" = "Rafraîchir pour voir le paquet";

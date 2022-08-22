@@ -21,6 +21,9 @@
 "CopyError" = "Kopierfehler";
 "Unbekannt" = "Unbekannt";
 
+"Reset" = "Zurücksetzen";
+"ResetApp" = "App zurücksetzen";
+"ResetInfo" = "Gelegentlich können aufgrund von Fehlern Fehler auftreten. Mit dieser Schaltfläche können Sie die App im Falle eines solchen Fehlers vollständig zurücksetzen.";
 
 // Anmeldebildschirm
 "Login" = "Melden Sie sich bei Ihrem Riot-Konto an";
@@ -79,7 +82,7 @@
 
 // AboutView
 // Über in HomeView
-"MadeWith" = "Hergestellt mit SwiftUI";
+"MadeWith" = "Hergestellt mit";
 
 // AccountView
 "Account" = "Konto";
@@ -117,6 +120,11 @@
 "Settings" = "Einstellungen";
 "RememberPassword" = "Passwort merken";
 "RememberPasswordInfo" = "Ihr Passwort ist durch Keychain gesichert. Wenn Sie sich abmelden oder den Schalter deaktivieren, wird das Passwort automatisch vergessen. Die Aktivierung dieser Funktion umgeht die API-Zeitbeschränkungen und ermöglicht die automatische Anmeldung im Namen des Benutzers.";
+"Notify" = "Reset-Benachrichtigung speichern";
+"NotifyDescription" = "Sie erhalten eine Benachrichtigung, wenn das Geschäft zurückgesetzt wird.";
+"ChangeLanguage" = "Sprache ändern";
+"Language" = "Sprache";
+"LanguageDescription" = "Öffnet die erweiterten Einstellungen der App.";
 
 // Skin Index Filter
 "All" = "Alle";
@@ -130,3 +138,7 @@
 "Heavy" = "Schweres maschinengewehr";
 "EmptySearch" = "Keine Übereinstimmung mit Ihrer Suche";
 "NoOwned" = "Bitte laden Sie den Shop neu, oder kaufen Sie ein paar Skins :)";
+
+// Bundle
+"Bundle" = "Bündel";
+"EmptyBundle" = "Aktualisieren, um das Bündel zu sehen";

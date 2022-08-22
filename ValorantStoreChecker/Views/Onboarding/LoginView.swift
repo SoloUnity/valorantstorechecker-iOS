@@ -115,6 +115,7 @@ struct LoginView: View {
                     
                     Spacer()
                     
+                    // MARK: Reset button
                     if authAPIModel.failedLogin {
                         Button {
                             self.showAlert = true

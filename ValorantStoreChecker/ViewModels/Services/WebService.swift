@@ -22,9 +22,8 @@ struct WebService {
     // MARK: Cookies
     static func getCookies() async throws -> Void {
         guard let url = URL(string: Constants.URL.auth) else{
-            throw APIError.invalidURL
+            throw CookieError.invalidURL
         }
-        
         
         do{
             
@@ -45,13 +44,13 @@ struct WebService {
                 httpResponse.statusCode == 200
             else{
 
-                throw APIError.invalidResponseStatus
+                throw CookieError.invalidResponseStatus
             }
             
             
             
         }catch{
-            throw APIError.dataTaskError(error.localizedDescription)
+            throw CookieError.dataTaskError(error.localizedDescription)
         }
         
     }
@@ -59,7 +58,7 @@ struct WebService {
     // MARK: Token
     static func getToken(username: String, password: String) async throws -> [String] {
         guard let url = URL(string: Constants.URL.auth) else{
-            throw APIError.invalidURL
+            throw TokenError.invalidURL
         }
         
         do{
@@ -79,12 +78,12 @@ struct WebService {
                 let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200
             else{
-                throw APIError.invalidResponseStatus
+                throw TokenError.invalidResponseStatus
             }
             
             
             guard let authResponse = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
-                throw APIError.invalidCredentials
+                throw TokenError.invalidCredentials
             }
             
             // Determine if multifactor is required
@@ -124,7 +123,7 @@ struct WebService {
                 
                 
                 guard let uri = authResponse.response?.parameters?.uri else {
-                    throw APIError.invalidCredentials
+                    throw TokenError.badURI
                 }
                 
                 // Obtain uri and parse for the token
@@ -138,10 +137,8 @@ struct WebService {
                 return ["NO TOKEN"]
             }
             
-            
-            
         }catch{
-            throw APIError.dataTaskError(error.localizedDescription)
+            throw TokenError.dataTaskError(error.localizedDescription)
         }
     }
     
@@ -168,11 +165,11 @@ struct WebService {
                 let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200
             else{
-                throw APIError.invalidResponseStatus
+                throw MultifactorError.invalidResponseStatus
             }
             
             guard let multifactorResponse = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
-                throw APIError.invalidCredentials
+                throw MultifactorError.invalidCredentials
             }
             
             
@@ -203,9 +200,8 @@ struct WebService {
                 }
             }
             
-            
             guard let uri = multifactorResponse.response?.parameters?.uri else {
-                throw APIError.invalidCredentials
+                throw MultifactorError.badURI
             }
             
             
@@ -218,14 +214,14 @@ struct WebService {
             return "NO TOKEN"
             
         }catch{
-            throw APIError.dataTaskError(error.localizedDescription)
+            throw MultifactorError.dataTaskError(error.localizedDescription)
         }
     }
     
     // MARK: Entitlement
     static func getRiotEntitlement(token: String) async throws -> String {
         guard let url = URL(string: Constants.URL.entitlement) else{
-            throw APIError.invalidURL
+            throw EntitlementError.invalidURL
         }
         
         do{
@@ -241,28 +237,28 @@ struct WebService {
                 let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200
             else{
-                throw APIError.invalidResponseStatus
+                throw EntitlementError.invalidResponseStatus
             }
             
             guard let entitlementResponse = try? JSONDecoder().decode(Entitlement.self, from: data) else {
-                throw APIError.invalidCredentials
+                throw EntitlementError.invalidCredentials
             }
             
             guard let riotEntitlement = entitlementResponse.entitlements_token else {
-                throw APIError.invalidCredentials
+                throw EntitlementError.badDecode
             }
             
             return riotEntitlement
             
         }catch{
-            throw APIError.dataTaskError(error.localizedDescription)
+            throw EntitlementError.dataTaskError(error.localizedDescription)
         }
     }
     
     // MARK: Player Info
     static func getPlayerInfo(token:String) async throws -> String {
         guard let url = URL(string: Constants.URL.playerInfo) else{
-            throw APIError.invalidURL
+            throw PlayerError.invalidURL
         }
         
         do{
@@ -277,28 +273,28 @@ struct WebService {
                 let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200
             else{
-                throw APIError.invalidResponseStatus
+                throw PlayerError.invalidResponseStatus
             }
             
             guard let puuidResponse = try? JSONDecoder().decode(PUUID.self, from: data) else {
-                throw APIError.invalidCredentials
+                throw PlayerError.badDecode
             }
             
             guard let puuid = puuidResponse.sub else {
-                throw APIError.invalidCredentials
+                throw PlayerError.noData
             }
             
             return puuid
             
         }catch{
-            throw APIError.dataTaskError(error.localizedDescription)
+            throw PlayerError.dataTaskError(error.localizedDescription)
         }
     }
     
     // MARK: Storefront
     static func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String) async throws -> Storefront {
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v2/storefront/\(puuid)") else{
-            throw APIError.invalidURL
+            throw StorefrontError.invalidURL
         }
         
         do{
@@ -314,17 +310,17 @@ struct WebService {
                 let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200
             else{
-                throw APIError.invalidResponseStatus
+                throw StorefrontError.invalidResponseStatus
             }
             
             guard let storefrontResponse = try? JSONDecoder().decode(Storefront.self, from: data) else {
-                throw APIError.invalidCredentials
+                throw StorefrontError.badDecode
             }
             
             return storefrontResponse
             
         }catch{
-            throw APIError.dataTaskError(error.localizedDescription)
+            throw StorefrontError.dataTaskError(error.localizedDescription)
         }
     }
     
@@ -333,7 +329,7 @@ struct WebService {
     static func getBundle(uuid: String) async throws -> [String] {
         
         guard let url = URL(string: Constants.URL.bundle + uuid) else{
-            throw APIError.invalidURL
+            throw BundleError.invalidURL
         }
         
         do{
@@ -347,11 +343,11 @@ struct WebService {
                 let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200
             else{
-                throw APIError.invalidResponseStatus
+                throw BundleError.invalidResponseStatus
             }
             
             guard let bundleResponse = try? JSONDecoder().decode(BundleResponse.self, from: data) else {
-                throw APIError.invalidCredentials
+                throw BundleError.badDecode
             }
             
             if let url = URL(string: bundleResponse.data.displayIcon) {
@@ -361,81 +357,93 @@ struct WebService {
             return [bundleResponse.data.displayName, bundleResponse.data.displayIcon]
             
         }catch{
-            throw APIError.dataTaskError(error.localizedDescription)
+            throw BundleError.dataTaskError(error.localizedDescription)
         }
     }
     
     // MARK: Store Prices
     static func getStorePrices(token : String, riotEntitlement: String,region: String) async throws ->  [Offer] {
         
-        guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v1/offers/") else{
-            throw APIError.invalidURL
+        do {
+            guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v1/offers/") else{
+                throw PriceError.invalidURL
+            }
+            
+            // Create request
+            var storePriceRequest = URLRequest(url: url)
+            storePriceRequest.httpMethod = "GET"
+            storePriceRequest.addValue(riotEntitlement, forHTTPHeaderField: "X-Riot-Entitlements-JWT")
+            storePriceRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            
+            let (data , response) = try await WebService.session.data(for: storePriceRequest)
+            
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw PriceError.invalidResponseStatus
+            }
+            
+            guard let storePriceResponse = try? JSONDecoder().decode(StorePrice.self, from: data) else {
+                throw PriceError.badDecode
+            }
+            
+            guard let storePrice = storePriceResponse.offers else {
+                throw PriceError.noData
+            }
+            
+            return storePrice
+        }
+        catch {
+            throw PriceError.dataTaskError(error.localizedDescription)
         }
         
-        // Create request
-        var storePriceRequest = URLRequest(url: url)
-        storePriceRequest.httpMethod = "GET"
-        storePriceRequest.addValue(riotEntitlement, forHTTPHeaderField: "X-Riot-Entitlements-JWT")
-        storePriceRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        let (data , response) = try await WebService.session.data(for: storePriceRequest)
-        
-        guard
-            let httpResponse = response as? HTTPURLResponse,
-            httpResponse.statusCode == 200
-        else{
-            throw APIError.invalidResponseStatus
-        }
-        
-        guard let storePriceResponse = try? JSONDecoder().decode(StorePrice.self, from: data) else {
-            throw APIError.invalidCredentials
-        }
-        
-        guard let storePrice = storePriceResponse.offers else {
-            throw APIError.invalidCredentials
-        }
-        
-        return storePrice
     }
     
     // MARK: Wallet
     static func getWallet(token : String, riotEntitlement: String, puuid: String, region: String) async throws ->  [String] {
         
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v1/wallet/\(puuid)") else{
-            throw APIError.invalidURL
+            throw WalletError.invalidURL
         }
         
-        // Create request
-        var walletRequest = URLRequest(url: url)
-        walletRequest.httpMethod = "GET"
-        walletRequest.addValue(riotEntitlement, forHTTPHeaderField: "X-Riot-Entitlements-JWT")
-        walletRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        let (data , response) = try await WebService.session.data(for: walletRequest)
-        
-        guard
-            let httpResponse = response as? HTTPURLResponse,
-            httpResponse.statusCode == 200
-        else{
-            throw APIError.invalidResponseStatus
+        do {
+            // Create request
+            var walletRequest = URLRequest(url: url)
+            walletRequest.httpMethod = "GET"
+            walletRequest.addValue(riotEntitlement, forHTTPHeaderField: "X-Riot-Entitlements-JWT")
+            walletRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            
+            let (data , response) = try await WebService.session.data(for: walletRequest)
+            
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw WalletError.invalidResponseStatus
+            }
+            
+            guard let walletResponse = try? JSONDecoder().decode(Wallet.self, from: data) else {
+                throw WalletError.badDecode
+            }
+            
+            guard let vp = walletResponse.balances?.vp, let rp = walletResponse.balances?.rp else {
+                throw WalletError.noData
+            }
+            
+            return [String(vp), String(rp)]
         }
-        
-        guard let walletResponse = try? JSONDecoder().decode(Wallet.self, from: data) else {
-            throw APIError.invalidCredentials
+        catch {
+            throw WalletError.dataTaskError(error.localizedDescription)
         }
-        
-        guard let vp = walletResponse.balances?.vp, let rp = walletResponse.balances?.rp else {
-            throw APIError.invalidCredentials
-        }
-        
-        return [String(vp), String(rp)]
         
     }
     
     // MARK: Reauthentication / Reloading
     static func cookieReauth () async throws -> String {
+        
         guard let url = URL(string: Constants.URL.cookieReauth) else{
-            throw APIError.invalidURL
+            throw CookieAuthError.invalidURL
         }
         
         do{
@@ -452,21 +460,26 @@ struct WebService {
             // Get token
             let (_ , response) = try await WebService.session.data(for: cookieReauthRequest)
             
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw PriceError.invalidResponseStatus
+            }
             
             guard let urlString = response.url?.absoluteString else{
-                throw APIError.noData
+                throw CookieAuthError.noData
             }
             
             // Split uri and obtain access token
             let split = urlString.split(separator: "=")
             let token = String(split[1].split(separator: "&")[0])
             
-            print(token)
             print ("Reload Sucessful")
             return token
             
         }catch{
-            throw APIError.dataTaskError(error.localizedDescription)
+            throw CookieAuthError.dataTaskError(error.localizedDescription)
         }
     }
     
@@ -474,34 +487,39 @@ struct WebService {
     static func getOwned(token : String, riotEntitlement: String, puuid: String, region: String) async throws ->  [SkinEntitlement] {
         
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v1/entitlements/\(puuid)/e7c63390-eda7-46e0-bb7a-a6abdacd2433") else{
-            throw APIError.invalidURL
+            throw OwnedError.invalidURL
         }
         
-        // Create request
-        var ownedRequest = URLRequest(url: url)
-        ownedRequest.httpMethod = "GET"
-        ownedRequest.addValue(riotEntitlement, forHTTPHeaderField: "X-Riot-Entitlements-JWT")
-        ownedRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        let (data , response) = try await WebService.session.data(for: ownedRequest)
-        
-        guard
-            let httpResponse = response as? HTTPURLResponse,
-            httpResponse.statusCode == 200
-        else{
-            throw APIError.invalidResponseStatus
+        do {
+            // Create request
+            var ownedRequest = URLRequest(url: url)
+            ownedRequest.httpMethod = "GET"
+            ownedRequest.addValue(riotEntitlement, forHTTPHeaderField: "X-Riot-Entitlements-JWT")
+            ownedRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            
+            let (data , response) = try await WebService.session.data(for: ownedRequest)
+            
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw OwnedError.invalidResponseStatus
+            }
+            
+            guard let ownedResponse = try? JSONDecoder().decode(Owned.self, from: data) else {
+                throw OwnedError.badDecode
+            }
+            
+            guard let owned = ownedResponse.entitlements else {
+                throw OwnedError.noData
+            }
+            
+            return owned
+            
         }
-        
-        guard let ownedResponse = try? JSONDecoder().decode(Owned.self, from: data) else {
-            throw APIError.invalidCredentials
+        catch {
+            throw OwnedError.dataTaskError(error.localizedDescription)
         }
-        
-        guard let owned = ownedResponse.entitlements else {
-            throw APIError.invalidCredentials
-        }
-        
-        return owned
-        
     }
     
     
