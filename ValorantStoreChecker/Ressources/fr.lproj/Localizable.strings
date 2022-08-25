@@ -64,21 +64,21 @@
 "About" = "À propos";
 
 // ShopTobBarView
-"AutomaticReload" = "Recharge automatique";
-"AutomaticReloadInfo" = "Recharge automatiquement le boutique lorsqu'il est disponible.";
+"AutomaticReload" = "Rechargement automatique";
+"AutomaticReloadInfo" = "Rechargement automatique de la boutique lorsque possible.";
 "Reloading" = "Rechargement";
 "Reload" = "Recharger";
 
 // SkinCardDetailView
 "InfoPrice" = "Le prix de ce skin n'est malheureusement pas dans notre base de données.";
 "Cost" = "Coût";
-"ExclusiveSkinMessage" = "Ce skin s'agit soit d'une exclusivité Battlepass, soit d'une exclusivité de personnage, ou d'un skin en édition limitée.";
+"ExclusiveSkinMessage" = "Ce skin s'agit soit d'une exclusivité Battlepass, soit d'une exclusivité d'agent, ou d'un skin en édition limitée.";
 "Tier" = "Niveau";
 "Default" = "Défaut";
 "Variant" = "Variante";
 
 // SearchBar
-"Search" = "Recherche ...";
+"Search" = "Recherche...";
 
 // AboutView
 // About in HomeView
@@ -100,7 +100,7 @@
 // CommunityView
 "Community" = "Communauté";
 "Website" = "Site web";
-"DiscordServer" = "Server Discord";
+"DiscordServer" = "Serveur Discord";
 
 // HelpView
 "Help" = "Aidez le développeur!";
@@ -122,14 +122,14 @@
 "RememberPassword" = "Retenir le mot de passe";
 "RememberPasswordInfo" = "Votre mot de passe est sécurisé par Keychain. Si vous vous déconnectez ou si vous désactivez le commutateur, le mot de passe sera automatiquement oublié. L'activation de cette fonction permet de contourner les limitations de tempds de l'API et de se connecter automatiquement au nom de l'utilisateur.";
 "Notify" = "Notification de réinitialisation du boutique";
-"NotifyDescription" = "Recevez une notification lorsque le magasin se réinitialise.";
-"ChangeLanguage" = "Changer de langue";
+"NotifyDescription" = "Recevez une notification lorsque la boutique se réinitialise.";
+"ChangeLanguage" = "Changer la langue";
 "Language" = "Langue";
 "LanguageDescription" = "Ouvrez les paramètres avancés de l'application.";
 
 // Skin Index Filter
-"All" = "Tous";
-"Owned" = "Déjà acheté";
+"All" = "Tout";
+"Owned" = "Possédé";
 "Knife" = "Couteau";
 "Sidearm" = "Pistolet";
 "SMGs" = "Mitraillette";
@@ -141,5 +141,5 @@
 "NoOwned" = "Veuillez recharger la boutique, ou acheter des skins :)";
 
 // Bundle
-"Bundle" = "Paquet";
-"EmptyBundle" = "Rafraîchir pour voir le paquet";
+"Bundle" = "Pack";
+"EmptyBundle" = "Rafraîchir pour voir le pack;
