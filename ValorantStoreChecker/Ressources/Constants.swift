@@ -15,17 +15,21 @@ struct Constants{
     static var cardGrey = Color(red: 40/255, green: 40/255, blue: 40/255)
     
     struct URL {
-        // API Stuff
+        // ValStore API
         static var valStore = "https://s3.valorantstore.net/"
+        static var valStoreAPI = "https://api.valorantstore.net"
+        
+        // Valorant API
         static var valAPIMedia = "https://media.valorant-api.com/"
         static var valAPISkins = "https://valorant-api.com/v1/weapons/skins"
+        static var bundle = "https://valorant-api.com/v1/bundles/"
+        
+        // Authentication URLs
         static var auth = "https://auth.riotgames.com/api/v1/authorization"
         static var entitlement = "https://entitlements.auth.riotgames.com/api/token/v1"
         static var playerInfo = "https://auth.riotgames.com/userinfo"
         static var cookieReauth = "https://auth.riotgames.com/authorize?redirect_uri=https%3A%2F%2Fplayvalorant.com%2Fopt_in&client_id=play-valorant-web-prod&response_type=token%20id_token&nonce=1"
         
-        static var bundle = "https://valorant-api.com/v1/bundles/"
-
         // About page stuff
         static var supportTicket = "https://discord.com/channels/781946764168658984/983281981368467486"
         static var faq = "https://github.com/SoloUnity/Valorant-Store-Checker-App/blob/main/README.md#frequently-asked-questions"

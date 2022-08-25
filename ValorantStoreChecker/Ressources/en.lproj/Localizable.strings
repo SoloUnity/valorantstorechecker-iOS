@@ -20,6 +20,7 @@
 "DownloadingAssets" = "Downloading Assets (75mb)";
 "CopyError" = "Copy Error";
 "Unknown" = "Unknown";
+"ErrorMessage3" = "Your purchase could not be verified by the App Store.";
 
 "Reset" = "Reset";
 "ResetApp" = "Reset App";
@@ -143,3 +144,5 @@
 // Bundle
 "Bundle" = "Bundle";
 "EmptyBundle" = "Refresh to see the bundle";
+
+

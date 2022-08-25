@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HelpView: View {
     
+    @EnvironmentObject var tipModel : TipModel
     @Binding var expand : Bool
     
     var body: some View {
@@ -83,7 +84,7 @@ struct HelpView: View {
                         .padding(.trailing)
                     
                     
-                    TipView(expand: $expand)
+                    TipView(expand: $expand, tips: tipModel.tips)
                     
                     Spacer()
                     

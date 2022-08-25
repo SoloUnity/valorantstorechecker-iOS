@@ -20,6 +20,7 @@
 "DownloadingAssets" = "Herunterladen von Assets (75mb)";
 "CopyError" = "Kopierfehler";
 "Unbekannt" = "Unbekannt";
+"ErrorMessage3" = "Ihr Kauf konnte vom App Store nicht überprüft werden.";
 
 "Reset" = "Zurücksetzen";
 "ResetApp" = "App zurücksetzen";

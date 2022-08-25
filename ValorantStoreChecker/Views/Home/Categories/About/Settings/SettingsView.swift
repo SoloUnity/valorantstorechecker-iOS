@@ -25,7 +25,7 @@ struct SettingsView: View {
     
     var body: some View {
         
-
+        
         GeometryReader { geo in
             ScrollView {
                 VStack(alignment: .leading) {
@@ -35,44 +35,42 @@ struct SettingsView: View {
                     
                     // MARK: Automatic Reloading
                     VStack {
-                        VStack {
-                            
-                            Toggle(LocalizedStringKey("AutomaticReload"), isOn: $toggleReload)
-                                .tint(.pink)
-                                .onChange(of: toggleReload) { boolean in
-                                    
-                                    authAPIModel.autoReload = boolean
-                                    
-                                    if boolean {
-                                        defaults.set(boolean, forKey: "autoReload")
-                                    }
-                                    else {
-                                        defaults.removeObject(forKey: "autoReload")
-                                    }
-                                    
-                                }
-                        }
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Blur(radius: 25, opaque: true))
-                        .cornerRadius(10)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.white, lineWidth: 3)
-                                .offset(y: -1)
-                                .offset(x: -1)
-                                .blendMode(.overlay)
-                                .blur(radius: 0)
-                                .mask {
-                                    RoundedRectangle(cornerRadius: 10)
-                                }
-                        }
                         
-                        Text(LocalizedStringKey("AutomaticReloadInfo"))
-                            .font(.caption2)
-                            .opacity(0.5)
-                            .padding(.horizontal, 5)
+                        Toggle(LocalizedStringKey("AutomaticReload"), isOn: $toggleReload)
+                            .tint(.pink)
+                            .onChange(of: toggleReload) { boolean in
+                                
+                                authAPIModel.autoReload = boolean
+                                
+                                if boolean {
+                                    defaults.set(boolean, forKey: "autoReload")
+                                }
+                                else {
+                                    defaults.removeObject(forKey: "autoReload")
+                                }
+                                
+                            }
                     }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Blur(radius: 25, opaque: true))
+                    .cornerRadius(10)
+                    .overlay{
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.white, lineWidth: 3)
+                            .offset(y: -1)
+                            .offset(x: -1)
+                            .blendMode(.overlay)
+                            .blur(radius: 0)
+                            .mask {
+                                RoundedRectangle(cornerRadius: 10)
+                            }
+                    }
+                    
+                    Text(LocalizedStringKey("AutomaticReloadInfo"))
+                        .font(.caption2)
+                        .opacity(0.5)
+                        .padding(.horizontal, 5)
                     
                     
                     // MARK: Language
@@ -90,11 +88,11 @@ struct SettingsView: View {
                                 }
                                 
                             } label: {
-                                                                
+                                
                                 Text(LocalizedStringKey("ChangeLanguage"))
                                     .font(.callout)
                                     .foregroundColor(.pink)
-                                    
+                                
                             }
                         }
                     }
@@ -126,17 +124,23 @@ struct SettingsView: View {
                             .tint(.pink)
                             .onChange(of: toggleNotification) { boolean in
                                 
-                                defaults.set(boolean, forKey: "notification")
+                                
                                 
                                 notify.askPermission()
                                 
-                                if boolean {
+                                if let _ = defaults.data(forKey: "notification") {
+                                    
+                                }
+                                else {
                                     notify.sendNotification(date: referenceDate, title: "Store Checker for Valorant", body: "Store has just reset")
-
+                                }
+                                
+                                if boolean {
+                                    defaults.set(true, forKey: "notification")
                                 }
                                 else {
                                     notify.disableNotifications()
-
+                                    defaults.removeObject(forKey: "notification")
                                 }
                                 
                             }
@@ -227,21 +231,21 @@ struct SettingsView: View {
                                             }
                                         }
                                     }
-                                        
+                                    
                                 }
                                 .onChange(of: authAPIModel.password) { password in
                                     let _ = keychain.save(authAPIModel.password, forKey: "password")
                                 }
                                 
                                 
-
+                                
                             }
                             .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
                             
                             
                         }
                         
-                            
+                        
                         
                     }
                     .padding()

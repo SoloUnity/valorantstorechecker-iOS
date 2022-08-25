@@ -44,21 +44,7 @@ class Skin: Identifiable, Codable, ObservableObject{
                 dataHelper(url: url, key: self.levels!.first!.id.description)
                 
             }
-            else if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinlevels/\(levels!.first!.id.description.lowercased())/fullrender.png") {
-                
-                dataHelper(url: url, key: self.levels!.first!.id.description)
-                
-            }
-            else if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinlevels/\(levels!.first!.id.description.lowercased())/displayicon.png") {
-                
-                dataHelper(url: url, key: self.levels!.first!.id.description)
-                
-            }
-            else if let url = URL(string: "\(Constants.URL.valStore)weaponskinlevels/\(levels!.first!.id.description.lowercased()).png") {
-                
-                dataHelper(url: url, key: self.levels!.first!.id.description)
-                
-            }
+
         }
         
     }
@@ -72,20 +58,8 @@ class Skin: Identifiable, Codable, ObservableObject{
             } else {
                 if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinchromas/\(chroma.id.description.lowercased())/fullrender.png") {
                     
-                    
-                    dataHelper(url: url, key: chroma.id.description)
-                    
-                }
-                else if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinchromas/\(chroma.id.description.lowercased())/displayicon.png") {
-                    
-                    dataHelper(url: url, key: chroma.id.description)
-                    
-                }
-                else if let url = URL(string: "\(Constants.URL.valStore)weaponskinchromas/\(chroma.id.description.lowercased()).png") {
-                    
                     dataHelper(url: url, key: chroma.id.description)
                 }
-                
             }
         }
         

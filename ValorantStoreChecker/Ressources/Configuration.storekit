@@ -35,21 +35,6 @@
       "type" : "Consumable"
     },
     {
-      "displayPrice" : "9.99",
-      "familyShareable" : false,
-      "internalID" : "A8D9EDAF",
-      "localizations" : [
-        {
-          "description" : "Tip the developer 10$.",
-          "displayName" : "Big Tip",
-          "locale" : "en_US"
-        }
-      ],
-      "productID" : "com.solounity.bigTip",
-      "referenceName" : "bigTip",
-      "type" : "NonConsumable"
-    },
-    {
       "displayPrice" : "19.99",
       "familyShareable" : false,
       "internalID" : "E5BE1D5C",
@@ -62,6 +47,21 @@
       ],
       "productID" : "com.solounity.epicTip",
       "referenceName" : "epicTip",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "1BDB7DE3",
+      "localizations" : [
+        {
+          "description" : "Tip the developer 10$",
+          "displayName" : "Big Tip",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.solounity.bigTip",
+      "referenceName" : "bigTip",
       "type" : "Consumable"
     }
   ],

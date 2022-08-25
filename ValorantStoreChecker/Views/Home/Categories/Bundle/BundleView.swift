@@ -63,39 +63,42 @@ struct BundleView: View {
                                     
                                 }
                                 
-                                Button {
-                                    // Scroll to top
-                                    withAnimation { proxy.scrollTo("top", anchor: .top) }
-                                    
-                                } label: {
-                                    
-                                    HStack{
+                                if authAPIModel.bundle.count > 3 {
+                                    Button {
+                                        // Scroll to top
+                                        withAnimation { proxy.scrollTo("top", anchor: .top) }
                                         
-                                        Spacer()
+                                    } label: {
                                         
-                                        Image(systemName: "arrow.up")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .padding(15)
-                                            .foregroundColor(.white)
-                                        
-                                        Spacer()
-                                    }
-                                    .frame(maxHeight: 50)
-                                    .background(Blur(radius: 25, opaque: true))
-                                    .cornerRadius(10)
-                                    .overlay{
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.white, lineWidth: 3)
-                                            .offset(y: -1)
-                                            .offset(x: -1)
-                                            .blendMode(.overlay)
-                                            .blur(radius: 0)
-                                            .mask {
-                                                RoundedRectangle(cornerRadius: 10)
-                                            }
+                                        HStack{
+                                            
+                                            Spacer()
+                                            
+                                            Image(systemName: "arrow.up")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(15)
+                                                .foregroundColor(.white)
+                                            
+                                            Spacer()
+                                        }
+                                        .frame(maxHeight: 50)
+                                        .background(Blur(radius: 25, opaque: true))
+                                        .cornerRadius(10)
+                                        .overlay{
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.white, lineWidth: 3)
+                                                .offset(y: -1)
+                                                .offset(x: -1)
+                                                .blendMode(.overlay)
+                                                .blur(radius: 0)
+                                                .mask {
+                                                    RoundedRectangle(cornerRadius: 10)
+                                                }
+                                        }
                                     }
                                 }
+                                
                                 
                                 
                             }

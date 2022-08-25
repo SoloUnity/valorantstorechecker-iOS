@@ -75,10 +75,12 @@ class SkinModel: ObservableObject{
             }
             
             guard let httpResponse = response as? HTTPURLResponse else {
+                
                 return
             }
             
             guard httpResponse.statusCode == 200 else {
+                print("404")
                 return
             }
             

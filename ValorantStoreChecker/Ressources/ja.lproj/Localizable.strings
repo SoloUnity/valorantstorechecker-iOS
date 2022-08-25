@@ -18,6 +18,7 @@
 "DownloadingAssets" = "アセットをダウンロード中（75mb）";
 "CopyError" = "コピーエラー";
 "Unknown" = "不明";
+"ErrorMessage3" = "お客様の購入履歴はApp Storeで確認することができませんでした。";
 
 "Reset" = "リセット";
 "ResetApp" = "アプリをリセットする";

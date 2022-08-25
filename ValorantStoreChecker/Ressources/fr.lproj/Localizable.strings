@@ -20,6 +20,7 @@
 "ErrorMessage2" = "Cas d'erreurs de rechargement
 1) Connexion réseau invalide.
 2) Mauvais mot de passe défini dans Réglages.";
+"ErrorMessage3" = "Votre achat n'a pas pu être vérifié par l'App Store.";
 
 "Reset" = "Réinitialiser";
 "ResetApp" = "Réinitialisation de l'application";
@@ -142,4 +143,4 @@
 
 // Bundle
 "Bundle" = "Pack";
-"EmptyBundle" = "Rafraîchir pour voir le pack;
+"EmptyBundle" = "Rafraîchir pour voir le pack";

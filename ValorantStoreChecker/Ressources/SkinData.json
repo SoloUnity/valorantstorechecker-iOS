@@ -554,7 +554,7 @@
     },
     {
       "uuid": "8dda01a6-4237-f430-ac70-c3ba677963e9",
-      "displayName": "Reaver, EP 5 Odin",
+      "displayName": "Reaver Odin",
       "themeUuid": "42110a3e-4363-50cc-5a1f-e4bc80f97916",
       "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
       "displayIcon": "https://media.valorant-api.com/weaponskins/8dda01a6-4237-f430-ac70-c3ba677963e9/displayicon.png",
@@ -563,7 +563,7 @@
       "chromas": [
         {
           "uuid": "cf42ad75-43db-5426-0645-a7a3fac452c5",
-          "displayName": "Reaver, EP 5 Odin",
+          "displayName": "Reaver Odin",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/cf42ad75-43db-5426-0645-a7a3fac452c5/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/cf42ad75-43db-5426-0645-a7a3fac452c5/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/cf42ad75-43db-5426-0645-a7a3fac452c5/swatch.png",
@@ -572,7 +572,7 @@
         },
         {
           "uuid": "0c643904-4cbc-8806-3198-eb86c22472bf",
-          "displayName": "Reaver, EP 5 Odin Level 4\r\n(Variant 1 Red)",
+          "displayName": "Reaver Odin Level 4\r\n(Variant 1 Red)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/0c643904-4cbc-8806-3198-eb86c22472bf/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/0c643904-4cbc-8806-3198-eb86c22472bf/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/0c643904-4cbc-8806-3198-eb86c22472bf/swatch.png",
@@ -581,7 +581,7 @@
         },
         {
           "uuid": "c8a7b6ae-4aaa-ba5b-9fad-0da1c8b25f9e",
-          "displayName": "Reaver, EP 5 Odin Level 4\r\n(Variant 2 Black)",
+          "displayName": "Reaver Odin Level 4\r\n(Variant 2 Black)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/c8a7b6ae-4aaa-ba5b-9fad-0da1c8b25f9e/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/c8a7b6ae-4aaa-ba5b-9fad-0da1c8b25f9e/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/c8a7b6ae-4aaa-ba5b-9fad-0da1c8b25f9e/swatch.png",
@@ -590,7 +590,7 @@
         },
         {
           "uuid": "2f6c84b9-40dd-4c58-8f29-a6af6a31a09f",
-          "displayName": "Reaver, EP 5 Odin Level 4\r\n(Variant 3 White)",
+          "displayName": "Reaver Odin Level 4\r\n(Variant 3 White)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/2f6c84b9-40dd-4c58-8f29-a6af6a31a09f/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/2f6c84b9-40dd-4c58-8f29-a6af6a31a09f/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/2f6c84b9-40dd-4c58-8f29-a6af6a31a09f/swatch.png",
@@ -601,7 +601,7 @@
       "levels": [
         {
           "uuid": "f5ce6297-4cd4-4b09-3931-5f8b20a4317d",
-          "displayName": "Reaver, EP 5 Odin",
+          "displayName": "Reaver Odin",
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/f5ce6297-4cd4-4b09-3931-5f8b20a4317d/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Odin_01.mp4",
@@ -609,7 +609,7 @@
         },
         {
           "uuid": "2bb3b930-48d4-c32a-2972-6ba60f1e3d96",
-          "displayName": "Reaver, EP 5 Odin Level 2",
+          "displayName": "Reaver Odin Level 2",
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Odin_02.mp4",
@@ -617,7 +617,7 @@
         },
         {
           "uuid": "2a4c3d8a-44ec-0097-5afc-1bb1044605b4",
-          "displayName": "Reaver, EP 5 Odin Level 3",
+          "displayName": "Reaver Odin Level 3",
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Odin_03.mp4",
@@ -625,7 +625,7 @@
         },
         {
           "uuid": "606a2388-440f-7858-e5e3-5a94d7aeb64f",
-          "displayName": "Reaver, EP 5 Odin Level 4",
+          "displayName": "Reaver Odin Level 4",
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Odin_04.mp4",
@@ -1548,6 +1548,36 @@
       ]
     },
     {
+      "uuid": "165116bf-497a-3ffa-38dc-c58d4475e225",
+      "displayName": "Premiere Collision Ares",
+      "themeUuid": "ec019908-4bdb-5e0e-982e-9da14516c167",
+      "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/165116bf-497a-3ffa-38dc-c58d4475e225/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/LMG/Radianite/LMG_Radianite_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "94a90423-43d7-16c5-9017-2fbe89d1b602",
+          "displayName": "Premiere Collision Ares",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/94a90423-43d7-16c5-9017-2fbe89d1b602/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/94a90423-43d7-16c5-9017-2fbe89d1b602/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/LMG/Radianite/Chromas/Standard/LMG_Radianite_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "7090c9c1-454e-6f83-1b4d-7b961b55cf01",
+          "displayName": "Premiere Collision Ares",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/7090c9c1-454e-6f83-1b4d-7b961b55cf01/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/LMG/Radianite/Levels/LMG_Radianite_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "2666f98d-4f88-8cb9-4927-629d75a6a7ad",
       "displayName": "Sakura Ares",
       "themeUuid": "3807f2f2-40c3-0fce-49cc-708961b60c75",
@@ -1745,6 +1775,63 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/0f5f60f4-4c94-e4b2-ceab-e2b4e8b41784/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/LMG/Standard/LightMachineGun_Standard_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "d980c0c8-492b-b8df-2d91-af99a7707170",
+      "displayName": "Immortalized Vandal",
+      "themeUuid": "2aebbb13-48a0-2c71-04c3-45a58f53f3e5",
+      "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/d980c0c8-492b-b8df-2d91-af99a7707170/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/AbstractHeroes/AK_AbstractHeroes_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "64c51524-43da-875e-ff0d-db97f3e6194e",
+          "displayName": "Immortalized Vandal",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/64c51524-43da-875e-ff0d-db97f3e6194e/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/64c51524-43da-875e-ff0d-db97f3e6194e/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/AbstractHeroes/Chromas/Standard/AK_AbstractHeroes_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "9928d119-4f2b-0412-fcc0-389c367d1989",
+          "displayName": "Immortalized Vandal\n(Variant 1 Orange)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/9928d119-4f2b-0412-fcc0-389c367d1989/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/9928d119-4f2b-0412-fcc0-389c367d1989/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/AbstractHeroes/Chromas/v1/AK_AbstractHeroes_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "c6adc25d-4747-abca-1d1e-5e8973af0c68",
+          "displayName": "Immortalized Vandal\n(Variant 2 Blue)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/c6adc25d-4747-abca-1d1e-5e8973af0c68/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/c6adc25d-4747-abca-1d1e-5e8973af0c68/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/AbstractHeroes/Chromas/v2/AK_AbstractHeroes_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "220f305f-4e8a-2505-388f-e5a805cd34a7",
+          "displayName": "Immortalized Vandal\n(Variant 3 Green)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/220f305f-4e8a-2505-388f-e5a805cd34a7/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/220f305f-4e8a-2505-388f-e5a805cd34a7/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/AbstractHeroes/Chromas/v3/AK_AbstractHeroes_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "1e84a5bd-4350-c804-d6cc-79a2d98e6344",
+          "displayName": "Immortalized Vandal",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/1e84a5bd-4350-c804-d6cc-79a2d98e6344/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/AbstractHeroes/Levels/AK_AbstractHeroes_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -4343,6 +4430,36 @@
       ]
     },
     {
+      "uuid": "fbf8ca06-41c9-6293-24cc-b6b292db5cf7",
+      "displayName": "Premiere Collision Bulldog",
+      "themeUuid": "ec019908-4bdb-5e0e-982e-9da14516c167",
+      "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/fbf8ca06-41c9-6293-24cc-b6b292db5cf7/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Burst/Radianite/Burst_Radianite_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "69906458-4876-9061-0980-20a0dc06a52e",
+          "displayName": "Premiere Collision Bulldog",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/69906458-4876-9061-0980-20a0dc06a52e/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/69906458-4876-9061-0980-20a0dc06a52e/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Burst/Radianite/Chromas/Standard/Burst_Radianite_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "94eda9e6-47cf-a0dc-a1f9-03a41f50e5d3",
+          "displayName": "Premiere Collision Bulldog",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/94eda9e6-47cf-a0dc-a1f9-03a41f50e5d3/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Burst/Radianite/Levels/Burst_Radianite_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "decd0962-453a-1551-47e1-1287aafb5a27",
       "displayName": "Infinity Bulldog",
       "themeUuid": "6fd2d0f4-44ca-c131-5049-5ba91a0e8303",
@@ -4788,6 +4905,90 @@
       ]
     },
     {
+      "uuid": "d556b1c2-46fa-fca4-0516-5c887fd2352a",
+      "displayName": "Piedra del Sol Phantom",
+      "themeUuid": "b13d0176-4834-e039-964d-c293a1230d4e",
+      "contentTierUuid": "0cebb8be-46d7-c12a-d306-e9907bfc5a25",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/d556b1c2-46fa-fca4-0516-5c887fd2352a/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Aztec/Carbine_Aztec_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "91cba992-415a-2aa2-d0f4-4080c360d0b4",
+          "displayName": "Piedra del Sol Phantom",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/91cba992-415a-2aa2-d0f4-4080c360d0b4/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/91cba992-415a-2aa2-d0f4-4080c360d0b4/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Aztec/Chromas/Standard/Carbine_Aztec_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "bebefdf3-43cb-fc4c-cd0a-52a9dd9b035f",
+          "displayName": "Piedra del Sol Phantom",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/bebefdf3-43cb-fc4c-cd0a-52a9dd9b035f/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Aztec/Levels/Carbine_Aztec_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "8c72ae0b-4357-1a75-ad62-fbaec7b64f92",
+      "displayName": "Champions 2022 Phantom",
+      "themeUuid": "362829cc-4fe4-fcda-98e7-0dbdb4b3bea5",
+      "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/8c72ae0b-4357-1a75-ad62-fbaec7b64f92/displayicon.png",
+      "wallpaper": "https://media.valorant-api.com/weaponskins/8c72ae0b-4357-1a75-ad62-fbaec7b64f92/wallpaper.png",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Champions2/Carbine_Champions2_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "0d81cec6-46a2-300f-c3c6-7aa67c2b8547",
+          "displayName": "Champions 2022 Phantom",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/0d81cec6-46a2-300f-c3c6-7aa67c2b8547/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/0d81cec6-46a2-300f-c3c6-7aa67c2b8547/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Champions2/Chromas/Standard/Carbine_Champions2_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "524b0c42-47da-e7ca-dc04-85ba285b2e71",
+          "displayName": "Champions 2022 Phantom",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/524b0c42-47da-e7ca-dc04-85ba285b2e71/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Carbine%201_IA.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Champions2/Levels/Carbine_Champions2_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "3e511130-4d87-06dc-d6b3-45909bcba884",
+          "displayName": "Champions 2022 Phantom Level 2",
+          "levelItem": "EEquippableSkinLevelItem::InspectAndKill",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Carbine%202_IA.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Champions2/Levels/Carbine_Champions2_Lv2_PrimaryAsset"
+        },
+        {
+          "uuid": "6ce75c5a-4bf8-bdf3-2c13-1a97866c2d9a",
+          "displayName": "Champions 2022 Phantom Level 3",
+          "levelItem": "EEquippableSkinLevelItem::Finisher",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Carbine%203_IA.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Champions2/Levels/Carbine_Champions2_Lv3_PrimaryAsset"
+        },
+        {
+          "uuid": "2e15c392-4f9a-e7cc-97ba-ae8fa37dfa14",
+          "displayName": "Champions 2022 Phantom Level 4 - Aura is active only when player has the most kills in the game",
+          "levelItem": "EEquippableSkinLevelItem::TopFrag",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Carbine%204_IA.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Champions2/Levels/Carbine_Champions2_Lv4_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "2371d9e1-498c-1ad1-4f10-d1a339c7fda2",
       "displayName": "Radiant Crisis 001 Phantom",
       "themeUuid": "705a3763-461e-035f-6799-1c92fc1c39c6",
@@ -5196,7 +5397,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/c4e149cd-49a7-acf1-5a31-708e5c89a8c3/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/c4e149cd-49a7-acf1-5a31-708e5c89a8c3/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Fiberglass/Chromas/v1/Carbine_Fiberglass_v1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Fiberglass/Chromas/V1/Carbine_Fiberglass_v1_PrimaryAsset"
         },
         {
           "uuid": "d586b6e5-4974-1d23-d507-3792b26fb043",
@@ -6204,7 +6405,7 @@
     },
     {
       "uuid": "044b28ba-4c3b-d315-140d-d9a249da5567",
-      "displayName": "Reaver, EP 5 Phantom",
+      "displayName": "Reaver Phantom",
       "themeUuid": "42110a3e-4363-50cc-5a1f-e4bc80f97916",
       "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
       "displayIcon": "https://media.valorant-api.com/weaponskins/044b28ba-4c3b-d315-140d-d9a249da5567/displayicon.png",
@@ -6213,7 +6414,7 @@
       "chromas": [
         {
           "uuid": "444ee547-4a4a-8202-685f-50b15113a77f",
-          "displayName": "Reaver, EP 5 Phantom",
+          "displayName": "Reaver Phantom",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/444ee547-4a4a-8202-685f-50b15113a77f/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/444ee547-4a4a-8202-685f-50b15113a77f/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/444ee547-4a4a-8202-685f-50b15113a77f/swatch.png",
@@ -6222,7 +6423,7 @@
         },
         {
           "uuid": "d3d5ab8a-4785-da17-acf9-f6a0cc0e6467",
-          "displayName": "Reaver, EP 5 Phantom Level 4\r\n(Variant 1 Red)",
+          "displayName": "Reaver Phantom Level 4\r\n(Variant 1 Red)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/d3d5ab8a-4785-da17-acf9-f6a0cc0e6467/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/d3d5ab8a-4785-da17-acf9-f6a0cc0e6467/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/d3d5ab8a-4785-da17-acf9-f6a0cc0e6467/swatch.png",
@@ -6231,7 +6432,7 @@
         },
         {
           "uuid": "0e3787c9-47df-1fe3-8643-f3837674c8ed",
-          "displayName": "Reaver, EP 5 Phantom Level 4\r\n(Variant 2 Black)",
+          "displayName": "Reaver Phantom Level 4\r\n(Variant 2 Black)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/0e3787c9-47df-1fe3-8643-f3837674c8ed/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/0e3787c9-47df-1fe3-8643-f3837674c8ed/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/0e3787c9-47df-1fe3-8643-f3837674c8ed/swatch.png",
@@ -6240,7 +6441,7 @@
         },
         {
           "uuid": "1708505a-4d55-73d3-8e85-b1ac190fe89c",
-          "displayName": "Reaver, EP 5 Phantom Level 4\r\n(Variant 3 White)",
+          "displayName": "Reaver Phantom Level 4\r\n(Variant 3 White)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/1708505a-4d55-73d3-8e85-b1ac190fe89c/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/1708505a-4d55-73d3-8e85-b1ac190fe89c/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/1708505a-4d55-73d3-8e85-b1ac190fe89c/swatch.png",
@@ -6251,7 +6452,7 @@
       "levels": [
         {
           "uuid": "4c18d802-409d-ec20-f630-d3abfcaa37c7",
-          "displayName": "Reaver, EP 5 Phantom",
+          "displayName": "Reaver Phantom",
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/4c18d802-409d-ec20-f630-d3abfcaa37c7/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Phantom_01.mp4",
@@ -6259,7 +6460,7 @@
         },
         {
           "uuid": "8f9e6d07-40aa-7ae0-eedf-d391fcf9a00e",
-          "displayName": "Reaver, EP 5 Phantom Level 2",
+          "displayName": "Reaver Phantom Level 2",
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Phantom_02.mp4",
@@ -6267,7 +6468,7 @@
         },
         {
           "uuid": "a32255f0-4c5a-e518-b83e-3585564e4abb",
-          "displayName": "Reaver, EP 5 Phantom Level 3",
+          "displayName": "Reaver Phantom Level 3",
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Phantom_03.mp4",
@@ -6275,7 +6476,7 @@
         },
         {
           "uuid": "0e321f27-4803-1df8-7414-78b96f1afe7e",
-          "displayName": "Reaver, EP 5 Phantom Level 4",
+          "displayName": "Reaver Phantom Level 4",
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Phantom_04.mp4",
@@ -6589,6 +6790,36 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/63a65008-4266-1117-fe3d-d1bf290b7da9/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Winter/Levels/Carbine_Winter_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "d7717613-4ef6-b314-6a95-9e8a1ee603bf",
+      "displayName": "Piedra del Sol Judge",
+      "themeUuid": "b13d0176-4834-e039-964d-c293a1230d4e",
+      "contentTierUuid": "0cebb8be-46d7-c12a-d306-e9907bfc5a25",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/d7717613-4ef6-b314-6a95-9e8a1ee603bf/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Aztec/AutoShotgun_Aztec_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "22df7eec-4f4e-cea4-8b10-8ba645035b7a",
+          "displayName": "Piedra del Sol Judge",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/22df7eec-4f4e-cea4-8b10-8ba645035b7a/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/22df7eec-4f4e-cea4-8b10-8ba645035b7a/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Aztec/Chromas/Standard/AutoShotgun_Aztec_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "d73d6605-40b3-6a79-ad77-adbfc2e20742",
+          "displayName": "Piedra del Sol Judge",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/d73d6605-40b3-6a79-ad77-adbfc2e20742/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Aztec/Levels/AutoShotgun_Aztec_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -7557,6 +7788,36 @@
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/v2_VALskinpreview_Alien_Bucky_02.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/PumpShotgun/Alien/Levels/PumpShotgun_Alien_Lv2_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "001e4ce2-4b30-8203-365a-828e2e3a5826",
+      "displayName": "Piedra del Sol Bucky",
+      "themeUuid": "b13d0176-4834-e039-964d-c293a1230d4e",
+      "contentTierUuid": "0cebb8be-46d7-c12a-d306-e9907bfc5a25",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/001e4ce2-4b30-8203-365a-828e2e3a5826/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/PumpShotgun/Aztec/PumpShotgun_Aztec_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "a3722498-4a7d-5e61-d4d4-07b9e242b424",
+          "displayName": "Piedra del Sol Bucky",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/a3722498-4a7d-5e61-d4d4-07b9e242b424/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/a3722498-4a7d-5e61-d4d4-07b9e242b424/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/PumpShotgun/Aztec/Chromas/Standard/PumpShotgun_Aztec_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "154dea46-45a7-828d-5e0a-b9b3e4f7d7e3",
+          "displayName": "Piedra del Sol Bucky",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/154dea46-45a7-828d-5e0a-b9b3e4f7d7e3/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/PumpShotgun/Aztec/Levels/PumpShotgun_Aztec_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -10958,6 +11219,36 @@
       ]
     },
     {
+      "uuid": "c4c0edc9-4ce3-3945-81f5-1bb80aeb22fe",
+      "displayName": "Premiere Collision Classic",
+      "themeUuid": "ec019908-4bdb-5e0e-982e-9da14516c167",
+      "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/c4c0edc9-4ce3-3945-81f5-1bb80aeb22fe/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Radianite/BasePistol_Radianite_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "23da120e-408d-2234-4cac-58bcf1557752",
+          "displayName": "Premiere Collision Classic",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/23da120e-408d-2234-4cac-58bcf1557752/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/23da120e-408d-2234-4cac-58bcf1557752/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Radianite/Chromas/Standard/BasePistol_Radianite_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "8bd8c44c-4c30-947a-5531-a0b823d574ea",
+          "displayName": "Premiere Collision Classic",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/8bd8c44c-4c30-947a-5531-a0b823d574ea/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Radianite/Levels/BasePistol_Radianite_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "81ddbfcd-4081-8341-ff76-ad8cdb26ce4c",
       "displayName": "Gravitational Uranium Neuroblaster Classic",
       "themeUuid": "ca390b2f-4f2e-12ac-c225-f28bd0f1fd45",
@@ -11337,6 +11628,36 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/80073abf-4fea-b06d-f70c-bdbe6d8ce0a7/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Astronaut/Levels/Luger_Astronaut_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "9db45d13-4cc3-4b6c-4801-459b79f8cda5",
+      "displayName": "Piedra del Sol Ghost",
+      "themeUuid": "b13d0176-4834-e039-964d-c293a1230d4e",
+      "contentTierUuid": "0cebb8be-46d7-c12a-d306-e9907bfc5a25",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/9db45d13-4cc3-4b6c-4801-459b79f8cda5/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Aztec/Luger_Aztec_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "582f5609-4ba2-1e31-d830-8c843bc2d8ab",
+          "displayName": "Piedra del Sol Ghost",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/582f5609-4ba2-1e31-d830-8c843bc2d8ab/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/582f5609-4ba2-1e31-d830-8c843bc2d8ab/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Aztec/Chromas/Standard/Luger_Aztec_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "8f9a3c0c-47ac-6032-7027-899c7e35958e",
+          "displayName": "Piedra del Sol Ghost",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/8f9a3c0c-47ac-6032-7027-899c7e35958e/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Aztec/Levels/Luger_Aztec_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -11948,7 +12269,7 @@
     },
     {
       "uuid": "c7261be6-47d2-ef86-82f4-6a844e45d33c",
-      "displayName": "Reaver, EP 5 Ghost",
+      "displayName": "Reaver Ghost",
       "themeUuid": "42110a3e-4363-50cc-5a1f-e4bc80f97916",
       "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
       "displayIcon": "https://media.valorant-api.com/weaponskins/c7261be6-47d2-ef86-82f4-6a844e45d33c/displayicon.png",
@@ -11957,7 +12278,7 @@
       "chromas": [
         {
           "uuid": "04bcace1-4d82-7093-f812-a5bff8306a54",
-          "displayName": "Reaver, EP 5 Ghost",
+          "displayName": "Reaver Ghost",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/04bcace1-4d82-7093-f812-a5bff8306a54/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/04bcace1-4d82-7093-f812-a5bff8306a54/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/04bcace1-4d82-7093-f812-a5bff8306a54/swatch.png",
@@ -11966,7 +12287,7 @@
         },
         {
           "uuid": "4e3b34c5-4012-7842-3f42-9aaaa6af2f98",
-          "displayName": "Reaver, EP 5 Ghost Level 4\r\n(Variant 1 Red)",
+          "displayName": "Reaver Ghost Level 4\r\n(Variant 1 Red)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/4e3b34c5-4012-7842-3f42-9aaaa6af2f98/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/4e3b34c5-4012-7842-3f42-9aaaa6af2f98/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/4e3b34c5-4012-7842-3f42-9aaaa6af2f98/swatch.png",
@@ -11975,7 +12296,7 @@
         },
         {
           "uuid": "b7dc18e4-42bf-d734-1b3e-afa72c497c77",
-          "displayName": "Reaver, EP 5 Ghost Level 4\r\n(Variant 2 Black)",
+          "displayName": "Reaver Ghost Level 4\r\n(Variant 2 Black)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/b7dc18e4-42bf-d734-1b3e-afa72c497c77/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/b7dc18e4-42bf-d734-1b3e-afa72c497c77/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/b7dc18e4-42bf-d734-1b3e-afa72c497c77/swatch.png",
@@ -11984,7 +12305,7 @@
         },
         {
           "uuid": "99f5b206-40d3-025a-9143-828c2ca40bf6",
-          "displayName": "Reaver, EP 5 Ghost Level 4\r\n(Variant 3 White)",
+          "displayName": "Reaver Ghost Level 4\r\n(Variant 3 White)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/99f5b206-40d3-025a-9143-828c2ca40bf6/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/99f5b206-40d3-025a-9143-828c2ca40bf6/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/99f5b206-40d3-025a-9143-828c2ca40bf6/swatch.png",
@@ -11995,7 +12316,7 @@
       "levels": [
         {
           "uuid": "a6fe7710-4edc-5e23-223d-aeaef3d17866",
-          "displayName": "Reaver, EP 5 Ghost",
+          "displayName": "Reaver Ghost",
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/a6fe7710-4edc-5e23-223d-aeaef3d17866/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Ghost_01.mp4",
@@ -12003,7 +12324,7 @@
         },
         {
           "uuid": "aef240db-4587-9d5d-bf89-eab5eeacf28e",
-          "displayName": "Reaver, EP 5 Ghost Level 2",
+          "displayName": "Reaver Ghost Level 2",
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Ghost_02.mp4",
@@ -12011,7 +12332,7 @@
         },
         {
           "uuid": "ab52517a-4a6c-0af9-1fc4-dbba07d6cd16",
-          "displayName": "Reaver, EP 5 Ghost Level 3",
+          "displayName": "Reaver Ghost Level 3",
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Ghost_03.mp4",
@@ -12019,7 +12340,7 @@
         },
         {
           "uuid": "8ac0b94e-4b23-d9d2-8bc0-a7a34b477930",
-          "displayName": "Reaver, EP 5 Ghost Level 4",
+          "displayName": "Reaver Ghost Level 4",
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Ghost_04.mp4",
@@ -12445,6 +12766,63 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/b85b3760-43bb-507d-323e-1682fa76d96b/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Wraith/LugerPistol_Wraith_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "304e1a7a-411d-2d27-dad6-c09702b5ea2f",
+      "displayName": "Immortalized Sheriff",
+      "themeUuid": "2aebbb13-48a0-2c71-04c3-45a58f53f3e5",
+      "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/304e1a7a-411d-2d27-dad6-c09702b5ea2f/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/AbstractHeroes/Revolver_AbstractHeroes_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "52701d90-45ff-9831-fd16-b19dc3c5b03b",
+          "displayName": "Immortalized Sheriff",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/52701d90-45ff-9831-fd16-b19dc3c5b03b/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/52701d90-45ff-9831-fd16-b19dc3c5b03b/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/AbstractHeroes/Chromas/Standard/Revolver_AbstractHeroes_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "18479c74-4dca-42cb-3c82-80a6a4414c97",
+          "displayName": "Immortalized Sheriff\n(Variant 1 Orange)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/18479c74-4dca-42cb-3c82-80a6a4414c97/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/18479c74-4dca-42cb-3c82-80a6a4414c97/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/AbstractHeroes/Chromas/v1/Revolver_AbstractHeroes_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "0efa44ca-4a81-34c3-a43f-e7bade630933",
+          "displayName": "Immortalized Sheriff\n(Variant 2 Blue)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/0efa44ca-4a81-34c3-a43f-e7bade630933/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/0efa44ca-4a81-34c3-a43f-e7bade630933/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/AbstractHeroes/Chromas/v2/Revolver_AbstractHeroes_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "c890f2dc-4ab6-37d9-8f3e-6e935af70be3",
+          "displayName": "Immortalized Sheriff\n(Variant 3 Green)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/c890f2dc-4ab6-37d9-8f3e-6e935af70be3/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/c890f2dc-4ab6-37d9-8f3e-6e935af70be3/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/AbstractHeroes/Chromas/v3/Revolver_AbstractHeroes_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "d3f40fb9-40ec-b61f-7479-ceaded7b176a",
+          "displayName": "Immortalized Sheriff",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/d3f40fb9-40ec-b61f-7479-ceaded7b176a/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/AbstractHeroes/Levels/Revolver_AbstractHeroes_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -15910,6 +16288,63 @@
       ]
     },
     {
+      "uuid": "6558fd5d-4dc7-90f7-beea-ba9303551c3b",
+      "displayName": "Immortalized Guardian",
+      "themeUuid": "2aebbb13-48a0-2c71-04c3-45a58f53f3e5",
+      "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/6558fd5d-4dc7-90f7-beea-ba9303551c3b/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/AbstractHeroes/DMR_AbstractHeroes_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "297c7dae-4e11-6d00-ae5f-0cb9ec868d87",
+          "displayName": "Immortalized Guardian",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/297c7dae-4e11-6d00-ae5f-0cb9ec868d87/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/297c7dae-4e11-6d00-ae5f-0cb9ec868d87/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/AbstractHeroes/Chromas/Standard/DMR_AbstractHeroes_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "09325d4b-43b5-4d94-936d-3eafd8a04d2b",
+          "displayName": "Immortalized Guardian\n(Variant 1 Orange)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/09325d4b-43b5-4d94-936d-3eafd8a04d2b/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/09325d4b-43b5-4d94-936d-3eafd8a04d2b/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/AbstractHeroes/Chromas/v1/DMR_AbstractHeroes_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "1dfb5491-4306-4e61-c3b3-fe9f94508c4d",
+          "displayName": "Immortalized Guardian\n(Variant 2 Blue)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/1dfb5491-4306-4e61-c3b3-fe9f94508c4d/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/1dfb5491-4306-4e61-c3b3-fe9f94508c4d/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/AbstractHeroes/Chromas/v2/DMR_AbstractHeroes_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "541fd719-46b8-3e06-c25d-98958075c289",
+          "displayName": "Immortalized Guardian\n(Variant 3 Green)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/541fd719-46b8-3e06-c25d-98958075c289/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/541fd719-46b8-3e06-c25d-98958075c289/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/AbstractHeroes/Chromas/v3/DMR_AbstractHeroes_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "bfbcae59-45a0-c60a-29d5-7f8780f3b0d4",
+          "displayName": "Immortalized Guardian",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/bfbcae59-45a0-c60a-29d5-7f8780f3b0d4/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/AbstractHeroes/Levels/DMR_AbstractHeroes_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "da29ce1e-43bb-c043-9cbc-34850517dc23",
       "displayName": "RGX 11z Pro Guardian",
       "themeUuid": "5b09613d-470c-74f4-a69a-028474b703a6",
@@ -17973,6 +18408,36 @@
       ]
     },
     {
+      "uuid": "b273ade7-4971-c274-eb92-219ef6def086",
+      "displayName": "Premiere Collision Marshal",
+      "themeUuid": "ec019908-4bdb-5e0e-982e-9da14516c167",
+      "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/b273ade7-4971-c274-eb92-219ef6def086/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper/Radianite/LeverSniper_Radianite_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "229e680e-4b55-94b7-8a07-618468647fa3",
+          "displayName": "Premiere Collision Marshal",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/229e680e-4b55-94b7-8a07-618468647fa3/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/229e680e-4b55-94b7-8a07-618468647fa3/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper/Radianite/Chromas/Standard/LeverSniper_Radianite_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "c7d5f553-4239-7124-3932-6a83a019d527",
+          "displayName": "Premiere Collision Marshal",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/c7d5f553-4239-7124-3932-6a83a019d527/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper/Radianite/Levels/LeverSniper_Radianite_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "5211efa8-4efd-09bb-6cee-72b86a8a5972",
       "displayName": "Sovereign Marshal",
       "themeUuid": "975f7716-498d-8e0b-b7c7-02b507b8e14a",
@@ -19524,7 +19989,7 @@
     },
     {
       "uuid": "1cb1ab52-4c7d-0775-77f4-eaac99968261",
-      "displayName": "Reaver, EP 5 Spectre",
+      "displayName": "Reaver Spectre",
       "themeUuid": "42110a3e-4363-50cc-5a1f-e4bc80f97916",
       "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
       "displayIcon": "https://media.valorant-api.com/weaponskins/1cb1ab52-4c7d-0775-77f4-eaac99968261/displayicon.png",
@@ -19533,7 +19998,7 @@
       "chromas": [
         {
           "uuid": "1cb0fe08-40f8-431c-0cde-129fcd217cc4",
-          "displayName": "Reaver, EP 5 Spectre",
+          "displayName": "Reaver Spectre",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/1cb0fe08-40f8-431c-0cde-129fcd217cc4/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/1cb0fe08-40f8-431c-0cde-129fcd217cc4/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/1cb0fe08-40f8-431c-0cde-129fcd217cc4/swatch.png",
@@ -19542,7 +20007,7 @@
         },
         {
           "uuid": "3a2ed05c-456e-3d79-c5c6-4eb3a4cedcb7",
-          "displayName": "Reaver, EP 5 Spectre Level 4\r\n(Variant 1 Red)",
+          "displayName": "Reaver Spectre Level 4\r\n(Variant 1 Red)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/3a2ed05c-456e-3d79-c5c6-4eb3a4cedcb7/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/3a2ed05c-456e-3d79-c5c6-4eb3a4cedcb7/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/3a2ed05c-456e-3d79-c5c6-4eb3a4cedcb7/swatch.png",
@@ -19551,7 +20016,7 @@
         },
         {
           "uuid": "9ce7d74f-4444-4676-1a31-dba72c553cee",
-          "displayName": "Reaver, EP 5 Spectre Level 4\r\n(Variant 2 Black)",
+          "displayName": "Reaver Spectre Level 4\r\n(Variant 2 Black)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/9ce7d74f-4444-4676-1a31-dba72c553cee/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/9ce7d74f-4444-4676-1a31-dba72c553cee/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/9ce7d74f-4444-4676-1a31-dba72c553cee/swatch.png",
@@ -19560,7 +20025,7 @@
         },
         {
           "uuid": "746c227d-47be-f1c7-b69d-48a9b497268b",
-          "displayName": "Reaver, EP 5 Spectre Level 4\r\n(Variant 3 White)",
+          "displayName": "Reaver Spectre Level 4\r\n(Variant 3 White)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/746c227d-47be-f1c7-b69d-48a9b497268b/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/746c227d-47be-f1c7-b69d-48a9b497268b/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/746c227d-47be-f1c7-b69d-48a9b497268b/swatch.png",
@@ -19571,7 +20036,7 @@
       "levels": [
         {
           "uuid": "0a0237d3-4d57-0ed2-ab65-c898a7bc755b",
-          "displayName": "Reaver, EP 5 Spectre",
+          "displayName": "Reaver Spectre",
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/0a0237d3-4d57-0ed2-ab65-c898a7bc755b/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Spectre_01.mp4",
@@ -19579,7 +20044,7 @@
         },
         {
           "uuid": "3c7e7ebd-4b7f-f475-d714-47a52a116c82",
-          "displayName": "Reaver, EP 5 Spectre Level 2",
+          "displayName": "Reaver Spectre Level 2",
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Spectre_02.mp4",
@@ -19587,7 +20052,7 @@
         },
         {
           "uuid": "88257dda-4c34-f3ca-4495-d6b9ebd6ddbf",
-          "displayName": "Reaver, EP 5 Spectre Level 3",
+          "displayName": "Reaver Spectre Level 3",
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Spectre_03.mp4",
@@ -19595,7 +20060,7 @@
         },
         {
           "uuid": "a8849563-498e-d080-85df-df891c878566",
-          "displayName": "Reaver, EP 5 Spectre Level 4",
+          "displayName": "Reaver Spectre Level 4",
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Spectre_04.mp4",
@@ -19939,6 +20404,63 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/a83ac09d-4c19-fda6-8e4d-c1b77dc2b479/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Wasteland/Levels/MP5_Wasteland_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "66a6a6a1-44c7-beac-0b67-54aaa8243367",
+      "displayName": "Immortalized Stinger",
+      "themeUuid": "2aebbb13-48a0-2c71-04c3-45a58f53f3e5",
+      "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/66a6a6a1-44c7-beac-0b67-54aaa8243367/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/AbstractHeroes/Vector_AbstractHeroes_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "c7487aac-4242-67ee-28dd-638fc6971fc4",
+          "displayName": "Immortalized Stinger",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/c7487aac-4242-67ee-28dd-638fc6971fc4/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/c7487aac-4242-67ee-28dd-638fc6971fc4/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/AbstractHeroes/Chromas/Standard/Vector_AbstractHeroes_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "0f7ebf60-4794-1116-0af2-5f83ee488631",
+          "displayName": "Immortalized Stinger\n(Variant 1 Orange)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/0f7ebf60-4794-1116-0af2-5f83ee488631/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/0f7ebf60-4794-1116-0af2-5f83ee488631/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/AbstractHeroes/Chromas/v1/Vector_AbstractHeroes_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "af03c22d-4fde-43df-0666-009f152e031b",
+          "displayName": "Immortalized Stinger\n(Variant 2 Blue)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/af03c22d-4fde-43df-0666-009f152e031b/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/af03c22d-4fde-43df-0666-009f152e031b/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/AbstractHeroes/Chromas/v2/Vector_AbstractHeroes_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "a442335b-4ad3-9802-8f77-4890ac5a8aa6",
+          "displayName": "Immortalized Stinger\n(Variant 3 Green)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/a442335b-4ad3-9802-8f77-4890ac5a8aa6/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/a442335b-4ad3-9802-8f77-4890ac5a8aa6/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/AbstractHeroes/Chromas/v3/Vector_AbstractHeroes_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "40243b02-4a32-d406-6b40-bc99e8a6fde2",
+          "displayName": "Immortalized Stinger",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/40243b02-4a32-d406-6b40-bc99e8a6fde2/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/AbstractHeroes/Levels/Vector_AbstractHeroes_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -21283,6 +21805,36 @@
       ]
     },
     {
+      "uuid": "8330a4c0-4e98-1cb7-9695-6b998b77138d",
+      "displayName": "Obsidiana",
+      "themeUuid": "b13d0176-4834-e039-964d-c293a1230d4e",
+      "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/8330a4c0-4e98-1cb7-9695-6b998b77138d/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Melee/Aztec/Melee_Aztec_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "327d0558-4ba5-db35-2a40-d8852cd02f6d",
+          "displayName": "Obsidiana",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/327d0558-4ba5-db35-2a40-d8852cd02f6d/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/327d0558-4ba5-db35-2a40-d8852cd02f6d/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Aztec/Chromas/Standard/Melee_Aztec_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "3f5b498c-4ca1-b441-4433-a186e4ae2054",
+          "displayName": "Obsidiana",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/3f5b498c-4ca1-b441-4433-a186e4ae2054/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Aztec/Levels/Melee_Aztec_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "1ea64c8d-43c4-fce8-7354-01bdd6c0ee17",
       "displayName": "Champions 2021 Karambit",
       "themeUuid": "ccf31eeb-429f-52dc-8447-dfb620ef6ffb",
@@ -21325,6 +21877,52 @@
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Champions_Melee_03.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Melee/Champions/Levels/Melee_Champions_Lv3_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "6946cd0e-4e4a-ec4f-9238-dfb71715722b",
+      "displayName": "Champions 2022 Butterfly Knife",
+      "themeUuid": "362829cc-4fe4-fcda-98e7-0dbdb4b3bea5",
+      "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/6946cd0e-4e4a-ec4f-9238-dfb71715722b/displayicon.png",
+      "wallpaper": "https://media.valorant-api.com/weaponskins/6946cd0e-4e4a-ec4f-9238-dfb71715722b/wallpaper.png",
+      "assetPath": "ShooterGame/Content/Equippables/Melee/Champions2/Melee_Champions2_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "579c78dc-405e-8e01-949f-d6afb4fb1bc3",
+          "displayName": "Champions 2022 Butterfly Knife",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/579c78dc-405e-8e01-949f-d6afb4fb1bc3/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/579c78dc-405e-8e01-949f-d6afb4fb1bc3/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Champions2/Chromas/Standard/Melee_Champions2_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "ba0abff4-41e4-4036-980d-90a55837b692",
+          "displayName": "Champions 2022 Butterfly Knife",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/ba0abff4-41e4-4036-980d-90a55837b692/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Melee%201_IA.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Champions2/Levels/Melee_Champions2_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "08caa8e3-47a6-e8b9-2411-56ad2182a140",
+          "displayName": "Champions 2022 Butterfly Knife Level 2",
+          "levelItem": "EEquippableSkinLevelItem::Animation",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Melee%202_IA.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Champions2/Levels/Melee_Champions2_Lv2_PrimaryAsset"
+        },
+        {
+          "uuid": "781ee669-4036-0481-c1a5-1881df718881",
+          "displayName": "Champions 2022 Butterfly Knife Level 3 - Aura is active only when player has the most kills in the game",
+          "levelItem": "EEquippableSkinLevelItem::TopFrag",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Melee%203_IA.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Champions2/Levels/Melee_Champions2_Lv3_PrimaryAsset"
         }
       ]
     },
@@ -23032,7 +23630,7 @@
     },
     {
       "uuid": "b73d7b16-4652-bc5b-5c4c-068aabb19d0a",
-      "displayName": "Reaver, EP 5 Karambit",
+      "displayName": "Reaver Karambit",
       "themeUuid": "42110a3e-4363-50cc-5a1f-e4bc80f97916",
       "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
       "displayIcon": "https://media.valorant-api.com/weaponskins/b73d7b16-4652-bc5b-5c4c-068aabb19d0a/displayicon.png",
@@ -23041,7 +23639,7 @@
       "chromas": [
         {
           "uuid": "61eb0d02-4dfe-4413-6e29-4d9f9500e6a5",
-          "displayName": "Reaver, EP 5 Karambit",
+          "displayName": "Reaver Karambit",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/61eb0d02-4dfe-4413-6e29-4d9f9500e6a5/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/61eb0d02-4dfe-4413-6e29-4d9f9500e6a5/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/61eb0d02-4dfe-4413-6e29-4d9f9500e6a5/swatch.png",
@@ -23050,7 +23648,7 @@
         },
         {
           "uuid": "9c55fcb9-4710-48fd-642d-fd90c6c3b895",
-          "displayName": "Reaver, EP 5 Karambit Level 2\r\n(Variant 1 Red)",
+          "displayName": "Reaver Karambit Level 2\r\n(Variant 1 Red)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/9c55fcb9-4710-48fd-642d-fd90c6c3b895/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/9c55fcb9-4710-48fd-642d-fd90c6c3b895/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/9c55fcb9-4710-48fd-642d-fd90c6c3b895/swatch.png",
@@ -23059,7 +23657,7 @@
         },
         {
           "uuid": "517f5413-4859-ab98-fec8-4ebd39a15121",
-          "displayName": "Reaver, EP 5 Karambit Level 2\r\n(Variant 2 Black)",
+          "displayName": "Reaver Karambit Level 2\r\n(Variant 2 Black)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/517f5413-4859-ab98-fec8-4ebd39a15121/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/517f5413-4859-ab98-fec8-4ebd39a15121/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/517f5413-4859-ab98-fec8-4ebd39a15121/swatch.png",
@@ -23068,7 +23666,7 @@
         },
         {
           "uuid": "cf9fc0dc-48d9-34a6-95fd-cea860d2df5e",
-          "displayName": "Reaver, EP 5 Karambit Level 2\r\n(Variant 3 White)",
+          "displayName": "Reaver Karambit Level 2\r\n(Variant 3 White)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/cf9fc0dc-48d9-34a6-95fd-cea860d2df5e/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/cf9fc0dc-48d9-34a6-95fd-cea860d2df5e/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/cf9fc0dc-48d9-34a6-95fd-cea860d2df5e/swatch.png",
@@ -23079,7 +23677,7 @@
       "levels": [
         {
           "uuid": "5ac106cd-45ef-a26f-2058-f382f20c64db",
-          "displayName": "Reaver, EP 5 Karambit",
+          "displayName": "Reaver Karambit",
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/5ac106cd-45ef-a26f-2058-f382f20c64db/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Melee_01.mp4",
@@ -23087,7 +23685,7 @@
         },
         {
           "uuid": "84d08ce6-468c-b95b-9bbb-408dcdcee76f",
-          "displayName": "Reaver, EP 5 Karambit Level 2",
+          "displayName": "Reaver Karambit Level 2",
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Reaver_02_Melee_02.mp4",
@@ -23515,6 +24113,3 @@
     }
   ]
 }
-
-
-

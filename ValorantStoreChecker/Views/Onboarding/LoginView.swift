@@ -17,8 +17,6 @@ struct LoginView: View {
     @State private var showTerms : Bool = false
     @State private var showAlert : Bool = false
     
-    
-    
     var body: some View {
         
         

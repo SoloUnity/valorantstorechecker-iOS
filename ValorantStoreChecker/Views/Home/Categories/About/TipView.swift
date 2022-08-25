@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Keychain
+import StoreKit
 
 struct TipView: View {
     
@@ -15,7 +16,9 @@ struct TipView: View {
     @State var title = LocalizedStringKey("Sponsor")
     @Binding var expand : Bool
 
+    let tips : [Product]
     let keychain = Keychain()
+    
     
     var body: some View {
         VStack {
@@ -51,6 +54,11 @@ struct TipView: View {
                 
                 if expand {
                     
+                    ForEach(tips, id: \.id) { tip in
+                        tipButton(expand: $expand, tip: tip)
+                    }
+                    
+                    /*
                     tipButton(expand: $expand, index: 0)
                     
                     tipButton(expand: $expand, index: 1)
@@ -58,7 +66,7 @@ struct TipView: View {
                     tipButton(expand: $expand, index: 2)
                     
                     tipButton(expand: $expand, index: 3)
-                    
+                    */
                 }
                 
             }
@@ -72,9 +80,6 @@ struct TipView: View {
             
  
         }
-        .onAppear {
-            tipModel.fetchTips()
-        }
         
         
     }
@@ -83,28 +88,63 @@ struct TipView: View {
         
         @EnvironmentObject var tipModel : TipModel
         @Binding var expand : Bool
-        var index : Int
+        @State private var errorTitle = ""
+        @State private var isError = false
         
+        let tip : Product
         
         var body: some View {
+            
             Button {
                 
-                tipModel.purchase(index: index)
-                expand = false
+                Task {
+                    await purchase()
+                }
                 
+                //tipModel.purchase(index: index)
+                expand = false
+         
             } label: {
                 
                 HStack {
                     
-                    Text(tipModel.tips[index].displayName)
+                    Text(tip.displayName)
                         .bold()
                     
                     Spacer()
                     
-                    Text(tipModel.tips[index].displayPrice)
+                    Text(tip.displayPrice)
                 }
             }
+            .alert(LocalizedStringKey("ErrorTitle"), isPresented: $isError, actions: {
+                
+                Button(LocalizedStringKey("OK"), role: nil, action: {
+                    isError = false
+                })
+                
+                
+            }, message: {
+                
+                Text(LocalizedStringKey("ErrorMessage3"))
+                
+            })
         }
+        
+        
+        @MainActor
+        func purchase() async {
+            do {
+                
+                let _ = try await tipModel.purchase(tip)
+                
+            } catch StoreError.failedVerification {
+                isError = true
+            } catch {
+                print("Failed fuel purchase: \(error)")
+            }
+        }
+        
+        
     }
 }
 
