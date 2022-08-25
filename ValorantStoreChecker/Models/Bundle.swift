@@ -20,3 +20,20 @@ struct DataClass: Codable {
     let displayIcon : String
 }
 
+
+// valstore API
+
+
+// MARK: - Welcome
+struct ValStoreBundle: Codable {
+    let status: Int
+    let data: [Datum]
+}
+
+// MARK: - Datum
+struct Datum: Codable {
+    let name: String
+    let price: Int
+}
+
+

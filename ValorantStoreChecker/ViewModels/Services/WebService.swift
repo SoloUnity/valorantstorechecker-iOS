@@ -328,33 +328,58 @@ struct WebService {
     // MARK: Bundles
     static func getBundle(uuid: String) async throws -> [String] {
         
-        guard let url = URL(string: Constants.URL.bundle + uuid) else{
+        guard let url1 = URL(string: Constants.URL.bundle + uuid) else{
+            throw BundleError.invalidURL
+        }
+        
+        guard let url2 = URL(string: "https://api.valorantstore.net/store-featured") else {
             throw BundleError.invalidURL
         }
         
         do{
             // Create request
-            var bundleRequest = URLRequest(url: url)
-            bundleRequest.httpMethod = "GET"
+            var bundleRequest1 = URLRequest(url: url1)
+            bundleRequest1.httpMethod = "GET"
             
-            let (data,response) = try await WebService.session.data(for: bundleRequest)
+            let (data1,response1) = try await WebService.session.data(for: bundleRequest1)
             
             guard
-                let httpResponse = response as? HTTPURLResponse,
+                let httpResponse = response1 as? HTTPURLResponse,
                 httpResponse.statusCode == 200
             else{
                 throw BundleError.invalidResponseStatus
             }
             
-            guard let bundleResponse = try? JSONDecoder().decode(BundleResponse.self, from: data) else {
+            guard let bundleResponse1 = try? JSONDecoder().decode(BundleResponse.self, from: data1) else {
                 throw BundleError.badDecode
             }
             
-            if let url = URL(string: bundleResponse.data.displayIcon) {
+            if let url = URL(string: bundleResponse1.data.displayIcon) {
                 dataHelper(url: url, key: "bundleDisplayIcon")
             }
             
-            return [bundleResponse.data.displayName, bundleResponse.data.displayIcon]
+            var bundleRequest2 = URLRequest(url: url2)
+            bundleRequest2.httpMethod = "GET"
+            
+            let (data2,response2) = try await WebService.session.data(for: bundleRequest2)
+            
+            guard
+                let httpResponse = response2 as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw BundleError.invalidResponseStatus
+            }
+            
+            guard let bundleResponse2 = try? JSONDecoder().decode(ValStoreBundle.self, from: data2) else {
+                throw BundleError.badDecode
+            }
+            
+            if !bundleResponse2.data.isEmpty {
+                return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon, String(bundleResponse2.data.first!.price)]
+            }
+            
+            return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon, ""]
+            
             
         }catch{
             throw BundleError.dataTaskError(error.localizedDescription)

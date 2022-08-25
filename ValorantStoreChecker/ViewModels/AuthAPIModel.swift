@@ -249,11 +249,13 @@ class AuthAPIModel: ObservableObject {
             let bundle = try await WebService.getBundle(uuid: bundleUUID)
             let bundleDisplayName = bundle[0]
             let bundleDisplayIcon = bundle[1]
+            let bundlePrice = bundle[2]
             
             self.bundleName = bundleDisplayName
             self.bundleImage = bundleDisplayIcon
             
             defaults.set(bundleDisplayName, forKey: "bundleDisplayName")
+            defaults.set(bundlePrice, forKey: "bundlePrice")
             
             // Set time left for bundle
             let bundleReferenceDate = Date() + Double(storefrontResponse.FeaturedBundle!.bundleRemainingDurationInSeconds )

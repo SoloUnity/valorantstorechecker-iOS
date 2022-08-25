@@ -72,6 +72,27 @@ struct BundleImageView: View {
                         .lineLimit(1)
                     
                     Spacer()
+                    
+                    if let price = defaults.string(forKey: "bundlePrice") {
+                        
+                        if price != "" {
+                            Image("vp")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 18, height: 18)
+                                .shadow(color: .white, radius: 2)
+                            
+                            Text(price)
+                                .font(.subheadline)
+                                .foregroundColor(.white)
+                                .bold()
+                                .shadow(color: .black, radius: 3)
+                        }
+                        
+                        
+                        
+                    }
+                    
                 }
                 .padding(10)
             }
