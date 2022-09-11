@@ -59,7 +59,7 @@
         },
         {
           "uuid": "0b30b3e8-4696-7b7c-fed2-50b34234965a",
-          "displayName": "Glitchpop Odin Level 5\r\n(Variant 1 Blue)",
+          "displayName": "Glitchpop Odin Level 4\r\n(Variant 1 Blue)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/0b30b3e8-4696-7b7c-fed2-50b34234965a/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/0b30b3e8-4696-7b7c-fed2-50b34234965a/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/0b30b3e8-4696-7b7c-fed2-50b34234965a/swatch.png",
@@ -68,7 +68,7 @@
         },
         {
           "uuid": "54caeb7f-4fc4-6adb-45a6-cfb6202d9c24",
-          "displayName": "Glitchpop Odin Level 6\r\n(Variant 2 Red)",
+          "displayName": "Glitchpop Odin Level 4\r\n(Variant 2 Red)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/54caeb7f-4fc4-6adb-45a6-cfb6202d9c24/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/54caeb7f-4fc4-6adb-45a6-cfb6202d9c24/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/54caeb7f-4fc4-6adb-45a6-cfb6202d9c24/swatch.png",
@@ -77,7 +77,7 @@
         },
         {
           "uuid": "bba7f46f-41ee-9e6c-c37a-dca8ee4bf50e",
-          "displayName": "Glitchpop Odin Level 7\r\n(Variant 3 Gold)",
+          "displayName": "Glitchpop Odin Level 4\r\n(Variant 3 Gold)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/bba7f46f-41ee-9e6c-c37a-dca8ee4bf50e/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/bba7f46f-41ee-9e6c-c37a-dca8ee4bf50e/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/bba7f46f-41ee-9e6c-c37a-dca8ee4bf50e/swatch.png",
@@ -152,7 +152,7 @@
     },
     {
       "uuid": "cda41b87-4d3a-c17c-5f6d-8990cc9c5efb",
-      "displayName": "dot EXE Odin",
+      "displayName": ".EXE Odin",
       "themeUuid": "271874eb-491b-eae3-51f8-6f93f93035f9",
       "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
       "displayIcon": "https://media.valorant-api.com/weaponskins/cda41b87-4d3a-c17c-5f6d-8990cc9c5efb/displayicon.png",
@@ -161,7 +161,7 @@
       "chromas": [
         {
           "uuid": "c1ed5bf3-4827-3e3a-ebbb-1ba42a226e59",
-          "displayName": "dot EXE Odin",
+          "displayName": ".EXE Odin",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/c1ed5bf3-4827-3e3a-ebbb-1ba42a226e59/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/c1ed5bf3-4827-3e3a-ebbb-1ba42a226e59/fullrender.png",
           "swatch": null,
@@ -172,7 +172,7 @@
       "levels": [
         {
           "uuid": "49292f21-4f5e-0a1a-3671-54b7ca8fe65a",
-          "displayName": "dot EXE Odin",
+          "displayName": ".EXE Odin",
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/49292f21-4f5e-0a1a-3671-54b7ca8fe65a/displayicon.png",
           "streamedVideo": null,
@@ -700,7 +700,7 @@
       "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
       "displayIcon": "https://media.valorant-api.com/weaponskins/85ed3f9d-4e59-a709-8faf-bc86effb3a07/displayicon.png",
       "wallpaper": null,
-      "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/HeavyMachineGun_URF_PrimaryAsset",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/HeavyMachineGun_URF_PrimaryAsset",
       "chromas": [
         {
           "uuid": "f55aac92-4420-7038-634a-8fb3fc9a936d",
@@ -709,7 +709,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/f55aac92-4420-7038-634a-8fb3fc9a936d/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/f55aac92-4420-7038-634a-8fb3fc9a936d/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Chromas/Standard/HeavyMachineGun_URF_Standard_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Chromas/Standard/HeavyMachineGun_URF_Standard_PrimaryAsset"
         },
         {
           "uuid": "3b809ee0-4af3-b604-9ac4-a799241289e7",
@@ -718,7 +718,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/3b809ee0-4af3-b604-9ac4-a799241289e7/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/3b809ee0-4af3-b604-9ac4-a799241289e7/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Chromas/v1/HeavyMachineGun_URF_v1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Chromas/v1/HeavyMachineGun_URF_v1_PrimaryAsset"
         },
         {
           "uuid": "027dda2f-491d-e55e-1d32-acb7f55008f9",
@@ -727,7 +727,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/027dda2f-491d-e55e-1d32-acb7f55008f9/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/027dda2f-491d-e55e-1d32-acb7f55008f9/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Chromas/v2/HeavyMachineGun_URF_v2_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Chromas/v2/HeavyMachineGun_URF_v2_PrimaryAsset"
         },
         {
           "uuid": "e2c992bc-4099-eeac-9e3f-2e9d6a6bf757",
@@ -736,7 +736,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e2c992bc-4099-eeac-9e3f-2e9d6a6bf757/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e2c992bc-4099-eeac-9e3f-2e9d6a6bf757/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Chromas/v3/HeavyMachineGun_URF_v3_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Chromas/v3/HeavyMachineGun_URF_v3_PrimaryAsset"
         }
       ],
       "levels": [
@@ -746,7 +746,7 @@
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/5123ed96-48de-aeab-eaea-2b8ea689f5a2/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/BlastX_Odin_Lv1.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Levels/HeavyMachineGun_URF_Lv1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Levels/HeavyMachineGun_URF_Lv1_PrimaryAsset"
         },
         {
           "uuid": "35e89d1a-477c-3d54-82aa-3599a832fe0b",
@@ -754,7 +754,7 @@
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/35e89d1a-477c-3d54-82aa-3599a832fe0b/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/BlastX_Odin_Lv2_Update.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Levels/HeavyMachineGun_URF_Lv2_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Levels/HeavyMachineGun_URF_Lv2_PrimaryAsset"
         },
         {
           "uuid": "31201e02-4873-a6db-1ce6-6e93a620370c",
@@ -762,7 +762,7 @@
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/31201e02-4873-a6db-1ce6-6e93a620370c/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/BlastX_Odin_Lv3.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Levels/HeavyMachineGun_URF_Lv3_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Levels/HeavyMachineGun_URF_Lv3_PrimaryAsset"
         },
         {
           "uuid": "7637fff1-4275-590a-6181-be95eae8786a",
@@ -770,7 +770,7 @@
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/7637fff1-4275-590a-6181-be95eae8786a/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/BlastX_Odin_Lv4_Update.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Levels/HeavyMachineGun_URF_Lv4_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Levels/HeavyMachineGun_URF_Lv4_PrimaryAsset"
         }
       ]
     },
@@ -2743,7 +2743,7 @@
     },
     {
       "uuid": "6f3a2a08-4f32-dbdc-8dca-628a5c840052",
-      "displayName": "dot EXE Vandal",
+      "displayName": ".EXE Vandal",
       "themeUuid": "271874eb-491b-eae3-51f8-6f93f93035f9",
       "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
       "displayIcon": "https://media.valorant-api.com/weaponskins/6f3a2a08-4f32-dbdc-8dca-628a5c840052/displayicon.png",
@@ -2752,7 +2752,7 @@
       "chromas": [
         {
           "uuid": "2be20a2a-4582-b689-f00e-a98dafad65eb",
-          "displayName": "dot EXE Vandal",
+          "displayName": ".EXE Vandal",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/2be20a2a-4582-b689-f00e-a98dafad65eb/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/2be20a2a-4582-b689-f00e-a98dafad65eb/fullrender.png",
           "swatch": null,
@@ -2763,7 +2763,7 @@
       "levels": [
         {
           "uuid": "c9ee9a00-453d-a358-8501-3ebb7ca3765e",
-          "displayName": "dot EXE Vandal",
+          "displayName": ".EXE Vandal",
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/c9ee9a00-453d-a358-8501-3ebb7ca3765e/displayicon.png",
           "streamedVideo": null,
@@ -2851,7 +2851,7 @@
         },
         {
           "uuid": "ad2b0b8b-4da8-9c88-331a-028f2026ab66",
-          "displayName": "Prime Vandal Level 5 \r\n(Variant 1 Orange)",
+          "displayName": "Prime Vandal Level 4\r\n(Variant 1 Orange)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/ad2b0b8b-4da8-9c88-331a-028f2026ab66/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/ad2b0b8b-4da8-9c88-331a-028f2026ab66/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/ad2b0b8b-4da8-9c88-331a-028f2026ab66/swatch.png",
@@ -2860,7 +2860,7 @@
         },
         {
           "uuid": "cd3ebdc1-4858-efda-6cee-c683726f8ca9",
-          "displayName": "Prime Vandal Level 6 \r\n(Variant 2 Blue)",
+          "displayName": "Prime Vandal Level 4\r\n(Variant 2 Blue)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/cd3ebdc1-4858-efda-6cee-c683726f8ca9/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/cd3ebdc1-4858-efda-6cee-c683726f8ca9/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/cd3ebdc1-4858-efda-6cee-c683726f8ca9/swatch.png",
@@ -2869,7 +2869,7 @@
         },
         {
           "uuid": "d43b8d21-4fb2-1224-1392-53ab6d829ed1",
-          "displayName": "Prime Vandal Level 7\r\n(Variant 3 Yellow)",
+          "displayName": "Prime Vandal Level 4\r\n(Variant 3 Yellow)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/d43b8d21-4fb2-1224-1392-53ab6d829ed1/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/d43b8d21-4fb2-1224-1392-53ab6d829ed1/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/d43b8d21-4fb2-1224-1392-53ab6d829ed1/swatch.png",
@@ -3907,7 +3907,7 @@
         },
         {
           "uuid": "e4afd93d-43f4-948c-7e6a-f88b1549409b",
-          "displayName": "Glitchpop Bulldog Level 5\r\n(Variant 1 Blue)",
+          "displayName": "Glitchpop Bulldog Level 4\r\n(Variant 1 Blue)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/e4afd93d-43f4-948c-7e6a-f88b1549409b/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e4afd93d-43f4-948c-7e6a-f88b1549409b/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e4afd93d-43f4-948c-7e6a-f88b1549409b/swatch.png",
@@ -3916,7 +3916,7 @@
         },
         {
           "uuid": "0d00f717-409f-abb7-b5e1-9cbd3dcd2752",
-          "displayName": "Glitchpop Bulldog Level 6\r\n(Variant 2 Red)",
+          "displayName": "Glitchpop Bulldog Level 4\r\n(Variant 2 Red)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/0d00f717-409f-abb7-b5e1-9cbd3dcd2752/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/0d00f717-409f-abb7-b5e1-9cbd3dcd2752/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/0d00f717-409f-abb7-b5e1-9cbd3dcd2752/swatch.png",
@@ -3925,7 +3925,7 @@
         },
         {
           "uuid": "293d9ddb-41ef-387f-3d71-908384b6ad87",
-          "displayName": "Glitchpop Bulldog Level 7\r\n(Variant 3 Gold)",
+          "displayName": "Glitchpop Bulldog Level 4\r\n(Variant 3 Gold)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/293d9ddb-41ef-387f-3d71-908384b6ad87/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/293d9ddb-41ef-387f-3d71-908384b6ad87/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/293d9ddb-41ef-387f-3d71-908384b6ad87/swatch.png",
@@ -4959,7 +4959,7 @@
           "displayName": "Champions 2022 Phantom",
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/524b0c42-47da-e7ca-dc04-85ba285b2e71/displayicon.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Carbine%201_IA.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Carbine1.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Champions2/Levels/Carbine_Champions2_Lv1_PrimaryAsset"
         },
         {
@@ -4967,7 +4967,7 @@
           "displayName": "Champions 2022 Phantom Level 2",
           "levelItem": "EEquippableSkinLevelItem::InspectAndKill",
           "displayIcon": null,
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Carbine%202_IA.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Carbine2.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Champions2/Levels/Carbine_Champions2_Lv2_PrimaryAsset"
         },
         {
@@ -4975,7 +4975,7 @@
           "displayName": "Champions 2022 Phantom Level 3",
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": null,
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Carbine%203_IA.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Carbine3.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Champions2/Levels/Carbine_Champions2_Lv3_PrimaryAsset"
         },
         {
@@ -4983,7 +4983,7 @@
           "displayName": "Champions 2022 Phantom Level 4 - Aura is active only when player has the most kills in the game",
           "levelItem": "EEquippableSkinLevelItem::TopFrag",
           "displayIcon": null,
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Carbine%204_IA.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Carbine4.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Champions2/Levels/Carbine_Champions2_Lv4_PrimaryAsset"
         }
       ]
@@ -5397,7 +5397,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/c4e149cd-49a7-acf1-5a31-708e5c89a8c3/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/c4e149cd-49a7-acf1-5a31-708e5c89a8c3/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Fiberglass/Chromas/V1/Carbine_Fiberglass_v1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Fiberglass/Chromas/v1/Carbine_Fiberglass_v1_PrimaryAsset"
         },
         {
           "uuid": "d586b6e5-4974-1d23-d507-3792b26fb043",
@@ -5738,6 +5738,45 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/a7229cba-4691-62b0-9c40-f59a29817ddc/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Kingdom/Levels/AssaultRifle_ACR_KingdomLv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "8f82cff0-44b9-b792-8dd2-b2be8538421b",
+      "displayName": "Kohaku & Matsuba Phantom",
+      "themeUuid": "1468b29a-4a04-a34d-5b90-5da163f74e00",
+      "contentTierUuid": "0cebb8be-46d7-c12a-d306-e9907bfc5a25",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/8f82cff0-44b9-b792-8dd2-b2be8538421b/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Koi/Carbine_Koi_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "949da68e-45c0-5808-4ffc-8ca8648bd75e",
+          "displayName": "Kohaku & Matsuba Phantom",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/949da68e-45c0-5808-4ffc-8ca8648bd75e/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/949da68e-45c0-5808-4ffc-8ca8648bd75e/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Koi/Chromas/Standard/Carbine_Koi_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "85f4ac84-4449-34de-79d5-d39a9139f690",
+          "displayName": "Kohaku & Matsuba Phantom \n(Variant 1 Dark)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/85f4ac84-4449-34de-79d5-d39a9139f690/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/85f4ac84-4449-34de-79d5-d39a9139f690/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Koi_Phantom_Chroma_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Koi/Chromas/v1/Carbine_Koi_v1_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "dd5154b6-434a-9db7-0583-3e9ef8f63319",
+          "displayName": "Kohaku & Matsuba Phantom",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/dd5154b6-434a-9db7-0583-3e9ef8f63319/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Koi_Phantom.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Koi/Levels/Carbine_Koi_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -6873,7 +6912,7 @@
         },
         {
           "uuid": "2abe2d6a-4d38-434a-ff64-608b936c2661",
-          "displayName": "Glitchpop Judge Level 5\r\n(Variant 1 Blue)",
+          "displayName": "Glitchpop Judge Level 4\r\n(Variant 1 Blue)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/2abe2d6a-4d38-434a-ff64-608b936c2661/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/2abe2d6a-4d38-434a-ff64-608b936c2661/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/2abe2d6a-4d38-434a-ff64-608b936c2661/swatch.png",
@@ -6882,7 +6921,7 @@
         },
         {
           "uuid": "1e959cbe-4649-a049-f789-b2b9c9d7ec26",
-          "displayName": "Glitchpop Judge Level 6\r\n(Variant 2 Red)",
+          "displayName": "Glitchpop Judge Level 4\r\n(Variant 2 Red)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/1e959cbe-4649-a049-f789-b2b9c9d7ec26/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/1e959cbe-4649-a049-f789-b2b9c9d7ec26/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/1e959cbe-4649-a049-f789-b2b9c9d7ec26/swatch.png",
@@ -6891,7 +6930,7 @@
         },
         {
           "uuid": "bb88381f-423f-cd76-9ac1-7e9fe541cf25",
-          "displayName": "Glitchpop Judge Level 7\r\n(Variant 3 Gold)",
+          "displayName": "Glitchpop Judge Level 4\r\n(Variant 3 Gold)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/bb88381f-423f-cd76-9ac1-7e9fe541cf25/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/bb88381f-423f-cd76-9ac1-7e9fe541cf25/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/bb88381f-423f-cd76-9ac1-7e9fe541cf25/swatch.png",
@@ -7134,7 +7173,7 @@
     },
     {
       "uuid": "fbd23fdf-4d7b-8a50-afa5-c3ad6e7266e5",
-      "displayName": "dot EXE Judge",
+      "displayName": ".EXE Judge",
       "themeUuid": "271874eb-491b-eae3-51f8-6f93f93035f9",
       "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
       "displayIcon": null,
@@ -7143,7 +7182,7 @@
       "chromas": [
         {
           "uuid": "066f07a2-42c5-4197-497a-f0a3fdbb4a6b",
-          "displayName": "dot EXE Judge",
+          "displayName": ".EXE Judge",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/066f07a2-42c5-4197-497a-f0a3fdbb4a6b/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/066f07a2-42c5-4197-497a-f0a3fdbb4a6b/fullrender.png",
           "swatch": null,
@@ -7154,7 +7193,7 @@
       "levels": [
         {
           "uuid": "f8cd4279-4530-db62-1e4e-aa82c129b045",
-          "displayName": "dot EXE Judge",
+          "displayName": ".EXE Judge",
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/f8cd4279-4530-db62-1e4e-aa82c129b045/displayicon.png",
           "streamedVideo": null,
@@ -7336,6 +7375,45 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/4afdc818-4665-1582-6319-8081aa64e550/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Jade/Levels/AutoShotgun_Jade_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "da3cedea-4f2e-c501-ec79-438433ffabdf",
+      "displayName": "Kohaku & Matsuba Judge",
+      "themeUuid": "1468b29a-4a04-a34d-5b90-5da163f74e00",
+      "contentTierUuid": "0cebb8be-46d7-c12a-d306-e9907bfc5a25",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/da3cedea-4f2e-c501-ec79-438433ffabdf/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Koi/AutoShotgun_Koi_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "40a5a161-4e9f-9017-2cf7-d8b1e5b80255",
+          "displayName": "Kohaku & Matsuba Judge",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/40a5a161-4e9f-9017-2cf7-d8b1e5b80255/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/40a5a161-4e9f-9017-2cf7-d8b1e5b80255/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Koi/Chromas/Standard/AutoShotgun_Koi_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "5b93f92b-41b7-f264-e25e-c5a5f6b1644b",
+          "displayName": "Kohaku & Matsuba Judge \n(Variant 1 Dark)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/5b93f92b-41b7-f264-e25e-c5a5f6b1644b/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/5b93f92b-41b7-f264-e25e-c5a5f6b1644b/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Koi_Judge_Chroma_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Koi/Chromas/v1/AutoShotgun_Koi_v1_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "ccf16a23-4222-1abe-d8f0-93a782b5b449",
+          "displayName": "Kohaku & Matsuba Judge",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/ccf16a23-4222-1abe-d8f0-93a782b5b449/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Koi_Judge.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Koi/Levels/AutoShotgun_Koi_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -9159,7 +9237,7 @@
         },
         {
           "uuid": "3b04c752-4564-e7c4-cdf6-7f9c741e3587",
-          "displayName": "Glitchpop Frenzy Level 5\r\n(Variant 1 Blue)",
+          "displayName": "Glitchpop Frenzy Level 4\r\n(Variant 1 Blue)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/3b04c752-4564-e7c4-cdf6-7f9c741e3587/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/3b04c752-4564-e7c4-cdf6-7f9c741e3587/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/3b04c752-4564-e7c4-cdf6-7f9c741e3587/swatch.png",
@@ -9168,7 +9246,7 @@
         },
         {
           "uuid": "ab6e58b2-49a3-e0e8-1240-df94230393d5",
-          "displayName": "Glitchpop Frenzy Level 6\r\n(Variant 2 Red)",
+          "displayName": "Glitchpop Frenzy Level 4\r\n(Variant 2 Red)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/ab6e58b2-49a3-e0e8-1240-df94230393d5/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/ab6e58b2-49a3-e0e8-1240-df94230393d5/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/ab6e58b2-49a3-e0e8-1240-df94230393d5/swatch.png",
@@ -9177,7 +9255,7 @@
         },
         {
           "uuid": "b923bcc8-4cb8-2a19-070e-588686aae090",
-          "displayName": "Glitchpop Frenzy Level 7\r\n(Variant 3 Gold)",
+          "displayName": "Glitchpop Frenzy Level 4\r\n(Variant 3 Gold)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/b923bcc8-4cb8-2a19-070e-588686aae090/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/b923bcc8-4cb8-2a19-070e-588686aae090/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/b923bcc8-4cb8-2a19-070e-588686aae090/swatch.png",
@@ -10923,7 +11001,7 @@
         },
         {
           "uuid": "42280760-422f-b5d1-4255-1e8993a817a4",
-          "displayName": "Prime Classic Level 5\r\n(Variant 1 Orange)",
+          "displayName": "Prime Classic Level 4\r\n(Variant 1 Orange)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/42280760-422f-b5d1-4255-1e8993a817a4/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/42280760-422f-b5d1-4255-1e8993a817a4/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/42280760-422f-b5d1-4255-1e8993a817a4/swatch.png",
@@ -10932,7 +11010,7 @@
         },
         {
           "uuid": "02390051-4309-22d4-b733-c09fbfcf2e7f",
-          "displayName": "Prime Classic Level 6 \r\n(Variant 2 Blue)",
+          "displayName": "Prime Classic Level 4\r\n(Variant 2 Blue)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/02390051-4309-22d4-b733-c09fbfcf2e7f/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/02390051-4309-22d4-b733-c09fbfcf2e7f/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/02390051-4309-22d4-b733-c09fbfcf2e7f/swatch.png",
@@ -10941,7 +11019,7 @@
         },
         {
           "uuid": "9fcc46a1-42f8-6407-787d-cb9d3e0bb718",
-          "displayName": "Prime Classic Level 7 \r\n(Variant 3 Yellow)",
+          "displayName": "Prime Classic Level 4\r\n(Variant 3 Yellow)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/9fcc46a1-42f8-6407-787d-cb9d3e0bb718/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/9fcc46a1-42f8-6407-787d-cb9d3e0bb718/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/9fcc46a1-42f8-6407-787d-cb9d3e0bb718/swatch.png",
@@ -11098,6 +11176,45 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/6ab90b28-49f1-9e1b-5083-2da2de61e109/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Kingdom/Levels/BasePistol_Kingdom_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "be7cf362-4993-b9e4-9ba9-cdac6c99b8e4",
+      "displayName": "Kohaku & Matsuba Classic",
+      "themeUuid": "1468b29a-4a04-a34d-5b90-5da163f74e00",
+      "contentTierUuid": "0cebb8be-46d7-c12a-d306-e9907bfc5a25",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/be7cf362-4993-b9e4-9ba9-cdac6c99b8e4/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Koi/BasePistol_Koi_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "ccbc3fdc-4117-0626-aece-be9ab47d961e",
+          "displayName": "Kohaku & Matsuba Classic",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/ccbc3fdc-4117-0626-aece-be9ab47d961e/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/ccbc3fdc-4117-0626-aece-be9ab47d961e/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Koi/Chromas/Standard/BasePistol_Koi_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "06bab6d9-4aa3-e6dd-911c-0b912de2b8c8",
+          "displayName": "Kohaku & Matsuba Classic \n(Variant 1 Dark)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/06bab6d9-4aa3-e6dd-911c-0b912de2b8c8/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/06bab6d9-4aa3-e6dd-911c-0b912de2b8c8/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Koi_Classic_Chroma_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Koi/Chromas/v1/BasePistol_Koi_v1_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "066f6d01-4940-606a-70f6-e78fb20f5d2d",
+          "displayName": "Kohaku & Matsuba Classic",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/066f6d01-4940-606a-70f6-e78fb20f5d2d/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Koi_Classic.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Koi/Levels/BasePistol_Koi_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -11693,7 +11810,7 @@
     },
     {
       "uuid": "67d3e2f7-4b73-7598-0027-63bd9e2e5fcc",
-      "displayName": "dot EXE Ghost",
+      "displayName": ".EXE Ghost",
       "themeUuid": "271874eb-491b-eae3-51f8-6f93f93035f9",
       "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
       "displayIcon": null,
@@ -11702,7 +11819,7 @@
       "chromas": [
         {
           "uuid": "12966603-4cb3-03dd-bf2e-338fb15d144f",
-          "displayName": "dot EXE Ghost",
+          "displayName": ".EXE Ghost",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/12966603-4cb3-03dd-bf2e-338fb15d144f/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/12966603-4cb3-03dd-bf2e-338fb15d144f/fullrender.png",
           "swatch": null,
@@ -11713,7 +11830,7 @@
       "levels": [
         {
           "uuid": "9466088a-4ad8-cb08-ec9a-45aaba3a6acd",
-          "displayName": "dot EXE Ghost",
+          "displayName": ".EXE Ghost",
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/9466088a-4ad8-cb08-ec9a-45aaba3a6acd/displayicon.png",
           "streamedVideo": null,
@@ -12368,7 +12485,7 @@
         },
         {
           "uuid": "9acf9e55-46b9-5061-f1e7-4fa996fb96c1",
-          "displayName": "Sovereign Ghost Level 5\r\n(Variant 1 Gold)",
+          "displayName": "Sovereign Ghost Level 4\r\n(Variant 1 Gold)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/9acf9e55-46b9-5061-f1e7-4fa996fb96c1/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/9acf9e55-46b9-5061-f1e7-4fa996fb96c1/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/9acf9e55-46b9-5061-f1e7-4fa996fb96c1/swatch.png",
@@ -12377,7 +12494,7 @@
         },
         {
           "uuid": "357a60e7-431e-f7ad-847e-1da16897b1f7",
-          "displayName": "Sovereign Ghost Level 6\r\n(Variant 2 Silver)",
+          "displayName": "Sovereign Ghost Level 4\r\n(Variant 2 Silver)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/357a60e7-431e-f7ad-847e-1da16897b1f7/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/357a60e7-431e-f7ad-847e-1da16897b1f7/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/357a60e7-431e-f7ad-847e-1da16897b1f7/swatch.png",
@@ -12386,7 +12503,7 @@
         },
         {
           "uuid": "c208e6a1-4bb8-e1d9-6943-848db2aaf3bb",
-          "displayName": "Sovereign Ghost Level 7\r\n(Variant 3 Purple)",
+          "displayName": "Sovereign Ghost Level 4\r\n(Variant 3 Purple)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/c208e6a1-4bb8-e1d9-6943-848db2aaf3bb/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/c208e6a1-4bb8-e1d9-6943-848db2aaf3bb/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/c208e6a1-4bb8-e1d9-6943-848db2aaf3bb/swatch.png",
@@ -14074,7 +14191,7 @@
       "uuid": "0581fb92-4b2d-0ede-6bfc-8d93fde11f74",
       "displayName": "Karabasan Shorty",
       "themeUuid": "f38e6667-4d60-3686-12e8-9d8ab950b9ff",
-      "contentTierUuid": null,
+      "contentTierUuid": "12683d76-48d7-84a3-4e09-6985794f0445",
       "displayIcon": "https://media.valorant-api.com/weaponskins/0581fb92-4b2d-0ede-6bfc-8d93fde11f74/displayicon.png",
       "wallpaper": null,
       "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Slim/BountyHunter/Slim_BountyHunter_PrimaryAsset",
@@ -15569,6 +15686,45 @@
       ]
     },
     {
+      "uuid": "403cce8c-4484-a796-a6f6-a0a07d9832e0",
+      "displayName": "Kohaku & Matsuba Operator",
+      "themeUuid": "1468b29a-4a04-a34d-5b90-5da163f74e00",
+      "contentTierUuid": "0cebb8be-46d7-c12a-d306-e9907bfc5a25",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/403cce8c-4484-a796-a6f6-a0a07d9832e0/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper/Koi/BoltSniper_Koi_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "fc6a67b3-43d8-14db-a4b7-8d8d5e06f330",
+          "displayName": "Kohaku & Matsuba Operator",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/fc6a67b3-43d8-14db-a4b7-8d8d5e06f330/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/fc6a67b3-43d8-14db-a4b7-8d8d5e06f330/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper/Koi/Chromas/Standard/BoltSniper_Koi_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "a8270780-4e7d-53f7-a9da-3fb0f003db1d",
+          "displayName": "Kohaku & Matsuba Operator\n(Variant 1 Dark)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/a8270780-4e7d-53f7-a9da-3fb0f003db1d/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/a8270780-4e7d-53f7-a9da-3fb0f003db1d/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Koi_Operator_Chroma_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper/Koi/Chromas/v1/BoltSniper_Koi_v1_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "1fe051aa-40e9-3ff6-585a-e384f0197224",
+          "displayName": "Kohaku & Matsuba Operator",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/1fe051aa-40e9-3ff6-585a-e384f0197224/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Koi_Operator.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper/Koi/Levels/BoltSniper_Koi_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "0bd5da19-491f-dd4a-27e2-c9959b10a87a",
       "displayName": "Luxe Operator",
       "themeUuid": "f22881cc-4a4a-9bc3-d5e9-ad816b42c2d7",
@@ -16910,7 +17066,7 @@
         },
         {
           "uuid": "4ca16478-40c7-2cf6-bdd2-099761921e61",
-          "displayName": "Prime Guardian Level 5\r\n(Variant 1 Orange)",
+          "displayName": "Prime Guardian Level 4\r\n(Variant 1 Orange)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/4ca16478-40c7-2cf6-bdd2-099761921e61/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/4ca16478-40c7-2cf6-bdd2-099761921e61/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/4ca16478-40c7-2cf6-bdd2-099761921e61/swatch.png",
@@ -16919,7 +17075,7 @@
         },
         {
           "uuid": "e866f273-4acc-806f-becd-56a6bef48fbc",
-          "displayName": "Prime Guardian Level 6\r\n(Variant 2 Blue)",
+          "displayName": "Prime Guardian Level 4\r\n(Variant 2 Blue)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/e866f273-4acc-806f-becd-56a6bef48fbc/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e866f273-4acc-806f-becd-56a6bef48fbc/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e866f273-4acc-806f-becd-56a6bef48fbc/swatch.png",
@@ -16928,7 +17084,7 @@
         },
         {
           "uuid": "22f831db-4e55-6280-9078-d9b63ae93e4d",
-          "displayName": "Prime Guardian Level 7\r\n(Variant 3 Yellow)",
+          "displayName": "Prime Guardian Level 4\r\n(Variant 3 Yellow)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/22f831db-4e55-6280-9078-d9b63ae93e4d/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/22f831db-4e55-6280-9078-d9b63ae93e4d/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/22f831db-4e55-6280-9078-d9b63ae93e4d/swatch.png",
@@ -17489,7 +17645,7 @@
         },
         {
           "uuid": "6c21b2dd-4d36-7bb6-667b-e5874b7bda13",
-          "displayName": "Sovereign Guardian Level 5\r\n(Variant 1 Gold)",
+          "displayName": "Sovereign Guardian Level 4\r\n(Variant 1 Gold)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/6c21b2dd-4d36-7bb6-667b-e5874b7bda13/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/6c21b2dd-4d36-7bb6-667b-e5874b7bda13/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/6c21b2dd-4d36-7bb6-667b-e5874b7bda13/swatch.png",
@@ -17498,7 +17654,7 @@
         },
         {
           "uuid": "b5280469-4069-b125-c76a-d28e20791322",
-          "displayName": "Sovereign Guardian Level 6\r\n(Variant 2 Silver)",
+          "displayName": "Sovereign Guardian Level 4\r\n(Variant 2 Silver)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/b5280469-4069-b125-c76a-d28e20791322/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/b5280469-4069-b125-c76a-d28e20791322/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/b5280469-4069-b125-c76a-d28e20791322/swatch.png",
@@ -17507,7 +17663,7 @@
         },
         {
           "uuid": "94d1a053-4a0f-8d48-ec77-73aaa2003a22",
-          "displayName": "Sovereign Guardian Level 7\r\n(Variant 3 Purple)",
+          "displayName": "Sovereign Guardian Level 4\r\n(Variant 3 Purple)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/94d1a053-4a0f-8d48-ec77-73aaa2003a22/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/94d1a053-4a0f-8d48-ec77-73aaa2003a22/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/94d1a053-4a0f-8d48-ec77-73aaa2003a22/swatch.png",
@@ -18457,7 +18613,7 @@
         },
         {
           "uuid": "079e90b2-4492-3f73-95bd-f5b74a7ac295",
-          "displayName": "Sovereign Marshal Level 5\r\n(Variant 1 Gold)",
+          "displayName": "Sovereign Marshal Level 4\r\n(Variant 1 Gold)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/079e90b2-4492-3f73-95bd-f5b74a7ac295/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/079e90b2-4492-3f73-95bd-f5b74a7ac295/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/079e90b2-4492-3f73-95bd-f5b74a7ac295/swatch.png",
@@ -18466,7 +18622,7 @@
         },
         {
           "uuid": "0bb4eab3-4c4d-8b6e-1af5-daa1387d1ff7",
-          "displayName": "Sovereign Marshal Level 6\r\n(Variant 2 Silver)",
+          "displayName": "Sovereign Marshal Level 4\r\n(Variant 2 Silver)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/0bb4eab3-4c4d-8b6e-1af5-daa1387d1ff7/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/0bb4eab3-4c4d-8b6e-1af5-daa1387d1ff7/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/0bb4eab3-4c4d-8b6e-1af5-daa1387d1ff7/swatch.png",
@@ -18475,7 +18631,7 @@
         },
         {
           "uuid": "9d77ed46-4375-65fe-5c2b-54b44bd8e832",
-          "displayName": "Sovereign Marshal Level 7\r\n(Variant 3 Purple)",
+          "displayName": "Sovereign Marshal Level 4\r\n(Variant 3 Purple)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/9d77ed46-4375-65fe-5c2b-54b44bd8e832/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/9d77ed46-4375-65fe-5c2b-54b44bd8e832/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/9d77ed46-4375-65fe-5c2b-54b44bd8e832/swatch.png",
@@ -19256,7 +19412,7 @@
         },
         {
           "uuid": "e6586300-4434-2dee-8867-45b47980f7a5",
-          "displayName": "Prime Spectre Level 5\r\n(Variant 1 Orange)",
+          "displayName": "Prime Spectre Level 4\r\n(Variant 1 Orange)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/e6586300-4434-2dee-8867-45b47980f7a5/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e6586300-4434-2dee-8867-45b47980f7a5/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e6586300-4434-2dee-8867-45b47980f7a5/swatch.png",
@@ -19265,7 +19421,7 @@
         },
         {
           "uuid": "f55e732b-4798-2f21-c099-f7ba8facc0bf",
-          "displayName": "Prime Spectre Level 6\r\n(Variant 2 Blue)",
+          "displayName": "Prime Spectre Level 4\r\n(Variant 2 Blue)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/f55e732b-4798-2f21-c099-f7ba8facc0bf/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/f55e732b-4798-2f21-c099-f7ba8facc0bf/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/f55e732b-4798-2f21-c099-f7ba8facc0bf/swatch.png",
@@ -19274,7 +19430,7 @@
         },
         {
           "uuid": "4c67e98b-4e1f-9f53-3163-16b393849f9d",
-          "displayName": "Prime Spectre Level 7\r\n(Variant 3 Yellow)",
+          "displayName": "Prime Spectre Level 4\r\n(Variant 3 Yellow)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/4c67e98b-4e1f-9f53-3163-16b393849f9d/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/4c67e98b-4e1f-9f53-3163-16b393849f9d/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/4c67e98b-4e1f-9f53-3163-16b393849f9d/swatch.png",
@@ -21124,7 +21280,7 @@
         },
         {
           "uuid": "e72114c8-4201-1e3c-75a0-5698e6ee66e1",
-          "displayName": "Sovereign Stinger Level 5\r\n(Variant 1 Gold)",
+          "displayName": "Sovereign Stinger Level 4\r\n(Variant 1 Gold)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/e72114c8-4201-1e3c-75a0-5698e6ee66e1/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e72114c8-4201-1e3c-75a0-5698e6ee66e1/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e72114c8-4201-1e3c-75a0-5698e6ee66e1/swatch.png",
@@ -21133,7 +21289,7 @@
         },
         {
           "uuid": "0ea6b63d-4e9c-0fd2-46ec-9095d1c04e59",
-          "displayName": "Sovereign Stinger Level 6\r\n(Variant 2 Silver)",
+          "displayName": "Sovereign Stinger Level 4\r\n(Variant 2 Silver)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/0ea6b63d-4e9c-0fd2-46ec-9095d1c04e59/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/0ea6b63d-4e9c-0fd2-46ec-9095d1c04e59/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/0ea6b63d-4e9c-0fd2-46ec-9095d1c04e59/swatch.png",
@@ -21142,7 +21298,7 @@
         },
         {
           "uuid": "332d9171-4ac7-c5f0-b49d-d29af6ed5eb7",
-          "displayName": "Sovereign Stinger Level 7\r\n(Variant 3 Purple)",
+          "displayName": "Sovereign Stinger Level 4\r\n(Variant 3 Purple)",
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/332d9171-4ac7-c5f0-b49d-d29af6ed5eb7/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/332d9171-4ac7-c5f0-b49d-d29af6ed5eb7/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/332d9171-4ac7-c5f0-b49d-d29af6ed5eb7/swatch.png",
@@ -21905,7 +22061,7 @@
           "displayName": "Champions 2022 Butterfly Knife",
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/ba0abff4-41e4-4036-980d-90a55837b692/displayicon.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Melee%201_IA.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Melee1.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Melee/Champions2/Levels/Melee_Champions2_Lv1_PrimaryAsset"
         },
         {
@@ -21913,7 +22069,7 @@
           "displayName": "Champions 2022 Butterfly Knife Level 2",
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": null,
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Melee%202_IA.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Melee2.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Melee/Champions2/Levels/Melee_Champions2_Lv2_PrimaryAsset"
         },
         {
@@ -21921,7 +22077,7 @@
           "displayName": "Champions 2022 Butterfly Knife Level 3 - Aura is active only when player has the most kills in the game",
           "levelItem": "EEquippableSkinLevelItem::TopFrag",
           "displayIcon": null,
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Melee%203_IA.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/Melee3.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Melee/Champions2/Levels/Melee_Champions2_Lv3_PrimaryAsset"
         }
       ]
@@ -22912,6 +23068,53 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/a17e9fcc-4081-9b5a-cf63-fca395e652df/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Melee/Kingdom2/Levels/Melee_Kingdom2_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "2e4300f9-49b3-6bbe-af7c-94a6f56ff12e",
+      "displayName": "Equilibrium",
+      "themeUuid": "1468b29a-4a04-a34d-5b90-5da163f74e00",
+      "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/2e4300f9-49b3-6bbe-af7c-94a6f56ff12e/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Melee/Koi/Melee_Koi_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "2733ffb9-4285-f7cf-e01e-dbb9314f3a96",
+          "displayName": "Equilibrium",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/2733ffb9-4285-f7cf-e01e-dbb9314f3a96/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/2733ffb9-4285-f7cf-e01e-dbb9314f3a96/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Koi/Chromas/Standard/Melee_Koi_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "f6eb564b-4b08-ad4c-6704-42bf4e91453e",
+          "displayName": "Equilibrium Level 2\r\n(Variant 1 Dark)",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/f6eb564b-4b08-ad4c-6704-42bf4e91453e/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/f6eb564b-4b08-ad4c-6704-42bf4e91453e/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Koi_Melee_02_Chroma_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Koi/Chromas/v1/Melee_Koi_v1_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "ef67d6cb-4f7f-28ce-2973-cf90a97ae54d",
+          "displayName": "Equilibrium",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/ef67d6cb-4f7f-28ce-2973-cf90a97ae54d/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Koi_Melee_01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Koi/Levels/Melee_Koi_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "99a21016-41bf-2dfe-43e6-6f9ffe50d8c0",
+          "displayName": "Equilibrium Level 2",
+          "levelItem": "EEquippableSkinLevelItem::Animation",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Koi_Melee_02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Koi/Levels/Melee_Koi_Lv2_PrimaryAsset"
         }
       ]
     },
@@ -24113,3 +24316,4 @@
     }
   ]
 }
+

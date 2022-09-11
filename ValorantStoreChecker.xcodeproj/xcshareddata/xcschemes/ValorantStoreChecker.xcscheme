@@ -17,7 +17,7 @@
                BlueprintIdentifier = "8B29E1EA2881C87D0081F69A"
                BuildableName = "ValorantStoreChecker.app"
                BlueprintName = "ValorantStoreChecker"
-               ReferencedContainer = "container:ValorantStoreChecker.xcodeproj">
+               ReferencedContainer = "container:../../../../../../Library/Mobile Documents/com~apple~CloudDocs/Documents/Coding/Programs/Xcode Apps/iOS/ValorantStoreChecker/ValorantStoreChecker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,11 +47,11 @@
             BlueprintIdentifier = "8B29E1EA2881C87D0081F69A"
             BuildableName = "ValorantStoreChecker.app"
             BlueprintName = "ValorantStoreChecker"
-            ReferencedContainer = "container:ValorantStoreChecker.xcodeproj">
+            ReferencedContainer = "container:../../../../../../Library/Mobile Documents/com~apple~CloudDocs/Documents/Coding/Programs/Xcode Apps/iOS/ValorantStoreChecker/ValorantStoreChecker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
-         identifier = "../../ValorantStoreChecker/Ressources/Configuration.storekit">
+         identifier = "../../../../../../../../../../../Documents/Coding/Programs/Xcode Apps/iOS/ValorantStoreChecker/ValorantStoreChecker/Ressources/Configuration.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
@@ -67,7 +67,7 @@
             BlueprintIdentifier = "8B29E1EA2881C87D0081F69A"
             BuildableName = "ValorantStoreChecker.app"
             BlueprintName = "ValorantStoreChecker"
-            ReferencedContainer = "container:ValorantStoreChecker.xcodeproj">
+            ReferencedContainer = "container:../../../../../../Library/Mobile Documents/com~apple~CloudDocs/Documents/Coding/Programs/Xcode Apps/iOS/ValorantStoreChecker/ValorantStoreChecker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

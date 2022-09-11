@@ -10,6 +10,8 @@ import SwiftUI
 struct ShopTopBarView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
+    @EnvironmentObject var skinModel : SkinModel
+    
     @State var nowDate: Date = Date()
     
     let defaults = UserDefaults.standard
@@ -44,7 +46,7 @@ struct ShopTopBarView: View {
                     .onAppear {
                         Task {
                             authAPIModel.reloading = true
-                            await authAPIModel.reload()
+                            await authAPIModel.reload(skinModel: skinModel)
                         }
                     }
                     .font(.caption)
@@ -78,7 +80,7 @@ struct ShopTopBarView: View {
             Button {
                 authAPIModel.reloading = true
                 Task{
-                    await authAPIModel.reload()
+                    await authAPIModel.reload(skinModel: skinModel)
                 }
             } label: {
                 if !authAPIModel.reloading && !authAPIModel.successfulReload {

@@ -3,7 +3,7 @@
 //  ValorantStoreChecker
 //
 //  Created by Gordon on 2022-08-11.
-// From https://developer.apple.com/documentation/storekit/in-app_purchase/implementing_a_store_in_your_app_using_the_storekit_api
+//  From https://developer.apple.com/documentation/storekit/in-app_purchase/implementing_a_store_in_your_app_using_the_storekit_api
 
 import Foundation
 import StoreKit
@@ -36,11 +36,19 @@ class TipModel: ObservableObject {
     @Published var isError : Bool = false
     @Published var errorMessage : String = ""
     
+    private let tipsList: [String: String]
+    
     var updateListenerTask: Task<Void, Error>? = nil
-
 
     init() {
 
+        if let path = Bundle.main.path(forResource: "Products", ofType: "plist"),
+        let plist = FileManager.default.contents(atPath: path) {
+            tipsList = (try? PropertyListSerialization.propertyList(from: plist, format: nil) as? [String: String]) ?? [:]
+        } else {
+            tipsList = [:]
+        }
+        
         //Initialize empty products, and then do a product request asynchronously to fill them in.
         
         tips = []
@@ -80,12 +88,7 @@ class TipModel: ObservableObject {
     func requestProducts() async {
         do {
             //Request products from the App Store using the identifiers that the Products.plist file defines.
-            let storeProducts = try await Product.products(for: [
-                "com.solounity.smallTip",
-                "com.solounity.mediumTip",
-                "com.solounity.bigTip",
-                "com.solounity.epicTip",
-            ])
+            let storeProducts = try await Product.products(for: tipsList.keys)
             
             
             var newTips: [Product] = []
@@ -102,6 +105,7 @@ class TipModel: ObservableObject {
                 }
             }
 
+            
             //Sort each product category by price, lowest to highest, to update the store.
             tips = sortByPrice(newTips)
         } catch {

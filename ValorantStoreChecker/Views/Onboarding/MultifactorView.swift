@@ -10,6 +10,7 @@ import SwiftUI
 struct MultifactorView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
+    @EnvironmentObject var skinModel : SkinModel
     
     var body: some View {
         
@@ -64,7 +65,7 @@ struct MultifactorView: View {
                     Button {
                         authAPIModel.enteredMultifactor = true
                         Task {
-                            await authAPIModel.multifactor()
+                            await authAPIModel.multifactor(skinModel: skinModel)
                         }
                     } label: {
                         if !authAPIModel.enteredMultifactor {

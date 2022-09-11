@@ -21,6 +21,7 @@
 1) Connexion réseau invalide.
 2) Mauvais mot de passe défini dans Réglages.";
 "ErrorMessage3" = "Votre achat n'a pas pu être vérifié par l'App Store.";
+"NetworkError" = "S'il vous plait, vérifiez votre connexion internet.";
 
 "Reset" = "Réinitialiser";
 "ResetApp" = "Réinitialisation de l'application";
@@ -84,6 +85,7 @@
 // AboutView
 // About in HomeView
 "MadeWith" = "Fabriqué avec";
+"MadeIn" = "Fabriqué en 🇨🇦";
 
 // AccountView
 "Account" = "Compte";
@@ -144,3 +146,13 @@
 // Bundle
 "Bundle" = "Pack";
 "EmptyBundle" = "Rafraîchir pour voir le pack";
+
+//Update Messages
+"UpdateButton" = "Mise à jour disponible";
+"UpdateTitle" = "Mettre à jour l'application";
+"Update" = "Mise à jour";
+"UpdateInstructions" = "S'il n'y a pas d'option de mise à jour, veuillez :
+1) Accédez à l'onglet Accueil (Aujourd'hui)
+2) Cliquez sur votre profil en haut à droite
+3) Balayez vers le bas pour recharger
+4) Faites défiler vers le bas pour voir les mises à jour disponibles";

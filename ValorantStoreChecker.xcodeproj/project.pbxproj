@@ -56,6 +56,7 @@
 		8BF1DB482888B87F004491A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DB472888B87F004491A1 /* Constants.swift */; };
 		8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4D7642885A298000404D8 /* SearchBar.swift */; };
 		F837D9D428A5B14B00F7C777 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F837D9D328A5B14B00F7C777 /* SettingsView.swift */; };
+		F843005E28B7BE9C006CFD5C /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = F843005D28B7BE9C006CFD5C /* Products.plist */; };
 		F844AC7128A01BF10009C0C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F844AC7328A01BF10009C0C0 /* Localizable.strings */; };
 		F87952A328ADD7C3005145F6 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87952A228ADD7C3005145F6 /* TipView.swift */; };
 		F87952A628AEA084005145F6 /* BundleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87952A528AEA084005145F6 /* BundleView.swift */; };
@@ -65,6 +66,8 @@
 		F8D4396228B1AC6D0093595C /* BundleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4396128B1AC6D0093595C /* BundleImageView.swift */; };
 		F8D4D4C128A429E400BDBBFE /* ValorantStoreCheckerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */; };
 		F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F69D3328A5E159005A73D2 /* TipModel.swift */; };
+		F8FDA33F28CD8D9E00D5A9F2 /* UpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FDA33E28CD8D9E00D5A9F2 /* UpdateModel.swift */; };
+		F8FDA34428CE6DA800D5A9F2 /* UpdateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FDA34328CE6DA800D5A9F2 /* UpdateButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +120,7 @@
 		8BF1DB472888B87F004491A1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8BF4D7642885A298000404D8 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		F837D9D328A5B14B00F7C777 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F843005D28B7BE9C006CFD5C /* Products.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		F844AC7228A01BF10009C0C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F844AC7428A01C080009C0C0 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F844AC7628A037970009C0C0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 		F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
 		F8F69D3328A5E159005A73D2 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		F8F69D3528A5E2F9005A73D2 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		F8FDA33E28CD8D9E00D5A9F2 /* UpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModel.swift; sourceTree = "<group>"; };
+		F8FDA34328CE6DA800D5A9F2 /* UpdateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +227,7 @@
 				8B29E1FF2881CA000081F69A /* SkinModel.swift */,
 				8BB00EC6288E418E001AE90A /* AuthAPIModel.swift */,
 				F8F69D3328A5E159005A73D2 /* TipModel.swift */,
+				F8FDA33E28CD8D9E00D5A9F2 /* UpdateModel.swift */,
 				8BB00EC5288E416F001AE90A /* Services */,
 			);
 			path = ViewModels;
@@ -254,6 +261,7 @@
 		8B29E2042881CC890081F69A /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				F8FDA34328CE6DA800D5A9F2 /* UpdateButton.swift */,
 				8B0AE9E22898390C00275A30 /* Blur.swift */,
 				8B9A838028861097009CE268 /* Logo.swift */,
 				8B65F849288CA608004282DD /* PriceTierView.swift */,
@@ -266,6 +274,7 @@
 		8B33A5C228846B5400BCB1F2 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				F843005D28B7BE9C006CFD5C /* Products.plist */,
 				8BF1DB472888B87F004491A1 /* Constants.swift */,
 				F844AC7328A01BF10009C0C0 /* Localizable.strings */,
 				8B29E1F22881C8800081F69A /* Assets.xcassets */,
@@ -461,6 +470,7 @@
 			files = (
 				F844AC7128A01BF10009C0C0 /* Localizable.strings in Resources */,
 				8B29E1F62881C8800081F69A /* Preview Assets.xcassets in Resources */,
+				F843005E28B7BE9C006CFD5C /* Products.plist in Resources */,
 				8BE6111E28847B0C00E8BDD6 /* SkinData.json in Resources */,
 				8B29E1F32881C8800081F69A /* Assets.xcassets in Resources */,
 			);
@@ -499,9 +509,11 @@
 				8B0AE9EA28998E4200275A30 /* AccountView.swift in Sources */,
 				8B682C822890C2BE003A3B9C /* Error.swift in Sources */,
 				8B3685D02895BBD3000BB3CF /* LoginBoxView.swift in Sources */,
+				F8FDA33F28CD8D9E00D5A9F2 /* UpdateModel.swift in Sources */,
 				F8D4D4C128A429E400BDBBFE /* ValorantStoreCheckerApp.swift in Sources */,
 				8B9A8395288630F0009CE268 /* WishListView.swift in Sources */,
 				8B42008A2899E977000D7FC2 /* CopyrightView.swift in Sources */,
+				F8FDA34428CE6DA800D5A9F2 /* UpdateButton.swift in Sources */,
 				8BB00EC9288E4679001AE90A /* Store.swift in Sources */,
 				8B9A838128861097009CE268 /* Logo.swift in Sources */,
 				8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */,
@@ -686,7 +698,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -724,7 +736,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

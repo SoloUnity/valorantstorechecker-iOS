@@ -21,6 +21,7 @@
 "CopyError" = "Copy Error";
 "Unknown" = "Unknown";
 "ErrorMessage3" = "Your purchase could not be verified by the App Store.";
+"NetworkError" = "Please check your internet connection.";
 
 "Reset" = "Reset";
 "ResetApp" = "Reset App";
@@ -84,6 +85,7 @@
 // AboutView
 // About in HomeView
 "MadeWith" = "Built with";
+"MadeIn" = "Made in 🇨🇦";
 
 // AccountView
 "Account" = "Account";
@@ -145,4 +147,12 @@
 "Bundle" = "Bundle";
 "EmptyBundle" = "Refresh to see the bundle";
 
-
+//Update Messages
+"UpdateButton" = "New App Version Available";
+"UpdateTitle" = "Update App";
+"Update" = "Update";
+"UpdateInstructions" = "If there is no update option, please:
+1) Go to the Home (Today) tab
+2) Click on your profile in the top right
+3) Swipe down to reload
+4) Scroll down to see available updates";

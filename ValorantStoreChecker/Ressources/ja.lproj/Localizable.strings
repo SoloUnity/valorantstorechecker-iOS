@@ -19,6 +19,7 @@
 "CopyError" = "コピーエラー";
 "Unknown" = "不明";
 "ErrorMessage3" = "お客様の購入履歴はApp Storeで確認することができませんでした。";
+"NetworkError" = "インターネット接続を確認してください。";
 
 "Reset" = "リセット";
 "ResetApp" = "アプリをリセットする";
@@ -82,6 +83,7 @@
 // AboutView
 // HomeViewの中のAbout
 "MadeWith" = "SwiftUIで作られた";
+"MadeIn" = "🇨🇦製";
 
 // アカウントビュー
 "Account" = "アカウント";
@@ -142,3 +144,13 @@
 // Bundle
 "Bundle" = "バンドル";
 "EmptyBundle" = "バンドル表示を更新する";
+
+//Update Messages
+"UpdateButton" = "利用可能なアップデート";
+"UpdateTitle" = "アプリの更新";
+"Update" = "アップデート";
+"UpdateInstructions" = "更新オプションがない場合は、次の手順を実行してください。
+1) ホーム (今日) タブに移動します。
+2) 右上のプロフィールをクリック
+3) 下にスワイプしてリロード
+4) 下にスクロールして利用可能なアップデートを表示します";

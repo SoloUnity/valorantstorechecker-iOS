@@ -10,7 +10,7 @@ import SwiftUI
 struct SkinListView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
-    @EnvironmentObject var model : SkinModel
+    @EnvironmentObject var skinModel : SkinModel
     
     @State var searchText : String = ""
     @State var selectedFilter : String  = ""
@@ -218,7 +218,7 @@ struct SkinListView: View {
                         
                         
                         
-                        if model.data.isEmpty{
+                        if skinModel.data.isEmpty{
                             ProgressView()
                         }
                         else{
@@ -227,7 +227,7 @@ struct SkinListView: View {
                             
                             
                             // A foolproof but braindead method to get knife skins
-                            let search = model.data.filter({ searchText.isEmpty ? true : $0.displayName.lowercased().contains(searchText.lowercased())}).filter({selectedFilter.isEmpty ? true : $0.assetPath!.lowercased().contains(selectedFilter.lowercased())}).filter { one in
+                            let search = skinModel.data.filter({ searchText.isEmpty ? true : $0.displayName.lowercased().contains(searchText.lowercased())}).filter({selectedFilter.isEmpty ? true : $0.assetPath!.lowercased().contains(selectedFilter.lowercased())}).filter { one in
                                 selectOwned ? authAPIModel.owned.contains { two in
                                     one.displayName == two
                                 } : true

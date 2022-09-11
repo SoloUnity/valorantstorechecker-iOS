@@ -326,15 +326,17 @@ struct WebService {
     
     
     // MARK: Bundles
-    static func getBundle(uuid: String) async throws -> [String] {
+    static func getBundle(uuid: String, currentBundle: String) async throws -> [String] {
         
         guard let url1 = URL(string: Constants.URL.bundle + uuid) else{
             throw BundleError.invalidURL
         }
         
+        /*
         guard let url2 = URL(string: "https://api.valorantstore.net/store-featured") else {
             throw BundleError.invalidURL
         }
+        */
         
         do{
             // Create request
@@ -355,9 +357,10 @@ struct WebService {
             }
             
             if let url = URL(string: bundleResponse1.data.displayIcon) {
-                dataHelper(url: url, key: "bundleDisplayIcon")
+                dataHelper(url: url, key: "bundleDisplayIcon" + currentBundle)
             }
             
+            /*
             var bundleRequest2 = URLRequest(url: url2)
             bundleRequest2.httpMethod = "GET"
             
@@ -377,8 +380,8 @@ struct WebService {
             if !bundleResponse2.data.isEmpty {
                 return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon, String(bundleResponse2.data.first!.price)]
             }
-            
-            return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon, ""]
+            */
+            return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon]
             
             
         }catch{
@@ -497,11 +500,14 @@ struct WebService {
             }
             
             // Split uri and obtain access token
-            let split = urlString.split(separator: "=")
-            let token = String(split[1].split(separator: "&")[0])
-            
-            print ("Reload Sucessful")
-            return token
+            let uriList = urlString.split(separator: "&")
+            for item in uriList {
+                if item.contains("access_token") {
+                    return String(item.split(separator: "=")[1])
+                }
+            }
+
+            return "NO TOKEN"
             
         }catch{
             throw CookieAuthError.dataTaskError(error.localizedDescription)

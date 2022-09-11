@@ -10,6 +10,8 @@ import SwiftUI
 struct ShopView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
+    @EnvironmentObject var skinModel : SkinModel
+    @EnvironmentObject var updateModel : UpdateModel
     
     let defaults = UserDefaults.standard
     
@@ -21,15 +23,23 @@ struct ShopView: View {
             LazyVStack(spacing: 0){
                 
                 
-                Logo()
-                    .frame(width: geo.size.width/6.5)
+                if updateModel.update {
+                    UpdateButton()
+                        .padding()
+                }
+                else {
+                    Logo()
+                        .frame(width: geo.size.width/6.5)
+                }
+                
+                    
                 
                 ScrollView(showsIndicators: false) {
                     
                     
                     PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                         Task{
-                            await authAPIModel.reload()
+                            await authAPIModel.reload(skinModel: skinModel)
                         }
                     }
                     
@@ -38,6 +48,8 @@ struct ShopView: View {
                         
                         // Determine if the data has been fetched
                         if authAPIModel.storefront.isEmpty{
+                            
+                            ShopTopBarView(referenceDate: Date())
                             
                             HStack{
                                 

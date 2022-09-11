@@ -15,10 +15,8 @@ class SkinModel: ObservableObject{
     let defaults = UserDefaults.standard
     
     init () {
-        
         getLocalData()
         getRemoteData()
-        
     }
     
     // I did not learn about async/await when I made this stop laughing at me

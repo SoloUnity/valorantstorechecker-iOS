@@ -21,6 +21,7 @@
 "CopyError" = "Kopierfehler";
 "Unbekannt" = "Unbekannt";
 "ErrorMessage3" = "Ihr Kauf konnte vom App Store nicht überprüft werden.";
+"NetworkError" = "Bitte überprüfe deine Internetverbindung.";
 
 "Reset" = "Zurücksetzen";
 "ResetApp" = "App zurücksetzen";
@@ -84,6 +85,7 @@
 // AboutView
 // Über in HomeView
 "MadeWith" = "Hergestellt mit";
+"MadeIn" = "Hergestellt in 🇨🇦";
 
 // AccountView
 "Account" = "Konto";
@@ -143,3 +145,13 @@
 // Bundle
 "Bundle" = "Bündel";
 "EmptyBundle" = "Aktualisieren, um das Bündel zu sehen";
+
+//Update Messages
+"UpdateButton" = "Update verfügbar";
+"UpdateTitle" = "App aktualisieren";
+"Update" = "Aktualisieren";
+"UpdateInstructions" = "Wenn es keine Update-Option gibt, gehen Sie bitte wie folgt vor:
+1) Gehen Sie zur Registerkarte Startseite (Heute).
+2) Klicken Sie oben rechts auf Ihr Profil
+3) Zum Neuladen nach unten wischen
+4) Scrollen Sie nach unten, um verfügbare Updates anzuzeigen";

@@ -58,6 +58,17 @@ struct TipView: View {
                         tipButton(expand: $expand, tip: tip)
                     }
                     
+                    if tips.isEmpty {
+                        HStack {
+                            
+                            Text(LocalizedStringKey("NetworkError"))
+                                .bold()
+                            
+                            Spacer()
+                            
+                        }
+                    }
+                    
                     /*
                     tipButton(expand: $expand, index: 0)
                     
@@ -108,10 +119,7 @@ struct TipView: View {
                 
                 HStack {
                     
-                    Text(tip.displayName)
-                        .bold()
-                    
-                    Spacer()
+
                     
                     Text(tip.displayPrice)
                 }

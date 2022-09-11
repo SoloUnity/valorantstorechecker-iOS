@@ -9,11 +9,7 @@
       "familyShareable" : false,
       "internalID" : "FBD6D03E",
       "localizations" : [
-        {
-          "description" : "Tip the developer 1$.",
-          "displayName" : "Small Tip",
-          "locale" : "en_US"
-        }
+
       ],
       "productID" : "com.solounity.smallTip",
       "referenceName" : "smallTip",
@@ -24,11 +20,7 @@
       "familyShareable" : false,
       "internalID" : "22BEB671",
       "localizations" : [
-        {
-          "description" : "Tip the developer 5$.",
-          "displayName" : "Medium Tip",
-          "locale" : "en_US"
-        }
+
       ],
       "productID" : "com.solounity.mediumTip",
       "referenceName" : "mediumTip",
@@ -39,11 +31,7 @@
       "familyShareable" : false,
       "internalID" : "E5BE1D5C",
       "localizations" : [
-        {
-          "description" : "Tip the developer 20$",
-          "displayName" : "Epic Tip",
-          "locale" : "en_US"
-        }
+
       ],
       "productID" : "com.solounity.epicTip",
       "referenceName" : "epicTip",
@@ -54,14 +42,55 @@
       "familyShareable" : false,
       "internalID" : "1BDB7DE3",
       "localizations" : [
-        {
-          "description" : "Tip the developer 10$",
-          "displayName" : "Big Tip",
-          "locale" : "en_US"
-        }
+
       ],
       "productID" : "com.solounity.bigTip",
       "referenceName" : "bigTip",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : false,
+      "internalID" : "A59361A6",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.solounity.199",
+      "referenceName" : "199",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "1FBBB76C",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.solounity.299",
+      "referenceName" : "299",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "3.99",
+      "familyShareable" : false,
+      "internalID" : "788B669A",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.solounity.399",
+      "referenceName" : "399",
       "type" : "Consumable"
     }
   ],

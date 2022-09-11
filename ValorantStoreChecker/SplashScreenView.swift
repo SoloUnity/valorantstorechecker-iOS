@@ -20,6 +20,7 @@ struct SplashScreenView: View {
                 .environmentObject(SkinModel())
                 .environmentObject(AuthAPIModel())
                 .environmentObject(TipModel())
+                .environmentObject(UpdateModel())
         } else{
             
             GeometryReader { geo in

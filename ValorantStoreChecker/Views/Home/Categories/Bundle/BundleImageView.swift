@@ -11,17 +11,16 @@ struct BundleImageView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     let defaults = UserDefaults.standard
-    
+    let bundleIndex : Int
     var body: some View {
         ZStack{
             
-            
-            
-            if let imageData = UserDefaults.standard.data(forKey: "bundleDisplayIcon") {
+            if let imageData = UserDefaults.standard.data(forKey: "bundleDisplayIcon" + String(bundleIndex)) {
                 
                 let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData )
                 
                 let uiImage = UIImage(data: decoded)
+                
                 
                 Image(uiImage: uiImage ?? UIImage())
                     .resizable()
@@ -35,9 +34,10 @@ struct BundleImageView: View {
                                 RoundedRectangle(cornerRadius: 10)
                             }
                     }
-
-                
-            } else {
+                    .cornerRadius(10)
+            }
+            /*
+            else {
                 // Quicker load time but a data muncher
                 AsyncImage(url: URL(string: authAPIModel.bundleImage)) { image in
                     image.resizable()
@@ -58,13 +58,14 @@ struct BundleImageView: View {
                 }
 
             }
+            */
             
             VStack {
                 Spacer()
                 
                 HStack {
                     
-                    Text(defaults.string(forKey: "bundleDisplayName") ?? "")
+                    Text(defaults.string(forKey: "bundleDisplayName" + String(bundleIndex)) ?? "")
                         .foregroundColor(.white)
                         .font(.subheadline)
                         .bold()
@@ -73,7 +74,9 @@ struct BundleImageView: View {
                     
                     Spacer()
                     
-                    if let price = defaults.string(forKey: "bundlePrice") {
+                    // Not working as of now
+                    /*
+                    if let price = defaults.string(forKey: "bundlePrice" + String(bundleIndex)) {
                         
                         if price != "" {
                             Image("vp")
@@ -88,21 +91,13 @@ struct BundleImageView: View {
                                 .bold()
                                 .shadow(color: .black, radius: 3)
                         }
-                        
-                        
-                        
                     }
-                    
+                    */
                 }
                 .padding(10)
             }
         }
-        .cornerRadius(10)
+        
     }
 }
 
-struct BundleImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        BundleImageView()
-    }
-}

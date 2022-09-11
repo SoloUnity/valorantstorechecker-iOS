@@ -56,30 +56,31 @@ struct AboutView: View {
                     
                     HStack {
                         
-                        HStack {
-                            Text("Made in")
-                                .bold()
-                            
-                            Text("🇨🇦")
-                                .shadow(color: .white, radius: 5)
-                        }
+                        Text("MadeIn")
+                            .bold()
+                        
+                        
+                        Spacer()
+                        
+                        Text("v" + (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!)
+                            .font(.caption2)
+                            .opacity(0.5)
                         
                         
                         Spacer()
                         
                         HStack {
-                            Text(LocalizedStringKey("MadeWith"))
+                            Text("MadeWith")
                                 .bold()
                             
                             Image("swiftui")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 25, height: 25)
-                                .shadow(color: .white, radius: 5)
                         }
                         
                     }
-                    .padding()
+
                     
                 }
             }

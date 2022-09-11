@@ -68,14 +68,15 @@ struct Currency: Codable {
     }
 }
 
-// MARK: Bundle
+// MARK: Featured Bundle
 struct FeaturedBundle: Codable {
     let bundle: StoreBundle
-    let bundleRemainingDurationInSeconds: Int
+    let bundles: [StoreBundle]
+    
 
     enum CodingKeys: String, CodingKey {
         case bundle = "Bundle"
-        case bundleRemainingDurationInSeconds = "BundleRemainingDurationInSeconds"
+        case bundles = "Bundles"
     }
 }
 
@@ -83,10 +84,12 @@ struct FeaturedBundle: Codable {
 struct StoreBundle: Codable {
     let dataAssetID : String
     let items: [ItemElement]
-
+    let durationRemainingInSeconds: Int
+    
     enum CodingKeys: String, CodingKey {
         case dataAssetID = "DataAssetID"
         case items = "Items"
+        case durationRemainingInSeconds = "DurationRemainingInSeconds"
     }
 }
 

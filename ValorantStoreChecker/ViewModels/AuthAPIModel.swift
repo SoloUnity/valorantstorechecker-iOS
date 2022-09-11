@@ -55,7 +55,7 @@ class AuthAPIModel: ObservableObject {
     // BundleInformation
     @Published var bundleImage : String = ""
     @Published var bundleName : String = ""
-    @Published var bundle : [Skin] = []
+    @Published var bundle : [[Skin]] = []
     
     init() {
         
@@ -86,7 +86,7 @@ class AuthAPIModel: ObservableObject {
         
         if let objects = defaults.value(forKey: "bundle") as? Data {
             let decoder = JSONDecoder()
-            if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Skin] {
+            if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [[Skin]] {
                 DispatchQueue.main.async{
                     self.bundle = objectsDecoded
                 }
@@ -96,7 +96,7 @@ class AuthAPIModel: ObservableObject {
     
     // MARK: Login
     @MainActor
-    func login() async{
+    func login(skinModel: SkinModel) async{
         
         do{
             
@@ -122,7 +122,7 @@ class AuthAPIModel: ObservableObject {
             else{
                 // Default login (non-multifactor)
                 let token = tokenList[0]
-                await loginHelper(token: token)
+                await loginHelper(token: token, skinModel: skinModel)
                 
                 // Save authentication state for next launch
                 self.isAuthenticated = true
@@ -159,7 +159,7 @@ class AuthAPIModel: ObservableObject {
     
     // MARK: LoginHelper
     @MainActor
-    func loginHelper(token : String) async {
+    func loginHelper(token : String, skinModel : SkinModel) async {
         do {
             self.password = "" // Clear password
             
@@ -241,82 +241,95 @@ class AuthAPIModel: ObservableObject {
             defaults.set(referenceDate, forKey: "timeLeft")
             defaults.set(Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0), forKey: "secondsLeft")
             
-            guard let bundleUUID = storefrontResponse.FeaturedBundle?.bundle.dataAssetID else {
-                throw APIError.invalidCredentials
+            guard let bundleList = storefrontResponse.FeaturedBundle else {
+                throw BundleListError.invalidList
             }
             
             
-            let bundle = try await WebService.getBundle(uuid: bundleUUID)
-            let bundleDisplayName = bundle[0]
-            let bundleDisplayIcon = bundle[1]
-            let bundlePrice = bundle[2]
+            defaults.set(bundleList.bundles.count, forKey: "bundleCount")
             
-            self.bundleName = bundleDisplayName
-            self.bundleImage = bundleDisplayIcon
+            var bundleCounter = 0
+            var bundleItems : [[Skin]] = []
             
-            defaults.set(bundleDisplayName, forKey: "bundleDisplayName")
-            defaults.set(bundlePrice, forKey: "bundlePrice")
-            
-            // Set time left for bundle
-            let bundleReferenceDate = Date() + Double(storefrontResponse.FeaturedBundle!.bundleRemainingDurationInSeconds )
-            defaults.set(bundleReferenceDate, forKey: "bundleTimeLeft")
-            defaults.set(Double(storefrontResponse.FeaturedBundle!.bundleRemainingDurationInSeconds ), forKey: "bundleSecondsLeft")
-            
-            
-            // Save the bundle skins
-            let items = storefrontResponse.FeaturedBundle!.bundle.items
-            
-            var tempBundleItems : [Skin] = []
-            for skin in SkinModel().data{
+            for item in bundleList.bundles {
+                bundleCounter += 1
+                let currentBundle = String(bundleCounter)
                 
-                for item in items {
-                    if skin.levels!.first!.id.description.lowercased() == item.item.itemID {
-                        tempBundleItems.append(skin)
+                let bundleUUID = item.dataAssetID
+                let bundle = try await WebService.getBundle(uuid: bundleUUID, currentBundle: currentBundle)
+                
+                let bundleDisplayName = bundle[0]
+                //let bundleDisplayIcon = bundle[1]
+                
+                //self.bundleName = bundleDisplayName
+                //self.bundleImage = bundleDisplayIcon
+                
+                
+                
+                defaults.set(bundleDisplayName, forKey: "bundleDisplayName" + currentBundle)
+                
+
+                // Set time left for bundle
+                let bundleReferenceDate = Date() + Double(item.durationRemainingInSeconds)
+                defaults.set(bundleReferenceDate, forKey: "bundleTimeLeft" + currentBundle)
+                defaults.set(Double(item.durationRemainingInSeconds), forKey: "bundleSecondsLeft"  + currentBundle)
+                
+                
+                // Save the bundle skins
+                let items = item.items
+                
+                var tempBundleItems : [Skin] = []
+                for skin in skinModel.data{
+                    
+                    for item in items {
+                        if skin.levels!.first!.id.description.lowercased() == item.item.itemID {
+                            tempBundleItems.append(skin)
+                        }
                     }
                 }
+                
+                bundleItems.append(tempBundleItems)
+                
             }
-            
-            self.bundle = tempBundleItems
+
+            self.bundle = bundleItems
             
             // Save the bundle
             let bundleEncoder = JSONEncoder()
             
-            if let encoded = try? bundleEncoder.encode(tempBundleItems){
+            if let encoded = try? bundleEncoder.encode(bundleItems){
                 defaults.set(encoded, forKey: "bundle")
             }
             
+            
+            print("bundleItems" , self.bundle)
+            
             self.isAuthenticating = false
-
+            self.failedLogin = false
+            
             self.username = ""
             self.password = ""
             self.multifactor = ""
             
         }catch {
             
-            // To address auto reloading
-            if !self.rememberPassword || !defaults.bool(forKey: "rememberPassword") {
-                // Reset user defaults
-                self.isAuthenticating = false
-                self.password = ""
-                
-                print("LoginHelper")
-            }
-            
+            self.isAuthenticating = false
+            self.password = ""
             
             self.errorMessage = "Login Helper error: \(error.localizedDescription)"
             self.isError = true
+            
         }
-        
     }
     
     // MARK: Multifactor
     @MainActor
-    func multifactor() async {
+    func multifactor(skinModel: SkinModel) async {
         if enteredMultifactor{
             do{
                 let token = try await WebService.multifactor(code: self.multifactor)
                 
-                await loginHelper(token: token)
+                await loginHelper(token: token, skinModel: skinModel)
                 self.showMultifactor = false
                 self.enteredMultifactor = false
                 
@@ -330,7 +343,6 @@ class AuthAPIModel: ObservableObject {
                 self.isError = true
                 */
                 
-                
                 // Reset user defaults
                 self.enteredMultifactor = false
                 self.multifactor = ""
@@ -343,34 +355,42 @@ class AuthAPIModel: ObservableObject {
             }
             
         }
-        
     }
     
     // MARK: Reload
     @MainActor
-    func reload() async {
+    func reload(skinModel: SkinModel) async {
         do{
             
+            print("Reloading")
+
             let token = try await WebService.cookieReauth()
             
-            await loginHelper(token: token)
-            
-            self.reloading = false
-            
-            
-        }catch{
-            
-            if self.rememberPassword || defaults.bool(forKey: "rememberPassword") {
+            if token == "NO TOKEN" {
                 
-                await login()
-                self.reloading = false
+                if (self.rememberPassword || defaults.bool(forKey: "rememberPassword")) && !failedLogin {
+                    print("Attempt relogin")
+                    
+                    await login(skinModel: skinModel)
+                    self.reloading = false
+                }
+                else {
+                    self.isError = true
+                    self.isReloadingError = true
+                }
                 
             }
             else {
-                self.isError = true
-                self.isReloadingError = true
+                await loginHelper(token: token, skinModel: skinModel)
+                self.reloading = false
             }
             
+        }catch{
+            
+            self.isReloadingError = true
+            self.isError = true
+            
+            print("Reloading error")
             
         }
     }

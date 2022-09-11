@@ -153,7 +153,7 @@ struct LoginView: View {
                             authAPIModel.isAuthenticating = true // Start loading animation
                             
                             Task{
-                                await authAPIModel.login()
+                                await authAPIModel.login(skinModel: skinModel)
                             }
                             
                         } label: {

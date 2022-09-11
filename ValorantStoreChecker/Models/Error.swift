@@ -97,3 +97,11 @@ enum OwnedError : Error {
     case noData
     case dataTaskError(String)
 }
+
+enum BundleListError: Error {
+    case invalidList
+}
+
+enum VersionError: Error {
+    case invalidResponse, invalidBundleInfo
+}

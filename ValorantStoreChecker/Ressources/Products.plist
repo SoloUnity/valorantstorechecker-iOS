@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>com.solounity.bigTip</key>
+	<string></string>
+	<key>com.solounity.epicTip</key>
+	<string></string>
+	<key>com.solounity.mediumTip</key>
+	<string></string>
+	<key>com.solounity.smallTip</key>
+	<string></string>
+	<key>com.solounity.199</key>
+	<string></string>
+	<key>com.solounity.299</key>
+	<string></string>
+	<key>com.solounity.399</key>
+	<string></string>
+</dict>
+</plist>
