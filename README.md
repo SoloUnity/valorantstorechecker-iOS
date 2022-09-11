@@ -31,6 +31,13 @@ See the [Website](https://valorantstore.net) if you wish to check your store on 
   <img width="49%" src="https://user-images.githubusercontent.com/77747704/183316789-fa977781-19f3-4e7f-92ee-74d76a3bcb39.png" />
 </p>
 
+<p align=center>
+  <img width="49%" src="https://user-images.githubusercontent.com/77747704/189550838-752fcd29-73cc-45aa-b902-1d1563cfa2ba.PNG" />
+  <img width="49%" src="https://user-images.githubusercontent.com/77747704/189550843-97171c12-8a4b-47cf-85ad-8d4b2051c17b.PNG" />
+</p>
+
+
+
 ### Frequently Asked Questions
 
 #### Why does the app need my login information?
