@@ -109,7 +109,7 @@ class AuthAPIModel: ObservableObject {
                 let _ = keychain.save(self.username, forKey: "username")
             }
             
-            try await WebService.getCookies()
+            let _ = try await WebService.getCookies(reload: false)
             
             let tokenList = try await WebService.getToken(username: keychain.value(forKey: "username") as? String ?? "", password: self.password)
             
@@ -147,7 +147,6 @@ class AuthAPIModel: ObservableObject {
                 self.failedLogin = true
                 defaults.removeObject(forKey: "authentication")
                 let _ = keychain.remove(forKey: "username")
-                
             }
             
             self.username = ""
@@ -204,6 +203,10 @@ class AuthAPIModel: ObservableObject {
             
             self.defaults.set(wallet[0], forKey: "vp")
             self.defaults.set(wallet[1], forKey: "rp")
+            
+            // Notifies UI that its finished getting store
+            self.reloading = false
+            
             
             // Get store price
             let storePrice = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: keychain.value(forKey: "region") as? String ?? "na")
@@ -363,12 +366,18 @@ class AuthAPIModel: ObservableObject {
         do{
             
             print("Reloading")
+            
+            let token = try await WebService.getCookies(reload: true)
+            
+            // Old way
+            //let token = try await WebService.cookieReauth()
+            
+            print(token)
 
-            let token = try await WebService.cookieReauth()
             
             if token == "NO TOKEN" {
                 
-                if (self.rememberPassword || defaults.bool(forKey: "rememberPassword")) && !failedLogin {
+                if (self.rememberPassword || defaults.bool(forKey: "rememberPassword")) {
                     print("Attempt relogin")
                     
                     await login(skinModel: skinModel)
@@ -382,13 +391,23 @@ class AuthAPIModel: ObservableObject {
             }
             else {
                 await loginHelper(token: token, skinModel: skinModel)
-                self.reloading = false
+                
             }
+
             
         }catch{
             
-            self.isReloadingError = true
-            self.isError = true
+            if (self.rememberPassword || defaults.bool(forKey: "rememberPassword")) {
+                print("Attempt relogin2")
+                
+                await login(skinModel: skinModel)
+                self.reloading = false
+            }
+            else {
+                //self.isReloadingError = true
+                self.errorMessage = "Reload error: \(error.localizedDescription)"
+                self.isError = true
+            }
             
             print("Reloading error")
             

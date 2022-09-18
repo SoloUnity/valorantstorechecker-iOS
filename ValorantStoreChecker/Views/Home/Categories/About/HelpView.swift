@@ -64,7 +64,7 @@ struct HelpView: View {
                             UIApplication.shared.open(url)
                         }
                     } label: {
-                        Text("Star the Repository")
+                        Text("Star")
                             .bold()
                         
                         Image(systemName: "link")

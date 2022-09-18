@@ -95,7 +95,6 @@ struct LaunchView: View {
                 Button(LocalizedStringKey("OK"), role: nil, action: {
                     authAPIModel.reloading = false
                     authAPIModel.isReloadingError = false
-                    authAPIModel.failedLogin = false
                 })
                 
             }
@@ -113,7 +112,6 @@ struct LaunchView: View {
                 Button(LocalizedStringKey("OK"), role: nil, action: {
                     authAPIModel.reloading = false
                     authAPIModel.isReloadingError = false
-                    authAPIModel.failedLogin = false
                 })
                 
             }

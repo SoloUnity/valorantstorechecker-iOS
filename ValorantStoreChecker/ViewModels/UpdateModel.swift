@@ -50,6 +50,10 @@ class UpdateModel: ObservableObject{
                 }
                 
                 completion(lastVersion > currentVersion, nil)
+                
+                print("AppStoreVersion:", lastVersion)
+                print("CurrentVersion:", currentVersion)
+                
             } catch {
                 completion(nil, error)
             }

@@ -20,32 +20,82 @@ struct WebService {
     }()
     
     // MARK: Cookies
-    static func getCookies() async throws -> Void {
+    static func getCookies(reload: Bool) async throws -> String {
         guard let url = URL(string: Constants.URL.auth) else{
             throw CookieError.invalidURL
         }
         
         do{
             
-            let cookieBody = AuthCookies()
-            
-            // Create request
-            var cookieRequest = URLRequest(url: url)
-            cookieRequest.httpMethod = "POST"
-            cookieRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            cookieRequest.httpBody = try! JSONEncoder().encode(cookieBody)
-            
-            // Get cookies
-            let (_ , response) = try await WebService.session.data(for: cookieRequest)
-            
-            // Verify server request
-            guard
-                let httpResponse = response as? HTTPURLResponse,
-                httpResponse.statusCode == 200
-            else{
-
-                throw CookieError.invalidResponseStatus
+            if reload {
+                let keychain = Keychain()
+                
+                try await setCookie(named: "tdid", to: keychain.value(forKey: "tdid") as? String ?? "")
+                try await setCookie(named: "ssid", to: keychain.value(forKey: "ssid") as? String ?? "")
+                
+                let recookieBody = ReAuthCookies()
+                
+                // Create request
+                var cookieRequest = URLRequest(url: url)
+                cookieRequest.httpMethod = "POST"
+                cookieRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                cookieRequest.httpBody = try! JSONEncoder().encode(recookieBody)
+                
+                // Get cookies
+                let (data , response) = try await WebService.session.data(for: cookieRequest)
+                
+                // Verify server request
+                guard
+                    let httpResponse = response as? HTTPURLResponse,
+                    httpResponse.statusCode == 200
+                else{
+                    throw CookieReloadError.invalidResponseStatus
+                }
+                
+                guard let cookieResponse = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
+                    throw CookieReloadError.badDecode
+                }
+                
+                guard let uri = cookieResponse.response?.parameters?.uri else {
+                    throw CookieReloadError.badURI
+                }
+                
+                // Obtain uri and parse for the token
+                let uriList = uri.split(separator: "&")
+                for item in uriList {
+                    if item.contains("access_token") {
+                        return String(item.split(separator: "=")[1])
+                    }
+                }
+                
+                return "NO TOKEN"
+                
             }
+            else {
+                let cookieBody = AuthCookies()
+                
+                // Create request
+                var cookieRequest = URLRequest(url: url)
+                cookieRequest.httpMethod = "POST"
+                cookieRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                cookieRequest.httpBody = try! JSONEncoder().encode(cookieBody)
+                
+                // Get cookies
+                let (_ , response) = try await WebService.session.data(for: cookieRequest)
+                
+                // Verify server request
+                guard
+                    let httpResponse = response as? HTTPURLResponse,
+                    httpResponse.statusCode == 200
+                else{
+
+                    throw CookieError.invalidResponseStatus
+                }
+                
+                return "OK"
+            }
+            
+            
             
             
             
@@ -467,10 +517,14 @@ struct WebService {
         
     }
     
+    
     // MARK: Reauthentication / Reloading
     static func cookieReauth () async throws -> String {
         
+        
+        
         guard let url = URL(string: Constants.URL.cookieReauth) else{
+            print("CookieAuthError.invalidURL")
             throw CookieAuthError.invalidURL
         }
         
@@ -488,14 +542,18 @@ struct WebService {
             // Get token
             let (_ , response) = try await WebService.session.data(for: cookieReauthRequest)
             
+            /*
             guard
-                let httpResponse = response as? HTTPURLResponse,
-                httpResponse.statusCode == 200
+                let httpResponse = response as? HTTPURLResponse
             else{
+                print("CookieAuthError.invalidResponseStatus")
                 throw PriceError.invalidResponseStatus
             }
+            */
+
             
             guard let urlString = response.url?.absoluteString else{
+                print("CookieAuthError.noData")
                 throw CookieAuthError.noData
             }
             

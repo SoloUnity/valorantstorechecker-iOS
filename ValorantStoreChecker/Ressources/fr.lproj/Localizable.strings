@@ -77,6 +77,7 @@
 "ExclusiveSkinMessage" = "Ce skin s'agit soit d'une exclusivité Battlepass, soit d'une exclusivité d'agent, ou d'un skin en édition limitée.";
 "Tier" = "Niveau";
 "Default" = "Défaut";
+"Default1" = "1. Défaut";
 "Variant" = "Variante";
 
 // SearchBar
@@ -109,6 +110,7 @@
 "Help" = "Aidez le développeur!";
 "HelpMessage" = "Salut ! Je suis simplement un étudiant universitaire qui est privé de sommeil. J'essaie seulement de rendre la vie un petit peu meilleure pour tout le monde 😄. S'il vous plaît pensez à de m'aider à travers n'importe quelle méthode ci-dessous !";
 "Review" = "Laisser un avis";
+"Star" = "Donnez une étoile au projet";
 "Sponsor" = "Effectuer une donation";
 
 // AcknowledgementsView

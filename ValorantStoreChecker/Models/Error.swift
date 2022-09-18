@@ -21,6 +21,14 @@ enum CookieError: Error {
     case dataTaskError(String)
 }
 
+enum CookieReloadError: Error {
+    case invalidURL
+    case invalidResponseStatus
+    case badDecode
+    case badURI
+    case dataTaskError(String)
+}
+
 enum TokenError: Error {
     case invalidURL
     case invalidResponseStatus

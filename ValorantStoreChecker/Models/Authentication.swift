@@ -15,6 +15,14 @@ struct AuthCookies: Encodable {
     let response_type = "token id_token"
 }
 
+struct ReAuthCookies: Encodable {
+    let client_id = "play-valorant-web-prod"
+    let nonce = "1"
+    let redirect_uri = "https://playvalorant.com/opt_in"
+    let response_type = "token id_token"
+    let scope = "account ban link lol offline_access openid"
+}
+
 // Authentication
 struct AuthRequestBody: Encodable {
     let type = "auth"
