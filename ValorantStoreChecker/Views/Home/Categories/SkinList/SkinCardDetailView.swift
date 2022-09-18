@@ -9,6 +9,29 @@ import SwiftUI
 import AVKit
 import AZVideoPlayer
 
+extension UIApplication {
+    
+    static let keyWindow = keyWindowScene?.windows.filter(\.isKeyWindow).first
+    static let keyWindowScene = shared.connectedScenes.first { $0.activationState == .foregroundActive } as? UIWindowScene
+    
+}
+
+extension View {
+    
+    func shareSheet(isPresented: Binding<Bool>, items: [Any]) -> some View {
+
+        guard isPresented.wrappedValue else { return self }
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        let presentedViewController = UIApplication.keyWindow?.rootViewController?.presentedViewController ?? UIApplication.keyWindow?.rootViewController
+        activityViewController.completionWithItemsHandler = { _, _, _, _ in isPresented.wrappedValue = false }
+        presentedViewController?.present(activityViewController, animated: true)
+        return self
+        
+    }
+    
+    
+}
+
 struct SkinCardDetailView: View {
     
     @EnvironmentObject var skinModel:SkinModel
@@ -22,10 +45,10 @@ struct SkinCardDetailView: View {
     @State var videoName = ""
     @State var colourName = ""
     @State var noVideo = false
+    @State private var isPresentingShareSheet = false
     
     private let player = AVPlayer()
-    
-    
+
     var body: some View {
         GeometryReader{ geo in
             
@@ -33,6 +56,8 @@ struct SkinCardDetailView: View {
                 
                 // MARK: Title header
                 HStack{
+                    
+                    
                     if skin.contentTierUuid != nil{
                         PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 30)
                     }else{
@@ -40,54 +65,97 @@ struct SkinCardDetailView: View {
                             .frame(width: 30, height: 30)
                     }
                     
+                    let name = skin.displayName
+                    if name.count < 19 {
+                        Text (String(name))
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.white)
+                            .lineLimit(1)
+                    }
+                    else if name.count > 30 {
+                        Text (String(name))
+                            .font(.caption)
+                            .bold()
+                            .foregroundColor(.white)
+                            .lineLimit(1)
+                    }
+                    else {
+                        Text (String(name))
+                            .font(.title3)
+                            .bold()
+                            .foregroundColor(.white)
+                            .lineLimit(1)
+                    }
                     
-                    Text (String(skin.displayName))
-                        .font(.title)
-                        .bold()
-                        .foregroundColor(.white)
+                    Spacer()
+                    
+                    Button {
+                        Dispatch.background {
+                            self.isPresentingShareSheet = true
+                        }
+                    } label: {
+                        Image(systemName: "square.and.arrow.up")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height:20)
+                    }
+                    .shareSheet(isPresented: $isPresentingShareSheet, items: [URL(string: "https://valorantstore.net/skin/\(skin.id.description.lowercased())")!])
+
+                    
+                    
                 }
                 
-                ScrollView {
+                ScrollView() {
                     
-                    // MARK: Price
-                    ZStack{
-                        
-                        
-                        HStack{
+                    VStack {
+                        // MARK: Price
+                        ZStack{
                             
                             
-                            if skin.contentTierUuid != nil {
-                                let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!)
+                            HStack{
                                 
-                                if price != "Unknown" {
+                                
+                                if skin.contentTierUuid != nil {
+                                    let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!)
                                     
-                                    if skin.contentTierUuid == nil || (skin.contentTierUuid != nil && PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!) == "2475+") {
+                                    if price != "Unknown" {
                                         
-                                        Button {
-                                            showAlert = true
-                                        } label: {
-                                            Image(systemName: "info.circle")
-                                                .accentColor(.white)
+                                        if skin.contentTierUuid == nil || (skin.contentTierUuid != nil && PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!) == "2475+") {
+                                            
+                                            Button {
+                                                showAlert = true
+                                            } label: {
+                                                Image(systemName: "info.circle")
+                                                    .accentColor(.white)
+                                            }
+                                            .alert(isPresented: $showAlert) { () -> Alert in
+                                                Alert(title: Text(LocalizedStringKey("InfoPrice")))
+                                            }
                                         }
-                                        .alert(isPresented: $showAlert) { () -> Alert in
-                                            Alert(title: Text(LocalizedStringKey("InfoPrice")))
-                                        }
+                                        
+                                        Text(LocalizedStringKey("Cost"))
+                                            .bold()
+                                        
+                                        Spacer()
+                                        
+                                        Image("vp")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 18, height: 18)
+                                        
+                                        Text(price)
+                                            .foregroundColor(.white)
+                                            .bold()
+                                        
                                     }
-                                    
-                                    Text(LocalizedStringKey("Cost"))
-                                        .bold()
-                                    
-                                    Spacer()
-                                    
-                                    Image("vp")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 18, height: 18)
-                                    
-                                    Text(price)
-                                        .foregroundColor(.white)
-                                        .bold()
-                                    
+                                    else{
+                                        
+                                        Text(LocalizedStringKey("ExclusiveSkinMessage"))
+                                            .foregroundColor(.white)
+                                        
+                                        Spacer()
+                                    }
                                 }
                                 else{
                                     
@@ -96,46 +164,30 @@ struct SkinCardDetailView: View {
                                     
                                     Spacer()
                                 }
-                            }
-                            else{
-                                
-                                Text(LocalizedStringKey("ExclusiveSkinMessage"))
-                                    .foregroundColor(.white)
-                                
-                                Spacer()
-                            }
 
-                        }
-                        .padding()
-                        
-   
-                    }
-                    .background(Blur(radius: 25, opaque: true))
-                    .cornerRadius(10)
-                    .overlay{
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(.white, lineWidth: 3)
-                            .offset(y: -1)
-                            .offset(x: -1)
-                            .blendMode(.overlay)
-                            .blur(radius: 0)
-                            .mask {
-                                RoundedRectangle(cornerRadius: 10)
                             }
-                    }
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    if skin.levels!.count != 1 {
+                            .padding()
+                            
+       
+                        }
+                        .background(Blur(radius: 25, opaque: true))
+                        .cornerRadius(10)
+                        .overlay{
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.white, lineWidth: 3)
+                                .offset(y: -1)
+                                .offset(x: -1)
+                                .blendMode(.overlay)
+                                .blur(radius: 0)
+                                .mask {
+                                    RoundedRectangle(cornerRadius: 10)
+                                }
+                        }
+                        
+                        
                         
                         // MARK: Skin tier videos
-                        HStack {
-                            
+                        if skin.levels!.first?.streamedVideo != nil {
                             ZStack {
                                 
                                 
@@ -197,221 +249,58 @@ struct SkinCardDetailView: View {
                                 }
                                 
                             }
-                            
-                            
                         }
                         
-                        // MARK: Video Tier Picker
-                        HStack{
-                            HStack {
-                                Text(LocalizedStringKey("Tier"))
-                                    .bold()
-                                Text(String(selectedLevel + 1))
-                                    .bold()
-                                    .padding(-4)
-                            }
+                        
+                        
+                        
+                        if skin.levels!.count != 1 {
                             
-                            
-                            
-                            Spacer()
-                            
-                            
-                            Menu {
-                                
-                                ForEach(0..<skin.levels!.count, id: \.self){ level in
-                                    
-                                    let videoTierName = cleanLevelName(name: String(skin.levels![level].levelItem ?? "null"))
-                                    
-                                    Button {
-                                        self.selectedLevel = level
-                                        
-                                        
-                                        if level == 0 {
-                                            self.videoName = ""
-                                        }
-                                        else if videoTierName == "null" {
-                                            self.videoName = "Variant \(level + 1)"
-                                        }
-                                        else {
-                                            self.videoName = videoTierName
-                                        }
-                                        
-                                    } label: {
-                                        if level == 0 {
-                                            Text("Default1")
-                                        }
-                                        else if videoTierName == "null" {
-                                            Text("\(level + 1). " + "Variant \(level + 1)")
-                                        }
-                                        else {
-                                            Text("\(level + 1). " + videoTierName)
-                                        }
-                                    }
-                                    
-                                    
-                                }
-                                
-                            } label: {
-                                
-                                
+                            // MARK: Video Tier Picker
+                            HStack{
                                 HStack {
-                                    
-                                    if videoName == "" {
-                                        Text("Default")
-                                            .font(.callout)
-                                    }
-                                    else {
-                                        Text(videoName)
-                                            .font(.callout)
-                                    }
-                                    
-                                    Image(systemName: "chevron.up.chevron.down")
-                                        .font(.callout)
+                                    Text(LocalizedStringKey("Tier"))
+                                        .bold()
+                                    Text(String(selectedLevel + 1))
+                                        .bold()
+                                        .padding(-4)
                                 }
-                            }
-                            .padding(8)
-                            .padding(.horizontal, 8)
-                            .background(.ultraThinMaterial)
-                            .cornerRadius(7)
-                            
-                            
-                            /*
-                             Picker("Video Number", selection: $selectedLevel){
-                             ForEach(0..<skin.levels!.count, id: \.self){ level in
-                             
-                             let videoTierName = cleanLevelName(name: String(skin.levels![level].levelItem ?? "Default"))
-                             if videoTierName == "Default" {
-                             Text(LocalizedStringKey("Default"))
-                             .tag(level)
-                             }
-                             else {
-                             Text("\(level). " + videoTierName)
-                             .tag(level)
-                             }
-                             
-                             
-                             }
-                             }
-                             .padding(.horizontal, 8)
-                             .pickerStyle(MenuPickerStyle())
-                             .background(.ultraThinMaterial)
-                             .cornerRadius(7)
-                             */
-                            
-                        }
-                        .padding()
-                        .background(Blur(radius: 25, opaque: true))
-                        .cornerRadius(10)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.white, lineWidth: 3)
-                                .offset(y: -1)
-                                .offset(x: -1)
-                                .blendMode(.overlay)
-                                .blur(radius: 0)
-                                .mask {
-                                    RoundedRectangle(cornerRadius: 10)
-                                }
-                        }
-                    }
-                    
-                    
-                    // MARK: Skin Variants / Chromas
-                    HStack{
-                        Spacer()
-                        
-                        if let imageData = UserDefaults.standard.data(forKey: skin.chromas![selectedChroma].id.description) {
-                            
-                            let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData)
-                            
-                            let uiImage = UIImage(data: decoded)
-                            
-                            Image(uiImage: uiImage ?? UIImage())
-                                .resizable()
-                                .scaledToFit()
-                                .padding()
-                            
-                        }
-                        else if skin.chromas![selectedChroma].displayIcon != nil{
-                            
-                            AsyncImage(url: URL(string: skin.chromas![selectedChroma].displayIcon!)) { image in
-                                image.resizable()
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            .scaledToFit()
-                            .padding()
-                            
-                        }
-                        else if skin.chromas![selectedChroma].fullRender != nil{
-                            
-                            AsyncImage(url: URL(string: skin.chromas![selectedChroma].fullRender!)) { image in
-                                image.resizable()
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            .scaledToFit()
-                            .padding()
-                            
-                        }
-                        
-                        
-                        Spacer()
-                    }
-                    .frame(height: (UIScreen.main.bounds.height / 6.5))
-                    .background(Blur(radius: 25, opaque: true))
-                    .cornerRadius(10)
-                    .overlay{
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(.white, lineWidth: 3)
-                            .offset(y: -1)
-                            .offset(x: -1)
-                            .blendMode(.overlay)
-                            .blur(radius: 0)
-                            .mask {
-                                RoundedRectangle(cornerRadius: 10)
-                            }
-                    }
-                    .frame(height: (geo.size.height / 5.75))
-                    
-                    
-                    // MARK: Skin Chroma Picker
-                    if skin.chromas!.count != 1{
-                        HStack{
-                            Text(LocalizedStringKey("Variant"))
-                                .bold()
-                            
-                            Spacer()
-                            
-                            
-                            
-                            if pickerStyleChooser(skin: skin) {
+                                
+                                
+                                
+                                Spacer()
+                                
                                 
                                 Menu {
                                     
-                                    ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
+                                    ForEach(0..<skin.levels!.count, id: \.self){ level in
                                         
-                                        let chromaName = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
+                                        let videoTierName = cleanLevelName(name: String(skin.levels![level].levelItem ?? "null"))
                                         
                                         Button {
+                                            self.selectedLevel = level
                                             
-                                            self.selectedChroma = chroma
                                             
-                                            if chromaName == "Default" {
-                                                self.colourName = ""
+                                            if level == 0 {
+                                                self.videoName = ""
+                                            }
+                                            else if videoTierName == "null" {
+                                                self.videoName = "Variant \(level + 1)"
                                             }
                                             else {
-                                                self.colourName = chromaName
+                                                self.videoName = videoTierName
                                             }
                                             
                                         } label: {
-                                            if chromaName == "Default" {
-                                                Text("Default")
+                                            if level == 0 {
+                                                Text("Default1")
+                                            }
+                                            else if videoTierName == "null" {
+                                                Text("\(level + 1). " + "Variant \(level + 1)")
                                             }
                                             else {
-                                                Text(chromaName)
+                                                Text("\(level + 1). " + videoTierName)
                                             }
-                                            
                                         }
                                         
                                         
@@ -419,58 +308,112 @@ struct SkinCardDetailView: View {
                                     
                                 } label: {
                                     
+                                    
                                     HStack {
                                         
-                                        if colourName == "" {
+                                        if videoName == "" {
                                             Text("Default")
                                                 .font(.callout)
                                         }
                                         else {
-                                            Text(colourName)
+                                            Text(videoName)
                                                 .font(.callout)
                                         }
                                         
                                         Image(systemName: "chevron.up.chevron.down")
                                             .font(.callout)
                                     }
-                                    
                                 }
-                                .padding(8)
-                                .padding(.horizontal, 8)
+                                .padding(.vertical, 5)
+                                .padding(.horizontal, 16)
                                 .background(.ultraThinMaterial)
                                 .cornerRadius(7)
                                 
                                 
+                                /*
+                                 Picker("Video Number", selection: $selectedLevel){
+                                 ForEach(0..<skin.levels!.count, id: \.self){ level in
+                                 
+                                 let videoTierName = cleanLevelName(name: String(skin.levels![level].levelItem ?? "Default"))
+                                 if videoTierName == "Default" {
+                                 Text(LocalizedStringKey("Default"))
+                                 .tag(level)
+                                 }
+                                 else {
+                                 Text("\(level). " + videoTierName)
+                                 .tag(level)
+                                 }
+                                 
+                                 
+                                 }
+                                 }
+                                 .padding(.horizontal, 8)
+                                 .pickerStyle(MenuPickerStyle())
+                                 .background(.ultraThinMaterial)
+                                 .cornerRadius(7)
+                                 */
+                                
                             }
-                            else {
-                                
-                                
-                                Picker("Video Number", selection: $selectedChroma){
-                                    ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
-                                        
-                                        let chromaTierName = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
-                                        if chromaTierName == "Default" {
-                                            Text(LocalizedStringKey("Default"))
-                                                .tag(chroma)
-                                        }
-                                        else {
-                                            Text(chromaTierName)
-                                                .tag(chroma)
-                                        }
-                                        
-                                        
+                            .padding()
+                            .background(Blur(radius: 25, opaque: true))
+                            .cornerRadius(10)
+                            .overlay{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.white, lineWidth: 3)
+                                    .offset(y: -1)
+                                    .offset(x: -1)
+                                    .blendMode(.overlay)
+                                    .blur(radius: 0)
+                                    .mask {
+                                        RoundedRectangle(cornerRadius: 10)
                                     }
-                                }
-                                .pickerStyle(SegmentedPickerStyle())
-                                .accentColor(.red)
+                            }
+                        }
+                        
+                        
+                        // MARK: Skin Variants / Chromas
+                        HStack{
+                            Spacer()
+                            
+                            if let imageData = UserDefaults.standard.data(forKey: skin.chromas![selectedChroma].id.description) {
                                 
+                                let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData)
+                                
+                                let uiImage = UIImage(data: decoded)
+                                
+                                Image(uiImage: uiImage ?? UIImage())
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding()
+                                
+                            }
+                            else if skin.chromas![selectedChroma].displayIcon != nil{
+                                
+                                AsyncImage(url: URL(string: skin.chromas![selectedChroma].displayIcon!)) { image in
+                                    image.resizable()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .scaledToFit()
+                                .padding()
+                                
+                            }
+                            else if skin.chromas![selectedChroma].fullRender != nil{
+                                
+                                AsyncImage(url: URL(string: skin.chromas![selectedChroma].fullRender!)) { image in
+                                    image.resizable()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .scaledToFit()
+                                .padding()
                                 
                             }
                             
                             
-                            
+                            Spacer()
                         }
-                        .padding()
+                        .frame(height: (UIScreen.main.bounds.height / 6.5))
                         .background(Blur(radius: 25, opaque: true))
                         .cornerRadius(10)
                         .overlay{
@@ -484,7 +427,122 @@ struct SkinCardDetailView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                 }
                         }
+                        .frame(height: (geo.size.height / 5.75))
+                        
+                        
+                        // MARK: Skin Chroma Picker
+                        if skin.chromas!.count != 1{
+                            HStack{
+                                Text(LocalizedStringKey("Variant"))
+                                    .bold()
+                                
+                                Spacer()
+                                
+                                
+                                
+                                if pickerStyleChooser(skin: skin) {
+                                    
+                                    Menu {
+                                        
+                                        ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
+                                            
+                                            let chromaName = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
+                                            
+                                            Button {
+                                                
+                                                self.selectedChroma = chroma
+                                                
+                                                if chromaName == "Default" {
+                                                    self.colourName = ""
+                                                }
+                                                else {
+                                                    self.colourName = chromaName
+                                                }
+                                                
+                                            } label: {
+                                                if chromaName == "Default" {
+                                                    Text("Default")
+                                                }
+                                                else {
+                                                    Text(chromaName)
+                                                }
+                                                
+                                            }
+                                            
+                                            
+                                        }
+                                        
+                                    } label: {
+                                        
+                                        HStack {
+                                            
+                                            if colourName == "" {
+                                                Text("Default")
+                                                    .font(.callout)
+                                            }
+                                            else {
+                                                Text(colourName)
+                                                    .font(.callout)
+                                            }
+                                            
+                                            Image(systemName: "chevron.up.chevron.down")
+                                                .font(.callout)
+                                        }
+                                        
+                                    }
+                                    .padding(8)
+                                    .padding(.horizontal, 8)
+                                    .background(.ultraThinMaterial)
+                                    .cornerRadius(7)
+                                    
+                                    
+                                }
+                                else {
+                                    
+                                    
+                                    Picker("Video Number", selection: $selectedChroma){
+                                        ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
+                                            
+                                            let chromaTierName = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
+                                            if chromaTierName == "Default" {
+                                                Text(LocalizedStringKey("Default"))
+                                                    .tag(chroma)
+                                            }
+                                            else {
+                                                Text(chromaTierName)
+                                                    .tag(chroma)
+                                            }
+                                            
+                                            
+                                        }
+                                    }
+                                    .pickerStyle(SegmentedPickerStyle())
+                                    .accentColor(.red)
+                                    
+                                    
+                                }
+                                
+                                
+                                
+                            }
+                            .padding()
+                            .background(Blur(radius: 25, opaque: true))
+                            .cornerRadius(10)
+                            .overlay{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.white, lineWidth: 3)
+                                    .offset(y: -1)
+                                    .offset(x: -1)
+                                    .blendMode(.overlay)
+                                    .blur(radius: 0)
+                                    .mask {
+                                        RoundedRectangle(cornerRadius: 10)
+                                    }
+                            }
+                        }
+                        
                     }
+                    
                     
                 }
             }

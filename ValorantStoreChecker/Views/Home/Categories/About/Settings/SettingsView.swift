@@ -131,20 +131,18 @@ struct SettingsView: View {
                                     
                                     notify.askPermission()
                                     
-                                    if let _ = defaults.data(forKey: "notification") {
+                                    if defaults.bool(forKey: "notification") {
                                         
                                     }
-                                    else {
-                                        notify.sendNotification(date: referenceDate, title: "Store Checker for Valorant", body: "Store has just reset")
-                                    }
-                                    
-                                    if boolean {
+                                    else if boolean {
                                         defaults.set(true, forKey: "notification")
+                                        notify.sendNotification(date: referenceDate, title: "Store Checker for Valorant", body: "Store has just reset")
                                     }
                                     else {
                                         notify.disableNotifications()
                                         defaults.removeObject(forKey: "notification")
                                     }
+                                    
                                     
                                 }
                         }

@@ -8,90 +8,111 @@
 import SwiftUI
 
 struct SupportView: View {
+    
+    @Binding var expand : Bool
+    
     var body: some View {
         HStack{
             
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 20){
                 
-                Text(LocalizedStringKey("Support"))
-                    .bold()
-                    .font(.title3)
-                
-                HStack{
-                    Image(systemName: "questionmark.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .padding(.trailing)
+                Button {
                     
-                    Button {
-                        if let url = URL(string: Constants.URL.supportTicket) {
-                            UIApplication.shared.open(url)
-                        }
-                    } label: {
-                        Text(LocalizedStringKey("Create"))
-                            .bold()
+                    expand.toggle()
+                    
+                } label: {
+                    
+                    HStack{
                         
-                        Image(systemName: "link")
+                        Text(LocalizedStringKey("Support"))
+                            .bold()
+                            .font(.title3)
+                        
+                        Spacer()
+                        
+                        Image(systemName: expand ? "chevron.up" : "chevron.down")
                             .resizable()
-                            .scaledToFit()
-                            .frame(width: 15, height: 15)
-                            .padding(.trailing)
+                            .frame(width: 13, height: 6)
+                            .multilineTextAlignment(.trailing)
                     }
+                    
                     
                 }
                 
-                HStack{
-                    Image(systemName: "list.bullet.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .padding(.trailing)
+                if expand {
                     
-                    Button {
-                        if let url = URL(string: Constants.URL.faq) {
-                            UIApplication.shared.open(url)
-                        }
-                    } label: {
-                        Text(LocalizedStringKey("FAQ"))
-                            .bold()
-                        
-                        
-                        Image(systemName: "link")
+                    HStack{
+                        Image(systemName: "questionmark.circle")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 15, height: 15)
+                            .frame(width: 25, height: 25)
                             .padding(.trailing)
+                        
+                        Button {
+                            if let url = URL(string: Constants.URL.supportTicket) {
+                                UIApplication.shared.open(url)
+                            }
+                        } label: {
+                            LinkImage()
+                            
+                            Text(LocalizedStringKey("Create"))
+                                .bold()
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    HStack{
+                        Image(systemName: "list.bullet.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .padding(.trailing)
+                        
+                        Button {
+                            if let url = URL(string: Constants.URL.faq) {
+                                UIApplication.shared.open(url)
+                            }
+                        } label: {
+                            LinkImage()
+                            
+                            Text(LocalizedStringKey("FAQ"))
+                                .bold()
+                            
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    HStack{
+                        Image("github")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .padding(.trailing)
+                        
+                        Button {
+                            if let url = URL(string: Constants.URL.sourceCode) {
+                                UIApplication.shared.open(url)
+                            }
+                        } label: {
+                            
+                            LinkImage()
+                            
+                            Text(LocalizedStringKey("SourceCode"))
+                                .bold()
+                            
+                            
+                        }
+                        
                     }
                     
                 }
-                
-                HStack{
-                    Image("github")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .padding(.trailing)
-                    
-                    Button {
-                        if let url = URL(string: Constants.URL.sourceCode) {
-                            UIApplication.shared.open(url)
-                        }
-                    } label: {
-                        Text(LocalizedStringKey("SourceCode"))
-                            .bold()
-                        
-                        Image(systemName: "link")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 15, height: 15)
-                            .padding(.trailing)
-                    }
-                    
-                }
-                
                 
             }
+            .animation(.spring(), value: expand)
             
             Spacer()
             
@@ -114,8 +135,3 @@ struct SupportView: View {
     }
 }
 
-struct SupportView_Previews: PreviewProvider {
-    static var previews: some View {
-        SupportView()
-    }
-}

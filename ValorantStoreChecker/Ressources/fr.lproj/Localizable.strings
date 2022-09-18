@@ -106,9 +106,13 @@
 "Website" = "Site web";
 "DiscordServer" = "Serveur Discord";
 
+// WhatsNewView
+"WhatsNew" = "Nouveautés";
+
 // HelpView
 "Help" = "Aidez le développeur!";
 "HelpMessage" = "Salut ! Je suis simplement un étudiant universitaire qui est privé de sommeil. J'essaie seulement de rendre la vie un petit peu meilleure pour tout le monde 😄. S'il vous plaît pensez à de m'aider à travers n'importe quelle méthode ci-dessous !";
+"Share" = "Partager l'application";
 "Review" = "Laisser un avis";
 "Star" = "Donnez une étoile au projet";
 "Sponsor" = "Effectuer une donation";
@@ -153,8 +157,8 @@
 "UpdateButton" = "Mise à jour disponible";
 "UpdateTitle" = "Mettre à jour l'application";
 "Update" = "Mise à jour";
-"UpdateInstructions" = "S'il n'y a pas d'option de mise à jour, veuillez :
-1) Accédez à l'onglet Accueil (Aujourd'hui)
-2) Cliquez sur votre profil en haut à droite
-3) Balayez vers le bas pour recharger
-4) Faites défiler vers le bas pour voir les mises à jour disponibles";
+"UpdateInstructions1" = "S'il n'y a pas d'option de mise à jour, veuillez:";
+"UpdateInstructions2" = "Accédez à l'onglet Accueil (Aujourd'hui)";
+"UpdateInstructions3" = "Cliquez sur votre profil en haut à droite";
+"UpdateInstructions4" = "Balayez vers le bas pour recharger";
+"UpdateInstructions5" = "Faites défiler vers le bas pour voir les mises à jour disponibles";

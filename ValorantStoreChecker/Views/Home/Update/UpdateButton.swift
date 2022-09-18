@@ -14,14 +14,20 @@ struct UpdateButton: View {
     
     var body: some View {
         
-        Text(LocalizedStringKey("UpdateButton"))
+        Text(LocalizedStringKey("Update"))
+            .font(.footnote)
             .padding(5)
             .background(.pink)
             .cornerRadius(7)
-            .shadow(color:.pink, radius: 2)
+            .shadow(color:.white, radius: 2)
             .onTapGesture {
+                
                 self.update = true
             }
+            .sheet(isPresented: $update, content: {
+                UpdatesView()
+            })
+        /*
             .alert(LocalizedStringKey("UpdateTitle"), isPresented: $update, actions: {
                 
                 
@@ -45,6 +51,7 @@ struct UpdateButton: View {
                 Text(LocalizedStringKey("UpdateInstructions"))
                 
             })
+         */
 
     }
     

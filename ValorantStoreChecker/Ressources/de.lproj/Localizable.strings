@@ -105,9 +105,13 @@
 "Website" = "Website";
 "DiscordServer" = "Discord Server";
 
+// WhatsNewView
+"WhatsNew" = "Was gibt es Neues";
+
 // HelpView
 "Help" = "Helfen Sie dem Entwickler!";
 "HelpMessage" = "Hi! Ich bin ein Student mit Schlafmangel, der nur versucht, sein Leben ein bisschen besser zu machen 😄. Bitte denken Sie darüber nach, mir mit einer der folgenden Methoden zu helfen!";
+"Share" = "Teilen Sie die App";
 "Review" = "Hinterlassen Sie eine Rezension";
 "Star" = "Starten Sie das Repository";
 "Sponsor" = "Tipp mich";
@@ -152,8 +156,8 @@
 "UpdateButton" = "Update verfügbar";
 "UpdateTitle" = "App aktualisieren";
 "Update" = "Aktualisieren";
-"UpdateInstructions" = "Wenn es keine Update-Option gibt, gehen Sie bitte wie folgt vor:
-1) Gehen Sie zur Registerkarte Startseite (Heute).
-2) Klicken Sie oben rechts auf Ihr Profil
-3) Zum Neuladen nach unten wischen
-4) Scrollen Sie nach unten, um verfügbare Updates anzuzeigen";
+"UpdateInstructions1" = "Wenn es keine Update-Option gibt, gehen Sie bitte wie folgt vor:";
+"UpdateInstructions2" = "Gehen Sie zur Registerkarte Startseite (Heute)";
+"UpdateInstructions3" = "Klicken Sie oben rechts auf Ihr Profil";
+"UpdateInstructions4" = "Zum Neuladen nach unten wischen";
+"UpdateInstructions5" = "Scrollen Sie nach unten, um verfügbare Updates anzuzeigen";

@@ -10,6 +10,7 @@ import Foundation
 class UpdateModel: ObservableObject{
     
     @Published var update : Bool = false
+    let defaults = UserDefaults.standard
     
     init() {
         let _ = try? isUpdateAvailable {[self] (update, error) in
@@ -45,14 +46,17 @@ class UpdateModel: ObservableObject{
                             
                 let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any]
                             
-                guard let result = (json?["results"] as? [Any])?.first as? [String: Any], let lastVersion = result["version"] as? String else {
+                guard let result = (json?["results"] as? [Any])?.first as? [String: Any], let lastVersion = result["version"] as? String, let releaseNotes =  result["releaseNotes"] as? String else {
                     throw VersionError.invalidResponse
                 }
                 
+                let splitReleaseNotes = releaseNotes.split(separator: "\n")
+                self.defaults.setValue(splitReleaseNotes, forKey: "releaseNotes")
+                self.defaults.setValue(currentVersion, forKey: "currentVersion")
+                self.defaults.setValue(lastVersion, forKey: "lastVersion")
+                
                 completion(lastVersion > currentVersion, nil)
                 
-                print("AppStoreVersion:", lastVersion)
-                print("CurrentVersion:", currentVersion)
                 
             } catch {
                 completion(nil, error)

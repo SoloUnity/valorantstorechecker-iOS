@@ -10,7 +10,13 @@ import SwiftUI
 struct AboutView: View {
     
     @State var showSettings = false
-    @State var expand = false
+    @State var expandCommunity = true
+    @State var expandSupport = false
+    @State var expandWhatsNew = false
+    @State var expandHelp = true
+    @State var expandTip = false
+    @State var expandAcknowledgements = false
+    @State var expandCopyright = false
     
     let defaults = UserDefaults.standard
     
@@ -19,7 +25,7 @@ struct AboutView: View {
         GeometryReader{ geo in
             
             ScrollView(showsIndicators: false){
-                LazyVStack (spacing: 20){
+                VStack (spacing: 20){
                     
                     HStack{
                         Text(LocalizedStringKey("About"))
@@ -42,17 +48,27 @@ struct AboutView: View {
                         
                     }
                     
+                    let defaults = UserDefaults.standard
+                    let releaseNotes = defaults.array(forKey: "releaseNotes") as? [String] ?? []
+                    
                     AccountView()
                     
-                    CommunityView()
+                    CommunityView(expand: $expandCommunity)
                     
-                    SupportView()
+                    HelpView(expandMain: $expandHelp, expandTip: $expandTip)
                     
-                    HelpView(expand: $expand)
+                    SupportView(expand: $expandSupport)
                     
-                    AcknowledgementsView()
+                    if !releaseNotes.isEmpty {
+                        WhatsNewView(expand: $expandWhatsNew)
+                    }
                     
-                    CopyrightView()
+                    
+                    
+                    
+                    AcknowledgementsView(expand: $expandAcknowledgements)
+                    
+                    CopyrightView(expand: $expandCopyright)
                     
                     HStack {
                         
@@ -91,7 +107,13 @@ struct AboutView: View {
             SettingsView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
                 .preferredColorScheme(.dark)
         }
-        .animation(.spring(), value: expand)
+        .animation(.spring(), value: expandCommunity)
+        .animation(.spring(), value: expandSupport)
+        .animation(.spring(), value: expandWhatsNew)
+        .animation(.spring(), value: expandHelp)
+        .animation(.spring(), value: expandTip)
+        .animation(.spring(), value: expandAcknowledgements)
+        .animation(.spring(), value: expandCopyright)
     }
 }
 

@@ -42,7 +42,7 @@ struct SplashScreenView: View {
                 .scaleEffect(size)
                 .opacity(opacity)
                 .onAppear {
-                    withAnimation(.easeIn(duration: 1.2)) {
+                    withAnimation(.easeIn(duration: 0.75)) {
                         self.size = 0.9
                         self.opacity = 1.0
                     }
@@ -53,7 +53,7 @@ struct SplashScreenView: View {
             .padding(120)
             .background(Constants.bgGrey)
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {   // Duration of splash screen
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {   // Duration of splash screen
                     withAnimation {
                         
                         self.isActive = true
@@ -64,9 +64,6 @@ struct SplashScreenView: View {
             }
             
         }
-        
-        
-        
     }
 }
 

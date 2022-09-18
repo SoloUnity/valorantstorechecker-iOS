@@ -105,11 +105,15 @@
 "Website" = "Website";
 "DiscordServer" = "Discord Server";
 
+// WhatsNewView
+"WhatsNew" = "What's New";
+
 // HelpView
 "Help" = "Help Out the Developer!";
 "HelpMessage" = "Hi! I'm a sleep deprived university student just trying to make life a little bit better 😄. Please consider helping me out through any method below!";
+"Share" = "Share the App";
 "Review" = "Leave a Review";
-"Star" = "Star tehe Repository";
+"Star" = "Star the Repository";
 "Sponsor" = "Tip Me";
 
 // AcknowledgementsView
@@ -153,8 +157,10 @@
 "UpdateButton" = "New App Version Available";
 "UpdateTitle" = "Update App";
 "Update" = "Update";
-"UpdateInstructions" = "If there is no update option, please:
-1) Go to the Home (Today) tab
-2) Click on your profile in the top right
-3) Swipe down to reload
-4) Scroll down to see available updates";
+"UpdateInstructions1" = "If there is no update option, please:";
+"UpdateInstructions2" = "Go to the Home (Today) tab";
+"UpdateInstructions3" = "Click on your profile in the top right";
+"UpdateInstructions4" = "Swipe down to reload";
+"UpdateInstructions5" = "Scroll down to see available updates";
+
+

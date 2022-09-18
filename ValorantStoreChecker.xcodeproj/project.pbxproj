@@ -62,7 +62,11 @@
 		F87952A628AEA084005145F6 /* BundleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87952A528AEA084005145F6 /* BundleView.swift */; };
 		F87952A828AEA36D005145F6 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87952A728AEA36D005145F6 /* Bundle.swift */; };
 		F892C4D928A412DF007158CB /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892C4D828A412DF007158CB /* NotificationService.swift */; };
+		F894F59D28D7BCE700C07223 /* UpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F894F59C28D7BCE700C07223 /* UpdatesView.swift */; };
+		F894F59F28D7C72E00C07223 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F894F59E28D7C72E00C07223 /* DispatchQueue+Extensions.swift */; };
 		F8A7400228ABD96200717B23 /* Owned.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7400128ABD96200717B23 /* Owned.swift */; };
+		F8B7FDF628D79B9300A5181E /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7FDF528D79B9300A5181E /* WhatsNewView.swift */; };
+		F8B7FDFC28D7BA8000A5181E /* LinkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7FDFB28D7BA8000A5181E /* LinkImage.swift */; };
 		F8D4396228B1AC6D0093595C /* BundleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4396128B1AC6D0093595C /* BundleImageView.swift */; };
 		F8D4D4C128A429E400BDBBFE /* ValorantStoreCheckerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */; };
 		F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F69D3328A5E159005A73D2 /* TipModel.swift */; };
@@ -129,9 +133,13 @@
 		F87952A528AEA084005145F6 /* BundleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleView.swift; sourceTree = "<group>"; };
 		F87952A728AEA36D005145F6 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		F892C4D828A412DF007158CB /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		F894F59C28D7BCE700C07223 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
+		F894F59E28D7C72E00C07223 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		F8A73FFF28ABC51F00717B23 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8A7400028ABC73600717B23 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8A7400128ABD96200717B23 /* Owned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owned.swift; sourceTree = "<group>"; };
+		F8B7FDF528D79B9300A5181E /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
+		F8B7FDFB28D7BA8000A5181E /* LinkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkImage.swift; sourceTree = "<group>"; };
 		F8D4396128B1AC6D0093595C /* BundleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleImageView.swift; sourceTree = "<group>"; };
 		F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
 		F8F69D3328A5E159005A73D2 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
@@ -158,8 +166,9 @@
 			children = (
 				8B62AFD92883B53B0070173F /* AboutView.swift */,
 				8B0AE9E928998E4200275A30 /* AccountView.swift */,
-				8B0AE9EB28998E7600275A30 /* SupportView.swift */,
 				8B0AE9ED28998E9400275A30 /* CommunityView.swift */,
+				8B0AE9EB28998E7600275A30 /* SupportView.swift */,
+				F8B7FDF528D79B9300A5181E /* WhatsNewView.swift */,
 				8B0AE9EF28998EAC00275A30 /* HelpView.swift */,
 				F87952A228ADD7C3005145F6 /* TipView.swift */,
 				8B0AE9F128998EC600275A30 /* AcknowledgementsView.swift */,
@@ -261,12 +270,13 @@
 		8B29E2042881CC890081F69A /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				F8FDA34328CE6DA800D5A9F2 /* UpdateButton.swift */,
+				F8B7FDFB28D7BA8000A5181E /* LinkImage.swift */,
 				8B0AE9E22898390C00275A30 /* Blur.swift */,
 				8B9A838028861097009CE268 /* Logo.swift */,
 				8B65F849288CA608004282DD /* PriceTierView.swift */,
 				8B9A8383288612AC009CE268 /* PriceTiers */,
 				8B9A83822886129C009CE268 /* Shapes */,
+				F894F59E28D7C72E00C07223 /* DispatchQueue+Extensions.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -298,6 +308,7 @@
 		8B62AFD82883B51F0070173F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F8B7FDF728D7A8D900A5181E /* Update */,
 				8B62AFD62883B4E10070173F /* HomeView.swift */,
 				8B9A839028862439009CE268 /* Categories */,
 			);
@@ -398,6 +409,15 @@
 			path = Bundle;
 			sourceTree = "<group>";
 		};
+		F8B7FDF728D7A8D900A5181E /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				F8FDA34328CE6DA800D5A9F2 /* UpdateButton.swift */,
+				F894F59C28D7BCE700C07223 /* UpdatesView.swift */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -430,7 +450,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					8B29E1EA2881C87D0081F69A = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -453,6 +473,7 @@
 			packageReferences = (
 				8B65F841288C9D94004282DD /* XCRemoteSwiftPackageReference "AZVideoPlayer" */,
 				8BAB20BC2897616D0041A5BB /* XCRemoteSwiftPackageReference "Keychain" */,
+				F8B7FDF828D7AF7600A5181E /* XCRemoteSwiftPackageReference "ShareSheet" */,
 			);
 			productRefGroup = 8B29E1EC2881C87D0081F69A /* Products */;
 			projectDirPath = "";
@@ -513,20 +534,24 @@
 				F8D4D4C128A429E400BDBBFE /* ValorantStoreCheckerApp.swift in Sources */,
 				8B9A8395288630F0009CE268 /* WishListView.swift in Sources */,
 				8B42008A2899E977000D7FC2 /* CopyrightView.swift in Sources */,
+				F894F59D28D7BCE700C07223 /* UpdatesView.swift in Sources */,
 				F8FDA34428CE6DA800D5A9F2 /* UpdateButton.swift in Sources */,
 				8BB00EC9288E4679001AE90A /* Store.swift in Sources */,
 				8B9A838128861097009CE268 /* Logo.swift in Sources */,
 				8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */,
 				8B62AFD72883B4E10070173F /* HomeView.swift in Sources */,
 				8B29E2002881CA000081F69A /* SkinModel.swift in Sources */,
+				F8B7FDF628D79B9300A5181E /* WhatsNewView.swift in Sources */,
 				8B3651542891DCCA00FE762E /* RegionSelectorView.swift in Sources */,
 				8B62AFD12883A1230070173F /* SkinCardView.swift in Sources */,
 				8B9A838D28861C6E009CE268 /* PremiumEditionView.swift in Sources */,
 				F87952A328ADD7C3005145F6 /* TipView.swift in Sources */,
 				8B0AE9EC28998E7600275A30 /* SupportView.swift in Sources */,
 				8B62AFCF2883A0FD0070173F /* ShopView.swift in Sources */,
+				F8B7FDFC28D7BA8000A5181E /* LinkImage.swift in Sources */,
 				F87952A628AEA084005145F6 /* BundleView.swift in Sources */,
 				8B682C802890C176003A3B9C /* Authentication.swift in Sources */,
+				F894F59F28D7C72E00C07223 /* DispatchQueue+Extensions.swift in Sources */,
 				8B29E20C2881D6D30081F69A /* CircleView.swift in Sources */,
 				8B0AE9F228998EC600275A30 /* AcknowledgementsView.swift in Sources */,
 				8B4200882899E620000D7FC2 /* TermsView.swift in Sources */,
@@ -562,6 +587,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -622,6 +648,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -787,6 +814,14 @@
 			repositoryURL = "https://github.com/GroupeMINASTE/Keychain.swift";
 			requirement = {
 				branch = master;
+				kind = branch;
+			};
+		};
+		F8B7FDF828D7AF7600A5181E /* XCRemoteSwiftPackageReference "ShareSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/briannadoubt/ShareSheet";
+			requirement = {
+				branch = main;
 				kind = branch;
 			};
 		};

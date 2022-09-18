@@ -25,7 +25,6 @@ class AuthAPIModel: ObservableObject {
     
     // Handles reload
     @Published var reloading : Bool = false
-    @Published var successfulReload : Bool = false
     @Published var autoReload : Bool = false
     
     // Multifactor
@@ -438,7 +437,6 @@ class AuthAPIModel: ObservableObject {
         self.password = "" // Used by password box in LoginBoxView
         self.multifactor = "" // Used by multifactor box in MultifactorView
         self.regionCheck = false
-        self.successfulReload = false
         self.rememberPassword = false
         
         defaults.removeObject(forKey: "timeLeft")

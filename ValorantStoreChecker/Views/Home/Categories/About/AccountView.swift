@@ -69,7 +69,7 @@ struct AccountView: View {
                         VStack(alignment: .leading) {
                             Text (LocalizedStringKey("Region"))
                                 .bold()
-                            Text(LocalizedStringKey("North America"))
+                            Text(LocalizedStringKey("NorthAmerica"))
                                 .font(.footnote)
                         }
                         
@@ -98,7 +98,7 @@ struct AccountView: View {
                         VStack(alignment: .leading) {
                             Text (LocalizedStringKey("Region"))
                                 .bold()
-                            Text(LocalizedStringKey("Asia Pacific"))
+                            Text(LocalizedStringKey("AsiaPacific"))
                                 .font(.footnote)
                         }
                         
@@ -112,7 +112,7 @@ struct AccountView: View {
                         VStack(alignment: .leading) {
                             Text (LocalizedStringKey("Region"))
                                 .bold()
-                            Text(LocalizedStringKey("South korea"))
+                            Text(LocalizedStringKey("SouthKorea"))
                                 .font(.footnote)
                         }
                         
@@ -126,7 +126,7 @@ struct AccountView: View {
                         VStack(alignment: .leading) {
                             Text (LocalizedStringKey("Region"))
                                 .bold()
-                            Text(LocalizedStringKey("North America"))
+                            Text(LocalizedStringKey("NorthAmerica"))
                                 .font(.footnote)
                             
                         }

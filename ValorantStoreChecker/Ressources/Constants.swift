@@ -41,6 +41,7 @@ struct Constants{
         static var julian = "https://github.com/juliand665"
         static var lunac = "https://github.com/Lunac-dev"
         static var privacy = "https://solounity.notion.site/solounity/Valorant-Store-Checker-App-Privacy-Policy-761932ab3fcb4fea95564b2b63d2d5b5"
+        static var appStore = "https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546"
         
     }
     

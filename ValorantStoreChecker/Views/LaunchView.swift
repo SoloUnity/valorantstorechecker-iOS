@@ -13,7 +13,7 @@ struct LaunchView: View {
     @EnvironmentObject var authAPIModel:AuthAPIModel
     @Environment(\.scenePhase) private var phase
     
-    @State private var loadingBar : Bool = false // False is loading bar showing 
+    @State private var loadingBar : Bool = false // False is loading bar showing
     @State private var percent : Int = 0
     
     
@@ -34,13 +34,13 @@ struct LaunchView: View {
                 
                 HomeView()
                 /*
-                    .onChange(of: phase) { newPhase in
-                        switch newPhase {
-                        case .background: scheduleAppRefresh()
-                        default: break
-                        }
-                    }
-                */
+                 .onChange(of: phase) { newPhase in
+                 switch newPhase {
+                 case .background: scheduleAppRefresh()
+                 default: break
+                 }
+                 }
+                 */
             }
             
             // Fake loading bar
@@ -90,7 +90,7 @@ struct LaunchView: View {
         .alert(LocalizedStringKey("ErrorTitle"), isPresented: $authAPIModel.isError, actions: {
             
             if authAPIModel.isReloadingError && (authAPIModel.rememberPassword || defaults.bool(forKey: "rememberPassword")) {
-            
+                
                 
                 Button(LocalizedStringKey("OK"), role: nil, action: {
                     authAPIModel.reloading = false
@@ -107,7 +107,7 @@ struct LaunchView: View {
                     authAPIModel.reloading = false
                     authAPIModel.isReloadingError = false
                 })
-
+                
                 
                 Button(LocalizedStringKey("OK"), role: nil, action: {
                     authAPIModel.reloading = false
@@ -146,14 +146,9 @@ struct LaunchView: View {
             
             
             
-        }
+        })
         
         
-        
-        
-        )
-        
-
         
         
         

@@ -9,75 +9,94 @@ import SwiftUI
 
 struct CopyrightView: View {
     
+    @Binding var expand : Bool
     @State var showTerms = false
     
     var body: some View {
         HStack{
             
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 20){
                 
-                Text(LocalizedStringKey("Copyright"))
-                    .bold()
-                    .font(.title3)
-                
-                
-                Text(LocalizedStringKey("CopyrightNotice"))
-                    .font(.footnote)
-                
-                HStack{
-                    Image(systemName: "list.bullet.rectangle.portrait.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .padding(.trailing)
+                Button {
                     
-                    Button {
+                    expand.toggle()
+                    
+                } label: {
+                    
+                    HStack{
                         
-                        self.showTerms = true
-                        
-                    } label: {
-                        
-                        Text(LocalizedStringKey("TermsAndConditions"))
+                        Text(LocalizedStringKey("Copyright"))
                             .bold()
+                            .font(.title3)
                         
-                        Image(systemName: "link")
+                        Spacer()
+                        
+                        Image(systemName: expand ? "chevron.up" : "chevron.down")
                             .resizable()
-                            .scaledToFit()
-                            .frame(width: 15, height: 15)
-                            .padding(.trailing)
+                            .frame(width: 13, height: 6)
+                            .multilineTextAlignment(.trailing)
                     }
+                    
                     
                 }
                 
-                HStack{
-                    Image(systemName: "hand.raised.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .padding(.trailing)
+                if expand {
                     
-                    Button {
-                        if let url = URL(string: Constants.URL.privacy) {
-                            UIApplication.shared.open(url)
+                    Text(LocalizedStringKey("CopyrightNotice"))
+                        .font(.footnote)
+                    
+                    HStack{
+                        Image(systemName: "list.bullet.rectangle.portrait.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .padding(.trailing)
+                        
+                        Button {
+                            
+                            self.showTerms = true
+                            
+                        } label: {
+                            
+                            LinkImage()
+                            
+                            Text(LocalizedStringKey("TermsAndConditions"))
+                                .bold()
+                                .multilineTextAlignment(.leading)
+                            
                         }
-                    } label: {
                         
-                        Text(LocalizedStringKey("Privacy"))
-                            .bold()
-                        
-                        Image(systemName: "link")
+                    }
+                    
+                    HStack{
+                        Image(systemName: "hand.raised.fill")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 15, height: 15)
+                            .frame(width: 25, height: 25)
                             .padding(.trailing)
+                        
+                        Button {
+                            if let url = URL(string: Constants.URL.privacy) {
+                                UIApplication.shared.open(url)
+                            }
+                        } label: {
+                            
+                            LinkImage()
+                            
+                            Text(LocalizedStringKey("Privacy"))
+                                .bold()
+                                .multilineTextAlignment(.leading)
+                            
+
+                        }
+                        
                     }
                     
                 }
-                
-                
-                
                 
             }
+            .animation(.spring(), value: expand)
+            
             
             Spacer()
             
@@ -105,8 +124,4 @@ struct CopyrightView: View {
     }
 }
 
-struct CopyrightView_Previews: PreviewProvider {
-    static var previews: some View {
-        CopyrightView()
-    }
-}
+

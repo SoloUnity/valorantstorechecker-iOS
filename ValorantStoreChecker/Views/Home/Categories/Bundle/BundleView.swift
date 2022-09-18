@@ -11,7 +11,6 @@ struct BundleView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @EnvironmentObject var skinModel : SkinModel
-    @EnvironmentObject var updateModel : UpdateModel
     
     @State var index = 1
     
@@ -24,14 +23,8 @@ struct BundleView: View {
                 
                 ScrollViewReader{ (proxy: ScrollViewProxy) in
     
-                    if updateModel.update {
-                        UpdateButton()
-                            .padding()
-                    }
-                    else {
-                        Logo()
-                            .frame(width: geo.size.width/6.5)
-                    }
+                    Logo()
+                        .frame(width: geo.size.width/6.5)
                     
                     // Number of available bundles
                     let bundleCount = defaults.integer(forKey: "bundleCount")

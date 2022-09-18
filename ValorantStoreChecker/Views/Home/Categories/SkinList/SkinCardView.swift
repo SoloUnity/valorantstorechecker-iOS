@@ -21,6 +21,9 @@ struct SkinCardView: View {
     var body: some View {
         
         Button {
+            // Dismiss keyboard
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            
             isDetailViewShowing = true
         } label: {
             

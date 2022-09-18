@@ -31,6 +31,12 @@ struct RegionSelectorView: View {
                     Text(title)
                         .padding(.bottom, 4)
                     
+                    if expand {
+                        
+                        Spacer()
+                        
+                    }
+                    
                     Image(systemName: expand ? "chevron.up" : "chevron.down")
                         .resizable()
                         .frame(width: 13, height: 6)
@@ -100,6 +106,7 @@ struct RegionSelectorView: View {
         .cornerRadius(10)
         .animation(.spring(), value: expand)
         .shadow(color:.pink, radius: 2)
+        .frame(maxWidth: 200)
     }
 }
 

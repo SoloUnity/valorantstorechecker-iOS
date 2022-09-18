@@ -11,8 +11,10 @@ struct ShopTopBarView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @EnvironmentObject var skinModel : SkinModel
+    @EnvironmentObject var updateModel : UpdateModel
     
     @State var nowDate: Date = Date()
+    @State var successfulReload = false
     
     let defaults = UserDefaults.standard
     
@@ -25,131 +27,150 @@ struct ShopTopBarView: View {
     
     var body: some View {
         
-        HStack {
+        ZStack {
             
-            // MARK: Countdown timer
-            Image(systemName: "clock")
-                .resizable()
-                .scaledToFit()
-                .shadow(color: .white, radius: 1)
-                .frame(width: 15, height: 15)
-                .padding(.leading)
-                .padding(.vertical, 10)
-            
-            let countdown = countDownString(from: referenceDate)
-            
-            if countdown == "Reload" && (authAPIModel.autoReload || defaults.bool(forKey: "autoReload")) {
+            HStack {
                 
-                // Automatic reloading
-                Text(LocalizedStringKey("Reloading"))
-                    .bold()
-                    .onAppear {
-                        Task {
-                            authAPIModel.reloading = true
-                            await authAPIModel.reload(skinModel: skinModel)
+                // MARK: Countdown timer
+                Image(systemName: "clock")
+                    .resizable()
+                    .scaledToFit()
+                    .shadow(color: .white, radius: 1)
+                    .frame(width: 15, height: 15)
+                    .padding(.leading)
+                    .padding(.vertical, 10)
+                
+                let countdown = countDownString(from: referenceDate)
+                
+                if countdown == "Reload" && (authAPIModel.autoReload || defaults.bool(forKey: "autoReload")) {
+                    
+                    // Automatic reloading
+                    Text(LocalizedStringKey("Reloading"))
+                        .bold()
+                        .onAppear {
+                            Task {
+                                authAPIModel.reloading = true
+                                await authAPIModel.reload(skinModel: skinModel)
+                            }
                         }
+                        .font(.caption)
+                        .padding(.vertical, 5)
+                }
+                else if countdown == "Reload" {
+                    
+                    Text(LocalizedStringKey("Reload"))
+                        .bold()
+                        .font(.caption)
+                        .padding(.vertical, 5)
+                    
+                }
+                else {
+                    Text(countdown)
+                        .bold()
+                        .onAppear(perform: {
+                            _ = self.timer
+                        })
+                        .font(.caption)
+                        .padding(.vertical, 5)
+                }
+                
+                
+                
+                
+                
+                Spacer()
+                
+                
+                
+                // MARK: Store refresh button
+                Button {
+                    
+                    withAnimation(.easeIn(duration: 0.2)) {
+                        authAPIModel.reloading = true
                     }
-                    .font(.caption)
-                    .padding(.vertical, 5)
-            }
-            else if countdown == "Reload" {
-                
-                Text(LocalizedStringKey("Reload"))
-                    .bold()
-                    .font(.caption)
-                    .padding(.vertical, 5)
-                
-            }
-            else {
-                Text(countdown)
-                    .bold()
-                    .onAppear(perform: {
-                        _ = self.timer
-                    })
-                    .font(.caption)
-                    .padding(.vertical, 5)
-            }
-            
-            
-            
-            
-            
-            Spacer()
-            
-            // MARK: Store refresh button
-            Button {
-                authAPIModel.reloading = true
-                Task{
-                    await authAPIModel.reload(skinModel: skinModel)
-                }
-            } label: {
-                if !authAPIModel.reloading && !authAPIModel.successfulReload {
                     
-                    Image(systemName: "arrow.clockwise")
-                        .resizable()
-                        .scaledToFit()
-                        .shadow(color: .white, radius: 1)
-                        .frame(width: 15, height: 15)
-                        .padding(.trailing)
-                        .padding(.vertical, 10)
+                    Task{
+                        await authAPIModel.reload(skinModel: skinModel)
+                    }
+                } label: {
+                    if !authAPIModel.reloading && !successfulReload {
+                        
+                        Image(systemName: "arrow.clockwise")
+                            .resizable()
+                            .scaledToFit()
+                            .shadow(color: .white, radius: 1)
+                            .frame(width: 15, height: 15)
+                            .padding(.trailing)
+                            .padding(.vertical, 10)
+                        
+                        
+                    }
                     
-                    
-                }
-                
-                else if authAPIModel.reloading {
-                    ProgressView()
-                        .shadow(color: .white, radius: 1)
-                        .frame(width: 15, height: 15)
-                        .padding(.trailing)
-                        .padding(.vertical, 10)
-                        .onAppear{
-                            
-                            // TODO: Fix and make smooth animation
-                            withAnimation(.easeIn(duration: 0.5)) {
-                                authAPIModel.successfulReload = true
-                            }
-                            
-                        }
-                }
-                
-                else if authAPIModel.successfulReload {
-                    
-                    Image(systemName: "checkmark")
-                        .resizable()
-                        .scaledToFit()
-                        .shadow(color: .white, radius: 1)
-                        .frame(width: 15, height: 15)
-                        .padding(.trailing)
-                        .padding(.vertical, 10)
-                        .onAppear{
-                            Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
-                                withAnimation(.easeIn(duration: 0.5)) {
-                                    authAPIModel.successfulReload = false
+                    else if authAPIModel.reloading {
+                        ProgressView()
+                            .shadow(color: .white, radius: 1)
+                            .frame(width: 15, height: 15)
+                            .padding(.trailing)
+                            .padding(.vertical, 10)
+                            .onAppear{
+                                
+                                // TODO: Fix and make smooth animation
+                                withAnimation(.easeIn(duration: 0.2)) {
+                                    self.successfulReload = true
                                 }
-                                timer.invalidate()
+                                
                             }
-                        }
+                    }
                     
+                    else if successfulReload {
+                        
+                        Image(systemName: "checkmark")
+                            .resizable()
+                            .scaledToFit()
+                            .shadow(color: .white, radius: 1)
+                            .frame(width: 15, height: 15)
+                            .padding(.trailing)
+                            .padding(.vertical, 10)
+                            .onAppear{
+                                
+                                Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+                                    withAnimation(.easeIn(duration: 0.2)) {
+                                        self.successfulReload = false
+                                    }
+                                    timer.invalidate()
+                                }
+                            }
+                        
+                        
+                        
+                    }
                     
                     
                 }
+            }
+            .background(Blur(radius: 25, opaque: true))
+            .cornerRadius(10)
+            .overlay{
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.white, lineWidth: 3)
+                    .offset(y: -1)
+                    .offset(x: -1)
+                    .blendMode(.overlay)
+                    .blur(radius: 0)
+                    .mask {
+                        RoundedRectangle(cornerRadius: 10)
+                    }
+            }
+            
+            if updateModel.update {
                 
+                UpdateButton()
                 
             }
+            
+            
         }
-        .background(Blur(radius: 25, opaque: true))
-        .cornerRadius(10)
-        .overlay{
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(.white, lineWidth: 3)
-                .offset(y: -1)
-                .offset(x: -1)
-                .blendMode(.overlay)
-                .blur(radius: 0)
-                .mask {
-                    RoundedRectangle(cornerRadius: 10)
-                }
-        }
+        
     }
     
     // MARK: Helper function

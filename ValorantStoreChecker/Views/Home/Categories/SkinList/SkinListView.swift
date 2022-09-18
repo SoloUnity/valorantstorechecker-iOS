@@ -240,6 +240,7 @@ struct SkinListView: View {
                                     
                                     SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
                                         .frame(height: (UIScreen.main.bounds.height / 6.5))
+                                        
                                     
                                 }
                                 

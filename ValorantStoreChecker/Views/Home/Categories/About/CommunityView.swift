@@ -8,71 +8,94 @@
 import SwiftUI
 
 struct CommunityView: View {
+    
+    @Binding var expand : Bool
+    
     var body: some View {
         HStack{
             
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 20){
                 
-                Text(LocalizedStringKey("Community"))
-                    .bold()
-                    .font(.title3)
-                
-                HStack{
-                    Image(systemName: "globe")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .padding(.trailing)
+                Button {
                     
-                    Button {
-                        if let url = URL(string: Constants.URL.website) {
-                            UIApplication.shared.open(url)
-                        }
-                    } label: {
-                        Text(LocalizedStringKey("Website"))
+                    expand.toggle()
+                    
+                } label: {
+                    
+                    HStack{
+                        
+                        Text(LocalizedStringKey("Community"))
                             .bold()
+                            .font(.title3)
+                            
+                        Spacer()
                         
-                        
-                        Image(systemName: "link")
+                        Image(systemName: expand ? "chevron.up" : "chevron.down")
                             .resizable()
-                            .scaledToFit()
-                            .frame(width: 15, height: 15)
-                            .padding(.trailing)
+                            .frame(width: 13, height: 6)
+                            .multilineTextAlignment(.trailing)
                     }
+                    
                     
                 }
                 
-                
-                
-                
-                HStack{
-                    Image("discord")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .padding(.trailing)
+                if expand {
                     
-                    Button {
-                        if let url = URL(string: Constants.URL.discord) {
-                            UIApplication.shared.open(url)
-                        }
-                    } label: {
-                        Text(LocalizedStringKey("DiscordServer"))
-                            .bold()
-                        
-                        Image(systemName: "link")
+                    HStack{
+                        Image(systemName: "globe")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 15, height: 15)
+                            .frame(width: 25, height: 25)
                             .padding(.trailing)
+                        
+                        Button {
+                            if let url = URL(string: Constants.URL.website) {
+                                UIApplication.shared.open(url)
+                            }
+                        } label: {
+                            
+                            LinkImage()
+                            
+                            Text(LocalizedStringKey("Website"))
+                                .bold()
+                            
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    
+                    
+                    HStack{
+                        Image("discord")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .padding(.trailing)
+                        
+                        Button {
+                            if let url = URL(string: Constants.URL.discord) {
+                                UIApplication.shared.open(url)
+                            }
+                        } label: {
+                            LinkImage()
+                            
+                            Text(LocalizedStringKey("DiscordServer"))
+                                .bold()
+                            
+                            
+                        }
+                        
                     }
                     
                 }
-                
-                
-                
                 
             }
+            .animation(.spring(), value: expand)
+
+            
             
             Spacer()
             
@@ -95,8 +118,4 @@ struct CommunityView: View {
     }
 }
 
-struct CommunityView_Previews: PreviewProvider {
-    static var previews: some View {
-        CommunityView()
-    }
-}
+

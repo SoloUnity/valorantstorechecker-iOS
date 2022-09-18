@@ -21,76 +21,69 @@ struct TipView: View {
     
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 10){
             
-            
-            VStack(alignment: .leading, spacing: 10){
+            Button {
                 
-                Button {
-                    
-                    expand.toggle()
-                    
-                } label: {
-                    
-                    HStack{
-                        Text(title)
-                            .bold()
-                            .padding(.bottom, 4)
-                            
-                        if expand {
-                            
-                            Spacer()
-                            
-                        }
+                expand.toggle()
+                
+            } label: {
+                
+                HStack{
+                    Text(title)
+                        .bold()
+                        .padding(.bottom, 4)
                         
-                        Image(systemName: expand ? "chevron.up" : "chevron.down")
-                            .resizable()
-                            .frame(width: 13, height: 6)
-                            .multilineTextAlignment(.trailing)
+                    if expand {
+                        
+                        Spacer()
+                        
                     }
                     
-                    
+                    Image(systemName: expand ? "chevron.up" : "chevron.down")
+                        .resizable()
+                        .frame(width: 13, height: 6)
+                        .multilineTextAlignment(.trailing)
                 }
                 
-                if expand {
-                    
-                    ForEach(tips, id: \.id) { tip in
-                        tipButton(expand: $expand, tip: tip)
-                    }
-                    
-                    if tips.isEmpty {
-                        HStack {
-                            
-                            Text(LocalizedStringKey("NetworkError"))
-                                .bold()
-                            
-                            Spacer()
-                            
-                        }
-                    }
-                    
-                    /*
-                    tipButton(expand: $expand, index: 0)
-                    
-                    tipButton(expand: $expand, index: 1)
-                    
-                    tipButton(expand: $expand, index: 2)
-                    
-                    tipButton(expand: $expand, index: 3)
-                    */
-                }
                 
             }
-            .foregroundColor(.white)
-            .padding(7)
-            .background(Color.pink)
-            .cornerRadius(10)
-            .animation(.spring(), value: expand)
-            .shadow(color:.pink, radius: 2)
-
             
- 
+            if expand {
+                
+                ForEach(tips, id: \.id) { tip in
+                    tipButton(expand: $expand, tip: tip)
+                }
+                
+                if tips.isEmpty {
+                    HStack {
+                        
+                        Text(LocalizedStringKey("NetworkError"))
+                            .bold()
+                        
+                        Spacer()
+                        
+                    }
+                }
+                
+                /*
+                tipButton(expand: $expand, index: 0)
+                
+                tipButton(expand: $expand, index: 1)
+                
+                tipButton(expand: $expand, index: 2)
+                
+                tipButton(expand: $expand, index: 3)
+                */
+            }
+            
         }
+        .foregroundColor(.white)
+        .padding(7)
+        .background(Color.pink)
+        .cornerRadius(10)
+        .animation(.spring(), value: expand)
+        .shadow(color:.pink, radius: 2)
         
         
     }

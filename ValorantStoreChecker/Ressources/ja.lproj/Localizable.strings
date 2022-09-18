@@ -71,7 +71,7 @@
 
 // SkinCardDetailView（スキンカードディテールビュー
 "InfoPrice" = "このスキンの価格は、残念ながら私たちのデータベースにはありません。";
-"コスト" = "コスト";
+"Cost" = "コスト";
 "ExclusiveSkinMessage" = "これはBattlepass限定、キャラクター限定、限定版のいずれかのスキンです。";
 "Tier" = "ティア";
 "Default" = "デフォルト";
@@ -104,9 +104,13 @@
 "Website" = "ウェブサイト";
 "DiscordServer" = "Discordサーバー";
 
+// WhatsNewView
+"WhatsNew" = "新着情報";
+
 // HelpView（ヘルプビュー
 "Help" = "デベロッパーを助けよう";
 "HelpMessage" = "こんにちは！私は人生を少しでも良くしようと思っている寝不足の大学生です😄。以下の方法で私を助けることを検討してください！";
+"Share" = "アプリを共有する";
 "Review" = "レビューを残す";
 "Star" = "プロジェクトに星をつける";
 "Sponsor" = "付け届け";
@@ -151,8 +155,8 @@
 "UpdateButton" = "利用可能なアップデート";
 "UpdateTitle" = "アプリの更新";
 "Update" = "アップデート";
-"UpdateInstructions" = "更新オプションがない場合は、次の手順を実行してください。
-1) ホーム (今日) タブに移動します。
-2) 右上のプロフィールをクリック
-3) 下にスワイプしてリロード
-4) 下にスクロールして利用可能なアップデートを表示します";
+"UpdateInstructions1" = "更新オプションがない場合は、次の手順を実行してください:";
+"UpdateInstructions2" = "ホーム (今日) タブに移動します";
+"UpdateInstructions3" = "右上のプロフィールをクリック";
+"UpdateInstructions4" = "下にスワイプしてリロード";
+"UpdateInstructions5" = "下にスクロールして利用可能なアップデートを表示します";
