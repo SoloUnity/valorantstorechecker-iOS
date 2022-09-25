@@ -9,8 +9,12 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @EnvironmentObject var authAPIModel : AuthAPIModel
     @EnvironmentObject var skinModel : SkinModel
     @State var tabIndex = 0
+    
+    private let defaults = UserDefaults.standard
+    
     
     var body: some View {
         
@@ -22,6 +26,17 @@ struct HomeView: View {
                     Text(LocalizedStringKey("Store"))
                 }
                 .tag(0)
+            
+            if defaults.bool(forKey: "nightMarket") || authAPIModel.nightMarket {
+                NightMarketView()
+                    .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
+                    .tabItem{
+                    Image(systemName: "moon.stars")
+                    Text(LocalizedStringKey("NightMarket"))
+                    }
+                    .tag(4)
+            }
+            
             
             BundleView()
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
@@ -62,6 +77,7 @@ struct HomeView: View {
         }
         .accentColor(.white)
         .preferredColorScheme(.dark)
+        
     }
 }
 

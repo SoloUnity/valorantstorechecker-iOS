@@ -103,7 +103,22 @@ struct SkinCardView: View {
                         // MARK: Price
                         if showPrice{
                             
-                            if skin.contentTierUuid != nil {
+                            if price != "" {
+                                
+                                Image("vp")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 18, height: 18)
+                                    .shadow(color: .white, radius: 2)
+                                
+                                Text(price)
+                                    .font(.subheadline)
+                                    .foregroundColor(.white)
+                                    .bold()
+                                    .shadow(color: .black, radius: 3)
+                                
+                            }
+                            else if skin.contentTierUuid != nil {
                                 let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!)
                                 
                                 if price != "Unknown" {
@@ -147,7 +162,7 @@ struct SkinCardView: View {
             
         }
         .sheet(isPresented: $isDetailViewShowing) {
-            SkinCardDetailView(skin: skin)
+            SkinCardDetailView(skin: skin, price: price)
                 .preferredColorScheme(.dark)
         }
     }

@@ -160,3 +160,6 @@
 "UpdateInstructions3" = "右上のプロフィールをクリック";
 "UpdateInstructions4" = "下にスワイプしてリロード";
 "UpdateInstructions5" = "下にスクロールして利用可能なアップデートを表示します";
+
+// Nighmarket
+"NightMarket" = "夜市";

@@ -109,7 +109,11 @@ struct LoginView: View {
                         }
                     }
                     
+                    
+                    
                     RegionSelectorView()
+                    
+                    
                     
                     Spacer()
                     
@@ -141,8 +145,6 @@ struct LoginView: View {
                     
                     // MARK: Log in button
                     if agreedToTerms && authAPIModel.regionCheck {
-                        
-                        
                         
                         Button {
                             

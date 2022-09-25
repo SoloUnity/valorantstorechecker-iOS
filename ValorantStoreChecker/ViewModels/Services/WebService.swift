@@ -351,26 +351,7 @@ struct WebService {
     // MARK: Storefront
     static func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String) async throws -> Storefront {
         
-        // Local json file
-        let jsonUrl = Bundle.main.url(forResource: "nightmarket", withExtension: "json")
-        
-        do{
-            // Read the file into a data object
-            let jsonData = try Data(contentsOf: jsonUrl!)
-            
-            guard let storefrontResponse = try? JSONDecoder().decode(Storefront.self, from: jsonData) else {
-                print("ok")
-                throw StorefrontError.badDecode
-            }
-            
-            return storefrontResponse
-            
-        }
-        catch{
-            throw StorefrontError.dataTaskError(error.localizedDescription)
-        }
-        
-        /*
+
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v2/storefront/\(puuid)") else{
             throw StorefrontError.invalidURL
         }
@@ -400,7 +381,7 @@ struct WebService {
         }catch{
             throw StorefrontError.dataTaskError(error.localizedDescription)
         }
-         */
+         
     }
     
     

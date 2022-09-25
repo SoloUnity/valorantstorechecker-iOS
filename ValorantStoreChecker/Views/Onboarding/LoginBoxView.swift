@@ -79,6 +79,9 @@ struct LoginBoxView: View {
                     
             }
             
+            ThirdPartyView()
+
+            
         }
         .foregroundColor(authAPIModel.failedLogin ? .red : .white)
     }

@@ -56,6 +56,10 @@ class AuthAPIModel: ObservableObject {
     @Published var bundleName : String = ""
     @Published var bundle : [[Skin]] = []
     
+    // NightMarket
+    @Published var nightMarket : Bool = false
+    @Published var nightSkins : [Skin] = []
+    
     init() {
         
         // TODO: Implement CoreData, but for now lmao this works
@@ -92,9 +96,15 @@ class AuthAPIModel: ObservableObject {
             }
         }
         
-        
-        
-        
+        // Use saved nightmarket
+        if let objects = defaults.value(forKey: "nightSkins") as? Data {
+            let decoder = JSONDecoder()
+            if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Skin] {
+                DispatchQueue.main.async{
+                    self.nightSkins = objectsDecoded
+                }
+            }
+        }
         
     }
     
@@ -177,8 +187,69 @@ class AuthAPIModel: ObservableObject {
             // Match user's store with database
             let storefrontResponse = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
             
-            if storefrontResponse.BonusStore == nil {
-                print("nope")
+            // Save list of owned skins
+            let owned = try await WebService.getOwned(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
+            
+            var tempOwned : [String] = []
+            
+            
+            for skin in skinModel.data {
+                for item in owned {
+                    let itemUUID = skin.levels!.first!.id.uuidString.lowercased()
+                    if itemUUID == item.itemID {
+                        if !tempOwned.contains(skin.displayName) {
+                            tempOwned.append(skin.displayName)
+                        }
+                    }
+                }
+            }
+            
+            self.owned = tempOwned
+            defaults.set(tempOwned, forKey: "owned")
+            
+            if storefrontResponse.BonusStore != nil {
+                
+                self.nightMarket = true
+                defaults.set(true, forKey: "nightMarket")
+                
+                guard let market = storefrontResponse.BonusStore else {
+                    throw APIError.invalidCredentials
+                }
+                
+                var tempMarket : [Skin] = []
+                
+                for skin in skinModel.data {
+                    for item in market.BonusStoreOffers! {
+                        let itemUUID = skin.levels!.first!.id.uuidString.lowercased()
+                        if itemUUID == item.Offer?.OfferID {
+                            
+                            
+                            
+                            let newSkin = skin
+                            newSkin.discountedCost = String((item.DiscountCosts?.discountItemCost)!)
+
+                            tempMarket.append(newSkin)
+                        }
+                    }
+                }
+                
+                self.nightSkins = tempMarket
+                
+                // Save the storefront
+                let storefrontEncoder = JSONEncoder()
+                
+                if let encoded = try? storefrontEncoder.encode(tempMarket){
+                    defaults.set(encoded, forKey: "nightSkins")
+                }
+                
+                let nightReferenceDate = Date() + Double(market.BonusStoreRemainingDurationInSeconds!)
+                defaults.set(nightReferenceDate, forKey: "nightTimeLeft")
+
+            }
+            else {
+                self.nightMarket = false
+                defaults.set(false, forKey: "nightMarket")
+                
             }
             
             if helperType == "storeReload" {
@@ -193,7 +264,7 @@ class AuthAPIModel: ObservableObject {
             }
             else if helperType == "nightMarketReload" {
                 
-                
+                // Placeholder
             }
             else if helperType == "login" {
                 await reloadLoginHelper(token: token, skinModel: skinModel, riotEntitlement: riotEntitlement, puuid: puuid, storefrontResponse: storefrontResponse)
@@ -262,31 +333,10 @@ class AuthAPIModel: ObservableObject {
                 defaults.set(encoded, forKey: "storePrice")
             }
             
-            // Save list of owned skins
-            let owned = try await WebService.getOwned(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
-            
-            var tempOwned : [String] = []
-            
-            for skin in skinModel.data {
-                for item in owned {
-                    let itemUUID = skin.levels!.first!.id.uuidString.lowercased()
-                    if itemUUID == item.itemID {
-                        if !tempOwned.contains(skin.displayName) {
-                            tempOwned.append(skin.displayName)
-                        }
-                        
-                    }
-                }
-            }
-            
-            self.owned = tempOwned
-            defaults.set(tempOwned, forKey: "owned")
-            
             // Set the time left in shop
             let referenceDate = Date() + Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0)
             defaults.set(referenceDate, forKey: "timeLeft")
-            defaults.set(Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0), forKey: "secondsLeft")
-            
+
             
             self.isAuthenticating = false
             self.failedLogin = false
@@ -296,9 +346,6 @@ class AuthAPIModel: ObservableObject {
             self.multifactor = ""
             
         }catch {
-            
-            self.isAuthenticating = false
-            self.password = ""
             
             self.errorMessage = "Login Helper error: \(error.localizedDescription)"
             self.isError = true
@@ -341,15 +388,14 @@ class AuthAPIModel: ObservableObject {
                 // Set time left for bundle
                 let bundleReferenceDate = Date() + Double(item.durationRemainingInSeconds)
                 defaults.set(bundleReferenceDate, forKey: "bundleTimeLeft" + currentBundle)
-                defaults.set(Double(item.durationRemainingInSeconds), forKey: "bundleSecondsLeft"  + currentBundle)
                 
                 
                 // Save the bundle skins
                 let items = item.items
                 
                 var tempBundleItems : [Skin] = []
+                
                 for skin in skinModel.data{
-                    
                     for item in items {
                         if skin.levels!.first!.id.description.lowercased() == item.item.itemID {
                             tempBundleItems.append(skin)
@@ -371,11 +417,12 @@ class AuthAPIModel: ObservableObject {
             }
         }
         catch {
-            
+            self.errorMessage = "Login Helper error: \(error.localizedDescription)"
+            self.isError = true
         }
-        
-        
     }
+    
+    
     
     // MARK: Multifactor
     @MainActor
@@ -504,7 +551,6 @@ class AuthAPIModel: ObservableObject {
         self.rememberPassword = false
         
         defaults.removeObject(forKey: "timeLeft")
-        defaults.removeObject(forKey: "secondsLeft")
         defaults.removeObject(forKey: "vp")
         defaults.removeObject(forKey: "rp")
         defaults.removeObject(forKey: "storefront")
