@@ -128,20 +128,23 @@ struct SettingsView: View {
                                 .onChange(of: toggleNotification) { boolean in
                                     
                                     
-                                    
-                                    notify.askPermission()
-                                    
-                                    if defaults.bool(forKey: "notification") {
+                                    if !defaults.bool(forKey: "notification") {
+                                        
+                                        notify.askPermission()
+                                        
+                                        
+                                        defaults.set(true, forKey: "notification")
+                                        
+                                        notify.sendNotification(date: referenceDate, title: "Store Checker for Valorant", body: "Store has just reset")
                                         
                                     }
-                                    else if boolean {
-                                        defaults.set(true, forKey: "notification")
-                                        notify.sendNotification(date: referenceDate, title: "Store Checker for Valorant", body: "Store has just reset")
-                                    }
-                                    else {
+                                    
+                                    if !boolean{
+                                        print("disabled")
                                         notify.disableNotifications()
                                         defaults.removeObject(forKey: "notification")
                                     }
+                                    
                                     
                                     
                                 }
@@ -267,6 +270,8 @@ struct SettingsView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                 }
                         }
+                        .animation(.spring(), value: togglePassword)
+                        
                         
                         
                         
@@ -305,6 +310,7 @@ struct SettingsView: View {
             }
             
         }
+        .animation(.spring(), value: togglePassword)
         
         
         

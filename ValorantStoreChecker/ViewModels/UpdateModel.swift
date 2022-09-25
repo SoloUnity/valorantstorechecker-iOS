@@ -55,7 +55,7 @@ class UpdateModel: ObservableObject{
                 self.defaults.setValue(currentVersion, forKey: "currentVersion")
                 self.defaults.setValue(lastVersion, forKey: "lastVersion")
                 
-                completion(lastVersion > currentVersion, nil)
+                completion("1.2.9" > currentVersion, nil)
                 
                 
             } catch {

@@ -122,9 +122,14 @@ struct LaunchView: View {
                     let pasteboard = UIPasteboard.general
                     pasteboard.string = authAPIModel.errorMessage
                     
+                    authAPIModel.reloading = false
+                    authAPIModel.isReloadingError = false
+                    
                 })
                 
                 Button(LocalizedStringKey("OK"), role: nil, action: {
+                    authAPIModel.reloading = false
+                    authAPIModel.isReloadingError = false
                     
                 })
                 

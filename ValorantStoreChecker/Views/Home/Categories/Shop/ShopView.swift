@@ -20,22 +20,18 @@ struct ShopView: View {
         GeometryReader{ geo in
             
             
-            LazyVStack(spacing: 0){
+            VStack(spacing: 0){
                 
                 Logo()
                     .frame(width: geo.size.width/6.5)
                 
-                
-
-                
-                    
                 
                 ScrollView(showsIndicators: false) {
                     
                     
                     PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                         Task{
-                            await authAPIModel.reload(skinModel: skinModel)
+                            await authAPIModel.reload(skinModel: skinModel, reloadType: "storeReload")
                         }
                     }
                     
@@ -45,7 +41,7 @@ struct ShopView: View {
                         // Determine if the data has been fetched
                         if authAPIModel.storefront.isEmpty{
                             
-                            ShopTopBarView(referenceDate: Date())
+                            ShopTopBarView(reloadType: "storeReload", referenceDate: Date())
                             
                             HStack{
                                 
@@ -61,7 +57,7 @@ struct ShopView: View {
                         else{
                             
                             // MARK: Displayed elements
-                            ShopTopBarView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
+                            ShopTopBarView(reloadType: "storeReload", referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
                             
                             ForEach(authAPIModel.storefront) { skin in
                                 
@@ -75,12 +71,13 @@ struct ShopView: View {
                         }
                         
                     }
-                    .padding(10)
                 }
                 .coordinateSpace(name: "pullToRefresh")
             }
-            .padding(10)
+            
         }
+        .padding(.bottom, 1)
+        .padding([.horizontal, .top])
         
     }
 }

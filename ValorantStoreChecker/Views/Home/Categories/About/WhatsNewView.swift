@@ -45,7 +45,7 @@ struct WhatsNewView: View {
                     let releaseNotes = defaults.array(forKey: "releaseNotes") as? [String] ?? []
                     ForEach(0...releaseNotes.count - 1, id: \.self) { point in
                         HStack{
-                            Image(systemName: "\(String(point + 1)).circle.fill")
+                            Image(systemName: "\(String(point + 1)).circle")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 25, height: 25)

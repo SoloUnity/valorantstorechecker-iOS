@@ -28,8 +28,6 @@ extension View {
         return self
         
     }
-    
-    
 }
 
 struct SkinCardDetailView: View {
@@ -53,6 +51,7 @@ struct SkinCardDetailView: View {
         GeometryReader{ geo in
             
             VStack(alignment: .leading, spacing: UIScreen.main.bounds.height / 40) {
+                
                 
                 // MARK: Title header
                 HStack{
@@ -313,20 +312,22 @@ struct SkinCardDetailView: View {
                                         
                                         if videoName == "" {
                                             Text("Default")
-                                                .font(.callout)
+                                                .font(.footnote)
+                                                .bold()
                                         }
                                         else {
                                             Text(videoName)
-                                                .font(.callout)
+                                                .font(.footnote)
+                                                .bold()
                                         }
                                         
                                         Image(systemName: "chevron.up.chevron.down")
                                             .font(.callout)
                                     }
                                 }
-                                .padding(.vertical, 5)
-                                .padding(.horizontal, 16)
-                                .background(.ultraThinMaterial)
+                                .padding(.vertical, 8)
+                                .padding(.horizontal, 8)
+                                .background(Constants.pickerWhite)
                                 .cornerRadius(7)
                                 
                                 
@@ -478,11 +479,13 @@ struct SkinCardDetailView: View {
                                             
                                             if colourName == "" {
                                                 Text("Default")
-                                                    .font(.callout)
+                                                    .font(.footnote)
+                                                    .bold()
                                             }
                                             else {
                                                 Text(colourName)
-                                                    .font(.callout)
+                                                    .font(.footnote)
+                                                    .bold()
                                             }
                                             
                                             Image(systemName: "chevron.up.chevron.down")
@@ -490,9 +493,9 @@ struct SkinCardDetailView: View {
                                         }
                                         
                                     }
-                                    .padding(8)
+                                    .padding(.vertical, 8)
                                     .padding(.horizontal, 8)
-                                    .background(.ultraThinMaterial)
+                                    .background(Constants.pickerWhite)
                                     .cornerRadius(7)
                                     
                                     
@@ -545,6 +548,7 @@ struct SkinCardDetailView: View {
                     
                     
                 }
+
             }
             .foregroundColor(.white)
             .padding()

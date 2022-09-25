@@ -45,7 +45,11 @@ struct SearchBar: View {
                             Button(action: {
                                 // Dismiss keyboard
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                                self.isEditing = false
+                                
+                                withAnimation(.easeOut(duration: 0.15)) {
+                                    self.isEditing = false
+                                }
+
                                 self.text = ""
                             }) {
                                 Image(systemName: "multiply.circle.fill")
@@ -57,7 +61,10 @@ struct SearchBar: View {
                 )
                 .padding(.horizontal, 10)
                 .onTapGesture {
-                    self.isEditing = true
+                    withAnimation(.easeIn(duration: 0.15)) {
+                        self.isEditing = true
+                    }
+                    
                 }
             
         }

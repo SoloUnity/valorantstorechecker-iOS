@@ -21,6 +21,7 @@ struct SkinListView: View {
     
     var body: some View {
         
+        
         GeometryReader{ geo in
             VStack(spacing: 0){
                 
@@ -30,8 +31,9 @@ struct SkinListView: View {
                             .onChange(of: searchText) { newValue in
                                 proxy.scrollTo("top", anchor: .top)
                             }
-                            .padding(.trailing, -5)
+                            .padding(.leading, -10)
                             
+                        Spacer()
                         
                         Menu {
                             
@@ -201,18 +203,20 @@ struct SkinListView: View {
                         } label: {
                             // MARK: Menu label
                             
+                            
                             Image(systemName: filtered ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle" )
                                 .resizable()
                                 .scaledToFit()
                                 .opacity(filtered ? 0.8 : 0.4)
-                                .padding(.trailing, 5)
-                                .frame(height: (UIScreen.main.bounds.height / 40) )
+                                .frame(height: (UIScreen.main.bounds.height / 40))
                             
                         }
                         
                         
-                        Spacer()
+                        
                     }
+                    .padding(.horizontal)
+                    .padding(.top)
                     
                     ScrollView {
                         
@@ -234,15 +238,19 @@ struct SkinListView: View {
                             }
                             
                             
+                            
+                            
                             LazyVStack(spacing: 11){
                                 
                                 ForEach(search){ skin in
                                     
                                     SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
                                         .frame(height: (UIScreen.main.bounds.height / 6.5))
+                                        .padding(.horizontal)
                                         
                                     
                                 }
+                                
                                 
                                 // MARK: Scroll to top button
                                 if search.count > 5{
@@ -278,6 +286,7 @@ struct SkinListView: View {
                                                     RoundedRectangle(cornerRadius: 10)
                                                 }
                                         }
+                                        .padding(.horizontal)
                                     }
                                 }
                                 
@@ -302,17 +311,22 @@ struct SkinListView: View {
                                 
                                 
                             }
-                            .padding(10)
                             .id("top") // Id to identify the top for scrolling
                             .tag("top") // Tag to identify the top for scrolling
-                            
+                            .animation(.default, value: searchText)
+                            .animation(.default, value: selectedFilter)
+
                         }
                     }
                 }
             }
-            .padding(10)
+            
+            
             
         }
+        .padding(.bottom, 1)
+        
+        
     }
     
     // MARK: Menu Item

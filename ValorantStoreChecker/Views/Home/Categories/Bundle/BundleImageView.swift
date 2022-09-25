@@ -10,12 +10,13 @@ import SwiftUI
 struct BundleImageView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
-    let defaults = UserDefaults.standard
+    
     let bundleIndex : Int
     var body: some View {
         ZStack{
+            let defaults = UserDefaults.standard
             
-            if let imageData = UserDefaults.standard.data(forKey: "bundleDisplayIcon" + String(bundleIndex)) {
+            if let imageData = defaults.data(forKey: "bundleDisplayIcon" + String(bundleIndex)) {
                 
                 let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData )
                 

@@ -11,6 +11,40 @@ import Foundation
 struct Storefront: Codable {
     let FeaturedBundle: FeaturedBundle?
     let SkinsPanelLayout : SkinsPanelLayout?
+    let BonusStore : BonusStore?
+}
+
+// MARK: NightMarket
+struct BonusStore: Codable {
+    let BonusStoreOffers : [NightMarketItem]?
+    let BonusStoreRemainingDurationInSeconds : Int?
+}
+
+struct NightMarketItem: Codable {
+    let Offer : NightMarketOffer?
+    let DiscountPercent : Int?
+    let DiscountCosts : NightMarketDiscountCost?
+}
+
+struct NightMarketOffer : Codable {
+    let OfferID : String?
+    let Cost : NightMarketCost?
+}
+
+struct NightMarketCost : Codable {
+    let itemCost : Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case itemCost = "85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741"
+    }
+}
+
+struct NightMarketDiscountCost : Codable {
+    let discountItemCost : Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case discountItemCost = "85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741"
+    }
 }
 
 // MARK: Store

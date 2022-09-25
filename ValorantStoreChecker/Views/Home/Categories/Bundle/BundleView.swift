@@ -34,7 +34,7 @@ struct BundleView: View {
                         
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                             Task{
-                                await authAPIModel.reload(skinModel: skinModel)
+                                await authAPIModel.reload(skinModel: skinModel, reloadType: "bundleReload")
                             }
                         }
                         .id("top") // Id to identify the top for scrolling
@@ -61,7 +61,7 @@ struct BundleView: View {
                             
                             LazyVStack(spacing: 11) {
                                 
-                                ShopTopBarView(referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
+                                ShopTopBarView(reloadType: "bundleReload", referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
                                 
                                 BundleImageView(bundleIndex: index)
                                 
@@ -121,28 +121,21 @@ struct BundleView: View {
                                         }
                                     }
                                 }
-                                
-                                
-                                
                             }
-                            .padding(10)
-                            
-                            
                         }
-                        
-                        
-                        
                     }
                     .coordinateSpace(name: "pullToRefresh")
-                    .padding(.top, -8)
+                    .padding(.top, -(UIScreen.main.bounds.height / 92.5))
                     
 
 
                 }
             }
-            .padding(10)
+            
             
         }
+        .padding(.bottom, 1)
+        .padding([.horizontal, .top])
         
         
     }

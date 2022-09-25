@@ -16,6 +16,7 @@ struct ShopTopBarView: View {
     @State var nowDate: Date = Date()
     @State var successfulReload = false
     
+    let reloadType : String
     let defaults = UserDefaults.standard
     
     let referenceDate: Date
@@ -50,7 +51,7 @@ struct ShopTopBarView: View {
                         .onAppear {
                             Task {
                                 authAPIModel.reloading = true
-                                await authAPIModel.reload(skinModel: skinModel)
+                                await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
                             }
                         }
                         .font(.caption)
@@ -90,7 +91,7 @@ struct ShopTopBarView: View {
                     }
                     
                     Task{
-                        await authAPIModel.reload(skinModel: skinModel)
+                        await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
                     }
                 } label: {
                     if !authAPIModel.reloading && !successfulReload {

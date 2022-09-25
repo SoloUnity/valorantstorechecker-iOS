@@ -102,7 +102,8 @@ struct AboutView: View {
             }
             
         }
-        .padding()
+        .padding(.bottom, 1)
+        .padding([.horizontal, .top])
         .sheet(isPresented: $showSettings) {
             SettingsView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
                 .preferredColorScheme(.dark)

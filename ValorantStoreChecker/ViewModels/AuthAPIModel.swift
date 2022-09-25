@@ -91,6 +91,11 @@ class AuthAPIModel: ObservableObject {
                 }
             }
         }
+        
+        
+        
+        
+        
     }
     
     // MARK: Login
@@ -104,6 +109,7 @@ class AuthAPIModel: ObservableObject {
                 self.password = keychain.value(forKey: "password") as? String ?? ""
                 
             }
+            
             else if keychain.value(forKey: "username") == nil { // Save username to keychain
                 let _ = keychain.save(self.username, forKey: "username")
             }
@@ -121,11 +127,14 @@ class AuthAPIModel: ObservableObject {
             else{
                 // Default login (non-multifactor)
                 let token = tokenList[0]
-                await loginHelper(token: token, skinModel: skinModel)
+                await getPlayerData(helperType: "login", token: token, skinModel: skinModel)
                 
                 // Save authentication state for next launch
-                self.isAuthenticated = true
-                defaults.set(true, forKey: "authentication")
+                withAnimation(.easeIn(duration: 0.2)) {
+                    self.isAuthenticated = true
+                    defaults.set(true, forKey: "authentication")
+                }
+                
                 
             }
             print("Finished login")
@@ -155,27 +164,66 @@ class AuthAPIModel: ObservableObject {
         }
     }
     
-    // MARK: LoginHelper
+    
+    // MARK: getPlayerData
     @MainActor
-    func loginHelper(token : String, skinModel : SkinModel) async {
+    func getPlayerData(helperType: String, token: String, skinModel : SkinModel) async {
         do {
             self.password = "" // Clear password
             
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
             let puuid = try await WebService.getPlayerInfo(token: token)
             
-            
             // Match user's store with database
             let storefrontResponse = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
+            
+            if storefrontResponse.BonusStore == nil {
+                print("nope")
+            }
+            
+            if helperType == "storeReload" {
+                
+                await reloadLoginHelper(token: token, skinModel: skinModel, riotEntitlement: riotEntitlement, puuid: puuid, storefrontResponse: storefrontResponse)
+                
+            }
+            else if helperType == "bundleReload" {
+                
+                await bundleLoginHelper(token: token, skinModel: skinModel, riotEntitlement: riotEntitlement, puuid: puuid, storefrontResponse: storefrontResponse)
+                
+            }
+            else if helperType == "nightMarketReload" {
+                
+                
+            }
+            else if helperType == "login" {
+                await reloadLoginHelper(token: token, skinModel: skinModel, riotEntitlement: riotEntitlement, puuid: puuid, storefrontResponse: storefrontResponse)
+                await bundleLoginHelper(token: token, skinModel: skinModel, riotEntitlement: riotEntitlement, puuid: puuid, storefrontResponse: storefrontResponse)
+            }
+            
+            // finished loading
+            self.reloading = false
+            
+        }
+        catch {
+            self.errorMessage = "getPlayerData error: \(error.localizedDescription)"
+            self.isError = true
+        }
+    }
+    
+    
+    
+    // MARK: LoginHelper
+    @MainActor
+    func reloadLoginHelper(token : String, skinModel : SkinModel, riotEntitlement: String, puuid: String, storefrontResponse : Storefront) async {
+        do {
             
             guard let storefront = storefrontResponse.SkinsPanelLayout else {
                 throw APIError.invalidCredentials
             }
             
-            
             var tempStore : [Skin] = []
             
-            for skin in SkinModel().data{
+            for skin in skinModel.data{
                 for level in skin.levels!{
                     for item in storefront.SingleItemOffers!{
                         if item == level.id.description.lowercased(){
@@ -203,10 +251,6 @@ class AuthAPIModel: ObservableObject {
             self.defaults.set(wallet[0], forKey: "vp")
             self.defaults.set(wallet[1], forKey: "rp")
             
-            // Notifies UI that its finished getting store
-            self.reloading = false
-            
-            
             // Get store price
             let storePrice = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: keychain.value(forKey: "region") as? String ?? "na")
             
@@ -223,7 +267,7 @@ class AuthAPIModel: ObservableObject {
             
             var tempOwned : [String] = []
             
-            for skin in SkinModel().data {
+            for skin in skinModel.data {
                 for item in owned {
                     let itemUUID = skin.levels!.first!.id.uuidString.lowercased()
                     if itemUUID == item.itemID {
@@ -242,6 +286,31 @@ class AuthAPIModel: ObservableObject {
             let referenceDate = Date() + Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0)
             defaults.set(referenceDate, forKey: "timeLeft")
             defaults.set(Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0), forKey: "secondsLeft")
+            
+            
+            self.isAuthenticating = false
+            self.failedLogin = false
+            
+            self.username = ""
+            self.password = ""
+            self.multifactor = ""
+            
+        }catch {
+            
+            self.isAuthenticating = false
+            self.password = ""
+            
+            self.errorMessage = "Login Helper error: \(error.localizedDescription)"
+            self.isError = true
+            
+        }
+    }
+    
+    // MARK: BundleReload
+    @MainActor
+    func bundleLoginHelper(token : String, skinModel : SkinModel, riotEntitlement: String, puuid: String, storefrontResponse : Storefront) async {
+        
+        do {
             
             guard let bundleList = storefrontResponse.FeaturedBundle else {
                 throw BundleListError.invalidList
@@ -263,14 +332,12 @@ class AuthAPIModel: ObservableObject {
                 let bundleDisplayName = bundle[0]
                 //let bundleDisplayIcon = bundle[1]
                 
+                
+                
                 //self.bundleName = bundleDisplayName
                 //self.bundleImage = bundleDisplayIcon
                 
-                
-                
                 defaults.set(bundleDisplayName, forKey: "bundleDisplayName" + currentBundle)
-                
-
                 // Set time left for bundle
                 let bundleReferenceDate = Date() + Double(item.durationRemainingInSeconds)
                 defaults.set(bundleReferenceDate, forKey: "bundleTimeLeft" + currentBundle)
@@ -302,26 +369,12 @@ class AuthAPIModel: ObservableObject {
             if let encoded = try? bundleEncoder.encode(bundleItems){
                 defaults.set(encoded, forKey: "bundle")
             }
-            
-            
-            print("bundleItems" , self.bundle)
-            
-            self.isAuthenticating = false
-            self.failedLogin = false
-            
-            self.username = ""
-            self.password = ""
-            self.multifactor = ""
-            
-        }catch {
-            
-            self.isAuthenticating = false
-            self.password = ""
-            
-            self.errorMessage = "Login Helper error: \(error.localizedDescription)"
-            self.isError = true
+        }
+        catch {
             
         }
+        
+        
     }
     
     // MARK: Multifactor
@@ -331,7 +384,7 @@ class AuthAPIModel: ObservableObject {
             do{
                 let token = try await WebService.multifactor(code: self.multifactor)
                 
-                await loginHelper(token: token, skinModel: skinModel)
+                await getPlayerData(helperType: "login", token: token, skinModel: skinModel)
                 self.showMultifactor = false
                 self.enteredMultifactor = false
                 
@@ -361,7 +414,7 @@ class AuthAPIModel: ObservableObject {
     
     // MARK: Reload
     @MainActor
-    func reload(skinModel: SkinModel) async {
+    func reload(skinModel: SkinModel, reloadType : String) async {
         do{
             
             print("Reloading")
@@ -371,9 +424,6 @@ class AuthAPIModel: ObservableObject {
             // Old way
             //let token = try await WebService.cookieReauth()
             
-            print(token)
-
-            
             if token == "NO TOKEN" {
                 
                 if (self.rememberPassword || defaults.bool(forKey: "rememberPassword")) {
@@ -381,6 +431,7 @@ class AuthAPIModel: ObservableObject {
                     
                     await login(skinModel: skinModel)
                     self.reloading = false
+                    
                 }
                 else {
                     self.isError = true
@@ -389,8 +440,7 @@ class AuthAPIModel: ObservableObject {
                 
             }
             else {
-                await loginHelper(token: token, skinModel: skinModel)
-                
+                await getPlayerData(helperType: reloadType, token: token, skinModel: skinModel)
             }
 
             
@@ -403,9 +453,23 @@ class AuthAPIModel: ObservableObject {
                 self.reloading = false
             }
             else {
+                
                 //self.isReloadingError = true
-                self.errorMessage = "Reload error: \(error.localizedDescription)"
-                self.isError = true
+                
+                let errorMessage = error.localizedDescription.split(separator: "(")[1].split(separator: " ")[0]
+                
+                
+                if errorMessage == "ValorantStoreChecker.CookieError" {
+                    
+                    self.isError = true
+                    self.isReloadingError = true
+                    
+                }
+                else {
+                    self.errorMessage = "Reload error: \(error.localizedDescription)"
+                    self.isError = true
+                }
+                
             }
             
             print("Reloading error")
@@ -456,8 +520,11 @@ class AuthAPIModel: ObservableObject {
         let _ = keychain.remove(forKey: "password")
         
         // Unauthenticate user
-        self.isAuthenticated = false // Keeps user logged in
-        defaults.removeObject(forKey: "authentication")
+        withAnimation(.easeOut(duration: 0.2)) {
+            self.isAuthenticated = false // Keeps user logged in
+            defaults.removeObject(forKey: "authentication")
+        }
+        
 
     }
     

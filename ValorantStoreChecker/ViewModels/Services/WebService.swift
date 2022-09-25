@@ -21,6 +21,7 @@ struct WebService {
     
     // MARK: Cookies
     static func getCookies(reload: Bool) async throws -> String {
+        
         guard let url = URL(string: Constants.URL.auth) else{
             throw CookieError.invalidURL
         }
@@ -28,6 +29,7 @@ struct WebService {
         do{
             
             if reload {
+                
                 let keychain = Keychain()
                 
                 try await setCookie(named: "tdid", to: keychain.value(forKey: "tdid") as? String ?? "")
@@ -62,9 +64,14 @@ struct WebService {
                 
                 // Obtain uri and parse for the token
                 let uriList = uri.split(separator: "&")
+                
                 for item in uriList {
                     if item.contains("access_token") {
-                        return String(item.split(separator: "=")[1])
+                        let token = item.split(separator: "=")[1]
+                        if token.count != 0 {
+                            return String(item.split(separator: "=")[1])
+                        }
+                        
                     }
                 }
                 
@@ -72,6 +79,7 @@ struct WebService {
                 
             }
             else {
+                
                 let cookieBody = AuthCookies()
                 
                 // Create request
@@ -88,7 +96,6 @@ struct WebService {
                     let httpResponse = response as? HTTPURLResponse,
                     httpResponse.statusCode == 200
                 else{
-
                     throw CookieError.invalidResponseStatus
                 }
                 
@@ -343,6 +350,27 @@ struct WebService {
     
     // MARK: Storefront
     static func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String) async throws -> Storefront {
+        
+        // Local json file
+        let jsonUrl = Bundle.main.url(forResource: "nightmarket", withExtension: "json")
+        
+        do{
+            // Read the file into a data object
+            let jsonData = try Data(contentsOf: jsonUrl!)
+            
+            guard let storefrontResponse = try? JSONDecoder().decode(Storefront.self, from: jsonData) else {
+                print("ok")
+                throw StorefrontError.badDecode
+            }
+            
+            return storefrontResponse
+            
+        }
+        catch{
+            throw StorefrontError.dataTaskError(error.localizedDescription)
+        }
+        
+        /*
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v2/storefront/\(puuid)") else{
             throw StorefrontError.invalidURL
         }
@@ -372,6 +400,7 @@ struct WebService {
         }catch{
             throw StorefrontError.dataTaskError(error.localizedDescription)
         }
+         */
     }
     
     
@@ -440,7 +469,7 @@ struct WebService {
     }
     
     // MARK: Store Prices
-    static func getStorePrices(token : String, riotEntitlement: String,region: String) async throws ->  [Offer] {
+    static func getStorePrices(token : String, riotEntitlement: String,region: String) async throws -> [Offer] {
         
         do {
             guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v1/offers/") else{
@@ -524,7 +553,6 @@ struct WebService {
         
         
         guard let url = URL(string: Constants.URL.cookieReauth) else{
-            print("CookieAuthError.invalidURL")
             throw CookieAuthError.invalidURL
         }
         
@@ -553,7 +581,6 @@ struct WebService {
 
             
             guard let urlString = response.url?.absoluteString else{
-                print("CookieAuthError.noData")
                 throw CookieAuthError.noData
             }
             

@@ -15,11 +15,8 @@ struct UpdateButton: View {
     var body: some View {
         
         Text(LocalizedStringKey("Update"))
-            .font(.footnote)
-            .padding(5)
-            .background(.pink)
-            .cornerRadius(7)
-            .shadow(color:.white, radius: 2)
+            .foregroundColor(.pink)
+            .font(.caption)
             .onTapGesture {
                 
                 self.update = true

@@ -55,12 +55,15 @@
 		8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6111F28847B9100E8BDD6 /* Skin.swift */; };
 		8BF1DB482888B87F004491A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DB472888B87F004491A1 /* Constants.swift */; };
 		8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4D7642885A298000404D8 /* SearchBar.swift */; };
+		F8163EC828DFFFC100A27103 /* DragDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8163EC728DFFFC100A27103 /* DragDownView.swift */; };
+		F8163ECA28E03AC200A27103 /* nightmarket.json in Resources */ = {isa = PBXBuildFile; fileRef = F8163EC928E03AC200A27103 /* nightmarket.json */; };
 		F837D9D428A5B14B00F7C777 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F837D9D328A5B14B00F7C777 /* SettingsView.swift */; };
 		F843005E28B7BE9C006CFD5C /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = F843005D28B7BE9C006CFD5C /* Products.plist */; };
 		F844AC7128A01BF10009C0C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F844AC7328A01BF10009C0C0 /* Localizable.strings */; };
 		F87952A328ADD7C3005145F6 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87952A228ADD7C3005145F6 /* TipView.swift */; };
 		F87952A628AEA084005145F6 /* BundleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87952A528AEA084005145F6 /* BundleView.swift */; };
 		F87952A828AEA36D005145F6 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87952A728AEA36D005145F6 /* Bundle.swift */; };
+		F888F34728DD22A700F21297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F888F34628DD22A700F21297 /* LaunchScreen.storyboard */; };
 		F892C4D928A412DF007158CB /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892C4D828A412DF007158CB /* NotificationService.swift */; };
 		F894F59D28D7BCE700C07223 /* UpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F894F59C28D7BCE700C07223 /* UpdatesView.swift */; };
 		F894F59F28D7C72E00C07223 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F894F59E28D7C72E00C07223 /* DispatchQueue+Extensions.swift */; };
@@ -123,6 +126,8 @@
 		8BE6111F28847B9100E8BDD6 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		8BF1DB472888B87F004491A1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8BF4D7642885A298000404D8 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		F8163EC728DFFFC100A27103 /* DragDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDownView.swift; sourceTree = "<group>"; };
+		F8163EC928E03AC200A27103 /* nightmarket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightmarket.json; sourceTree = "<group>"; };
 		F837D9D328A5B14B00F7C777 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F843005D28B7BE9C006CFD5C /* Products.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		F844AC7228A01BF10009C0C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -132,6 +137,7 @@
 		F87952A228ADD7C3005145F6 /* TipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
 		F87952A528AEA084005145F6 /* BundleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleView.swift; sourceTree = "<group>"; };
 		F87952A728AEA36D005145F6 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		F888F34628DD22A700F21297 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F892C4D828A412DF007158CB /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		F894F59C28D7BCE700C07223 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
 		F894F59E28D7C72E00C07223 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
@@ -277,6 +283,7 @@
 				8B9A8383288612AC009CE268 /* PriceTiers */,
 				8B9A83822886129C009CE268 /* Shapes */,
 				F894F59E28D7C72E00C07223 /* DispatchQueue+Extensions.swift */,
+				F8163EC728DFFFC100A27103 /* DragDownView.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -284,11 +291,13 @@
 		8B33A5C228846B5400BCB1F2 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				F888F34628DD22A700F21297 /* LaunchScreen.storyboard */,
 				F843005D28B7BE9C006CFD5C /* Products.plist */,
 				8BF1DB472888B87F004491A1 /* Constants.swift */,
 				F844AC7328A01BF10009C0C0 /* Localizable.strings */,
 				8B29E1F22881C8800081F69A /* Assets.xcassets */,
 				8BE6111D28847B0C00E8BDD6 /* SkinData.json */,
+				F8163EC928E03AC200A27103 /* nightmarket.json */,
 				F8F69D3528A5E2F9005A73D2 /* Configuration.storekit */,
 			);
 			path = Ressources;
@@ -308,8 +317,8 @@
 		8B62AFD82883B51F0070173F /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F8B7FDF728D7A8D900A5181E /* Update */,
 				8B62AFD62883B4E10070173F /* HomeView.swift */,
+				F8B7FDF728D7A8D900A5181E /* Update */,
 				8B9A839028862439009CE268 /* Categories */,
 			);
 			path = Home;
@@ -492,7 +501,9 @@
 				F844AC7128A01BF10009C0C0 /* Localizable.strings in Resources */,
 				8B29E1F62881C8800081F69A /* Preview Assets.xcassets in Resources */,
 				F843005E28B7BE9C006CFD5C /* Products.plist in Resources */,
+				F888F34728DD22A700F21297 /* LaunchScreen.storyboard in Resources */,
 				8BE6111E28847B0C00E8BDD6 /* SkinData.json in Resources */,
+				F8163ECA28E03AC200A27103 /* nightmarket.json in Resources */,
 				8B29E1F32881C8800081F69A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,6 +569,7 @@
 				8B0AE9EE28998E9400275A30 /* CommunityView.swift in Sources */,
 				8B0AE9E528984AFA00275A30 /* MultifactorView.swift in Sources */,
 				8B9A838F28861C78009CE268 /* UltraEditionView.swift in Sources */,
+				F8163EC828DFFFC100A27103 /* DragDownView.swift in Sources */,
 				8B65F84A288CA608004282DD /* PriceTierView.swift in Sources */,
 				8B29E2082881CCD10081F69A /* RectangleView.swift in Sources */,
 				8B9A83752885A426009CE268 /* SkinListView.swift in Sources */,
@@ -726,7 +738,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.7;
+				MARKETING_VERSION = 1.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -765,7 +777,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.7;
+				MARKETING_VERSION = 1.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
