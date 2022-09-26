@@ -36,7 +36,7 @@ struct ShopView: View {
                     }
                     
                     
-                    VStack(spacing: 11) {
+                    LazyVStack(spacing: 11) {
                         
                         // Determine if the data has been fetched
                         if authAPIModel.storefront.isEmpty{

@@ -87,8 +87,10 @@ class SkinModel: ObservableObject{
             let skinList = try! jsonDecoder.decode(Skins.self, from: data!)
             
             for s in skinList.data{
-                s.getImageLevelData()
-                s.getImageChromaData()
+                DispatchQueue.global(qos: .userInteractive).async {
+                    s.getImageLevelData()
+                    s.getImageChromaData()
+                }
             }
             
             

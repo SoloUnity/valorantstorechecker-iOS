@@ -16,7 +16,42 @@ struct BundleImageView: View {
         ZStack{
             let defaults = UserDefaults.standard
             
-            if let imageData = defaults.data(forKey: "bundleDisplayIcon" + String(bundleIndex)) {
+            if authAPIModel.bundleImage != [] {
+                
+                // Quicker load time but a data muncher
+                AsyncImage(url: URL(string: authAPIModel.bundleImage[bundleIndex - 1])) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .overlay{
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(red: 60/255, green: 60/255, blue: 60/255), lineWidth: 3)
+                                .offset(y: -1)
+                                .offset(x: -1)
+                                .mask {
+                                    RoundedRectangle(cornerRadius: 10)
+                                }
+                        }
+                        .cornerRadius(10)
+                } placeholder: {
+                    ProgressView()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 167.5)
+                        .overlay{
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(red: 60/255, green: 60/255, blue: 60/255), lineWidth: 3)
+                                .offset(y: -1)
+                                .offset(x: -1)
+                                .mask {
+                                    RoundedRectangle(cornerRadius: 10)
+                                }
+                        }
+                        .cornerRadius(10)
+                }
+
+
+            }
+            else if let imageData = defaults.data(forKey: "bundleDisplayIcon" + String(bundleIndex)) {
                 
                 let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData )
                 
@@ -37,29 +72,9 @@ struct BundleImageView: View {
                     }
                     .cornerRadius(10)
             }
-            /*
-            else {
-                // Quicker load time but a data muncher
-                AsyncImage(url: URL(string: authAPIModel.bundleImage)) { image in
-                    image.resizable()
-                } placeholder: {
-                    ProgressView()
-                }
-                .scaledToFit()
-                .overlay{
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color(red: 60/255, green: 60/255, blue: 60/255), lineWidth: 3)
-                        .offset(y: -1)
-                        .offset(x: -1)
-                        .blendMode(.overlay)
-                        .blur(radius: 0)
-                        .mask {
-                            RoundedRectangle(cornerRadius: 10)
-                        }
-                }
 
-            }
-            */
+
+            
             
             VStack {
                 Spacer()

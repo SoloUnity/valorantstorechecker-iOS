@@ -125,7 +125,7 @@ struct BundleView: View {
                         }
                     }
                     .coordinateSpace(name: "pullToRefresh")
-                    .padding(.top, -(UIScreen.main.bounds.height / 105))
+                    .padding(.top, -8)
                     
 
 

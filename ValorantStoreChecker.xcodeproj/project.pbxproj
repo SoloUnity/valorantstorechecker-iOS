@@ -67,7 +67,7 @@
 		F888F34728DD22A700F21297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F888F34628DD22A700F21297 /* LaunchScreen.storyboard */; };
 		F892C4D928A412DF007158CB /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892C4D828A412DF007158CB /* NotificationService.swift */; };
 		F894F59D28D7BCE700C07223 /* UpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F894F59C28D7BCE700C07223 /* UpdatesView.swift */; };
-		F894F59F28D7C72E00C07223 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F894F59E28D7C72E00C07223 /* DispatchQueue+Extensions.swift */; };
+		F8A5011528E130BD00D66626 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A5011428E130BD00D66626 /* DispatchQueue+Extensions.swift */; };
 		F8A7400228ABD96200717B23 /* Owned.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7400128ABD96200717B23 /* Owned.swift */; };
 		F8B7FDF628D79B9300A5181E /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7FDF528D79B9300A5181E /* WhatsNewView.swift */; };
 		F8B7FDFC28D7BA8000A5181E /* LinkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7FDFB28D7BA8000A5181E /* LinkImage.swift */; };
@@ -142,7 +142,7 @@
 		F888F34628DD22A700F21297 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F892C4D828A412DF007158CB /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		F894F59C28D7BCE700C07223 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
-		F894F59E28D7C72E00C07223 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
+		F8A5011428E130BD00D66626 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		F8A73FFF28ABC51F00717B23 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8A7400028ABC73600717B23 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8A7400128ABD96200717B23 /* Owned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owned.swift; sourceTree = "<group>"; };
@@ -285,7 +285,6 @@
 				8B65F849288CA608004282DD /* PriceTierView.swift */,
 				8B9A8383288612AC009CE268 /* PriceTiers */,
 				8B9A83822886129C009CE268 /* Shapes */,
-				F894F59E28D7C72E00C07223 /* DispatchQueue+Extensions.swift */,
 				F8163EC728DFFFC100A27103 /* DragDownView.swift */,
 			);
 			path = Commons;
@@ -329,6 +328,7 @@
 		8B65F84E288CCFD6004282DD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F8A5011428E130BD00D66626 /* DispatchQueue+Extensions.swift */,
 				8B65F84F288CCFF0004282DD /* PriceTier.swift */,
 			);
 			path = Utilities;
@@ -545,6 +545,7 @@
 				8B9A8385288612DD009CE268 /* SelectEditionView.swift in Sources */,
 				8B0AE9E32898390C00275A30 /* Blur.swift in Sources */,
 				8B3685D42895D576000BB3CF /* PullToRefreshView.swift in Sources */,
+				F8A5011528E130BD00D66626 /* DispatchQueue+Extensions.swift in Sources */,
 				8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */,
 				F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */,
 				F87952A828AEA36D005145F6 /* Bundle.swift in Sources */,
@@ -582,7 +583,6 @@
 				F8B7FDFC28D7BA8000A5181E /* LinkImage.swift in Sources */,
 				F87952A628AEA084005145F6 /* BundleView.swift in Sources */,
 				8B682C802890C176003A3B9C /* Authentication.swift in Sources */,
-				F894F59F28D7C72E00C07223 /* DispatchQueue+Extensions.swift in Sources */,
 				8B29E20C2881D6D30081F69A /* CircleView.swift in Sources */,
 				8B0AE9F228998EC600275A30 /* AcknowledgementsView.swift in Sources */,
 				8B4200882899E620000D7FC2 /* TermsView.swift in Sources */,
@@ -738,7 +738,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ValorantStoreChecker/ValorantStoreChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
@@ -777,7 +777,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ValorantStoreChecker/ValorantStoreChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;

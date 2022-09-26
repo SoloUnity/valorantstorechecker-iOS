@@ -52,8 +52,7 @@ class AuthAPIModel: ObservableObject {
     @Published var owned : [String] = []
     
     // BundleInformation
-    @Published var bundleImage : String = ""
-    @Published var bundleName : String = ""
+    @Published var bundleImage : [String] = []
     @Published var bundle : [[Skin]] = []
     
     // NightMarket
@@ -106,6 +105,8 @@ class AuthAPIModel: ObservableObject {
             }
         }
         
+        
+        
     }
     
     // MARK: Login
@@ -139,11 +140,15 @@ class AuthAPIModel: ObservableObject {
                 let token = tokenList[0]
                 await getPlayerData(helperType: "login", token: token, skinModel: skinModel)
                 
-                // Save authentication state for next launch
-                withAnimation(.easeIn(duration: 0.2)) {
-                    self.isAuthenticated = true
-                    defaults.set(true, forKey: "authentication")
+                
+                DispatchQueue.main.async{
+                    // Save authentication state for next launch
+                    withAnimation(.easeIn(duration: 0.2)) {
+                        self.isAuthenticated = true
+                        self.defaults.set(true, forKey: "authentication")
+                    }
                 }
+                
                 
                 
             }
@@ -273,6 +278,7 @@ class AuthAPIModel: ObservableObject {
             
             // finished loading
             self.reloading = false
+            self.isAuthenticating = false
             
         }
         catch {
@@ -338,7 +344,6 @@ class AuthAPIModel: ObservableObject {
             defaults.set(referenceDate, forKey: "timeLeft")
 
             
-            self.isAuthenticating = false
             self.failedLogin = false
             
             self.username = ""
@@ -368,6 +373,7 @@ class AuthAPIModel: ObservableObject {
             
             var bundleCounter = 0
             var bundleItems : [[Skin]] = []
+            var tempImages : [String] = []
             
             for item in bundleList.bundles {
                 bundleCounter += 1
@@ -377,12 +383,9 @@ class AuthAPIModel: ObservableObject {
                 let bundle = try await WebService.getBundle(uuid: bundleUUID, currentBundle: currentBundle)
                 
                 let bundleDisplayName = bundle[0]
-                //let bundleDisplayIcon = bundle[1]
+                let bundleDisplayIcon = bundle[1]
                 
-                
-                
-                //self.bundleName = bundleDisplayName
-                //self.bundleImage = bundleDisplayIcon
+                tempImages.append(bundleDisplayIcon)
                 
                 defaults.set(bundleDisplayName, forKey: "bundleDisplayName" + currentBundle)
                 // Set time left for bundle
@@ -408,6 +411,7 @@ class AuthAPIModel: ObservableObject {
             }
 
             self.bundle = bundleItems
+            self.bundleImage = tempImages
             
             // Save the bundle
             let bundleEncoder = JSONEncoder()
@@ -435,8 +439,12 @@ class AuthAPIModel: ObservableObject {
                 self.showMultifactor = false
                 self.enteredMultifactor = false
                 
-                self.isAuthenticated = true
-                defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
+                // Save authentication state for next launch
+                withAnimation(.easeIn(duration: 0.2)) {
+                    self.isAuthenticated = true
+                    defaults.set(true, forKey: "authentication")
+                }
+                
             }
             catch{
                 
@@ -450,7 +458,6 @@ class AuthAPIModel: ObservableObject {
                 self.multifactor = ""
                 self.password = ""
                 
-                self.isAuthenticating = false
                 
                 print("Multifactor")
                 
@@ -537,39 +544,49 @@ class AuthAPIModel: ObservableObject {
         }()
         
 
-        // Reset Defaults
-        self.isAuthenticating = false // Handles loading animation
-        self.failedLogin = false // Handles login error message
-        self.reloading = false
-        self.showMultifactor = false // Show multifactor popout
-        self.enteredMultifactor = false // Handle multifactor loading animation
-        self.email = "" // Displayed email for multifactor popout
-        self.username = "" // Variable used by username box in LoginBoxView
-        self.password = "" // Used by password box in LoginBoxView
-        self.multifactor = "" // Used by multifactor box in MultifactorView
-        self.regionCheck = false
-        self.rememberPassword = false
-        
-        defaults.removeObject(forKey: "timeLeft")
-        defaults.removeObject(forKey: "vp")
-        defaults.removeObject(forKey: "rp")
-        defaults.removeObject(forKey: "storefront")
-        defaults.removeObject(forKey: "storePrice")
-        defaults.removeObject(forKey: "rememberPassword")
-        defaults.removeObject(forKey: "autoReload")
-        defaults.removeObject(forKey: "notification")
-        
-        let _ = keychain.remove(forKey: "ssid")
-        let _ = keychain.remove(forKey: "tdid")
-        let _ = keychain.remove(forKey: "region")
-        let _ = keychain.remove(forKey: "username")
-        let _ = keychain.remove(forKey: "password")
-        
-        // Unauthenticate user
-        withAnimation(.easeOut(duration: 0.2)) {
-            self.isAuthenticated = false // Keeps user logged in
-            defaults.removeObject(forKey: "authentication")
+        DispatchQueue.main.async{
+            // Reset Defaults
+            self.isAuthenticating = false // Handles loading animation
+            self.failedLogin = false // Handles login error message
+            self.reloading = false
+            self.showMultifactor = false // Show multifactor popout
+            self.enteredMultifactor = false // Handle multifactor loading animation
+            self.email = "" // Displayed email for multifactor popout
+            self.username = "" // Variable used by username box in LoginBoxView
+            self.password = "" // Used by password box in LoginBoxView
+            self.multifactor = "" // Used by multifactor box in MultifactorView
+            self.regionCheck = false
+            self.rememberPassword = false
+            
+            self.defaults.removeObject(forKey: "timeLeft")
+            self.defaults.removeObject(forKey: "vp")
+            self.defaults.removeObject(forKey: "rp")
+            self.defaults.removeObject(forKey: "storefront")
+            self.defaults.removeObject(forKey: "storePrice")
+            self.defaults.removeObject(forKey: "rememberPassword")
+            self.defaults.removeObject(forKey: "autoReload")
+            self.defaults.removeObject(forKey: "notification")
+            
+            self.defaults.removeObject(forKey: "owned")
+            self.defaults.removeObject(forKey: "bundle")
+            self.defaults.removeObject(forKey: "nightSkins")
+            self.defaults.removeObject(forKey: "nightTimeLeft")
+            self.defaults.removeObject(forKey: "bundleTimeLeft")
+            self.defaults.removeObject(forKey: "timeLeft")
+            
+            let _ = self.keychain.remove(forKey: "ssid")
+            let _ = self.keychain.remove(forKey: "tdid")
+            let _ = self.keychain.remove(forKey: "region")
+            let _ = self.keychain.remove(forKey: "username")
+            let _ = self.keychain.remove(forKey: "password")
+            
+            // Unauthenticate user
+            withAnimation(.easeOut(duration: 0.2)) {
+                self.isAuthenticated = false // Keeps user logged in
+                self.defaults.removeObject(forKey: "authentication")
+            }
         }
+        
         
 
     }
