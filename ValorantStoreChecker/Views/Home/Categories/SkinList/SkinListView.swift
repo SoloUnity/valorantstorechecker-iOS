@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct SkinListView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
@@ -20,7 +22,6 @@ struct SkinListView: View {
     @State var selectOwned : Bool = false
     
     var body: some View {
-        
         
         GeometryReader{ geo in
             VStack(spacing: 0){
@@ -245,7 +246,7 @@ struct SkinListView: View {
                                 ForEach(search){ skin in
                                     
                                     SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
-                                        .frame(height: (UIScreen.main.bounds.height / 6.5))
+                                        .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
                                         .padding(.horizontal)
                                         
                                     
@@ -253,7 +254,7 @@ struct SkinListView: View {
                                 
                                 
                                 // MARK: Scroll to top button
-                                if search.count > 5{
+                                if search.count > 5 {
                                     Button {
                                         // Scroll to top
                                         withAnimation { proxy.scrollTo("top", anchor: .top) }
@@ -325,6 +326,8 @@ struct SkinListView: View {
             
         }
         .padding(.bottom, 1)
+        
+        
         
         
     }

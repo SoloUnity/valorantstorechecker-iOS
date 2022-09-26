@@ -700,7 +700,7 @@
       "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
       "displayIcon": "https://media.valorant-api.com/weaponskins/85ed3f9d-4e59-a709-8faf-bc86effb3a07/displayicon.png",
       "wallpaper": null,
-      "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/HeavyMachineGun_URF_PrimaryAsset",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/HeavyMachineGun_URF_PrimaryAsset",
       "chromas": [
         {
           "uuid": "f55aac92-4420-7038-634a-8fb3fc9a936d",
@@ -709,7 +709,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/f55aac92-4420-7038-634a-8fb3fc9a936d/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/f55aac92-4420-7038-634a-8fb3fc9a936d/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Chromas/Standard/HeavyMachineGun_URF_Standard_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Chromas/Standard/HeavyMachineGun_URF_Standard_PrimaryAsset"
         },
         {
           "uuid": "3b809ee0-4af3-b604-9ac4-a799241289e7",
@@ -718,7 +718,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/3b809ee0-4af3-b604-9ac4-a799241289e7/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/3b809ee0-4af3-b604-9ac4-a799241289e7/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Chromas/v1/HeavyMachineGun_URF_v1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Chromas/v1/HeavyMachineGun_URF_v1_PrimaryAsset"
         },
         {
           "uuid": "027dda2f-491d-e55e-1d32-acb7f55008f9",
@@ -727,7 +727,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/027dda2f-491d-e55e-1d32-acb7f55008f9/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/027dda2f-491d-e55e-1d32-acb7f55008f9/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Chromas/v2/HeavyMachineGun_URF_v2_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Chromas/v2/HeavyMachineGun_URF_v2_PrimaryAsset"
         },
         {
           "uuid": "e2c992bc-4099-eeac-9e3f-2e9d6a6bf757",
@@ -736,7 +736,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e2c992bc-4099-eeac-9e3f-2e9d6a6bf757/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e2c992bc-4099-eeac-9e3f-2e9d6a6bf757/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Chromas/v3/HeavyMachineGun_URF_v3_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Chromas/v3/HeavyMachineGun_URF_v3_PrimaryAsset"
         }
       ],
       "levels": [
@@ -746,7 +746,7 @@
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/5123ed96-48de-aeab-eaea-2b8ea689f5a2/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/BlastX_Odin_Lv1.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Levels/HeavyMachineGun_URF_Lv1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Levels/HeavyMachineGun_URF_Lv1_PrimaryAsset"
         },
         {
           "uuid": "35e89d1a-477c-3d54-82aa-3599a832fe0b",
@@ -754,7 +754,7 @@
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/35e89d1a-477c-3d54-82aa-3599a832fe0b/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/BlastX_Odin_Lv2_Update.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Levels/HeavyMachineGun_URF_Lv2_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Levels/HeavyMachineGun_URF_Lv2_PrimaryAsset"
         },
         {
           "uuid": "31201e02-4873-a6db-1ce6-6e93a620370c",
@@ -762,7 +762,7 @@
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/31201e02-4873-a6db-1ce6-6e93a620370c/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/BlastX_Odin_Lv3.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Levels/HeavyMachineGun_URF_Lv3_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Levels/HeavyMachineGun_URF_Lv3_PrimaryAsset"
         },
         {
           "uuid": "7637fff1-4275-590a-6181-be95eae8786a",
@@ -770,7 +770,7 @@
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/7637fff1-4275-590a-6181-be95eae8786a/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/BlastX_Odin_Lv4_Update.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Levels/HeavyMachineGun_URF_Lv4_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Levels/HeavyMachineGun_URF_Lv4_PrimaryAsset"
         }
       ]
     },
@@ -2363,6 +2363,87 @@
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Glitchpop2_Vandal_04.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Cyberpunk2/Levels/AK_Cyberpunk2_Lv4_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "8e762a1f-4102-b7ce-d6a0-9690c5bfe160",
+      "displayName": "ChronoVoid Vandal",
+      "themeUuid": "fedeb054-483c-563d-b191-7487203a3968",
+      "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/8e762a1f-4102-b7ce-d6a0-9690c5bfe160/displayicon.png",
+      "wallpaper": "https://media.valorant-api.com/weaponskins/8e762a1f-4102-b7ce-d6a0-9690c5bfe160/wallpaper.png",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Daedalus/AK_Daedalus_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "d6be385b-44f7-271a-6b1b-34be3251b6c7",
+          "displayName": "ChronoVoid Vandal",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/d6be385b-44f7-271a-6b1b-34be3251b6c7/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/d6be385b-44f7-271a-6b1b-34be3251b6c7/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/d6be385b-44f7-271a-6b1b-34be3251b6c7/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Daedalus/Chromas/Standard/AK_Daedalus_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "44ecb28b-4e9b-5a0c-336e-66939aed72b1",
+          "displayName": "ChronoVoid Vandal Level 4\n(Variant 1 Purple)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/44ecb28b-4e9b-5a0c-336e-66939aed72b1/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/44ecb28b-4e9b-5a0c-336e-66939aed72b1/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/44ecb28b-4e9b-5a0c-336e-66939aed72b1/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Vandal_Level04_Chroma1.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Daedalus/Chromas/v1/AK_Daedalus_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "95246972-4a7c-01f9-16dc-d3aab7cc1b45",
+          "displayName": "ChronoVoid Vandal Level 4\n(Variant 2 Red)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/95246972-4a7c-01f9-16dc-d3aab7cc1b45/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/95246972-4a7c-01f9-16dc-d3aab7cc1b45/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/95246972-4a7c-01f9-16dc-d3aab7cc1b45/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Vandal_Level04_Chroma2.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Daedalus/Chromas/v2/AK_Daedalus_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "57892cff-49ce-a57e-e657-faa1226b587c",
+          "displayName": "ChronoVoid Vandal Level 4\n(Variant 3 Black)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/57892cff-49ce-a57e-e657-faa1226b587c/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/57892cff-49ce-a57e-e657-faa1226b587c/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/57892cff-49ce-a57e-e657-faa1226b587c/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Vandal_Level04_Chroma3.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Daedalus/Chromas/v3/AK_Daedalus_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "59d61899-4573-65ea-0e42-2ea6d324d32b",
+          "displayName": "ChronoVoid Vandal",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/59d61899-4573-65ea-0e42-2ea6d324d32b/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Vandal_Level01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Daedalus/Levels/AK_Daedalus_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "6553ba0a-4d44-799e-69cc-a89aae212409",
+          "displayName": "ChronoVoid Vandal Level 2",
+          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Vandal_Level02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Daedalus/Levels/AK_Daedalus_Lv2_PrimaryAsset"
+        },
+        {
+          "uuid": "bd2d47b0-42f8-6684-bf01-6c886faff0c8",
+          "displayName": "ChronoVoid Vandal Level 3",
+          "levelItem": "EEquippableSkinLevelItem::Animation",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Vandal_Level03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Daedalus/Levels/AK_Daedalus_Lv3_PrimaryAsset"
+        },
+        {
+          "uuid": "a722bac4-457a-959b-3770-e0b3eaf6528e",
+          "displayName": "ChronoVoid Vandal Level 4",
+          "levelItem": "EEquippableSkinLevelItem::Finisher",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Vandal_Level04.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Daedalus/Levels/AK_Daedalus_Lv4_PrimaryAsset"
         }
       ]
     },
@@ -5176,6 +5257,87 @@
       ]
     },
     {
+      "uuid": "2aac8bb3-4cfa-b806-21e4-5a8e9904caa4",
+      "displayName": "ChronoVoid Phantom",
+      "themeUuid": "fedeb054-483c-563d-b191-7487203a3968",
+      "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/2aac8bb3-4cfa-b806-21e4-5a8e9904caa4/displayicon.png",
+      "wallpaper": "https://media.valorant-api.com/weaponskins/2aac8bb3-4cfa-b806-21e4-5a8e9904caa4/wallpaper.png",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Daedalus/Carbine_Daedalus_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "6a203339-4efb-55fd-3473-b59503c224b2",
+          "displayName": "ChronoVoid Phantom",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/6a203339-4efb-55fd-3473-b59503c224b2/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/6a203339-4efb-55fd-3473-b59503c224b2/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/6a203339-4efb-55fd-3473-b59503c224b2/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Daedalus/Chromas/Standard/Carbine_Daedalus_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "048ae1e3-48e5-c5dd-65ef-01b962267db2",
+          "displayName": "ChronoVoid Phantom Level 4\n(Variant 1 Purple)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/048ae1e3-48e5-c5dd-65ef-01b962267db2/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/048ae1e3-48e5-c5dd-65ef-01b962267db2/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/048ae1e3-48e5-c5dd-65ef-01b962267db2/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Phantom_Level04_Chroma1.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Daedalus/Chromas/v1/Carbine_Daedalus_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "765c1e64-4e53-f855-a0f9-c7bb0254d4e5",
+          "displayName": "ChronoVoid Phantom Level 4\n(Variant 2 Red)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/765c1e64-4e53-f855-a0f9-c7bb0254d4e5/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/765c1e64-4e53-f855-a0f9-c7bb0254d4e5/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/765c1e64-4e53-f855-a0f9-c7bb0254d4e5/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Phantom_Level04_Chroma2.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Daedalus/Chromas/v2/Carbine_Daedalus_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "62228fbd-418d-a7d6-e44a-06885debdef5",
+          "displayName": "ChronoVoid Phantom Level 4\n(Variant 3 Black)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/62228fbd-418d-a7d6-e44a-06885debdef5/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/62228fbd-418d-a7d6-e44a-06885debdef5/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/62228fbd-418d-a7d6-e44a-06885debdef5/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Phantom_Level04_Chroma3.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Daedalus/Chromas/v3/Carbine_Daedalus_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "aeb0ea2e-4f50-6b34-27b0-f2a755d27f6a",
+          "displayName": "ChronoVoid Phantom",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/aeb0ea2e-4f50-6b34-27b0-f2a755d27f6a/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Phantom_Level01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Daedalus/Levels/Carbine_Daedalus_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "fb9ba36e-4901-e621-cc0b-dba82ba9eded",
+          "displayName": "ChronoVoid Phantom Level 2",
+          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Phantom_Level02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Daedalus/Levels/Carbine_Daedalus_Lv2_PrimaryAsset"
+        },
+        {
+          "uuid": "78f1af5d-45f3-544f-3aec-0bb5f6b0efcf",
+          "displayName": "ChronoVoid Phantom Level 3",
+          "levelItem": "EEquippableSkinLevelItem::Animation",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Phantom_Level03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Daedalus/Levels/Carbine_Daedalus_Lv3_PrimaryAsset"
+        },
+        {
+          "uuid": "cf09f992-4a76-aeb4-7ca6-35b5d823ec81",
+          "displayName": "ChronoVoid Phantom Level 4",
+          "levelItem": "EEquippableSkinLevelItem::Finisher",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Phantom_Level04.mp4.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Daedalus/Levels/Carbine_Daedalus_Lv4_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "3a091315-4e87-31d5-7cdb-27804a177fd2",
       "displayName": "Doodle Buds Phantom",
       "themeUuid": "540a0c01-43ad-809d-6347-12b48f90478b",
@@ -6970,6 +7132,87 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/c60c98e3-41de-ed9c-fb92-aa9c6e0bc7a0/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_GlitchpopJudge04.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Cyberpunk/AutomaticShotgun_Cyberpunk_Lv4_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "4d2ec3f4-446e-a501-74d8-5ab750f50984",
+      "displayName": "ChronoVoid Judge",
+      "themeUuid": "fedeb054-483c-563d-b191-7487203a3968",
+      "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/4d2ec3f4-446e-a501-74d8-5ab750f50984/displayicon.png",
+      "wallpaper": "https://media.valorant-api.com/weaponskins/4d2ec3f4-446e-a501-74d8-5ab750f50984/wallpaper.png",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Daedalus/AutoShotgun_Daedalus_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "663d71a6-4bbb-19e7-5985-8394c4bd434c",
+          "displayName": "ChronoVoid Judge",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/663d71a6-4bbb-19e7-5985-8394c4bd434c/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/663d71a6-4bbb-19e7-5985-8394c4bd434c/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/663d71a6-4bbb-19e7-5985-8394c4bd434c/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Daedalus/Chromas/Standard/AutoShotgun_Daedalus_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "d3382bfe-4890-7c3d-7372-51893966d4a8",
+          "displayName": "ChronoVoid Judge Level 4\n(Variant 1 Purple)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/d3382bfe-4890-7c3d-7372-51893966d4a8/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/d3382bfe-4890-7c3d-7372-51893966d4a8/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/d3382bfe-4890-7c3d-7372-51893966d4a8/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Judge_Level04_Chroma01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Daedalus/Chromas/v1/AutoShotgun_Daedalus_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "df6555e9-42c9-4793-35f8-6b948994ea66",
+          "displayName": "ChronoVoid Judge Level 4\n(Variant 2 Red)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/df6555e9-42c9-4793-35f8-6b948994ea66/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/df6555e9-42c9-4793-35f8-6b948994ea66/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/df6555e9-42c9-4793-35f8-6b948994ea66/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Judge_Level04_Chroma02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Daedalus/Chromas/v2/AutoShotgun_Daedalus_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "4d490e20-4d13-9308-7abc-c29732caaef1",
+          "displayName": "ChronoVoid Judge Level 4\n(Variant 3 Black)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/4d490e20-4d13-9308-7abc-c29732caaef1/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/4d490e20-4d13-9308-7abc-c29732caaef1/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/4d490e20-4d13-9308-7abc-c29732caaef1/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Judge_Level04_Chroma03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Daedalus/Chromas/v3/AutoShotgun_Daedalus_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "b0d5c4da-4d81-4386-e841-759818ce9b6c",
+          "displayName": "ChronoVoid Judge",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/b0d5c4da-4d81-4386-e841-759818ce9b6c/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Judge_Level01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Daedalus/Levels/AutoShotgun_Daedalus_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "c6065860-4afc-ef16-97a0-c88445221a2c",
+          "displayName": "ChronoVoid Judge Level 2",
+          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Judge_Level02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Daedalus/Levels/AutoShotgun_Daedalus_Lv2_PrimaryAsset"
+        },
+        {
+          "uuid": "6ee35273-4fe5-c352-1332-57b0eb04ccac",
+          "displayName": "ChronoVoid Judge Level 3",
+          "levelItem": "EEquippableSkinLevelItem::Animation",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Judge_Level03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Daedalus/Levels/AutoShotgun_Daedalus_Lv3_PrimaryAsset"
+        },
+        {
+          "uuid": "b05f2a52-40c9-10de-9c90-2ca8e01a5da4",
+          "displayName": "ChronoVoid Judge Level 4",
+          "levelItem": "EEquippableSkinLevelItem::Finisher",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Judge_Level04.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Daedalus/Levels/AutoShotgun_Daedalus_Lv4_PrimaryAsset"
         }
       ]
     },
@@ -13004,6 +13247,87 @@
       ]
     },
     {
+      "uuid": "e1fdd246-4a6c-af26-f0a0-65a48f2586da",
+      "displayName": "ChronoVoid Sheriff",
+      "themeUuid": "fedeb054-483c-563d-b191-7487203a3968",
+      "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/e1fdd246-4a6c-af26-f0a0-65a48f2586da/displayicon.png",
+      "wallpaper": "https://media.valorant-api.com/weaponskins/e1fdd246-4a6c-af26-f0a0-65a48f2586da/wallpaper.png",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Daedalus/Revolver_Daedalus_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "30d62003-49f2-9ef8-8393-6aa94893c18d",
+          "displayName": "ChronoVoid Sheriff",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/30d62003-49f2-9ef8-8393-6aa94893c18d/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/30d62003-49f2-9ef8-8393-6aa94893c18d/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/30d62003-49f2-9ef8-8393-6aa94893c18d/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Daedalus/Chromas/Standard/Revolver_Daedalus_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "510c3370-4218-985e-77a6-f7849207aeff",
+          "displayName": "ChronoVoid Sheriff Level 4\n(Variant 1 Purple)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/510c3370-4218-985e-77a6-f7849207aeff/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/510c3370-4218-985e-77a6-f7849207aeff/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/510c3370-4218-985e-77a6-f7849207aeff/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Sheriff_Level04_Chroma1.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Daedalus/Chromas/v1/Revolver_Daedalus_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "f916f30e-45dd-7c0d-e218-faa924a41746",
+          "displayName": "ChronoVoid Sheriff Level 4\n(Variant 2 Red)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/f916f30e-45dd-7c0d-e218-faa924a41746/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/f916f30e-45dd-7c0d-e218-faa924a41746/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/f916f30e-45dd-7c0d-e218-faa924a41746/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Sheriff_Level04_Chroma2.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Daedalus/Chromas/v2/Revolver_Daedalus_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "641c542b-40f5-70dc-677f-c8a0f3603d2f",
+          "displayName": "ChronoVoid Sheriff Level 4\n(Variant 3 Black)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/641c542b-40f5-70dc-677f-c8a0f3603d2f/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/641c542b-40f5-70dc-677f-c8a0f3603d2f/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/641c542b-40f5-70dc-677f-c8a0f3603d2f/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Sheriff_Level04_Chroma3.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Daedalus/Chromas/v3/Revolver_Daedalus_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "ade427fc-4b24-f290-c91a-b1904b787f42",
+          "displayName": "ChronoVoid Sheriff",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/ade427fc-4b24-f290-c91a-b1904b787f42/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Sheriff_Level01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Daedalus/Levels/Revolver_Daedalus_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "5ea7ae90-4b5c-bc7d-e1b4-25a1dae54e6d",
+          "displayName": "ChronoVoid Sheriff Level 2",
+          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Sheriff_Level02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Daedalus/Levels/Revolver_Daedalus_Lv2_PrimaryAsset"
+        },
+        {
+          "uuid": "dc7fb3f6-476b-fac7-2e2d-f4b1d1ed062d",
+          "displayName": "ChronoVoid Sheriff Level 3",
+          "levelItem": "EEquippableSkinLevelItem::Animation",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Sheriff_Level03.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Daedalus/Levels/Revolver_Daedalus_Lv3_PrimaryAsset"
+        },
+        {
+          "uuid": "1e60239c-4322-aec5-8e82-f39cfb196f88",
+          "displayName": "ChronoVoid Sheriff Level 4",
+          "levelItem": "EEquippableSkinLevelItem::Finisher",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Sheriff_Level04.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Daedalus/Levels/Revolver_Daedalus_Lv4_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "bfd9e773-4376-1f6a-98f2-dc93f0c0607c",
       "displayName": "Singularity Sheriff",
       "themeUuid": "738936d8-5551-4748-9660-44909304f74b",
@@ -17053,7 +17377,7 @@
       "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
       "displayIcon": "https://media.valorant-api.com/weaponskins/2a049f35-4bcd-af25-21fd-ec942e2d5007/displayicon.png",
       "wallpaper": null,
-      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_PrimaryAsset",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_PrimaryAsset",
       "chromas": [
         {
           "uuid": "e2f5a979-4e9a-f931-7f52-d99f0ec4a61b",
@@ -17062,7 +17386,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e2f5a979-4e9a-f931-7f52-d99f0ec4a61b/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e2f5a979-4e9a-f931-7f52-d99f0ec4a61b/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/Chromas/Standard/DMR_HypeBeast_Standard_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/Chromas/Standard/DMR_HypeBeast_Standard_PrimaryAsset"
         },
         {
           "uuid": "4ca16478-40c7-2cf6-bdd2-099761921e61",
@@ -17071,7 +17395,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/4ca16478-40c7-2cf6-bdd2-099761921e61/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/4ca16478-40c7-2cf6-bdd2-099761921e61/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/Chromas/Orange/DMR_HypeBeast_Orange_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/Chromas/Orange/DMR_HypeBeast_Orange_PrimaryAsset"
         },
         {
           "uuid": "e866f273-4acc-806f-becd-56a6bef48fbc",
@@ -17080,7 +17404,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e866f273-4acc-806f-becd-56a6bef48fbc/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e866f273-4acc-806f-becd-56a6bef48fbc/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/Chromas/Blue/DMR_HypeBeast_Blue_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/Chromas/Blue/DMR_HypeBeast_Blue_PrimaryAsset"
         },
         {
           "uuid": "22f831db-4e55-6280-9078-d9b63ae93e4d",
@@ -17089,7 +17413,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/22f831db-4e55-6280-9078-d9b63ae93e4d/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/22f831db-4e55-6280-9078-d9b63ae93e4d/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/Chromas/Yellow/DMR_HypeBeast_Yellow_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/Chromas/Yellow/DMR_HypeBeast_Yellow_PrimaryAsset"
         }
       ],
       "levels": [
@@ -17099,7 +17423,7 @@
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/9336ab9d-445c-0872-a283-9f9b61a0098a/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeGuardian01_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_Lv1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_Lv1_PrimaryAsset"
         },
         {
           "uuid": "edc646b0-4a5a-6a76-a860-6b8db95bd132",
@@ -17107,7 +17431,7 @@
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/edc646b0-4a5a-6a76-a860-6b8db95bd132/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeGuardian02_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_Lv2_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_Lv2_PrimaryAsset"
         },
         {
           "uuid": "14b04b38-4359-62a3-ab62-bcbe715e3fa0",
@@ -17115,7 +17439,7 @@
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/14b04b38-4359-62a3-ab62-bcbe715e3fa0/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeGuardian03_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_Lv3_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_Lv3_PrimaryAsset"
         },
         {
           "uuid": "99b7b761-41b3-e26c-ceeb-b9a1c3a67736",
@@ -17123,7 +17447,7 @@
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/99b7b761-41b3-e26c-ceeb-b9a1c3a67736/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeGuardian04_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_Lv4_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_Lv4_PrimaryAsset"
         }
       ]
     },
@@ -22360,6 +22684,71 @@
       ]
     },
     {
+      "uuid": "1b8de6d7-4f37-7170-acd7-e78829f7959a",
+      "displayName": "Terminus A Quo",
+      "themeUuid": "fedeb054-483c-563d-b191-7487203a3968",
+      "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/1b8de6d7-4f37-7170-acd7-e78829f7959a/displayicon.png",
+      "wallpaper": "https://media.valorant-api.com/weaponskins/1b8de6d7-4f37-7170-acd7-e78829f7959a/wallpaper.png",
+      "assetPath": "ShooterGame/Content/Equippables/Melee/Daedalus/Melee_Daedalus_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "27bfba0e-4747-41ca-b1c1-2082db194ba1",
+          "displayName": "Terminus A Quo",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/27bfba0e-4747-41ca-b1c1-2082db194ba1/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/27bfba0e-4747-41ca-b1c1-2082db194ba1/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/27bfba0e-4747-41ca-b1c1-2082db194ba1/swatch.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Daedalus/Chromas/Standard/Melee_Daedalus_Standard_PrimaryAsset"
+        },
+        {
+          "uuid": "e07b0750-4eb5-c92c-f863-838f159ac23e",
+          "displayName": "Terminus A Quo Level 2\n(Variant 1 Purple)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/e07b0750-4eb5-c92c-f863-838f159ac23e/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/e07b0750-4eb5-c92c-f863-838f159ac23e/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/e07b0750-4eb5-c92c-f863-838f159ac23e/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Melee_Level2_Chroma1.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Daedalus/Chromas/v1/Melee_Daedalus_v1_PrimaryAsset"
+        },
+        {
+          "uuid": "8d257fcd-4fd0-a428-2566-a0b8b3332ac7",
+          "displayName": "Terminus A Quo Level 2\n(Variant 2 Red)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/8d257fcd-4fd0-a428-2566-a0b8b3332ac7/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/8d257fcd-4fd0-a428-2566-a0b8b3332ac7/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/8d257fcd-4fd0-a428-2566-a0b8b3332ac7/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Melee_Level2_Chroma2.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Daedalus/Chromas/v2/Melee_Daedalus_v2_PrimaryAsset"
+        },
+        {
+          "uuid": "3c8953f2-4c99-0dbd-e06b-0abfadd5ec99",
+          "displayName": "Terminus A Quo Level 2\n(Variant 3 Black)",
+          "displayIcon": "https://media.valorant-api.com/weaponskinchromas/3c8953f2-4c99-0dbd-e06b-0abfadd5ec99/displayicon.png",
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/3c8953f2-4c99-0dbd-e06b-0abfadd5ec99/fullrender.png",
+          "swatch": "https://media.valorant-api.com/weaponskinchromas/3c8953f2-4c99-0dbd-e06b-0abfadd5ec99/swatch.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Melee_Level2_Chroma3.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Daedalus/Chromas/v3/Melee_Daedalus_v3_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "96fe45cd-448d-890f-f3f6-86b25516c1a0",
+          "displayName": "Terminus A Quo",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/96fe45cd-448d-890f-f3f6-86b25516c1a0/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Melee_Level01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Daedalus/Levels/Melee_Daedalus_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "4840c1fc-4570-d487-1dff-68977a0d6e67",
+          "displayName": "Terminus A Quo Level 2",
+          "levelItem": "EEquippableSkinLevelItem::Animation",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Melee_Level02.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Daedalus/Levels/Melee_Daedalus_Lv2_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "6e0496c1-4c98-7abe-16c4-7ca3653e5cd8",
       "displayName": "Blade of Chaos",
       "themeUuid": "651caaec-459e-3e7c-0a16-d587226186d7",
@@ -24316,4 +24705,3 @@
     }
   ]
 }
-

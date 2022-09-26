@@ -52,9 +52,12 @@ class AuthAPIModel: ObservableObject {
     @Published var owned : [String] = []
     
     // BundleInformation
-    @Published var bundleImage : String = ""
-    @Published var bundleName : String = ""
+    @Published var bundleImage : [String] = []
     @Published var bundle : [[Skin]] = []
+    
+    // NightMarket
+    @Published var nightMarket : Bool = false
+    @Published var nightSkins : [Skin] = []
     
     init() {
         
@@ -92,7 +95,15 @@ class AuthAPIModel: ObservableObject {
             }
         }
         
-        
+        // Use saved nightmarket
+        if let objects = defaults.value(forKey: "nightSkins") as? Data {
+            let decoder = JSONDecoder()
+            if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Skin] {
+                DispatchQueue.main.async{
+                    self.nightSkins = objectsDecoded
+                }
+            }
+        }
         
         
         
@@ -129,11 +140,15 @@ class AuthAPIModel: ObservableObject {
                 let token = tokenList[0]
                 await getPlayerData(helperType: "login", token: token, skinModel: skinModel)
                 
-                // Save authentication state for next launch
-                withAnimation(.easeIn(duration: 0.2)) {
-                    self.isAuthenticated = true
-                    defaults.set(true, forKey: "authentication")
+                
+                DispatchQueue.main.async{
+                    // Save authentication state for next launch
+                    withAnimation(.easeIn(duration: 0.2)) {
+                        self.isAuthenticated = true
+                        self.defaults.set(true, forKey: "authentication")
+                    }
                 }
+                
                 
                 
             }
@@ -177,8 +192,69 @@ class AuthAPIModel: ObservableObject {
             // Match user's store with database
             let storefrontResponse = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
             
-            if storefrontResponse.BonusStore == nil {
-                print("nope")
+            // Save list of owned skins
+            let owned = try await WebService.getOwned(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
+            
+            var tempOwned : [String] = []
+            
+            
+            for skin in skinModel.data {
+                for item in owned {
+                    let itemUUID = skin.levels!.first!.id.uuidString.lowercased()
+                    if itemUUID == item.itemID {
+                        if !tempOwned.contains(skin.displayName) {
+                            tempOwned.append(skin.displayName)
+                        }
+                    }
+                }
+            }
+            
+            self.owned = tempOwned
+            defaults.set(tempOwned, forKey: "owned")
+            
+            if storefrontResponse.BonusStore != nil {
+                
+                self.nightMarket = true
+                defaults.set(true, forKey: "nightMarket")
+                
+                guard let market = storefrontResponse.BonusStore else {
+                    throw APIError.invalidCredentials
+                }
+                
+                var tempMarket : [Skin] = []
+                
+                for skin in skinModel.data {
+                    for item in market.BonusStoreOffers! {
+                        let itemUUID = skin.levels!.first!.id.uuidString.lowercased()
+                        if itemUUID == item.Offer?.OfferID {
+                            
+                            
+                            
+                            let newSkin = skin
+                            newSkin.discountedCost = String((item.DiscountCosts?.discountItemCost)!)
+
+                            tempMarket.append(newSkin)
+                        }
+                    }
+                }
+                
+                self.nightSkins = tempMarket
+                
+                // Save the storefront
+                let storefrontEncoder = JSONEncoder()
+                
+                if let encoded = try? storefrontEncoder.encode(tempMarket){
+                    defaults.set(encoded, forKey: "nightSkins")
+                }
+                
+                let nightReferenceDate = Date() + Double(market.BonusStoreRemainingDurationInSeconds!)
+                defaults.set(nightReferenceDate, forKey: "nightTimeLeft")
+
+            }
+            else {
+                self.nightMarket = false
+                defaults.set(false, forKey: "nightMarket")
+                
             }
             
             if helperType == "storeReload" {
@@ -193,7 +269,7 @@ class AuthAPIModel: ObservableObject {
             }
             else if helperType == "nightMarketReload" {
                 
-                
+                // Placeholder
             }
             else if helperType == "login" {
                 await reloadLoginHelper(token: token, skinModel: skinModel, riotEntitlement: riotEntitlement, puuid: puuid, storefrontResponse: storefrontResponse)
@@ -202,6 +278,7 @@ class AuthAPIModel: ObservableObject {
             
             // finished loading
             self.reloading = false
+            self.isAuthenticating = false
             
         }
         catch {
@@ -262,33 +339,11 @@ class AuthAPIModel: ObservableObject {
                 defaults.set(encoded, forKey: "storePrice")
             }
             
-            // Save list of owned skins
-            let owned = try await WebService.getOwned(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
-            
-            var tempOwned : [String] = []
-            
-            for skin in skinModel.data {
-                for item in owned {
-                    let itemUUID = skin.levels!.first!.id.uuidString.lowercased()
-                    if itemUUID == item.itemID {
-                        if !tempOwned.contains(skin.displayName) {
-                            tempOwned.append(skin.displayName)
-                        }
-                        
-                    }
-                }
-            }
-            
-            self.owned = tempOwned
-            defaults.set(tempOwned, forKey: "owned")
-            
             // Set the time left in shop
             let referenceDate = Date() + Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0)
             defaults.set(referenceDate, forKey: "timeLeft")
-            defaults.set(Double(storefront.SingleItemOffersRemainingDurationInSeconds ?? 0), forKey: "secondsLeft")
+
             
-            
-            self.isAuthenticating = false
             self.failedLogin = false
             
             self.username = ""
@@ -296,9 +351,6 @@ class AuthAPIModel: ObservableObject {
             self.multifactor = ""
             
         }catch {
-            
-            self.isAuthenticating = false
-            self.password = ""
             
             self.errorMessage = "Login Helper error: \(error.localizedDescription)"
             self.isError = true
@@ -321,6 +373,7 @@ class AuthAPIModel: ObservableObject {
             
             var bundleCounter = 0
             var bundleItems : [[Skin]] = []
+            var tempImages : [String] = []
             
             for item in bundleList.bundles {
                 bundleCounter += 1
@@ -330,26 +383,22 @@ class AuthAPIModel: ObservableObject {
                 let bundle = try await WebService.getBundle(uuid: bundleUUID, currentBundle: currentBundle)
                 
                 let bundleDisplayName = bundle[0]
-                //let bundleDisplayIcon = bundle[1]
+                let bundleDisplayIcon = bundle[1]
                 
-                
-                
-                //self.bundleName = bundleDisplayName
-                //self.bundleImage = bundleDisplayIcon
+                tempImages.append(bundleDisplayIcon)
                 
                 defaults.set(bundleDisplayName, forKey: "bundleDisplayName" + currentBundle)
                 // Set time left for bundle
                 let bundleReferenceDate = Date() + Double(item.durationRemainingInSeconds)
                 defaults.set(bundleReferenceDate, forKey: "bundleTimeLeft" + currentBundle)
-                defaults.set(Double(item.durationRemainingInSeconds), forKey: "bundleSecondsLeft"  + currentBundle)
                 
                 
                 // Save the bundle skins
                 let items = item.items
                 
                 var tempBundleItems : [Skin] = []
+                
                 for skin in skinModel.data{
-                    
                     for item in items {
                         if skin.levels!.first!.id.description.lowercased() == item.item.itemID {
                             tempBundleItems.append(skin)
@@ -362,6 +411,7 @@ class AuthAPIModel: ObservableObject {
             }
 
             self.bundle = bundleItems
+            self.bundleImage = tempImages
             
             // Save the bundle
             let bundleEncoder = JSONEncoder()
@@ -371,11 +421,12 @@ class AuthAPIModel: ObservableObject {
             }
         }
         catch {
-            
+            self.errorMessage = "Login Helper error: \(error.localizedDescription)"
+            self.isError = true
         }
-        
-        
     }
+    
+    
     
     // MARK: Multifactor
     @MainActor
@@ -388,8 +439,12 @@ class AuthAPIModel: ObservableObject {
                 self.showMultifactor = false
                 self.enteredMultifactor = false
                 
-                self.isAuthenticated = true
-                defaults.set(self.isAuthenticated, forKey: "authentication") // Save authentication state for next launch
+                // Save authentication state for next launch
+                withAnimation(.easeIn(duration: 0.2)) {
+                    self.isAuthenticated = true
+                    defaults.set(true, forKey: "authentication")
+                }
+                
             }
             catch{
                 
@@ -403,7 +458,6 @@ class AuthAPIModel: ObservableObject {
                 self.multifactor = ""
                 self.password = ""
                 
-                self.isAuthenticating = false
                 
                 print("Multifactor")
                 
@@ -490,40 +544,49 @@ class AuthAPIModel: ObservableObject {
         }()
         
 
-        // Reset Defaults
-        self.isAuthenticating = false // Handles loading animation
-        self.failedLogin = false // Handles login error message
-        self.reloading = false
-        self.showMultifactor = false // Show multifactor popout
-        self.enteredMultifactor = false // Handle multifactor loading animation
-        self.email = "" // Displayed email for multifactor popout
-        self.username = "" // Variable used by username box in LoginBoxView
-        self.password = "" // Used by password box in LoginBoxView
-        self.multifactor = "" // Used by multifactor box in MultifactorView
-        self.regionCheck = false
-        self.rememberPassword = false
-        
-        defaults.removeObject(forKey: "timeLeft")
-        defaults.removeObject(forKey: "secondsLeft")
-        defaults.removeObject(forKey: "vp")
-        defaults.removeObject(forKey: "rp")
-        defaults.removeObject(forKey: "storefront")
-        defaults.removeObject(forKey: "storePrice")
-        defaults.removeObject(forKey: "rememberPassword")
-        defaults.removeObject(forKey: "autoReload")
-        defaults.removeObject(forKey: "notification")
-        
-        let _ = keychain.remove(forKey: "ssid")
-        let _ = keychain.remove(forKey: "tdid")
-        let _ = keychain.remove(forKey: "region")
-        let _ = keychain.remove(forKey: "username")
-        let _ = keychain.remove(forKey: "password")
-        
-        // Unauthenticate user
-        withAnimation(.easeOut(duration: 0.2)) {
-            self.isAuthenticated = false // Keeps user logged in
-            defaults.removeObject(forKey: "authentication")
+        DispatchQueue.main.async{
+            // Reset Defaults
+            self.isAuthenticating = false // Handles loading animation
+            self.failedLogin = false // Handles login error message
+            self.reloading = false
+            self.showMultifactor = false // Show multifactor popout
+            self.enteredMultifactor = false // Handle multifactor loading animation
+            self.email = "" // Displayed email for multifactor popout
+            self.username = "" // Variable used by username box in LoginBoxView
+            self.password = "" // Used by password box in LoginBoxView
+            self.multifactor = "" // Used by multifactor box in MultifactorView
+            self.regionCheck = false
+            self.rememberPassword = false
+            
+            self.defaults.removeObject(forKey: "timeLeft")
+            self.defaults.removeObject(forKey: "vp")
+            self.defaults.removeObject(forKey: "rp")
+            self.defaults.removeObject(forKey: "storefront")
+            self.defaults.removeObject(forKey: "storePrice")
+            self.defaults.removeObject(forKey: "rememberPassword")
+            self.defaults.removeObject(forKey: "autoReload")
+            self.defaults.removeObject(forKey: "notification")
+            
+            self.defaults.removeObject(forKey: "owned")
+            self.defaults.removeObject(forKey: "bundle")
+            self.defaults.removeObject(forKey: "nightSkins")
+            self.defaults.removeObject(forKey: "nightTimeLeft")
+            self.defaults.removeObject(forKey: "bundleTimeLeft")
+            self.defaults.removeObject(forKey: "timeLeft")
+            
+            let _ = self.keychain.remove(forKey: "ssid")
+            let _ = self.keychain.remove(forKey: "tdid")
+            let _ = self.keychain.remove(forKey: "region")
+            let _ = self.keychain.remove(forKey: "username")
+            let _ = self.keychain.remove(forKey: "password")
+            
+            // Unauthenticate user
+            withAnimation(.easeOut(duration: 0.2)) {
+                self.isAuthenticated = false // Keeps user logged in
+                self.defaults.removeObject(forKey: "authentication")
+            }
         }
+        
         
 
     }

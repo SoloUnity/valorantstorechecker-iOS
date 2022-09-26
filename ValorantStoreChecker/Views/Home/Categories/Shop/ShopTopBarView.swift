@@ -163,6 +163,9 @@ struct ShopTopBarView: View {
                     }
             }
             
+            // MARK: Info display
+            
+            
             if updateModel.update {
                 
                 UpdateButton()
@@ -171,7 +174,6 @@ struct ShopTopBarView: View {
             
             
         }
-        
     }
     
     // MARK: Helper function

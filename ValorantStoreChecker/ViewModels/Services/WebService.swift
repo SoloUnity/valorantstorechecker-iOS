@@ -351,26 +351,7 @@ struct WebService {
     // MARK: Storefront
     static func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String) async throws -> Storefront {
         
-        // Local json file
-        let jsonUrl = Bundle.main.url(forResource: "nightmarket", withExtension: "json")
-        
-        do{
-            // Read the file into a data object
-            let jsonData = try Data(contentsOf: jsonUrl!)
-            
-            guard let storefrontResponse = try? JSONDecoder().decode(Storefront.self, from: jsonData) else {
-                print("ok")
-                throw StorefrontError.badDecode
-            }
-            
-            return storefrontResponse
-            
-        }
-        catch{
-            throw StorefrontError.dataTaskError(error.localizedDescription)
-        }
-        
-        /*
+
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v2/storefront/\(puuid)") else{
             throw StorefrontError.invalidURL
         }
@@ -400,7 +381,7 @@ struct WebService {
         }catch{
             throw StorefrontError.dataTaskError(error.localizedDescription)
         }
-         */
+         
     }
     
     
@@ -435,10 +416,15 @@ struct WebService {
                 throw BundleError.badDecode
             }
             
+            print("IMAGE", bundleResponse1.data.displayIcon)
+            
             if let url = URL(string: bundleResponse1.data.displayIcon) {
+                
                 dataHelper(url: url, key: "bundleDisplayIcon" + currentBundle)
+
             }
             
+            return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon]
             /*
             var bundleRequest2 = URLRequest(url: url2)
             bundleRequest2.httpMethod = "GET"
@@ -460,7 +446,7 @@ struct WebService {
                 return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon, String(bundleResponse2.data.first!.price)]
             }
             */
-            return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon]
+            
             
             
         }catch{
@@ -600,7 +586,7 @@ struct WebService {
     }
     
     // MARK: Owned Skins
-    static func getOwned(token : String, riotEntitlement: String, puuid: String, region: String) async throws ->  [SkinEntitlement] {
+    static func getOwned(token : String, riotEntitlement: String, puuid: String, region: String) async throws -> [SkinEntitlement] {
         
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v1/entitlements/\(puuid)/e7c63390-eda7-46e0-bb7a-a6abdacd2433") else{
             throw OwnedError.invalidURL
@@ -654,7 +640,9 @@ struct WebService {
     }
     
     // MARK: Download stuff
-    static func dataHelper (url : URL, key : String) {
+    
+    static func dataHelper (url : URL, key : String)  {
+        
         // Get a session
         let session = URLSession.shared
         let dataTask = session.dataTask(with: url) { (data, response, error) in
@@ -673,13 +661,45 @@ struct WebService {
                     if data != nil {
                         let encoded = try! PropertyListEncoder().encode(data)
                         UserDefaults.standard.set(encoded, forKey: key)
+                        
                     }
                 }
             }
         }
         dataTask.resume()
+        
+
     }
-    
+     
+    /*
+    static func dataHelper (url : URL, key : String) async -> Data {
+        
+        do {
+            
+            // Create request
+            let request = URLRequest(url: url)
+            let session = URLSession.shared
+            
+            let (data , response) = try await session.data(for: request)
+            
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                return Data()
+            }
+            
+            let encoded = try! PropertyListEncoder().encode(data)
+            UserDefaults.standard.set(encoded, forKey: key)
+            
+            return data
+            
+        }
+        catch {
+            return Data()
+        }
+    }
+    */
     
 }
 

@@ -19,6 +19,7 @@ class Skin: Identifiable, Codable, ObservableObject{
     var chromas: [Chromas]?
     var levels: [Levels]?
     var assetPath : String?
+    var discountedCost : String?
     
     enum CodingKeys:String, CodingKey{
         case id = "uuid"
@@ -30,6 +31,7 @@ class Skin: Identifiable, Codable, ObservableObject{
         case chromas
         case levels
         case assetPath
+        case discountedCost
     }
     
     // Convert image url to data object

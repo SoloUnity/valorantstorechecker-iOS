@@ -45,6 +45,8 @@ struct SkinCardDetailView: View {
     @State var noVideo = false
     @State private var isPresentingShareSheet = false
     
+    var price = ""
+    
     private let player = AVPlayer()
 
     var body: some View {
@@ -138,14 +140,27 @@ struct SkinCardDetailView: View {
                                         
                                         Spacer()
                                         
-                                        Image("vp")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 18, height: 18)
+                                        if self.price != "" {
+                                            Image("vp")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 18, height: 18)
+                                            
+                                            Text(self.price)
+                                                .foregroundColor(.white)
+                                                .bold()
+                                        }
+                                        else {
+                                            Image("vp")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 18, height: 18)
+                                            
+                                            Text(price)
+                                                .foregroundColor(.white)
+                                                .bold()
+                                        }
                                         
-                                        Text(price)
-                                            .foregroundColor(.white)
-                                            .bold()
                                         
                                     }
                                     else{

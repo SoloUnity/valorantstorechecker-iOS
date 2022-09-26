@@ -82,7 +82,7 @@ struct BundleView: View {
                                 ForEach(authAPIModel.bundle[index - 1]) { skin in
                                     
                                     SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
-                                        .frame(height: (UIScreen.main.bounds.height / 6.5))
+                                        .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
                                     
                                 }
                                 
@@ -125,7 +125,7 @@ struct BundleView: View {
                         }
                     }
                     .coordinateSpace(name: "pullToRefresh")
-                    .padding(.top, -(UIScreen.main.bounds.height / 92.5))
+                    .padding(.top, -8)
                     
 
 

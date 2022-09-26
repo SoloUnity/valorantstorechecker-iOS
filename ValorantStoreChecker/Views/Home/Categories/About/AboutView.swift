@@ -25,7 +25,7 @@ struct AboutView: View {
         GeometryReader{ geo in
             
             ScrollView(showsIndicators: false){
-                VStack (spacing: 20){
+                VStack (spacing: 11){
                     
                     HStack{
                         Text(LocalizedStringKey("About"))

@@ -44,11 +44,14 @@ struct Constants{
         static var privacy = "https://solounity.notion.site/solounity/Valorant-Store-Checker-App-Privacy-Policy-761932ab3fcb4fea95564b2b63d2d5b5"
         static var appStore = "https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546"
         
+        // Login
+        static var googleLogin = "https://www.craft.do/s/ajlY5nYTszlc9H"
     }
     
     struct dimensions {
         static var onboardingLogoSize : CGFloat = 4
         static var circleButtonSize : CGFloat = 60
+        static var cardSize = 7.1
     }
     
 }

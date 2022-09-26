@@ -36,7 +36,7 @@ struct ShopView: View {
                     }
                     
                     
-                    VStack(spacing: 11) {
+                    LazyVStack(spacing: 11) {
                         
                         // Determine if the data has been fetched
                         if authAPIModel.storefront.isEmpty{
@@ -62,7 +62,7 @@ struct ShopView: View {
                             ForEach(authAPIModel.storefront) { skin in
                                 
                                 SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
-                                    .frame(height: (UIScreen.main.bounds.height / 7.4))
+                                    .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
                                 
                             }
                             
