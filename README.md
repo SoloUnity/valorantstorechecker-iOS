@@ -37,11 +37,6 @@ See the [Website](https://valorantstore.net) if you wish to check your store on 
 </p>
 
 <p align=center>
-  <img width="49%" src="https://user-images.githubusercontent.com/77747704/189550838-752fcd29-73cc-45aa-b902-1d1563cfa2ba.PNG" />
-  <img width="49%" src="https://user-images.githubusercontent.com/77747704/189550843-97171c12-8a4b-47cf-85ad-8d4b2051c17b.PNG" />
-</p>
-
-<p align=center>
   <img width="49%" src="https://user-images.githubusercontent.com/77747704/192401293-83bd4415-3ac8-4c72-a756-329ee8ad6df3.png" />
   <img width="49%" src="https://user-images.githubusercontent.com/77747704/192401299-976c7211-bf2a-4466-a130-4e34235f456f.png" />
 </p>
