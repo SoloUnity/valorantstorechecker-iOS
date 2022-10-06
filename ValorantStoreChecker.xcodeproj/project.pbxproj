@@ -55,6 +55,7 @@
 		8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6111F28847B9100E8BDD6 /* Skin.swift */; };
 		8BF1DB482888B87F004491A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DB472888B87F004491A1 /* Constants.swift */; };
 		8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4D7642885A298000404D8 /* SearchBar.swift */; };
+		D34FCFDF3A7C0EBED0172CFD /* Pods_ValorantStoreChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD3B815F9260DB8CE52BD8F /* Pods_ValorantStoreChecker.framework */; };
 		F8163EC828DFFFC100A27103 /* DragDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8163EC728DFFFC100A27103 /* DragDownView.swift */; };
 		F8163ECD28E0C67D00A27103 /* NightMarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8163ECC28E0C67D00A27103 /* NightMarketView.swift */; };
 		F8163ED028E0DFF200A27103 /* ThirdPartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8163ECF28E0DFF200A27103 /* ThirdPartyView.swift */; };
@@ -71,6 +72,10 @@
 		F8A7400228ABD96200717B23 /* Owned.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7400128ABD96200717B23 /* Owned.swift */; };
 		F8B7FDF628D79B9300A5181E /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7FDF528D79B9300A5181E /* WhatsNewView.swift */; };
 		F8B7FDFC28D7BA8000A5181E /* LinkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7FDFB28D7BA8000A5181E /* LinkImage.swift */; };
+		F8C3C76A28E3C242002C840D /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C76828E3C241002C840D /* BannerView.swift */; };
+		F8C3C76F28E3C625002C840D /* CustomBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C76E28E3C625002C840D /* CustomBannerView.swift */; };
+		F8C3C77128E3CBD0002C840D /* ImageAndTextLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C77028E3CBD0002C840D /* ImageAndTextLogo.swift */; };
+		F8C3C77328E3CF73002C840D /* AdPaddingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C77228E3CF73002C840D /* AdPaddingView.swift */; };
 		F8D4396228B1AC6D0093595C /* BundleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4396128B1AC6D0093595C /* BundleImageView.swift */; };
 		F8D4D4C128A429E400BDBBFE /* ValorantStoreCheckerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */; };
 		F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F69D3328A5E159005A73D2 /* TipModel.swift */; };
@@ -79,6 +84,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56FF1EA6D4EEBBF48BA35952 /* Pods-ValorantStoreChecker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValorantStoreChecker.release.xcconfig"; path = "Target Support Files/Pods-ValorantStoreChecker/Pods-ValorantStoreChecker.release.xcconfig"; sourceTree = "<group>"; };
+		761406BF9717A17DEE019426 /* Pods-ValorantStoreChecker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValorantStoreChecker.debug.xcconfig"; path = "Target Support Files/Pods-ValorantStoreChecker/Pods-ValorantStoreChecker.debug.xcconfig"; sourceTree = "<group>"; };
 		8B0AE9E22898390C00275A30 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		8B0AE9E428984AFA00275A30 /* MultifactorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultifactorView.swift; sourceTree = "<group>"; };
 		8B0AE9E62898A8B300275A30 /* ShopBottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBottomBarView.swift; sourceTree = "<group>"; };
@@ -122,14 +129,17 @@
 		8BB00EC3288E3D41001AE90A /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		8BB00EC6288E418E001AE90A /* AuthAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPIModel.swift; sourceTree = "<group>"; };
 		8BB00EC8288E4679001AE90A /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		8BE6111B28846E1700E8BDD6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		8BE6111D28847B0C00E8BDD6 /* SkinData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SkinData.json; sourceTree = "<group>"; };
 		8BE6111F28847B9100E8BDD6 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		8BF1DB472888B87F004491A1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8BF4D7642885A298000404D8 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		CFD3B815F9260DB8CE52BD8F /* Pods_ValorantStoreChecker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ValorantStoreChecker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8163EC728DFFFC100A27103 /* DragDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDownView.swift; sourceTree = "<group>"; };
 		F8163ECC28E0C67D00A27103 /* NightMarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMarketView.swift; sourceTree = "<group>"; };
 		F8163ECF28E0DFF200A27103 /* ThirdPartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyView.swift; sourceTree = "<group>"; };
+		F82952D528E38A79001FFA53 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
+		F82952D628E38A79001FFA53 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
+		F82CBB0128E3935A00390960 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F837D9D328A5B14B00F7C777 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F843005D28B7BE9C006CFD5C /* Products.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		F844AC7228A01BF10009C0C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -148,6 +158,10 @@
 		F8A7400128ABD96200717B23 /* Owned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owned.swift; sourceTree = "<group>"; };
 		F8B7FDF528D79B9300A5181E /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		F8B7FDFB28D7BA8000A5181E /* LinkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkImage.swift; sourceTree = "<group>"; };
+		F8C3C76828E3C241002C840D /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		F8C3C76E28E3C625002C840D /* CustomBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBannerView.swift; sourceTree = "<group>"; };
+		F8C3C77028E3CBD0002C840D /* ImageAndTextLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndTextLogo.swift; sourceTree = "<group>"; };
+		F8C3C77228E3CF73002C840D /* AdPaddingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdPaddingView.swift; sourceTree = "<group>"; };
 		F8D4396128B1AC6D0093595C /* BundleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleImageView.swift; sourceTree = "<group>"; };
 		F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
 		F8F69D3328A5E159005A73D2 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
@@ -163,12 +177,22 @@
 			files = (
 				8B65F843288C9D94004282DD /* AZVideoPlayer in Frameworks */,
 				8BAB20BE2897616D0041A5BB /* Keychain in Frameworks */,
+				D34FCFDF3A7C0EBED0172CFD /* Pods_ValorantStoreChecker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B99F0E840FD0C58ECB501F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				761406BF9717A17DEE019426 /* Pods-ValorantStoreChecker.debug.xcconfig */,
+				56FF1EA6D4EEBBF48BA35952 /* Pods-ValorantStoreChecker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8B0AE9E828998D5100275A30 /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +216,7 @@
 				8B29E1ED2881C87D0081F69A /* ValorantStoreChecker */,
 				8B29E1EC2881C87D0081F69A /* Products */,
 				8BE6111A28846E1700E8BDD6 /* Frameworks */,
+				1B99F0E840FD0C58ECB501F3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,6 +234,7 @@
 				F844AC7728A0528A0009C0C0 /* ValorantStoreChecker.entitlements */,
 				F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */,
 				8B280796289B4544004A3720 /* SplashScreenView.swift */,
+				F82CBB0128E3935A00390960 /* Info.plist */,
 				8B29E1FC2881C9850081F69A /* Views */,
 				8B29E1FD2881C9890081F69A /* ViewModels */,
 				8B29E1FE2881C99A0081F69A /* Models */,
@@ -231,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				8B29E1F02881C87D0081F69A /* LaunchView.swift */,
+				F8C3C76728E3C241002C840D /* AdsView */,
 				8B29E2012881CA440081F69A /* Onboarding */,
 				8B62AFD82883B51F0070173F /* Home */,
 				8B29E2042881CC890081F69A /* Commons */,
@@ -282,6 +309,7 @@
 				F8B7FDFB28D7BA8000A5181E /* LinkImage.swift */,
 				8B0AE9E22898390C00275A30 /* Blur.swift */,
 				8B9A838028861097009CE268 /* Logo.swift */,
+				F8C3C77028E3CBD0002C840D /* ImageAndTextLogo.swift */,
 				8B65F849288CA608004282DD /* PriceTierView.swift */,
 				8B9A8383288612AC009CE268 /* PriceTiers */,
 				8B9A83822886129C009CE268 /* Shapes */,
@@ -308,7 +336,6 @@
 			isa = PBXGroup;
 			children = (
 				8B62AFCE2883A0FD0070173F /* ShopView.swift */,
-				8B3685D12895D2D5000BB3CF /* ShopTopBarView.swift */,
 				8B0AE9E62898A8B300275A30 /* ShopBottomBarView.swift */,
 				8B3685D32895D576000BB3CF /* PullToRefreshView.swift */,
 			);
@@ -389,7 +416,9 @@
 		8BE6111A28846E1700E8BDD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8BE6111B28846E1700E8BDD6 /* AVKit.framework */,
+				F82952D528E38A79001FFA53 /* GoogleAppMeasurement.xcframework */,
+				F82952D628E38A79001FFA53 /* GoogleMobileAds.xcframework */,
+				CFD3B815F9260DB8CE52BD8F /* Pods_ValorantStoreChecker.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -416,6 +445,7 @@
 			children = (
 				8B62AFD02883A1230070173F /* SkinCardView.swift */,
 				8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */,
+				8B3685D12895D2D5000BB3CF /* ShopTopBarView.swift */,
 			);
 			path = SkinView;
 			sourceTree = "<group>";
@@ -446,6 +476,16 @@
 			path = Update;
 			sourceTree = "<group>";
 		};
+		F8C3C76728E3C241002C840D /* AdsView */ = {
+			isa = PBXGroup;
+			children = (
+				F8C3C77228E3CF73002C840D /* AdPaddingView.swift */,
+				F8C3C76828E3C241002C840D /* BannerView.swift */,
+				F8C3C76E28E3C625002C840D /* CustomBannerView.swift */,
+			);
+			path = AdsView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -453,6 +493,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B29E1F92881C8800081F69A /* Build configuration list for PBXNativeTarget "ValorantStoreChecker" */;
 			buildPhases = (
+				01A2F2EEB8540FC6F659B8B0 /* [CP] Check Pods Manifest.lock */,
 				8B29E1E72881C87D0081F69A /* Sources */,
 				8B29E1E82881C87D0081F69A /* Frameworks */,
 				8B29E1E92881C87D0081F69A /* Resources */,
@@ -501,7 +542,6 @@
 			packageReferences = (
 				8B65F841288C9D94004282DD /* XCRemoteSwiftPackageReference "AZVideoPlayer" */,
 				8BAB20BC2897616D0041A5BB /* XCRemoteSwiftPackageReference "Keychain" */,
-				F8B7FDF828D7AF7600A5181E /* XCRemoteSwiftPackageReference "ShareSheet" */,
 			);
 			productRefGroup = 8B29E1EC2881C87D0081F69A /* Products */;
 			projectDirPath = "";
@@ -528,6 +568,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01A2F2EEB8540FC6F659B8B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ValorantStoreChecker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8B29E1E72881C87D0081F69A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -546,6 +611,7 @@
 				8B0AE9E32898390C00275A30 /* Blur.swift in Sources */,
 				8B3685D42895D576000BB3CF /* PullToRefreshView.swift in Sources */,
 				F8A5011528E130BD00D66626 /* DispatchQueue+Extensions.swift in Sources */,
+				F8C3C76A28E3C242002C840D /* BannerView.swift in Sources */,
 				8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */,
 				F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */,
 				F87952A828AEA36D005145F6 /* Bundle.swift in Sources */,
@@ -561,6 +627,7 @@
 				8B0AE9EA28998E4200275A30 /* AccountView.swift in Sources */,
 				8B682C822890C2BE003A3B9C /* Error.swift in Sources */,
 				8B3685D02895BBD3000BB3CF /* LoginBoxView.swift in Sources */,
+				F8C3C77128E3CBD0002C840D /* ImageAndTextLogo.swift in Sources */,
 				F8FDA33F28CD8D9E00D5A9F2 /* UpdateModel.swift in Sources */,
 				F8D4D4C128A429E400BDBBFE /* ValorantStoreCheckerApp.swift in Sources */,
 				8B9A8395288630F0009CE268 /* WishListView.swift in Sources */,
@@ -577,6 +644,7 @@
 				8B62AFD12883A1230070173F /* SkinCardView.swift in Sources */,
 				8B9A838D28861C6E009CE268 /* PremiumEditionView.swift in Sources */,
 				F87952A328ADD7C3005145F6 /* TipView.swift in Sources */,
+				F8C3C77328E3CF73002C840D /* AdPaddingView.swift in Sources */,
 				F8163ED028E0DFF200A27103 /* ThirdPartyView.swift in Sources */,
 				8B0AE9EC28998E7600275A30 /* SupportView.swift in Sources */,
 				8B62AFCF2883A0FD0070173F /* ShopView.swift in Sources */,
@@ -587,6 +655,7 @@
 				8B0AE9F228998EC600275A30 /* AcknowledgementsView.swift in Sources */,
 				8B4200882899E620000D7FC2 /* TermsView.swift in Sources */,
 				8B0AE9EE28998E9400275A30 /* CommunityView.swift in Sources */,
+				F8C3C76F28E3C625002C840D /* CustomBannerView.swift in Sources */,
 				8B0AE9E528984AFA00275A30 /* MultifactorView.swift in Sources */,
 				8B9A838F28861C78009CE268 /* UltraEditionView.swift in Sources */,
 				F8163EC828DFFFC100A27103 /* DragDownView.swift in Sources */,
@@ -733,17 +802,18 @@
 		};
 		8B29E1FA2881C8800081F69A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 761406BF9717A17DEE019426 /* Pods-ValorantStoreChecker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ValorantStoreChecker/ValorantStoreChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ValorantStoreChecker/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "/Users/gordon/Documents/Programs/Xcode Apps/iOS/Valorant-Store-Checker-App/ValorantStoreChecker/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = VSC;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -751,19 +821,17 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.9;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -772,17 +840,18 @@
 		};
 		8B29E1FB2881C8800081F69A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56FF1EA6D4EEBBF48BA35952 /* Pods-ValorantStoreChecker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ValorantStoreChecker/ValorantStoreChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ValorantStoreChecker/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "/Users/gordon/Documents/Programs/Xcode Apps/iOS/Valorant-Store-Checker-App/ValorantStoreChecker/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = VSC;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -790,19 +859,17 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.9;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -846,14 +913,6 @@
 			repositoryURL = "https://github.com/GroupeMINASTE/Keychain.swift";
 			requirement = {
 				branch = master;
-				kind = branch;
-			};
-		};
-		F8B7FDF828D7AF7600A5181E /* XCRemoteSwiftPackageReference "ShareSheet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/briannadoubt/ShareSheet";
-			requirement = {
-				branch = main;
 				kind = branch;
 			};
 		};

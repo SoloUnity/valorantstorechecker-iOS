@@ -42,6 +42,7 @@ class NotificationService {
         
         UNUserNotificationCenter.current().add(request)
         
+        print("notification sent")
     }
     
     func disableNotifications() {

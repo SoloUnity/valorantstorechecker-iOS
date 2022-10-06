@@ -21,7 +21,7 @@
 "CopyError" = "Copy Error";
 "Unknown" = "Unknown";
 "ErrorMessage3" = "Your purchase could not be verified by the App Store.";
-"NetworkError" = "Please check your internet connection.";
+"NetworkError" = "No internet.";
 
 "Reset" = "Reset";
 "ResetApp" = "Reset App";

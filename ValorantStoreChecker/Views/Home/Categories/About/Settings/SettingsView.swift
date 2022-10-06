@@ -16,6 +16,7 @@ struct SettingsView: View {
     @State var toggleReload = false     // Toggle reload
     @State private var selectedDate = Date()
     @State var toggleNotification = false
+    @State var passwordPressed = false
     
     let notify = NotificationService()
     let defaults = UserDefaults.standard
@@ -25,292 +26,299 @@ struct SettingsView: View {
     
     var body: some View {
         
-        
-        GeometryReader { geo in
-            
-            
-            ScrollViewReader{ (proxy: ScrollViewProxy) in
-                ScrollView {
-                    VStack(alignment: .leading) {
-                        Text(LocalizedStringKey("Settings"))
-                            .font(.title)
-                            .bold()
-                        
-                        // MARK: Automatic Reloading
-                        VStack {
-                            
-                            Toggle(LocalizedStringKey("AutomaticReload"), isOn: $toggleReload)
-                                .tint(.pink)
-                                .onChange(of: toggleReload) { boolean in
+        ZStack {
+            NavigationView {
+                GeometryReader { geo in
+                    
+                    
+                    ScrollViewReader{ (proxy: ScrollViewProxy) in
+                        ScrollView {
+                            VStack(alignment: .leading) {
+
+                                // MARK: Remember Password
+                                VStack {
                                     
-                                    authAPIModel.autoReload = boolean
-                                    
-                                    if boolean {
-                                        defaults.set(boolean, forKey: "autoReload")
-                                    }
-                                    else {
-                                        defaults.removeObject(forKey: "autoReload")
-                                    }
-                                    
-                                }
-                        }
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Blur(radius: 25, opaque: true))
-                        .cornerRadius(10)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.white, lineWidth: 3)
-                                .offset(y: -1)
-                                .offset(x: -1)
-                                .blendMode(.overlay)
-                                .blur(radius: 0)
-                                .mask {
-                                    RoundedRectangle(cornerRadius: 10)
-                                }
-                        }
-                        
-                        Text(LocalizedStringKey("AutomaticReloadInfo"))
-                            .font(.caption2)
-                            .opacity(0.5)
-                            .padding(.horizontal, 5)
-                        
-                        
-                        // MARK: Language
-                        VStack {
-                            
-                            HStack {
-                                
-                                Text(LocalizedStringKey("Language"))
-                                
-                                Spacer()
-                                
-                                Button {
-                                    if let appSettings = URL(string: UIApplication.openSettingsURLString) {
-                                        UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
-                                    }
-                                    
-                                } label: {
-                                    
-                                    Text(LocalizedStringKey("ChangeLanguage"))
-                                        .font(.callout)
-                                        .foregroundColor(.pink)
-                                    
-                                }
-                            }
-                        }
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Blur(radius: 25, opaque: true))
-                        .cornerRadius(10)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.white, lineWidth: 3)
-                                .offset(y: -1)
-                                .offset(x: -1)
-                                .blendMode(.overlay)
-                                .blur(radius: 0)
-                                .mask {
-                                    RoundedRectangle(cornerRadius: 10)
-                                }
-                        }
-                        
-                        Text(LocalizedStringKey("LanguageDescription"))
-                            .font(.caption2)
-                            .opacity(0.5)
-                            .padding(.horizontal, 5)
-                        
-                        // MARK: Notifications
-                        VStack {
-                            
-                            Toggle(LocalizedStringKey("Notify"), isOn: $toggleNotification)
-                                .tint(.pink)
-                                .onChange(of: toggleNotification) { boolean in
-                                    
-                                    
-                                    if !defaults.bool(forKey: "notification") {
-                                        
-                                        notify.askPermission()
-                                        
-                                        
-                                        defaults.set(true, forKey: "notification")
-                                        
-                                        notify.sendNotification(date: referenceDate, title: "Store Checker for Valorant", body: "Store has just reset")
-                                        
-                                    }
-                                    
-                                    if !boolean{
-                                        print("disabled")
-                                        notify.disableNotifications()
-                                        defaults.removeObject(forKey: "notification")
-                                    }
-                                    
-                                    
-                                    
-                                }
-                        }
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Blur(radius: 25, opaque: true))
-                        .cornerRadius(10)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.white, lineWidth: 3)
-                                .offset(y: -1)
-                                .offset(x: -1)
-                                .blendMode(.overlay)
-                                .blur(radius: 0)
-                                .mask {
-                                    RoundedRectangle(cornerRadius: 10)
-                                }
-                        }
-                        
-                        
-                        Text(LocalizedStringKey("NotifyDescription"))
-                            .font(.caption2)
-                            .opacity(0.5)
-                            .padding(.horizontal, 5)
-                        
-                        
-                        
-                        
-                        
-                        // MARK: Remember Password
-                        VStack {
-                            
-                            Toggle(LocalizedStringKey("RememberPassword"), isOn: $togglePassword)
-                                .tint(.pink)
-                                .onChange(of: togglePassword) { boolean in
-                                    
-                                    
-                                    authAPIModel.rememberPassword = boolean
-                                    
-                                    if boolean {
-                                        defaults.set(boolean, forKey: "rememberPassword")
-                                        
-                                    }
-                                    else {
-                                        defaults.removeObject(forKey: "rememberPassword")
-                                        authAPIModel.password = ""
-                                        let _ = keychain.remove(forKey: "password")
-                                    }
-                                    
-                                }
-                            
-                            
-                            if togglePassword {
-                                
-                                
-                                HStack {
-                                    ZStack {
-                                        if unhide {
-                                            TextField(LocalizedStringKey("Password"), text: $authAPIModel.password)
-                                                .padding(.horizontal)
+                                    Toggle(LocalizedStringKey("RememberPassword"), isOn: $togglePassword)
+                                        .tint(.pink)
+                                        .onChange(of: togglePassword) { boolean in
+                                            
+                                            
+                                            authAPIModel.rememberPassword = boolean
+                                            
+                                            if boolean {
+                                                defaults.set(boolean, forKey: "rememberPassword")
+                                                
+                                            }
+                                            else {
+                                                defaults.removeObject(forKey: "rememberPassword")
+                                                authAPIModel.password = ""
+                                                let _ = keychain.remove(forKey: "password")
+                                            }
+                                            
                                         }
-                                        else {
-                                            SecureField(LocalizedStringKey("Password"), text: $authAPIModel.password)
-                                                .padding(.horizontal)
-                                        }
+                                    
+                                    
+                                    if togglePassword {
                                         
-                                        
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(lineWidth: 1)
-                                            .opacity(0.5)
                                         
                                         HStack {
-                                            Spacer()
-                                            
-                                            Button {
-                                                self.unhide.toggle()
-                                            } label: {
+                                            ZStack {
                                                 if unhide {
-                                                    Image(systemName: "eye")
-                                                        .padding(.trailing)
-                                                        .opacity(0.5)
+                                                    TextField(LocalizedStringKey("Password"), text: $authAPIModel.password)
+                                                        .padding(.horizontal)
                                                 }
                                                 else {
-                                                    Image(systemName: "eye.slash")
-                                                        .padding(.trailing)
-                                                        .opacity(0.5)
+                                                    SecureField(LocalizedStringKey("Password"), text: $authAPIModel.password)
+                                                        .padding(.horizontal)
                                                 }
+                                                
+                                                
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(lineWidth: 1)
+                                                    .opacity(0.5)
+                                                
+                                                HStack {
+                                                    Spacer()
+                                                    
+                                                    Button {
+                                                        self.unhide.toggle()
+                                                    } label: {
+                                                        if unhide {
+                                                            Image(systemName: "eye")
+                                                                .padding(.trailing)
+                                                                .opacity(0.5)
+                                                        }
+                                                        else {
+                                                            Image(systemName: "eye.slash")
+                                                                .padding(.trailing)
+                                                                .opacity(0.5)
+                                                        }
+                                                    }
+                                                }
+                                                
                                             }
+                                            .onChange(of: authAPIModel.password) { password in
+                                                let _ = keychain.save(authAPIModel.password, forKey: "password")
+                                            }
+                                            .onTapGesture {
+                                                withAnimation { proxy.scrollTo("bottom", anchor: .bottom) }
+                                            }
+                                            
+                                            
+                                            
                                         }
+                                        .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
                                         
-                                    }
-                                    .onChange(of: authAPIModel.password) { password in
-                                        let _ = keychain.save(authAPIModel.password, forKey: "password")
-                                    }
-                                    .onTapGesture {
-                                        withAnimation { proxy.scrollTo("bottom", anchor: .bottom) }
+                                        
                                     }
                                     
                                     
                                     
                                 }
-                                .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Blur(radius: 25, opaque: true))
+                                .cornerRadius(10)
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.white, lineWidth: 3)
+                                        .offset(y: -1)
+                                        .offset(x: -1)
+                                        .blendMode(.overlay)
+                                        .blur(radius: 0)
+                                        .mask {
+                                            RoundedRectangle(cornerRadius: 10)
+                                        }
+                                }
+                                .animation(.spring(), value: togglePassword)
+                                
+                                
+                                
+                                
+                                
+                                
+                                Text(LocalizedStringKey("RememberPasswordInfo"))
+                                    .font(.caption2)
+                                    .opacity(0.5)
+                                    .padding(.horizontal, 5)
+                                    .id("bottom") // Id to identify the top for scrolling
+                                    .tag("bottom") // Tag to identify the top for scrolling
+                                
+                                // MARK: Automatic Reloading
+                                VStack {
+                                    
+                                    Toggle(LocalizedStringKey("AutomaticReload"), isOn: $toggleReload)
+                                        .tint(.pink)
+                                        .onChange(of: toggleReload) { boolean in
+                                            
+                                            authAPIModel.autoReload = boolean
+                                            
+                                            if boolean {
+                                                defaults.set(boolean, forKey: "autoReload")
+                                            }
+                                            else {
+                                                defaults.removeObject(forKey: "autoReload")
+                                            }
+                                            
+                                        }
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Blur(radius: 25, opaque: true))
+                                .cornerRadius(10)
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.white, lineWidth: 3)
+                                        .offset(y: -1)
+                                        .offset(x: -1)
+                                        .blendMode(.overlay)
+                                        .blur(radius: 0)
+                                        .mask {
+                                            RoundedRectangle(cornerRadius: 10)
+                                        }
+                                }
+                                
+                                Text(LocalizedStringKey("AutomaticReloadInfo"))
+                                    .font(.caption2)
+                                    .opacity(0.5)
+                                    .padding(.horizontal, 5)
+                                
+                                
+                                // MARK: Language
+                                VStack {
+                                    
+                                    HStack {
+                                        
+                                        Text(LocalizedStringKey("Language"))
+                                        
+                                        Spacer()
+                                        
+                                        Button {
+                                            if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+                                                UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+                                            }
+                                            
+                                        } label: {
+                                            
+                                            Text(LocalizedStringKey("ChangeLanguage"))
+                                                .font(.callout)
+                                                .foregroundColor(.pink)
+                                            
+                                        }
+                                    }
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Blur(radius: 25, opaque: true))
+                                .cornerRadius(10)
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.white, lineWidth: 3)
+                                        .offset(y: -1)
+                                        .offset(x: -1)
+                                        .blendMode(.overlay)
+                                        .blur(radius: 0)
+                                        .mask {
+                                            RoundedRectangle(cornerRadius: 10)
+                                        }
+                                }
+                                
+                                Text(LocalizedStringKey("LanguageDescription"))
+                                    .font(.caption2)
+                                    .opacity(0.5)
+                                    .padding(.horizontal, 5)
+                                
+                                // MARK: Notifications
+                                VStack {
+                                    
+                                    Toggle(LocalizedStringKey("Notify"), isOn: $toggleNotification)
+                                        .tint(.pink)
+                                        .onChange(of: toggleNotification) { boolean in
+                                            
+                                            notify.askPermission()
+                                            
+                                            if !defaults.bool(forKey: "notification") {
+                                                
+                                                defaults.set(true, forKey: "notification")
+                                                
+                                                notify.sendNotification(date: referenceDate, title: "Store Checker for Valorant", body: "Store has just reset")
+                                                
+                                            }
+                                            
+                                            if !boolean{
+                                                print("disabled")
+                                                notify.disableNotifications()
+                                                defaults.removeObject(forKey: "notification")
+                                            }
+                                            
+                                            
+                                            
+                                        }
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Blur(radius: 25, opaque: true))
+                                .cornerRadius(10)
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.white, lineWidth: 3)
+                                        .offset(y: -1)
+                                        .offset(x: -1)
+                                        .blendMode(.overlay)
+                                        .blur(radius: 0)
+                                        .mask {
+                                            RoundedRectangle(cornerRadius: 10)
+                                        }
+                                }
+                                
+                                
+                                Text(LocalizedStringKey("NotifyDescription"))
+                                    .font(.caption2)
+                                    .opacity(0.5)
+                                    .padding(.horizontal, 5)
+                                
+                                
+                                
+                                
+                                
                                 
                                 
                             }
-                            
-                            
-                            
-                        }
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Blur(radius: 25, opaque: true))
-                        .cornerRadius(10)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.white, lineWidth: 3)
-                                .offset(y: -1)
-                                .offset(x: -1)
-                                .blendMode(.overlay)
-                                .blur(radius: 0)
-                                .mask {
-                                    RoundedRectangle(cornerRadius: 10)
+                            .padding()
+                            .onAppear {
+                                
+                                
+                                if defaults.bool(forKey: "rememberPassword") {
+                                    self.togglePassword = true
+                                    
+                                    authAPIModel.password = keychain.value(forKey: "password") as? String ?? ""
                                 }
-                        }
-                        .animation(.spring(), value: togglePassword)
-                        
-                        
-                        
-                        
-                        
-                        
-                        Text(LocalizedStringKey("RememberPasswordInfo"))
-                            .font(.caption2)
-                            .opacity(0.5)
-                            .padding(.horizontal, 5)
-                            .id("bottom") // Id to identify the top for scrolling
-                            .tag("bottom") // Tag to identify the top for scrolling
-                        
-                    }
-                    .padding()
-                    .onAppear {
-                        
-                        
-                        if defaults.bool(forKey: "rememberPassword") {
-                            self.togglePassword = true
-                            
-                            authAPIModel.password = keychain.value(forKey: "password") as? String ?? ""
-                        }
-                        
-                        if defaults.bool(forKey: "autoReload") {
-                            self.toggleReload = true
-                        }
-                        
-                        if defaults.bool(forKey: "notification") {
-                            self.toggleNotification = true
+                                
+                                if defaults.bool(forKey: "autoReload") {
+                                    self.toggleReload = true
+                                }
+                                
+                                if defaults.bool(forKey: "notification") {
+                                    self.toggleNotification = true
+                                }
+                            }
+                            .onDisappear {
+                                authAPIModel.password = ""
+                            }
                         }
                     }
-                    .onDisappear {
-                        authAPIModel.password = ""
-                    }
+                    
                 }
+                .background(Constants.bgGrey)
+                .animation(.default, value: togglePassword)
+                .animation(.default, value: passwordPressed)
             }
-            
+            .navigationTitle(LocalizedStringKey("Settings"))
         }
-        .animation(.spring(), value: togglePassword)
+        
+
+        
+        
         
         
         

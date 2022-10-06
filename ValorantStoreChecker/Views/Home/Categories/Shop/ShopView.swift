@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+//import GoogleMobileAds
 
 struct ShopView: View {
     
@@ -23,7 +24,7 @@ struct ShopView: View {
             VStack(spacing: 0){
                 
                 Logo()
-                    .frame(width: geo.size.width/6.5)
+                    .frame(width: geo.size.width/Constants.dimensions.logoSize)
                 
                 
                 ScrollView(showsIndicators: false) {
@@ -42,6 +43,8 @@ struct ShopView: View {
                         if authAPIModel.storefront.isEmpty{
                             
                             ShopTopBarView(reloadType: "storeReload", referenceDate: Date())
+                            
+                            
                             
                             HStack{
                                 
@@ -66,7 +69,12 @@ struct ShopView: View {
                                 
                             }
                             
+                            //CustomBannerView()
+                            
                             ShopBottomBarView()
+                            
+                            
+                            
                             
                         }
                         
@@ -77,7 +85,8 @@ struct ShopView: View {
             
         }
         .padding(.bottom, 1)
-        .padding([.horizontal, .top])
+        .padding(.horizontal)
+        
         
     }
 }

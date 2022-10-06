@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AboutView: View {
     
-    @State var showSettings = false
     @State var expandCommunity = true
     @State var expandSupport = false
     @State var expandWhatsNew = false
@@ -21,9 +20,7 @@ struct AboutView: View {
     let defaults = UserDefaults.standard
     
     var body: some View {
-        
         GeometryReader{ geo in
-            
             ScrollView(showsIndicators: false){
                 VStack (spacing: 11){
                     
@@ -34,21 +31,22 @@ struct AboutView: View {
                         
                         Spacer()
                         
+                          
+
                         
-                        Button {
-                            
-                            self.showSettings = true
-                            
-                        } label: {
-                            
-                            Image(systemName: "gear")
-                            
-                        }
+                        NavigationLink {
+                            SettingsView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
+                                .preferredColorScheme(.dark)
+                          } label: {
+                              Image(systemName: "gear")
+                                  .foregroundColor(.white)
+                          }
+                        
                         
                         
                     }
                     
-                    let defaults = UserDefaults.standard
+
                     let releaseNotes = defaults.array(forKey: "releaseNotes") as? [String] ?? []
                     
                     AccountView()
@@ -101,13 +99,11 @@ struct AboutView: View {
                 }
             }
             
+            
+            
         }
         .padding(.bottom, 1)
         .padding([.horizontal, .top])
-        .sheet(isPresented: $showSettings) {
-            SettingsView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
-                .preferredColorScheme(.dark)
-        }
         .animation(.spring(), value: expandCommunity)
         .animation(.spring(), value: expandSupport)
         .animation(.spring(), value: expandWhatsNew)
@@ -115,6 +111,9 @@ struct AboutView: View {
         .animation(.spring(), value: expandTip)
         .animation(.spring(), value: expandAcknowledgements)
         .animation(.spring(), value: expandCopyright)
+        .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
+        
+        
     }
 }
 

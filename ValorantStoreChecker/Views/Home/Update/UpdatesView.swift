@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UpdatesView: View {
     
-    @State var expand = false
+    @State private var expand = false
     
     var body: some View {
         

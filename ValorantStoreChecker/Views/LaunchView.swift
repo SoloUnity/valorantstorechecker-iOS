@@ -23,11 +23,13 @@ struct LaunchView: View {
         
         ZStack (alignment: .top){
             
-            
             // Displays login if the user is not authenticated
             if !authAPIModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
                 
                 LoginView()
+                
+            }
+            else if !authAPIModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
                 
             }
             else {

@@ -18,124 +18,146 @@ struct BundleView: View {
     
     var body: some View {
         
-        GeometryReader{ geo in
-            VStack(spacing: 0){
-                
-                ScrollViewReader{ (proxy: ScrollViewProxy) in
-    
-                    Logo()
-                        .frame(width: geo.size.width/6.5)
+        ZStack {
+            
+            
+            GeometryReader{ geo in
+                VStack(spacing: 0){
                     
-                    // Number of available bundles
-                    let bundleCount = defaults.integer(forKey: "bundleCount")
-                    
-                    
-                    ScrollView(showsIndicators: false) {
+                    ScrollViewReader{ (proxy: ScrollViewProxy) in
                         
-                        PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                            Task{
-                                await authAPIModel.reload(skinModel: skinModel, reloadType: "bundleReload")
-                            }
-                        }
-                        .id("top") // Id to identify the top for scrolling
-                        .tag("top") // Tag to identify the top for scrolling
+                        Logo()
+                            .frame(width: geo.size.width/Constants.dimensions.logoSize)
                         
-                        if authAPIModel.bundle.isEmpty{
+                        // Number of available bundles
+                        let bundleCount = defaults.integer(forKey: "bundleCount")
+                        
+                        
+                        ScrollView(showsIndicators: false) {
                             
-                            VStack {
-                                Image(systemName: "photo")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(minWidth: 0, maxWidth: 100)
-                                    .foregroundColor(.white)
-                                
-                                Text( LocalizedStringKey("EmptyBundle"))
-                            }
-                            .padding(.top, (UIScreen.main.bounds.height / 4))
-                            .opacity(0.5)
-                            
-                            
-                        }
-                        else{
-                            
-                            
-                            LazyVStack(spacing: 11) {
-                                
-                                ShopTopBarView(reloadType: "bundleReload", referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
-                                
-                                BundleImageView(bundleIndex: index)
-                                
-                                // Displays multiple bundles
-                                if bundleCount != 1 {
-                                    Picker("Video Number", selection: $index){
-                                        ForEach(1...bundleCount, id: \.self){ item in
-                                            
-                                            Text(defaults.string(forKey: "bundleDisplayName" + String(item)) ?? "")
-                                                .tag(item)
-
-                                        }
-                                    }
-                                    .pickerStyle(SegmentedPickerStyle())
-                                    .accentColor(.red)
+                            PullToRefresh(coordinateSpaceName: "pullToRefresh") {
+                                Task{
+                                    await authAPIModel.reload(skinModel: skinModel, reloadType: "bundleReload")
                                 }
+                            }
+                            .id("top") // Id to identify the top for scrolling
+                            .tag("top") // Tag to identify the top for scrolling
+                            
+                            if authAPIModel.bundle.isEmpty{
                                 
-                                ForEach(authAPIModel.bundle[index - 1]) { skin in
+                                VStack {
                                     
-                                    SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
-                                        .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
+                                    ShopTopBarView(reloadType: "bundleReload", referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
+                                    
+                                    VStack {
+                                        Image(systemName: "photo")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(minWidth: 0, maxWidth: 100)
+                                            .foregroundColor(.white)
+                                        
+                                        Text( LocalizedStringKey("EmptyBundle"))
+                                    }
+                                    .padding(.top, (UIScreen.main.bounds.height / 4))
+                                    .opacity(0.5)
                                     
                                 }
                                 
-                                if authAPIModel.bundle[index - 1].count > 3 {
-                                    Button {
-                                        // Scroll to top
-                                        withAnimation { proxy.scrollTo("top", anchor: .top) }
-                                        
-                                    } label: {
-                                        
-                                        HStack{
-                                            
-                                            Spacer()
-                                            
-                                            Image(systemName: "arrow.up")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .padding(15)
-                                                .foregroundColor(.white)
-                                            
-                                            Spacer()
+                                
+                                
+                            }
+                            else{
+                                
+                                
+                                LazyVStack(spacing: 11) {
+                                    
+                                    ShopTopBarView(reloadType: "bundleReload", referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
+                                    
+                                    BundleImageView(bundleIndex: index)
+                                    
+                                    // Displays multiple bundles
+                                    if bundleCount != 1 {
+                                        Picker("Video Number", selection: $index){
+                                            ForEach(1...bundleCount, id: \.self){ item in
+                                                
+                                                Text(defaults.string(forKey: "bundleDisplayName" + String(item)) ?? "")
+                                                    .tag(item)
+                                                
+                                            }
                                         }
-                                        .frame(maxHeight: 50)
-                                        .background(Blur(radius: 25, opaque: true))
-                                        .cornerRadius(10)
-                                        .overlay{
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .stroke(.white, lineWidth: 3)
-                                                .offset(y: -1)
-                                                .offset(x: -1)
-                                                .blendMode(.overlay)
-                                                .blur(radius: 0)
-                                                .mask {
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                }
+                                        .pickerStyle(SegmentedPickerStyle())
+                                        .accentColor(.red)
+                                    }
+                                    
+                                    ForEach(authAPIModel.bundle[index - 1]) { skin in
+                                        
+                                        SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
+                                            .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
+                                        
+                                    }
+                                    
+                                    if authAPIModel.bundle[index - 1].count > 3 {
+                                        Button {
+                                            // Scroll to top
+                                            withAnimation { proxy.scrollTo("top", anchor: .top) }
+                                            
+                                        } label: {
+                                            
+                                            HStack{
+                                                
+                                                Spacer()
+                                                
+                                                Image(systemName: "arrow.up")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .padding(15)
+                                                    .foregroundColor(.white)
+                                                
+                                                Spacer()
+                                            }
+                                            .frame(maxHeight: 50)
+                                            .background(Blur(radius: 25, opaque: true))
+                                            .cornerRadius(10)
+                                            .overlay{
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(.white, lineWidth: 3)
+                                                    .offset(y: -1)
+                                                    .offset(x: -1)
+                                                    .blendMode(.overlay)
+                                                    .blur(radius: 0)
+                                                    .mask {
+                                                        RoundedRectangle(cornerRadius: 10)
+                                                    }
+                                            }
                                         }
                                     }
                                 }
                             }
+                            
+                            //AdPaddingView()
                         }
+                        .coordinateSpace(name: "pullToRefresh")
+                        .padding(.top, -8)
+                        
+                        
+                        
                     }
-                    .coordinateSpace(name: "pullToRefresh")
-                    .padding(.top, -8)
-                    
-
-
                 }
+                
+                
             }
+            .padding(.bottom, 1)
+            .padding(.horizontal)
             
             
+            VStack {
+                Spacer()
+                
+                CustomBannerView()
+                    .padding(.horizontal)
+            }
         }
-        .padding(.bottom, 1)
-        .padding([.horizontal, .top])
+        
         
         
     }

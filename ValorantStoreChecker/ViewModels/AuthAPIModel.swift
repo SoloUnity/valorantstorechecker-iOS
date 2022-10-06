@@ -196,8 +196,7 @@ class AuthAPIModel: ObservableObject {
             let owned = try await WebService.getOwned(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
             
             var tempOwned : [String] = []
-            
-            
+
             for skin in skinModel.data {
                 for item in owned {
                     let itemUUID = skin.levels!.first!.id.uuidString.lowercased()
@@ -281,10 +280,12 @@ class AuthAPIModel: ObservableObject {
             self.isAuthenticating = false
             
         }
+        
         catch {
             self.errorMessage = "getPlayerData error: \(error.localizedDescription)"
             self.isError = true
         }
+        
     }
     
     
@@ -510,19 +511,36 @@ class AuthAPIModel: ObservableObject {
                 
                 //self.isReloadingError = true
                 
-                let errorMessage = error.localizedDescription.split(separator: "(")[1].split(separator: " ")[0]
-                
-                
-                if errorMessage == "ValorantStoreChecker.CookieError" {
-                    
-                    self.isError = true
-                    self.isReloadingError = true
-                    
+                // Bandaid solution
+                let errorMessage = error.localizedDescription.split(separator: "(")
+                if errorMessage.count >= 2 {
+                    let errorMessage1 = errorMessage[1].split(separator: " ")
+                    if !errorMessage1.isEmpty {
+                        let errorMessage2 = errorMessage1[0]
+                        
+                        if errorMessage2 == "ValorantStoreChecker.CookieError" {
+                            
+                            self.isError = true
+                            self.isReloadingError = true
+                            
+                        }
+                        else {
+                            self.errorMessage = "Reload error: \(error.localizedDescription)"
+                            self.isError = true
+                        }
+                    }
+                    else {
+                        self.errorMessage = "Reload error: \(error.localizedDescription)"
+                        self.isError = true
+                    }
                 }
                 else {
                     self.errorMessage = "Reload error: \(error.localizedDescription)"
                     self.isError = true
                 }
+
+                
+                
                 
             }
             
@@ -564,8 +582,6 @@ class AuthAPIModel: ObservableObject {
             self.defaults.removeObject(forKey: "storefront")
             self.defaults.removeObject(forKey: "storePrice")
             self.defaults.removeObject(forKey: "rememberPassword")
-            self.defaults.removeObject(forKey: "autoReload")
-            self.defaults.removeObject(forKey: "notification")
             
             self.defaults.removeObject(forKey: "owned")
             self.defaults.removeObject(forKey: "bundle")

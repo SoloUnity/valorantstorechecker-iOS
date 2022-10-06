@@ -22,19 +22,12 @@ struct LoginView: View {
         
         GeometryReader { geo in
             
-            
-            
             ZStack(alignment: .top) {
-                
-                
-                
                 
                 VStack(spacing: 15) {
 
-                    
                     Logo()
-                        .frame(width: geo.size.width / Constants.dimensions.onboardingLogoSize)
-                        .padding(.top)
+                        .frame(width: UIScreen.main.bounds.width/Constants.dimensions.logoSize, height: UIScreen.main.bounds.height/Constants.dimensions.logoSize)
                     
                     
                     // MARK: General Info
@@ -46,6 +39,7 @@ struct LoginView: View {
                                 self.showAlert = true
                             } label: {
                                 Image(systemName: "info.circle")
+                                    .foregroundColor(.pink)
                             }
                             
                             .alert(LocalizedStringKey("InformationTitle"), isPresented: $showAlert, actions: {
@@ -69,14 +63,12 @@ struct LoginView: View {
                         
                     }else {
                         HStack {
+                            
                             Text(LocalizedStringKey("InvalidCredentials"))
                                 .bold()
                             
                         }
-                        
                     }
-                    
-                    
                     
                     LoginBoxView()
                     
@@ -100,21 +92,21 @@ struct LoginView: View {
                         
                         // Checkbox
                         Button {
+                            
                             agreedToTerms.toggle()
+                            
                         } label: {
+                            
                             HStack{
                                 Image(systemName: agreedToTerms ? "checkmark.square" : "square")
                                     .foregroundColor(.pink)
                             }
+                            
                         }
                     }
                     
-                    
-                    
                     RegionSelectorView()
-                    
-                    
-                    
+
                     Spacer()
                     
                     // MARK: Reset button
@@ -201,9 +193,8 @@ struct LoginView: View {
                         
                     }
                 }
-                
+                .padding(.vertical, 30)
                 .padding(.horizontal, 35)
-                .padding(.vertical, 56)
             }
             
         }

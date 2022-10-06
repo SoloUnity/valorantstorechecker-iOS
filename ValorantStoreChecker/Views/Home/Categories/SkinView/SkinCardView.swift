@@ -12,11 +12,13 @@ struct SkinCardView: View {
     @EnvironmentObject var skinModel : SkinModel
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @ObservedObject var skin:Skin
-    @State var isDetailViewShowing = false
+    @State private var isDetailViewShowing = false
     
     var showPrice = false
     var showPriceTier = false
     var price = ""
+    var originalPrice = false
+    var percentOff = false
     
     var body: some View {
         
@@ -57,6 +59,48 @@ struct SkinCardView: View {
                 
                 
                 VStack{
+                    HStack{
+                        let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased())
+                        
+                        
+                        
+                        
+                        Spacer()
+                        
+                        if originalPrice {
+    
+                            HStack {
+                                if price != "Unknown" {
+                                    
+                                    Image("vp")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 18, height: 18)
+                                        .shadow(color: .white, radius: 2)
+                                        .opacity(0.3)
+                                    
+                                    Text(price)
+                                        .font(.subheadline)
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .shadow(color: .black, radius: 3)
+                                        .opacity(0.3)
+                                        
+                                }
+                            }     
+                        }
+                        
+                        if percentOff && self.price != ""{
+                            Text("-" + percentCalculator(originalPrice: price, discountPrice: self.price) + "%")
+                                .font(.subheadline)
+                                .foregroundColor(.white)
+                                .bold()
+                                .shadow(color: .black, radius: 3)
+                                .opacity(0.3)
+                        }
+                        
+                    }
+                    .padding(10)
                     
                     Spacer()
                     
@@ -119,7 +163,7 @@ struct SkinCardView: View {
                                 
                             }
                             else if skin.contentTierUuid != nil {
-                                let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!)
+                                let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased())
                                 
                                 if price != "Unknown" {
                                     
@@ -187,4 +231,16 @@ func cleanName(name: String) -> String {
         finalName += word
     }
     return finalName
+}
+
+func percentCalculator(originalPrice: String, discountPrice: String) -> String {
+    if originalPrice != "Unknown" {
+        
+        let thing1 = (Float(discountPrice) ?? 1)/(Float(originalPrice) ?? 1)
+        let thing2 = ((1 - thing1) * 100).rounded()
+        let thing3 = Int(thing2)
+        return String(thing3)
+    }
+    
+    return "Unknown"
 }

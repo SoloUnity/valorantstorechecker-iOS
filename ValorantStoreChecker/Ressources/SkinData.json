@@ -436,6 +436,36 @@
       ]
     },
     {
+      "uuid": "9c134f41-4c29-1bd8-682e-178e7f349c9b",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/9c134f41-4c29-1bd8-682e-178e7f349c9b/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Random/HMG_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "647f59fb-41ee-ed30-11f1-52b0814af441",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/647f59fb-41ee-ed30-11f1-52b0814af441/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Random/Chromas/Standard/HMG_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "a89584fb-451d-fcce-0176-3bbaa6764a2e",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/a89584fb-451d-fcce-0176-3bbaa6764a2e/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Random/Levels/HMG_Random_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "57523cf0-4574-968b-9f17-168e3bdb6d0d",
       "displayName": "Lightwave Odin",
       "themeUuid": "f9fb29bd-4592-ee49-0e2a-93a925d7332e",
@@ -700,7 +730,7 @@
       "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
       "displayIcon": "https://media.valorant-api.com/weaponskins/85ed3f9d-4e59-a709-8faf-bc86effb3a07/displayicon.png",
       "wallpaper": null,
-      "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/HeavyMachineGun_URF_PrimaryAsset",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/HeavyMachineGun_URF_PrimaryAsset",
       "chromas": [
         {
           "uuid": "f55aac92-4420-7038-634a-8fb3fc9a936d",
@@ -709,7 +739,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/f55aac92-4420-7038-634a-8fb3fc9a936d/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/f55aac92-4420-7038-634a-8fb3fc9a936d/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Chromas/Standard/HeavyMachineGun_URF_Standard_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Chromas/Standard/HeavyMachineGun_URF_Standard_PrimaryAsset"
         },
         {
           "uuid": "3b809ee0-4af3-b604-9ac4-a799241289e7",
@@ -718,7 +748,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/3b809ee0-4af3-b604-9ac4-a799241289e7/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/3b809ee0-4af3-b604-9ac4-a799241289e7/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Chromas/v1/HeavyMachineGun_URF_v1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Chromas/v1/HeavyMachineGun_URF_v1_PrimaryAsset"
         },
         {
           "uuid": "027dda2f-491d-e55e-1d32-acb7f55008f9",
@@ -727,7 +757,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/027dda2f-491d-e55e-1d32-acb7f55008f9/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/027dda2f-491d-e55e-1d32-acb7f55008f9/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Chromas/v2/HeavyMachineGun_URF_v2_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Chromas/v2/HeavyMachineGun_URF_v2_PrimaryAsset"
         },
         {
           "uuid": "e2c992bc-4099-eeac-9e3f-2e9d6a6bf757",
@@ -736,7 +766,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e2c992bc-4099-eeac-9e3f-2e9d6a6bf757/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e2c992bc-4099-eeac-9e3f-2e9d6a6bf757/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Chromas/v3/HeavyMachineGun_URF_v3_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Chromas/v3/HeavyMachineGun_URF_v3_PrimaryAsset"
         }
       ],
       "levels": [
@@ -746,7 +776,7 @@
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/5123ed96-48de-aeab-eaea-2b8ea689f5a2/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/BlastX_Odin_Lv1.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Levels/HeavyMachineGun_URF_Lv1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Levels/HeavyMachineGun_URF_Lv1_PrimaryAsset"
         },
         {
           "uuid": "35e89d1a-477c-3d54-82aa-3599a832fe0b",
@@ -754,7 +784,7 @@
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/35e89d1a-477c-3d54-82aa-3599a832fe0b/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/BlastX_Odin_Lv2_Update.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Levels/HeavyMachineGun_URF_Lv2_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Levels/HeavyMachineGun_URF_Lv2_PrimaryAsset"
         },
         {
           "uuid": "31201e02-4873-a6db-1ce6-6e93a620370c",
@@ -762,7 +792,7 @@
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/31201e02-4873-a6db-1ce6-6e93a620370c/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/BlastX_Odin_Lv3.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Levels/HeavyMachineGun_URF_Lv3_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Levels/HeavyMachineGun_URF_Lv3_PrimaryAsset"
         },
         {
           "uuid": "7637fff1-4275-590a-6181-be95eae8786a",
@@ -770,7 +800,7 @@
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/7637fff1-4275-590a-6181-be95eae8786a/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/BlastX_Odin_Lv4_Update.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/Urf/Levels/HeavyMachineGun_URF_Lv4_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/HMG/URF/Levels/HeavyMachineGun_URF_Lv4_PrimaryAsset"
         }
       ]
     },
@@ -1574,6 +1604,36 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/7090c9c1-454e-6f83-1b4d-7b961b55cf01/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/LMG/Radianite/Levels/LMG_Radianite_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "acccab4a-4093-8a4a-f1d3-299071d763d3",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/acccab4a-4093-8a4a-f1d3-299071d763d3/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/LMG/Random/LMG_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "0a59fa66-4f08-e72d-d818-d083b993e8cf",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/0a59fa66-4f08-e72d-d818-d083b993e8cf/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/LMG/Random/Chromas/Standard/LMG_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "e507b35c-4a86-0663-0259-8da5f286d41c",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/e507b35c-4a86-0663-0259-8da5f286d41c/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/HvyMachineGuns/LMG/Random/Levels/LMG_Random_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -2424,7 +2484,7 @@
         {
           "uuid": "6553ba0a-4d44-799e-69cc-a89aae212409",
           "displayName": "ChronoVoid Vandal Level 2",
-          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "levelItem": "EEquippableSkinLevelItem::SoundEffects",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Vandal_Level02.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Daedalus/Levels/AK_Daedalus_Lv2_PrimaryAsset"
@@ -3192,6 +3252,44 @@
       ]
     },
     {
+      "uuid": "8b688de6-42d3-9430-8f38-32b0b3d1c2c6",
+      "displayName": "Crimsonbeast Vandal",
+      "themeUuid": "b14ecaaa-4718-924c-4425-178e84fc7e32",
+      "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/8b688de6-42d3-9430-8f38-32b0b3d1c2c6/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Mythic/AK_Mythic_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "c6cba7e7-4a2d-546f-9994-bb9e943cec14",
+          "displayName": "Crimsonbeast Vandal",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/c6cba7e7-4a2d-546f-9994-bb9e943cec14/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Mythic/Chromas/Standard/AK_Mythic_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "aae492eb-4d6d-097d-1d47-4fa31ced9751",
+          "displayName": "Crimsonbeast Vandal",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/aae492eb-4d6d-097d-1d47-4fa31ced9751/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220923_VALskinpreview_Mythic_Vandal_Level01_Chroma01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Mythic/Levels/AK_Mythic_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "7c3e8050-40ce-9a75-c1ef-7fa270990ceb",
+          "displayName": "Crimsonbeast Vandal Level 2 - Every time you kill an enemy, a custom visual effect and sound plays",
+          "levelItem": "EEquippableSkinLevelItem::KillEffect",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220923_VALskinpreview_Mythic_Vandal_Level02_Chroma01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Mythic/Levels/AK_Mythic_Lv2_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "72c1e90b-40ca-4304-02eb-28bb2aea4ed2",
       "displayName": "Sensation Vandal",
       "themeUuid": "548cc24d-4127-a9c3-060c-b2bada325474",
@@ -3218,6 +3316,36 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/f4bfff96-487a-cf9e-08cc-d590d962c4e6/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Rainbow/Levels/AK_Rainbow_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "9c808029-48f5-ce89-21c5-88bf4228d2ed",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/9c808029-48f5-ce89-21c5-88bf4228d2ed/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Random/AK_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "f68018d5-44ff-4ccf-3957-75af660abc12",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/f68018d5-44ff-4ccf-3957-75af660abc12/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Random/Chromas/Standard/AK_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "b5f4ed55-4e7f-f561-b365-5397f9e5890b",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/b5f4ed55-4e7f-f561-b365-5397f9e5890b/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/AK/Random/Levels/AK_Random_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -4541,6 +4669,36 @@
       ]
     },
     {
+      "uuid": "7baa9f5a-4ac3-804a-2e47-4da916de0b79",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/7baa9f5a-4ac3-804a-2e47-4da916de0b79/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Burst/Random/Burst_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "10afa924-483c-3f29-21a3-f78b88e13c60",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/10afa924-483c-3f29-21a3-f78b88e13c60/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Burst/Random/Chromas/Standard/Burst_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "fb79c688-4a07-6f3f-7c1a-948b5b399a3f",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/fb79c688-4a07-6f3f-7c1a-948b5b399a3f/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Burst/Random/Levels/Burst_Random_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "decd0962-453a-1551-47e1-1287aafb5a27",
       "displayName": "Infinity Bulldog",
       "themeUuid": "6fd2d0f4-44ca-c131-5049-5ba91a0e8303",
@@ -5298,7 +5456,7 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinchromas/62228fbd-418d-a7d6-e44a-06885debdef5/displayicon.png",
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/62228fbd-418d-a7d6-e44a-06885debdef5/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/62228fbd-418d-a7d6-e44a-06885debdef5/swatch.png",
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Phantom_Level04_Chroma3.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Phantom_Level04_Chroma3_v2.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Daedalus/Chromas/v3/Carbine_Daedalus_v3_PrimaryAsset"
         }
       ],
@@ -5314,7 +5472,7 @@
         {
           "uuid": "fb9ba36e-4901-e621-cc0b-dba82ba9eded",
           "displayName": "ChronoVoid Phantom Level 2",
-          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "levelItem": "EEquippableSkinLevelItem::SoundEffects",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Phantom_Level02.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Daedalus/Levels/Carbine_Daedalus_Lv2_PrimaryAsset"
@@ -6518,6 +6676,36 @@
       ]
     },
     {
+      "uuid": "fff73ad4-4d46-a6d9-43f1-51b633845434",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/fff73ad4-4d46-a6d9-43f1-51b633845434/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Random/Carbine_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "adf1d2cc-482e-a16a-e3c1-608a82b606cc",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/adf1d2cc-482e-a16a-e3c1-608a82b606cc/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Random/Chromas/Standard/Carbine_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "4728dfee-4879-381c-1db1-89b839cbd3d4",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/4728dfee-4879-381c-1db1-89b839cbd3d4/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Rifles/Carbine/Random/Levels/Carbine_Random_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "29665396-4dc8-c409-5e38-228949690f1e",
       "displayName": "Lightwave Phantom",
       "themeUuid": "f9fb29bd-4592-ee49-0e2a-93a925d7332e",
@@ -7193,9 +7381,9 @@
         {
           "uuid": "c6065860-4afc-ef16-97a0-c88445221a2c",
           "displayName": "ChronoVoid Judge Level 2",
-          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "levelItem": "EEquippableSkinLevelItem::SoundEffects",
           "displayIcon": null,
-          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Judge_Level02.mp4",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220923_VALskinpreview_Daedalus_Judge_Level02_v2.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Daedalus/Levels/AutoShotgun_Daedalus_Lv2_PrimaryAsset"
         },
         {
@@ -7808,6 +7996,44 @@
       ]
     },
     {
+      "uuid": "5e342c5c-4757-4c4e-ca7c-a4b97930308b",
+      "displayName": "Crimsonbeast Judge",
+      "themeUuid": "b14ecaaa-4718-924c-4425-178e84fc7e32",
+      "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/5e342c5c-4757-4c4e-ca7c-a4b97930308b/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Mythic/AutoShotgun_Mythic_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "03203254-4310-9150-ed4f-6a8c58454ab6",
+          "displayName": "Crimsonbeast Judge",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/03203254-4310-9150-ed4f-6a8c58454ab6/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Mythic/Chromas/Standard/AutoShotgun_Mythic_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "8c02ea4f-45ce-76ba-9ea6-198156deb9eb",
+          "displayName": "Crimsonbeast Judge",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/8c02ea4f-45ce-76ba-9ea6-198156deb9eb/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220923_VALskinpreview_Mythic_Judge_Level01_Chroma01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Mythic/Levels/AutoShotgun_Mythic_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "e1401626-424d-a263-2b60-4eb2147c096c",
+          "displayName": "Crimsonbeast Judge Level 2 - Every time you kill an enemy, a custom visual effect and sound plays.",
+          "levelItem": "EEquippableSkinLevelItem::KillEffect",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220923_VALskinpreview_Mythic_Judge_Level02_Chroma01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Mythic/Levels/AutoShotgun_Mythic_Lv2_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "5d217dd0-4f2c-cfca-274e-3f8f9d518b13",
       "displayName": "POLYfox Judge",
       "themeUuid": "6ce582d1-4cf9-efc4-078c-169295311f7e",
@@ -7951,6 +8177,36 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/65ed014b-4279-8ba5-01d3-f48d4e7f115c/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Rainbow/Levels/AutoShotgun_Rainbow_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "68f2e92e-4c94-8104-ed99-03925bbc71e8",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/68f2e92e-4c94-8104-ed99-03925bbc71e8/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Random/AutoShotgun_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "f848117b-4cd5-04a1-9f36-648eacebe8ec",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/f848117b-4cd5-04a1-9f36-648eacebe8ec/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Random/Chromas/Standard/AutoShotgun_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "69dd1d46-422b-ec24-6dc1-fb848d445ef4",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/69dd1d46-422b-ec24-6dc1-fb848d445ef4/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/AutoShotgun/Random/Levels/AutoShotgun_Random_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -8947,6 +9203,36 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/5466bacf-446b-52a1-611d-339f6f376d40/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/PumpShotgun/Porcelain/Levels/PumpShotgun_Porcelain_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "ed407bc7-4949-3131-b84f-d6be83b63a15",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/ed407bc7-4949-3131-b84f-d6be83b63a15/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/PumpShotgun/Random/PumpShotgun_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "74d62853-4aa2-8d3b-d7c2-8d8bde69f23c",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/74d62853-4aa2-8d3b-d7c2-8d8bde69f23c/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/PumpShotgun/Random/Chromas/Standard/PumpShotgun_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "e5c6d130-4226-cdac-8d03-1b97e907b8f9",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/e5c6d130-4226-cdac-8d03-1b97e907b8f9/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Shotguns/PumpShotgun/Random/Levels/PumpShotgun_Random_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -10222,6 +10508,36 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/5a773352-456e-ef0b-35ab-c99ead159264/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/AutoPistol/Rainbow/Levels/AutoPistol_Rainbow_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "7b82c605-44bb-aae9-55bf-a4afef323553",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/7b82c605-44bb-aae9-55bf-a4afef323553/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/AutoPistol/Random/AutoPistol_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "afc47102-475d-3a5c-f498-c4b98fb203e1",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/afc47102-475d-3a5c-f498-c4b98fb203e1/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/AutoPistol/Random/Chromas/Standard/AutoPistol_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "dbf01b61-4639-696a-d17b-0b85c4e3feec",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/dbf01b61-4639-696a-d17b-0b85c4e3feec/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/AutoPistol/Random/Levels/AutoPistol_Random_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -11609,6 +11925,36 @@
       ]
     },
     {
+      "uuid": "3e3ad47a-4383-73f1-4d92-1693059dae8f",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/3e3ad47a-4383-73f1-4d92-1693059dae8f/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Random/BasePistol_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "093e8873-4d3d-b63d-e98f-d29fc401c8be",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/093e8873-4d3d-b63d-e98f-d29fc401c8be/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Random/Chromas/Standard/BasePistol_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "1b9b82e2-4352-e339-f0f8-7d96d16b48e0",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/1b9b82e2-4352-e339-f0f8-7d96d16b48e0/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/BasePistol/Random/Levels/BasePistol_Random_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "81ddbfcd-4081-8341-ff76-ad8cdb26ce4c",
       "displayName": "Gravitational Uranium Neuroblaster Classic",
       "themeUuid": "ca390b2f-4f2e-12ac-c225-f28bd0f1fd45",
@@ -12568,6 +12914,36 @@
       ]
     },
     {
+      "uuid": "b4903002-4687-1953-847a-e0b09a2b2726",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/b4903002-4687-1953-847a-e0b09a2b2726/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Random/Luger_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "e17c8364-4630-505a-a2f8-45add0c2c292",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/e17c8364-4630-505a-a2f8-45add0c2c292/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Random/Chromas/Standard/Luger_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "7afbe865-4832-941b-049b-1397bd90d4d8",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/7afbe865-4832-941b-049b-1397bd90d4d8/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Luger/Random/Levels/Luger_Random_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "4725c2c4-45b7-d9ab-ff4f-a79c3b2dd9ec",
       "displayName": "Eclipse Ghost",
       "themeUuid": "749176f4-4159-5eca-8547-f19cb7a009bc",
@@ -13304,7 +13680,7 @@
         {
           "uuid": "5ea7ae90-4b5c-bc7d-e1b4-25a1dae54e6d",
           "displayName": "ChronoVoid Sheriff Level 2",
-          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "levelItem": "EEquippableSkinLevelItem::SoundEffects",
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/220909_VALskinpreview_Daedalus_Sheriff_Level02.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Daedalus/Levels/Revolver_Daedalus_Lv2_PrimaryAsset"
@@ -13727,6 +14103,44 @@
       ]
     },
     {
+      "uuid": "97a3cdc4-4f3a-ed26-02d6-6dbf6c1380d0",
+      "displayName": "Crimsonbeast Sheriff",
+      "themeUuid": "b14ecaaa-4718-924c-4425-178e84fc7e32",
+      "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/97a3cdc4-4f3a-ed26-02d6-6dbf6c1380d0/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Mythic/Revolver_Mythic_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "6c78d9d4-4955-1044-f7e9-b4bd2c7b4dbd",
+          "displayName": "Crimsonbeast Sheriff",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/6c78d9d4-4955-1044-f7e9-b4bd2c7b4dbd/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Mythic/Chromas/Standard/Revolver_Mythic_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "72586d88-46c4-1532-7507-d6bb5c2d201c",
+          "displayName": "Crimsonbeast Sheriff",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/72586d88-46c4-1532-7507-d6bb5c2d201c/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220923_VALskinpreview_Mythic_Sheriff_Level01_Chroma01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Mythic/Levels/Revolver_Mythic_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "11217acc-4f12-d9fe-60a4-88b32f355bd2",
+          "displayName": "Crimsonbeast Sheriff Level 2 - Every time you kill an enemy, a custom visual effect and sound plays.",
+          "levelItem": "EEquippableSkinLevelItem::KillEffect",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220923_VALskinpreview_Mythic_Sheriff_Level02_Chroma01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Mythic/Levels/Revolver_Mythic_Lv2_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "83778c03-45a3-67a2-3c89-6b8598327d58",
       "displayName": "Ion Sheriff",
       "themeUuid": "5186d489-450e-bf5e-f129-2dbaa3034a28",
@@ -13926,6 +14340,36 @@
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Protocol_Sheriff_05.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Protocol/Levels/Revolver_Protocol_Lv5_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "d26ce959-4ed2-7105-8f33-dea48e26de4a",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/d26ce959-4ed2-7105-8f33-dea48e26de4a/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Random/Revolver_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "c5d3843f-4ae2-f87a-ebc5-3ab638fc6ae0",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/c5d3843f-4ae2-f87a-ebc5-3ab638fc6ae0/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Random/Chromas/Standard/Revolver_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "94d0ca9c-444b-f762-17a5-908ef1418bc3",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/94d0ca9c-444b-f762-17a5-908ef1418bc3/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Revolver/Random/Levels/Revolver_Random_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -15053,6 +15497,36 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/31629ef7-47ac-908e-369b-16beabc02c5b/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Slim/Pink/Levels/Slim_Pink_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "075e4cf0-469b-25dc-8d6f-2995fbb093de",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/075e4cf0-469b-25dc-8d6f-2995fbb093de/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Slim/Random/Slim_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "38f0b73a-4c02-26ed-dbd0-409a2f8e33ce",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/38f0b73a-4c02-26ed-dbd0-409a2f8e33ce/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Slim/Random/Chromas/Standard/Slim_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "6afa5e36-4a90-7a2c-30b7-23be5ba2588b",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/6afa5e36-4a90-7a2c-30b7-23be5ba2588b/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/Sidearms/Slim/Random/Levels/Slim_Random_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -16361,6 +16835,36 @@
       ]
     },
     {
+      "uuid": "acdd29aa-44b5-0d78-dc54-8f92ed555559",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/acdd29aa-44b5-0d78-dc54-8f92ed555559/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper/Random/BoltSniper_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "1f0c942c-4be3-d4f3-0183-f7b26ccdcbb8",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/1f0c942c-4be3-d4f3-0183-f7b26ccdcbb8/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper/Random/Chromas/Standard/BoltSniper_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "d0ef50dc-4a62-1ac1-a276-1f8d1b47a7b0",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/d0ef50dc-4a62-1ac1-a276-1f8d1b47a7b0/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Boltsniper/Random/Levels/BoltSniper_Random_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "c21e2f34-4b8c-4350-33c8-a8b626ecaadc",
       "displayName": "Gravitational Uranium Neuroblaster Operator",
       "themeUuid": "ca390b2f-4f2e-12ac-c225-f28bd0f1fd45",
@@ -17377,7 +17881,7 @@
       "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
       "displayIcon": "https://media.valorant-api.com/weaponskins/2a049f35-4bcd-af25-21fd-ec942e2d5007/displayicon.png",
       "wallpaper": null,
-      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_PrimaryAsset",
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_PrimaryAsset",
       "chromas": [
         {
           "uuid": "e2f5a979-4e9a-f931-7f52-d99f0ec4a61b",
@@ -17386,7 +17890,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e2f5a979-4e9a-f931-7f52-d99f0ec4a61b/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e2f5a979-4e9a-f931-7f52-d99f0ec4a61b/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/Chromas/Standard/DMR_HypeBeast_Standard_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/Chromas/Standard/DMR_HypeBeast_Standard_PrimaryAsset"
         },
         {
           "uuid": "4ca16478-40c7-2cf6-bdd2-099761921e61",
@@ -17395,7 +17899,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/4ca16478-40c7-2cf6-bdd2-099761921e61/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/4ca16478-40c7-2cf6-bdd2-099761921e61/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/Chromas/Orange/DMR_HypeBeast_Orange_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/Chromas/Orange/DMR_HypeBeast_Orange_PrimaryAsset"
         },
         {
           "uuid": "e866f273-4acc-806f-becd-56a6bef48fbc",
@@ -17404,7 +17908,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/e866f273-4acc-806f-becd-56a6bef48fbc/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/e866f273-4acc-806f-becd-56a6bef48fbc/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/Chromas/Blue/DMR_HypeBeast_Blue_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/Chromas/Blue/DMR_HypeBeast_Blue_PrimaryAsset"
         },
         {
           "uuid": "22f831db-4e55-6280-9078-d9b63ae93e4d",
@@ -17413,7 +17917,7 @@
           "fullRender": "https://media.valorant-api.com/weaponskinchromas/22f831db-4e55-6280-9078-d9b63ae93e4d/fullrender.png",
           "swatch": "https://media.valorant-api.com/weaponskinchromas/22f831db-4e55-6280-9078-d9b63ae93e4d/swatch.png",
           "streamedVideo": null,
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/Chromas/Yellow/DMR_HypeBeast_Yellow_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/Chromas/Yellow/DMR_HypeBeast_Yellow_PrimaryAsset"
         }
       ],
       "levels": [
@@ -17423,7 +17927,7 @@
           "levelItem": null,
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/9336ab9d-445c-0872-a283-9f9b61a0098a/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeGuardian01_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_Lv1_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_Lv1_PrimaryAsset"
         },
         {
           "uuid": "edc646b0-4a5a-6a76-a860-6b8db95bd132",
@@ -17431,7 +17935,7 @@
           "levelItem": "EEquippableSkinLevelItem::VFX",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/edc646b0-4a5a-6a76-a860-6b8db95bd132/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeGuardian02_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_Lv2_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_Lv2_PrimaryAsset"
         },
         {
           "uuid": "14b04b38-4359-62a3-ab62-bcbe715e3fa0",
@@ -17439,7 +17943,7 @@
           "levelItem": "EEquippableSkinLevelItem::Animation",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/14b04b38-4359-62a3-ab62-bcbe715e3fa0/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeGuardian03_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_Lv3_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_Lv3_PrimaryAsset"
         },
         {
           "uuid": "99b7b761-41b3-e26c-ceeb-b9a1c3a67736",
@@ -17447,7 +17951,7 @@
           "levelItem": "EEquippableSkinLevelItem::Finisher",
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/99b7b761-41b3-e26c-ceeb-b9a1c3a67736/displayicon.png",
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_PrimeGuardian04_Master.mp4",
-          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/HypeBeast/DMR_HypeBeast_Lv4_PrimaryAsset"
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Hypebeast/DMR_HypeBeast_Lv4_PrimaryAsset"
         }
       ]
     },
@@ -17865,6 +18369,36 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/cf06c0d6-4c0c-1e8a-0553-999a45a53ae1/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Puzzle/Levels/DMR_Puzzle_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "874025d8-4293-a38a-96ac-3d94954fb4b7",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/874025d8-4293-a38a-96ac-3d94954fb4b7/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Random/DMR_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "1738abbc-4dbe-1a42-a15b-eda6249f35be",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/1738abbc-4dbe-1a42-a15b-eda6249f35be/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Random/Chromas/Standard/DMR_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "76587a8a-4622-2e70-aafd-ea960b06a98d",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/76587a8a-4622-2e70-aafd-ea960b06a98d/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/DMR/Random/Levels/DMR_Random_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -18771,6 +19305,44 @@
       ]
     },
     {
+      "uuid": "af77e583-41fc-b0c2-3728-058d02502039",
+      "displayName": "Crimsonbeast Marshal",
+      "themeUuid": "b14ecaaa-4718-924c-4425-178e84fc7e32",
+      "contentTierUuid": "60bca009-4182-7998-dee7-b8a2558dc369",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/af77e583-41fc-b0c2-3728-058d02502039/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper/Mythic/LeverSniper_Mythic_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "d7ac88cd-4d2d-f6b3-e7fe-f291b6c7f751",
+          "displayName": "Crimsonbeast Marshal",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/d7ac88cd-4d2d-f6b3-e7fe-f291b6c7f751/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper/Mythic/Chromas/Standard/LeverSniper_Mythic_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "57a31c23-4742-9bef-740e-c998061d720b",
+          "displayName": "Crimsonbeast Marshal",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/57a31c23-4742-9bef-740e-c998061d720b/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220923_VALskinpreview_Mythic_Marshall_Level01_Chroma01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper/Mythic/Levels/LeverSniper_Mythic_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "55db84f5-4b04-b9a8-6994-30bfe598286d",
+          "displayName": "Crimsonbeast Marshal Level 2 - Every time you kill an enemy, a custom visual effect and sound plays.",
+          "levelItem": "EEquippableSkinLevelItem::KillEffect",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220923_VALskinpreview_Mythic_Marshall_Level02_Chroma01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper/Mythic/Levels/LeverSniper_Mythic_Lv2_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "6eea7984-4ca4-d547-4d50-b4a608072feb",
       "displayName": "POLYfrog Marshal",
       "themeUuid": "deb5db21-438b-e5a1-2ee7-bc8830ea6a1f",
@@ -18914,6 +19486,36 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/c7d5f553-4239-7124-3932-6a83a019d527/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper/Radianite/Levels/LeverSniper_Radianite_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "457fe5d2-40c8-4490-6834-53a74e709f4a",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/457fe5d2-40c8-4490-6834-53a74e709f4a/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper/Random/LeverSniper_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "bd2a03a0-4690-eacc-b68c-9c87e378294d",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/bd2a03a0-4690-eacc-b68c-9c87e378294d/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper/Random/Chromas/Standard/LeverSniper_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "04b64c56-4a51-88d1-419e-9c91fcdff626",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/04b64c56-4a51-88d1-419e-9c91fcdff626/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SniperRifles/Leversniper/Random/Levels/LeverSniper_Random_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -20403,6 +21005,36 @@
       ]
     },
     {
+      "uuid": "c79318a6-4ffd-a99f-f452-77947640f688",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/c79318a6-4ffd-a99f-f452-77947640f688/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Random/MP5_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "055e903f-42b7-3d08-dc2f-bc9ed2d9b719",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/055e903f-42b7-3d08-dc2f-bc9ed2d9b719/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Random/Chromas/Standard/MP5_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "3f14aff8-480e-335a-974f-2ba1817de303",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/3f14aff8-480e-335a-974f-2ba1817de303/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/MP5/Random/Levels/MP5_Random_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "4a8e8ff6-44f2-0ebf-6fa8-a5af76b628ee",
       "displayName": "Gravitational Uranium Neuroblaster Spectre",
       "themeUuid": "ca390b2f-4f2e-12ac-c225-f28bd0f1fd45",
@@ -21491,6 +22123,36 @@
           "displayIcon": "https://media.valorant-api.com/weaponskinlevels/fed9c3f3-40a5-da67-4ac9-4683cc5a0eba/displayicon.png",
           "streamedVideo": null,
           "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/Rainbow/Levels/Vector_Rainbow_Lv1_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "d25dfdc4-4fce-e121-88ef-66b5dadeee09",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/d25dfdc4-4fce-e121-88ef-66b5dadeee09/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/Random/Vector_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "4bb225a9-4a78-a9d2-8a9f-07a965bc8867",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/4bb225a9-4a78-a9d2-8a9f-07a965bc8867/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/Random/Chromas/Standard/Vector_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "caea8844-4603-951f-c458-25a04a778bf8",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/caea8844-4603-951f-c458-25a04a778bf8/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Guns/SubMachineGuns/Vector/Random/Levels/Vector_Random_Lv1_PrimaryAsset"
         }
       ]
     },
@@ -23814,6 +24476,44 @@
       ]
     },
     {
+      "uuid": "ec04e1a4-4067-bb9c-c18b-46a80e5f3f1f",
+      "displayName": "Crimsonbeast Hammer",
+      "themeUuid": "b14ecaaa-4718-924c-4425-178e84fc7e32",
+      "contentTierUuid": "e046854e-406c-37f4-6607-19a9ba8426fc",
+      "displayIcon": "https://media.valorant-api.com/weaponskins/ec04e1a4-4067-bb9c-c18b-46a80e5f3f1f/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Melee/Mythic/Melee_Mythic_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "e740a207-4cd8-da88-84b3-11af53748fb6",
+          "displayName": "Crimsonbeast Hammer",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/e740a207-4cd8-da88-84b3-11af53748fb6/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Mythic/Chromas/Standard/Melee_Mythic_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "5a27fbea-4f1d-62f9-8e5f-f494b4f0d322",
+          "displayName": "Crimsonbeast Hammer",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/5a27fbea-4f1d-62f9-8e5f-f494b4f0d322/displayicon.png",
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220923_VALskinpreview_Mythic_Melee_Level01_Chroma01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Mythic/Levels/Melee_Mythic_Lv1_PrimaryAsset"
+        },
+        {
+          "uuid": "ba4bb49f-4494-4698-8d5f-e5952c92604b",
+          "displayName": "Crimsonbeast Hammer Level 2",
+          "levelItem": "EEquippableSkinLevelItem::VFX",
+          "displayIcon": null,
+          "streamedVideo": "https://media.valorant-api.com/streamedvideos/220923_VALskinpreview_Mythic_Melee_Level02_Chroma01.mp4",
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Mythic/Levels/Melee_Mythic_Lv2_PrimaryAsset"
+        }
+      ]
+    },
+    {
       "uuid": "3209e2af-4703-088b-ebef-8da89b4cef87",
       "displayName": "Genesis Arc",
       "themeUuid": "a68dde93-4011-c401-ae94-22b43d267598",
@@ -24046,6 +24746,36 @@
           "displayIcon": null,
           "streamedVideo": "https://media.valorant-api.com/streamedvideos/VALskinpreview_Protocol_Melee_03.mp4",
           "assetPath": "ShooterGame/Content/Equippables/Melee/Protocol/Levels/Melee_Protocol_Lv3_PrimaryAsset"
+        }
+      ]
+    },
+    {
+      "uuid": "b5f42a00-425a-6fdf-61af-bb9a564c3d79",
+      "displayName": "Random Favorite Skin",
+      "themeUuid": "0d7a5bfb-4850-098e-1821-d989bbfd58a8",
+      "contentTierUuid": null,
+      "displayIcon": "https://media.valorant-api.com/weaponskins/b5f42a00-425a-6fdf-61af-bb9a564c3d79/displayicon.png",
+      "wallpaper": null,
+      "assetPath": "ShooterGame/Content/Equippables/Melee/Random/Melee_Random_PrimaryAsset",
+      "chromas": [
+        {
+          "uuid": "d1d33fe3-444e-3391-cd3f-92ae4c15c3cd",
+          "displayName": "Standard",
+          "displayIcon": null,
+          "fullRender": "https://media.valorant-api.com/weaponskinchromas/d1d33fe3-444e-3391-cd3f-92ae4c15c3cd/fullrender.png",
+          "swatch": null,
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Random/Chromas/Standard/Melee_Random_Standard_PrimaryAsset"
+        }
+      ],
+      "levels": [
+        {
+          "uuid": "059c9307-4d19-00f3-c0e5-49b8bc66bd40",
+          "displayName": "Random Favorite Skin",
+          "levelItem": null,
+          "displayIcon": "https://media.valorant-api.com/weaponskinlevels/059c9307-4d19-00f3-c0e5-49b8bc66bd40/displayicon.png",
+          "streamedVideo": null,
+          "assetPath": "ShooterGame/Content/Equippables/Melee/Random/Levels/Melee_Random_Lv1_PrimaryAsset"
         }
       ]
     },

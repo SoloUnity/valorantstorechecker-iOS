@@ -21,7 +21,7 @@
 1) Connexion réseau invalide.
 2) Mauvais mot de passe défini dans Réglages.";
 "ErrorMessage3" = "Votre achat n'a pas pu être vérifié par l'App Store.";
-"NetworkError" = "S'il vous plait, vérifiez votre connexion internet.";
+"NetworkError" = "Pas d'internet";
 
 "Reset" = "Réinitialiser";
 "ResetApp" = "Réinitialisation de l'application";

@@ -10,7 +10,7 @@ import StoreKit
 
 struct UpdateButton: View {
     
-    @State var update = false
+    @State private var update = false
     
     var body: some View {
         

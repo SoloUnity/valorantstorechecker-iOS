@@ -17,15 +17,6 @@
         "branch" : "master",
         "revision" : "d4b6bd007fd8432a59d341faa22ec0cd738d2d9d"
       }
-    },
-    {
-      "identity" : "sharesheet",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/briannadoubt/ShareSheet",
-      "state" : {
-        "branch" : "main",
-        "revision" : "27bc574d312a02a1c13e91d7fdbe7f3eb228f9a6"
-      }
     }
   ],
   "version" : 2

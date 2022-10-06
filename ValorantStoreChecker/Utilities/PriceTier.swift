@@ -9,7 +9,7 @@ import Foundation
 
 struct PriceTier{
     
-    static func getRemotePrice(authAPIModel: AuthAPIModel ,uuid : String, contentTierUuid : String) -> String {
+    static func getRemotePrice(authAPIModel: AuthAPIModel ,uuid : String) -> String {
         
         for skin in authAPIModel.storePrice {
             if uuid == skin.offerID && skin.cost != nil{

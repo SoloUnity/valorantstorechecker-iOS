@@ -8,6 +8,7 @@
 import SwiftUI
 import AVKit
 import AZVideoPlayer
+//import GoogleMobileAds
 
 extension UIApplication {
     
@@ -50,118 +51,129 @@ struct SkinCardDetailView: View {
     private let player = AVPlayer()
 
     var body: some View {
-        GeometryReader{ geo in
-            
-            VStack(alignment: .leading, spacing: UIScreen.main.bounds.height / 40) {
+        
+        ZStack {
+            GeometryReader{ geo in
                 
-                
-                // MARK: Title header
-                HStack{
+                VStack(alignment: .leading, spacing: UIScreen.main.bounds.height / 40) {
                     
-                    
-                    if skin.contentTierUuid != nil{
-                        PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 30)
-                    }else{
-                        Image(systemName: "questionmark.circle")
-                            .frame(width: 30, height: 30)
-                    }
-                    
-                    let name = skin.displayName
-                    if name.count < 19 {
-                        Text (String(name))
-                            .font(.title)
-                            .bold()
-                            .foregroundColor(.white)
-                            .lineLimit(1)
-                    }
-                    else if name.count > 30 {
-                        Text (String(name))
-                            .font(.caption)
-                            .bold()
-                            .foregroundColor(.white)
-                            .lineLimit(1)
-                    }
-                    else {
-                        Text (String(name))
-                            .font(.title3)
-                            .bold()
-                            .foregroundColor(.white)
-                            .lineLimit(1)
-                    }
-                    
-                    Spacer()
-                    
-                    Button {
-                        Dispatch.background {
-                            self.isPresentingShareSheet = true
+                    // MARK: Title header
+                    HStack{
+                        
+                        
+                        
+                        if skin.contentTierUuid != nil{
+                            PriceTierView(contentTierUuid: skin.contentTierUuid!, dimensions: 30)
+                        }else{
+                            Image(systemName: "questionmark.circle")
+                                .frame(width: 30, height: 30)
                         }
-                    } label: {
-                        Image(systemName: "square.and.arrow.up")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height:20)
-                    }
-                    .shareSheet(isPresented: $isPresentingShareSheet, items: [URL(string: "https://valorantstore.net/skin/\(skin.id.description.lowercased())")!])
+                        
+                        // Determine title size
+                        let name = skin.displayName
+                        if name.count < 19 {
+                            Text (String(name))
+                                .font(.title)
+                                .bold()
+                                .foregroundColor(.white)
+                                .lineLimit(1)
+                        }
+                        else if name.count > 30 {
+                            Text (String(name))
+                                .font(.caption)
+                                .bold()
+                                .foregroundColor(.white)
+                                .lineLimit(1)
+                        }
+                        else {
+                            Text (String(name))
+                                .font(.title3)
+                                .bold()
+                                .foregroundColor(.white)
+                                .lineLimit(1)
+                        }
+                        
+                        Spacer()
+                        
+                        Button {
+                            Dispatch.background {
+                                self.isPresentingShareSheet = true
+                            }
+                        } label: {
+                            Image(systemName: "square.and.arrow.up")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20, height:20)
+                        }
+                        .shareSheet(isPresented: $isPresentingShareSheet, items: [URL(string: "https://valorantstore.net/skin/\(skin.id.description.lowercased())")!])
 
+                        
+                        
+                    }
                     
                     
-                }
-                
-                ScrollView() {
-                    
-                    VStack {
-                        // MARK: Price
-                        ZStack{
-                            
-                            
-                            HStack{
+                        
+                        VStack {
+                            // MARK: Price
+                            ZStack{
                                 
                                 
-                                if skin.contentTierUuid != nil {
-                                    let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!)
+                                HStack{
                                     
-                                    if price != "Unknown" {
+                                    
+                                    if skin.contentTierUuid != nil {
+                                        let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased())
                                         
-                                        if skin.contentTierUuid == nil || (skin.contentTierUuid != nil && PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased() , contentTierUuid: skin.contentTierUuid!) == "2475+") {
+                                        if price != "Unknown" {
                                             
-                                            Button {
-                                                showAlert = true
-                                            } label: {
-                                                Image(systemName: "info.circle")
-                                                    .accentColor(.white)
+                                            if skin.contentTierUuid == nil || (skin.contentTierUuid != nil && PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased()) == "2475+") {
+                                                
+                                                Button {
+                                                    showAlert = true
+                                                } label: {
+                                                    Image(systemName: "info.circle")
+                                                        .accentColor(.white)
+                                                }
+                                                .alert(isPresented: $showAlert) { () -> Alert in
+                                                    Alert(title: Text(LocalizedStringKey("InfoPrice")))
+                                                }
                                             }
-                                            .alert(isPresented: $showAlert) { () -> Alert in
-                                                Alert(title: Text(LocalizedStringKey("InfoPrice")))
+                                            
+                                            Text(LocalizedStringKey("Cost"))
+                                                .bold()
+                                            
+                                            Spacer()
+                                            
+                                            if self.price != "" {
+                                                Image("vp")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 18, height: 18)
+                                                
+                                                Text(self.price)
+                                                    .foregroundColor(.white)
+                                                    .bold()
                                             }
-                                        }
-                                        
-                                        Text(LocalizedStringKey("Cost"))
-                                            .bold()
-                                        
-                                        Spacer()
-                                        
-                                        if self.price != "" {
-                                            Image("vp")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 18, height: 18)
+                                            else {
+                                                Image("vp")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 18, height: 18)
+                                                
+                                                Text(price)
+                                                    .foregroundColor(.white)
+                                                    .bold()
+                                            }
                                             
-                                            Text(self.price)
-                                                .foregroundColor(.white)
-                                                .bold()
-                                        }
-                                        else {
-                                            Image("vp")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 18, height: 18)
                                             
-                                            Text(price)
-                                                .foregroundColor(.white)
-                                                .bold()
                                         }
-                                        
-                                        
+                                        else{
+                                            
+                                            Text(LocalizedStringKey("ExclusiveSkinMessage"))
+                                                .foregroundColor(.white)
+                                            
+                                            Spacer()
+                                        }
                                     }
                                     else{
                                         
@@ -170,207 +182,12 @@ struct SkinCardDetailView: View {
                                         
                                         Spacer()
                                     }
-                                }
-                                else{
-                                    
-                                    Text(LocalizedStringKey("ExclusiveSkinMessage"))
-                                        .foregroundColor(.white)
-                                    
-                                    Spacer()
-                                }
 
+                                }
+                                .padding()
+                                
+           
                             }
-                            .padding()
-                            
-       
-                        }
-                        .background(Blur(radius: 25, opaque: true))
-                        .cornerRadius(10)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.white, lineWidth: 3)
-                                .offset(y: -1)
-                                .offset(x: -1)
-                                .blendMode(.overlay)
-                                .blur(radius: 0)
-                                .mask {
-                                    RoundedRectangle(cornerRadius: 10)
-                                }
-                        }
-                        
-                        
-                        
-                        // MARK: Skin tier videos
-                        if skin.levels!.first?.streamedVideo != nil {
-                            ZStack {
-                                
-                                
-                                
-                                AZVideoPlayer(player: player)
-                                    .cornerRadius(10)
-                                    .aspectRatio(CGSize(width: 1920, height: 1080), contentMode: .fit)
-                                    .overlay{
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color(red: 60/255, green: 60/255, blue: 60/255), lineWidth: 3)
-                                            .offset(y: -1)
-                                            .offset(x: -1)
-                                            .mask {
-                                                RoundedRectangle(cornerRadius: 10)
-                                            }
-                                    }
-                                    .onAppear{
-                                        
-                                        let url  = skin.levels![selectedLevel].streamedVideo
-                                        if player.currentItem == nil && (url != nil) {
-                                            
-                                            self.noVideo = false
-                                            let item = AVPlayerItem(url: URL(string: url!)!)
-                                            player.replaceCurrentItem(with: item)
-                                            
-                                        }
-                                        else if url == nil {
-                                            self.noVideo = true
-                                        }
-                                        
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                                            player.play() // Autoplay
-                                        })
-                                        
-                                        
-                                    }
-                                    .onChange(of: selectedLevel) { level in
-                                        let url  = skin.levels![selectedLevel].streamedVideo
-                                        if url == nil {
-                                            self.noVideo = true
-                                            player.replaceCurrentItem(with: nil)
-                                        }
-                                        else {
-                                            self.noVideo = false
-                                            let item = AVPlayerItem(url: URL(string: url!)!)
-                                            player.replaceCurrentItem(with: item)
-                                        }
-                                        
-                                        
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                                            player.play() // Autoplay
-                                        })
-                                    }
-                                    .scaledToFill()
-                                
-                                if noVideo {
-                                    Image(systemName: "exclamationmark.triangle.fill")
-                                        .font(.title)
-                                }
-                                
-                            }
-                        }
-                        
-                        
-                        
-                        
-                        if skin.levels!.count != 1 {
-                            
-                            // MARK: Video Tier Picker
-                            HStack{
-                                HStack {
-                                    Text(LocalizedStringKey("Tier"))
-                                        .bold()
-                                    Text(String(selectedLevel + 1))
-                                        .bold()
-                                        .padding(-4)
-                                }
-                                
-                                
-                                
-                                Spacer()
-                                
-                                
-                                Menu {
-                                    
-                                    ForEach(0..<skin.levels!.count, id: \.self){ level in
-                                        
-                                        let videoTierName = cleanLevelName(name: String(skin.levels![level].levelItem ?? "null"))
-                                        
-                                        Button {
-                                            self.selectedLevel = level
-                                            
-                                            
-                                            if level == 0 {
-                                                self.videoName = ""
-                                            }
-                                            else if videoTierName == "null" {
-                                                self.videoName = "Variant \(level + 1)"
-                                            }
-                                            else {
-                                                self.videoName = videoTierName
-                                            }
-                                            
-                                        } label: {
-                                            if level == 0 {
-                                                Text("Default1")
-                                            }
-                                            else if videoTierName == "null" {
-                                                Text("\(level + 1). " + "Variant \(level + 1)")
-                                            }
-                                            else {
-                                                Text("\(level + 1). " + videoTierName)
-                                            }
-                                        }
-                                        
-                                        
-                                    }
-                                    
-                                } label: {
-                                    
-                                    
-                                    HStack {
-                                        
-                                        if videoName == "" {
-                                            Text("Default")
-                                                .font(.footnote)
-                                                .bold()
-                                        }
-                                        else {
-                                            Text(videoName)
-                                                .font(.footnote)
-                                                .bold()
-                                        }
-                                        
-                                        Image(systemName: "chevron.up.chevron.down")
-                                            .font(.callout)
-                                    }
-                                }
-                                .padding(.vertical, 8)
-                                .padding(.horizontal, 8)
-                                .background(Constants.pickerWhite)
-                                .cornerRadius(7)
-                                
-                                
-                                /*
-                                 Picker("Video Number", selection: $selectedLevel){
-                                 ForEach(0..<skin.levels!.count, id: \.self){ level in
-                                 
-                                 let videoTierName = cleanLevelName(name: String(skin.levels![level].levelItem ?? "Default"))
-                                 if videoTierName == "Default" {
-                                 Text(LocalizedStringKey("Default"))
-                                 .tag(level)
-                                 }
-                                 else {
-                                 Text("\(level). " + videoTierName)
-                                 .tag(level)
-                                 }
-                                 
-                                 
-                                 }
-                                 }
-                                 .padding(.horizontal, 8)
-                                 .pickerStyle(MenuPickerStyle())
-                                 .background(.ultraThinMaterial)
-                                 .cornerRadius(7)
-                                 */
-                                
-                            }
-                            .padding()
                             .background(Blur(radius: 25, opaque: true))
                             .cornerRadius(10)
                             .overlay{
@@ -384,105 +201,124 @@ struct SkinCardDetailView: View {
                                         RoundedRectangle(cornerRadius: 10)
                                     }
                             }
-                        }
-                        
-                        
-                        // MARK: Skin Variants / Chromas
-                        HStack{
-                            Spacer()
-                            
-                            if let imageData = UserDefaults.standard.data(forKey: skin.chromas![selectedChroma].id.description) {
-                                
-                                let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData)
-                                
-                                let uiImage = UIImage(data: decoded)
-                                
-                                Image(uiImage: uiImage ?? UIImage())
-                                    .resizable()
-                                    .scaledToFit()
-                                    .padding()
-                                
-                            }
-                            else if skin.chromas![selectedChroma].displayIcon != nil{
-                                
-                                AsyncImage(url: URL(string: skin.chromas![selectedChroma].displayIcon!)) { image in
-                                    image.resizable()
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                                .scaledToFit()
-                                .padding()
-                                
-                            }
-                            else if skin.chromas![selectedChroma].fullRender != nil{
-                                
-                                AsyncImage(url: URL(string: skin.chromas![selectedChroma].fullRender!)) { image in
-                                    image.resizable()
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                                .scaledToFit()
-                                .padding()
-                                
-                            }
                             
                             
-                            Spacer()
-                        }
-                        .frame(height: (UIScreen.main.bounds.height / 6.5))
-                        .background(Blur(radius: 25, opaque: true))
-                        .cornerRadius(10)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.white, lineWidth: 3)
-                                .offset(y: -1)
-                                .offset(x: -1)
-                                .blendMode(.overlay)
-                                .blur(radius: 0)
-                                .mask {
-                                    RoundedRectangle(cornerRadius: 10)
+                            
+                            // MARK: Skin tier videos
+                            if skin.levels!.first?.streamedVideo != nil {
+                                ZStack {
+                                    
+                                    
+                                    
+                                    AZVideoPlayer(player: player)
+                                        .cornerRadius(10)
+                                        .aspectRatio(CGSize(width: 1920, height: 1080), contentMode: .fit)
+                                        .overlay{
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color(red: 60/255, green: 60/255, blue: 60/255), lineWidth: 3)
+                                                .offset(y: -1)
+                                                .offset(x: -1)
+                                                .mask {
+                                                    RoundedRectangle(cornerRadius: 10)
+                                                }
+                                        }
+                                        .onAppear{
+                                            
+                                            let url  = skin.levels![selectedLevel].streamedVideo
+                                            if player.currentItem == nil && (url != nil) {
+                                                
+                                                self.noVideo = false
+                                                let item = AVPlayerItem(url: URL(string: url!)!)
+                                                player.replaceCurrentItem(with: item)
+                                                
+                                            }
+                                            else if url == nil {
+                                                self.noVideo = true
+                                            }
+                                            
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                                player.play() // Autoplay
+                                            })
+                                            
+                                            
+                                        }
+                                        .onChange(of: selectedLevel) { level in
+                                            let url  = skin.levels![selectedLevel].streamedVideo
+                                            if url == nil {
+                                                self.noVideo = true
+                                                player.replaceCurrentItem(with: nil)
+                                            }
+                                            else {
+                                                self.noVideo = false
+                                                let item = AVPlayerItem(url: URL(string: url!)!)
+                                                player.replaceCurrentItem(with: item)
+                                            }
+                                            
+                                            
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                                player.play() // Autoplay
+                                            })
+                                        }
+                                        
+                                    
+                                    if noVideo {
+                                        Image(systemName: "exclamationmark.triangle.fill")
+                                            .font(.title)
+                                    }
+                                    
                                 }
-                        }
-                        .frame(height: (geo.size.height / 5.75))
-                        
-                        
-                        // MARK: Skin Chroma Picker
-                        if skin.chromas!.count != 1{
-                            HStack{
-                                Text(LocalizedStringKey("Variant"))
-                                    .bold()
+                            }
+                            
+                            
+                            
+                            
+                            if skin.levels!.count != 1 {
                                 
-                                Spacer()
-                                
-                                
-                                
-                                if pickerStyleChooser(skin: skin) {
+                                // MARK: Video Tier Picker
+                                HStack{
+                                    HStack {
+                                        Text(LocalizedStringKey("Tier"))
+                                            .bold()
+                                        Text(String(selectedLevel + 1))
+                                            .bold()
+                                            .padding(-4)
+                                    }
+                                    
+                                    
+                                    
+                                    Spacer()
+                                    
                                     
                                     Menu {
                                         
-                                        ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
+                                        ForEach(0..<skin.levels!.count, id: \.self){ level in
                                             
-                                            let chromaName = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
+                                            let videoTierName = cleanLevelName(name: String(skin.levels![level].levelItem ?? "null"))
                                             
                                             Button {
+                                                self.selectedLevel = level
                                                 
-                                                self.selectedChroma = chroma
                                                 
-                                                if chromaName == "Default" {
-                                                    self.colourName = ""
+                                                if level == 0 {
+                                                    self.videoName = ""
+                                                }
+                                                else if videoTierName == "null" {
+                                                    self.videoName = "Tier \(level + 1)"
                                                 }
                                                 else {
-                                                    self.colourName = chromaName
+                                                    self.videoName = videoTierName
                                                 }
                                                 
                                             } label: {
-                                                if chromaName == "Default" {
-                                                    Text("Default")
+                                                if level == 0 {
+                                                    Text("Default1")
+                                                }
+                                                else if videoTierName == "null" {
+                                                    Text("\(level + 1). " + "Tier \(level + 1)")
                                                 }
                                                 else {
-                                                    Text(chromaName)
+                                                    Text("\(level + 1). " + videoTierName)
                                                 }
-                                                
                                             }
                                             
                                             
@@ -490,15 +326,16 @@ struct SkinCardDetailView: View {
                                         
                                     } label: {
                                         
+                                        
                                         HStack {
                                             
-                                            if colourName == "" {
+                                            if videoName == "" {
                                                 Text("Default")
                                                     .font(.footnote)
                                                     .bold()
                                             }
                                             else {
-                                                Text(colourName)
+                                                Text(videoName)
                                                     .font(.footnote)
                                                     .bold()
                                             }
@@ -506,7 +343,6 @@ struct SkinCardDetailView: View {
                                             Image(systemName: "chevron.up.chevron.down")
                                                 .font(.callout)
                                         }
-                                        
                                     }
                                     .padding(.vertical, 8)
                                     .padding(.horizontal, 8)
@@ -514,36 +350,90 @@ struct SkinCardDetailView: View {
                                     .cornerRadius(7)
                                     
                                     
+                                    /*
+                                     Picker("Video Number", selection: $selectedLevel){
+                                     ForEach(0..<skin.levels!.count, id: \.self){ level in
+                                     
+                                     let videoTierName = cleanLevelName(name: String(skin.levels![level].levelItem ?? "Default"))
+                                     if videoTierName == "Default" {
+                                     Text(LocalizedStringKey("Default"))
+                                     .tag(level)
+                                     }
+                                     else {
+                                     Text("\(level). " + videoTierName)
+                                     .tag(level)
+                                     }
+                                     
+                                     
+                                     }
+                                     }
+                                     .padding(.horizontal, 8)
+                                     .pickerStyle(MenuPickerStyle())
+                                     .background(.ultraThinMaterial)
+                                     .cornerRadius(7)
+                                     */
+                                    
                                 }
-                                else {
-                                    
-                                    
-                                    Picker("Video Number", selection: $selectedChroma){
-                                        ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
-                                            
-                                            let chromaTierName = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
-                                            if chromaTierName == "Default" {
-                                                Text(LocalizedStringKey("Default"))
-                                                    .tag(chroma)
-                                            }
-                                            else {
-                                                Text(chromaTierName)
-                                                    .tag(chroma)
-                                            }
-                                            
-                                            
+                                .padding()
+                                .background(Blur(radius: 25, opaque: true))
+                                .cornerRadius(10)
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.white, lineWidth: 3)
+                                        .offset(y: -1)
+                                        .offset(x: -1)
+                                        .blendMode(.overlay)
+                                        .blur(radius: 0)
+                                        .mask {
+                                            RoundedRectangle(cornerRadius: 10)
                                         }
-                                    }
-                                    .pickerStyle(SegmentedPickerStyle())
-                                    .accentColor(.red)
+                                }
+                            }
+                            
+                            
+                            // MARK: Skin Variants / Chromas
+                            HStack{
+                                Spacer()
+                                
+                                if let imageData = UserDefaults.standard.data(forKey: skin.chromas![selectedChroma].id.description) {
                                     
+                                    let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData)
+                                    
+                                    let uiImage = UIImage(data: decoded)
+                                    
+                                    Image(uiImage: uiImage ?? UIImage())
+                                        .resizable()
+                                        .scaledToFit()
+                                        .padding()
+                                    
+                                }
+                                else if skin.chromas![selectedChroma].displayIcon != nil{
+                                    
+                                    AsyncImage(url: URL(string: skin.chromas![selectedChroma].displayIcon!)) { image in
+                                        image.resizable()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .scaledToFit()
+                                    .padding()
+                                    
+                                }
+                                else if skin.chromas![selectedChroma].fullRender != nil{
+                                    
+                                    AsyncImage(url: URL(string: skin.chromas![selectedChroma].fullRender!)) { image in
+                                        image.resizable()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .scaledToFit()
+                                    .padding()
                                     
                                 }
                                 
                                 
-                                
+                                Spacer()
                             }
-                            .padding()
+                            .frame(height: (UIScreen.main.bounds.height / 5.5))
                             .background(Blur(radius: 25, opaque: true))
                             .cornerRadius(10)
                             .overlay{
@@ -557,18 +447,249 @@ struct SkinCardDetailView: View {
                                         RoundedRectangle(cornerRadius: 10)
                                     }
                             }
+                            
+
+                            
+                            // MARK: Skin Chroma Picker
+                            if skin.chromas!.count != 1{
+                                // Custom picker for images
+                                HStack(spacing: 0) {
+                                    
+                                    ForEach(0..<skin.chromas!.count, id:\.self) { index in
+                                        let isSelected = selectedChroma == index
+                                        
+                                        if let imageData = UserDefaults.standard.data(forKey: skin.chromas![index].id.description + "swatch") {
+                                            
+                                            let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData)
+                                            
+                                            let uiImage = UIImage(data: decoded)
+                                            
+                                            ZStack {
+                                                Rectangle()
+                                                    .fill(.ultraThinMaterial)
+                                                
+                                                Rectangle()
+                                                    .opacity(isSelected ? 1 : 0.01)
+                                                    .foregroundColor(Color(red: 120/255, green: 120/255, blue: 120/255))
+                                                    .cornerRadius(10)
+                                                    .padding(2)
+                                                    .onTapGesture {
+                                                        withAnimation(.interactiveSpring(response: 0.2,
+                                                                                         dampingFraction: 2,
+                                                                                         blendDuration: 0.5)) {
+                                                            self.selectedChroma = index
+                                                        }
+                                                    }
+                                            }
+                                            .overlay(
+                                                
+                                                ZStack {
+                                                    
+                                                    Image(uiImage: uiImage ?? UIImage())
+                                                        .resizable()
+                                                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                                                        .frame(width: 25, height: 25)
+                                                    
+                                                }
+                                                
+                                                    
+                                            )
+                                            .frame(height: 35)
+                                            
+                                            
+                                            
+                                        }
+                                        else if skin.chromas![selectedChroma].swatch != nil{
+                                            ZStack {
+                                                Rectangle()
+                                                    .fill(.ultraThinMaterial)
+                                                
+                                                Rectangle()
+                                                    .opacity(isSelected ? 1 : 0.01)
+                                                    .foregroundColor(Color(red: 120/255, green: 120/255, blue: 120/255))
+                                                    .cornerRadius(10)
+                                                    .padding(2)
+                                                    .onTapGesture {
+                                                        withAnimation(.interactiveSpring(response: 0.2,
+                                                                                         dampingFraction: 2,
+                                                                                         blendDuration: 0.5)) {
+                                                            self.selectedChroma = index
+                                                        }
+                                                    }
+                                            }
+                                            .overlay(
+                                                
+                                                ZStack {
+                                                    
+                                                    AsyncImage(url: URL(string: skin.chromas![index].swatch!)) { image in
+                                                        image.resizable()
+                                                    } placeholder: {
+                                                        ProgressView()
+                                                    }
+                                                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                                                    .frame(width: 25, height: 25)
+                                                        
+                                                    
+                                                }
+                                                
+                                                    
+                                            )
+                                            .frame(height: 35)
+                                            
+                                            
+                                        }
+                                        
+                                    }
+                                }
+                                .cornerRadius(10)
+                                .padding()
+                                .background(Blur(radius: 25, opaque: true))
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.white, lineWidth: 3)
+                                        .offset(y: -1)
+                                        .offset(x: -1)
+                                        .blendMode(.overlay)
+                                        .blur(radius: 0)
+                                        .mask {
+                                            RoundedRectangle(cornerRadius: 10)
+                                        }
+                                }
+                                /*
+                                HStack{
+
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    // Text based picker
+                                    
+                                    /*
+                                    if pickerStyleChooser(skin: skin) {
+                                        
+                                        Menu {
+                                            
+                                            ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
+                                                
+                                                let chromaName = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
+                                                
+                                                Button {
+                                                    
+                                                    self.selectedChroma = chroma
+                                                    
+                                                    if chromaName == "Default" {
+                                                        self.colourName = ""
+                                                    }
+                                                    else {
+                                                        self.colourName = chromaName
+                                                    }
+                                                    
+                                                } label: {
+                                                    if chromaName == "Default" {
+                                                        Text("Default")
+                                                    }
+                                                    else {
+                                                        Text(chromaName)
+                                                    }
+                                                    
+                                                }
+                                                
+                                                
+                                            }
+                                            
+                                        } label: {
+                                            
+                                            HStack {
+                                                
+                                                if colourName == "" {
+                                                    Text("Default")
+                                                        .font(.footnote)
+                                                        .bold()
+                                                }
+                                                else {
+                                                    Text(colourName)
+                                                        .font(.footnote)
+                                                        .bold()
+                                                }
+                                                
+                                                Image(systemName: "chevron.up.chevron.down")
+                                                    .font(.callout)
+                                            }
+                                            
+                                        }
+                                        .padding(.vertical, 8)
+                                        .padding(.horizontal, 8)
+                                        .background(Constants.pickerWhite)
+                                        .cornerRadius(7)
+                                        
+                                        
+                                    }
+                                    else {
+                                        
+                                        
+                                        Picker("Video Number", selection: $selectedChroma){
+                                            ForEach(0..<skin.chromas!.count, id: \.self){ chroma in
+                                                
+                                                let chromaTierName = cleanChromaName(name: (skin.chromas![chroma].displayName ?? "Default"))
+                                                if chromaTierName == "Default" {
+                                                    Text(LocalizedStringKey("Default"))
+                                                        .tag(chroma)
+                                                }
+                                                else {
+                                                    Text(chromaTierName)
+                                                        .tag(chroma)
+                                                }
+                                                
+                                                
+                                            }
+                                        }
+                                        .pickerStyle(SegmentedPickerStyle())
+                                        .accentColor(.red)
+                                        
+                                        
+                                    }
+                                    */
+                                    
+                                    
+                                }
+                                 */
+                            }
+                            
+                            
+                            /*
+                            if skin.levels!.first?.streamedVideo == nil {
+
+                            }
+                            */
+                            
+                            
+                            
+                            
                         }
                         
-                    }
+                        
                     
-                    
-                }
 
+                }
+                .foregroundColor(.white)
+                .padding()
             }
-            .foregroundColor(.white)
-            .padding()
+            .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
+            
+            VStack {
+                
+                Spacer()
+                
+                CustomBannerView()
+                    .padding()
+                
+            }
+            
         }
-        .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
+        
     }
 }
 

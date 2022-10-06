@@ -34,64 +34,6 @@ class Skin: Identifiable, Codable, ObservableObject{
         case discountedCost
     }
     
-    // Convert image url to data object
-    
-    func getImageLevelData() {
-        
-        if let _ = UserDefaults.standard.data(forKey: self.levels!.first!.id.description) {
-            
-        } else {
-            if let url = URL(string: "\(Constants.URL.valStore)weaponskinlevels/\(levels!.first!.id.description.lowercased()).png") {
-                
-                dataHelper(url: url, key: self.levels!.first!.id.description)
-                
-            }
-
-        }
-        
-    }
-
-    func getImageChromaData() {
-        
-        for chroma in self.chromas! {
-            
-            if let _ = UserDefaults.standard.data(forKey: chroma.id.description) {
-                
-            } else {
-                if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinchromas/\(chroma.id.description.lowercased())/fullrender.png") {
-                    
-                    dataHelper(url: url, key: chroma.id.description)
-                }
-            }
-        }
-        
-    }
-    
-    func dataHelper (url : URL, key : String) {
-        // Get a session
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: url) { (data, response, error) in
-            
-            guard
-                let httpResponse = response as? HTTPURLResponse,
-                httpResponse.statusCode == 200
-            else{
-                return
-            }
-            
-            if error == nil {
-                
-                DispatchQueue.main.async {
-                    // Set the image data
-                    if data != nil {
-                        let encoded = try! PropertyListEncoder().encode(data)
-                        UserDefaults.standard.set(encoded, forKey: key)
-                    }
-                }
-            }
-        }
-        dataTask.resume()
-    }
 }
 
 struct Chromas: Codable, Identifiable{
@@ -101,6 +43,7 @@ struct Chromas: Codable, Identifiable{
     var displayIcon:String?
     var fullRender:String?
     var streamedVideo:String?
+    let swatch : String?
     
     enum CodingKeys:String, CodingKey{
         case id = "uuid"
@@ -109,6 +52,7 @@ struct Chromas: Codable, Identifiable{
         case displayIcon
         case fullRender
         case streamedVideo
+        case swatch
     }
     
 }

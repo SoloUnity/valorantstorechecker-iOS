@@ -11,9 +11,9 @@ import Keychain
 struct RegionSelectorView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
-    @State var expand = false
-    @State var title = LocalizedStringKey("SelectRegion")
-    let keychain = Keychain()
+    @State private var expand = false
+    @State private var title = LocalizedStringKey("SelectRegion")
+    private let keychain = Keychain()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10){

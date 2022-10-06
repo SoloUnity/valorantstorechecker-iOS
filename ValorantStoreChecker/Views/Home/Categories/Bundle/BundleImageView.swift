@@ -34,19 +34,27 @@ struct BundleImageView: View {
                         }
                         .cornerRadius(10)
                 } placeholder: {
-                    ProgressView()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 167.5)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color(red: 60/255, green: 60/255, blue: 60/255), lineWidth: 3)
-                                .offset(y: -1)
-                                .offset(x: -1)
-                                .mask {
-                                    RoundedRectangle(cornerRadius: 10)
-                                }
-                        }
-                        .cornerRadius(10)
+                    if let imageData = defaults.data(forKey: "bundleDisplayIcon" + String(bundleIndex)) {
+                        
+                        let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData )
+                        
+                        let uiImage = UIImage(data: decoded)
+                        
+                        
+                        Image(uiImage: uiImage ?? UIImage())
+                            .resizable()
+                            .scaledToFit()
+                            .overlay{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color(red: 60/255, green: 60/255, blue: 60/255), lineWidth: 3)
+                                    .offset(y: -1)
+                                    .offset(x: -1)
+                                    .mask {
+                                        RoundedRectangle(cornerRadius: 10)
+                                    }
+                            }
+                            .cornerRadius(10)
+                    }
                 }
 
 

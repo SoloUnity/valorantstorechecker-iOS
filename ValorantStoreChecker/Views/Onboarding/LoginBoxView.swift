@@ -10,14 +10,14 @@ import SwiftUI
 struct LoginBoxView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
-    @State var showPassword : Bool = false
+    @State private var showPassword : Bool = false
     
     var body: some View {
         VStack{
             // MARK: Username Box
             ZStack {
+                
                 HStack {
-                    
                     Image(systemName: "person.circle")
                         .foregroundColor(.white)
                     
@@ -25,10 +25,11 @@ struct LoginBoxView: View {
                         .keyboardType(.default)
                         .foregroundColor(.white)
                         .disableAutocorrection(true)
+                        .accentColor(.pink)
+                        .submitLabel(.continue)
 
-                    
-                    
-                }.padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
+                }
+                .padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
                 
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(lineWidth: 1)
@@ -50,12 +51,19 @@ struct LoginBoxView: View {
                             .keyboardType(.default)
                             .foregroundColor(.white)
                             .disableAutocorrection(true)
+                            .accentColor(.pink)
+                            .submitLabel(.continue)
+
                     }
                     else {
+                        
                         SecureField(LocalizedStringKey("Password"), text: $authAPIModel.password)
                             .keyboardType(.default)
                             .foregroundColor(.white)
                             .disableAutocorrection(true)
+                            .accentColor(.pink)
+                            .submitLabel(.continue)
+                        
                     }
                     
                     
