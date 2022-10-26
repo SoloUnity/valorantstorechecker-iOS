@@ -64,10 +64,12 @@ The current way that the reload button requires cookies instead of your username
 - [ ] Language localization of all weapons and categories
 - [ ] Rework offline data management
 - [ ] Streamline automatic skin get and download process to become less laggy on first launch
+- [ ] Add reference tab for vp price
 - [ ] Rework Skin Index tab for multiple categories including: owned skins, skin index, equip skins, information pane
 - [ ] Widgets
 - [ ] User customization of colour scheme and app icon
 - [ ] Monetization strategy (of new features only, core features are free)
+- [ ] Notify when skin is in shop
 
 ### Acknowledgements
 Thank you to the following people and repositories:
