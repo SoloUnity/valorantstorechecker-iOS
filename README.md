@@ -58,10 +58,11 @@ If you are perceptive, you will notice that the app downloads assets on your fir
 #### What does remember password do?
 The current way that the reload button requires cookies instead of your username and password, allowing the app to not store your password at all. However, these cookies expire after a certain period, requiring the user to sign in again. In order to streamline this process, remember password allows the user to save their password and allow for automatic behind the scenes sign in. If the user wishes to not save the password, they can simply sign out and sign back in to create new cookies.  
 
-### Feature Roadmap
+### Roadmap
 - [ ] Korean localization
 - [ ] Chinese localization
 - [ ] Language localization of all weapons and categories
+- [ ] Code cleanup
 - [ ] Prompt to ask users to review the app
 - [ ] Update about tab to include a button to help translation of the app
 - [ ] Rework offline data management
