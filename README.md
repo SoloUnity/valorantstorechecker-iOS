@@ -62,6 +62,8 @@ The current way that the reload button requires cookies instead of your username
 - [ ] Korean localization
 - [ ] Chinese localization
 - [ ] Language localization of all weapons and categories
+- [ ] Prompt to ask users to review the app
+- [ ] Update about tab to include a button to help translation of the app
 - [ ] Rework offline data management
 - [ ] Streamline automatic skin get and download process to become less laggy on first launch
 - [ ] Add reference tab for vp price
