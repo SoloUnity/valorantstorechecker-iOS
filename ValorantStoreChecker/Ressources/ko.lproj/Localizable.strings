@@ -1,168 +1,167 @@
 /*
-  Localizable.strings
-  ValorantStoreChecker
+  현지화 가능한 문자열
+  바로런트 스토어 체커
 
-  Created by Gordon on 2022-08-07.
+  2022-08-07에 Gordon에 의해 작성되었습니다.
   
 */
+// 오류 및 경고
+"ErrorTitle" = "오류";
+"ErrorMessage1" = "재로드 오류 사례
+1) 잘못된 네트워크 연결입니다.
+2) 전회의 재로드로부터 3일 경과하고 있다. 이 문제를 해결하려면 두 가지 옵션이 있습니다.
+2a) 한 번 로그아웃한 다음 다시 로그인합니다.
+2b) 3일간의 리로드 제한은 버전 정보 > 설정에서 비밀번호 저장을 켜서 피할 수 있습니다. 이것은 API 제한이며 내가 제어 할 수 없습니다 ";
+"ErrorMessage2" = "재로드 오류 사례
+1) 잘못된 네트워크 연결
+2) 설정에 설정된 암호가 잘못되었습니다 ";
+"DownloadAssets" = "애셋 다운로드(75mb)";
+"CopyError" = "복사 오류";
+"Unknown" = "알 수 없음";
+"ErrorMessage3" = "고객의 구매 내역은 App Store에서 확인할 수 없습니다.";
+"NetworkError" = "인터넷 연결을 확인하십시오.";
 
+"Reset" = "리셋";
+"ResetApp" = "앱 재설정";
+"ResetInfo" = "드물게 버그로 인해 오류가 발생할 수 있습니다. 이 버튼을 사용하면 오류가 발생하면 앱을 완전히 재설정할 수 있습니다.";
 
-// Errors and Alerts
-"ErrorTitle" = "Error";
-"ErrorMessage1" = "Reloading Error Cases
-1) Invalid network connection.
-2) 3 days has passed since the previous reload. There are 2 options to solve this:
-2a) Sign out and sign back in.
-2b) The 3 day reload limit can be avoided by turning on remember password in About > Settings. This is an API limitation which I have no control over.";
-"ErrorMessage2" = "Reloading Error Cases
-1) Invalid network connection
-2) Wrong password set in Settings";
-"DownloadAssets" = "Download Assets (75mb)";
-"CopyError" = "Copy Error";
-"Unknown" = "Unknown";
-"ErrorMessage3" = "Your purchase could not be verified by the App Store.";
-"NetworkError" = "No internet.";
-
-"Reset" = "Reset";
-"ResetApp" = "Reset App";
-"ResetInfo" = "Occasionally due to some bugs, errors may arise. This button allows you to reset the app fully in the event of these errors.";
-
-// Login Screen
-"Login" = "Login to your Riot Account";
-"OK" = "OK";
-"OpenLink" = "Open Link";
-"InvalidCredentials" = "Invalid Credentials";
-"IRead" = "I read the terms and conditions";
-"InformationTitle" = "Why my Riot Account?";
-"Information" = "While many of your statistics are free to access without your password, your store is an exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through an open source API. Additional information, the source code, and an FAQ can be found in the link below.";
+// 로그인 화면
+"Login" = "Riot 계정에 로그인";
+"OK" = "괜찮아";
+"OpenLink" = "링크 열기";
+"InvalidCredentials" = "잘못된 자격 증명";
+"IRead" = "이용 약관을 읽었습니다";
+"InformationTitle" = "왜 내 Riot 계정?";
+"Information" = "통계의 대부분은 비밀번호 없이 자유롭게 액세스할 수 있지만, 스토어는 기밀 정보로 간주되므로 예외가 됩니다. 앱이 스토어에 액세스하려면 오픈 소스 API를 통해 상점을 검색하는 로그인 정보가 필요합니다. 추가 정보, 소스 코드 및 FAQ는 아래 링크에 나와 있습니다.";
 
 // LoginBoxView
-"Username" = "Username";
-"Password" = "Password";
+"Username" = "사용자 이름";
+"Password" = "비밀번호";
 
 // RegionSelectorView
-"SelectRegion" = "Select region";
-"NorthAmerica" = "North America";
-"Europe" = "Europe";
-"AsiaPacific" = "Asia Pacific";
-"SouthKorea" = "South Korea";
+"SelectRegion" = "지역 선택";
+"NorthAmerica" = "북아메리카";
+"Europe" = "유럽";
+"AsiaPacific" = "아시아 태평양";
+"SouthKorea" = "한국";
 
-// MultifactorView
-"EnterTheCode" = "Enter the code sent to";
-"InvalidCode" = "Invalid Code";
-"TwoFactorAuthentication" = "Two Factor Authentication";
+
+// 멀티팩터 뷰
+"EnterTheCode" = "제출된 코드를 입력하세요";
+"InvalidCode" = "잘못된 코드";
+"TwoFactorAuthentication" = "2 인자 인증";
 
 // TermsView
-"TermsAndConditions" = "Terms and Conditions";
-"MITLicense" = "MIT License";
-"CopyrightGordon" = "Copyright (c) 2022 Gordon Ng";
-"Paragraph1" = "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the Software), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.";
-"Paragraph2" = "THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.";
-"Privacy" = "Privacy Policy";
+"TermsAndConditions" = "이용 약관";
+"MITLicense" = "MIT 라이센스";
+"CopyrightGordon" = "Copyright(c) 2022 Gordon Ng";
+"Paragraph1" = "소프트웨어 및 관련 문서 파일(이하 소프트웨어))의 복제를 취득한 사용자에게 소프트웨어 사용, 복제, 변경, 결합, 출판, 배포, 서브라이센스 및/또는 복제 의 판매에 관한 권리를 포함하지만 이에 한정되지 않는 무제한의 거래를 하고 본 소프트웨어를 제공받는 자에게 이를 인정하는 허가를 이하의 조건으로 무상으로 부여하는 것이다. 이 경우 다음 조건에 따라 소프트웨어를 제공하는 사람에게 그 사용을 허용해야 합니다. ";
+"Paragraph2" = "이 소프트웨어는 상품성, 특정 목적에의 적합성 및 비침해의 보증을 포함하나 이에 국한되지 않는 명시적 또는 묵시적인 어떠한 종류의 보증도 없이 그대로 제공됩니다. 1. 본 소프트웨어의 저작권자 또는 저작권 소유자는 본 소프트웨어 또는 본 소프트웨어의 사용 또는 기타 거래에서 발생하는 계약, 불법 행위 또는 기타 행위에 관계없이 어떠한 청구, 손해 또는 기타 책임에 대해서도 책임을지지 않습니다.";
+"Privacy" = "개인정보 보호정책";
 
-// HomeView
-"Store" = "Store";
-"SkinIndex" = "Skin Index";
-"About" = "About";
+// 홈뷰
+"Store" = "스토어";
+"SkinIndex" = "스킨 인덱스";
+"About" = "버전 정보";
 
-// ShopTobBarView
-"AutomaticReload" = "Automatic Reloading";
-"AutomaticReloadInfo" = "Reloads the shop automatically when available.";
-"Reloading" = "Reloading";
-"Reload" = "Reload";
+// 상점 바바보기
+"AutomaticReload" = "자동 재로드";
+"AutomaticReloadInfo" = "사용 가능한 경우 자동으로 상점을 다시 로드합니다";
+"Reloading" = "리로딩";
+"Reload" = "리로드";
 
-// SkinCardDetailView
-"InfoPrice" = "The price of this skin is unfortunately not in our database.";
-"Cost" = "Cost";
-"ExclusiveSkinMessage" = "This is either a Battlepass exclusive, a character exclusive, or a limited edition skin.";
-"Tier" = "Tier";
-"Default" = "Default";
-"Default1" = "1. Default";
-"Variant" = "Variant";
+// SkinCardDetailView(스킨카드 디테일 뷰
+"InfoPrice" = "이 스킨의 가격은 불행히도 우리 데이터베이스에 없습니다.";
+"Cost" = "비용";
+"ExclusiveSkinMessage" = "이것은 Battlepass 한정, 캐릭터 한정, 한정판의 스킨입니다.";
+"Tier" = "티어";
+"Default" = "기본값";
+"Default1" = "1. 기본값";
+"Variant" = "변형";
 
-// SearchBar
-"Search" = "Search";
-"Cancel" = "Cancel";
+// 검색 바
+"Search" = "검색";
+"Cancel" = "취소";
 
 // AboutView
-// About in HomeView
-"MadeWith" = "Built with";
-"MadeIn" = "Made in 🇨🇦";
+// HomeView의 About
+"MadeWith" = "SwiftUI로 만든";
+"MadeIn" = "🇨🇦제";
 
-// AccountView
-"Account" = "Account";
-"SignOut" = "Sign Out";
-"Region" = "Region";
-// Region Names in RegionSelectorView
+// 계정보기
+"Account" = "계정";
+"SignOut" = "로그아웃";
+"Username" = "사용자 이름";
+"Region" = "지역";
+// RegionSelectorView의 지역 이름
 
 // SupportView
-"Support" = "Support";
-"Create" = "Create a Support Ticket";
+"Support" = "지원";
+"Create" = "지원 티켓 만들기";
 "FAQ" = "FAQ";
-"SourceCode" = "Source Code";
+"SourceCode" = "소스 코드";
 
-// CommunityView
-"Community" = "Community";
-"Website" = "Website";
-"DiscordServer" = "Discord Server";
+// 커뮤니티 뷰
+"Community" = "커뮤니티";
+"Website" = "웹사이트";
+"DiscordServer" = "Discord 서버";
 
 // WhatsNewView
-"WhatsNew" = "What's New";
+"WhatsNew" = "새로운 정보";
 
-// HelpView
-"Help" = "Help Out the Developer!";
-"HelpMessage" = "Hi! I'm a sleep deprived university student just trying to make life a little bit better 😄. Please consider helping me out through any method below!";
-"Share" = "Share the App";
-"Review" = "Leave a Review";
-"Star" = "Star the Repository";
-"Sponsor" = "Tip Me";
+// HelpView(도움말 보기
+"Help" = "개발자를 돕자";
+"HelpMessage" = "안녕하세요! 저는 삶을 조금이라도 하고자 하는 잠이 부족한 대학생입니다 😄.";
+"Share" = "앱 공유";
+"Review" = "리뷰 남기기";
+"Star" = "프로젝트에 별표 표시";
+"Sponsor" = "연결";
 
-// AcknowledgementsView
-"Acknowledgements" = "Acknowledgements";
-"ThankJulian" = "Thank you for your help in answering my many questions!"; // juliand665
-"ThankLunac" = "Thank you for your continuous support!"; // Lunac
+// 감사의 표시
+"Acknowledgements" = "감사";
+"ThankJulian" = "많은 질문에 답해 주셔서 감사합니다!"; // juliand665
+"ThankLunac" = "언제나 응원해 주셔서 감사합니다!"; // Lunac
 
-// CopyrightView
-"Copyright" = "Copyright";
-"CopyrightNotice" = "VSC (Store Checker for Valorant) is not associated, connected, or endorsed by Valorant or Riot Games. Additionally, Riot Games and Valorant are trademarks registered under Riot Games Inc.";
+// 저작권 표시
+"Copyright" = "저작권";
+"CopyrightNotice" = "VSC (Store Checker for Valorant)는 Valorant 및 Riot Games와 관련이 없으며 권장되지 않으며 Riot Games 및 Valorant는 Riot Games Inc.에 등록됩니다. 상표입니다";
 
 // SettingsView
-"Settings" = "Settings";
-"RememberPassword" = "Remember Password";
-"RememberPasswordInfo" = "Your password is secured by Keychain. Signing out or disabling the toggle will automatically forget the password. Enabling this feature bypasses the API time limitations and allows for automatic sign in on the user's behalf.";
-"Notify" = "Store Reset Notification";
-"NotifyDescription" = "Receive a notification when the store resets.";
-"ChangeLanguage" = "Change Language";
-"Language" = "Language";
-"LanguageDescription" = "Opens advanced app settings.";
-
+"Settings" = "설정";
+"RememberPassword" = "비밀번호 저장";
+"RememberPasswordInfo" = "비밀번호는 Keychain에 의해 보호됩니다. 로그아웃 또는 토글을 사용 중지하면 비밀번호가 자동으로 잊어버립니다. 이 기능을 사용하면 API 시간 제한을 피하고 사용자 대신 에 자동 로그인이 가능합니다.";
+"Notify" = "상점 재설정 알림";
+"NotifyDescription" = "상점이 재설정될 때 알림을 받습니다.";
+"ChangeLanguage" = "언어 변경";
+"Language" = "언어";
+"LanguageDescription" = "앱 고급 설정을 엽니다.";
 
 // Skin Index Filter
-"All" = "All";
-"Owned" = "Owned";
-"Knife" = "Knife";
-"Sidearm" = "Sidearm";
-"SMGs" = "SMGs";
-"Shotguns" = "Shotguns";
-"Rifles" = "Rifles";
-"Sniper" = "Sniper";
-"Heavy" = "Heavy";
-"EmptySearch" = "Nothing matches your search";
-"NoOwned" = "Please reload the store, or buy some skins :)";
+"All" = "모두";
+"Owned" = "카이코미즈미";
+"Knife" = "칼";
+"Sidearm" = "권총";
+"SMGs" = "서브 머신 건";
+"Shotguns" = "산탄총";
+"Rifles" = "소총";
+"Sniper" = "저격총";
+"Heavy" = "중기관총";
+"EmptySearch" = "검색 기준과 일치하지 않음";
+"NoOwned" = "스토어를 다시로드하거나 스킨을 구입하십시오 :)";
 
-// Bundle
-"Bundle" = "Bundle";
-"EmptyBundle" = "Refresh to see the bundle";
+// 번들
+"Bundle" = "번들";
+"EmptyBundle" = "번들 디스플레이 업데이트";
 
 //Update Messages
-"UpdateButton" = "New App Version Available";
-"UpdateTitle" = "Update App";
-"Update" = "Update";
-"UpdateInstructions1" = "If there is no update option, please:";
-"UpdateInstructions2" = "Go to the Home (Today) tab";
-"UpdateInstructions3" = "Click on your profile in the top right";
-"UpdateInstructions4" = "Swipe down to reload";
-"UpdateInstructions5" = "Scroll down to see available updates";
+"UpdateButton" = "사용 가능한 업데이트";
+"UpdateTitle" = "앱 업데이트";
+"Update" = "업데이트";
+"UpdateInstructions1" = "업데이트 옵션이 없는 경우 다음 단계를 수행하십시오.";
+"UpdateInstructions2" = "홈 (오늘) 탭으로 이동";
+"UpdateInstructions3" = "오른쪽 상단의 프로필 클릭";
+"UpdateInstructions4" = "아래로 스와이프하여 다시 로드";
+"UpdateInstructions5" = "아래로 스크롤하여 사용 가능한 업데이트를 표시합니다";
 
 // Nighmarket
-"NightMarket" = "Night Market";
+"NightMarket" = "야간 시장";

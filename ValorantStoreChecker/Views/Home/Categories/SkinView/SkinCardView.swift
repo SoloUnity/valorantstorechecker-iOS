@@ -116,28 +116,13 @@ struct SkinCardView: View {
                         }
                         
                         // MARK: Name
-                        let name = skin.displayName
-                            
-                        if name.count > 27 {
-                            
-                            Text(cleanName(name: name))
-                                .foregroundColor(.white)
-                                .font(.subheadline)
-                                .bold()
-                                .shadow(color: .black, radius: 3)
-                                .lineLimit(1)
-                            
-                        }
-                        else {
-                            
-                            Text(String(skin.displayName))
-                                .foregroundColor(.white)
-                                .font(.subheadline)
-                                .bold()
-                                .shadow(color: .black, radius: 3)
-                                .lineLimit(1)
-                            
-                        }
+                        Text(skin.displayName)
+                            .foregroundColor(.white)
+                            .font(.subheadline)
+                            .bold()
+                            .shadow(color: .black, radius: 3)
+                            .lineLimit(1)
+                        
                         
                         
                         Spacer()
@@ -212,23 +197,5 @@ struct SkinCardView: View {
     
 }
 
-func cleanName(name: String) -> String {
-    let nameList = name.split(separator: " ")
-    
-    var finalName = ""
-    for word in nameList {
-        if finalName.count != 0 {
-            finalName += " "
-        }
-        
-        let tempName = finalName + word
-        if tempName.count > 27 {
-            return finalName
-        }
-        
-        finalName += word
-    }
-    return finalName
-}
 
 

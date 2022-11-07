@@ -388,7 +388,30 @@ struct WebService {
     // MARK: Bundles
     static func getBundle(uuid: String, currentBundle: String) async throws -> [String] {
         
-        guard let url1 = URL(string: Constants.URL.bundle + uuid) else{
+        let language = Bundle.main.preferredLocalizations
+        
+        var urlString = Constants.URL.bundle
+        
+        var chosenLanguage = ""
+        
+        switch language[0] {
+        case "fr","fr-CA":
+            chosenLanguage = "fr-FR"
+        case "ja":
+            chosenLanguage = "ja-JP"
+        case "ko":
+            chosenLanguage = "ko-KR"
+        case "de":
+            chosenLanguage = "de-DE"
+        case "zh-Hans":
+            chosenLanguage = "zh-CN"
+        default:
+            chosenLanguage = "en-US"
+        }
+        
+        urlString = urlString + uuid + "?language=" + chosenLanguage
+        
+        guard let url1 = URL(string: urlString) else{
             throw BundleError.invalidURL
         }
         

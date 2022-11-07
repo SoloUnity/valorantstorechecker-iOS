@@ -371,10 +371,11 @@ struct SkinListView: View {
     // MARK: Menu Item
     struct MenuItem: View {
         
+        @EnvironmentObject var skinModel : SkinModel
         @Binding var selectedFilter : String
         @Binding var filtered : Bool
         var filter : String
-        var label : String
+        var label : String //useless now but i dont feel like changing all the other code to remove this
         @Binding var selectOwned : Bool
         var proxy : ScrollViewProxy
         
@@ -386,16 +387,40 @@ struct SkinListView: View {
                 proxy.scrollTo("top", anchor: .top)
             } label: {
                 if selectedFilter == filter {
-                    Label(label, systemImage: "checkmark")
+                    Label(labelName(), systemImage: "checkmark")
                 }
                 else {
-                    Text(label)
+                    Text(labelName())
                 }
             }
             
         }
         
+        func labelName() -> String {
+            let filterList = skinModel.standardSkins.filter({$0.assetPath!.contains(filter)})
+            
+            let displayName = filterList[0].displayName
+            
+            let language = Bundle.main.preferredLocalizations
+            var baseName = ""
+            
+            switch language[0] {
+            case "fr","fr-CA","de":
+                let list = displayName.split(separator: " ")
+                baseName = String(list[0])
+            case "ja":
+                baseName = String(Array(displayName)[5...])
+            default:
+                let list = displayName.split(separator: " ")
+                baseName = String(list[1])
+            }
+            
+            return baseName
+        }
+        
     }
+    
+    
     
 }
 

@@ -68,12 +68,12 @@ class AuthAPIModel: ObservableObject {
     init() {
         
         
-        
         // TODO: Implement CoreData, but for now lmao this works
         // Use saved storefront
         if let objects = defaults.value(forKey: "storefront") as? Data {
             let decoder = JSONDecoder()
             if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Skin] {
+                
                 DispatchQueue.main.async{
                     self.storefront = objectsDecoded
                 }

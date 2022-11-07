@@ -57,7 +57,6 @@ struct SearchBar: View {
                         }
                     }
                 )
-                .disableAutocorrection(true)
                 .padding(.horizontal, 10)
                 .submitLabel(.search)
                 .onSubmit {
@@ -68,7 +67,7 @@ struct SearchBar: View {
                     
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
-                
+                .disableAutocorrection(true)
                 
             
         }

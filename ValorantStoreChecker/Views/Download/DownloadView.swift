@@ -127,9 +127,8 @@ struct DownloadView: View {
                         }
                         
                         Task {
-                            let bundleLang = Bundle.main.preferredLocalizations
                             
-                            await skinModel.getRemoteData(language: bundleLang[0])
+                            await skinModel.getRemoteData()
                         }
                         
                     } label: {

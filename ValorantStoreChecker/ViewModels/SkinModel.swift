@@ -10,27 +10,18 @@ import Foundation
 class SkinModel: ObservableObject{
     
     @Published var data : [Skin] = []
+    @Published var standardSkins : [Skin] = []
     @Published var errorMessage = "" 
     
     let defaults = UserDefaults.standard
     
     init() {
         
-        let bundleLang = Bundle.main.preferredLocalizations
-        
-        if bundleLang[0] != defaults.string(forKey: "currentLanguage") {
-            
-            defaults.set(bundleLang[0], forKey: "currentLanguage")
-            
-        }
-        
-        print(bundleLang)
+        getLocalData()
         
         Task {
-            await getRemoteData(language: bundleLang[0])
+            await getRemoteData()
         }
-        
-        getLocalData()
 
     }
     
@@ -42,7 +33,9 @@ class SkinModel: ObservableObject{
                 return
             }
             
-            self.data = skinDataResponse.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter{$0.displayName != "Melee"}.filter{$0.displayName != "Random Favorite Skin"} //Sorts alphabetically and filters out Standard skin
+            self.standardSkins = skinDataResponse.data.filter({$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")})
+            
+            self.data = skinDataResponse.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")}).filter({!$0.themeUuid!.contains("0d7a5bfb-4850-098e-1821-d989bbfd58a8")})//Sorts alphabetically and filters out Standard skin
         }
         else {
 
@@ -60,8 +53,13 @@ class SkinModel: ObservableObject{
                 // get jsonDecode.decode(type, from) type is what you want obtained from the jsonData you input
                 let skinList = try jsonDecoder.decode(Skins.self, from: jsonData)
                 
-                // Assign parse modules to modules property, updates @Published data
-                self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter{$0.displayName != "Melee"}.filter{$0.displayName != "Random Favorite Skin"} //Sorts alphabetically and filters out Standard skin
+                DispatchQueue.main.async{
+                    self.standardSkins = skinList.data.filter({$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")})
+                    
+                    // Assign parse modules to modules property, updates @Published data
+                    self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")}).filter({!$0.themeUuid!.contains("0d7a5bfb-4850-098e-1821-d989bbfd58a8")}) //Sorts alphabetically and filters out Standard skin
+                }
+                
                 
                 
             }
@@ -74,13 +72,23 @@ class SkinModel: ObservableObject{
     }
     
     @MainActor
-    func getRemoteData(language: String) async {
+    func getRemoteData() async {
+        
+        let language = Bundle.main.preferredLocalizations
+        
+        if language[0] != defaults.string(forKey: "currentLanguage") {
+            
+            defaults.set(language[0], forKey: "currentLanguage")
+            
+        }
+        
+        print(language[0])
         
         var urlString = Constants.URL.valAPISkins
         
         var chosenLanguage = ""
         
-        switch language {
+        switch language[0] {
         case "fr","fr-CA":
             chosenLanguage = "fr-FR"
         case "ja":
@@ -135,12 +143,20 @@ class SkinModel: ObservableObject{
                     self.getImageLevelData(skin: skin, session: session)
                     self.getImageChromaData(skin: skin, session: session)
                     
+                    if skin.displayName.count > 2 && String(Array(skin.displayName)[0..<2]).contains("\n"){
+                        skin.displayName = String(Array(skin.displayName)[2...])
+                    }
+
+                    
                 }
             }
             
             // Background thread
             DispatchQueue.main.async{
-                self.data = skinDataResponse.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter{$0.displayName != "Melee"}.filter{$0.displayName != "Random Favorite Skin"} //Sorts alphabetically and filters out Standard skin
+                
+                self.standardSkins = skinDataResponse.data.filter({$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")})
+                
+                self.data = skinDataResponse.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")}).filter({!$0.themeUuid!.contains("0d7a5bfb-4850-098e-1821-d989bbfd58a8")}) //Sorts alphabetically and filters out Standard skin
             }
             
         }
