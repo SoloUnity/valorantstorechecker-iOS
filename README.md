@@ -75,7 +75,7 @@ The current way that the reload button requires cookies instead of your username
 - [ ] Notify when skin is in shop
 
 ### Help Translate
-You can help the translation with a pull request of relevant Localizable.strings file from the correct language.lproj folder [here](https://github.com/SoloUnity/Valorant-Store-Checker-App/tree/main/ValorantStoreChecker/Ressources).
+You can help the translation with a pull request of relevant Localizable.strings file from the correct language.lproj folder [here](https://github.com/SoloUnity/Valorant-Store-Checker-App/tree/main/ValorantStoreChecker/Ressources). The majority of these translations were done with DeepL or Google Translate. 
 
 ### Acknowledgements
 Thank you to the following people and repositories:
