@@ -13,13 +13,13 @@ struct ShopTopBarView: View {
     @EnvironmentObject var skinModel : SkinModel
     @EnvironmentObject var updateModel : UpdateModel
     
-    @State var nowDate: Date = Date()
-    @State var successfulReload = false
+    @State private var nowDate: Date = Date()
+    @State private var successfulReload = false
     
     let reloadType : String
     let defaults = UserDefaults.standard
-    
     let referenceDate: Date
+    
     var timer: Timer {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
             self.nowDate = Date()
@@ -141,8 +141,6 @@ struct ShopTopBarView: View {
                                     timer.invalidate()
                                 }
                             }
-                        
-                        
                         
                     }
                     

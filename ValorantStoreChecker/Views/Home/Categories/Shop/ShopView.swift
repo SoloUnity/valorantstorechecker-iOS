@@ -30,12 +30,6 @@ struct ShopView: View {
                 ScrollView(showsIndicators: false) {
                     
                     
-                    PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                        Task{
-                            await authAPIModel.reload(skinModel: skinModel, reloadType: "storeReload")
-                        }
-                    }
-                    
                     
                     LazyVStack(spacing: 11) {
                         
@@ -43,7 +37,6 @@ struct ShopView: View {
                         if authAPIModel.storefront.isEmpty{
                             
                             ShopTopBarView(reloadType: "storeReload", referenceDate: Date())
-                            
                             
                             
                             HStack{
@@ -80,7 +73,15 @@ struct ShopView: View {
                         
                     }
                 }
-                .coordinateSpace(name: "pullToRefresh")
+                .refreshable {
+                    withAnimation(.easeIn(duration: 0.2)) {
+                        authAPIModel.reloading = true
+                    }
+                    
+                    Task{
+                        await authAPIModel.reload(skinModel: skinModel, reloadType: "storeReload")
+                    }
+                }
             }
             
         }

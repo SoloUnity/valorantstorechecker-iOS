@@ -14,110 +14,145 @@ class SkinModel: ObservableObject{
     
     let defaults = UserDefaults.standard
     
-    init () {
+    init() {
+        
+        let bundleLang = Bundle.main.preferredLocalizations
+        
+        if bundleLang[0] != defaults.string(forKey: "currentLanguage") {
+            
+            defaults.set(bundleLang[0], forKey: "currentLanguage")
+            
+        }
+        
+        print(bundleLang)
+        
+        Task {
+            await getRemoteData(language: bundleLang[0])
+        }
         
         getLocalData()
-        getRemoteData()
 
     }
     
-    // I did not learn about async/await when I made this stop laughing at me
-    
     func getLocalData() {
         
-        // Local json file
-        let jsonUrl = Bundle.main.url(forResource: "SkinData", withExtension: "json")
+        if let skinData = defaults.data(forKey: "skinDataResponse") {
+            
+            guard let skinDataResponse = try? JSONDecoder().decode(Skins.self, from: skinData) else {
+                return
+            }
+            
+            self.data = skinDataResponse.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter{$0.displayName != "Melee"}.filter{$0.displayName != "Random Favorite Skin"} //Sorts alphabetically and filters out Standard skin
+        }
+        else {
+
+            // Local json file
+            let jsonUrl = Bundle.main.url(forResource: "SkinData", withExtension: "json")
+            
+            do{
+                
+                // Read the file into a data object
+                let jsonData = try Data(contentsOf: jsonUrl!)
+                
+                // Try to decode json into an array of modules
+                let jsonDecoder = JSONDecoder()
+                
+                // get jsonDecode.decode(type, from) type is what you want obtained from the jsonData you input
+                let skinList = try jsonDecoder.decode(Skins.self, from: jsonData)
+                
+                // Assign parse modules to modules property, updates @Published data
+                self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter{$0.displayName != "Melee"}.filter{$0.displayName != "Random Favorite Skin"} //Sorts alphabetically and filters out Standard skin
+                
+                
+            }
+            catch{
+                print("Rip JSON doesn't work")
+            }
+             
+        }
         
-        do{
-            
-            // Read the file into a data object
-            let jsonData = try Data(contentsOf: jsonUrl!)
-            
-            // Try to decode json into an array of modules
-            let jsonDecoder = JSONDecoder()
-            
-            // get jsonDecode.decode(type, from) type is what you want obtained from the jsonData you input
-            let skinList = try jsonDecoder.decode(Skins.self, from: jsonData)
-            
-            // Assign parse modules to modules property, updates @Published data
-            self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter{$0.displayName != "Melee"}.filter{$0.displayName != "Random Favorite Skin"} //Sorts alphabetically and filters out Standard skin
-            
-        }
-        catch{
-            print("Rip JSON doesn't work")
-        }
-         
     }
     
-    func getRemoteData(){
+    @MainActor
+    func getRemoteData(language: String) async {
         
-        // String path
-        let urlString = Constants.URL.valAPISkins
+        var urlString = Constants.URL.valAPISkins
         
-        // URL object
-        let url = URL(string: urlString)
+        var chosenLanguage = ""
         
-        guard url != nil else{
-            // Couldnt create url
-            return
+        switch language {
+        case "fr","fr-CA":
+            chosenLanguage = "fr-FR"
+        case "ja":
+            chosenLanguage = "ja-JP"
+        case "ko":
+            chosenLanguage = "ko-KR"
+        case "de":
+            chosenLanguage = "de-DE"
+        case "zh-Hans":
+            chosenLanguage = "zh-CN"
+        default:
+            chosenLanguage = "en-US"
         }
         
-        // URLRequest object
-        let request = URLRequest(url: url!)
+        urlString = urlString + "?language=" + chosenLanguage
+        print(urlString)
         
-        // Get the session and kick off the task
-        let session = URLSession.shared
+        let url = URL(string: urlString)
         
-        // Create Data Task
-        let dataTask = session.dataTask(with: request){ data, response, error in
+        do {
             
-            // Check if there is an error
-            guard error == nil else{
-                return
+            // Create authentication request
+            let skinDataDownload = URLRequest(url: url!)
+            
+            // API Call
+            let (data , response) = try await WebService.session.data(for: skinDataDownload)
+            
+            // Save the data
+            defaults.set(data, forKey: "skinDataResponse")
+            
+            // Verify server request
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else{
+                throw JSONDownloadError.invalidResponse
             }
             
-            guard let httpResponse = response as? HTTPURLResponse else {
+            
+            guard let skinDataResponse = try? JSONDecoder().decode(Skins.self, from: data) else {
+                throw JSONDownloadError.invalidJson
+            }
+            
+            
+            
+            if UserDefaults.standard.bool(forKey: "authorizeDownload") {
                 
-                return
-            }
-            
-            guard httpResponse.statusCode == 200 else {
-                print("404")
-                return
-            }
-            
-            // Handle response
-            let jsonDecoder = JSONDecoder()
-            let skinList = try! jsonDecoder.decode(Skins.self, from: data!)
-            
-            let session = URLSession.shared
-            
-            for skin in skinList.data{
-                DispatchQueue.global(qos: .userInteractive).async {
+                let session = URLSession.shared
+                
+                for skin in skinDataResponse.data {
                     
                     self.getImageLevelData(skin: skin, session: session)
                     self.getImageChromaData(skin: skin, session: session)
                     
-                    
                 }
             }
             
-            
             // Background thread
             DispatchQueue.main.async{
-                self.data = skinList.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter{$0.displayName != "Melee"}.filter{$0.displayName != "Random Favorite Skin"} //Sorts alphabetically and filters out Standard skin
+                self.data = skinDataResponse.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.displayName.contains("Standard")}).filter{$0.displayName != "Melee"}.filter{$0.displayName != "Random Favorite Skin"} //Sorts alphabetically and filters out Standard skin
             }
             
         }
-        // Kick off data task
-        dataTask.resume()
-        
+        catch {
+            return
+        }
     }
-    // Convert image url to data object
     
+    // Convert image url to data object
     func getImageLevelData(skin: Skin, session: URLSession) {
         
-        if let _ = UserDefaults.standard.data(forKey: skin.levels!.first!.id.description) {
+        if let _ = defaults.data(forKey: skin.levels!.first!.id.description) {
             
         } else {
             if let url = URL(string: "\(Constants.URL.valStore)weaponskinlevels/\(skin.levels!.first!.id.description.lowercased()).png") {
@@ -133,7 +168,7 @@ class SkinModel: ObservableObject{
         
         for chroma in skin.chromas! {
             
-            if let _ = UserDefaults.standard.data(forKey: chroma.id.description) {
+            if let _ = defaults.data(forKey: chroma.id.description) {
                 
             } else {
                 if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinchromas/\(chroma.id.description.lowercased())/fullrender.png") {
@@ -142,7 +177,7 @@ class SkinModel: ObservableObject{
                 }
             }
             
-            if let _ = UserDefaults.standard.data(forKey: chroma.id.description + "swatch") {
+            if let _ = defaults.data(forKey: chroma.id.description + "swatch") {
                 
             } else {
                 

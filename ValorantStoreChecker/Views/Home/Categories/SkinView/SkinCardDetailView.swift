@@ -71,27 +71,12 @@ struct SkinCardDetailView: View {
                         
                         // Determine title size
                         let name = skin.displayName
-                        if name.count < 19 {
-                            Text (String(name))
-                                .font(.title)
-                                .bold()
-                                .foregroundColor(.white)
-                                .lineLimit(1)
-                        }
-                        else if name.count > 30 {
-                            Text (String(name))
-                                .font(.caption)
-                                .bold()
-                                .foregroundColor(.white)
-                                .lineLimit(1)
-                        }
-                        else {
-                            Text (String(name))
-                                .font(.title3)
-                                .bold()
-                                .foregroundColor(.white)
-                                .lineLimit(1)
-                        }
+                        Text (String(name))
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.white)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.4)
                         
                         Spacer()
                         

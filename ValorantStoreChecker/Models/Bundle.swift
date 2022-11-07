@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct BundleResponse: Codable {
     let status: Int
     let data: DataClass
@@ -21,16 +20,13 @@ struct DataClass: Codable {
 }
 
 
-// valstore API
-
-
-// MARK: - Welcome
+// MARK: ValStoreAPI
 struct ValStoreBundle: Codable {
     let status: Int
     let data: [Datum]
 }
 
-// MARK: - Datum
+// MARK: Datum
 struct Datum: Codable {
     let name: String
     let price: Int

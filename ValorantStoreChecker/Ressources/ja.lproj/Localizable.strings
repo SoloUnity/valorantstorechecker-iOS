@@ -15,7 +15,7 @@
 "ErrorMessage2" = "リロードエラーケース
 1) 無効なネットワーク接続
 2) 設定で設定されたパスワードが間違っている";
-"DownloadingAssets" = "アセットをダウンロード中（75mb）";
+"DownloadAssets" = "アセットをダウンロード（75mb）";
 "CopyError" = "コピーエラー";
 "Unknown" = "不明";
 "ErrorMessage3" = "お客様の購入履歴はApp Storeで確認することができませんでした。";
@@ -79,7 +79,8 @@
 "Variant" = "バリアント";
 
 // 検索バー
-"Search" = "検索...";
+"Search" = "検索";
+"Cancel" = "キャンセル";
 
 // AboutView
 // HomeViewの中のAbout
@@ -162,4 +163,4 @@
 "UpdateInstructions5" = "下にスクロールして利用可能なアップデートを表示します";
 
 // Nighmarket
-"NightMarket" = "夜市";
+"NightMarket" = "ナイトマーケット";

@@ -31,8 +31,6 @@ struct AboutView: View {
                         
                         Spacer()
                         
-                          
-
                         
                         NavigationLink {
                             SettingsView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())

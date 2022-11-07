@@ -35,13 +35,6 @@ struct BundleView: View {
                         
                         ScrollView(showsIndicators: false) {
                             
-                            PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                                Task{
-                                    await authAPIModel.reload(skinModel: skinModel, reloadType: "bundleReload")
-                                }
-                            }
-                            .id("top") // Id to identify the top for scrolling
-                            .tag("top") // Tag to identify the top for scrolling
                             
                             if authAPIModel.bundle.isEmpty{
                                 
@@ -65,6 +58,7 @@ struct BundleView: View {
                                 
                                 
                                 
+                                
                             }
                             else{
                                 
@@ -72,6 +66,8 @@ struct BundleView: View {
                                 LazyVStack(spacing: 11) {
                                     
                                     ShopTopBarView(reloadType: "bundleReload", referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
+                                        .id("top") // Id to identify the top for scrolling
+                                        .tag("top") // Tag to identify the top for scrolling
                                     
                                     BundleImageView(bundleIndex: index)
                                     
@@ -91,10 +87,11 @@ struct BundleView: View {
                                     
                                     ForEach(authAPIModel.bundle[index - 1]) { skin in
                                         
-                                        SkinCardView(skin: skin, showPrice: true, showPriceTier: true)
+                                        SkinCardView(skin: skin, showPrice: true, showPriceTier: true, price: skin.discountedCost ?? "")
                                             .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
                                         
                                     }
+                                    
                                     
                                     if authAPIModel.bundle[index - 1].count > 3 {
                                         Button {
@@ -131,13 +128,24 @@ struct BundleView: View {
                                             }
                                         }
                                     }
+                                    
+                                    
                                 }
                             }
                             
                             //AdPaddingView()
                         }
-                        .coordinateSpace(name: "pullToRefresh")
                         .padding(.top, -8)
+                        .refreshable {
+                            
+                            withAnimation(.easeIn(duration: 0.2)) {
+                                authAPIModel.reloading = true
+                            }
+                            
+                            Task{
+                                await authAPIModel.reload(skinModel: skinModel, reloadType: "bundleReload")
+                            }
+                        }
                         
                         
                         

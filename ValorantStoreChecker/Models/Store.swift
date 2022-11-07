@@ -23,6 +23,7 @@ struct BonusStore: Codable {
 struct NightMarketItem: Codable {
     let Offer : NightMarketOffer?
     let DiscountCosts : NightMarketDiscountCost?
+    let DiscountPercent : Int?
 }
 
 struct NightMarketOffer : Codable {
@@ -120,11 +121,11 @@ struct StoreBundle: Codable {
 
 struct ItemElement: Codable {
     let item: ItemItem
-    let discountedPrice: Int
+    let basePrice: Int
 
     enum CodingKeys: String, CodingKey {
         case item = "Item"
-        case discountedPrice = "DiscountedPrice"
+        case basePrice = "BasePrice"
     }
 }
 

@@ -9,11 +9,18 @@ import SwiftUI
 
 struct LoginBoxView: View {
     
-    @EnvironmentObject var authAPIModel : AuthAPIModel
+    enum Field: Hashable {
+        case usernameField
+        case passwordField
+    }
+    
+    @EnvironmentObject private var authAPIModel : AuthAPIModel
     @State private var showPassword : Bool = false
+    @FocusState private var focusedField: Field?
     
     var body: some View {
         VStack{
+            
             // MARK: Username Box
             ZStack {
                 
@@ -27,6 +34,10 @@ struct LoginBoxView: View {
                         .disableAutocorrection(true)
                         .accentColor(.pink)
                         .submitLabel(.continue)
+                        .focused($focusedField, equals: .usernameField)
+                        .onSubmit {
+                            self.focusedField = .passwordField
+                        }
 
                 }
                 .padding(.horizontal).frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
@@ -52,7 +63,8 @@ struct LoginBoxView: View {
                             .foregroundColor(.white)
                             .disableAutocorrection(true)
                             .accentColor(.pink)
-                            .submitLabel(.continue)
+                            .submitLabel(.done)
+                            .focused($focusedField, equals: .passwordField)
 
                     }
                     else {
@@ -62,7 +74,8 @@ struct LoginBoxView: View {
                             .foregroundColor(.white)
                             .disableAutocorrection(true)
                             .accentColor(.pink)
-                            .submitLabel(.continue)
+                            .submitLabel(.done)
+                            .focused($focusedField, equals: .passwordField)
                         
                     }
                     

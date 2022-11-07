@@ -111,5 +111,16 @@ enum BundleListError: Error {
 }
 
 enum VersionError: Error {
-    case invalidResponse, invalidBundleInfo
+    case invalidResponse
+    case invalidBundleInfo
+}
+
+enum JSONDownloadError : Error {
+    case invalidResponse
+    case invalidJson
+}
+
+enum ImageDownloadError : Error {
+    case invalidResponse
+    case invalidJson
 }

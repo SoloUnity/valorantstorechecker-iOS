@@ -89,6 +89,7 @@ struct BundleImageView: View {
                 
                 HStack {
                     
+                    
                     Text(defaults.string(forKey: "bundleDisplayName" + String(bundleIndex)) ?? "")
                         .foregroundColor(.white)
                         .font(.subheadline)
@@ -97,26 +98,24 @@ struct BundleImageView: View {
                         .lineLimit(1)
                     
                     Spacer()
-                    
-                    // Not working as of now
-                    /*
-                    if let price = defaults.string(forKey: "bundlePrice" + String(bundleIndex)) {
-                        
-                        if price != "" {
+                    if authAPIModel.bundlePrice != [] {
+                        if let price = authAPIModel.bundlePrice[bundleIndex - 1] {
+                            
                             Image("vp")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 18, height: 18)
                                 .shadow(color: .white, radius: 2)
                             
-                            Text(price)
+                            Text(String(price))
                                 .font(.subheadline)
                                 .foregroundColor(.white)
                                 .bold()
                                 .shadow(color: .black, radius: 3)
                         }
                     }
-                    */
+                    
+                    
                 }
                 .padding(10)
             }

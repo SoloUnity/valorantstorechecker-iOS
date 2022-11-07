@@ -9,16 +9,16 @@ import SwiftUI
 
 struct SkinCardView: View {
     
-    @EnvironmentObject var skinModel : SkinModel
-    @EnvironmentObject var authAPIModel : AuthAPIModel
+    @EnvironmentObject private var skinModel : SkinModel
+    @EnvironmentObject private var authAPIModel : AuthAPIModel
     @ObservedObject var skin:Skin
-    @State private var isDetailViewShowing = false
+    @State var isDetailViewShowing = false
     
     var showPrice = false
     var showPriceTier = false
     var price = ""
     var originalPrice = false
-    var percentOff = false
+    var percentOff = ""
     
     var body: some View {
         
@@ -59,11 +59,9 @@ struct SkinCardView: View {
                 
                 
                 VStack{
+                    
                     HStack{
                         let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased())
-                        
-                        
-                        
                         
                         Spacer()
                         
@@ -90,15 +88,15 @@ struct SkinCardView: View {
                             }     
                         }
                         
-                        if percentOff && self.price != ""{
-                            Text("-" + percentCalculator(originalPrice: price, discountPrice: self.price) + "%")
+                        if percentOff != "" {
+                            Text("-" + percentOff + "%")
                                 .font(.subheadline)
                                 .foregroundColor(.white)
                                 .bold()
                                 .shadow(color: .black, radius: 3)
                                 .opacity(0.3)
                         }
-                        
+        
                     }
                     .padding(10)
                     
@@ -233,14 +231,4 @@ func cleanName(name: String) -> String {
     return finalName
 }
 
-func percentCalculator(originalPrice: String, discountPrice: String) -> String {
-    if originalPrice != "Unknown" {
-        
-        let thing1 = (Float(discountPrice) ?? 1)/(Float(originalPrice) ?? 1)
-        let thing2 = ((1 - thing1) * 100).rounded()
-        let thing3 = Int(thing2)
-        return String(thing3)
-    }
-    
-    return "Unknown"
-}
+

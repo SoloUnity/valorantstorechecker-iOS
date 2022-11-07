@@ -76,6 +76,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "ValorantStoreChecker"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

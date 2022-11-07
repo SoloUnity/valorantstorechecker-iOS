@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MultifactorView: View {
     
-    @EnvironmentObject var authAPIModel : AuthAPIModel
-    @EnvironmentObject var skinModel : SkinModel
+    @EnvironmentObject private var authAPIModel : AuthAPIModel
+    @EnvironmentObject private var skinModel : SkinModel
     
     var body: some View {
         

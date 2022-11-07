@@ -10,7 +10,6 @@ import UIKit
 
 class Skin: Identifiable, Codable, ObservableObject{
     
-        
     var id : UUID
     var displayName:String
     var themeUuid:String?
@@ -76,5 +75,42 @@ struct Levels: Codable, Identifiable{
 }
 
 struct Skins: Codable {
+    
     var data:[Skin]
+    
 }
+/*
+struct Skins: Codable, AsyncSequence {
+    typealias Element = Skin
+    
+    var data:[Skin]
+    
+    init(data: [Skin]) {
+        self.data = data
+    }
+    
+    func makeAsyncIterator() -> DataIterator {
+        return DataIterator(data: data)
+    }
+}
+
+struct DataIterator: AsyncIteratorProtocol {
+    typealias Element = Skin
+    
+    var index = 0
+    var data:[Skin]
+    
+    mutating func next() async throws -> Skin? {
+        guard index < data.count else {
+            return nil
+        }
+        
+        let skin = data[index]
+        index += 1
+        
+        return skin
+    }
+    
+}
+*/
+

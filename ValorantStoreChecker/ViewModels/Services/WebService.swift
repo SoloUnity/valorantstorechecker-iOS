@@ -416,7 +416,6 @@ struct WebService {
                 throw BundleError.badDecode
             }
             
-            print("IMAGE", bundleResponse1.data.displayIcon)
             
             if let url = URL(string: bundleResponse1.data.displayIcon) {
                 
@@ -425,6 +424,7 @@ struct WebService {
             }
             
             return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon]
+            
             /*
             var bundleRequest2 = URLRequest(url: url2)
             bundleRequest2.httpMethod = "GET"
@@ -631,15 +631,17 @@ struct WebService {
     // MARK: Helper function
     // Configure websession for reloading / reauthentication
     static func setCookie(named name: String, to value: String) async throws -> Void{
+        
         WebService.session.configuration.httpCookieStorage!.setCookie(.init(properties: [
             .name: name,
             .value: value,
             .path: "/",
             .domain: "auth.riotgames.com",
         ])!)
+        
     }
     
-    // MARK: Download stuff
+    // MARK: Download function
     
     static func dataHelper (url : URL, key : String)  {
         
@@ -668,7 +670,6 @@ struct WebService {
         }
         dataTask.resume()
         
-
     }
      
     /*

@@ -7,7 +7,7 @@
 */
 
 // Errors
-"DownloadingAssets" = "Téléchargement d'images (75mb)";
+"DownloadAssets" = "Télécharger des images (75mb)";
 "CopyError" = "Copier l'erreur";
 "Unknown" = "Inconnu";
 
@@ -21,7 +21,7 @@
 1) Connexion réseau invalide.
 2) Mauvais mot de passe défini dans Réglages.";
 "ErrorMessage3" = "Votre achat n'a pas pu être vérifié par l'App Store.";
-"NetworkError" = "S'il vous plait, vérifiez votre connexion internet.";
+"NetworkError" = "Pas d'internet";
 
 "Reset" = "Réinitialiser";
 "ResetApp" = "Réinitialisation de l'application";
@@ -81,7 +81,8 @@
 "Variant" = "Variante";
 
 // SearchBar
-"Search" = "Recherche...";
+"Search" = "Recherche";
+"Cancel" = "Annuler";
 
 // AboutView
 // About in HomeView

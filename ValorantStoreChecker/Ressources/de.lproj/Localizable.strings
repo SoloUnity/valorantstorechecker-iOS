@@ -17,7 +17,7 @@
 "ErrorMessage2" = "Fehlerfälle beim Nachladen
 1) Ungültige Netzwerkverbindung
 2) Falsches Passwort in den Einstellungen festgelegt";
-"DownloadingAssets" = "Herunterladen von Assets (75mb)";
+"DownloadAssets" = "Assets herunterladen (75mb)";
 "CopyError" = "Kopierfehler";
 "Unbekannt" = "Unbekannt";
 "ErrorMessage3" = "Ihr Kauf konnte vom App Store nicht überprüft werden.";
@@ -81,7 +81,8 @@
 "Variant" = "Variant";
 
 // Suchleiste
-"Search" = "Suche ...";
+"Search" = "Suche";
+"Cancel" = "Abbrechen";
 
 // AboutView
 // Über in HomeView

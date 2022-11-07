@@ -18,6 +18,9 @@ class AuthAPIModel: ObservableObject {
     @Published var vp : String = ""
     @Published var rp : String = ""
     
+    // Image Download
+    @Published var downloadImagePermission : Bool = false
+    
     // Authentication
     @Published var isAuthenticated: Bool = false // Keeps user logged in
     @Published var isAuthenticating : Bool = false // Handles loading animation
@@ -54,12 +57,17 @@ class AuthAPIModel: ObservableObject {
     // BundleInformation
     @Published var bundleImage : [String] = []
     @Published var bundle : [[Skin]] = []
+    @Published var bundlePrice : [Int] = []
     
     // NightMarket
     @Published var nightMarket : Bool = false
     @Published var nightSkins : [Skin] = []
+    @Published var percentOff : [Int] = []
+    
     
     init() {
+        
+        
         
         // TODO: Implement CoreData, but for now lmao this works
         // Use saved storefront
@@ -84,6 +92,14 @@ class AuthAPIModel: ObservableObject {
         
         if let owned = defaults.array(forKey: "owned") as? [String] {
             self.owned = owned
+        }
+        
+        if let bundlePrice = defaults.array(forKey: "bundlePrice") as? [Int] {
+            self.bundlePrice = bundlePrice
+        }
+        
+        if let percentOff = defaults.array(forKey: "percentOff") as? [Int] {
+            self.percentOff = percentOff
         }
         
         if let objects = defaults.value(forKey: "bundle") as? Data {
@@ -111,14 +127,13 @@ class AuthAPIModel: ObservableObject {
     
     // MARK: Login
     @MainActor
-    func login(skinModel: SkinModel) async{
+    func login(skinModel: SkinModel) async {
         
         do{
             
             if self.rememberPassword || defaults.bool(forKey: "rememberPassword"){
                 self.username = keychain.value(forKey: "username") as? String ?? ""
                 self.password = keychain.value(forKey: "password") as? String ?? ""
-                
             }
             
             else if keychain.value(forKey: "username") == nil { // Save username to keychain
@@ -127,7 +142,7 @@ class AuthAPIModel: ObservableObject {
             
             let _ = try await WebService.getCookies(reload: false)
             
-            let tokenList = try await WebService.getToken(username: keychain.value(forKey: "username") as? String ?? "", password: self.password)
+            let tokenList = try await WebService.getToken(username: keychain.value(forKey: "username") as? String ?? self.username, password: self.password)
             
             if tokenList.count == 2 {
                 // Multifactor login
@@ -221,23 +236,27 @@ class AuthAPIModel: ObservableObject {
                 }
                 
                 var tempMarket : [Skin] = []
+                var tempPercent : [Int] = []
                 
                 for skin in skinModel.data {
                     for item in market.BonusStoreOffers! {
                         let itemUUID = skin.levels!.first!.id.uuidString.lowercased()
                         if itemUUID == item.Offer?.OfferID {
                             
-                            
-                            
                             let newSkin = skin
-                            newSkin.discountedCost = String((item.DiscountCosts?.discountItemCost)!)
+                            newSkin.discountedCost = String((item.DiscountCosts?.discountItemCost) ?? 0)
 
                             tempMarket.append(newSkin)
+                            tempPercent.append(item.DiscountPercent ?? 0)
                         }
                     }
                 }
                 
-                self.nightSkins = tempMarket
+                withAnimation(.easeIn(duration: 0.15)) {
+                    self.percentOff = tempPercent
+                    self.nightSkins = tempMarket
+                }
+                
                 
                 // Save the storefront
                 let storefrontEncoder = JSONEncoder()
@@ -248,6 +267,8 @@ class AuthAPIModel: ObservableObject {
                 
                 let nightReferenceDate = Date() + Double(market.BonusStoreRemainingDurationInSeconds!)
                 defaults.set(nightReferenceDate, forKey: "nightTimeLeft")
+                
+                defaults.set(tempPercent, forKey: "percentOff")
 
             }
             else {
@@ -311,7 +332,10 @@ class AuthAPIModel: ObservableObject {
                 }
             }
             
-            self.storefront = tempStore
+            withAnimation(.easeIn(duration: 0.15)) {
+                self.storefront = tempStore
+            }
+            
             
             // Save the storefront
             let storefrontEncoder = JSONEncoder()
@@ -375,6 +399,7 @@ class AuthAPIModel: ObservableObject {
             var bundleCounter = 0
             var bundleItems : [[Skin]] = []
             var tempImages : [String] = []
+            var bundlePrice : [Int] = []
             
             for item in bundleList.bundles {
                 bundleCounter += 1
@@ -398,21 +423,35 @@ class AuthAPIModel: ObservableObject {
                 let items = item.items
                 
                 var tempBundleItems : [Skin] = []
+                var tempBundlePrice = 0
                 
                 for skin in skinModel.data{
                     for item in items {
                         if skin.levels!.first!.id.description.lowercased() == item.item.itemID {
-                            tempBundleItems.append(skin)
+                            
+                            
+                            let newSkin = skin
+                            newSkin.discountedCost = String((item.basePrice))
+                            tempBundleItems.append(newSkin)
+                            
+                            if !skin.assetPath!.contains("ShooterGame/Content/Equippables/Melee") {
+                                tempBundlePrice += item.basePrice
+                            }
+                            
+                            
                         }
                     }
                 }
                 
                 bundleItems.append(tempBundleItems)
+                bundlePrice.append(tempBundlePrice)
                 
             }
 
             self.bundle = bundleItems
             self.bundleImage = tempImages
+            self.bundlePrice = bundlePrice
+            
             
             // Save the bundle
             let bundleEncoder = JSONEncoder()
@@ -420,6 +459,12 @@ class AuthAPIModel: ObservableObject {
             if let encoded = try? bundleEncoder.encode(bundleItems){
                 defaults.set(encoded, forKey: "bundle")
             }
+            
+            // Save the bundlePrice
+            defaults.set(bundlePrice, forKey: "bundlePrice")
+            
+            
+            
         }
         catch {
             self.errorMessage = "Login Helper error: \(error.localizedDescription)"
@@ -512,27 +557,11 @@ class AuthAPIModel: ObservableObject {
                 //self.isReloadingError = true
                 
                 // Bandaid solution
-                let errorMessage = error.localizedDescription.split(separator: "(")
-                if errorMessage.count >= 2 {
-                    let errorMessage1 = errorMessage[1].split(separator: " ")
-                    if !errorMessage1.isEmpty {
-                        let errorMessage2 = errorMessage1[0]
-                        
-                        if errorMessage2 == "ValorantStoreChecker.CookieError" {
-                            
-                            self.isError = true
-                            self.isReloadingError = true
-                            
-                        }
-                        else {
-                            self.errorMessage = "Reload error: \(error.localizedDescription)"
-                            self.isError = true
-                        }
-                    }
-                    else {
-                        self.errorMessage = "Reload error: \(error.localizedDescription)"
-                        self.isError = true
-                    }
+                let errorMessage = error.localizedDescription
+                
+                if errorMessage.contains("CookieError") {
+                    self.isError = true
+                    self.isReloadingError = true
                 }
                 else {
                     self.errorMessage = "Reload error: \(error.localizedDescription)"

@@ -7,7 +7,7 @@
 */
 
 // Errors
-"DownloadingAssets" = "Téléchargement d'images (75mb)";
+"DownloadAssets" = "Télécharger des images (75mb)";
 "CopyError" = "Copier l'erreur";
 "Unknown" = "Inconnu";
 
@@ -81,7 +81,8 @@
 "Variant" = "Variante";
 
 // SearchBar
-"Search" = "Recherche...";
+"Search" = "Recherche";
+"Cancel" = "Annuler";
 
 // AboutView
 // About in HomeView

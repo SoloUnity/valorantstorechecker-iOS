@@ -9,10 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @EnvironmentObject var authAPIModel : AuthAPIModel
-    @EnvironmentObject var skinModel : SkinModel
-    
-    
+    @EnvironmentObject private var authAPIModel : AuthAPIModel
+    @EnvironmentObject private var skinModel : SkinModel
     @State private var agreedToTerms: Bool = false
     @State private var showTerms : Bool = false
     @State private var showAlert : Bool = false
@@ -114,9 +112,8 @@ struct LoginView: View {
                         Button {
                             self.showAlert = true
                         } label: {
-                            Text(LocalizedStringKey("ResetApp"))
+                            Image("ladybug.fill")
                         }
-                        
                         .alert("Invalid login", isPresented: $showAlert, actions: {
                             
                             Button(LocalizedStringKey("Reset"), role: nil, action: {
@@ -166,8 +163,16 @@ struct LoginView: View {
                                 .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
                             }
                             else{
-                                ProgressView()
-                                    .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
+                                ZStack{
+                                    CircleView(colour: .pink)
+                                        .opacity(0.7)
+                                        .shadow(color:.pink, radius: 2)
+                                    
+                                    ProgressView()
+                                    
+                                }
+                                .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
+                                
                             }
                             
                         }

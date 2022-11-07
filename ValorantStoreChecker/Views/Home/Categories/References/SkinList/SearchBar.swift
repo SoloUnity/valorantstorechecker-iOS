@@ -16,7 +16,12 @@ struct SearchBar: View {
         HStack {
  
             TextField(LocalizedStringKey("Search"), text: $text)
-                .disableAutocorrection(true)
+                .onTapGesture {
+                    withAnimation(.easeIn(duration: 0.15)) {
+                        self.isEditing = true
+                    }
+                    
+                }
                 .padding(7)
                 .padding(.horizontal, 25)
                 .accentColor(.pink)
@@ -33,24 +38,17 @@ struct SearchBar: View {
                             RoundedRectangle(cornerRadius: 10)
                         }
                 }
-                .submitLabel(.search)
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.gray)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 8)
-                 
+                        
                         if isEditing {
                             Button(action: {
-                                // Dismiss keyboard
-                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                                
-                                withAnimation(.easeOut(duration: 0.15)) {
-                                    self.isEditing = false
-                                }
-
                                 self.text = ""
+                                
                             }) {
                                 Image(systemName: "multiply.circle.fill")
                                     .foregroundColor(.gray)
@@ -59,17 +57,22 @@ struct SearchBar: View {
                         }
                     }
                 )
+                .disableAutocorrection(true)
                 .padding(.horizontal, 10)
-                .onTapGesture {
-                    withAnimation(.easeIn(duration: 0.15)) {
-                        self.isEditing = true
+                .submitLabel(.search)
+                .onSubmit {
+                    
+                    withAnimation(.easeOut(duration: 0.15)) {
+                        self.isEditing = false
                     }
                     
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
                 
                 
             
         }
+        
     }
 }
 

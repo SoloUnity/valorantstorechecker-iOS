@@ -47,6 +47,7 @@ class NotificationService {
     
     func disableNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        print("notification canceled")
     }
 }
 

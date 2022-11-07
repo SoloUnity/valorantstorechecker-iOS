@@ -9,8 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var authAPIModel : AuthAPIModel
-    @EnvironmentObject var skinModel : SkinModel
+    @EnvironmentObject private var authAPIModel : AuthAPIModel
+    @EnvironmentObject private var skinModel : SkinModel
     @State private var tabIndex = 0
     
     private let defaults = UserDefaults.standard

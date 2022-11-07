@@ -9,9 +9,9 @@ import SwiftUI
 
 struct LaunchView: View {
     
-    @EnvironmentObject var skinModel:SkinModel
-    @EnvironmentObject var authAPIModel:AuthAPIModel
-    @Environment(\.scenePhase) private var phase
+    @EnvironmentObject private var skinModel:SkinModel
+    @EnvironmentObject private var authAPIModel:AuthAPIModel
+    //@Environment(\.scenePhase) private var phase
     
     @State private var loadingBar : Bool = false // False is loading bar showing
     @State private var percent : Int = 0
@@ -29,7 +29,9 @@ struct LaunchView: View {
                 LoginView()
                 
             }
-            else if !authAPIModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
+            else if !defaults.bool(forKey: "authorizeDownload") && !authAPIModel.downloadImagePermission {
+                
+                DownloadView()
                 
             }
             else {
@@ -46,6 +48,7 @@ struct LaunchView: View {
             }
             
             // Fake loading bar
+            /*
             if !loadingBar && !UserDefaults.standard.bool(forKey: "progress") {
                 
                 VStack {
@@ -82,6 +85,7 @@ struct LaunchView: View {
                 
                 
             }
+            */
             
         }
         .sheet(isPresented: $authAPIModel.showMultifactor) {

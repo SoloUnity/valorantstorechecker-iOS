@@ -18,7 +18,6 @@ struct NightMarketView: View {
         ZStack {
             
             
-            
             GeometryReader{ geo in
                 VStack(spacing: 0){
                     
@@ -29,21 +28,25 @@ struct NightMarketView: View {
                         
                         ScrollView(showsIndicators: false) {
                             
-                            PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                                Task{
-                                    await authAPIModel.reload(skinModel: skinModel, reloadType: "nightMarketReload")
-                                }
-                            }
-                            .id("top") // Id to identify the top for scrolling
-                            .tag("top") // Tag to identify the top for scrolling
                             
                             LazyVStack(spacing: 11) {
                                 ShopTopBarView(reloadType: "nightMarketReload", referenceDate: defaults.object(forKey: "nightTimeLeft") as? Date ?? Date())
                                 
-                                ForEach(authAPIModel.nightSkins) { skin in
+                                
+                                ForEach(0..<authAPIModel.nightSkins.count, id: \.self) { index in
                                     
-                                    SkinCardView(skin: skin, showPrice: true, showPriceTier: true, price: skin.discountedCost ?? "", originalPrice: false, percentOff: true)
-                                        .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
+                                    if !authAPIModel.percentOff.isEmpty || (authAPIModel.percentOff.count != authAPIModel.nightSkins.count) {
+                                        
+                                        // TODO: percent off crashes sometimes, fix
+                                        let percentOff = authAPIModel.percentOff[index]
+                                        SkinCardView(skin: authAPIModel.nightSkins[index], showPrice: true, showPriceTier: true, price: authAPIModel.nightSkins[index].discountedCost ?? "" , originalPrice: false, percentOff: String(percentOff))
+                                            .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
+                                    }
+                                    else {
+                                        SkinCardView(skin: authAPIModel.nightSkins[index], showPrice: true, showPriceTier: true, price: authAPIModel.nightSkins[index].discountedCost ?? "" , originalPrice: false)
+                                            .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
+                                    }
+                                    
                                     
                                 }
                                 
@@ -89,8 +92,17 @@ struct NightMarketView: View {
                             
                             
                         }
-                        .coordinateSpace(name: "pullToRefresh")
                         .padding(.top, -8)
+                        .refreshable {
+                            
+                            withAnimation(.easeIn(duration: 0.2)) {
+                                authAPIModel.reloading = true
+                            }
+                            
+                            Task{
+                                await authAPIModel.reload(skinModel: skinModel, reloadType: "nightMarketReload")
+                            }
+                        }
                         
 
 
