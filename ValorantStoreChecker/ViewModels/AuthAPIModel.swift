@@ -20,6 +20,7 @@ class AuthAPIModel: ObservableObject {
     
     // Image Download
     @Published var downloadImagePermission : Bool = false
+    @Published var downloadBarFinish : Bool = false
     
     // Authentication
     @Published var isAuthenticated: Bool = false // Keeps user logged in
@@ -58,11 +59,13 @@ class AuthAPIModel: ObservableObject {
     @Published var bundleImage : [String] = []
     @Published var bundle : [[Skin]] = []
     @Published var bundlePrice : [Int] = []
+    @Published var bundleCount : Int = 0
     
     // NightMarket
     @Published var nightMarket : Bool = false
     @Published var nightSkins : [Skin] = []
     @Published var percentOff : [Int] = []
+    
     
     
     init() {
@@ -77,6 +80,7 @@ class AuthAPIModel: ObservableObject {
                 DispatchQueue.main.async{
                     self.storefront = objectsDecoded
                 }
+                
             }
         }
         
@@ -119,6 +123,13 @@ class AuthAPIModel: ObservableObject {
                     self.nightSkins = objectsDecoded
                 }
             }
+        }
+        
+        // Bundle count
+        let count = defaults.integer(forKey: "bundleCount")
+            
+        DispatchQueue.main.async {
+            self.bundleCount = count
         }
         
         
@@ -393,7 +404,7 @@ class AuthAPIModel: ObservableObject {
                 throw BundleListError.invalidList
             }
             
-            
+            self.bundleCount = bundleList.bundles.count
             defaults.set(bundleList.bundles.count, forKey: "bundleCount")
             
             var bundleCounter = 0
@@ -485,11 +496,14 @@ class AuthAPIModel: ObservableObject {
                 self.showMultifactor = false
                 self.enteredMultifactor = false
                 
-                // Save authentication state for next launch
-                withAnimation(.easeIn(duration: 0.2)) {
-                    self.isAuthenticated = true
-                    defaults.set(true, forKey: "authentication")
+                DispatchQueue.main.async {
+                    // Save authentication state for next launch
+                    withAnimation(.easeIn(duration: 0.2)) {
+                        self.isAuthenticated = true
+                        self.defaults.set(true, forKey: "authentication")
+                    }
                 }
+                
                 
             }
             catch{

@@ -5,7 +5,7 @@
 //
 
 import SwiftUI
-
+import StoreKit
 
 struct LaunchView: View {
     
@@ -13,8 +13,7 @@ struct LaunchView: View {
     @EnvironmentObject private var authAPIModel:AuthAPIModel
     //@Environment(\.scenePhase) private var phase
     
-    @State private var loadingBar : Bool = false // False is loading bar showing
-    @State private var percent : Int = 0
+    
     
     
     let defaults = UserDefaults.standard
@@ -29,7 +28,7 @@ struct LaunchView: View {
                 LoginView()
                 
             }
-            else if !defaults.bool(forKey: "authorizeDownload") && !authAPIModel.downloadImagePermission {
+            else if (!defaults.bool(forKey: "authorizeDownload") && !authAPIModel.downloadImagePermission) || (!defaults.bool(forKey: "downloadBarFinish") && !authAPIModel.downloadBarFinish) {
                 
                 DownloadView()
                 
@@ -47,45 +46,7 @@ struct LaunchView: View {
                  */
             }
             
-            // Fake loading bar
-            /*
-            if !loadingBar && !UserDefaults.standard.bool(forKey: "progress") {
-                
-                VStack {
-                    
-                    ZStack (alignment: .leading){
-                        RoundedRectangle (cornerRadius: 20, style: .continuous)
-                            .frame (width: UIScreen.main.bounds.width - 50, height: 2)
-                            .foregroundColor(Color.white.opacity (0.1))
-                        
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .frame(width: (UIScreen.main.bounds.width - 50) * CGFloat(self.percent), height: 2)
-                            .foregroundColor(.pink)
-                            .animation(.linear(duration: 30), value: self.percent)
-                            .onAppear{
-                                self.percent = 1
-                                
-                                Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { timer in
-                                    withAnimation(.easeIn(duration: 1)) {
-                                        self.loadingBar = true
-                                    }
-                                    defaults.set(true, forKey: "progress")
-                                    timer.invalidate()
-                                }
-                            }
-                    }
-                    
-                    
-                    
-                    Text(LocalizedStringKey("DownloadingAssets"))
-                        .font(.caption2)
-                    
-                }
-                .padding(.top, 5)
-                
-                
-            }
-            */
+
             
         }
         .sheet(isPresented: $authAPIModel.showMultifactor) {

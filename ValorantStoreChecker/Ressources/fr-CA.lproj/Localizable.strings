@@ -26,6 +26,7 @@
 "Reset" = "Réinitialiser";
 "ResetApp" = "Réinitialisation de l'application";
 "ResetInfo" = "De temps en temps, en raison de certains bugs, des erreurs peuvent survenir. Ce bouton vous permet de réinitialiser complètement l'application en cas de ces erreurs.";
+"HelpTranslate" = "Aider avec la traduction";
 
 // Login Screen
 "Login" = "Connectez-vous à votre compte Riot";
@@ -166,3 +167,10 @@
 
 // Nighmarket
 "NightMarket" = "Marché de nuit";
+
+// Review Prompt
+"ReviewTitle" = "Vous aimez VSC ?";
+"OpenGitHub" = "Laisser une étoile GitHub";
+"MaybeLater" = "Peut-être plus tard";
+"NeverShowAgain" = "Ne jamais plus afficher";
+"ReviewPrompt" = "Veuillez laisser un avis ou une étoile sur GitHub !";

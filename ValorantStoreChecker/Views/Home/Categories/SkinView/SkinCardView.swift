@@ -45,15 +45,32 @@ struct SkinCardView: View {
                         .scaledToFit()
                         .padding()
                     
-                } else {
-                    // Quicker load time but a data muncher
-                    AsyncImage(url: URL(string: skin.levels!.first!.displayIcon!)) { image in
-                        image.resizable()
-                    } placeholder: {
-                        ProgressView()
+                }
+                else {
+                    
+                    if let imageData = UserDefaults.standard.data(forKey: skin.chromas![0].id.description) {
+                        
+                        let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData)
+                        
+                        let uiImage = UIImage(data: decoded)
+                        
+                        Image(uiImage: uiImage ?? UIImage())
+                            .resizable()
+                            .scaledToFit()
+                            .padding()
+                        
                     }
-                    .scaledToFit()
-                    .padding()
+                    else {
+                        // Quicker load time but a data muncher
+                        AsyncImage(url: URL(string: skin.levels!.first!.displayIcon!)) { image in
+                            image.resizable()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .scaledToFit()
+                        .padding()
+                    }
+                    
                     
                 }
                 

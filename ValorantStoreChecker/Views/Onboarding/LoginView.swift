@@ -140,12 +140,17 @@ struct LoginView: View {
                             // Dismiss keyboard
                             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                             
-                            authAPIModel.failedLogin = false // Remove error message of authentication
-                            authAPIModel.isAuthenticating = true // Start loading animation
+                            DispatchQueue.main.async {
+                                authAPIModel.failedLogin = false // Remove error message of authentication
+                                authAPIModel.isAuthenticating = true // Start loading animation
+                                
+                                
+                            }
                             
                             Task{
                                 await authAPIModel.login(skinModel: skinModel)
                             }
+                            
                             
                         } label: {
                             if !authAPIModel.isAuthenticating {

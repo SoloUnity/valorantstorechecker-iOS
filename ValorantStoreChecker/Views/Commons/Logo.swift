@@ -14,6 +14,7 @@ struct Logo: View {
             .scaledToFit()
             .padding(.bottom)
             .shadow(color:.red, radius: 3)
+
         
     }
 }

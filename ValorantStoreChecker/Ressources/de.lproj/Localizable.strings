@@ -26,6 +26,7 @@
 "Reset" = "Zurücksetzen";
 "ResetApp" = "App zurücksetzen";
 "ResetInfo" = "Gelegentlich können aufgrund von Fehlern Fehler auftreten. Mit dieser Schaltfläche können Sie die App im Falle eines solchen Fehlers vollständig zurücksetzen.";
+"HelpTranslate" = "Hilfe bei der Übersetzung";
 
 // Anmeldebildschirm
 "Login" = "Melden Sie sich bei Ihrem Riot-Konto an";
@@ -165,3 +166,10 @@
 
 // Nighmarket
 "NightMarket" = "Nachtmarkt";
+
+// REview prompt
+"ReviewTitle" = "Genießen Sie VSC?";
+"OpenGitHub" = "GitHub-Stern hinterlassen";
+"MaybeLater" = "Vielleicht später";
+"NeverShowAgain" = "Nie wieder anzeigen";
+"ReviewPrompt" = "Bitte hinterlassen Sie eine Bewertung oder einen Stern auf GitHub!";

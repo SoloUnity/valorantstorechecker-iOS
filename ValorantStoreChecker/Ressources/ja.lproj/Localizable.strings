@@ -24,6 +24,7 @@
 "Reset" = "リセット";
 "ResetApp" = "アプリをリセットする";
 "ResetInfo" = "まれにバグによりエラーが発生することがあります。このボタンにより、エラーが発生した場合、アプリを完全にリセットすることができます。";
+"HelpTranslate" = "翻訳のお手伝い";
 
 // ログイン画面
 "Login" = "Riotアカウントにログインする";
@@ -164,3 +165,10 @@
 
 // Nighmarket
 "NightMarket" = "ナイトマーケット";
+
+// Review Prompt
+"ReviewTitle" = "VSC を楽しんでいますか?";
+"OpenGitHub" = "GitHub スターを残す";
+"MaybeLater" = "たぶん後で";
+"NeverShowAgain" = "二度と表示しない";
+"ReviewPrompt" = "GitHub にレビューまたは星を残してください!";

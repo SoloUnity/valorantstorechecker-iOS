@@ -15,6 +15,7 @@ struct ShopTopBarView: View {
     
     @State private var nowDate: Date = Date()
     @State private var successfulReload = false
+    @State private var promptReview = false
     
     let reloadType : String
     let defaults = UserDefaults.standard
@@ -90,9 +91,16 @@ struct ShopTopBarView: View {
                         authAPIModel.reloading = true
                     }
                     
+                    
                     Task{
                         await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
                     }
+                    
+                    if !defaults.bool(forKey: "clickedReview") {
+                        reloadCounter()
+                    }
+                    
+                    
                 } label: {
                     if !authAPIModel.reloading && !successfulReload {
                         
@@ -172,6 +180,46 @@ struct ShopTopBarView: View {
             
             
         }
+        .alert(LocalizedStringKey("ReviewTitle"), isPresented: $promptReview, actions: {
+            
+            Button("⭐⭐⭐⭐⭐", role: nil, action: {
+                
+                self.promptReview = false
+                
+                defaults.set(true, forKey: "clickedReview")
+                
+                if let url = URL(string: Constants.URL.review) {
+                    UIApplication.shared.open(url)
+                }
+                
+            })
+            
+            Button(LocalizedStringKey("OpenGitHub"), role: nil, action: {
+                if let url = URL(string: Constants.URL.sourceCode) {
+                    UIApplication.shared.open(url)
+                }
+                
+                defaults.set(true, forKey: "clickedReview")
+                
+                self.promptReview = false
+            })
+            
+            Button(LocalizedStringKey("MaybeLater"), role: nil, action: {
+                self.promptReview = false
+            })
+            
+            Button(LocalizedStringKey("NeverShowAgain"), role: nil, action: {
+                
+                defaults.set(true, forKey: "clickedReview")
+                self.promptReview = false
+            })
+            
+        }, message: {
+            
+            Text("ReviewPrompt")
+            
+            
+        })
     }
     
     // MARK: Helper function
@@ -204,6 +252,17 @@ struct ShopTopBarView: View {
         
     }
     
+    func reloadCounter() {
+        
+        let reloadCount = defaults.integer(forKey: "reloadCounter")
+        defaults.set(reloadCount + 1, forKey: "reloadCounter")
+        
+        if (reloadCount != 0) && (reloadCount % 10) == 0 {
+            self.promptReview = true
+        }
+        
+    }
 }
+
 
 

@@ -25,7 +25,7 @@ struct ShopView: View {
                 
                 Logo()
                     .frame(width: geo.size.width/Constants.dimensions.logoSize)
-                
+                                    
                 
                 ScrollView(showsIndicators: false) {
                     
@@ -83,13 +83,19 @@ struct ShopView: View {
                     }
                 }
             }
+  
+            
             
         }
         .padding(.bottom, 1)
         .padding(.horizontal)
         
+
+        
         
     }
+    
+    
 }
 
 struct ShopView_Previews: PreviewProvider {

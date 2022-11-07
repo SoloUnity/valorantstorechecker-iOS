@@ -12,9 +12,10 @@ struct DownloadView: View {
     @EnvironmentObject private var authAPIModel : AuthAPIModel
     @EnvironmentObject private var skinModel : SkinModel
     
-    @State var expandCommunity = true
-    @State var expandAcknowledgements = true
-    @State var expandCopyright = false
+    @State private var expandCommunity = true
+    @State private var expandAcknowledgements = true
+    @State private var expandCopyright = false
+    @State private var percent : Int = 0
     
     var body: some View {
         
@@ -30,6 +31,42 @@ struct DownloadView: View {
                     
                     TabView {
                         
+                        
+
+                        Button {
+                            if let url = URL(string: Constants.URL.website) {
+                                UIApplication.shared.open(url)
+                            }
+                        } label: {
+
+                            VStack {
+                                Image("website")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .cornerRadius(15)
+                                
+                                Spacer()
+                            }
+
+                        }
+                        
+
+                        Button {
+                            if let url = URL(string: Constants.URL.discord) {
+                                UIApplication.shared.open(url)
+                            }
+                        } label: {
+
+                            VStack {
+                                Image("discordServer")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .cornerRadius(15)
+                                
+                                Spacer()
+                            }
+
+                        }
                         
                         VStack{
                             ScrollView(showsIndicators: false) {
@@ -75,41 +112,6 @@ struct DownloadView: View {
                             }
                             
                         }
-
-                        Button {
-                            if let url = URL(string: Constants.URL.website) {
-                                UIApplication.shared.open(url)
-                            }
-                        } label: {
-
-                            VStack {
-                                Image("website")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .cornerRadius(15)
-                                
-                                Spacer()
-                            }
-
-                        }
-                        
-
-                        Button {
-                            if let url = URL(string: Constants.URL.discord) {
-                                UIApplication.shared.open(url)
-                            }
-                        } label: {
-
-                            VStack {
-                                Image("discordServer")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .cornerRadius(15)
-                                
-                                Spacer()
-                            }
-
-                        }
                         
 
                         
@@ -120,33 +122,69 @@ struct DownloadView: View {
                                   
                     Spacer()
                     
-                    Button {
-                        withAnimation(.easeOut(duration: 0.2)) {
-                            UserDefaults.standard.set(true, forKey: "authorizeDownload")
-                            authAPIModel.downloadImagePermission = true
-                        }
-                        
-                        Task {
+                    if !authAPIModel.downloadImagePermission {
+                        Button {
+
+                            DispatchQueue.main.async {
+                                withAnimation(.easeOut(duration: 0.2)) {
+                                    UserDefaults.standard.set(true, forKey: "authorizeDownload")
+                                    authAPIModel.downloadImagePermission = true
+                                }
+                            }
                             
-                            await skinModel.getRemoteData()
-                        }
-                        
-                    } label: {
-                        
-                        ZStack{
-                            RectangleView(colour: .pink)
-                                .shadow(color:.pink, radius: 2)
-                                .cornerRadius(15)
                             
-                            Text("DownloadAssets")
-                                .bold()
-                                .padding(15)
-                                .foregroundColor(.white)
+                            Task {
                                 
+                                await skinModel.getRemoteData()
+                            }
+                            
+                        } label: {
+                            
+                            ZStack{
+                                RectangleView(colour: .pink)
+                                    .shadow(color:.pink, radius: 2)
+                                    .cornerRadius(15)
+                                
+                                Text("DownloadAssets")
+                                    .bold()
+                                    .padding(15)
+                                    .foregroundColor(.white)
+                                    
+                                
+                            }
+                            .padding(.horizontal)
+                            .frame(height: Constants.dimensions.circleButtonSize)
                             
                         }
-                        .padding(.horizontal)
-                        .frame(height: Constants.dimensions.circleButtonSize)
+                    }
+                    else {
+                        
+                        ZStack (alignment: .leading){
+                            RoundedRectangle (cornerRadius: 20, style: .continuous)
+                                .frame (width: UIScreen.main.bounds.width - 50, height: 10)
+                                .foregroundColor(Color.white.opacity (0.1))
+                            
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .frame(width: (UIScreen.main.bounds.width - 50) * CGFloat(self.percent), height: 10)
+                                .foregroundColor(.pink)
+                                .animation(.linear(duration: 15), value: self.percent)
+                                .onAppear{
+                                    self.percent = 1
+                                    
+                                    Timer.scheduledTimer(withTimeInterval: 15, repeats: true) { timer in
+                                        
+                                        DispatchQueue.main.async {
+                                            withAnimation(.easeOut(duration: 0.2)) {
+                                                UserDefaults.standard.set(true, forKey: "downloadBarFinish")
+                                                authAPIModel.downloadBarFinish = true
+                                            }
+                                        }
+                                        
+                                        
+                                        timer.invalidate()
+                                    }
+                                }
+                        }
                         
                     }
                     

@@ -82,7 +82,6 @@ class SkinModel: ObservableObject{
             
         }
         
-        print(language[0])
         
         var urlString = Constants.URL.valAPISkins
         
@@ -104,7 +103,6 @@ class SkinModel: ObservableObject{
         }
         
         urlString = urlString + "?language=" + chosenLanguage
-        print(urlString)
         
         let url = URL(string: urlString)
         

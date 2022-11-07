@@ -30,7 +30,7 @@ struct BundleView: View {
                             .frame(width: geo.size.width/Constants.dimensions.logoSize)
                         
                         // Number of available bundles
-                        let bundleCount = defaults.integer(forKey: "bundleCount")
+                        let bundleCount = authAPIModel.bundleCount
                         
                         
                         ScrollView(showsIndicators: false) {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AboutView: View {
     
+    @State private var showSettings = false
     @State var expandCommunity = true
     @State var expandSupport = false
     @State var expandWhatsNew = false
@@ -31,14 +32,13 @@ struct AboutView: View {
                         
                         Spacer()
                         
-                        
-                        NavigationLink {
-                            SettingsView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
-                                .preferredColorScheme(.dark)
-                          } label: {
-                              Image(systemName: "gear")
-                                  .foregroundColor(.white)
-                          }
+                        Button {
+                            self.showSettings.toggle()
+                        } label: {
+                            Image(systemName: "gear")
+                                .foregroundColor(.white)
+                        }
+
                         
                         
                         
@@ -110,6 +110,11 @@ struct AboutView: View {
         .animation(.spring(), value: expandAcknowledgements)
         .animation(.spring(), value: expandCopyright)
         .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
+        .sheet(isPresented: $showSettings) {
+            SettingsView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
+                .preferredColorScheme(.dark)
+
+        }
         
         
     }

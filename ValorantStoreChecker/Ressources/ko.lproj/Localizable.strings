@@ -24,6 +24,7 @@
 "Reset" = "리셋";
 "ResetApp" = "앱 재설정";
 "ResetInfo" = "드물게 버그로 인해 오류가 발생할 수 있습니다. 이 버튼을 사용하면 오류가 발생하면 앱을 완전히 재설정할 수 있습니다.";
+"HelpTranslate" = "번역 도움말";
 
 // 로그인 화면
 "Login" = "Riot 계정에 로그인";
@@ -165,3 +166,10 @@
 
 // Nighmarket
 "NightMarket" = "야간 시장";
+
+// Review prompt
+"ReviewTitle" = "VSC를 즐기고 있습니까?";
+"OpenGitHub" = "GitHub 별표 남기기";
+"MaybeLater" = "나중에";
+"NeverShowAgain" = "다시 표시 안 함";
+"ReviewPrompt" = "GitHub에 리뷰나 별표를 남겨주세요!";

@@ -125,6 +125,27 @@ struct HelpView: View {
                         
                     }
                     
+                    HStack{
+                        Image("github")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .padding(.trailing)
+                        
+                        Button {
+                            if let url = URL(string: Constants.URL.sourceCode) {
+                                UIApplication.shared.open(url)
+                            }
+                        } label: {
+                            LinkImage()
+                            
+                            Text("HelpTranslate")
+                                .bold()
+                            
+                        }
+                        
+                    }
+                    
                     HStack {
                         Image(systemName: "heart.fill")
                             .resizable()

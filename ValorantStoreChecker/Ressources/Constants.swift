@@ -43,7 +43,7 @@ struct Constants{
         static var lunac = "https://github.com/Lunac-dev"
         static var privacy = "https://www.craft.do/s/fQxdg6aSyp8WAk"
         static var appStore = "https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546"
-        
+        static var translation = "https://github.com/SoloUnity/Valorant-Store-Checker-App#help-translate"
         // Login
         static var googleLogin = "https://www.craft.do/s/ajlY5nYTszlc9H"
     }

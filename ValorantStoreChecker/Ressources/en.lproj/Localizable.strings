@@ -22,10 +22,10 @@
 "Unknown" = "Unknown";
 "ErrorMessage3" = "Your purchase could not be verified by the App Store.";
 "NetworkError" = "No internet.";
-
 "Reset" = "Reset";
 "ResetApp" = "Reset App";
 "ResetInfo" = "Occasionally due to some bugs, errors may arise. This button allows you to reset the app fully in the event of these errors.";
+"HelpTranslate" = "Help With Translation";
 
 // Login Screen
 "Login" = "Login to your Riot Account";
@@ -166,3 +166,10 @@
 
 // Nighmarket
 "NightMarket" = "Night Market";
+
+// Review Prompt
+"ReviewTitle" = "Enjoying VSC?";
+"OpenGitHub" = "Leave a GitHub star";
+"MaybeLater" = "Maybe Later";
+"NeverShowAgain" = "Never Show Again";
+"ReviewPrompt" = "Please leave a review or a star on GitHub!";
