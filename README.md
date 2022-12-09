@@ -22,17 +22,17 @@ See the [Website](https://valorantstore.net) if you wish to check your store on 
 
 ### Screenshots
 <p align=center>
-  <img width="25%" src="https://user-images.githubusercontent.com/77747704/183316740-c45ca2cc-ed89-4712-be62-2a916a92cd70.png" />
-  <img width="25%" src="https://user-images.githubusercontent.com/77747704/183316723-3c5e6e33-a6d7-44d8-acd3-0740acbf2aef.png" />
-  <img width="25%" src="https://user-images.githubusercontent.com/77747704/183316785-db7a1716-67cf-4250-a31e-610fc5546035.png" />
-  <img width="25%" src="https://user-images.githubusercontent.com/77747704/183316789-fa977781-19f3-4e7f-92ee-74d76a3bcb39.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/183316740-c45ca2cc-ed89-4712-be62-2a916a92cd70.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/183316723-3c5e6e33-a6d7-44d8-acd3-0740acbf2aef.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/183316785-db7a1716-67cf-4250-a31e-610fc5546035.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/183316789-fa977781-19f3-4e7f-92ee-74d76a3bcb39.png" />
 </p>
 
 <p align=center>
-  <img width="25%" src="https://user-images.githubusercontent.com/77747704/189550838-752fcd29-73cc-45aa-b902-1d1563cfa2ba.PNG" />
-  <img width="25%" src="https://user-images.githubusercontent.com/77747704/189550843-97171c12-8a4b-47cf-85ad-8d4b2051c17b.PNG" />
-  <img width="25%" src="https://user-images.githubusercontent.com/77747704/192401293-83bd4415-3ac8-4c72-a756-329ee8ad6df3.png" />
-  <img width="25%" src="https://user-images.githubusercontent.com/77747704/192401299-976c7211-bf2a-4466-a130-4e34235f456f.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/189550838-752fcd29-73cc-45aa-b902-1d1563cfa2ba.PNG" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/189550843-97171c12-8a4b-47cf-85ad-8d4b2051c17b.PNG" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/192401293-83bd4415-3ac8-4c72-a756-329ee8ad6df3.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/192401299-976c7211-bf2a-4466-a130-4e34235f456f.png" />
 </p>
 
 ### Frequently Asked Questions
