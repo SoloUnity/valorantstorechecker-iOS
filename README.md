@@ -67,6 +67,7 @@ The current way that the reload button requires cookies instead of your username
 - [x] Update about tab to include a button to help translation of the app
 - [x] Rework offline data management
 - [x] Streamline automatic skin get and download process to become less laggy on first launch
+- [ ] Add skin chroma videos
 - [ ] Add valorant news section + new skins section + previous stores 
 - [ ] Implement CoreData
 - [ ] Minimize network calls and data usage
