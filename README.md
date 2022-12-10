@@ -53,21 +53,16 @@ If you are perceptive, you will notice that the app downloads assets on your fir
 The current way that the reload button requires cookies instead of your username and password, allowing the app to not store your password at all. However, these cookies expire after a certain period, requiring the user to sign in again. In order to streamline this process, remember password allows the user to save their password and allow for automatic behind the scenes sign in. If the user wishes to not save the password, they can simply sign out and sign back in to create new cookies.  
 
 ### Roadmap Checklist
-- [x] Korean localization
-- [x] Chinese localization
-- [x] Language localization of all weapons and categories
+- [ ] Vietnamese Localization
 - [ ] Code cleanup
-- [x] Prompt to ask users to review the app
-- [x] Update about tab to include a button to help translation of the app
-- [x] Rework offline data management
-- [x] Streamline automatic skin get and download process to become less laggy on first launch
 - [ ] Add skin chroma videos
-- [ ] Add valorant news section + new skins section + previous stores 
-- [ ] Implement CoreData
+- [ ] Redesign UI for a cohesive feeling
+- [ ] Add valorant news, new skins, previous stores
+- [ ] Improve owned skins
 - [ ] Minimize network calls and data usage
+- [ ] Implement CoreData
 - [ ] Have an accurate download bar for downloading skins
 - [ ] Add reference tab for vp price
-- [ ] Rework Skin Index tab for multiple categories including: owned skins, skin index, equip skins, information pane
 - [ ] Widgets
 - [ ] User customization of colour scheme and app icon
 - [ ] Monetization strategy (of new features only, core features are free)
