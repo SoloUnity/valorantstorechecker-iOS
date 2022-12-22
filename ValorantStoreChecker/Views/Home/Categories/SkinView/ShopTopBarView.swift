@@ -262,6 +262,7 @@ struct ShopTopBarView: View {
         }
         
     }
+    
 }
 
 

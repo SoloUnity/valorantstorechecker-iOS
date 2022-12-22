@@ -35,6 +35,8 @@ class UpdateModel: ObservableObject{
             let url = URL(string: "http://itunes.apple.com/lookup?bundleId=\(identifier)") else {
                 throw VersionError.invalidBundleInfo
         }
+        
+        print ("http://itunes.apple.com/lookup?bundleId=\(identifier)")
 
         let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData)
         

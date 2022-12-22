@@ -10,6 +10,8 @@ import SwiftUI
 struct ThirdPartyView: View {
     var body: some View {
         HStack {
+            Spacer()
+            
             Button {
                 if let url = URL(string: Constants.URL.googleLogin) {
                     UIApplication.shared.open(url)
@@ -26,7 +28,6 @@ struct ThirdPartyView: View {
                     
             }
             
-            Spacer()
             
             Button {
                 if let url = URL(string: Constants.URL.googleLogin) {
@@ -42,7 +43,6 @@ struct ThirdPartyView: View {
                     .cornerRadius(7.5)
             }
             
-            Spacer()
             
             Button {
                 if let url = URL(string: Constants.URL.googleLogin) {
@@ -60,6 +60,8 @@ struct ThirdPartyView: View {
                     .foregroundColor(.black)
                     
             }
+            
+            Spacer()
         }
     }
 }

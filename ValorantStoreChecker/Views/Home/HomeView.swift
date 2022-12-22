@@ -78,6 +78,8 @@ struct HomeView: View {
             
         }
         .accentColor(.white)
+        .foregroundColor(.white)
+        .tint(.white)
         .preferredColorScheme(.dark)
         
         

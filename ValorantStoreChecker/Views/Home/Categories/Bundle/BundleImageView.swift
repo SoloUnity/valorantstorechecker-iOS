@@ -10,12 +10,12 @@ import SwiftUI
 struct BundleImageView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
-    
+    let defaults = UserDefaults.standard
     let bundleIndex : Int
     var body: some View {
         ZStack{
-            let defaults = UserDefaults.standard
             
+
             if authAPIModel.bundleImage != [] {
                 
                 // Quicker load time but a data muncher
@@ -40,24 +40,34 @@ struct BundleImageView: View {
                         
                         let uiImage = UIImage(data: decoded)
                         
+                        ZStack {
+                            
+                            
+                            Image(uiImage: uiImage ?? UIImage())
+                                .resizable()
+                                .scaledToFit()
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color(red: 60/255, green: 60/255, blue: 60/255), lineWidth: 3)
+                                        .offset(y: -1)
+                                        .offset(x: -1)
+                                        .mask {
+                                            RoundedRectangle(cornerRadius: 10)
+                                        }
+                                }
+                                .cornerRadius(10)
+                                .blur(radius: 10)
+                            
+                            ProgressView()
+                        }
                         
-                        Image(uiImage: uiImage ?? UIImage())
-                            .resizable()
-                            .scaledToFit()
-                            .overlay{
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color(red: 60/255, green: 60/255, blue: 60/255), lineWidth: 3)
-                                    .offset(y: -1)
-                                    .offset(x: -1)
-                                    .mask {
-                                        RoundedRectangle(cornerRadius: 10)
-                                    }
-                            }
-                            .cornerRadius(10)
+                        
                     }
+                    else {
+                        ProgressView()
+                    }
+                    
                 }
-
-
             }
             else if let imageData = defaults.data(forKey: "bundleDisplayIcon" + String(bundleIndex)) {
                 
@@ -81,9 +91,6 @@ struct BundleImageView: View {
                     .cornerRadius(10)
             }
 
-
-            
-            
             VStack {
                 Spacer()
                 
@@ -98,6 +105,8 @@ struct BundleImageView: View {
                         .lineLimit(1)
                     
                     Spacer()
+                    
+                    // MARK: Price
                     if authAPIModel.bundlePrice != [] {
                         if let price = authAPIModel.bundlePrice[bundleIndex - 1] {
                             
@@ -105,7 +114,7 @@ struct BundleImageView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 18, height: 18)
-                                .shadow(color: .white, radius: 2)
+                                .shadow(color: .black, radius: 2)
                             
                             Text(String(price))
                                 .font(.subheadline)

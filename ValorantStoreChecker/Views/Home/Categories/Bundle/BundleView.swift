@@ -66,14 +66,13 @@ struct BundleView: View {
                                 LazyVStack(spacing: 11) {
                                     
                                     ShopTopBarView(reloadType: "bundleReload", referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
-                                        .id("top") // Id to identify the top for scrolling
-                                        .tag("top") // Tag to identify the top for scrolling
+                                        
                                     
                                     BundleImageView(bundleIndex: index)
                                     
                                     // Displays multiple bundles
                                     if bundleCount != 1 {
-                                        Picker("Video Number", selection: $index){
+                                        Picker("Bundle Name", selection: $index){
                                             ForEach(1...bundleCount, id: \.self){ item in
                                                 
                                                 Text(defaults.string(forKey: "bundleDisplayName" + String(item)) ?? "")
@@ -131,6 +130,7 @@ struct BundleView: View {
                                     
                                     
                                 }
+                                .id("top") // Id to identify the top for scrolling
                             }
                             
                             //AdPaddingView()

@@ -35,18 +35,21 @@ struct NightMarketView: View {
                                 
                                 ForEach(0..<authAPIModel.nightSkins.count, id: \.self) { index in
                                     
-                                    if !authAPIModel.percentOff.isEmpty || (authAPIModel.percentOff.count != authAPIModel.nightSkins.count) {
+                                    if index < authAPIModel.percentOff.count || index < authAPIModel.nightSkins.count {
                                         
-                                        // TODO: percent off crashes sometimes, fix
-                                        let percentOff = authAPIModel.percentOff[index]
-                                        SkinCardView(skin: authAPIModel.nightSkins[index], showPrice: true, showPriceTier: true, price: authAPIModel.nightSkins[index].discountedCost ?? "" , originalPrice: false, percentOff: String(percentOff))
-                                            .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
+                                        if  (authAPIModel.percentOff.count != authAPIModel.nightSkins.count) {
+                                            
+                                            // TODO: percent off crashes sometimes, fix
+                                            let percentOff = authAPIModel.percentOff[index]
+                                            SkinCardView(skin: authAPIModel.nightSkins[index], showPrice: true, showPriceTier: true, price: authAPIModel.nightSkins[index].discountedCost ?? "" , originalPrice: false, percentOff: String(percentOff))
+                                                .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
+                                        }
+                                        else {
+                                            SkinCardView(skin: authAPIModel.nightSkins[index], showPrice: true, showPriceTier: true, price: authAPIModel.nightSkins[index].discountedCost ?? "" , originalPrice: false)
+                                                .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
+                                        }
+                                        
                                     }
-                                    else {
-                                        SkinCardView(skin: authAPIModel.nightSkins[index], showPrice: true, showPriceTier: true, price: authAPIModel.nightSkins[index].discountedCost ?? "" , originalPrice: false)
-                                            .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
-                                    }
-                                    
                                     
                                 }
                                 
@@ -88,6 +91,7 @@ struct NightMarketView: View {
                                 
                                 //AdPaddingView()
                             }
+                            .id("top")
                             
                             
                             

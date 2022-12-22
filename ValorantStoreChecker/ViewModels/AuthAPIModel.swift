@@ -70,7 +70,6 @@ class AuthAPIModel: ObservableObject {
     
     init() {
         
-        
         // TODO: Implement CoreData, but for now lmao this works
         // Use saved storefront
         if let objects = defaults.value(forKey: "storefront") as? Data {
@@ -174,9 +173,6 @@ class AuthAPIModel: ObservableObject {
                         self.defaults.set(true, forKey: "authentication")
                     }
                 }
-                
-                
-                
             }
             print("Finished login")
             
@@ -458,12 +454,14 @@ class AuthAPIModel: ObservableObject {
                 bundlePrice.append(tempBundlePrice)
                 
             }
+            
+            DispatchQueue.main.async {
+                self.bundle = bundleItems
+                self.bundleImage = tempImages
+                self.bundlePrice = bundlePrice
+            }
 
-            self.bundle = bundleItems
-            self.bundleImage = tempImages
-            self.bundlePrice = bundlePrice
-            
-            
+
             // Save the bundle
             let bundleEncoder = JSONEncoder()
             
@@ -532,7 +530,7 @@ class AuthAPIModel: ObservableObject {
         do{
             
             print("Reloading")
-            
+
             let token = try await WebService.getCookies(reload: true)
             
             // Old way
@@ -582,13 +580,9 @@ class AuthAPIModel: ObservableObject {
                     self.isError = true
                 }
 
-                
-                
-                
             }
             
             print("Reloading error")
-            
         }
     }
     

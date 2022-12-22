@@ -31,8 +31,6 @@ struct DownloadView: View {
                     
                     TabView {
                         
-                        
-
                         Button {
                             if let url = URL(string: Constants.URL.website) {
                                 UIApplication.shared.open(url)
@@ -122,6 +120,7 @@ struct DownloadView: View {
                                   
                     Spacer()
                     
+                    // MARK: Download Button
                     if !authAPIModel.downloadImagePermission {
                         Button {
 
@@ -132,10 +131,10 @@ struct DownloadView: View {
                                 }
                             }
                             
+                            let backgroundQueue = DispatchQueue.global(qos: .background)
                             
-                            Task {
-                                
-                                await skinModel.getRemoteData()
+                            backgroundQueue.async {
+                                skinModel.getRemoteData()
                             }
                             
                         } label: {
@@ -159,32 +158,23 @@ struct DownloadView: View {
                     }
                     else {
                         
+                        // MARK: Download Bar
+                        let progress = modulateProgress(numerator: skinModel.progressNumerator, denominator: skinModel.progressDenominator, authAPIModel: authAPIModel)
+                        
                         ZStack (alignment: .leading){
                             RoundedRectangle (cornerRadius: 20, style: .continuous)
                                 .frame (width: UIScreen.main.bounds.width - 50, height: 10)
                                 .foregroundColor(Color.white.opacity (0.1))
                             
+                            // Percent bar that goes up
                             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                .frame(width: (UIScreen.main.bounds.width - 50) * CGFloat(self.percent), height: 10)
+                                .animation(.linear, value: progress)
+                                .frame(width: (UIScreen.main.bounds.width - 50) * progress, height: 10)
                                 .foregroundColor(.pink)
-                                .animation(.linear(duration: 15), value: self.percent)
-                                .onAppear{
-                                    self.percent = 1
-                                    
-                                    Timer.scheduledTimer(withTimeInterval: 15, repeats: true) { timer in
-                                        
-                                        DispatchQueue.main.async {
-                                            withAnimation(.easeOut(duration: 0.2)) {
-                                                UserDefaults.standard.set(true, forKey: "downloadBarFinish")
-                                                authAPIModel.downloadBarFinish = true
-                                            }
-                                        }
-                                        
-                                        
-                                        timer.invalidate()
-                                    }
-                                }
+                            
+                                
                         }
+                         
                         
                     }
                     
@@ -208,6 +198,27 @@ struct DownloadView: View {
         .animation(.spring(), value: expandCopyright)
         
     }
+}
+
+func modulateProgress(numerator: Double, denominator: Double, authAPIModel: AuthAPIModel) -> Double {
+    
+    let fraction = numerator / denominator
+    
+    if fraction == 1 {
+        
+        DispatchQueue.main.async {
+            
+            withAnimation(.easeOut(duration: 0.2)) {
+                UserDefaults.standard.set(true, forKey: "downloadBarFinish")
+                authAPIModel.downloadBarFinish = true
+            }
+            
+        }
+
+    }
+    
+    return round(fraction * 100) / 100
+    
 }
 
 struct DownloadView_Previews: PreviewProvider {

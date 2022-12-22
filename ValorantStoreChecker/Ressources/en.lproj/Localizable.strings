@@ -169,7 +169,7 @@
 
 // Review Prompt
 "ReviewTitle" = "Enjoying VSC?";
-"OpenGitHub" = "Leave a GitHub star";
+"OpenGitHub" = "Leave a GitHub Star";
 "MaybeLater" = "Maybe Later";
 "NeverShowAgain" = "Never Show Again";
 "ReviewPrompt" = "Please leave a review or a star on GitHub!";

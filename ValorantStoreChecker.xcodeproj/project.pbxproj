@@ -54,7 +54,6 @@
 		8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6111F28847B9100E8BDD6 /* Skin.swift */; };
 		8BF1DB482888B87F004491A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DB472888B87F004491A1 /* Constants.swift */; };
 		8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4D7642885A298000404D8 /* SearchBar.swift */; };
-		D34FCFDF3A7C0EBED0172CFD /* Pods_ValorantStoreChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD3B815F9260DB8CE52BD8F /* Pods_ValorantStoreChecker.framework */; };
 		F8163EC828DFFFC100A27103 /* DragDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8163EC728DFFFC100A27103 /* DragDownView.swift */; };
 		F8163ECD28E0C67D00A27103 /* NightMarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8163ECC28E0C67D00A27103 /* NightMarketView.swift */; };
 		F8163ED028E0DFF200A27103 /* ThirdPartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8163ECF28E0DFF200A27103 /* ThirdPartyView.swift */; };
@@ -85,8 +84,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		56FF1EA6D4EEBBF48BA35952 /* Pods-ValorantStoreChecker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValorantStoreChecker.release.xcconfig"; path = "Target Support Files/Pods-ValorantStoreChecker/Pods-ValorantStoreChecker.release.xcconfig"; sourceTree = "<group>"; };
-		761406BF9717A17DEE019426 /* Pods-ValorantStoreChecker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ValorantStoreChecker.debug.xcconfig"; path = "Target Support Files/Pods-ValorantStoreChecker/Pods-ValorantStoreChecker.debug.xcconfig"; sourceTree = "<group>"; };
 		8B0AE9E22898390C00275A30 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		8B0AE9E428984AFA00275A30 /* MultifactorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultifactorView.swift; sourceTree = "<group>"; };
 		8B0AE9E62898A8B300275A30 /* ShopBottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBottomBarView.swift; sourceTree = "<group>"; };
@@ -133,13 +130,10 @@
 		8BE6111F28847B9100E8BDD6 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		8BF1DB472888B87F004491A1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8BF4D7642885A298000404D8 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		CFD3B815F9260DB8CE52BD8F /* Pods_ValorantStoreChecker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ValorantStoreChecker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8163EC728DFFFC100A27103 /* DragDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDownView.swift; sourceTree = "<group>"; };
 		F8163ECC28E0C67D00A27103 /* NightMarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMarketView.swift; sourceTree = "<group>"; };
 		F8163ECF28E0DFF200A27103 /* ThirdPartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyView.swift; sourceTree = "<group>"; };
 		F8235BF32918888B003EB810 /* ReferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceView.swift; sourceTree = "<group>"; };
-		F82952D528E38A79001FFA53 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
-		F82952D628E38A79001FFA53 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		F82CBB0128E3935A00390960 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F837D9D328A5B14B00F7C777 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F843005D28B7BE9C006CFD5C /* Products.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
@@ -167,6 +161,7 @@
 		F8C3C77228E3CF73002C840D /* AdPaddingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdPaddingView.swift; sourceTree = "<group>"; };
 		F8D4396128B1AC6D0093595C /* BundleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleImageView.swift; sourceTree = "<group>"; };
 		F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
+		F8D7CDFD2919CCF7003F66B9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F8F69D3328A5E159005A73D2 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		F8F69D3528A5E2F9005A73D2 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		F8FDA33E28CD8D9E00D5A9F2 /* UpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModel.swift; sourceTree = "<group>"; };
@@ -180,22 +175,12 @@
 			files = (
 				8B65F843288C9D94004282DD /* AZVideoPlayer in Frameworks */,
 				8BAB20BE2897616D0041A5BB /* Keychain in Frameworks */,
-				D34FCFDF3A7C0EBED0172CFD /* Pods_ValorantStoreChecker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B99F0E840FD0C58ECB501F3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				761406BF9717A17DEE019426 /* Pods-ValorantStoreChecker.debug.xcconfig */,
-				56FF1EA6D4EEBBF48BA35952 /* Pods-ValorantStoreChecker.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		8B0AE9E828998D5100275A30 /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,8 +203,6 @@
 			children = (
 				8B29E1ED2881C87D0081F69A /* ValorantStoreChecker */,
 				8B29E1EC2881C87D0081F69A /* Products */,
-				8BE6111A28846E1700E8BDD6 /* Frameworks */,
-				1B99F0E840FD0C58ECB501F3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -416,16 +399,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		8BE6111A28846E1700E8BDD6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F82952D528E38A79001FFA53 /* GoogleAppMeasurement.xcframework */,
-				F82952D628E38A79001FFA53 /* GoogleMobileAds.xcframework */,
-				CFD3B815F9260DB8CE52BD8F /* Pods_ValorantStoreChecker.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		8BF4D761288594E5000404D8 /* SkinList */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,7 +486,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B29E1F92881C8800081F69A /* Build configuration list for PBXNativeTarget "ValorantStoreChecker" */;
 			buildPhases = (
-				01A2F2EEB8540FC6F659B8B0 /* [CP] Check Pods Manifest.lock */,
 				8B29E1E72881C87D0081F69A /* Sources */,
 				8B29E1E82881C87D0081F69A /* Frameworks */,
 				8B29E1E92881C87D0081F69A /* Resources */,
@@ -558,6 +530,7 @@
 				ja,
 				de,
 				ko,
+				"zh-Hans",
 			);
 			mainGroup = 8B29E1E22881C87D0081F69A;
 			packageReferences = (
@@ -588,31 +561,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		01A2F2EEB8540FC6F659B8B0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ValorantStoreChecker-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8B29E1E72881C87D0081F69A /* Sources */ = {
@@ -700,6 +648,7 @@
 				F8A73FFF28ABC51F00717B23 /* ja */,
 				F8A7400028ABC73600717B23 /* de */,
 				F86713722916F64C00D08471 /* ko */,
+				F8D7CDFD2919CCF7003F66B9 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -825,13 +774,12 @@
 		};
 		8B29E1FA2881C8800081F69A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 761406BF9717A17DEE019426 /* Pods-ValorantStoreChecker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ValorantStoreChecker/ValorantStoreChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
@@ -849,27 +797,26 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		8B29E1FB2881C8800081F69A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56FF1EA6D4EEBBF48BA35952 /* Pods-ValorantStoreChecker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ValorantStoreChecker/ValorantStoreChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
@@ -887,15 +834,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

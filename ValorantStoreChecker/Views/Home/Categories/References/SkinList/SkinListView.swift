@@ -333,7 +333,6 @@ struct SkinListView: View {
                                     
                                 }
                                 .id("top") // Id to identify the top for scrolling
-                                .tag("top") // Tag to identify the top for scrolling
                                 .animation(.default, value: searchText)
                                 .animation(.default, value: selectedFilter)
                                 .animation(.default, value: selectOwned)
@@ -409,7 +408,7 @@ struct SkinListView: View {
                 let list = displayName.split(separator: " ")
                 baseName = String(list[0])
             case "ja":
-                baseName = String(Array(displayName)[5...])
+                baseName = String(Array(displayName)[6...])
             default:
                 let list = displayName.split(separator: " ")
                 baseName = String(list[1])

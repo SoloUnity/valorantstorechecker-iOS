@@ -7,162 +7,170 @@
 */
 
 
-// Errors and Alerts
-"ErrorTitle" = "Error";
-"ErrorMessage1" = "Reloading Error Cases
-1) Invalid network connection.
-2) 3 days has passed since the previous reload. There are 2 options to solve this:
-2a) Sign out and sign back in.
-2b) The 3 day reload limit can be avoided by turning on remember password in About > Settings. This is an API limitation which I have no control over.";
-"ErrorMessage2" = "Reloading Error Cases
-1) Invalid network connection
-2) Wrong password set in Settings";
-"DownloadAssets" = "Download Assets (75mb)";
-"CopyError" = "Copy Error";
-"Unknown" = "Unknown";
-"ErrorMessage3" = "Your purchase could not be verified by the App Store.";
-"NetworkError" = "No internet.";
+// 错误和警报。
+"ErrorTitle" = "错误";
+"ErrorMessage1" = "重新加载错误案例。
+1) 网络连接无效。
+2）自上次重装后已过去三天。 有两个选项可以解决这个问题。
+2a) 签出并再次签入。
+2b) 可以通过在 关于>设置 中打开 记住密码 来规避3天的重新加载限制。 这是API的一个限制，我无法控制它";
+"ErrorMessage2" = "重新加载错误案例。
+1) 无效的网络连接
+2）配置中设置的密码不正确";
+"DownloadAssets" = "下载资产（75mb）";
+"CopyError" = "复制错误";
+"Unknown"="未知";
+"ErrorMessage3" = "您的购买历史无法在App Store进行验证。";
+"NetworkError" = "请检查您的互联网连接。" ;
 
-"Reset" = "Reset";
-"ResetApp" = "Reset App";
-"ResetInfo" = "Occasionally due to some bugs, errors may arise. This button allows you to reset the app fully in the event of these errors.";
+"Reset"="重置";
+"ResetApp" = "重置应用";
+"ResetInfo" = "在少数情况下，一个错误可能会导致一个错误。 这个按钮允许你在出现错误的情况下完全重置应用程序";
+"HelpTranslate" = "帮助翻译";
 
-// Login Screen
-"Login" = "Login to your Riot Account";
-"OK" = "OK";
-"OpenLink" = "Open Link";
-"InvalidCredentials" = "Invalid Credentials";
-"IRead" = "I read the terms and conditions";
-"InformationTitle" = "Why my Riot Account?";
-"Information" = "While many of your statistics are free to access without your password, your store is an exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through an open source API. Additional information, the source code, and an FAQ can be found in the link below.";
+// 登录屏幕。
+"Login"="登录到你的Riot账户";
+"OK"="好的";
+"OpenLink" = "打开链接";
+"InvalidCredentials" = "无效凭证";
+"IRead" = "我已经阅读了使用条款";
+"InformationTitle" = "为什么我的Riot账户？" ;
+"Information" = "你的大部分统计资料无需密码即可自由访问，但你的商店除外，它被认为是敏感信息。 为了让应用程序访问你的商店，它需要你的登录信息，以通过开源API检索你的商店。 其他信息、源代码和常见问题可以在以下链接中找到";
 
-// LoginBoxView
-"Username" = "Username";
-"Password" = "Password";
+// LoginBoxView。
+"Username" = "用户名";
+"Password"="密码";
 
-// RegionSelectorView
-"SelectRegion" = "Select region";
-"NorthAmerica" = "North America";
-"Europe" = "Europe";
-"AsiaPacific" = "Asia Pacific";
-"SouthKorea" = "South Korea";
+// RegionSelectorView。
+"SelectRegion" = "选择区域";
+"NorthAmerica" = "北美洲";
+"Europe" = "欧洲";
+"AsiaPacific" = "亚太";
+"SouthKorea" = "南韩";
 
-// MultifactorView
-"EnterTheCode" = "Enter the code sent to";
-"InvalidCode" = "Invalid Code";
-"TwoFactorAuthentication" = "Two Factor Authentication";
+// 多因素视图。
+"EnterTheCode" = "输入发送的代码";
+"InvalidCode" = "无效代码";
+"TwoFactorAuthentication" = "双因素认证";
 
-// TermsView
-"TermsAndConditions" = "Terms and Conditions";
-"MITLicense" = "MIT License";
-"CopyrightGordon" = "Copyright (c) 2022 Gordon Ng";
-"Paragraph1" = "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the Software), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.";
-"Paragraph2" = "THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.";
-"Privacy" = "Privacy Policy";
+// TermsView.
+"TermsAndConditions" = "条款和条件";
+"MITLicense" = "MIT许可";
+"CopyrightGordon" = "Copyright (c) 2022 Gordon Ng" ;
+"Paragraph1"="获得本软件和相关文档文件（软件）副本的人，包括但不限于在不受限制的情况下使用、复制、修改、组合、出版、分发、分许可和/或出售本软件副本的权利。 兹准予免费进行交易，并授权接受该软件的任何人进行交易，但须符合以下条件。 在这种情况下，应允许接受该软件的人根据以下条款和条件使用该软件";
+"Paragraph2"="本软件按原样提供，没有任何明示或暗示的保证，包括但不限于对适销性、特定用途的适用性和非侵权性的保证。 本软件的版权所有者或版权持有人对因本软件或本软件的使用或其他交易而引起的任何索赔、损害或其他责任，无论是合同、侵权行为还是其他方面，都不承担任何责任。";
+"Privacy"="隐私政策";
 
-// HomeView
-"Store" = "Store";
-"SkinIndex" = "Skin Index";
-"About" = "About";
+// 主视图。
+"Store" = "商店";
+"SkinIndex" = "皮肤指数";
+"About"="关于";
 
-// ShopTobBarView
-"AutomaticReload" = "Automatic Reloading";
-"AutomaticReloadInfo" = "Reloads the shop automatically when available.";
-"Reloading" = "Reloading";
-"Reload" = "Reload";
+// ShopTobber视图。
+"AutomaticReload"="自动重新加载";
+"AutomaticReloadInfo" = "当有机会时自动重新加载商店";
+"Reloading"="重装";
+"Reload"="重新装填";
 
-// SkinCardDetailView
-"InfoPrice" = "The price of this skin is unfortunately not in our database.";
-"Cost" = "Cost";
-"ExclusiveSkinMessage" = "This is either a Battlepass exclusive, a character exclusive, or a limited edition skin.";
-"Tier" = "Tier";
-"Default" = "Default";
-"Default1" = "1. Default";
-"Variant" = "Variant";
+// SkinCardDetailView。
+"InfoPrice" = "这个皮肤的价格不幸不在我们的数据库中。" ;
+"Cost"="成本";
+"ExclusiveSkinMessage" = "这是一个战斗通行证专属、角色专属或限量版的皮肤。";
+"Tier" = "层";
+"Default"="默认";
+"Default1"="1. 默认";
+"Variant"="变体";
 
-// SearchBar
-"Search" = "Search";
-"Cancel" = "Cancel";
+// 搜索栏。
+"Search"="搜索";
+"Cancel"="取消";
 
-// AboutView
-// About in HomeView
-"MadeWith" = "Built with";
-"MadeIn" = "Made in 🇨🇦";
+// AboutView。
+// 在HomeView中关于。
+"MadeWith" = "Made with SwiftUI";
+"MadeIn" = "由🇨🇦制造";
 
-// AccountView
-"Account" = "Account";
-"SignOut" = "Sign Out";
-"Region" = "Region";
-// Region Names in RegionSelectorView
+// 帐户视图。
+"Account" = "账户";
+"SignOut" = "签出";
+"Username"="帐号";
+"Region"= "地区";
+// RegionSelectorView中的区域名称。
 
-// SupportView
-"Support" = "Support";
-"Create" = "Create a Support Ticket";
-"FAQ" = "FAQ";
-"SourceCode" = "Source Code";
+// SupportView。
+"Support"="支持";
+"Create"="创建一张支持票";
+"FAQ"="常见的问题";
+"SourceCode" = "源代码";
 
-// CommunityView
-"Community" = "Community";
-"Website" = "Website";
-"DiscordServer" = "Discord Server";
+// 社区观点。
+"Community"="社区";
+"Website"="网站";
+"DiscordServer" = "Discord 服务器";
 
-// WhatsNewView
-"WhatsNew" = "What's New";
+// WhatsNewView。
+"WhatsNew" = "最新消息";
 
-// HelpView
-"Help" = "Help Out the Developer!";
-"HelpMessage" = "Hi! I'm a sleep deprived university student just trying to make life a little bit better 😄. Please consider helping me out through any method below!";
-"Share" = "Share the App";
-"Review" = "Leave a Review";
-"Star" = "Star the Repository";
-"Sponsor" = "Tip Me";
+// HelpView。
+"Help"="帮助开发者";
+"HelpMessage" = "Hello! 我是一个睡眠不足的大学生，希望能让自己的生活变得更好一点😄。 请考虑通过以下方式帮助我！";
+"Share"="分享该应用程序";
+"Review"="留下评论";
+"Star"="给项目加一颗星";
+"Sponsor"="附加和交付";
 
-// AcknowledgementsView
-"Acknowledgements" = "Acknowledgements";
-"ThankJulian" = "Thank you for your help in answering my many questions!"; // juliand665
-"ThankLunac" = "Thank you for your continuous support!"; // Lunac
+// 鸣谢。
+"Acknowledgements"="鸣谢";
+"ThankJulian" = "谢谢你回答了这么多问题！" ; // juliand665
+"ThankLunac" = "感谢你的支持！" ;//Lunac
 
-// CopyrightView
-"Copyright" = "Copyright";
-"CopyrightNotice" = "VSC (Store Checker for Valorant) is not associated, connected, or endorsed by Valorant or Riot Games. Additionally, Riot Games and Valorant are trademarks registered under Riot Games Inc.";
+// 版权声明。
+"Copyright"="版权";
+"CopyrightNotice" = "VSC (Store Checker for Valorant) 与Valorant或Riot Games没有任何关系，与之有联系，也没有得到其认可。 Riot Games和Valorant也是Riot Games Inc.下注册的商标。";
 
-// SettingsView
-"Settings" = "Settings";
-"RememberPassword" = "Remember Password";
-"RememberPasswordInfo" = "Your password is secured by Keychain. Signing out or disabling the toggle will automatically forget the password. Enabling this feature bypasses the API time limitations and allows for automatic sign in on the user's behalf.";
-"Notify" = "Store Reset Notification";
-"NotifyDescription" = "Receive a notification when the store resets.";
-"ChangeLanguage" = "Change Language";
-"Language" = "Language";
-"LanguageDescription" = "Opens advanced app settings.";
+// SettingsView。
+"Settings"="设置";
+"RememberPassword" = "记住密码";
+"RememberPasswordInfo" = "该密码受到钥匙串的保护。 如果你签出或禁用切换，密码就会自动遗忘。 启用这一功能可以绕过API的时间限制，并允许代表用户自动登录";
+"Notify" = "商店重置通知";
+"NotifyDescription" = "当商店被重置时收到通知。" ;
+"ChangeLanguage"="改变语言";
+"Language"="语言";
+"LanguageDescription" = "打开应用程序的高级设置。" ;
 
+// 皮肤指数过滤器。
+"All"="无";
+"Owned"="拥有";
+"Knife"="刀子";
+"Sidearm"="侧臂";
+"SMGs"="冲锋枪";
+"Shotguns"="霰弹枪";
+"Rifles"="步枪";
+"Sniper"="狙击步枪";
+"Heavy"="重机枪";
+"EmptySearch" = "没有匹配的搜索条件";
+"NoOwned" = "重新加载商店或购买皮肤:)";
 
-// Skin Index Filter
-"All" = "All";
-"Owned" = "Owned";
-"Knife" = "Knife";
-"Sidearm" = "Sidearm";
-"SMGs" = "SMGs";
-"Shotguns" = "Shotguns";
-"Rifles" = "Rifles";
-"Sniper" = "Sniper";
-"Heavy" = "Heavy";
-"EmptySearch" = "Nothing matches your search";
-"NoOwned" = "Please reload the store, or buy some skins :)";
+// 捆绑。
+"Bundle"="捆绑";
+"EmptyBundle" = "更新捆绑显示";
 
-// Bundle
-"Bundle" = "Bundle";
-"EmptyBundle" = "Refresh to see the bundle";
-
-//Update Messages
-"UpdateButton" = "New App Version Available";
-"UpdateTitle" = "Update App";
-"Update" = "Update";
-"UpdateInstructions1" = "If there is no update option, please:";
-"UpdateInstructions2" = "Go to the Home (Today) tab";
-"UpdateInstructions3" = "Click on your profile in the top right";
-"UpdateInstructions4" = "Swipe down to reload";
-"UpdateInstructions5" = "Scroll down to see available updates";
+//更新信息。
+"UpdateButton"="可用的更新";
+"UpdateTitle"="更新应用程序";
+"Update"="更新";
+"UpdateInstructions1" = "如果没有更新选项，请按照以下步骤操作：";
+"UpdateInstructions2" = "Go to Home (Today) tab";
+"UpdateInstructions3" = "点击右上角的个人资料";
+"UpdateInstructions4"="向下滑动以重新加载";
+"UpdateInstructions5" = "向下滚动以查看可用的更新。";
 
 // Nighmarket
-"NightMarket" = "Night Market";
+"NightMarket" = "夜市";
+
+// 审查提示。
+"ReviewTitle" = "你喜欢VSC吗？" ;
+"OpenGitHub" = "留下GitHub之星";
+"MaybeLater" = "也许以后";
+"NeverShowAgain"="永不再展示";
+"ReviewPrompt" = "在GitHub上留下评论或星星！" ;
