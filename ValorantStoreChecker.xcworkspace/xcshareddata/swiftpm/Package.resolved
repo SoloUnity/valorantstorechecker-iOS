@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "azvideoplayer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adamzarn/AZVideoPlayer",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d57f9ab43b5cd0ca7861a59246f31cf0a6ea5ac7"
+      }
+    },
+    {
+      "identity" : "keychain.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GroupeMINASTE/Keychain.swift",
+      "state" : {
+        "branch" : "master",
+        "revision" : "d4b6bd007fd8432a59d341faa22ec0cd738d2d9d"
+      }
+    }
+  ],
+  "version" : 2
+}
