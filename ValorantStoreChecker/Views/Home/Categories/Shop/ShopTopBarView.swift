@@ -42,7 +42,7 @@ struct ShopTopBarView: View {
                     .padding(.leading)
                     .padding(.vertical, 10)
                 
-                let countdown = countDownString(from: referenceDate)
+                let countdown = countDownString(from: referenceDate, nowDate: nowDate)
                 
                 if countdown == "Reload" && (authAPIModel.autoReload || defaults.bool(forKey: "autoReload")) {
                     
@@ -97,7 +97,7 @@ struct ShopTopBarView: View {
                     }
                     
                     if !defaults.bool(forKey: "clickedReview") {
-                        reloadCounter()
+                        reloadCounter(promptReview: &promptReview)
                     }
                     
                     
@@ -222,45 +222,47 @@ struct ShopTopBarView: View {
         })
     }
     
-    // MARK: Helper function
-    func countDownString(from date: Date) -> String {
-        let calendar = Calendar(identifier: .gregorian)
+}
+
+// MARK: Helper function
+func countDownString(from date: Date, nowDate: Date) -> String {
+    let calendar = Calendar(identifier: .gregorian)
+    
+    let components = calendar
+        .dateComponents([.day, .hour, .minute, .second],
+                        from: nowDate,
+                        to: date)
+    
+    if components.day! > 0 && (components.hour! > 0 || components.minute! > 0 || components.second! > 0) {
+        return String(format: "%02d:%02d:%02d:%02d",
+                      components.day ?? 00,
+                      components.hour ?? 00,
+                      components.minute ?? 00,
+                      components.second ?? 00)
+    }
+    else if components.hour! > 0 || components.minute! > 0 || components.second! > 0 {
+        return String(format: "%02d:%02d:%02d",
+                      components.hour ?? 00,
+                      components.minute ?? 00,
+                      components.second ?? 00)
+    }
+    else {
         
-        let components = calendar
-            .dateComponents([.day, .hour, .minute, .second],
-                            from: nowDate,
-                            to: date)
-        
-        if components.day! > 0 && (components.hour! > 0 || components.minute! > 0 || components.second! > 0) {
-            return String(format: "%02d:%02d:%02d:%02d",
-                          components.day ?? 00,
-                          components.hour ?? 00,
-                          components.minute ?? 00,
-                          components.second ?? 00)
-        }
-        else if components.hour! > 0 || components.minute! > 0 || components.second! > 0 {
-            return String(format: "%02d:%02d:%02d",
-                          components.hour ?? 00,
-                          components.minute ?? 00,
-                          components.second ?? 00)
-        }
-        else {
-            
-            return "Reload"
-            
-        }
+        return "Reload"
         
     }
     
-    func reloadCounter() {
-        
-        let reloadCount = defaults.integer(forKey: "reloadCounter")
-        defaults.set(reloadCount + 1, forKey: "reloadCounter")
-        
-        if (reloadCount != 0) && (reloadCount % 10) == 0 {
-            self.promptReview = true
-        }
-        
+}
+
+func reloadCounter(promptReview: inout Bool) {
+    
+    let defaults = UserDefaults.standard
+    
+    let reloadCount = defaults.integer(forKey: "reloadCounter")
+    defaults.set(reloadCount + 1, forKey: "reloadCounter")
+    
+    if (reloadCount != 0) && (reloadCount % 10) == 0 {
+        promptReview = true
     }
     
 }

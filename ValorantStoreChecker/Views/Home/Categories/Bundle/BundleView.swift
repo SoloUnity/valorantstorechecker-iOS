@@ -66,7 +66,6 @@ struct BundleView: View {
                                 LazyVStack(spacing: 11) {
                                     
                                     ShopTopBarView(reloadType: "bundleReload", referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
-                                        
                                     
                                     BundleImageView(bundleIndex: index)
                                     
@@ -93,39 +92,7 @@ struct BundleView: View {
                                     
                                     
                                     if authAPIModel.bundle[index - 1].count > 3 {
-                                        Button {
-                                            // Scroll to top
-                                            withAnimation { proxy.scrollTo("top", anchor: .top) }
-                                            
-                                        } label: {
-                                            
-                                            HStack{
-                                                
-                                                Spacer()
-                                                
-                                                Image(systemName: "arrow.up")
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .padding(15)
-                                                    .foregroundColor(.white)
-                                                
-                                                Spacer()
-                                            }
-                                            .frame(maxHeight: 50)
-                                            .background(Blur(radius: 25, opaque: true))
-                                            .cornerRadius(10)
-                                            .overlay{
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(.white, lineWidth: 3)
-                                                    .offset(y: -1)
-                                                    .offset(x: -1)
-                                                    .blendMode(.overlay)
-                                                    .blur(radius: 0)
-                                                    .mask {
-                                                        RoundedRectangle(cornerRadius: 10)
-                                                    }
-                                            }
-                                        }
+                                        GoUpButton(proxy: proxy)
                                     }
                                     
                                     
@@ -158,12 +125,6 @@ struct BundleView: View {
             .padding(.horizontal)
             
             
-            VStack {
-                Spacer()
-                
-                CustomBannerView()
-                    .padding(.horizontal)
-            }
         }
         
         

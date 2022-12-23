@@ -39,7 +39,6 @@ struct NightMarketView: View {
                                         
                                         if  (authAPIModel.percentOff.count != authAPIModel.nightSkins.count) {
                                             
-                                            // TODO: percent off crashes sometimes, fix
                                             let percentOff = authAPIModel.percentOff[index]
                                             SkinCardView(skin: authAPIModel.nightSkins[index], showPrice: true, showPriceTier: true, price: authAPIModel.nightSkins[index].discountedCost ?? "" , originalPrice: false, percentOff: String(percentOff))
                                                 .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
@@ -54,42 +53,10 @@ struct NightMarketView: View {
                                 }
                                 
                                 if authAPIModel.nightSkins.count >= 5 {
-                                    Button {
-                                        // Scroll to top
-                                        withAnimation { proxy.scrollTo("top", anchor: .top) }
-                                        
-                                    } label: {
-                                        
-                                        HStack{
-                                            
-                                            Spacer()
-                                            
-                                            Image(systemName: "arrow.up")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .padding(15)
-                                                .foregroundColor(.white)
-                                            
-                                            Spacer()
-                                        }
-                                        .frame(maxHeight: 50)
-                                        .background(Blur(radius: 25, opaque: true))
-                                        .cornerRadius(10)
-                                        .overlay{
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .stroke(.white, lineWidth: 3)
-                                                .offset(y: -1)
-                                                .offset(x: -1)
-                                                .blendMode(.overlay)
-                                                .blur(radius: 0)
-                                                .mask {
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                }
-                                        }
-                                    }
+                                    GoUpButton(proxy: proxy)
                                 }
                                 
-                                //AdPaddingView()
+                                
                             }
                             .id("top")
                             
@@ -119,12 +86,6 @@ struct NightMarketView: View {
             .padding(.horizontal)
             
             
-            VStack {
-                Spacer()
-                
-                CustomBannerView()
-                    .padding(.horizontal)
-            }
         }
         
         

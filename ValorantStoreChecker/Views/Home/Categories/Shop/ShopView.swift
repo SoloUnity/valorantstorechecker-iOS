@@ -62,8 +62,6 @@ struct ShopView: View {
                                 
                             }
                             
-                            //CustomBannerView()
-                            
                             ShopBottomBarView()
                             
                             
@@ -89,8 +87,6 @@ struct ShopView: View {
         }
         .padding(.bottom, 1)
         .padding(.horizontal)
-        
-
         
         
     }

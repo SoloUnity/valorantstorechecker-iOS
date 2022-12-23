@@ -72,10 +72,16 @@
 		F8A7400228ABD96200717B23 /* Owned.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7400128ABD96200717B23 /* Owned.swift */; };
 		F8B7FDF628D79B9300A5181E /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7FDF528D79B9300A5181E /* WhatsNewView.swift */; };
 		F8B7FDFC28D7BA8000A5181E /* LinkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7FDFB28D7BA8000A5181E /* LinkImage.swift */; };
-		F8C3C76A28E3C242002C840D /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C76828E3C241002C840D /* BannerView.swift */; };
-		F8C3C76F28E3C625002C840D /* CustomBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C76E28E3C625002C840D /* CustomBannerView.swift */; };
+		F8B9BE41295511480007FDD3 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9BE40295511480007FDD3 /* PriceView.swift */; };
+		F8B9BE43295513430007FDD3 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9BE42295513430007FDD3 /* TitleView.swift */; };
+		F8B9BE45295514480007FDD3 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9BE44295514480007FDD3 /* VideoView.swift */; };
+		F8B9BE47295515E50007FDD3 /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9BE46295515E50007FDD3 /* VideoPickerView.swift */; };
+		F8B9BE4A295524C20007FDD3 /* ChromaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9BE49295524C20007FDD3 /* ChromaView.swift */; };
+		F8B9BE4C295525640007FDD3 /* ChromaPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9BE4B295525640007FDD3 /* ChromaPickerView.swift */; };
+		F8B9BE4E295527920007FDD3 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9BE4D295527920007FDD3 /* FilterView.swift */; };
+		F8B9BE50295528350007FDD3 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9BE4F295528350007FDD3 /* MenuItemView.swift */; };
+		F8B9BE5229552A350007FDD3 /* GoUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9BE5129552A350007FDD3 /* GoUpButton.swift */; };
 		F8C3C77128E3CBD0002C840D /* ImageAndTextLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C77028E3CBD0002C840D /* ImageAndTextLogo.swift */; };
-		F8C3C77328E3CF73002C840D /* AdPaddingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C77228E3CF73002C840D /* AdPaddingView.swift */; };
 		F8D4396228B1AC6D0093595C /* BundleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4396128B1AC6D0093595C /* BundleImageView.swift */; };
 		F8D4D4C128A429E400BDBBFE /* ValorantStoreCheckerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */; };
 		F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F69D3328A5E159005A73D2 /* TipModel.swift */; };
@@ -155,10 +161,16 @@
 		F8A7400128ABD96200717B23 /* Owned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owned.swift; sourceTree = "<group>"; };
 		F8B7FDF528D79B9300A5181E /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		F8B7FDFB28D7BA8000A5181E /* LinkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkImage.swift; sourceTree = "<group>"; };
-		F8C3C76828E3C241002C840D /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
-		F8C3C76E28E3C625002C840D /* CustomBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBannerView.swift; sourceTree = "<group>"; };
+		F8B9BE40295511480007FDD3 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
+		F8B9BE42295513430007FDD3 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		F8B9BE44295514480007FDD3 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		F8B9BE46295515E50007FDD3 /* VideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerView.swift; sourceTree = "<group>"; };
+		F8B9BE49295524C20007FDD3 /* ChromaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaView.swift; sourceTree = "<group>"; };
+		F8B9BE4B295525640007FDD3 /* ChromaPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaPickerView.swift; sourceTree = "<group>"; };
+		F8B9BE4D295527920007FDD3 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		F8B9BE4F295528350007FDD3 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		F8B9BE5129552A350007FDD3 /* GoUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoUpButton.swift; sourceTree = "<group>"; };
 		F8C3C77028E3CBD0002C840D /* ImageAndTextLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndTextLogo.swift; sourceTree = "<group>"; };
-		F8C3C77228E3CF73002C840D /* AdPaddingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdPaddingView.swift; sourceTree = "<group>"; };
 		F8D4396128B1AC6D0093595C /* BundleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleImageView.swift; sourceTree = "<group>"; };
 		F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
 		F8D7CDFD2919CCF7003F66B9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -243,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				8B29E1F02881C87D0081F69A /* LaunchView.swift */,
-				F8C3C76728E3C241002C840D /* AdsView */,
 				8B29E2012881CA440081F69A /* Onboarding */,
 				F867136F2916E67100D08471 /* Download */,
 				8B62AFD82883B51F0070173F /* Home */,
@@ -301,6 +312,7 @@
 				8B9A8383288612AC009CE268 /* PriceTiers */,
 				8B9A83822886129C009CE268 /* Shapes */,
 				F8163EC728DFFFC100A27103 /* DragDownView.swift */,
+				F8B9BE5129552A350007FDD3 /* GoUpButton.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -323,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				8B62AFCE2883A0FD0070173F /* ShopView.swift */,
+				8B3685D12895D2D5000BB3CF /* ShopTopBarView.swift */,
 				8B0AE9E62898A8B300275A30 /* ShopBottomBarView.swift */,
 			);
 			path = Shop;
@@ -402,8 +415,10 @@
 		8BF4D761288594E5000404D8 /* SkinList */ = {
 			isa = PBXGroup;
 			children = (
-				8BF4D7642885A298000404D8 /* SearchBar.swift */,
 				8B9A83742885A426009CE268 /* SkinListView.swift */,
+				8BF4D7642885A298000404D8 /* SearchBar.swift */,
+				F8B9BE4D295527920007FDD3 /* FilterView.swift */,
+				F8B9BE4F295528350007FDD3 /* MenuItemView.swift */,
 			);
 			path = SkinList;
 			sourceTree = "<group>";
@@ -419,9 +434,9 @@
 		F8163ECE28E0CFBD00A27103 /* SkinView */ = {
 			isa = PBXGroup;
 			children = (
-				8B62AFD02883A1230070173F /* SkinCardView.swift */,
 				8B33A5BE2884687C00BCB1F2 /* SkinCardDetailView.swift */,
-				8B3685D12895D2D5000BB3CF /* ShopTopBarView.swift */,
+				8B62AFD02883A1230070173F /* SkinCardView.swift */,
+				F8B9BE3F295510880007FDD3 /* SkinCardDetailView */,
 			);
 			path = SkinView;
 			sourceTree = "<group>";
@@ -463,20 +478,23 @@
 		F8B7FDF728D7A8D900A5181E /* Update */ = {
 			isa = PBXGroup;
 			children = (
-				F8FDA34328CE6DA800D5A9F2 /* UpdateButton.swift */,
 				F894F59C28D7BCE700C07223 /* UpdatesView.swift */,
+				F8FDA34328CE6DA800D5A9F2 /* UpdateButton.swift */,
 			);
 			path = Update;
 			sourceTree = "<group>";
 		};
-		F8C3C76728E3C241002C840D /* AdsView */ = {
+		F8B9BE3F295510880007FDD3 /* SkinCardDetailView */ = {
 			isa = PBXGroup;
 			children = (
-				F8C3C77228E3CF73002C840D /* AdPaddingView.swift */,
-				F8C3C76828E3C241002C840D /* BannerView.swift */,
-				F8C3C76E28E3C625002C840D /* CustomBannerView.swift */,
+				F8B9BE42295513430007FDD3 /* TitleView.swift */,
+				F8B9BE40295511480007FDD3 /* PriceView.swift */,
+				F8B9BE44295514480007FDD3 /* VideoView.swift */,
+				F8B9BE46295515E50007FDD3 /* VideoPickerView.swift */,
+				F8B9BE49295524C20007FDD3 /* ChromaView.swift */,
+				F8B9BE4B295525640007FDD3 /* ChromaPickerView.swift */,
 			);
-			path = AdsView;
+			path = SkinCardDetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -573,26 +591,30 @@
 				8B280797289B4544004A3720 /* SplashScreenView.swift in Sources */,
 				F8D4396228B1AC6D0093595C /* BundleImageView.swift in Sources */,
 				8B29E1F12881C87D0081F69A /* LaunchView.swift in Sources */,
+				F8B9BE45295514480007FDD3 /* VideoView.swift in Sources */,
 				8B65F850288CCFF0004282DD /* PriceTier.swift in Sources */,
 				8BF1DB482888B87F004491A1 /* Constants.swift in Sources */,
 				8B9A838B28861C5B009CE268 /* DeluxeEditionView.swift in Sources */,
 				8B9A8385288612DD009CE268 /* SelectEditionView.swift in Sources */,
 				8B0AE9E32898390C00275A30 /* Blur.swift in Sources */,
 				F8A5011528E130BD00D66626 /* DispatchQueue+Extensions.swift in Sources */,
-				F8C3C76A28E3C242002C840D /* BannerView.swift in Sources */,
 				8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */,
 				F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */,
 				F87952A828AEA36D005145F6 /* Bundle.swift in Sources */,
 				8BB00EC7288E418E001AE90A /* AuthAPIModel.swift in Sources */,
 				8B29E2032881CAEC0081F69A /* LoginView.swift in Sources */,
 				F8163ECD28E0C67D00A27103 /* NightMarketView.swift in Sources */,
+				F8B9BE4C295525640007FDD3 /* ChromaPickerView.swift in Sources */,
 				F892C4D928A412DF007158CB /* NotificationService.swift in Sources */,
 				8B33A5BF2884687C00BCB1F2 /* SkinCardDetailView.swift in Sources */,
 				8B0AE9F028998EAC00275A30 /* HelpView.swift in Sources */,
 				8B0AE9E72898A8B300275A30 /* ShopBottomBarView.swift in Sources */,
+				F8B9BE47295515E50007FDD3 /* VideoPickerView.swift in Sources */,
 				8B9A838728861304009CE268 /* ExclusiveEditionView.swift in Sources */,
+				F8B9BE5229552A350007FDD3 /* GoUpButton.swift in Sources */,
 				8B3685D22895D2D5000BB3CF /* ShopTopBarView.swift in Sources */,
 				8B0AE9EA28998E4200275A30 /* AccountView.swift in Sources */,
+				F8B9BE4E295527920007FDD3 /* FilterView.swift in Sources */,
 				8B682C822890C2BE003A3B9C /* Error.swift in Sources */,
 				8B3685D02895BBD3000BB3CF /* LoginBoxView.swift in Sources */,
 				F8C3C77128E3CBD0002C840D /* ImageAndTextLogo.swift in Sources */,
@@ -604,18 +626,20 @@
 				F8FDA34428CE6DA800D5A9F2 /* UpdateButton.swift in Sources */,
 				8BB00EC9288E4679001AE90A /* Store.swift in Sources */,
 				8B9A838128861097009CE268 /* Logo.swift in Sources */,
+				F8B9BE4A295524C20007FDD3 /* ChromaView.swift in Sources */,
 				8BE6112028847B9100E8BDD6 /* Skin.swift in Sources */,
 				8B62AFD72883B4E10070173F /* HomeView.swift in Sources */,
+				F8B9BE41295511480007FDD3 /* PriceView.swift in Sources */,
 				8B29E2002881CA000081F69A /* SkinModel.swift in Sources */,
 				F8B7FDF628D79B9300A5181E /* WhatsNewView.swift in Sources */,
 				8B3651542891DCCA00FE762E /* RegionSelectorView.swift in Sources */,
 				8B62AFD12883A1230070173F /* SkinCardView.swift in Sources */,
 				8B9A838D28861C6E009CE268 /* PremiumEditionView.swift in Sources */,
 				F87952A328ADD7C3005145F6 /* TipView.swift in Sources */,
-				F8C3C77328E3CF73002C840D /* AdPaddingView.swift in Sources */,
 				F8163ED028E0DFF200A27103 /* ThirdPartyView.swift in Sources */,
 				8B0AE9EC28998E7600275A30 /* SupportView.swift in Sources */,
 				F86713712916E68E00D08471 /* DownloadView.swift in Sources */,
+				F8B9BE50295528350007FDD3 /* MenuItemView.swift in Sources */,
 				8B62AFCF2883A0FD0070173F /* ShopView.swift in Sources */,
 				F8B7FDFC28D7BA8000A5181E /* LinkImage.swift in Sources */,
 				F87952A628AEA084005145F6 /* BundleView.swift in Sources */,
@@ -624,11 +648,11 @@
 				8B0AE9F228998EC600275A30 /* AcknowledgementsView.swift in Sources */,
 				8B4200882899E620000D7FC2 /* TermsView.swift in Sources */,
 				8B0AE9EE28998E9400275A30 /* CommunityView.swift in Sources */,
-				F8C3C76F28E3C625002C840D /* CustomBannerView.swift in Sources */,
 				F8235BF42918888B003EB810 /* ReferenceView.swift in Sources */,
 				8B0AE9E528984AFA00275A30 /* MultifactorView.swift in Sources */,
 				8B9A838F28861C78009CE268 /* UltraEditionView.swift in Sources */,
 				F8163EC828DFFFC100A27103 /* DragDownView.swift in Sources */,
+				F8B9BE43295513430007FDD3 /* TitleView.swift in Sources */,
 				8B65F84A288CA608004282DD /* PriceTierView.swift in Sources */,
 				8B29E2082881CCD10081F69A /* RectangleView.swift in Sources */,
 				8B9A83752885A426009CE268 /* SkinListView.swift in Sources */,
