@@ -61,7 +61,7 @@ The current way that the reload button requires cookies instead of your username
 - [ ] Improve owned skins
 - [ ] Minimize network calls and data usage
 - [ ] Implement CoreData
-- [ ] Have an accurate download bar for downloading skins
+- [x] Have an accurate download bar for downloading skins
 - [ ] Add reference tab for vp price
 - [ ] Widgets
 - [ ] User customization of colour scheme and app icon
