@@ -13,6 +13,7 @@ struct RegionSelectorView: View {
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @State private var expand = false
     @State private var title = LocalizedStringKey("SelectRegion")
+    @Binding var regionCheck : Bool
     private let keychain = Keychain()
     
     var body: some View {
@@ -47,23 +48,23 @@ struct RegionSelectorView: View {
             
             if expand {
                 
-                if title != LocalizedStringKey("NorthAmerica") {
+                if title != LocalizedStringKey("Americas") {
                     Button {
-                        authAPIModel.regionCheck = true
+                        regionCheck = true
                         let  _ = keychain.save("na", forKey: "region")
 
-                        title = LocalizedStringKey("NorthAmerica")
+                        title = LocalizedStringKey("Americas")
                         expand = false
                         
                     } label: {
-                        Text(LocalizedStringKey("NorthAmerica"))
+                        Text(LocalizedStringKey("Americas"))
                     }
                 }
                 
                 
                 if title != LocalizedStringKey("Europe") {
                     Button {
-                        authAPIModel.regionCheck = true
+                        regionCheck = true
                         let  _ = keychain.save("eu", forKey: "region")
 
                         title = LocalizedStringKey("Europe")
@@ -76,7 +77,7 @@ struct RegionSelectorView: View {
                 
                 if title != LocalizedStringKey("AsiaPacific") {
                     Button {
-                        authAPIModel.regionCheck = true
+                        regionCheck = true
                         let  _ = keychain.save("ap", forKey: "region")
                         
                         title = LocalizedStringKey("AsiaPacific")
@@ -89,7 +90,7 @@ struct RegionSelectorView: View {
                 
                 if title != LocalizedStringKey("SouthKorea") {
                     Button {
-                        authAPIModel.regionCheck = true
+                        regionCheck = true
                         let  _ = keychain.save("kr", forKey: "region")
                         
                         title = LocalizedStringKey("SouthKorea")
@@ -110,8 +111,3 @@ struct RegionSelectorView: View {
     }
 }
 
-struct RegionSelectorView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegionSelectorView()
-    }
-}

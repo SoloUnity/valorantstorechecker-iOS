@@ -23,7 +23,6 @@ class AuthAPIModel: ObservableObject {
     @Published var downloadBarFinish : Bool = false
     
     // Authentication
-    @Published var isAuthenticated: Bool = false // Keeps user logged in
     @Published var isAuthenticating : Bool = false // Handles loading animation
     @Published var failedLogin : Bool = false // Handles login error message
     
@@ -40,7 +39,6 @@ class AuthAPIModel: ObservableObject {
     @Published var username: String = "" // Variable used by username box in LoginBoxView
     @Published var password: String = "" // Used by password box in LoginBoxView
     @Published var multifactor : String = "" // Used by multifactor box in MultifactorView
-    @Published var regionCheck : Bool = false // COnfirm user has selected region
     @Published var rememberPassword : Bool = false
     
     // User saved information
@@ -62,7 +60,6 @@ class AuthAPIModel: ObservableObject {
     @Published var bundleCount : Int = 0
     
     // NightMarket
-    @Published var nightMarket : Bool = false
     @Published var nightSkins : [Skin] = []
     @Published var percentOff : [Int] = []
     
@@ -131,8 +128,6 @@ class AuthAPIModel: ObservableObject {
             self.bundleCount = count
         }
         
-        
-        
     }
     
     // MARK: Login
@@ -145,7 +140,6 @@ class AuthAPIModel: ObservableObject {
                 self.username = keychain.value(forKey: "username") as? String ?? ""
                 self.password = keychain.value(forKey: "password") as? String ?? ""
             }
-            
             else if keychain.value(forKey: "username") == nil { // Save username to keychain
                 let _ = keychain.save(self.username, forKey: "username")
             }
@@ -169,7 +163,6 @@ class AuthAPIModel: ObservableObject {
                 DispatchQueue.main.async{
                     // Save authentication state for next launch
                     withAnimation(.easeIn(duration: 0.2)) {
-                        self.isAuthenticated = true
                         self.defaults.set(true, forKey: "authentication")
                     }
                 }
@@ -235,7 +228,6 @@ class AuthAPIModel: ObservableObject {
             
             if storefrontResponse.BonusStore != nil {
                 
-                self.nightMarket = true
                 defaults.set(true, forKey: "nightMarket")
                 
                 guard let market = storefrontResponse.BonusStore else {
@@ -274,12 +266,10 @@ class AuthAPIModel: ObservableObject {
                 
                 let nightReferenceDate = Date() + Double(market.BonusStoreRemainingDurationInSeconds!)
                 defaults.set(nightReferenceDate, forKey: "nightTimeLeft")
-                
                 defaults.set(tempPercent, forKey: "percentOff")
 
             }
             else {
-                self.nightMarket = false
                 defaults.set(false, forKey: "nightMarket")
                 
             }
@@ -497,7 +487,6 @@ class AuthAPIModel: ObservableObject {
                 DispatchQueue.main.async {
                     // Save authentication state for next launch
                     withAnimation(.easeIn(duration: 0.2)) {
-                        self.isAuthenticated = true
                         self.defaults.set(true, forKey: "authentication")
                     }
                 }
@@ -610,7 +599,6 @@ class AuthAPIModel: ObservableObject {
             self.username = "" // Variable used by username box in LoginBoxView
             self.password = "" // Used by password box in LoginBoxView
             self.multifactor = "" // Used by multifactor box in MultifactorView
-            self.regionCheck = false
             self.rememberPassword = false
             
             self.defaults.removeObject(forKey: "timeLeft")
@@ -635,7 +623,6 @@ class AuthAPIModel: ObservableObject {
             
             // Unauthenticate user
             withAnimation(.easeOut(duration: 0.2)) {
-                self.isAuthenticated = false // Keeps user logged in
                 self.defaults.removeObject(forKey: "authentication")
             }
         }

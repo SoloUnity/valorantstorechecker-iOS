@@ -16,7 +16,11 @@ class NotificationService {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             
             if success {
-                print("Access granted!")
+
+                withAnimation(.default) {
+                    UserDefaults.standard.set(true, forKey: "requestNotifPerm")
+                }
+                
             }
             else if let error = error {
                 print(error.localizedDescription)

@@ -23,9 +23,7 @@ class SkinModel: ObservableObject{
         
         getLocalData()
         
-        let backgroundQueue = DispatchQueue.global(qos: .background)
-        
-        backgroundQueue.async {
+        DispatchQueue.global(qos: .background).async {
             self.getRemoteData()
         }
         
@@ -111,7 +109,7 @@ class SkinModel: ObservableObject{
         let dataTask = session.dataTask(with: request){ data, response, error in
             
             // Check if there is an error
-            guard error == nil else{
+            guard error == nil || data != nil else{
                 return
             }
             
@@ -123,10 +121,12 @@ class SkinModel: ObservableObject{
                 return
             }
             
+            
             // Handle response
             let jsonDecoder = JSONDecoder()
             let skinDataResponse = try! jsonDecoder.decode(Skins.self, from: data!)
             
+            self.defaults.set(data!, forKey: "skinDataResponse")
             
             var totalImages : Double = 0
             
@@ -161,11 +161,10 @@ class SkinModel: ObservableObject{
                 }
             }
             
+            
             DispatchQueue.main.async{
                 self.progressDenominator = totalImages
             }
-            
-            
             
             if UserDefaults.standard.bool(forKey: "authorizeDownload") {
                 
@@ -179,7 +178,6 @@ class SkinModel: ObservableObject{
                     if skin.displayName.count > 2 && String(Array(skin.displayName)[0..<2]).contains("\n"){
                         skin.displayName = String(Array(skin.displayName)[2...])
                     }
-                    
                     
                 }
             }

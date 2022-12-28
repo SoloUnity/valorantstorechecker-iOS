@@ -14,6 +14,7 @@ struct LoginView: View {
     @State private var agreedToTerms: Bool = false
     @State private var showTerms : Bool = false
     @State private var showAlert : Bool = false
+    @State private var regionCheck : Bool = false
     
     var body: some View {
         
@@ -103,7 +104,7 @@ struct LoginView: View {
                         }
                     }
                     
-                    RegionSelectorView()
+                    RegionSelectorView(regionCheck: $regionCheck)
 
                     Spacer()
                     
@@ -133,7 +134,7 @@ struct LoginView: View {
                     }
                     
                     // MARK: Log in button
-                    if agreedToTerms && authAPIModel.regionCheck {
+                    if agreedToTerms && regionCheck {
                         
                         Button {
                             
@@ -210,11 +211,11 @@ struct LoginView: View {
         }
         .ignoresSafeArea(.all, edges: .top)
         .background(Constants.bgGrey)
-        .preferredColorScheme(.dark)
+        //.preferredColorScheme(.dark)
         .sheet(isPresented: $showTerms) {
             TermsView()
                 .background(Constants.bgGrey)
-                .preferredColorScheme(.dark)
+                //.preferredColorScheme(.dark)
         }
     }
     

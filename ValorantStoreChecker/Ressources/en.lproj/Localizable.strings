@@ -42,7 +42,7 @@
 
 // RegionSelectorView
 "SelectRegion" = "Select region";
-"NorthAmerica" = "North America";
+"Americas" = "Americas";
 "Europe" = "Europe";
 "AsiaPacific" = "Asia Pacific";
 "SouthKorea" = "South Korea";

@@ -11,6 +11,7 @@ struct LaunchView: View {
     
     @EnvironmentObject private var skinModel:SkinModel
     @EnvironmentObject private var authAPIModel:AuthAPIModel
+    @AppStorage("authentication") var isAuthenticated = false
     //@Environment(\.scenePhase) private var phase
     
     
@@ -23,7 +24,7 @@ struct LaunchView: View {
         ZStack (alignment: .top){
             
             // Displays login if the user is not authenticated
-            if !authAPIModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
+            if !isAuthenticated && !defaults.bool(forKey: "authentication") {
                 
                 LoginView()
                 
@@ -34,16 +35,9 @@ struct LaunchView: View {
                 
             }
             else {
-                
-                HomeView()
-                /*
-                 .onChange(of: phase) { newPhase in
-                 switch newPhase {
-                 case .background: scheduleAppRefresh()
-                 default: break
-                 }
-                 }
-                 */
+                ContentView()
+                //HomeView()
+
             }
             
 
@@ -51,7 +45,7 @@ struct LaunchView: View {
         }
         .sheet(isPresented: $authAPIModel.showMultifactor) {
             MultifactorView()
-                .preferredColorScheme(.dark)
+                //.preferredColorScheme(.dark)
                 .background(Constants.bgGrey)
         }
         .alert(LocalizedStringKey("ErrorTitle"), isPresented: $authAPIModel.isError, actions: {

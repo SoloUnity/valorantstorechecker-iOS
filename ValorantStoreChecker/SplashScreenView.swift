@@ -21,6 +21,7 @@ struct SplashScreenView: View {
                 .environmentObject(AuthAPIModel())
                 .environmentObject(TipModel())
                 .environmentObject(UpdateModel())
+                .environmentObject(Model())
         } else{
             
             GeometryReader { geo in
@@ -42,7 +43,7 @@ struct SplashScreenView: View {
                 .scaleEffect(size)
                 .opacity(opacity)
                 .onAppear {
-                    withAnimation(.easeIn(duration: 0.85)) {
+                    withAnimation(.easeIn(duration: 0.65)) {
                         self.size = 0.9
                         self.opacity = 1.0
                     }
@@ -53,7 +54,7 @@ struct SplashScreenView: View {
             .padding(120)
             .background(Constants.bgGrey)
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.85) {   // Duration of splash screen
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {   // Duration of splash screen
                     withAnimation {
                         
                         self.isActive = true

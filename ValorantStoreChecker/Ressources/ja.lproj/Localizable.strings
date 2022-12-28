@@ -41,7 +41,7 @@
 
 // RegionSelectorView
 "SelectRegion" = "地域を選択";
-"NorthAmerica" = "北アメリカ";
+"Americas" = "北アメリカ";
 "Europe" = "ヨーロッパ";
 "AsiaPacific" = "アジア太平洋";
 "SouthKorea" = "韓国";

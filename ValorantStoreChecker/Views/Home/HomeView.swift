@@ -11,13 +11,16 @@ struct HomeView: View {
     
     @EnvironmentObject private var authAPIModel : AuthAPIModel
     @EnvironmentObject private var skinModel : SkinModel
+    @AppStorage("nightMarket") var nightMarket : Bool = false
     @State private var tabIndex = 0
     
     private let defaults = UserDefaults.standard
+
     
     
     var body: some View {
         
+
         TabView(selection: $tabIndex) {
             ShopView()
                 .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
@@ -26,8 +29,9 @@ struct HomeView: View {
                     Text(LocalizedStringKey("Store"))
                 }
                 .tag(0)
+            
                 
-            if defaults.bool(forKey: "nightMarket") || authAPIModel.nightMarket {
+            if nightMarket {
                 NightMarketView()
                     .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
                     .tabItem{
@@ -54,43 +58,25 @@ struct HomeView: View {
                     Text(LocalizedStringKey("SkinIndex"))
                 }
                 .tag(2)
-
             
-            
-            
-            /*
-             WishListView()
-             .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-             .tabItem{
-             Image(systemName: "heart.fill")
-             Text("Wish List")
-             }
-             .tag(2)
-             */
-            
-            AboutView()
+            SettingsView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
                 .tabItem {
-                    Image(systemName: "info.circle.fill")
-                    Text(LocalizedStringKey("About"))
+                    Image(systemName: "gear")
+                    Text(LocalizedStringKey("Settings"))
                 }
                 .tag(3)
 
             
         }
-        .accentColor(.white)
-        .foregroundColor(.white)
-        .tint(.white)
-        .preferredColorScheme(.dark)
+        //.accentColor(.white)
+        //.foregroundColor(.white)
+        //.tint(.white)
+        //.preferredColorScheme(.dark)
         
         
     }
     
-    func bugFixer() -> Bool {
-        if #available(iOS 15.0, *) {
-            return true
-        }
-        return false
-    }
+    
 }
 
 struct HomeView_Previews: PreviewProvider {

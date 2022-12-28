@@ -68,7 +68,7 @@ struct DownloadView: View {
                         
                         VStack{
                             ScrollView(showsIndicators: false) {
-                                CommunityView(expand: $expandCommunity)
+                                CommunityView()
                                     .overlay{
                                         RoundedRectangle(cornerRadius: 10)
                                             .stroke(.white, lineWidth: 3)
@@ -82,7 +82,7 @@ struct DownloadView: View {
                                     }
                                             
                                 
-                                AcknowledgementsView(expand: $expandAcknowledgements)
+                                AcknowledgementsView()
                                     .overlay{
                                         RoundedRectangle(cornerRadius: 10)
                                             .stroke(.white, lineWidth: 3)
@@ -192,7 +192,7 @@ struct DownloadView: View {
         }
         .ignoresSafeArea(.all, edges: .top)
         .background(Constants.bgGrey)
-        .preferredColorScheme(.dark)
+        //.preferredColorScheme(.dark)
         .animation(.spring(), value: expandCommunity)
         .animation(.spring(), value: expandAcknowledgements)
         .animation(.spring(), value: expandCopyright)

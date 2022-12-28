@@ -43,7 +43,7 @@
 
 // RegionSelectorView。
 "SelectRegion" = "选择区域";
-"NorthAmerica" = "北美洲";
+"Americas" = "北美洲";
 "Europe" = "欧洲";
 "AsiaPacific" = "亚太";
 "SouthKorea" = "南韩";
