@@ -19,9 +19,11 @@ struct SplashScreenView: View {
             LaunchView()
                 .environmentObject(SkinModel())
                 .environmentObject(AuthAPIModel())
+                .environmentObject(AlertModel())
                 .environmentObject(TipModel())
                 .environmentObject(UpdateModel())
-                .environmentObject(Model())
+                .environmentObject(NetworkModel())
+                .environmentObject(Model()) // no clue
         } else{
             
             GeometryReader { geo in

@@ -53,7 +53,6 @@ struct ShopView: View {
                         // MARK: Displayed elements
                         ShopTopBarView(reloadType: "storeReload", referenceDate: timeLeft)
                         
-                        
                         Divider()
                             .padding(.leading)
                         
@@ -77,8 +76,6 @@ struct ShopView: View {
                     
                 }
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
-
-
                 
             }
             .coordinateSpace(name: "scroll")
@@ -90,8 +87,11 @@ struct ShopView: View {
                 NavigationBar(title: "Store", hasScrolled: $hasScrolled)
             }
             .refreshable {
-                withAnimation(.easeIn(duration: 0.2)) {
+                
+                withAnimation(.easeIn) {
+                    
                     authAPIModel.reloading = true
+                    
                 }
                 
                 Task{

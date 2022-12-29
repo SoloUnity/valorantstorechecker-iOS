@@ -55,6 +55,10 @@ struct CommunityView: View {
                 }
             }
             
+            Section(header: Text("")) {
+                EmptyView()
+                
+            }
 
              
         }

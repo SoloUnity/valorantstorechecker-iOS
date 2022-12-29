@@ -29,7 +29,6 @@ struct TitleView: View {
             Text (String(skin.displayName))
                 .font(.title)
                 .bold()
-                .foregroundColor(.white)
                 .lineLimit(1)
                 .minimumScaleFactor(0.4)
             
@@ -60,6 +59,7 @@ struct TitleView: View {
             
             
         }
+        .padding(.top, 5)
     }
 }
 

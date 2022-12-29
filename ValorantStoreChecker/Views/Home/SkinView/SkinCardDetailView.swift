@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-//import GoogleMobileAds
-
-
-
 struct SkinCardDetailView: View {
     
     @EnvironmentObject var skinModel:SkinModel
@@ -24,7 +20,7 @@ struct SkinCardDetailView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: UIScreen.main.bounds.height / 40) {
+        VStack() {
             
             TitleView(skin: skin)
             

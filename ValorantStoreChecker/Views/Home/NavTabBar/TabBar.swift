@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabBar: View {
     
+    @EnvironmentObject var updateModel : UpdateModel
     @AppStorage("selectedTab") var selectedTab: Tab = .shop
     @State var tabItemWidth: CGFloat = 0
     
@@ -29,7 +30,6 @@ struct TabBar: View {
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: hasHomeIndicator ? 34 : 0, style: .continuous))
             .background(background)
             .overlay(overlay)
-            .strokeStyle(cornerRadius: hasHomeIndicator ? 34 : 0)
             .frame(maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea()
         }
@@ -42,7 +42,6 @@ struct TabBar: View {
             Button {
                 
                 selectedTab = item.tab
-                
                 
             } label: {
                 
@@ -58,8 +57,6 @@ struct TabBar: View {
                     }
                     .frame(maxWidth: .infinity)
                 }
-                
-
             }
             .foregroundStyle(
                 selectedTab == item.tab ? .primary : .secondary

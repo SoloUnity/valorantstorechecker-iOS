@@ -97,89 +97,19 @@ struct SkinCardView: View {
                         else{
                             Image(systemName: "questionmark.circle")
                                 .frame(width:10, height: 10)
-                                .shadow(color: .white, radius: 1)
                         }
                         
                         // MARK: Name
                         Text(skin.displayName)
                             .font(.subheadline)
                             .bold()
-                            .shadow(color: .black, radius: 3)
                             .lineLimit(1)
                         
                         
                         Spacer()
-                        
-                    }
-                }
-                .padding(.leading)
-                
-                VStack{
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        
-                        // MARK: Price
-                        if showPrice {
+                        if showPrice && !nightPrice{
                             
-
-                            if price != "" && nightPrice {
-                                
-                                VStack {
-                                    HStack{
-                                        
-                                        if skin.contentTierUuid != nil {
-                                            let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased())
-                                            
-                                            if price != "Unknown" {
-                                                
-                                                
-                                                Text(price)
-                                                    .strikethrough()
-                                                    .font(.subheadline)
-                                                    .bold()
-                                                    .shadow(color: .black, radius: 3)
-                                                    .opacity(0.3)
-                                                
-                                            }
-                                        }
-                                        
-                                        Image("vp")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 18, height: 18)
-                                            .shadow(color: .white, radius: 2)
-                                        
-                                        Text(price)
-                                            .font(.subheadline)
-                                            .bold()
-                                            .shadow(color: .black, radius: 3)
-                                        
-                                    }
-                                    
-                                    // MARK: Percent off
-                                    if percentOff != "" {
-                                        Text("-" + percentOff + "%")
-                                            .font(.subheadline)
-                                            .bold()
-                                            .shadow(color: .black, radius: 3)
-                                            .opacity(0.3)
-                                    }
-                                    
-                                    
-                                
-                                }
-                                .padding(.horizontal, 20)
-                                .background(.ultraThinMaterial, in: Rectangle())
-                                .rotationEffect(Angle(degrees: -40))
-                                .offset(x: 30)
-
-                                
-                                
-                                
-                                
-                            }
-                            else if price != "" {
+                            if price != "" {
                                 HStack {
                                     if price != "Unknown" {
                                         
@@ -187,12 +117,10 @@ struct SkinCardView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 18, height: 18)
-                                            .shadow(color: .white, radius: 2)
                                         
                                         Text(self.price)
                                             .font(.subheadline)
                                             .bold()
-                                            .shadow(color: .black, radius: 3)
 
                                     }
                                 }
@@ -208,18 +136,82 @@ struct SkinCardView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 18, height: 18)
-                                            .shadow(color: .white, radius: 2)
                                         
                                         Text(price)
                                             .font(.subheadline)
                                             .bold()
-                                            .shadow(color: .black, radius: 3)
 
                                     }
                                 }
                                 .padding(.trailing)
                                 
                             }
+                            
+                            
+                        }
+                        
+                    }
+                }
+                .padding(.leading)
+                
+                // NightMarket Prices
+                VStack{
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        
+                        // MARK: Price
+                        if price != "" && nightPrice {
+                            
+                            VStack {
+                                HStack{
+                                    
+                                    if skin.contentTierUuid != nil {
+                                        let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased())
+                                        
+                                        if price != "Unknown" {
+                                            
+                                            
+                                            Text(price)
+                                                .strikethrough()
+                                                .font(.subheadline)
+                                                .bold()
+                                                .opacity(0.3)
+                                            
+                                        }
+                                    }
+                                    
+                                    Image("vp")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 18, height: 18)
+                                    
+                                    Text(price)
+                                        .font(.subheadline)
+                                        .bold()
+                                    
+                                }
+                                
+                                // MARK: Percent off
+                                if percentOff != "" {
+                                    Text("-" + percentOff + "%")
+                                        .font(.subheadline)
+                                        .foregroundColor(.pink)
+                                        .bold()
+                                }
+                                
+                                
+                            
+                            }
+                            .padding(.horizontal, 20)
+                            .background(.ultraThinMaterial, in: Rectangle())
+                            .rotationEffect(Angle(degrees: -40))
+                            .offset(x: 30)
+
+                            
+                            
+                            
+                            
                         }
                     }
                 }

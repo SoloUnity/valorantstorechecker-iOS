@@ -6,7 +6,6 @@
 ///
 
 import SwiftUI
-//import GoogleMobileAds
 
 @main
 struct ValorantStoreCheckerApp: App {

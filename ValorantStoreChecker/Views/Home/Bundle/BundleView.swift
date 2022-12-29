@@ -47,9 +47,7 @@ struct BundleView: View {
                     
                 }
                 
-                
-                
-                
+
             }
             else{
                 
@@ -70,10 +68,8 @@ struct BundleView: View {
                         HStack {
                             
                             Text(defaults.string(forKey: "bundleDisplayName" + String(index)) ?? "")
-                                .foregroundColor(.white)
                                 .font(.subheadline)
                                 .bold()
-                                .shadow(color: .black, radius: 3)
                                 .lineLimit(1)
                             
                             Spacer()
@@ -86,13 +82,10 @@ struct BundleView: View {
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 18, height: 18)
-                                        .shadow(color: .black, radius: 2)
                                     
                                     Text(String(price))
                                         .font(.subheadline)
-                                        .foregroundColor(.white)
                                         .bold()
-                                        .shadow(color: .black, radius: 3)
                                 }
                             }
                             
@@ -154,7 +147,7 @@ struct BundleView: View {
         }
         .refreshable {
             
-            withAnimation(.easeIn(duration: 0.2)) {
+            withAnimation(.easeIn) {
                 authAPIModel.reloading = true
             }
             

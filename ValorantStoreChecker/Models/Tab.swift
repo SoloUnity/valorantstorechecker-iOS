@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  ValorantStoreChecker
 //
 //  Created by Gordon Ng on 2022-12-16.

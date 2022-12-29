@@ -99,7 +99,10 @@ struct HelpView: View {
                 
             }
             
-            
+            Section(header: Text("")) {
+                EmptyView()
+                
+            }
             
             
             

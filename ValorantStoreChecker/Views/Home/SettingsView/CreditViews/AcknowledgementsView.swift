@@ -81,6 +81,11 @@ struct AcknowledgementsView: View {
                 
             }
             
+            Section(header: Text("")) {
+                EmptyView()
+                
+            }
+            
         }
         .navigationTitle(LocalizedStringKey("Acknowledgements"))
 

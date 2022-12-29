@@ -80,7 +80,7 @@ struct NightMarketView: View {
                 }
                 .refreshable {
                     
-                    withAnimation(.easeIn(duration: 0.2)) {
+                    withAnimation(.easeIn) {
                         authAPIModel.reloading = true
                     }
                     
@@ -98,7 +98,7 @@ struct NightMarketView: View {
                             
                             GoUpButton(proxy: proxy)
                                 .padding(.trailing)
-                                .padding(.bottom, 100)
+                                .padding(.bottom, (UIScreen.main.bounds.height / Constants.dimensions.upButton))
                             
                         }
                     }

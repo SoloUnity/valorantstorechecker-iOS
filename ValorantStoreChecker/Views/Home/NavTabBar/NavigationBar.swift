@@ -38,7 +38,7 @@ struct NavigationBar: View {
                 
                 if selectedTab == .nightMarket {
                     
-                    Image(systemName: "moon.stars" )
+                    Image(systemName: "moon.stars.fill" )
                         .padding(.vertical, hasScrolled ? 2 : 12)
                         .padding(.horizontal, 8)
                         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20 , style: .continuous))
@@ -46,6 +46,7 @@ struct NavigationBar: View {
                         .animation(.spring(response: 0.55, dampingFraction: 0.9), value: hasScrolled)
                         .onTapGesture{
                             selectedTab = .nightMarket
+                            haptic()
                         }
                     
                 }
@@ -58,6 +59,7 @@ struct NavigationBar: View {
                         .animation(.spring(response: 0.55, dampingFraction: 0.9), value: hasScrolled)
                         .onTapGesture{
                             selectedTab = .nightMarket
+                            haptic()
                         }
                 }
                  

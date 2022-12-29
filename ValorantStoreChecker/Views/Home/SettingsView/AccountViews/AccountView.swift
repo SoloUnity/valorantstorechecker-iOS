@@ -55,6 +55,11 @@ struct AccountView: View {
                 }
 
             }
+            
+            Section(header: Text("")) {
+                EmptyView()
+                
+            }
            
             
         }

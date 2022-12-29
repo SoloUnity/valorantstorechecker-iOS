@@ -28,12 +28,9 @@ struct RememberPasswordView: View {
                     .tint(.pink)
                     .onChange(of: togglePassword) { boolean in
                         
-                        
-                        authAPIModel.rememberPassword = boolean
-                        
                         if boolean {
-                            defaults.set(boolean, forKey: "rememberPassword")
                             
+                            self.togglePassword = true
                         }
                         else {
                             defaults.removeObject(forKey: "rememberPassword")
@@ -50,7 +47,7 @@ struct RememberPasswordView: View {
         }
         .onAppear {
             
-            if defaults.bool(forKey: "rememberPassword") {
+            if togglePassword {
                 authAPIModel.password = keychain.value(forKey: "password") as? String ?? ""
             }
             
@@ -59,7 +56,7 @@ struct RememberPasswordView: View {
             authAPIModel.password = ""
         }
         
-        if togglePassword || defaults.bool(forKey: "rememberPassword") {
+        if togglePassword {
 
             HStack {
                 

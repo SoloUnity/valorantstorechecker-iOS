@@ -52,13 +52,11 @@ struct Constants{
     struct dimensions {
         static var onboardingLogoSize : CGFloat = 4
         static var circleButtonSize : CGFloat = 60
-        static var cardSize = 7.1//7.1 for ads
-        static var logoSize = 6.5
+        static var cardSize : CGFloat = 6.8
+        static var logoSize : CGFloat = 6.5
+        static var upButton : CGFloat = 8
     }
     
-    struct ads {
-        static var adUnitID = "ca-app-pub-3940256099942544/2934735716"
-    }
-    
+
 }
 

@@ -1,86 +1,79 @@
 //
-//  HomeView.swift
+//  ContentView.swift
 //  ValorantStoreChecker
 //
-//  Created by Gordon Ng on 2022-07-16.
-//
+//  Created by Gordon Ng on 2022-12-16.
+//  https://www.youtube.com/watch?v=3psB2i2Ondo
 
 import SwiftUI
 
 struct HomeView: View {
-    
-    @EnvironmentObject private var authAPIModel : AuthAPIModel
-    @EnvironmentObject private var skinModel : SkinModel
-    @AppStorage("nightMarket") var nightMarket : Bool = false
-    @State private var tabIndex = 0
-    
-    private let defaults = UserDefaults.standard
 
+    @EnvironmentObject var model: Model
+    @AppStorage("selectedTab") var selectedTab: Tab = .shop
+    @AppStorage("showModal") var showModal = false
+    @State var currentView = "shop"
+    let diffBottomInset: CGFloat = 88
     
-    
-    var body: some View {
-        
+    var body: some View  {
+        ZStack(alignment: .bottom) {
 
-        TabView(selection: $tabIndex) {
+            
+            // Done this way to preserve scroll state
             ShopView()
-                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                .tabItem {
-                    Image(systemName: "cart")
-                    Text(LocalizedStringKey("Store"))
-                }
-                .tag(0)
-            
-                
-            if nightMarket {
-                NightMarketView()
-                    .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                    .tabItem{
-                    Image(systemName: "moon.stars")
-                    Text(LocalizedStringKey("NightMarket"))
-                    }
-                    .tag(4)
-            }
-            
+                .opacity(currentView == "shop" ? 1 : 0)
             
             BundleView()
-                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                .tabItem{
-                Image(systemName: "archivebox.fill")
-                Text(LocalizedStringKey("Bundle"))
-                }
-                .tag(1)
-
+                .opacity(currentView == "bundle" ? 1 : 0)
             
             SkinListView()
-                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                .tabItem {
-                    Image(systemName: "list.bullet")
-                    Text(LocalizedStringKey("SkinIndex"))
-                }
-                .tag(2)
+                .opacity(currentView == "skinList" ? 1 : 0)
             
-            SettingsView(referenceDate: defaults.object(forKey: "timeLeft") as? Date ?? Date())
-                .tabItem {
-                    Image(systemName: "gear")
-                    Text(LocalizedStringKey("Settings"))
-                }
-                .tag(3)
+            SettingsView()
+                .opacity(currentView == "settings" ? 1 : 0)
+            
+            NightMarketView()
+                .opacity(currentView == "nightMarket" ? 1 : 0)
+            
+            
+            TabBar(diffSafeAreaBottomInset: diffBottomInset)
+                .offset(y: model.showDetail ? 200 : 0)
+            
 
-            
         }
-        //.accentColor(.white)
-        //.foregroundColor(.white)
-        //.tint(.white)
-        //.preferredColorScheme(.dark)
-        
-        
+        .safeAreaInset(edge: .bottom) {
+            Color.clear.frame(height: diffBottomInset)
+        }
+        .dynamicTypeSize(.large ... .xxLarge)
+        .onAppear {
+            switch selectedTab {
+            case .shop:
+                self.currentView = "shop"
+            case .bundle:
+                self.currentView = "bundle"
+            case .skinList:
+                self.currentView = "skinList"
+            case .settings:
+                self.currentView = "settings"
+            case .nightMarket:
+                self.currentView = "nightMarket"
+            }
+        }
+        .onChange(of: selectedTab) { newValue in
+            switch selectedTab {
+            case .shop:
+                self.currentView = "shop"
+            case .bundle:
+                self.currentView = "bundle"
+            case .skinList:
+                self.currentView = "skinList"
+            case .settings:
+                self.currentView = "settings"
+            case .nightMarket:
+                self.currentView = "nightMarket"
+            }
+        }
     }
-    
-    
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+

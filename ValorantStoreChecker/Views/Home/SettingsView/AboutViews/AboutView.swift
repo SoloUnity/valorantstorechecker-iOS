@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AboutView: View {
     
+    @AppStorage("showUpdate") var showUpdate = false
     @State var dummy = false
     let defaults = UserDefaults.standard
     
@@ -46,24 +47,33 @@ struct AboutView: View {
                 
             }
             
-            Section(header: Text("WhatsNew")) {
-                
-                
-                let releaseNotes = defaults.array(forKey: "releaseNotes") as? [String] ?? []
-                ForEach(1...releaseNotes.count, id: \.self) { index in
-                    HStack{
-                        Text(String(index) + ".")
-                            .padding(.trailing)
-                        
-                        Text(releaseNotes[index - 1])
-                        
+            if showUpdate {
+                Section(header: Text("WhatsNew")) {
+                    
+                    
+                    let releaseNotes = defaults.array(forKey: "releaseNotes") as? [String] ?? []
+                    ForEach(1...releaseNotes.count, id: \.self) { index in
+                        HStack{
+                            Text(String(index) + ".")
+                                .padding(.trailing)
+                            
+                            Text(releaseNotes[index - 1])
+                            
+                        }
                     }
+                    
                 }
-                
             }
+            
+            
             
             Section(header: Text("Copyright")) {
                 Text(LocalizedStringKey("CopyrightNotice"))
+            }
+            
+            Section(header: Text("")) {
+                EmptyView()
+                
             }
         }
         .navigationTitle(LocalizedStringKey("About"))

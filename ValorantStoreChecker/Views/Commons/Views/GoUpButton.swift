@@ -17,6 +17,7 @@ struct GoUpButton: View {
             withAnimation {
                 proxy.scrollTo("top", anchor: .top)
             }
+            haptic()
             
         } label: {
             

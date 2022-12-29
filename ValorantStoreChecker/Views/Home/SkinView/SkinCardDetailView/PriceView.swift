@@ -11,8 +11,8 @@ struct PriceView: View {
     
     @EnvironmentObject var skinModel:SkinModel
     @EnvironmentObject var authAPIModel : AuthAPIModel
+    @EnvironmentObject var alertModel : AlertModel
     @ObservedObject var skin:Skin
-    @State var showAlert = false
     var price = ""
     
     var body: some View {
@@ -28,13 +28,10 @@ struct PriceView: View {
                     if skin.contentTierUuid == nil || (skin.contentTierUuid != nil && PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased()) == "2475+") {
                         
                         Button {
-                            showAlert = true
+                            alertModel.alertPriceInfo = true
                         } label: {
                             Image(systemName: "info.circle")
                                 .accentColor(.white)
-                        }
-                        .alert(isPresented: $showAlert) { () -> Alert in
-                            Alert(title: Text(LocalizedStringKey("InfoPrice")))
                         }
                     }
                     
@@ -50,7 +47,6 @@ struct PriceView: View {
                             .frame(width: 18, height: 18)
                         
                         Text(self.price)
-                            .foregroundColor(.white)
                             .bold()
                     }
                     else {
@@ -60,7 +56,6 @@ struct PriceView: View {
                             .frame(width: 18, height: 18)
                         
                         Text(price)
-                            .foregroundColor(.white)
                             .bold()
                     }
                     
@@ -69,7 +64,6 @@ struct PriceView: View {
                 else{
                     
                     Text(LocalizedStringKey("ExclusiveSkinMessage"))
-                        .foregroundColor(.white)
                     
                     Spacer()
                 }
@@ -77,7 +71,6 @@ struct PriceView: View {
             else{
                 
                 Text(LocalizedStringKey("ExclusiveSkinMessage"))
-                    .foregroundColor(.white)
                 
                 Spacer()
             }

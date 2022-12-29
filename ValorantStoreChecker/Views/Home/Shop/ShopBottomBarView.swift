@@ -19,7 +19,6 @@ struct ShopBottomBarView: View {
             Image("vp")
                 .resizable()
                 .scaledToFit()
-                .shadow(color: .white, radius: 1)
                 .frame(width: 15, height: 15)
 
             
@@ -43,7 +42,6 @@ struct ShopBottomBarView: View {
             Image("rp")
                 .resizable()
                 .scaledToFit()
-                .shadow(color: .white, radius: 1)
                 .frame(width: 15, height: 15)
             
             if authAPIModel.rp != "" {

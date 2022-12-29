@@ -14,8 +14,8 @@ struct WebService {
     // Common URLSession
     static var session: URLSession = {
         let configuration = URLSessionConfiguration.ephemeral
-        configuration.timeoutIntervalForRequest = 30 // seconds
-        configuration.timeoutIntervalForResource = 30 // seconds
+        configuration.timeoutIntervalForRequest = 60 // seconds
+        configuration.timeoutIntervalForResource = 60 // seconds
         return URLSession(configuration: configuration)
     }()
     
@@ -698,36 +698,6 @@ struct WebService {
         dataTask.resume()
         
     }
-    
-    /*
-     static func dataHelper (url : URL, key : String) async -> Data {
-     
-     do {
-     
-     // Create request
-     let request = URLRequest(url: url)
-     let session = URLSession.shared
-     
-     let (data , response) = try await session.data(for: request)
-     
-     guard
-     let httpResponse = response as? HTTPURLResponse,
-     httpResponse.statusCode == 200
-     else{
-     return Data()
-     }
-     
-     let encoded = try! PropertyListEncoder().encode(data)
-     UserDefaults.standard.set(encoded, forKey: key)
-     
-     return data
-     
-     }
-     catch {
-     return Data()
-     }
-     }
-     */
     
 }
 

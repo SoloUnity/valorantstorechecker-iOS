@@ -7,7 +7,6 @@
 
 import Foundation
 import Keychain
-import BackgroundTasks
 import SwiftUI
 
 class AuthAPIModel: ObservableObject {
@@ -23,12 +22,13 @@ class AuthAPIModel: ObservableObject {
     @Published var downloadBarFinish : Bool = false
     
     // Authentication
+    @AppStorage("authentication") var authentication = false
     @Published var isAuthenticating : Bool = false // Handles loading animation
     @Published var failedLogin : Bool = false // Handles login error message
     
     // Handles reload
     @Published var reloading : Bool = false
-    @Published var autoReload : Bool = false
+    @Published var successfulReload : Bool = false
     
     // Multifactor
     @Published var showMultifactor : Bool = false // Show multifactor popout
@@ -39,7 +39,7 @@ class AuthAPIModel: ObservableObject {
     @Published var username: String = "" // Variable used by username box in LoginBoxView
     @Published var password: String = "" // Used by password box in LoginBoxView
     @Published var multifactor : String = "" // Used by multifactor box in MultifactorView
-    @Published var rememberPassword : Bool = false
+    @AppStorage("rememberPassword") var rememberPassword = false
     
     // User saved information
     @Published var keychain = Keychain() // For sensitive information
@@ -62,6 +62,8 @@ class AuthAPIModel: ObservableObject {
     // NightMarket
     @Published var nightSkins : [Skin] = []
     @Published var percentOff : [Int] = []
+    
+    
     
     
     
@@ -136,7 +138,7 @@ class AuthAPIModel: ObservableObject {
         
         do{
             
-            if self.rememberPassword || defaults.bool(forKey: "rememberPassword"){
+            if self.rememberPassword {
                 self.username = keychain.value(forKey: "username") as? String ?? ""
                 self.password = keychain.value(forKey: "password") as? String ?? ""
             }
@@ -163,7 +165,7 @@ class AuthAPIModel: ObservableObject {
                 DispatchQueue.main.async{
                     // Save authentication state for next launch
                     withAnimation(.easeIn(duration: 0.2)) {
-                        self.defaults.set(true, forKey: "authentication")
+                        self.authentication = true
                     }
                 }
             }
@@ -174,7 +176,7 @@ class AuthAPIModel: ObservableObject {
             self.email = ""
             self.showMultifactor = false
             
-            if self.rememberPassword || defaults.bool(forKey: "rememberPassword"){
+            if self.rememberPassword {
                 
                 self.isError = true
                 self.isReloadingError = true
@@ -183,7 +185,7 @@ class AuthAPIModel: ObservableObject {
             else {
                 self.isAuthenticating = false
                 self.failedLogin = true
-                defaults.removeObject(forKey: "authentication")
+                self.defaults.removeObject(forKey: "authentication")
                 let _ = keychain.remove(forKey: "username")
             }
             
@@ -294,14 +296,19 @@ class AuthAPIModel: ObservableObject {
             }
             
             // finished loading
-            self.reloading = false
+            withAnimation(.easeIn) {
+                self.reloading = false
+            }
+        
             self.isAuthenticating = false
             
         }
         
         catch {
-            self.errorMessage = "getPlayerData error: \(error.localizedDescription)"
+            
+            self.errorMessage = "getPlayerData error: \(error.self)" 
             self.isError = true
+            
         }
         
     }
@@ -374,7 +381,7 @@ class AuthAPIModel: ObservableObject {
             
         }catch {
             
-            self.errorMessage = "Login Helper error: \(error.localizedDescription)"
+            self.errorMessage = "Login Helper error: \(error.self)"
             self.isError = true
             
         }
@@ -466,7 +473,7 @@ class AuthAPIModel: ObservableObject {
             
         }
         catch {
-            self.errorMessage = "Login Helper error: \(error.localizedDescription)"
+            self.errorMessage = "Login Helper error: \(error.self)"
             self.isError = true
         }
     }
@@ -487,7 +494,7 @@ class AuthAPIModel: ObservableObject {
                 DispatchQueue.main.async {
                     // Save authentication state for next launch
                     withAnimation(.easeIn(duration: 0.2)) {
-                        self.defaults.set(true, forKey: "authentication")
+                        self.authentication = true
                     }
                 }
                 
@@ -527,12 +534,13 @@ class AuthAPIModel: ObservableObject {
             
             if token == "NO TOKEN" {
                 
-                if (self.rememberPassword || defaults.bool(forKey: "rememberPassword")) {
+                if self.rememberPassword {
                     print("Attempt relogin")
                     
                     await login(skinModel: skinModel)
-                    self.reloading = false
                     
+                    self.reloading = false
+
                 }
                 else {
                     self.isError = true
@@ -547,11 +555,16 @@ class AuthAPIModel: ObservableObject {
             
         }catch{
             
-            if (self.rememberPassword || defaults.bool(forKey: "rememberPassword")) {
+            if self.rememberPassword {
+                
                 print("Attempt relogin2")
                 
                 await login(skinModel: skinModel)
-                self.reloading = false
+                
+                withAnimation(.easeIn) {
+                    self.reloading = false
+                }
+
             }
             else {
                 
@@ -565,7 +578,7 @@ class AuthAPIModel: ObservableObject {
                     self.isReloadingError = true
                 }
                 else {
-                    self.errorMessage = "Reload error: \(error.localizedDescription)"
+                    self.errorMessage = "Reload error: \(error.self)"
                     self.isError = true
                 }
 
@@ -599,7 +612,6 @@ class AuthAPIModel: ObservableObject {
             self.username = "" // Variable used by username box in LoginBoxView
             self.password = "" // Used by password box in LoginBoxView
             self.multifactor = "" // Used by multifactor box in MultifactorView
-            self.rememberPassword = false
             
             self.defaults.removeObject(forKey: "timeLeft")
             self.defaults.removeObject(forKey: "vp")

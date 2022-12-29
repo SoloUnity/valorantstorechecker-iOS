@@ -86,6 +86,10 @@ struct AppearanceView: View {
                 }
             }
             
+            Section(header: Text("")) {
+                EmptyView()
+                
+            }
             
             
         }

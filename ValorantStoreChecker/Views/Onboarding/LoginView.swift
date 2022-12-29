@@ -11,9 +11,9 @@ struct LoginView: View {
     
     @EnvironmentObject private var authAPIModel : AuthAPIModel
     @EnvironmentObject private var skinModel : SkinModel
+    @EnvironmentObject private var alertModel : AlertModel
     @State private var agreedToTerms: Bool = false
     @State private var showTerms : Bool = false
-    @State private var showAlert : Bool = false
     @State private var regionCheck : Bool = false
     
     var body: some View {
@@ -34,30 +34,15 @@ struct LoginView: View {
                         HStack {
                             Text(LocalizedStringKey("Login"))
                                 .bold()
+                            
                             Button {
-                                self.showAlert = true
+                                
+                                alertModel.alertLoginInfo = true
+                                
                             } label: {
                                 Image(systemName: "info.circle")
                                     .foregroundColor(.pink)
                             }
-                            
-                            .alert(LocalizedStringKey("InformationTitle"), isPresented: $showAlert, actions: {
-                                
-                                Button(LocalizedStringKey("OpenLink"), role: nil, action: {
-                                    
-                                    if let url = URL(string: Constants.URL.sourceCode) {
-                                        UIApplication.shared.open(url)
-                                    }
-                                    
-                                })
-                                
-                                Button(LocalizedStringKey("OK"), role: nil, action: {})
-                                
-                            }, message: {
-                                let info = LocalizedStringKey("Information")
-                                Text(info)
-                            })
-                            
                         }
                         
                     }else {
@@ -108,29 +93,17 @@ struct LoginView: View {
 
                     Spacer()
                     
-                    // MARK: Reset button
+                    // MARK: Reset button for potential bugs
                     if authAPIModel.failedLogin {
+                        
                         Button {
-                            self.showAlert = true
+                            
+                            alertModel.alertBugInfo = true
+                            
                         } label: {
-                            Image("ladybug.fill")
+                            Image(systemName: "ladybug.fill")
                         }
-                        .alert("Invalid login", isPresented: $showAlert, actions: {
-                            
-                            Button(LocalizedStringKey("Reset"), role: nil, action: {
-                                
-                                authAPIModel.logOut()
-                                
-                                authAPIModel.reloading = false
-                                authAPIModel.isReloadingError = false
-                            })
-                            
-                            Button(LocalizedStringKey("OK"), role: nil, action: {})
-                            
-                        }, message: {
-                            let info = LocalizedStringKey("ResetInfo")
-                            Text(info)
-                        })
+
                     }
                     
                     // MARK: Log in button

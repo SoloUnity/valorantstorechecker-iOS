@@ -26,7 +26,6 @@ extension View {
  
 struct SettingsView: View {
     
-    
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @AppStorage("autoReload") var toggleReload = false
     @AppStorage("notification") var toggleNotification = false
@@ -38,8 +37,7 @@ struct SettingsView: View {
     
     let notify = NotificationService()
     let defaults = UserDefaults.standard
-    let referenceDate: Date
-    
+ 
     var body: some View {
         
         NavigationView {
@@ -56,6 +54,8 @@ struct SettingsView: View {
                         NavigationLink(destination: AccountView()) {
                             UsernameView()
                                 .padding(.vertical, 1)
+                                
+                                
                         }
                         
                         NavigationLink(destination: HelpView()) {
@@ -71,10 +71,8 @@ struct SettingsView: View {
                         SettingItemView(itemType: "toggle", name: "AutomaticReload", iconBG: .green, iconColour: .white, image: "arrow.clockwise", defaultName: "autoReload", toggleBool: $toggleReload)
                             .onChange(of: toggleReload) { boolean in
                                 
-                                authAPIModel.autoReload = boolean
-                                
                                 if boolean {
-                                    defaults.set(boolean, forKey: "autoReload")
+                                    self.toggleReload = true
                                 }
                                 else {
                                     defaults.removeObject(forKey: "autoReload")
@@ -112,7 +110,7 @@ struct SettingsView: View {
                                     if defaults.bool(forKey: "notification") {
                                         
                                         defaults.set(true, forKey: "notification")
-                                        notify.sendNotification(date: referenceDate, title: "Store Checker for Valorant", body: "Store has just reset")
+                                        notify.sendNotification(date: defaults.object(forKey: "timeLeft") as? Date ?? Date(), title: "Store Checker for Valorant", body: "Store has just reset")
 
                                     }
                                     
@@ -132,9 +130,8 @@ struct SettingsView: View {
                         } label: {
                             SettingItemView(itemType: "generic", name: "Appearance", iconBG: .cyan, iconColour: .white, image: "iphone", toggleBool: $dummy)
                         }
+                        
 
-                        
-                        
                         // // MARK: Language
                         Button {
                             if let appSettings = URL(string: UIApplication.openSettingsURLString) {
@@ -144,6 +141,14 @@ struct SettingsView: View {
                             SettingItemView(itemType: "generic", name: "Language", iconBG: .blue, iconColour: .white, image: "character.bubble.fill", showChevron: true, toggleBool: $dummy)
                             
                         }
+                        
+                        // MARK: Asset Management
+                        NavigationLink {
+                            AssetManagementView()
+                        } label: {
+                            SettingItemView(itemType: "generic", name: "Manage Assets", iconBG: .gray, iconColour: .white, image: "photo.stack", toggleBool: $dummy)
+                        }
+                        //LOCALIZETEXT
 
 
                         
@@ -172,7 +177,7 @@ struct SettingsView: View {
                         if #available(iOS 16.0, *) {
                             
                             ShareLink(item: URL(string: Constants.URL.appStore)!) {
-                                SettingItemView(itemType: "generic", name: "Share", iconBG: .white, iconColour: .black, image: "square.and.arrow.up", showChevron: true, toggleBool: $dummy)
+                                SettingItemView(itemType: "generic", name: "Share", iconBG: .white, iconColour: .black, image: "square.and.arrow.up.fill", showChevron: true, toggleBool: $dummy)
                                     .foregroundColor(.black)
                             }
 
@@ -191,7 +196,7 @@ struct SettingsView: View {
                                 windowScene?.keyWindow?.rootViewController?.present(activityVC, animated: true, completion: nil)
                                 
                             } label: {
-                                SettingItemView(itemType: "generic", name: "Share", iconBG: .white, iconColour: .black, image: "square.and.arrow.up", showChevron: true, toggleBool: $dummy)
+                                SettingItemView(itemType: "generic", name: "Share", iconBG: .white, iconColour: .black, image: "square.and.arrow.up.fill", showChevron: true, toggleBool: $dummy)
                                     .foregroundColor(.black)
                                     
                             }
@@ -230,8 +235,10 @@ struct SettingsView: View {
 
             }
             
+            
         }
         .tint(.pink)
+        
 
 
 

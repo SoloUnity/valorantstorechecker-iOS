@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import QuickLook
 
 struct ChromaView: View {
     
     @EnvironmentObject var skinModel:SkinModel
     @ObservedObject var skin:Skin
     @Binding var selectedChroma : Int
+    @State var url: URL?
     
     var body: some View {
+        
         HStack{
             Spacer()
             
@@ -55,6 +58,7 @@ struct ChromaView: View {
             Spacer()
         }
         .frame(height: (UIScreen.main.bounds.height / 5.5))
+        
 
     }
 }

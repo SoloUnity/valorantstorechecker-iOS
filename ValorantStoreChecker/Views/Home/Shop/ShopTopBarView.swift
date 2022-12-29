@@ -12,10 +12,12 @@ struct ShopTopBarView: View {
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @EnvironmentObject var skinModel : SkinModel
     @EnvironmentObject var updateModel : UpdateModel
+    @EnvironmentObject var networkModel : NetworkModel
+    @EnvironmentObject var alertModel : AlertModel
     @AppStorage("showUpdate") var showUpdate : Bool = false
+    @AppStorage("autoReload") var autoReload: Bool = false
+    @AppStorage("clickedReview") var clickedReview : Bool = false
     @State private var nowDate: Date = Date()
-    @State private var successfulReload = false
-    @State private var promptReview = false
     
     let reloadType : String
     let defaults = UserDefaults.standard
@@ -37,19 +39,22 @@ struct ShopTopBarView: View {
                 Image(systemName: "clock")
                     .resizable()
                     .scaledToFit()
-                    .shadow(color: .white, radius: 1)
                     .frame(width: 15, height: 15)
                 
                 let countdown = countDownString(from: referenceDate, nowDate: nowDate)
                 
-                if countdown == "Reload" && (authAPIModel.autoReload || defaults.bool(forKey: "autoReload")) {
+                if countdown == "Reload" && autoReload {
                     
                     // Automatic reloading
                     Text(LocalizedStringKey("Reloading"))
                         .bold()
                         .onAppear {
                             Task {
-                                authAPIModel.reloading = true
+                                
+                                withAnimation(.easeIn) {
+                                    authAPIModel.reloading = true
+                                }
+                                
                                 await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
                             }
                         }
@@ -76,128 +81,55 @@ struct ShopTopBarView: View {
                 Spacer()
                 
                 if reloadType != "nightMarketReload" {
+                    
                     // MARK: Store refresh button
                     Button {
-                        
-                        withAnimation(.easeIn(duration: 0.2)) {
-                            authAPIModel.reloading = true
+                                                
+                        if networkModel.isConnected {
+                            
+                            withAnimation(.easeIn) {
+                                authAPIModel.reloading = true
+                            }
+                            
+                            Task{
+                                await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
+                            }
+                            
+                            if !clickedReview {
+                                reloadCounter(alertModel: alertModel)
+                            }
+                            
                         }
-                        
-                        
-                        Task{
-                            await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
+                        else {
+                            
+                            withAnimation(.easeIn) {
+                                alertModel.alertNoNetwork = true
+                            }
+                            
+                            
                         }
-                        
-                        if !defaults.bool(forKey: "clickedReview") {
-                            reloadCounter(promptReview: &promptReview)
-                        }
-                        
                         
                     } label: {
-                        if !authAPIModel.reloading && !successfulReload {
-                            
+
+                        if authAPIModel.reloading {
+                            ProgressView()
+                                .frame(width: 15, height: 15)
+
+                        }
+                        else {
                             Image(systemName: "arrow.clockwise")
                                 .resizable()
                                 .scaledToFit()
-                                .shadow(color: .pink, radius: 1)
                                 .frame(width: 15, height: 15)
-                            
                         }
-                        
-                        else if authAPIModel.reloading {
-                            ProgressView()
-                                .shadow(color: .white, radius: 1)
-                                .frame(width: 15, height: 15)
-                                .onAppear{
-                                    
-                                    // TODO: Fix and make smooth animation
-                                    withAnimation(.easeIn(duration: 0.2)) {
-                                        self.successfulReload = true
-                                    }
-                                    
-                                }
-                        }
-                        
-                        else if successfulReload {
-                            
-                            Image(systemName: "checkmark")
-                                .resizable()
-                                .scaledToFit()
-                                .shadow(color: .white, radius: 1)
-                                .frame(width: 15, height: 15)
-                                .onAppear{
-                                    
-                                    Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
-                                        withAnimation(.easeIn(duration: 0.2)) {
-                                            self.successfulReload = false
-                                        }
-                                        timer.invalidate()
-                                    }
-                                }
-                            
-                        }
-                        
-                        
                     }
                 }
-                
             }
             .padding(.horizontal)
             .padding(.top)
             .padding(.bottom, 5)
-            
-            // MARK: Update
-            
-            if updateModel.update && showUpdate {
-                
-                UpdateButton()
-                
-            }
-            
-            
         }
-        .alert(LocalizedStringKey("ReviewTitle"), isPresented: $promptReview, actions: {
-            
-            Button("⭐⭐⭐⭐⭐", role: nil, action: {
-                
-                self.promptReview = false
-                
-                defaults.set(true, forKey: "clickedReview")
-                
-                if let url = URL(string: Constants.URL.review) {
-                    UIApplication.shared.open(url)
-                }
-                
-            })
-            
-            Button(LocalizedStringKey("OpenGitHub"), role: nil, action: {
-                if let url = URL(string: Constants.URL.sourceCode) {
-                    UIApplication.shared.open(url)
-                }
-                
-                defaults.set(true, forKey: "clickedReview")
-                
-                self.promptReview = false
-            })
-            
-            Button(LocalizedStringKey("MaybeLater"), role: nil, action: {
-                self.promptReview = false
-            })
-            
-            Button(LocalizedStringKey("NeverShowAgain"), role: nil, action: {
-                
-                defaults.set(true, forKey: "clickedReview")
-                self.promptReview = false
-            })
-            
-        }, message: {
-            
-            Text("ReviewPrompt")
-            
-            
-        })
     }
-    
 }
 
 // MARK: Helper function
@@ -230,7 +162,7 @@ func countDownString(from date: Date, nowDate: Date) -> String {
     
 }
 
-func reloadCounter(promptReview: inout Bool) {
+func reloadCounter(alertModel : AlertModel) {
     
     let defaults = UserDefaults.standard
     
@@ -238,7 +170,7 @@ func reloadCounter(promptReview: inout Bool) {
     defaults.set(reloadCount + 1, forKey: "reloadCounter")
     
     if (reloadCount != 0) && (reloadCount % 10) == 0 {
-        promptReview = true
+        alertModel.alertPromptReview = true
     }
     
 }

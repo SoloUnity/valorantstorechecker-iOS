@@ -7,18 +7,19 @@
 
 import Foundation
 
-enum APIError: Error{
-    case invalidURL
-    case dataTaskError(String)
-    case invalidResponseStatus
-    case noData
-    case invalidCredentials
+enum APIError: Error {
+    case invalidURL // 1
+    case dataTaskError(String) // 2
+    case invalidResponseStatus //3
+    case noData // 4
+    case invalidCredentials //5
+    
 }
 
 enum CookieError: Error {
-    case invalidURL
-    case invalidResponseStatus
-    case dataTaskError(String)
+    case invalidURL // 1
+    case invalidResponseStatus // 2
+    case dataTaskError(String) // 3
 }
 
 enum CookieReloadError: Error {
@@ -99,11 +100,11 @@ enum CookieAuthError : Error {
 }
 
 enum OwnedError : Error {
-    case invalidURL
-    case invalidResponseStatus
-    case badDecode
-    case noData
-    case dataTaskError(String)
+    case invalidURL // 1
+    case invalidResponseStatus // 2
+    case badDecode // 3
+    case noData // 4
+    case dataTaskError(String) // 5
 }
 
 enum BundleListError: Error {

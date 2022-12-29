@@ -15,6 +15,8 @@ class SkinModel: ObservableObject{
     @Published var errorMessage = ""
     @Published var progressNumerator : Double = 0
     @Published var progressDenominator : Double = 0
+    @AppStorage("networkType") var networkType = "both"
+    @AppStorage("currentNetworkType") var currentNetworkType = ""
     
     
     let defaults = UserDefaults.standard
@@ -23,8 +25,21 @@ class SkinModel: ObservableObject{
         
         getLocalData()
         
-        DispatchQueue.global(qos: .background).async {
-            self.getRemoteData()
+        if networkType == "wifi" && currentNetworkType == "wifi" {
+            getRemote()
+        }
+        else if networkType == "cellular" && currentNetworkType == "cellular" {
+            getRemote()
+        }
+        else if networkType == "both" && (currentNetworkType == "wifi" || currentNetworkType == "cellular") {
+            getRemote()
+        }
+
+        
+        func getRemote() {
+            DispatchQueue.global(qos: .background).async {
+                self.getRemoteData()
+            }
         }
         
     }

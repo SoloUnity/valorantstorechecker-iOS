@@ -4,24 +4,32 @@
 //
 //  Created by Gordon on 2022-09-10.
 //  From https://stackoverflow.com/a/68942888
+//  http://itunes.apple.com/lookup?bundleId=com.solounity.ValorantStoreChecker
 
 import Foundation
+import SwiftUI
 
 class UpdateModel: ObservableObject{
     
     @Published var update : Bool = false
+    @AppStorage("showUpdate") var showUpdate : Bool = false
     let defaults = UserDefaults.standard
     
     init() {
-        let _ = try? isUpdateAvailable {[self] (update, error) in
-            if let error = error {
-                print(error)
-            } else if update ?? false {
-                // show alert
-                DispatchQueue.main.async{
-                    self.update = true
+        
+        self.update = true
+        
+        if showUpdate {
+            let _ = try? isUpdateAvailable {[self] (update, error) in
+                if let error = error {
+                    print(error)
+                } else if update ?? false {
+
+                    DispatchQueue.main.async{
+                        self.update = true
+                    }
+                    
                 }
-                
             }
         }
     }
@@ -36,8 +44,6 @@ class UpdateModel: ObservableObject{
                 throw VersionError.invalidBundleInfo
         }
         
-        print ("http://itunes.apple.com/lookup?bundleId=\(identifier)")
-
         let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in

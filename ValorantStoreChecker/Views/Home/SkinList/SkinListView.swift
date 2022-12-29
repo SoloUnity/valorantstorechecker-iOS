@@ -154,7 +154,7 @@ struct SkinListView: View {
                             
                             GoUpButton(proxy: proxy)
                                 .padding(.trailing)
-                                .padding(.bottom, 100)
+                                .padding(.bottom, (UIScreen.main.bounds.height / Constants.dimensions.upButton))
                             
                         }
                     }
