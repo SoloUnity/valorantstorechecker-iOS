@@ -27,6 +27,7 @@ struct DeveloperView: View {
                     
                     if loading {
                         ProgressView()
+                            .tint(.gray)
                     }
                     else {
                         Button {
@@ -34,13 +35,18 @@ struct DeveloperView: View {
                             self.loading = true
                             
                             Task {
+                                
+                                skinModel.progressNumerator = 0
+                                skinModel.progressDenominator = 0
                                 await skinModel.deleteData()
+                                
+                                defaults.set(false, forKey: "authorizeDownload")
+                                defaults.set(false, forKey: "downloadBarFinish")
+                                authAPIModel.downloadBarFinish = false
+                                authAPIModel.downloadImagePermission = false
                             }
                             
-                            defaults.set(false, forKey: "authorizeDownload")
-                            defaults.set(false, forKey: "downloadBarFinish")
-                            authAPIModel.downloadBarFinish = false
-                            authAPIModel.downloadImagePermission = false
+                            
                             
                             
                         } label: {

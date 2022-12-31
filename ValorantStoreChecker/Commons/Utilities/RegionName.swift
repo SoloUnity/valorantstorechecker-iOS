@@ -31,6 +31,8 @@ func getRegionKey() -> String {
         return "SouthKorea"
         
     default:
+        
         return "Americas"
+        
     }
 }

@@ -84,6 +84,9 @@ struct DownloadView: View {
                         if error {
                             Button {
 
+                                skinModel.progressNumerator = 0
+                                skinModel.progressDenominator = 0
+                                
                                 DispatchQueue.main.async {
                                     withAnimation(.easeOut(duration: 0.2)) {
                                         UserDefaults.standard.set(true, forKey: "authorizeDownload")
@@ -167,6 +170,7 @@ func modulateProgress(numerator: Double, denominator: Double, authAPIModel: Auth
                 authAPIModel.downloadBarFinish = true
             }
         }
+        
     }
     
     return round(fraction * 100) / 100
