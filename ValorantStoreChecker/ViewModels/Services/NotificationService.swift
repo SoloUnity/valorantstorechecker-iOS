@@ -32,7 +32,7 @@ class NotificationService {
     func sendNotification(date: Date, title: String, body: String) {
         
         var trigger : UNNotificationTrigger?
-        
+                
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
         trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)

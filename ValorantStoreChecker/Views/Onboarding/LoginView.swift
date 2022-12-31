@@ -12,147 +12,138 @@ struct LoginView: View {
     @EnvironmentObject private var authAPIModel : AuthAPIModel
     @EnvironmentObject private var skinModel : SkinModel
     @EnvironmentObject private var alertModel : AlertModel
-    @State private var agreedToTerms: Bool = false
-    @State private var showTerms : Bool = false
+    @EnvironmentObject private var networkModel : NetworkModel
     @State private var regionCheck : Bool = false
     
     var body: some View {
         
-        
-        GeometryReader { geo in
+        NavigationView {
             
             ZStack(alignment: .top) {
+                Logo()
+                    .frame(height: 70)
                 
-                VStack(spacing: 15) {
+                VStack() {
 
-                    Logo()
-                        .frame(width: UIScreen.main.bounds.width/Constants.dimensions.logoSize, height: UIScreen.main.bounds.height/Constants.dimensions.logoSize)
                     
+                    Spacer()
                     
-                    // MARK: General Info
-                    if !authAPIModel.failedLogin {
-                        HStack {
-                            Text(LocalizedStringKey("Login"))
-                                .bold()
-                            
-                            Button {
-                                
-                                alertModel.alertLoginInfo = true
-                                
-                            } label: {
-                                Image(systemName: "info.circle")
-                                    .foregroundColor(.pink)
-                            }
-                        }
+                    VStack(alignment: .leading) {
                         
-                    }else {
-                        HStack {
-                            
-                            Text(LocalizedStringKey("InvalidCredentials"))
-                                .bold()
-                            
+                        Text("Sign in")
+                            .font(.title)
+                            .bold()
+                            .padding(.top, 5)
+                        
+                        LoginInfoView()
+                        
+                        VStack {
+                            LoginBoxView()
+                                
+                            ThirdPartyView()
                         }
-                    }
-                    
-                    LoginBoxView()
-                    
-                    
-                    // MARK: Terms and Conditions
-                    HStack {
-                        Button {
-                            
-                            showTerms = true
-                            
+                        .padding(.vertical)
+                        
+                        
+                        RegionSelectorView(regionCheck: $regionCheck)
+                        
+                        Divider()
+                        
+                        // MARK: Terms and Conditions
+                        NavigationLink {
+                            TermsView()
                         } label: {
                             HStack {
                                 
-                                Text(LocalizedStringKey("IRead"))
-                                    .foregroundColor(.white)
-                                    .font(.footnote)
-                                
+                                // LOCALIZETEXT
+                                Text("By clicking on ").foregroundColor(.white) + Text("Sign in").foregroundColor(.white).italic() + Text(", you agree to our").foregroundColor(.white) + Text(" Terms and Conditions ").foregroundColor(.gray).bold() + Text("and to our ").foregroundColor(.white) + Text("[Privacy Policy](https://www.craft.do/s/fQxdg6aSyp8WAk)").bold()
+
+                                Spacer()
                             }
-                            
+                            .font(.footnote)
+                            .multilineTextAlignment(.leading)
                         }
                         
-                        // Checkbox
-                        Button {
-                            
-                            agreedToTerms.toggle()
-                            
-                        } label: {
-                            
-                            HStack{
-                                Image(systemName: agreedToTerms ? "checkmark.square" : "square")
-                                    .foregroundColor(.pink)
-                            }
-                            
-                        }
+                        
                     }
+                    .padding()
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(20)
+                    .padding()
+                    .offset(y: -30)
                     
-                    RegionSelectorView(regionCheck: $regionCheck)
-
                     Spacer()
                     
-                    // MARK: Reset button for potential bugs
-                    if authAPIModel.failedLogin {
-                        
-                        Button {
-                            
-                            alertModel.alertBugInfo = true
-                            
-                        } label: {
-                            Image(systemName: "ladybug.fill")
-                        }
 
-                    }
-                    
                     // MARK: Log in button
-                    if agreedToTerms && regionCheck {
+                    if regionCheck {
+                        
                         
                         Button {
                             
-                            // Dismiss keyboard
-                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                             
-                            DispatchQueue.main.async {
-                                authAPIModel.failedLogin = false // Remove error message of authentication
-                                authAPIModel.isAuthenticating = true // Start loading animation
+                            if networkModel.isConnected {
                                 
+                                // Dismiss keyboard
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                
+                                DispatchQueue.main.async {
+                                    
+                                    authAPIModel.isAuthenticating = true // Start loading animation
+                                    
+                                }
+                                
+                                Task{
+                                    await authAPIModel.login(skinModel: skinModel)
+                                }
+                                
+                            }
+                            else {
+                                
+                                withAnimation(.easeIn) {
+                                    alertModel.alertNoNetwork = true
+                                }
                                 
                             }
                             
-                            Task{
-                                await authAPIModel.login(skinModel: skinModel)
-                            }
                             
                             
                         } label: {
+                            
                             if !authAPIModel.isAuthenticating {
+                                
                                 ZStack{
-                                    CircleView(colour: .pink)
+                                    RectangleView()
                                         .shadow(color:.pink, radius: 2)
+                                        .cornerRadius(15)
                                     
-                                    Image(systemName: "arrow.right")
-                                        .resizable()
-                                        .scaledToFit()
+                                    Text("Sign in")
+                                        .bold()
                                         .padding(15)
                                         .foregroundColor(.white)
                                     
+                                    
                                 }
-                                .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
+                                .padding(.horizontal)
+                                .frame(height: Constants.dimensions.circleButtonSize)
                             }
                             else{
+                                
                                 ZStack{
-                                    CircleView(colour: .pink)
-                                        .opacity(0.7)
+                                    RectangleView()
                                         .shadow(color:.pink, radius: 2)
+                                        .cornerRadius(15)
                                     
                                     ProgressView()
+                                        .tint(.gray)
+                                    
                                     
                                 }
-                                .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
-                                
+                                .padding(.horizontal)
+                                .frame(height: Constants.dimensions.circleButtonSize)
+
                             }
+                            
                             
                         }
                         
@@ -160,36 +151,27 @@ struct LoginView: View {
                     else {
                         
                         ZStack{
-                            CircleView(colour: .pink)
-                                .shadow(color:.pink, radius: 2)
+                            RectangleView()
+                                .cornerRadius(15)
+                                .preferredColorScheme(.dark)
                             
-                            Image(systemName: "arrow.right")
-                                .resizable()
-                                .scaledToFit()
+                            Text("Sign in")
+                                .bold()
                                 .padding(15)
                                 .foregroundColor(.white)
-                            
+                                
                         }
-                        .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
-                        .opacity(0.5)
-                        
-                        
+                        .padding(.horizontal)
+                        .frame(height: Constants.dimensions.circleButtonSize)
                         
                     }
                 }
-                .padding(.vertical, 30)
-                .padding(.horizontal, 35)
             }
-            
+            .background(Constants.bgGrey)
+            .preferredColorScheme(.dark)
         }
-        .ignoresSafeArea(.all, edges: .top)
-        .background(Constants.bgGrey)
-        //.preferredColorScheme(.dark)
-        .sheet(isPresented: $showTerms) {
-            TermsView()
-                .background(Constants.bgGrey)
-                //.preferredColorScheme(.dark)
-        }
+        
+        
     }
     
 }

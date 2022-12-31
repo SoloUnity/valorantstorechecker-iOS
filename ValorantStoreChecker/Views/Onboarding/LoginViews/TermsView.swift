@@ -11,25 +11,14 @@ struct TermsView: View {
     var body: some View {
         
 
-        ScrollView(showsIndicators: false){
-            
-            LazyVStack(alignment: .leading) {
-                
-                
+        Form {
+            Section(header: Text(LocalizedStringKey("TermsAndConditions"))) {
                 Text(LocalizedStringKey("MITLicense"))
-
-                Text(LocalizedStringKey("CopyrightGordon"))
-
-                Text(LocalizedStringKey("Paragraph1"))
-                
-                Text(LocalizedStringKey("Paragraph2"))
-
-                Text(LocalizedStringKey("CopyrightNotice"))
-                
-                
             }
-            .padding()
             
+            Section(header: Text(LocalizedStringKey("Copyright"))) {
+                Text(LocalizedStringKey("CopyrightNotice"))
+            }
         }
         .navigationTitle(LocalizedStringKey("TermsAndConditions"))
         

@@ -14,8 +14,8 @@ struct WebService {
     // Common URLSession
     static var session: URLSession = {
         let configuration = URLSessionConfiguration.ephemeral
-        configuration.timeoutIntervalForRequest = 60 // seconds
-        configuration.timeoutIntervalForResource = 60 // seconds
+        configuration.timeoutIntervalForRequest = 30 // seconds
+        configuration.timeoutIntervalForResource = 30 // seconds
         return URLSession(configuration: configuration)
     }()
     
@@ -696,9 +696,7 @@ struct WebService {
             }
         }
         dataTask.resume()
-        
     }
-    
 }
 
 

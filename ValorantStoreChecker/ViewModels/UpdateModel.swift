@@ -12,12 +12,10 @@ import SwiftUI
 class UpdateModel: ObservableObject{
     
     @Published var update : Bool = false
-    @AppStorage("showUpdate") var showUpdate : Bool = false
+    @AppStorage("showUpdate") var showUpdate : Bool = true
     let defaults = UserDefaults.standard
     
     init() {
-        
-        self.update = true
         
         if showUpdate {
             let _ = try? isUpdateAvailable {[self] (update, error) in
@@ -26,9 +24,10 @@ class UpdateModel: ObservableObject{
                 } else if update ?? false {
 
                     DispatchQueue.main.async{
-                        self.update = true
+                        withAnimation(.easeIn) {
+                            self.update = true
+                        }
                     }
-                    
                 }
             }
         }

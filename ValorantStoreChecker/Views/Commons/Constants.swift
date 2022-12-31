@@ -33,7 +33,7 @@ struct Constants{
         
         // About page stuff
         static var supportTicket = "https://discord.com/channels/781946764168658984/983281981368467486"
-        static var faq = "https://github.com/SoloUnity/Valorant-Store-Checker-App/blob/main/README.md#frequently-asked-questions"
+        static var faq = "https://github.com/SoloUnity/valorant-store-checker-iOS#frequently-asked-questions"
         static var sourceCode = "https://github.com/SoloUnity/Valorant-Store-Checker-App"
         static var website = "https://valorantstore.net"
         static var discord = "https://discord.gg/vK5mzjvqYM"

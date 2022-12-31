@@ -69,15 +69,6 @@ struct SettingsView: View {
                     Section() {
                         
                         SettingItemView(itemType: "toggle", name: "AutomaticReload", iconBG: .green, iconColour: .white, image: "arrow.clockwise", defaultName: "autoReload", toggleBool: $toggleReload)
-                            .onChange(of: toggleReload) { boolean in
-                                
-                                if boolean {
-                                    self.toggleReload = true
-                                }
-                                else {
-                                    defaults.removeObject(forKey: "autoReload")
-                                }
-                            }
                         
                         // MARK: Notification
                         if !notification {
@@ -104,19 +95,15 @@ struct SettingsView: View {
                             
                             SettingItemView(itemType: "toggle", name: "Notify", iconBG: .orange, iconColour: .white, image: "bell.fill", defaultName: "notification", toggleBool: $toggleNotification)
                                 .onChange(of: toggleNotification) { boolean in
-                            
-                                    
-                                    // TODO: thoroughly debug notifications
-                                    if defaults.bool(forKey: "notification") {
+
+                                    if toggleNotification {
                                         
-                                        defaults.set(true, forKey: "notification")
                                         notify.sendNotification(date: defaults.object(forKey: "timeLeft") as? Date ?? Date(), title: "Store Checker for Valorant", body: "Store has just reset")
 
                                     }
                                     
                                     if !boolean{
                                         notify.disableNotifications()
-                                        defaults.removeObject(forKey: "notification")
                                     }
                                     
 
@@ -146,7 +133,7 @@ struct SettingsView: View {
                         NavigationLink {
                             AssetManagementView()
                         } label: {
-                            SettingItemView(itemType: "generic", name: "Manage Assets", iconBG: .gray, iconColour: .white, image: "photo.stack", toggleBool: $dummy)
+                            SettingItemView(itemType: "generic", name: "Manage Media", iconBG: .gray, iconColour: .white, image: "photo.stack", toggleBool: $dummy)
                         }
                         //LOCALIZETEXT
 
@@ -220,6 +207,12 @@ struct SettingsView: View {
                             SettingItemView(itemType: "generic", name: "About", iconBG: .gray, iconColour: .white, image: "info.circle.fill", toggleBool: $dummy)
                         }
                         
+                        NavigationLink {
+                            DeveloperView()
+                        } label: {
+                            SettingItemView(itemType: "generic", name: "Developer", iconBG: .blue, iconColour: .white, image: "hammer.fill", toggleBool: $dummy)
+                        }
+                        
                     }
                     
                     // Extra Space
@@ -231,20 +224,9 @@ struct SettingsView: View {
                 }
                 .navigationTitle(LocalizedStringKey("Settings"))
                 //.bgClear()
-
-
             }
-            
-            
         }
-        .tint(.pink)
-        
-
-
-
     }
-    
-
 }
 
 

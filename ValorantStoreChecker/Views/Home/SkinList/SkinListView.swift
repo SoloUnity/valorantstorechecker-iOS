@@ -11,7 +11,7 @@ struct SkinListView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @EnvironmentObject var skinModel : SkinModel
-    
+    @AppStorage("selectedTab") var selectedTab: Tab = .skinList
     @State var searchText : String = ""
     @State var savedText : String = ""
     @State var selectedFilter : String  = ""
@@ -142,6 +142,14 @@ struct SkinListView: View {
                 .overlay {
                     NavigationSearchBar(title: "SkinIndex", hasScrolled: $hasScrolled, searchText: $searchText, savedText: $savedText, selectedFilter: $selectedFilter, filtered: $filtered, selectOwned: $selectOwned, proxy: proxy)
                 }
+                .onChange(of: selectedTab, perform: { tab in
+                    if tab == .skinList {
+                        
+                        self.hasScrolled = false
+                        proxy.scrollTo("top", anchor: .top)
+                        
+                    }
+                })
                 
                 
                 // MARK: Scroll to top button

@@ -16,6 +16,7 @@ struct SplashScreenView: View {
     var body: some View {
         
         if isActive {
+            
             LaunchView()
                 .environmentObject(SkinModel())
                 .environmentObject(AuthAPIModel())
@@ -23,7 +24,7 @@ struct SplashScreenView: View {
                 .environmentObject(TipModel())
                 .environmentObject(UpdateModel())
                 .environmentObject(NetworkModel())
-                .environmentObject(Model()) // no clue
+            
         } else{
             
             GeometryReader { geo in

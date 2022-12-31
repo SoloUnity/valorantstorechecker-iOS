@@ -13,6 +13,7 @@ struct NavigationBar: View {
     @AppStorage("nightMarket") var nightMarket : Bool = false
     var title: String = ""
     @Binding var hasScrolled: Bool
+    var hideNightButton : Bool = false
     
     var body: some View {
         ZStack {
@@ -36,32 +37,35 @@ struct NavigationBar: View {
                 
                 Spacer()
                 
-                if selectedTab == .nightMarket {
-                    
-                    Image(systemName: "moon.stars.fill" )
-                        .padding(.vertical, hasScrolled ? 2 : 12)
-                        .padding(.horizontal, 8)
-                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20 , style: .continuous))
-                        .foregroundColor(.pink)
-                        .animation(.spring(response: 0.55, dampingFraction: 0.9), value: hasScrolled)
-                        .onTapGesture{
-                            selectedTab = .nightMarket
-                            haptic()
-                        }
-                    
+                if !hideNightButton {
+                    if selectedTab == .nightMarket {
+                        
+                        Image(systemName: "moon.stars.fill" )
+                            .padding(.vertical, hasScrolled ? 2 : 12)
+                            .padding(.horizontal, 8)
+                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20 , style: .continuous))
+                            .foregroundColor(.pink)
+                            .animation(.spring(response: 0.55, dampingFraction: 0.9), value: hasScrolled)
+                            .onTapGesture{
+                                selectedTab = .nightMarket
+                                haptic()
+                            }
+                        
+                    }
+                    else {
+                        Image(systemName: "moon.stars" )
+                            .padding(.vertical, hasScrolled ? 2 : 12)
+                            .padding(.horizontal, 8)
+                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20 , style: .continuous))
+                            .foregroundColor(.pink)
+                            .animation(.spring(response: 0.55, dampingFraction: 0.9), value: hasScrolled)
+                            .onTapGesture{
+                                selectedTab = .nightMarket
+                                haptic()
+                            }
+                    }
                 }
-                else {
-                    Image(systemName: "moon.stars" )
-                        .padding(.vertical, hasScrolled ? 2 : 12)
-                        .padding(.horizontal, 8)
-                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20 , style: .continuous))
-                        .foregroundColor(.gray)
-                        .animation(.spring(response: 0.55, dampingFraction: 0.9), value: hasScrolled)
-                        .onTapGesture{
-                            selectedTab = .nightMarket
-                            haptic()
-                        }
-                }
+                
                  
                 
                 

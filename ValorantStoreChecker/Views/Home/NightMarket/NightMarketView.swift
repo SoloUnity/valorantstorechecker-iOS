@@ -10,6 +10,7 @@ import SwiftUI
 struct NightMarketView: View {
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @EnvironmentObject var skinModel : SkinModel
+    @AppStorage("selectedTab") var selectedTab: Tab = .nightMarket
     @State private var hasScrolled = false
     let defaults = UserDefaults.standard
     
@@ -36,6 +37,7 @@ struct NightMarketView: View {
                                 TierBar(contentTierUuid: authAPIModel.nightSkins[index].contentTierUuid ?? "")
                                 
                                 VStack {
+                                    
                                     
                                     
                                     if index < authAPIModel.percentOff.count && index < authAPIModel.nightSkins.count && authAPIModel.percentOff.count == authAPIModel.nightSkins.count {
@@ -88,6 +90,14 @@ struct NightMarketView: View {
                         await authAPIModel.reload(skinModel: skinModel, reloadType: "nightMarketReload")
                     }
                 }
+                .onChange(of: selectedTab, perform: { tab in
+                    if tab == .nightMarket {
+                        
+                        self.hasScrolled = false
+                        proxy.scrollTo("top", anchor: .top)
+                        
+                    }
+                })
                 
                 if hasScrolled {
 

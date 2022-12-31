@@ -13,6 +13,8 @@ struct VideoView: View {
     
     @EnvironmentObject var skinModel:SkinModel
     @ObservedObject var skin:Skin
+    @AppStorage("autoPlay") var autoPlay = true
+
     @State var noVideo = false
     @Binding var selectedLevel : Int
     private let player = AVPlayer()
@@ -37,13 +39,14 @@ struct VideoView: View {
                         self.noVideo = true
                     }
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                        player.play() // Autoplay
-                    })
-                    
-                    
+                    if autoPlay {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                            player.play() // Autoplay
+                        })
+                    }
                 }
                 .onChange(of: selectedLevel) { level in
+                    
                     let url  = skin.levels![selectedLevel].streamedVideo
                     if url == nil {
                         self.noVideo = true
@@ -55,10 +58,12 @@ struct VideoView: View {
                         player.replaceCurrentItem(with: item)
                     }
                     
+                    if autoPlay {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                            player.play() // Autoplay
+                        })
+                    }
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                        player.play() // Autoplay
-                    })
                 }
             
             

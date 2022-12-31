@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct RectangleView: View {
-    
-    var colour:Color
+     
     
     var body: some View {
         Rectangle()
-            .foregroundColor(colour)
-            .cornerRadius(10)
-            .shadow(radius: 5)
+            .background(.ultraThinMaterial)
+            .cornerRadius(20)
         
     }
 }

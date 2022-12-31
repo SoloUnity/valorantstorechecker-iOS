@@ -12,7 +12,7 @@ import SwiftUI
 struct SettingItemView: View {
     
     @Environment(\.colorScheme) var colourScheme
-    @AppStorage("dark") var toggleDark = false
+    @AppStorage("dark") var toggleDark = true
     @AppStorage("autoDark") var auto = false
     
     var itemType : String
@@ -105,7 +105,6 @@ struct SettingItemView: View {
                     .padding(.trailing)
                     
                     Toggle(LocalizedStringKey(name), isOn: $toggleBool)
-                        .tint(.pink)
                         .onAppear {
                             
                             if defaults.bool(forKey: defaultName) {

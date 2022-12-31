@@ -10,10 +10,15 @@ import SwiftUI
 struct AssetManagementView: View {
     
     @AppStorage("networkType") var networkType = "both"
+    @AppStorage("autoPlay") var autoPlay = true
     
     var body: some View {
         Form {
             Section() {
+                
+                //LOCALIZETEXT
+                SettingItemView(itemType: "toggle", name: "Autoplay Videos", iconBG: .orange, iconColour: .white, image: "arrowtriangle.forward.circle.fill", toggleBool: $autoPlay)
+                
                 HStack{
                     
                     ZStack {

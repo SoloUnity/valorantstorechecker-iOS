@@ -123,6 +123,7 @@ struct RegionView: View {
 
 // Helper Function
 func getRegionIndex() -> Int {
+    
     let region = getRegionKey()
     
     if region == "Americas" {

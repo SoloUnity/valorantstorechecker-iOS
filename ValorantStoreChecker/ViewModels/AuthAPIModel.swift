@@ -168,6 +168,9 @@ class AuthAPIModel: ObservableObject {
                         self.authentication = true
                     }
                 }
+                
+                self.username = ""
+                self.password = ""
             }
             print("Finished login")
             
@@ -183,8 +186,14 @@ class AuthAPIModel: ObservableObject {
                 
             }
             else {
+                
                 self.isAuthenticating = false
-                self.failedLogin = true
+                
+                withAnimation(.easeIn(duration: 0.2)) {
+                    self.failedLogin = true
+                }
+                
+                
                 self.defaults.removeObject(forKey: "authentication")
                 let _ = keychain.remove(forKey: "username")
             }
@@ -200,6 +209,7 @@ class AuthAPIModel: ObservableObject {
     // MARK: getPlayerData
     @MainActor
     func getPlayerData(helperType: String, token: String, skinModel : SkinModel) async {
+        
         do {
             self.password = "" // Clear password
             
@@ -258,7 +268,6 @@ class AuthAPIModel: ObservableObject {
                     self.nightSkins = tempMarket
                 }
                 
-                
                 // Save the storefront
                 let storefrontEncoder = JSONEncoder()
                 
@@ -291,8 +300,11 @@ class AuthAPIModel: ObservableObject {
                 // Placeholder
             }
             else if helperType == "login" {
+                
                 await reloadLoginHelper(token: token, skinModel: skinModel, riotEntitlement: riotEntitlement, puuid: puuid, storefrontResponse: storefrontResponse)
+                
                 await bundleLoginHelper(token: token, skinModel: skinModel, riotEntitlement: riotEntitlement, puuid: puuid, storefrontResponse: storefrontResponse)
+                
             }
             
             // finished loading
@@ -375,8 +387,7 @@ class AuthAPIModel: ObservableObject {
             
             self.failedLogin = false
             
-            self.username = ""
-            self.password = ""
+
             self.multifactor = ""
             
         }catch {
@@ -406,6 +417,7 @@ class AuthAPIModel: ObservableObject {
             var bundlePrice : [Int] = []
             
             for item in bundleList.bundles {
+                
                 bundleCounter += 1
                 let currentBundle = String(bundleCounter)
                 
@@ -418,10 +430,10 @@ class AuthAPIModel: ObservableObject {
                 tempImages.append(bundleDisplayIcon)
                 
                 defaults.set(bundleDisplayName, forKey: "bundleDisplayName" + currentBundle)
+                
                 // Set time left for bundle
                 let bundleReferenceDate = Date() + Double(item.durationRemainingInSeconds)
                 defaults.set(bundleReferenceDate, forKey: "bundleTimeLeft" + currentBundle)
-                
                 
                 // Save the bundle skins
                 let items = item.items
@@ -453,9 +465,13 @@ class AuthAPIModel: ObservableObject {
             }
             
             DispatchQueue.main.async {
-                self.bundle = bundleItems
-                self.bundleImage = tempImages
-                self.bundlePrice = bundlePrice
+                
+                withAnimation(.easeIn(duration: 0.2)) {
+                    self.bundle = bundleItems
+                    self.bundleImage = tempImages
+                    self.bundlePrice = bundlePrice
+                }
+                
             }
 
 
@@ -483,39 +499,37 @@ class AuthAPIModel: ObservableObject {
     // MARK: Multifactor
     @MainActor
     func multifactor(skinModel: SkinModel) async {
-        if enteredMultifactor{
-            do{
-                let token = try await WebService.multifactor(code: self.multifactor)
-                
-                await getPlayerData(helperType: "login", token: token, skinModel: skinModel)
-                self.showMultifactor = false
-                self.enteredMultifactor = false
-                
-                DispatchQueue.main.async {
-                    // Save authentication state for next launch
-                    withAnimation(.easeIn(duration: 0.2)) {
-                        self.authentication = true
-                    }
+        do{
+            let token = try await WebService.multifactor(code: self.multifactor)
+            
+            await getPlayerData(helperType: "login", token: token, skinModel: skinModel)
+            self.showMultifactor = false
+            
+            
+            DispatchQueue.main.async {
+                // Save authentication state for next launch
+                withAnimation(.easeIn(duration: 0.2)) {
+                    self.authentication = true
                 }
-                
-                
             }
-            catch{
-                
-                /*
-                self.errorMessage = "Multifactor error, please enter the correct code."
-                self.isError = true
-                */
-                
-                // Reset user defaults
-                self.enteredMultifactor = false
-                self.multifactor = ""
-                self.password = ""
-                
-                
-                print("Multifactor")
-                
-            }
+            
+            self.username = ""
+            self.password = ""
+            
+        }
+        catch{
+            
+            /*
+            self.errorMessage = "Multifactor error, please enter the correct code."
+            self.isError = true
+            */
+            
+            // Reset user defaults
+            self.enteredMultifactor = false
+            self.multifactor = ""
+            self.password = ""
+            
+            print("Multifactor")
             
         }
     }
@@ -638,11 +652,6 @@ class AuthAPIModel: ObservableObject {
                 self.defaults.removeObject(forKey: "authentication")
             }
         }
-        
-        
-
     }
-    
-    
 }
 

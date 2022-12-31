@@ -31,7 +31,6 @@ struct PriceView: View {
                             alertModel.alertPriceInfo = true
                         } label: {
                             Image(systemName: "info.circle")
-                                .accentColor(.white)
                         }
                     }
                     

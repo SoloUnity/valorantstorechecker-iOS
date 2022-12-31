@@ -25,7 +25,6 @@ struct RememberPasswordView: View {
                 Spacer()
                 
                 Toggle("", isOn: $togglePassword)
-                    .tint(.pink)
                     .onChange(of: togglePassword) { boolean in
                         
                         if boolean {

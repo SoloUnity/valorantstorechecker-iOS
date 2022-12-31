@@ -9,12 +9,17 @@ import SwiftUI
 
 struct AppearanceView: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @AppStorage("systemTheme") var systemTheme : Int = 0
+    @AppStorage("activeIcon") var activeIcon : String = "AppIcon 4"
+    @AppStorage("dark") var toggleDark = true
+    @AppStorage("autoDark") var auto = false
     @State var showUpdate = true
     @State var colourScheme = 0
     @State var dummy = false
     
     let defaults = UserDefaults.standard
+    let customIcons : [String] = ["AppIcon 4", "AppIcon 1", "AppIcon 2", "AppIcon 3"]
     
     var body: some View {
         Form {
@@ -86,6 +91,59 @@ struct AppearanceView: View {
                 }
             }
             
+            //LOCALIZETEXT
+            Section(header: Text("App Icon")) {
+                
+                ForEach(customIcons, id: \.self) { icon in
+                    
+                    Button {
+                        
+                        // Set the alternate app icon
+                        UIApplication.shared.setAlternateIconName(icon)
+                        activeIcon = icon
+                        
+                    } label: {
+                        HStack {
+                            
+                            Image(String(icon + " Preview"))
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: 75, maxHeight: 75)
+                                .shadow(color: .gray, radius: 1)
+                                .padding(.trailing)
+                            
+                            // LOCALIZETEXT
+                            HStack {
+                                if icon == "AppIcon 4" {
+                                    Text("Default Dark")
+                                }
+                                else if icon == "AppIcon 1" {
+                                    Text("3D Dark")
+                                }
+                                else if icon == "AppIcon 2" {
+                                    Text("Default Light")
+                                }
+                                else if icon == "AppIcon 3" {
+                                    Text("3D Light")
+                                }
+                            }
+                            .foregroundColor(auto ? (colorScheme == .light ? .black : .white) : (toggleDark ? .white : .black))
+                            
+                            
+                            Spacer()
+                            
+                            if activeIcon == icon {
+                                Image(systemName: "checkmark")
+                            }
+                                                    
+                        }
+                    }
+
+                    
+                }
+                
+            }
+            
             Section(header: Text("")) {
                 EmptyView()
                 
@@ -95,10 +153,10 @@ struct AppearanceView: View {
         }
         .navigationTitle("Appearance")
         .onAppear {
-            if defaults.bool(forKey: "autoDark") {
+            if auto {
                 self.colourScheme = 0
             }
-            else if !defaults.bool(forKey: "dark") {
+            else if !toggleDark {
                 self.colourScheme = 1
             }
             else {

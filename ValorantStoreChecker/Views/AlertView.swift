@@ -37,68 +37,13 @@ struct AlertView: View {
                 .background(.ultraThinMaterial)
                 .cornerRadius(20)
                 .onAppear{
-                    Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+                    Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
                         withAnimation(.easeOut) {
                             alertModel.alertNoNetwork = false
                         }
                         timer.invalidate()
                     }
                 }
-            }
-            
-            if updateModel.update {
-                
-                VStack() {
-                    
-                    VStack {
-                        
-                        Image(systemName: "chevron.up.circle")
-                            .resizable()
-                            .scaledToFit()
-                            
-                        //LOCALIZETEXT
-                        Text("New Update Available")
-                            .multilineTextAlignment(.center)
-                        
-                    }
-                    .padding(.horizontal, 50)
-                    .padding(.top)
-                    
-                    Divider()
-                    
-                    Text(LocalizedStringKey("Update"))
-                        .foregroundColor(.pink)
-                        .onTapGesture {
-                            
-                            self.update = true
-                        }
-                        
-                    
-                    Divider()
-                    
-                    Button {
-                        withAnimation(.easeOut) {
-                            updateModel.update = false
-                        }
-                    } label: {
-                        Text("OK")
-                            .padding(.bottom, 10)
-                    }
-
-                }
-                .frame(width: 200)
-                .background(.ultraThinMaterial)
-                .cornerRadius(20)
-                .onAppear {
-                    
-                    Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
-                        withAnimation(.easeOut) {
-                            updateModel.update = false
-                        }
-                        timer.invalidate()
-                    }
-                }
-                
             }
             
             Color.clear
@@ -192,9 +137,9 @@ struct AlertView: View {
                 // MARK: Information Alerts
                 .alert(LocalizedStringKey("InformationTitle"), isPresented: $alertModel.alertLoginInfo, actions: {
                     
-                    Button(LocalizedStringKey("OpenLink"), role: nil, action: {
+                    Button(LocalizedStringKey("FAQ"), role: nil, action: {
                         
-                        if let url = URL(string: Constants.URL.sourceCode) {
+                        if let url = URL(string: Constants.URL.faq) {
                             UIApplication.shared.open(url)
                         }
                         

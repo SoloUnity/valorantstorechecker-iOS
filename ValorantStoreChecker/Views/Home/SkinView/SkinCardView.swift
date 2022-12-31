@@ -12,7 +12,7 @@ struct SkinCardView: View {
     @EnvironmentObject private var skinModel : SkinModel
     @EnvironmentObject private var authAPIModel : AuthAPIModel
     @Environment(\.colorScheme) var colourScheme
-    @AppStorage("dark") var toggleDark = false
+    @AppStorage("dark") var toggleDark = true
     @AppStorage("autoDark") var auto = false
     @ObservedObject var skin:Skin
     @State var isDetailViewShowing = false

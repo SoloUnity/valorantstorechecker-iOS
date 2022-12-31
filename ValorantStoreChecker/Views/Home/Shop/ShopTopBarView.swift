@@ -14,10 +14,10 @@ struct ShopTopBarView: View {
     @EnvironmentObject var updateModel : UpdateModel
     @EnvironmentObject var networkModel : NetworkModel
     @EnvironmentObject var alertModel : AlertModel
-    @AppStorage("showUpdate") var showUpdate : Bool = false
     @AppStorage("autoReload") var autoReload: Bool = false
     @AppStorage("clickedReview") var clickedReview : Bool = false
     @State private var nowDate: Date = Date()
+    @State private var update : Bool = false
     
     let reloadType : String
     let defaults = UserDefaults.standard
@@ -31,33 +31,22 @@ struct ShopTopBarView: View {
     
     var body: some View {
         
-        ZStack {
+        HStack {
             
-            HStack {
-                
-                // MARK: Countdown timer
-                Image(systemName: "clock")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 15, height: 15)
-                
-                let countdown = countDownString(from: referenceDate, nowDate: nowDate)
-                
+            // MARK: Countdown timer
+            Image(systemName: "clock")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 15, height: 15)
+            
+            let countdown = countDownString(from: referenceDate, nowDate: nowDate)
+            
+            Group {
                 if countdown == "Reload" && autoReload {
                     
                     // Automatic reloading
                     Text(LocalizedStringKey("Reloading"))
                         .bold()
-                        .onAppear {
-                            Task {
-                                
-                                withAnimation(.easeIn) {
-                                    authAPIModel.reloading = true
-                                }
-                                
-                                await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
-                            }
-                        }
                         .font(.caption)
                     
                 }
@@ -77,63 +66,93 @@ struct ShopTopBarView: View {
                         .font(.caption)
                     
                 }
+            }
+            .onAppear {
                 
-                Spacer()
-                
-                if reloadType != "nightMarketReload" {
-                    
-                    // MARK: Store refresh button
-                    Button {
-                                                
-                        if networkModel.isConnected {
-                            
-                            withAnimation(.easeIn) {
-                                authAPIModel.reloading = true
-                            }
-                            
-                            Task{
-                                await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
-                            }
-                            
-                            if !clickedReview {
-                                reloadCounter(alertModel: alertModel)
-                            }
-                            
-                        }
-                        else {
-                            
-                            withAnimation(.easeIn) {
-                                alertModel.alertNoNetwork = true
-                            }
-                            
-                            
+                if countdown == "Reload" && autoReload {
+                    Task {
+                        
+                        withAnimation(.easeIn) {
+                            authAPIModel.reloading = true
                         }
                         
-                    } label: {
-
-                        if authAPIModel.reloading {
-                            ProgressView()
-                                .frame(width: 15, height: 15)
-
-                        }
-                        else {
-                            Image(systemName: "arrow.clockwise")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 15, height: 15)
-                        }
+                        await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
                     }
                 }
             }
-            .padding(.horizontal)
-            .padding(.top)
-            .padding(.bottom, 5)
+            
+            
+            Spacer()
+            
+            if updateModel.update {
+                
+                Text(LocalizedStringKey("UpdateAvailable"))
+                    .font(.caption)
+                    .onTapGesture {
+                        self.update = true
+                    }
+                    .sheet(isPresented: $update, content: {
+                        UpdatesView()
+                    })
+            }
+            
+            
+            if reloadType != "nightMarketReload" {
+                
+                // MARK: Store refresh button
+                Button {
+                                            
+                    if networkModel.isConnected {
+                        
+                        withAnimation(.easeIn) {
+                            authAPIModel.reloading = true
+                        }
+                        
+                        Task{
+                            await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
+                        }
+                        
+                        if !clickedReview {
+                            reloadCounter(alertModel: alertModel)
+                        }
+                        
+                    }
+                    else {
+                        
+                        withAnimation(.easeIn) {
+                            alertModel.alertNoNetwork = true
+                        }
+                        
+                    }
+                    
+                } label: {
+
+                    if authAPIModel.reloading {
+                        ProgressView()
+                            .frame(width: 15, height: 15)
+                            .tint(.gray)
+
+                    }
+                    else {
+                        Image(systemName: "arrow.clockwise")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 15, height: 15)
+                    }
+                }
+            }
+            
+            
         }
+        .padding(.horizontal)
+        .padding(.top)
+        .padding(.bottom, 5)
     }
 }
 
 // MARK: Helper function
 func countDownString(from date: Date, nowDate: Date) -> String {
+    
     let calendar = Calendar(identifier: .gregorian)
     
     let components = calendar
@@ -149,6 +168,7 @@ func countDownString(from date: Date, nowDate: Date) -> String {
                       components.second ?? 00)
     }
     else if components.hour! > 0 || components.minute! > 0 || components.second! > 0 {
+        
         return String(format: "%02d:%02d:%02d",
                       components.hour ?? 00,
                       components.minute ?? 00,

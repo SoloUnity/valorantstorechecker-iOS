@@ -181,9 +181,14 @@ class SkinModel: ObservableObject{
                 self.progressDenominator = totalImages
             }
             
-            if UserDefaults.standard.bool(forKey: "authorizeDownload") {
+            if self.defaults.bool(forKey: "authorizeDownload") {
                 
-                let session = URLSession.shared
+                let session: URLSession = {
+                    let configuration = URLSessionConfiguration.ephemeral
+                    configuration.timeoutIntervalForRequest = 240 // seconds
+                    configuration.timeoutIntervalForResource = 240 // seconds
+                    return URLSession(configuration: configuration)
+                }()
                 
                 for skin in skinDataResponse.data {
                     
@@ -212,6 +217,36 @@ class SkinModel: ObservableObject{
         
         
         
+    }
+    
+    func deleteData() async {
+        if let skinData = defaults.data(forKey: "skinDataResponse") {
+            
+            let skinDataResponse = try! JSONDecoder().decode(Skins.self, from: skinData)
+            
+            for skin in skinDataResponse.data {
+                
+                if let _ = self.defaults.data(forKey: skin.levels!.first!.id.description) {
+                    self.defaults.removeObject(forKey: skin.levels!.first!.id.description)
+                }
+                
+                
+                
+                for chroma in skin.chromas! {
+                    
+                    if let _ = self.defaults.data(forKey: chroma.id.description) {
+                        self.defaults.removeObject(forKey: chroma.id.description)
+                    }
+
+                    if let _ = self.defaults.data(forKey: chroma.id.description + "swatch") {
+                        self.defaults.removeObject(forKey: chroma.id.description + "swatch")
+                    }
+                }
+            }
+        }
+        
+        
+
     }
     
     // Convert image url to data object
@@ -286,7 +321,6 @@ class SkinModel: ObservableObject{
                         UserDefaults.standard.set(encoded, forKey: key)
                         
                         self.progressNumerator += 1
-                        print(self.progressNumerator)
                     }
                     else {
                         return

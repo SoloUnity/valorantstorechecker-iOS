@@ -12,6 +12,7 @@ struct ShopView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @EnvironmentObject var skinModel : SkinModel
+    @AppStorage("selectedTab") var selectedTab: Tab = .shop
     @State var hasScrolled = false
     
     
@@ -98,6 +99,13 @@ struct ShopView: View {
                     await authAPIModel.reload(skinModel: skinModel, reloadType: "storeReload")
                 }
             }
+            .onChange(of: selectedTab, perform: { tab in
+                if tab == .shop {
+                    
+                    self.hasScrolled = false
+                    proxy.scrollTo("top", anchor: .top)
+                }
+            })
         }
         
         

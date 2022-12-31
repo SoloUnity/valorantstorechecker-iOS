@@ -21,8 +21,6 @@ struct LaunchView: View {
         
         ZStack {
             
-            
-            
             // Displays login if the user is not authenticated
             if !isAuthenticated {
                 
@@ -43,15 +41,9 @@ struct LaunchView: View {
         }
         .sheet(isPresented: $authAPIModel.showMultifactor) {
             MultifactorView()
-                //.preferredColorScheme(.dark)
+                .preferredColorScheme(.dark)
                 .background(Constants.bgGrey)
         }
-        
-        
-        
-        
-        
-        
     }
 }
 

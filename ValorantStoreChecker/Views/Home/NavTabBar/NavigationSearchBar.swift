@@ -75,7 +75,6 @@ struct NavigationSearchBar: View {
 
                     } label: {
                         Text("Cancel")
-                            .tint(.pink)
                     }
                 }
 

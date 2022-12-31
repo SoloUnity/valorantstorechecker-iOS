@@ -11,6 +11,7 @@ struct BundleView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @EnvironmentObject var skinModel : SkinModel
+    @AppStorage("selectedTab") var selectedTab: Tab = .bundle
     @State var hasScrolled = false
     @State var index = 1
     
@@ -18,142 +19,148 @@ struct BundleView: View {
     
     var body: some View {
         
-        ScrollView(showsIndicators: false) {
+        ScrollViewReader { (proxy: ScrollViewProxy) in
             
-            scrollDetection
-            
-            // Number of available bundles
-            let bundleCount = authAPIModel.bundleCount
-            
-            if authAPIModel.bundle.isEmpty{
+            ScrollView(showsIndicators: false) {
                 
-                // MARK: No bundle error
+                scrollDetection
+                    .id("top")
                 
-                VStack {
+                // Number of available bundles
+                let bundleCount = authAPIModel.bundleCount
+                
+                if authAPIModel.bundle.isEmpty{
                     
-                    ShopTopBarView(reloadType: "bundleReload", referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
+                    // MARK: No bundle error
                     
                     VStack {
-                        Image(systemName: "photo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(minWidth: 0, maxWidth: 100)
-                            .foregroundColor(.white)
                         
-                        Text( LocalizedStringKey("EmptyBundle"))
+                        ShopTopBarView(reloadType: "bundleReload", referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
+                        
+                        VStack {
+                            Image(systemName: "photo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(minWidth: 0, maxWidth: 100)
+                                .foregroundColor(.white)
+                            
+                            Text( LocalizedStringKey("EmptyBundle"))
+                        }
+                        .padding(.top, (UIScreen.main.bounds.height / 4))
+                        .opacity(0.5)
+                        
                     }
-                    .padding(.top, (UIScreen.main.bounds.height / 4))
-                    .opacity(0.5)
-                    
                 }
-                
-
-            }
-            else{
-                
-                // MARK: Content
-                
-                LazyVStack() {
+                else{
                     
-                    ShopTopBarView(reloadType: "bundleReload", referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
+                    // MARK: Content
                     
-                    Divider()
-                        .padding(.leading)
-                    
-                    VStack {
-                        BundleImageView(bundleIndex: index)
+                    LazyVStack() {
                         
-                        
-                        // MARK: Image information
-                        HStack {
-                            
-                            Text(defaults.string(forKey: "bundleDisplayName" + String(index)) ?? "")
-                                .font(.subheadline)
-                                .bold()
-                                .lineLimit(1)
-                            
-                            Spacer()
-                            
-                            // MARK: Price
-                            if authAPIModel.bundlePrice != [] {
-                                if let price = authAPIModel.bundlePrice[index - 1] {
-                                    
-                                    Image("vp")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 18, height: 18)
-                                    
-                                    Text(String(price))
-                                        .font(.subheadline)
-                                        .bold()
-                                }
-                            }
-                            
-                            
-                        }
-                    }
-                    .padding(.horizontal)
-                    
-                    
-                    
-                    // Displays multiple bundles
-                    if bundleCount != 1 {
-                        Picker("Bundle Name", selection: $index){
-                            ForEach(1...bundleCount, id: \.self){ item in
-                                
-                                Text(defaults.string(forKey: "bundleDisplayName" + String(item)) ?? "")
-                                    .tag(item)
-                                
-                            }
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                        .accentColor(.red)
-                    }
-                    
-                    Divider()
-                        .padding(.leading)
-                    
-                    ForEach(authAPIModel.bundle[index - 1]) { skin in
-                        
-                        HStack {
-                            
-                            TierBar(contentTierUuid: skin.contentTierUuid ?? "")
-                            SkinCardView(skin: skin, showPrice: true, showPriceTier: true, price: skin.discountedCost ?? "")
-                                .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
-                        }
-                        
+                        ShopTopBarView(reloadType: "bundleReload", referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
                         
                         Divider()
                             .padding(.leading)
                         
+                        VStack {
+                            BundleImageView(bundleIndex: index)
+                            
+                            
+                            // MARK: Image information
+                            HStack {
+                                
+                                Text(defaults.string(forKey: "bundleDisplayName" + String(index)) ?? "")
+                                    .font(.subheadline)
+                                    .bold()
+                                    .lineLimit(1)
+                                
+                                Spacer()
+                                
+                                // MARK: Price
+                                if authAPIModel.bundlePrice != [] {
+                                    if let price = authAPIModel.bundlePrice[index - 1] {
+                                        
+                                        Image("vp")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 18, height: 18)
+                                        
+                                        Text(String(price))
+                                            .font(.subheadline)
+                                            .bold()
+                                    }
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
+                        
+                        
+                        
+                        // Displays multiple bundles
+                        if bundleCount != 1 {
+                            Picker("Bundle Name", selection: $index){
+                                ForEach(1...bundleCount, id: \.self){ item in
+                                    
+                                    Text(defaults.string(forKey: "bundleDisplayName" + String(item)) ?? "")
+                                        .tag(item)
+                                    
+                                }
+                            }
+                            .pickerStyle(SegmentedPickerStyle())
+                        }
+                        
+                        Divider()
+                            .padding(.leading)
+                        
+                        ForEach(authAPIModel.bundle[index - 1]) { skin in
+                            
+                            HStack {
+                                
+                                TierBar(contentTierUuid: skin.contentTierUuid ?? "")
+                                SkinCardView(skin: skin, showPrice: true, showPriceTier: true, price: skin.discountedCost ?? "")
+                                    .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
+                            }
+                            
+                            
+                            Divider()
+                                .padding(.leading)
+                            
+                        }
+                        
+                        ShopBottomBarView()
                         
                     }
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
+
+                }
+                
+            }
+            .coordinateSpace(name: "scroll")
+            .safeAreaInset(edge: .top) {
+                Color.clear.frame(height: 70)
+            }
+            .padding(.horizontal)
+            .overlay {
+                NavigationBar(title: "Bundle", hasScrolled: $hasScrolled)
+            }
+            .refreshable {
+                
+                withAnimation(.easeIn) {
+                    authAPIModel.reloading = true
+                }
+                
+                Task{
+                    await authAPIModel.reload(skinModel: skinModel, reloadType: "bundleReload")
+                }
+            }
+            .onChange(of: selectedTab, perform: { tab in
+                if tab == .bundle {
                     
-                    ShopBottomBarView()
+                    self.hasScrolled = false
+                    proxy.scrollTo("top", anchor: .top)
                     
                 }
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
-
-            }
-            
-        }
-        .coordinateSpace(name: "scroll")
-        .safeAreaInset(edge: .top) {
-            Color.clear.frame(height: 70)
-        }
-        .padding(.horizontal)
-        .overlay {
-            NavigationBar(title: "Bundle", hasScrolled: $hasScrolled)
-        }
-        .refreshable {
-            
-            withAnimation(.easeIn) {
-                authAPIModel.reloading = true
-            }
-            
-            Task{
-                await authAPIModel.reload(skinModel: skinModel, reloadType: "bundleReload")
-            }
+            })
         }
     }
     
