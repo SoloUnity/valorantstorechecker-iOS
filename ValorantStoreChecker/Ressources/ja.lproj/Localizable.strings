@@ -1,178 +1,243 @@
 /*
-  ローカライズ可能な文字列
-  バロラントストアーチェッカー
+Localizable.strings
+ValorantStoreChecker
 
-  2022-08-07にGordonによって作成されました。
-  
+Created by Gordon on 2022-08-07.
+Translation help from xMasa
 */
-// エラーとアラート
-"ErrorTitle" = "エラー";
-"ErrorMessage1" = "リロードエラーケース
-1) 無効なネットワーク接続です。
-2) 前回の再読み込みから3日経過している。これを解決するには、2つの選択肢があります。
-2a) 一度サインアウトして、再度サインインしてください。
-2b) 3日間の再読み込みの制限は、バージョン情報 > 設定でパスワードの記憶をオンにすることで回避できます。これはAPIの制限で、私がコントロールすることはできません";
-"ErrorMessage2" = "リロードエラーケース
-1) 無効なネットワーク接続
-2) 設定で設定されたパスワードが間違っている";
-"DownloadAssets" = "アセットをダウンロード（75mb）";
-"CopyError" = "コピーエラー";
-"Unknown" = "不明";
-"ErrorMessage3" = "お客様の購入履歴はApp Storeで確認することができませんでした。";
-"NetworkError" = "インターネット接続を確認してください。";
 
-"Reset" = "リセット";
-"ResetApp" = "アプリをリセットする";
-"ResetInfo" = "まれにバグによりエラーが発生することがあります。このボタンにより、エラーが発生した場合、アプリを完全にリセットすることができます。";
-"HelpTranslate" = "翻訳のお手伝い";
 
-// ログイン画面
+//----------------------------------
+// MARK: Onboarding
+// LoginView
+"SignIn" = "サインイン";
+"PrivacyDisclaimer" = "サインインをクリックすると、利用規約と[プライバシーポリシー](https://www.craft.do/s/fQxdg6aSyp8WAk)]に同意したことになります。";
+
+// LoginViews -> LoginInfoView
 "Login" = "Riotアカウントにログインする";
-"OK" = "大丈夫";
-"OpenLink" = "リンクを開く";
 "InvalidCredentials" = "無効な認証情報";
-"IRead" = "利用規約を読みました";
-"InformationTitle" = "なぜ私のRiotアカウント？";
-"Information" = "あなたの統計の多くはパスワードなしで自由にアクセスできますが、あなたのストアは機密情報とみなされるため例外となります。アプリがあなたのストアにアクセスするためには、オープンソースのAPIを通じてあなたのストアを取得するあなたのログイン情報が必要です。追加情報、ソースコード、およびFAQは、以下のリンクに記載されています。";
 
-// LoginBoxView
+
+// LoginViews -> LoginBoxView
 "Username" = "ユーザー名";
 "Password" = "パスワード";
 
-// RegionSelectorView
+// LoginViews -> RegionSelectorViewa
 "SelectRegion" = "地域を選択";
 "Americas" = "北アメリカ";
 "Europe" = "ヨーロッパ";
 "AsiaPacific" = "アジア太平洋";
 "SouthKorea" = "韓国";
 
-// マルチファクタービュー
-"EnterTheCode" = "送信されたコードを入力してください";
-"InvalidCode" = "無効なコード";
-"TwoFactorAuthentication" = "2ファクタ認証";
-
-// TermsView
+// LoginViews -> TermsView
 "TermsAndConditions" = "利用規約";
 "MITLicense" = "MITライセンス
 Copyright (c) 2022 Gordon Ng
 
 本ソフトウェアおよび関連文書ファイル（以下「本ソフトウェア」）の複製を取得する者に対し、本ソフトウェアの使用、複製、変更、結合、出版、配布、サブライセンス、および/または複製物の販売に関する権利を含むがこれに限定されない、無制限の取引を行い、本ソフトウェアを提供される者にこれを認める許可を、以下の条件で、無償で付与するものである。このような場合、以下の条件に従って、本ソフトウェアを提供する人にその使用を許可するものとします。
 
-本ソフトウェアは、商品性、特定目的への適合性および非侵害の保証を含むがこれに限定されない、明示または黙示のいかなる種類の保証もなく、現状のまま提供されるものである。本ソフトウェアの著作権者または著作権所有者は、本ソフトウェアまたは本ソフトウェアの使用またはその他の取引から生じる、契約、不法行為またはその他の行為のいずれであっても、いかなる請求、損害またはその他の責任に対しても責任を負いません。
-";
-"Privacy" = "プライバシーポリシー";
-
-// ホームビュー
-"Store" = "ストア";
-"SkinIndex" = "スキンインデックス";
-"About" = "バージョン情報";
-
-// ショップトブバービュー
-"AutomaticReload" = "自動リロード";
-"AutomaticReloadInfo" = "利用可能なときに自動的にショップをリロードする";
-"Reloading" = "リローディング";
-"Reload" = "リロード";
-
-// SkinCardDetailView（スキンカードディテールビュー
-"InfoPrice" = "このスキンの価格は、残念ながら私たちのデータベースにはありません。";
-"Cost" = "コスト";
-"ExclusiveSkinMessage" = "これはBattlepass限定、キャラクター限定、限定版のいずれかのスキンです。";
-"Tier" = "ティア";
-"Default" = "デフォルト";
-"Default1" = "1. デフォルト";
-"Variant" = "バリアント";
-
-// 検索バー
-"Search" = "検索";
-"Cancel" = "キャンセル";
-
-// AboutView
-// HomeViewの中のAbout
-"MadeWith" = "SwiftUIで作られた";
-"MadeIn" = "🇨🇦製";
-
-// アカウントビュー
-"Account" = "アカウント";
-"SignOut" = "サインアウト";
-"Username" = "ユーザ名";
-"Region" = "地域";
-// RegionSelectorViewの中の地域名
-
-// SupportView
-"Support" = "サポート";
-"Create" = "サポートチケットの作成";
-"FAQ" = "よくある質問";
-"SourceCode" = "ソースコード";
-
-// コミュニティビュー
-"Community" = "コミュニティ";
-"Website" = "ウェブサイト";
-"DiscordServer" = "Discordサーバー";
-
-// WhatsNewView
-"WhatsNew" = "新着情報";
-
-// HelpView（ヘルプビュー
-"Help" = "デベロッパーを助けよう";
-"HelpMessage" = "こんにちは！私は人生を少しでも良くしようと思っている寝不足の大学生です😄。以下の方法で私を助けることを検討してください！";
-"Share" = "アプリを共有する";
-"Review" = "レビューを残す";
-"Star" = "プロジェクトに星をつける";
-"Sponsor" = "付け届け";
-
-// 謝辞の表示
-"Acknowledgements" = "謝辞";
-"ThankJulian" = "たくさんの質問に答えてくれてありがとうございます！"; // juliand665
-"ThankLunac" = "いつも応援ありがとうございます！"; // Lunac
-
-// 著作権表示
+本ソフトウェアは、商品性、特定目的への適合性および非侵害の保証を含むがこれに限定されない、明示または黙示のいかなる種類の保証もなく、現状のまま提供されるものである。本ソフトウェアの著作権者または著作権所有者は、本ソフトウェアまたは本ソフトウェアの使用またはその他の取引から生じる、契約、不法行為またはその他の行為のいずれであっても、いかなる請求、損害またはその他の責任に対しても責任を負いません。";
 "Copyright" = "著作権";
 "CopyrightNotice" = "VSC (Store Checker for Valorant) は、Valorant社やRiot Games社とは関連もつながりもなく、推奨するものでもありません。また、Riot GamesおよびValorantはRiot Games Inc.の下で登録された商標です";
 
-// SettingsView
-"Settings" = "設定";
-"RememberPassword" = "パスワードの記憶";
-"RememberPasswordInfo" = "パスワードはKeychainによって保護されています。サインアウトまたはトグルを無効にすると、パスワードは自動的に忘れられます。この機能を有効にすると、APIの時間制限を回避し、ユーザーの代わりに自動サインインが可能になります。";
-"Notify" = "ストアリセット通知";
-"NotifyDescription" = "店舗がリセットされたときに通知を受け取る。";
-"ChangeLanguage" = "言語を変更する";
-"Language" = "言語";
-"LanguageDescription" = "アプリの詳細設定を開きます。";
+//----------------------------------
+// MultifactorView
+"EnterTheCode" = "送信されたコードを入力してください";
+"InvalidCode" = "無効なコード";
+"TwoFactorAuthentication" = "2段階認証";
 
-// Skin Index Filter
-"All" = "何れも";
-"Owned" = "かいこみずみ";
-"Knife" = "ナイフ";
-"Sidearm" = "ピストル";
-"SMGs" = "サブマシンガン";
-"Shotguns" = "散弾銃";
-"Rifles" = "ライフル";
-"Sniper" = "狙撃銃";
-"Heavy" = "重機関銃";
+// DownloadView
+"DownloadAssets" = "アセットをダウンロード";
+"Stuck" = "動かない？ここをクリックして再試行してください。";
+
+//----------------------------------
+// MARK: Home
+// NightMarketView
+"NightMarket" = "ナイトマーケット";
+
+//----------------------------------
+// NavTabBar -> TabBar
+"Store" = "ストア";
+"Bundle" = "バンドル";
+"SkinIndex" = "スキンインデックス";
+"Settings" = "設定";
+
+// NavTabBar -> NavigationSearchBar
+"Cancel" = "キャンセル";
+
+//----------------------------------
+// SkinCardDetailView -> PriceView
+"Cost" = "コスト";
+"ExclusiveSkinMessage" = "これはバトルパス限定、エージェント契約限定、または期間限定版のいずれかのスキンです。";
+
+// SkincardDetailView -> VideoPickerView
+"Tier" = "ティア";
+"Default" = "デフォルト";
+"Default1" = "1. デフォルト";
+"Unknown" = "不明";
+
+//----------------------------------
+// ShopTopBarView
+
+"Reloading" = "リロード中";
+"Reload" = "リロード";
+"UpdateAvailable" = "アップデートあり";
+
+//----------------------------------
+// BundleView
+"EmptyBundle" = "バンドル表示を更新する";
+
+//----------------------------------
+// SkinListView
 "EmptySearch" = "検索条件に一致するものがない";
 "NoOwned" = "ストアを再読み込みするか、スキンを購入してください :)";
 
-// Bundle
-"Bundle" = "バンドル";
-"EmptyBundle" = "バンドル表示を更新する";
+// SearchBar
+"Search" = "検索";
 
-//Update Messages
+// FilterView
+"All" = "すべて";
+"Owned" = "所有済み";
+"Knife" = "ナイフ";
+"Sidearm" = "ハンドガン";
+"SMGs" = "サブマシンガン";
+"Shotguns" = "ショットガン";
+"Rifles" = "ライフル";
+"Sniper" = "スナイパー";
+"Heavy" = "マシンガン";
+
+
+//----------------------------------
+// SettingsView
+"HelpDev" = "デベロッパーを助けよう";
+"AutomaticReload" = "自動リロード";
+"Notify" = "ストアリセット通知";
+"Allow" = "許可する";
+"Appearance" = "風貌";
+"Language" = "言語";
+"ManageMedia" = "メディアを管理する";
+"Support" = "サポート";
+"Community" = "コミュニティ";
+"Share" = "アプリを共有する";
+"Acknowledgements" = "謝辞";
+"About" = "バージョン情報";
+
+//----------------------------------
+// AccountViews -> AccountView
+"RememberPasswordInfo" = "パスワードはKeychainによって保護されています。サインアウト、またはトグルスイッチを無効にすると、パスワードは自動的に忘れられます。この機能を有効にすると、APIの時間制限を回避し、ユーザーの代わりに自動サインインが可能になります。";
+"SignOut" = "サインアウト";
+"Account" = "アカウント";
+
+// AccountViews -> RememberPasswordView
+"RememberPassword" = "パスワードの記憶";
+
+// AccountViews -> RegionView
+"Region" = "地域";
+
+// AccountViews -> AccountSwitcherView
+"SwitchAccounts" = "アカウント切り替え";
+
+//----------------------------------
+// HelpViews -> HelpView
+
+"HelpMessage" = "こんにちは！私は人生を少しでも良くしようと思っている寝不足の大学生です😄。以下の方法で私を助けることを検討してください！";
+"Review" = "レビューを残す";
+"Star" = "プロジェクトに星をつける";
+"HelpTranslate" = "翻訳のお手伝い";
+
+// HelpViews -> TipView
+"ShowAppreciation" = "感謝の気持ちを伝える";
+"Sponsor" = "寄付";
+
+//----------------------------------
+// AppearanceView
+"CheckUpdates" = "アップデートを確認する";
+"ColourScheme" = "カラースキーム";
+"Auto" = "オート";
+"Light" = "光";
+"Dark" = "ダーク";
+"Background" = "背景";
+"AppIcon" = "アプリアイコン";
+"DefaultDark" = "Default Dark";
+"3DDark" = "3D Dark";
+"Default Light" = "Default Light";
+"3DLight" = "3D Light";
+
+// MediaManagementView
+"AutoplayVideos" = "自動再生ビデオ";
+"Both" = "両方";
+"DownloadNewAssets" = "新商品のダウンロード";
+"WifiOnly" = "Wifiのみ";
+"CellularOnly" = "携帯電話のみ";
+"Never" = "決して";
+"ClearAssets" = "資産の削除";
+"Clear" = "消す";
+
+// SupportView
+"Create" = "サポートチケットの作成";
+"FAQ" = "よくある質問";
+"SourceCode" = "ソースコード";
+"FAQText" = "なぜアプリは私のログイン情報を必要とするのですか？
+                        
+あなたの統計情報の多くは、パスワードなしで自由にアクセスできますが、あなたのストアは機密情報とみなされるため、顕著な例外となります。アプリがあなたのストアにアクセスするためには、この[オープンソースAPI](https://github.com/HeyM1ke/ValorantClientAPI)を通してあなたのストアを取得する、あなたのログイン情報が必要です。
+                        
+私を保護するためにどのような対策がありますか？
+
+パスワードを保存しないことに加え、地域などの機密情報はKeychainで保護されています。また、このアプリはオープンソースであり、誰でもいつでもコードにアクセスすることができます。あなたのプライバシーは最優先事項であり、私はそれを保証するために全力を尽くしています。法律的なもろもろについては、[こちら](https://www.craft.do/s/fQxdg6aSyp8WAk)をご覧ください。
+
+どのようなアセットがダウンロードされるのですか？
+
+ダウンロードされるアセットは、オフラインの状態でもアプリのスキンインデックス機能を常時使用できるようにするための画像です。
+
+パスワードを記憶させるとはどういうことですか？
+
+現在、リロードボタンには、ユーザー名とパスワードの代わりにクッキーが必要で、アプリがパスワードを全く保存しないようにすることができます。しかし、このクッキーは一定期間が過ぎると失効してしまうため、ユーザーは再度サインインする必要があります。このプロセスを合理化するために、パスワードを記憶することで、ユーザーは自分のパスワードを保存し、舞台裏で自動的にサインインできるようになります。パスワードを保存したくない場合は、サインアウトして再度サインインすれば、新しいクッキーを作成することができます。";
+
+// CommunityView
+"WebAndDisc" = "ウェブサイトとDiscord Bot";
+"DiscordServer" = "Discordサーバー";
+
+// AcknowledgementsView
+"ThankJulian" = "たくさんの質問に答えてくれてありがとうございます！"; // juliand665
+"ThankLunac" = "いつも応援ありがとうございます！"; // Lunac
+
+// AboutView
+"Version" = "バージョン";
+"Privacy" = "プライバシーポリシー";
+"WhatsNew" = "新着情報";
+"MadeIn" = "🇨🇦製";
+
+//----------------------------------
+// MARK: Miscallaneous
+// AlertView
+"NetworkError" = "ネットワークなし";
+"InfoPrice" = "このスキンの価格は、残念ながら私たちのデータベースにはありません。";
+"ErrorTitle" = "エラー";
+"OK" = "OK";
+"CopyError" = "コピーエラー";
+"ErrorMessage1" = "リロードエラーケース
+前回の再読み込みから3日経過している。これを解決するには、2つの選択肢があります。
+1) 一度サインアウトして、再度サインインしてください。
+2) 3日間の再読み込みの制限は、バージョン情報 > 設定でパスワードの記憶をオンにすることで回避できます。これはAPIの制限で、私がコントロールすることはできません";
+"ErrorMessage2" = "リロードエラーケース
+設定で設定されたパスワードが間違っている";
+"ErrorMessage3" = "お客様の購入履歴はApp Storeで確認することができませんでした。";
+"InformationTitle" = "なぜログインするのですか？";
+"Information" = "あなたの統計の多くはパスワードなしで自由にアクセスできますが、あなたのストアは機密情報とみなされるため例外となります。アプリがあなたのストアにアクセスするためには、オープンソースのAPIを通じてあなたのストアを取得するためにあなたのログイン情報が必要です。追加情報、ソースコード、およびFAQは、以下のリンクに記載されています。";
+"InvalidLogin" = "無効なログイン";
+"Reset" = "リセット";
+"ResetInfo" = "まれにバグによりエラーが発生することがあります。このボタンにより、エラーが発生した場合、アプリを完全にリセットすることができます。";
+"ReviewTitle" = "VSC を楽しんでいますか?";
+"OpenGitHub" = "GitHub スターを残す";
+"MaybeLater" = "また後で";
+"NeverShowAgain" = "二度と表示しない";
+"ReviewPrompt" = "GitHub にレビューまたは星を残してください!";
+
+// UpdatesView
 "UpdateButton" = "利用可能なアップデート";
-"UpdateTitle" = "アプリの更新";
-"Update" = "アップデート";
-"UpdateAvailable" = "Update Available";
 "UpdateInstructions1" = "更新オプションがない場合は、次の手順を実行してください:";
 "UpdateInstructions2" = "ホーム (今日) タブに移動します";
 "UpdateInstructions3" = "右上のプロフィールをクリック";
 "UpdateInstructions4" = "下にスワイプしてリロード";
 "UpdateInstructions5" = "下にスクロールして利用可能なアップデートを表示します";
-
-// Nighmarket
-"NightMarket" = "ナイトマーケット";
-
-// Review Prompt
-"ReviewTitle" = "VSC を楽しんでいますか?";
-"OpenGitHub" = "GitHub スターを残す";
-"MaybeLater" = "たぶん後で";
-"NeverShowAgain" = "二度と表示しない";
-"ReviewPrompt" = "GitHub にレビューまたは星を残してください!";
+"UpdateTitle" = "アプリの更新";

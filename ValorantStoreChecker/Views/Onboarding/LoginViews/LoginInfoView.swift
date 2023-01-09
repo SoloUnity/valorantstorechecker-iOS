@@ -14,7 +14,7 @@ struct LoginInfoView: View {
     
     var body: some View {
         // MARK: General Info
-        if !authAPIModel.failedLogin {
+        if !authAPIModel.authenticationFailure {
             
             HStack {
                 

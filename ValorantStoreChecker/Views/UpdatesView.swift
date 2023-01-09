@@ -78,6 +78,7 @@ struct UpdatesView: View {
 
                     Divider()
                     
+                    
                     // Instructions
                     HStack{
                         

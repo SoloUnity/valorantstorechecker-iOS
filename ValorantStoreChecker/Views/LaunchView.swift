@@ -14,6 +14,7 @@ struct LaunchView: View {
     @AppStorage("authorizeDownload") var authorizeDownload = false
     @AppStorage("downloadBarFinish") var downloadBarFinish = false
     @AppStorage("rememberPassword") var rememberPassword = false
+    @AppStorage("background") var background = "Background 3"
 
     let defaults = UserDefaults.standard
     
@@ -21,27 +22,38 @@ struct LaunchView: View {
         
         ZStack {
             
+            AlertView()
+            
             // Displays login if the user is not authenticated
             if !isAuthenticated {
                 
                 LoginView()
+                    .environment(\.colorScheme, .dark)
                 
             }
-            else if (!authorizeDownload && !authAPIModel.downloadImagePermission) || (!downloadBarFinish && !authAPIModel.downloadBarFinish) {
+            else if (!authorizeDownload && !authAPIModel.downloadButtonClicked) || (!downloadBarFinish && !authAPIModel.downloadBarFinish) {
                 
                 DownloadView()
+                    .environment(\.colorScheme, .dark)
                 
             }
             else {
+                
                 HomeView()
+                    .background{
+                        Image(background)
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea(.all)
+                    }
             }
             
-            AlertView()
+            
             
         }
-        .sheet(isPresented: $authAPIModel.showMultifactor) {
+        .sheet(isPresented: $authAPIModel.multifactor) {
             MultifactorView()
-                .preferredColorScheme(.dark)
+                .environment(\.colorScheme, .dark)
                 .background(Constants.bgGrey)
         }
     }

@@ -455,30 +455,6 @@ struct WebService {
             
             return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon]
             
-            /*
-             var bundleRequest2 = URLRequest(url: url2)
-             bundleRequest2.httpMethod = "GET"
-             
-             let (data2,response2) = try await WebService.session.data(for: bundleRequest2)
-             
-             guard
-             let httpResponse = response2 as? HTTPURLResponse,
-             httpResponse.statusCode == 200
-             else{
-             throw BundleError.invalidResponseStatus
-             }
-             
-             guard let bundleResponse2 = try? JSONDecoder().decode(ValStoreBundle.self, from: data2) else {
-             throw BundleError.badDecode
-             }
-             
-             if !bundleResponse2.data.isEmpty {
-             return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon, String(bundleResponse2.data.first!.price)]
-             }
-             */
-            
-            
-            
         }catch{
             throw BundleError.dataTaskError(error.localizedDescription)
         }

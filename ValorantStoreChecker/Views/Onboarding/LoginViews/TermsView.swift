@@ -19,6 +19,11 @@ struct TermsView: View {
             Section(header: Text(LocalizedStringKey("Copyright"))) {
                 Text(LocalizedStringKey("CopyrightNotice"))
             }
+            
+            Section(header: Text("")) {
+                EmptyView()
+                
+            }
         }
         .navigationTitle(LocalizedStringKey("TermsAndConditions"))
         

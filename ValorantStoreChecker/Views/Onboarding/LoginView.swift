@@ -20,8 +20,17 @@ struct LoginView: View {
         NavigationView {
             
             ZStack(alignment: .top) {
-                Logo()
-                    .frame(height: 70)
+                
+                if #available(iOS 16, *) {
+                    Logo()
+                        .frame(height: 70)
+                }
+                else {
+                    Logo()
+                        .frame(height: 70)
+                        .offset(y: -90)
+                }
+                
                 
                 VStack() {
 
@@ -30,7 +39,7 @@ struct LoginView: View {
                     
                     VStack(alignment: .leading) {
                         
-                        Text("Sign in")
+                        Text("SignIn")
                             .font(.title)
                             .bold()
                             .padding(.top, 5)
@@ -56,7 +65,7 @@ struct LoginView: View {
                             HStack {
                                 
                                 // LOCALIZETEXT
-                                Text("By clicking on ").foregroundColor(.white) + Text("Sign in").foregroundColor(.white).italic() + Text(", you agree to our").foregroundColor(.white) + Text(" Terms and Conditions ").foregroundColor(.gray).bold() + Text("and to our ").foregroundColor(.white) + Text("[Privacy Policy](https://www.craft.do/s/fQxdg6aSyp8WAk)").bold()
+                                Text("PrivacyDisclaimer").foregroundColor(.gray).bold()
 
                                 Spacer()
                             }
@@ -89,7 +98,7 @@ struct LoginView: View {
                                 
                                 DispatchQueue.main.async {
                                     
-                                    authAPIModel.isAuthenticating = true // Start loading animation
+                                    authAPIModel.authenticationAnimation = true // Start loading animation
                                     
                                 }
                                 
@@ -110,14 +119,14 @@ struct LoginView: View {
                             
                         } label: {
                             
-                            if !authAPIModel.isAuthenticating {
+                            if !authAPIModel.authenticationAnimation {
                                 
                                 ZStack{
                                     RectangleView()
                                         .shadow(color:.pink, radius: 2)
                                         .cornerRadius(15)
                                     
-                                    Text("Sign in")
+                                    Text("SignIn")
                                         .bold()
                                         .padding(15)
                                         .foregroundColor(.white)
@@ -135,7 +144,7 @@ struct LoginView: View {
                                         .cornerRadius(15)
                                     
                                     ProgressView()
-                                        .tint(.gray)
+                                        .tint(.white)
                                     
                                     
                                 }
@@ -155,7 +164,7 @@ struct LoginView: View {
                                 .cornerRadius(15)
                                 .preferredColorScheme(.dark)
                             
-                            Text("Sign in")
+                            Text("SignIn")
                                 .bold()
                                 .padding(15)
                                 .foregroundColor(.white)
@@ -169,11 +178,9 @@ struct LoginView: View {
             }
             .background(Constants.bgGrey)
             .preferredColorScheme(.dark)
+            
         }
-        
-        
     }
-    
 }
 
 struct LoginView_Previews: PreviewProvider {

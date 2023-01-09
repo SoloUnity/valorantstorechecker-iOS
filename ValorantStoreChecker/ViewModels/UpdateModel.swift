@@ -18,6 +18,7 @@ class UpdateModel: ObservableObject{
     init() {
         
         if showUpdate {
+                        
             let _ = try? isUpdateAvailable {[self] (update, error) in
                 if let error = error {
                     print(error)

@@ -28,10 +28,10 @@ struct AccountView: View {
             }
             
             
-            Section(footer: Text("Switch Accounts is currently in development and does not work.")) {
+            Section() {
                 RegionView()
                 
-                AccountSwitcherView()
+                //AccountSwitcherView()
             }
             
             

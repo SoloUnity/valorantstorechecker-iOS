@@ -18,29 +18,43 @@ struct AccountSwitcherView: View {
                 
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                     .fill(.teal)
-                Image(systemName: "square.on.square.badge.person.crop.fill")
+                Image(systemName: "person.crop.circle.fill.badge.plus")
                     .foregroundColor(.white)
             }
             .frame(width: 30, height: 30, alignment: .center)
             .padding(.trailing)
             
+            //LOCALIZETEXT
+            Text(LocalizedStringKey("SwitchAccounts"))
+            
             Spacer()
 
-            Picker("Switch Accounts", selection: $account){
+            HStack {
                 
-                Text("Account 1")
-                    .tag(0)
+                Picker("", selection: $account){
+                    
+                    Text("Account 1")
+                        .tag(0)
+                    
+                    Text("Account 2")
+                        .tag(1)
+                    
+                    Text("Account 3")
+                        .tag(2)
+                    
+                    Text("Account 4")
+                        .tag(3)
+                }
+                .pickerStyle(MenuPickerStyle())
                 
-                Text("Account 2")
-                    .tag(1)
-                
-                Text("Account 3")
-                    .tag(2)
-                
-                Text("Account 4")
-                    .tag(3)
+                if #available(iOS 16, *) {
+                    // code that should only run on iOS 16 and above
+                } else {
+                    Image(systemName: "chevron.up.chevron.down")
+                        .foregroundColor(.pink)
+                }
             }
-            .pickerStyle(MenuPickerStyle())
+            
 
         }
     }

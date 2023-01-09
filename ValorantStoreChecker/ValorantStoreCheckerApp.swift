@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct ValorantStoreCheckerApp: App {
     
-    @AppStorage("dark") var toggleDark = true
+    @AppStorage("dark") var toggleDark = false
     @AppStorage("autoDark") var auto = false
     
     var body: some Scene {

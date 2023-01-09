@@ -23,4 +23,7 @@ class AlertModel : ObservableObject {
     // TipView
     @Published var alertTipError = false
     
+    // AlertView
+    @Published var openAccounts = false
+    
 }

@@ -86,35 +86,48 @@ struct RegionView: View {
                 
             }
             
+            Text(LocalizedStringKey("Region"))
+                 
             Spacer()
             
-            Picker(LocalizedStringKey("Region"), selection: $country){
-                
-                Text(LocalizedStringKey("Americas"))
-                    .tag(0)
-                
-                Text(LocalizedStringKey("Europe"))
-                    .tag(1)
-                
-                Text(LocalizedStringKey("AsiaPacific"))
-                    .tag(2)
-                
-                Text(LocalizedStringKey("SouthKorea"))
-                    .tag(3)
-            }
-            .pickerStyle(MenuPickerStyle())
-            .onChange(of: country) { region in
-                if region == 0 {
-                    let  _ = keychain.save("na", forKey: "region")
+            HStack {
+
+                Picker("", selection: $country){
+                    
+                    
+                    Text(LocalizedStringKey("Americas"))
+                        .tag(0)
+                    
+                    Text(LocalizedStringKey("Europe"))
+                        .tag(1)
+                    
+                    Text(LocalizedStringKey("AsiaPacific"))
+                        .tag(2)
+                    
+                    Text(LocalizedStringKey("SouthKorea"))
+                        .tag(3)
                 }
-                else if region == 1 {
-                    let  _ = keychain.save("eu", forKey: "region")
+                .pickerStyle(MenuPickerStyle())
+                .onChange(of: country) { region in
+                    if region == 0 {
+                        let  _ = keychain.save("na", forKey: "region")
+                    }
+                    else if region == 1 {
+                        let  _ = keychain.save("eu", forKey: "region")
+                    }
+                    else if region == 2 {
+                        let  _ = keychain.save("ap", forKey: "region")
+                    }
+                    else if region == 3 {
+                        let  _ = keychain.save("kr", forKey: "region")
+                    }
                 }
-                else if region == 2 {
-                    let  _ = keychain.save("ap", forKey: "region")
-                }
-                else if region == 3 {
-                    let  _ = keychain.save("kr", forKey: "region")
+                
+                if #available(iOS 16, *) {
+                    // code that should only run on iOS 16 and above
+                } else {
+                    Image(systemName: "chevron.up.chevron.down")
+                        .foregroundColor(.pink)
                 }
             }
         }

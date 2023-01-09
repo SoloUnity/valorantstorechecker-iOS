@@ -33,7 +33,7 @@ struct RememberPasswordView: View {
                         }
                         else {
                             defaults.removeObject(forKey: "rememberPassword")
-                            authAPIModel.password = ""
+                            authAPIModel.inputPassword = ""
                             let _ = keychain.remove(forKey: "password")
                         }
                         
@@ -41,18 +41,18 @@ struct RememberPasswordView: View {
             }
         }
         .animation(.easeInOut(duration: 0.15), value: togglePassword)
-        .onChange(of: authAPIModel.password) { password in
-            let _ = keychain.save(authAPIModel.password, forKey: "password")
+        .onChange(of: authAPIModel.inputPassword) { password in
+            let _ = keychain.save(authAPIModel.inputPassword, forKey: "password")
         }
         .onAppear {
             
             if togglePassword {
-                authAPIModel.password = keychain.value(forKey: "password") as? String ?? ""
+                authAPIModel.inputPassword = keychain.value(forKey: "password") as? String ?? ""
             }
             
         }
         .onDisappear {
-            authAPIModel.password = ""
+            authAPIModel.inputPassword = ""
         }
         
         if togglePassword {
@@ -62,11 +62,11 @@ struct RememberPasswordView: View {
                 Spacer()
                 
                 if unhide {
-                    TextField(LocalizedStringKey("Password"), text: $authAPIModel.password)
+                    TextField(LocalizedStringKey("Password"), text: $authAPIModel.inputPassword)
 
                 }
                 else {
-                    SecureField(LocalizedStringKey("Password"), text: $authAPIModel.password)
+                    SecureField(LocalizedStringKey("Password"), text: $authAPIModel.inputPassword)
 
                 }
                 

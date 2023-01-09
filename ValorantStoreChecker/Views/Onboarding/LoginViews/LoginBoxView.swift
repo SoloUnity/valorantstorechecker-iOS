@@ -21,7 +21,7 @@ struct LoginBoxView: View {
     var body: some View {
         
         // Wacky implementation to ensure smooth animations
-        if authAPIModel.failedLogin {
+        if authAPIModel.authenticationFailure {
             VStack{
                 
                 // MARK: Username Box
@@ -31,7 +31,7 @@ struct LoginBoxView: View {
                         Image(systemName: "person.circle")
                             .foregroundColor(.white)
                         
-                        TextField(LocalizedStringKey("Username") , text: $authAPIModel.username)
+                        TextField(LocalizedStringKey("Username") , text: $authAPIModel.inputUsername)
                             .keyboardType(.default)
                             .foregroundColor(.white)
                             .disableAutocorrection(true)
@@ -59,7 +59,7 @@ struct LoginBoxView: View {
                             .foregroundColor(.white)
                         
                         if showPassword {
-                            TextField(LocalizedStringKey("Password"), text: $authAPIModel.password)
+                            TextField(LocalizedStringKey("Password"), text: $authAPIModel.inputPassword)
                                 .keyboardType(.default)
                                 .foregroundColor(.white)
                                 .disableAutocorrection(true)
@@ -69,7 +69,7 @@ struct LoginBoxView: View {
                         }
                         else {
                             
-                            SecureField(LocalizedStringKey("Password"), text: $authAPIModel.password)
+                            SecureField(LocalizedStringKey("Password"), text: $authAPIModel.inputPassword)
                                 .keyboardType(.default)
                                 .foregroundColor(.white)
                                 .disableAutocorrection(true)
@@ -104,7 +104,7 @@ struct LoginBoxView: View {
             .foregroundColor(.pink)
             .onTapGesture {
                 withAnimation(.easeIn(duration: 0.2)) {
-                    authAPIModel.failedLogin = false // Remove error message of authentication
+                    authAPIModel.authenticationFailure = false // Remove error message of authentication
                 }
             }
         }
@@ -118,7 +118,7 @@ struct LoginBoxView: View {
                         Image(systemName: "person.circle")
                             .foregroundColor(.white)
                         
-                        TextField(LocalizedStringKey("Username") , text: $authAPIModel.username)
+                        TextField(LocalizedStringKey("Username") , text: $authAPIModel.inputUsername)
                             .keyboardType(.default)
                             .foregroundColor(.white)
                             .disableAutocorrection(true)
@@ -146,7 +146,7 @@ struct LoginBoxView: View {
                             .foregroundColor(.white)
                         
                         if showPassword {
-                            TextField(LocalizedStringKey("Password"), text: $authAPIModel.password)
+                            TextField(LocalizedStringKey("Password"), text: $authAPIModel.inputPassword)
                                 .keyboardType(.default)
                                 .foregroundColor(.white)
                                 .disableAutocorrection(true)
@@ -156,7 +156,7 @@ struct LoginBoxView: View {
                         }
                         else {
                             
-                            SecureField(LocalizedStringKey("Password"), text: $authAPIModel.password)
+                            SecureField(LocalizedStringKey("Password"), text: $authAPIModel.inputPassword)
                                 .keyboardType(.default)
                                 .foregroundColor(.white)
                                 .disableAutocorrection(true)

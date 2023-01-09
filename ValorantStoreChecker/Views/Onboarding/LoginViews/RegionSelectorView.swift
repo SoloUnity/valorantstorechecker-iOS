@@ -30,6 +30,8 @@ struct RegionSelectorView: View {
                 
                 Button {
                     
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    
                     self.title = LocalizedStringKey("Americas")
                     let  _ = keychain.save("na", forKey: "region")
                     
@@ -44,6 +46,8 @@ struct RegionSelectorView: View {
                 
                 Button {
                     
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    
                     self.title = LocalizedStringKey("Europe")
                     let  _ = keychain.save("eu", forKey: "region")
                     
@@ -57,6 +61,8 @@ struct RegionSelectorView: View {
                 
                 Button {
                     
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    
                     self.title = LocalizedStringKey("AsiaPacific")
                     let  _ = keychain.save("ap", forKey: "region")
                     
@@ -69,6 +75,8 @@ struct RegionSelectorView: View {
                 }
                 
                 Button {
+                    
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     
                     self.title = LocalizedStringKey("SouthKorea")
                     let  _ = keychain.save("kr", forKey: "region")

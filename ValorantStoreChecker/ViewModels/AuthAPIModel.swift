@@ -11,58 +11,59 @@ import SwiftUI
 
 class AuthAPIModel: ObservableObject {
     
+    // Authentication
+    @AppStorage("authentication") var authentication = false
+    @Published var authenticationAnimation : Bool = false // Handles loading animation
+    @Published var authenticationFailure : Bool = false // Handles login error message
+    
     // Store
     @Published var storefront : [Skin] = []
     @Published var storePrice : [Offer] = []
-    @Published var vp : String = ""
-    @Published var rp : String = ""
+    
+    // Wallet
+    @Published var walletVP : String = ""
+    @Published var walletRP : String = ""
     
     // Image Download
-    @Published var downloadImagePermission : Bool = false
+    @Published var downloadButtonClicked : Bool = false
     @Published var downloadBarFinish : Bool = false
     
-    // Authentication
-    @AppStorage("authentication") var authentication = false
-    @Published var isAuthenticating : Bool = false // Handles loading animation
-    @Published var failedLogin : Bool = false // Handles login error message
-    
     // Handles reload
-    @Published var reloading : Bool = false
-    @Published var successfulReload : Bool = false
+    @Published var reloadAnimation : Bool = false
     
     // Multifactor
-    @Published var showMultifactor : Bool = false // Show multifactor popout
-    @Published var enteredMultifactor : Bool = false // Handle multifactor loading animation
-    @Published var email : String = "" // Displayed email for multifactor popout
+    @Published var multifactor : Bool = false // Show multifactor popout
+    @Published var multifactorAnimation : Bool = false // Handle multifactor loading animation
+    @Published var multifactorEmail : String = "" // Displayed email for multifactor popout
     
     // User Information
-    @Published var username: String = "" // Variable used by username box in LoginBoxView
-    @Published var password: String = "" // Used by password box in LoginBoxView
-    @Published var multifactor : String = "" // Used by multifactor box in MultifactorView
+    @Published var inputUsername: String = "" // Variable used by username box in LoginBoxView
+    @Published var inputPassword: String = "" // Used by password box in LoginBoxView
+    @Published var inputMultifactor : String = "" // Used by multifactor box in MultifactorView
+    
+    // Settings
     @AppStorage("rememberPassword") var rememberPassword = false
     
-    // User saved information
-    @Published var keychain = Keychain() // For sensitive information
-    @Published var defaults = UserDefaults.standard // For general information
-    
     // Error messages
-    @Published var isError : Bool = false
-    @Published var isReloadingError : Bool = false
+    @Published var error : Bool = false
+    @Published var errorReloading : Bool = false // Specify if the error is of type reloading for custom error message
     @Published var errorMessage : String = ""
     
     // Owned skins
-    @Published var owned : [String] = []
+    @Published var ownedSkins : [String] = []
     
     // BundleInformation
+    @Published var bundleSkins : [[Skin]] = []
     @Published var bundleImage : [String] = []
-    @Published var bundle : [[Skin]] = []
     @Published var bundlePrice : [Int] = []
     @Published var bundleCount : Int = 0
     
     // NightMarket
     @Published var nightSkins : [Skin] = []
-    @Published var percentOff : [Int] = []
+    @Published var nightDiscount : [Int] = []
     
+    let keychain = Keychain()
+    let defaults = UserDefaults.standard
     
     
     
@@ -93,7 +94,7 @@ class AuthAPIModel: ObservableObject {
         }
         
         if let owned = defaults.array(forKey: "owned") as? [String] {
-            self.owned = owned
+            self.ownedSkins = owned
         }
         
         if let bundlePrice = defaults.array(forKey: "bundlePrice") as? [Int] {
@@ -101,14 +102,14 @@ class AuthAPIModel: ObservableObject {
         }
         
         if let percentOff = defaults.array(forKey: "percentOff") as? [Int] {
-            self.percentOff = percentOff
+            self.nightDiscount = percentOff
         }
         
         if let objects = defaults.value(forKey: "bundle") as? Data {
             let decoder = JSONDecoder()
             if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [[Skin]] {
                 DispatchQueue.main.async{
-                    self.bundle = objectsDecoded
+                    self.bundleSkins = objectsDecoded
                 }
             }
         }
@@ -139,22 +140,22 @@ class AuthAPIModel: ObservableObject {
         do{
             
             if self.rememberPassword {
-                self.username = keychain.value(forKey: "username") as? String ?? ""
-                self.password = keychain.value(forKey: "password") as? String ?? ""
+                self.inputUsername = keychain.value(forKey: "username") as? String ?? ""
+                self.inputPassword = keychain.value(forKey: "password") as? String ?? ""
             }
             else if keychain.value(forKey: "username") == nil { // Save username to keychain
-                let _ = keychain.save(self.username, forKey: "username")
+                let _ = keychain.save(self.inputUsername, forKey: "username")
             }
             
             let _ = try await WebService.getCookies(reload: false)
             
-            let tokenList = try await WebService.getToken(username: keychain.value(forKey: "username") as? String ?? self.username, password: self.password)
+            let tokenList = try await WebService.getToken(username: keychain.value(forKey: "username") as? String ?? self.inputUsername, password: self.inputPassword)
             
             if tokenList.count == 2 {
                 // Multifactor login
-                self.email = tokenList[1]
-                self.showMultifactor = true
-                self.isAuthenticating = false // Disable loading button in case user swipes away multifactor
+                self.multifactorEmail = tokenList[1]
+                self.authenticationAnimation = false // Disable loading button in case user swipes away multifactor
+                self.multifactor = true
             }
             else{
                 // Default login (non-multifactor)
@@ -167,30 +168,31 @@ class AuthAPIModel: ObservableObject {
                     withAnimation(.easeIn(duration: 0.2)) {
                         self.authentication = true
                     }
+                    
                 }
                 
-                self.username = ""
-                self.password = ""
+                self.inputUsername = ""
+                self.inputPassword = ""
             }
             print("Finished login")
             
         }catch{
             // Reset user defaults
-            self.email = ""
-            self.showMultifactor = false
+            self.multifactorEmail = ""
+            self.multifactor = false
             
             if self.rememberPassword {
                 
-                self.isError = true
-                self.isReloadingError = true
+                self.error = true
+                self.errorReloading = true
                 
             }
             else {
                 
-                self.isAuthenticating = false
+                self.authenticationAnimation = false
                 
                 withAnimation(.easeIn(duration: 0.2)) {
-                    self.failedLogin = true
+                    self.authenticationFailure = true
                 }
                 
                 
@@ -198,9 +200,8 @@ class AuthAPIModel: ObservableObject {
                 let _ = keychain.remove(forKey: "username")
             }
             
-            self.username = ""
-            self.password = ""
-            
+            self.inputUsername = ""
+            self.inputPassword = ""
             
         }
     }
@@ -211,7 +212,7 @@ class AuthAPIModel: ObservableObject {
     func getPlayerData(helperType: String, token: String, skinModel : SkinModel) async {
         
         do {
-            self.password = "" // Clear password
+            self.inputPassword = "" // Clear password
             
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
             let puuid = try await WebService.getPlayerInfo(token: token)
@@ -235,7 +236,7 @@ class AuthAPIModel: ObservableObject {
                 }
             }
             
-            self.owned = tempOwned
+            self.ownedSkins = tempOwned
             defaults.set(tempOwned, forKey: "owned")
             
             if storefrontResponse.BonusStore != nil {
@@ -264,7 +265,7 @@ class AuthAPIModel: ObservableObject {
                 }
                 
                 withAnimation(.easeIn(duration: 0.15)) {
-                    self.percentOff = tempPercent
+                    self.nightDiscount = tempPercent
                     self.nightSkins = tempMarket
                 }
                 
@@ -309,17 +310,17 @@ class AuthAPIModel: ObservableObject {
             
             // finished loading
             withAnimation(.easeIn) {
-                self.reloading = false
+                self.reloadAnimation = false
             }
         
-            self.isAuthenticating = false
+            self.authenticationAnimation = false
             
         }
         
         catch {
             
             self.errorMessage = "getPlayerData error: \(error.self)" 
-            self.isError = true
+            self.error = true
             
         }
         
@@ -363,8 +364,8 @@ class AuthAPIModel: ObservableObject {
             // Save user's wallet info
             let wallet = try await WebService.getWallet(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
             
-            self.vp = wallet[0]
-            self.rp = wallet[1]
+            self.walletVP = wallet[0]
+            self.walletRP = wallet[1]
             
             self.defaults.set(wallet[0], forKey: "vp")
             self.defaults.set(wallet[1], forKey: "rp")
@@ -385,15 +386,15 @@ class AuthAPIModel: ObservableObject {
             defaults.set(referenceDate, forKey: "timeLeft")
 
             
-            self.failedLogin = false
+            self.authenticationFailure = false
             
 
-            self.multifactor = ""
+            self.inputMultifactor = ""
             
         }catch {
             
             self.errorMessage = "Login Helper error: \(error.self)"
-            self.isError = true
+            self.error = true
             
         }
     }
@@ -467,7 +468,7 @@ class AuthAPIModel: ObservableObject {
             DispatchQueue.main.async {
                 
                 withAnimation(.easeIn(duration: 0.2)) {
-                    self.bundle = bundleItems
+                    self.bundleSkins = bundleItems
                     self.bundleImage = tempImages
                     self.bundlePrice = bundlePrice
                 }
@@ -490,7 +491,7 @@ class AuthAPIModel: ObservableObject {
         }
         catch {
             self.errorMessage = "Login Helper error: \(error.self)"
-            self.isError = true
+            self.error = true
         }
     }
     
@@ -500,10 +501,10 @@ class AuthAPIModel: ObservableObject {
     @MainActor
     func multifactor(skinModel: SkinModel) async {
         do{
-            let token = try await WebService.multifactor(code: self.multifactor)
+            let token = try await WebService.multifactor(code: self.inputMultifactor)
             
             await getPlayerData(helperType: "login", token: token, skinModel: skinModel)
-            self.showMultifactor = false
+            self.multifactor = false
             
             
             DispatchQueue.main.async {
@@ -513,8 +514,8 @@ class AuthAPIModel: ObservableObject {
                 }
             }
             
-            self.username = ""
-            self.password = ""
+            self.inputUsername = ""
+            self.inputPassword = ""
             
         }
         catch{
@@ -525,9 +526,9 @@ class AuthAPIModel: ObservableObject {
             */
             
             // Reset user defaults
-            self.enteredMultifactor = false
-            self.multifactor = ""
-            self.password = ""
+            self.multifactorAnimation = false
+            self.inputMultifactor = ""
+            self.inputPassword = ""
             
             print("Multifactor")
             
@@ -538,6 +539,8 @@ class AuthAPIModel: ObservableObject {
     @MainActor
     func reload(skinModel: SkinModel, reloadType : String) async {
         do{
+            self.error = true
+            self.errorReloading = true
             
             print("Reloading")
 
@@ -553,12 +556,14 @@ class AuthAPIModel: ObservableObject {
                     
                     await login(skinModel: skinModel)
                     
-                    self.reloading = false
+                    withAnimation(.easeIn) {
+                        self.reloadAnimation = false
+                    }
 
                 }
                 else {
-                    self.isError = true
-                    self.isReloadingError = true
+                    self.error = true
+                    self.errorReloading = true
                 }
                 
             }
@@ -576,24 +581,23 @@ class AuthAPIModel: ObservableObject {
                 await login(skinModel: skinModel)
                 
                 withAnimation(.easeIn) {
-                    self.reloading = false
+                    self.reloadAnimation = false
                 }
 
             }
             else {
                 
-                //self.isReloadingError = true
                 
                 // Bandaid solution
                 let errorMessage = error.localizedDescription
                 
                 if errorMessage.contains("CookieError") {
-                    self.isError = true
-                    self.isReloadingError = true
+                    self.error = true
+                    self.errorReloading = true
                 }
                 else {
                     self.errorMessage = "Reload error: \(error.self)"
-                    self.isError = true
+                    self.error = true
                 }
 
             }
@@ -617,15 +621,15 @@ class AuthAPIModel: ObservableObject {
 
         DispatchQueue.main.async{
             // Reset Defaults
-            self.isAuthenticating = false // Handles loading animation
-            self.failedLogin = false // Handles login error message
-            self.reloading = false
-            self.showMultifactor = false // Show multifactor popout
-            self.enteredMultifactor = false // Handle multifactor loading animation
-            self.email = "" // Displayed email for multifactor popout
-            self.username = "" // Variable used by username box in LoginBoxView
-            self.password = "" // Used by password box in LoginBoxView
-            self.multifactor = "" // Used by multifactor box in MultifactorView
+            self.authenticationAnimation = false // Handles loading animation
+            self.authenticationFailure = false // Handles login error message
+            self.reloadAnimation = false
+            self.multifactor = false // Show multifactor popout
+            self.multifactorAnimation = false // Handle multifactor loading animation
+            self.multifactorEmail = "" // Displayed email for multifactor popout
+            self.inputUsername = "" // Variable used by username box in LoginBoxView
+            self.inputPassword = "" // Used by password box in LoginBoxView
+            self.inputMultifactor = "" // Used by multifactor box in MultifactorView
             
             self.defaults.removeObject(forKey: "timeLeft")
             self.defaults.removeObject(forKey: "vp")

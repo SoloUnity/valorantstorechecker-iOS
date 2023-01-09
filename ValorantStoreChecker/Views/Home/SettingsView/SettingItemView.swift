@@ -12,7 +12,7 @@ import SwiftUI
 struct SettingItemView: View {
     
     @Environment(\.colorScheme) var colourScheme
-    @AppStorage("dark") var toggleDark = true
+    @AppStorage("dark") var toggleDark = false
     @AppStorage("autoDark") var auto = false
     
     var itemType : String
@@ -22,8 +22,9 @@ struct SettingItemView: View {
     var image: String
     var defaultName : String = ""
     var showChevron : Bool = false
-    var removeSpace : Bool = false
+    var removeSpace : Bool = true
     @Binding var toggleBool : Bool
+    
     
     
     let defaults = UserDefaults.standard
@@ -81,9 +82,7 @@ struct SettingItemView: View {
                             .scaledToFit()
                             .frame(width: 23, height: 23, alignment: .center)
                             .foregroundColor(iconColour)
-                        
-                        
-                        
+
                     }
                     .frame(width: 30, height: 30, alignment: .center)
                     .padding(.trailing)
@@ -93,25 +92,31 @@ struct SettingItemView: View {
                     
                 }
                 else if itemType == "toggle" {
-                    // MARK: Toggle
-                    ZStack {
-                        
-                        RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(iconBG)
-                        Image(systemName: image)
-                            .foregroundColor(iconColour)
-                    }
-                    .frame(width: 30, height: 30, alignment: .center)
-                    .padding(.trailing)
-                    
-                    Toggle(LocalizedStringKey(name), isOn: $toggleBool)
-                        .onAppear {
+                    HStack {
+                        // MARK: Toggle
+                        ZStack {
                             
-                            if defaults.bool(forKey: defaultName) {
-                                self.toggleBool = true
-                            }
-                            
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .fill(iconBG)
+                            Image(systemName: image)
+                                .foregroundColor(iconColour)
                         }
+                        .frame(width: 30, height: 30, alignment: .center)
+                        .padding(.trailing)
+                        
+                        Spacer()
+                        
+                        
+                        Toggle(LocalizedStringKey(name), isOn: $toggleBool)
+                            .onAppear {
+                                
+                                if defaults.bool(forKey: defaultName) {
+                                    self.toggleBool = true
+                                }
+                                
+                            }
+                    }
+                    
                     
                 }
                 

@@ -24,23 +24,68 @@ struct DownloadView: View {
               
             Spacer()
             
-            CommunityView()
-                .bgClear()
-                .background(.ultraThinMaterial)
-                .cornerRadius(20)
-                .padding(.bottom)
+            VStack {
+                
+                // Website
+                Button {
 
+                    if let url = URL(string: Constants.URL.website) {
+                        UIApplication.shared.open(url)
+                    }
+                    
+                } label: {
+                    
+                    VStack(alignment: .leading) {
+                        Text("WebAndDisc")
+                            .bold()
+                            .foregroundColor(.white)
+                        
+                        Image("websiteImage")
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(20)
+                    }
+                    
+                }
+                
+                // Discord
+                Button {
+
+                    if let url = URL(string: Constants.URL.discord) {
+                        UIApplication.shared.open(url)
+                    }
+                    
+                } label: {
+                    
+                    VStack(alignment: .leading) {
+                        Text("DiscordServer")
+                            .bold()
+                            .foregroundColor(.white)
+                        
+                        Image("discordImage")
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(20)
+                    }
+                    
+                }
+            }
+            .padding()
+            .background(.ultraThinMaterial)
+            .cornerRadius(20)
+
+            Spacer()
                           
             
             // MARK: Download Button
-            if !authAPIModel.downloadImagePermission {
+            if !authAPIModel.downloadButtonClicked {
                 
                 Button {
 
                     DispatchQueue.main.async {
                         withAnimation(.easeOut(duration: 0.2)) {
                             UserDefaults.standard.set(true, forKey: "authorizeDownload")
-                            authAPIModel.downloadImagePermission = true
+                            authAPIModel.downloadButtonClicked = true
                         }
                     }
                     
@@ -77,6 +122,7 @@ struct DownloadView: View {
                     HStack {
                         
                         Text(String(Int(round(progress * 100))) + "%")
+                            .foregroundColor(.white)
                             .bold()
                         
                         Spacer()
@@ -90,8 +136,18 @@ struct DownloadView: View {
                                 DispatchQueue.main.async {
                                     withAnimation(.easeOut(duration: 0.2)) {
                                         UserDefaults.standard.set(true, forKey: "authorizeDownload")
-                                        authAPIModel.downloadImagePermission = true
+                                        authAPIModel.downloadButtonClicked = true
                                     }
+                                }
+                                
+                                
+                                self.error = false
+                                
+                                Timer.scheduledTimer(withTimeInterval: 90, repeats: false) { timer in
+                                    withAnimation(.easeOut) {
+                                        self.error = true
+                                    }
+                                    timer.invalidate()
                                 }
                                 
                                 let backgroundQueue = DispatchQueue.global(qos: .background)
@@ -102,13 +158,18 @@ struct DownloadView: View {
                                 
                             } label: {
                                 
+                                // LOCALIZETEXT
                                 Text("Stuck? Click to Try Again.")
+                                    .foregroundColor(.white)
+                                    .bold()
+                                    
+                                
                                 
                             }
                         }
                         else {
-                            
-                            Text(String(Int(skinModel.progressNumerator))).bold() + Text("/" + String(Int(skinModel.progressDenominator))).bold()
+
+                            Text(String(Int(skinModel.progressNumerator))).bold().foregroundColor(.white) + Text("/" + String(Int(skinModel.progressDenominator))).bold().foregroundColor(.white)
                             
                         }
                         
@@ -130,6 +191,7 @@ struct DownloadView: View {
                         
                     }
                 }
+                .padding(.bottom, 30)
                 .onAppear{
                     Timer.scheduledTimer(withTimeInterval: 90, repeats: false) { timer in
                         withAnimation(.easeOut) {
@@ -138,18 +200,12 @@ struct DownloadView: View {
                         timer.invalidate()
                     }
                 }
-                
             }
-            
-            
-
         }
-        .padding(.vertical, 30)
+        .padding(.top, 30)
         .padding(.horizontal)
         .background(Constants.bgGrey)
         .preferredColorScheme(.dark)
-
-        
     }
 }
 
@@ -170,6 +226,8 @@ func modulateProgress(numerator: Double, denominator: Double, authAPIModel: Auth
                 authAPIModel.downloadBarFinish = true
             }
         }
+        
+        return 1
         
     }
     

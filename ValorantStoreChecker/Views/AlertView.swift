@@ -15,235 +15,269 @@ struct AlertView: View {
     @AppStorage("rememberPassword") var rememberPassword = false
     @AppStorage("clickedReview") var clickedReview : Bool = false
     @AppStorage("showUpdate") var showUpdate : Bool = false
+    @AppStorage("selectedTab") var selectedTab: Tab = .shop
     @State var update : Bool = false
     let defaults = UserDefaults.standard
     
     var body: some View {
-        ZStack {
+        
+        NavigationView {
             
-            if alertModel.alertNoNetwork {
+            ZStack {
                 
-                VStack {
-                    Image(systemName: "wifi.exclamationmark")
-                        .resizable()
-                        .scaledToFit()
                 
-                    //LOCALIZETEXT
-                    Text("No Network")
-                        .multilineTextAlignment(.center)
-                }
-                .padding(35)
-                .frame(width: 200, height: 200)
-                .background(.ultraThinMaterial)
-                .cornerRadius(20)
-                .onAppear{
-                    Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
-                        withAnimation(.easeOut) {
-                            alertModel.alertNoNetwork = false
+                
+                if alertModel.alertNoNetwork {
+                    
+                    VStack {
+                        Image(systemName: "wifi.exclamationmark")
+                            .resizable()
+                            .scaledToFit()
+                        
+                        //LOCALIZETEXT
+                        Text("NetworkError")
+                            .multilineTextAlignment(.center)
+                    }
+                    .padding(35)
+                    .frame(width: 200, height: 200)
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(20)
+                    .onAppear{
+                        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
+                            withAnimation(.easeOut) {
+                                alertModel.alertNoNetwork = false
+                            }
+                            timer.invalidate()
                         }
-                        timer.invalidate()
                     }
                 }
-            }
-            
-            Color.clear
-                .frame(width: 0, height: 0)
+                
+                Color.clear
+                    .frame(width: 0, height: 0)
                 // Update Sheet
-                .sheet(isPresented: $update, content: {
-                    UpdatesView()
-                })
+                    .sheet(isPresented: $update, content: {
+                        UpdatesView()
+                    })
                 // MARK: Error Messages
-                .alert(LocalizedStringKey("ErrorTitle"), isPresented: $authAPIModel.isError, actions: {
-                    
-                    if authAPIModel.isReloadingError && rememberPassword {
+                    .alert(LocalizedStringKey("ErrorTitle"), isPresented: $authAPIModel.error, actions: {
                         
-                        Button(LocalizedStringKey("OK"), role: nil, action: {
+                        if authAPIModel.errorReloading && rememberPassword {
                             
-                            withAnimation(.easeIn) {
-                                authAPIModel.reloading = false
+                            Button(LocalizedStringKey("Settings"), role: nil, action: {
+                                
+                                withAnimation(.easeIn) {
+                                    authAPIModel.reloadAnimation = false
+                                }
+                                
+                                authAPIModel.errorReloading = false
+                                selectedTab = .settings
+                                
+                                Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { timer in
+                                    
+                                    alertModel.openAccounts = true
+                                    
+                                    timer.invalidate()
+                                }
+                                
+                                authAPIModel.errorReloading = false
+                            })
+                            
+                        }
+                        else if authAPIModel.errorReloading {
+                            
+                            Button(LocalizedStringKey("SignOut"), role: nil, action: {
+                                
+                                authAPIModel.logOut()
+                                
+                                withAnimation(.easeIn) {
+                                    authAPIModel.reloadAnimation = false
+                                }
+                                
+                                authAPIModel.errorReloading = false
+                            })
+                            
+                            
+                            Button(LocalizedStringKey("Settings"), role: nil, action: {
+                                
+                                withAnimation(.easeIn) {
+                                    authAPIModel.reloadAnimation = false
+                                }
+                                
+                                authAPIModel.errorReloading = false
+                                selectedTab = .settings
+                                
+                                
+                                Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { timer in
+                                    
+                                    alertModel.openAccounts = true
+                                    
+                                    Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { timer in
+                                        
+                                        rememberPassword = true
+                                        
+                                        timer.invalidate()
+                                    }
+                                    
+                                    timer.invalidate()
+                                }
+
+                            })
+                            
+                        }
+                        else {
+                            
+                            Button(LocalizedStringKey("CopyError"), role: nil, action: {
+                                
+                                let pasteboard = UIPasteboard.general
+                                pasteboard.string = authAPIModel.errorMessage
+                                
+                                withAnimation(.easeIn) {
+                                    authAPIModel.reloadAnimation = false
+                                }
+                                
+                                authAPIModel.errorReloading = false
+                                
+                            })
+                            
+                            Button(LocalizedStringKey("OK"), role: nil, action: {
+                                
+                                withAnimation(.easeIn) {
+                                    authAPIModel.reloadAnimation = false
+                                }
+                                
+                                authAPIModel.errorReloading = false
+                                
+                            })
+                            
+                        }
+                        
+                    }, message: {
+                        
+                        if authAPIModel.errorReloading && rememberPassword {
+                            
+                            Text(LocalizedStringKey("ErrorMessage2"))
+                        }
+                        else if authAPIModel.errorReloading {
+                            
+                            // Big Reload Prompt
+                            Text(LocalizedStringKey("ErrorMessage1"))
+                            
+                        }
+                        else {
+                            Text(authAPIModel.errorMessage)
+                        }
+                        
+                    })
+                // MARK: Information Alerts
+                    .alert(LocalizedStringKey("InformationTitle"), isPresented: $alertModel.alertLoginInfo, actions: {
+                        
+                        Button(LocalizedStringKey("FAQ"), role: nil, action: {
+                            
+                            if let url = URL(string: Constants.URL.faq) {
+                                UIApplication.shared.open(url)
                             }
                             
-                            authAPIModel.isReloadingError = false
+                            alertModel.alertLoginInfo = false
+                            
                         })
                         
-                    }
-                    else if authAPIModel.isReloadingError {
+                        Button(LocalizedStringKey("OK"), role: nil, action: {
+                            alertModel.alertLoginInfo = false
+                        })
                         
-                        Button(LocalizedStringKey("SignOut"), role: nil, action: {
+                    }, message: {
+                        let info = LocalizedStringKey("Information")
+                        Text(info)
+                    })
+                    .alert("InvalidLogin", isPresented: $alertModel.alertBugInfo, actions: {
+                        
+                        Button(LocalizedStringKey("Reset"), role: nil, action: {
                             
                             authAPIModel.logOut()
                             
                             withAnimation(.easeIn) {
-                                authAPIModel.reloading = false
+                                authAPIModel.reloadAnimation = false
                             }
                             
-                            authAPIModel.isReloadingError = false
-                        })
-                        
-                        
-                        Button(LocalizedStringKey("OK"), role: nil, action: {
+                            authAPIModel.errorReloading = false
                             
-                            withAnimation(.easeIn) {
-                                authAPIModel.reloading = false
-                            }
-                            
-                            authAPIModel.isReloadingError = false
-                        })
-                        
-                    }
-                    else {
-                        
-                        Button(LocalizedStringKey("CopyError"), role: nil, action: {
-                            
-                            let pasteboard = UIPasteboard.general
-                            pasteboard.string = authAPIModel.errorMessage
-                            
-                            withAnimation(.easeIn) {
-                                authAPIModel.reloading = false
-                            }
-                            
-                            authAPIModel.isReloadingError = false
-                            
+                            alertModel.alertBugInfo = false
                         })
                         
                         Button(LocalizedStringKey("OK"), role: nil, action: {
-                            
-                            withAnimation(.easeIn) {
-                                authAPIModel.reloading = false
-                            }
-                            
-                            authAPIModel.isReloadingError = false
-                            
+                            alertModel.alertBugInfo = false
                         })
                         
-                    }
-                    
-                }, message: {
-                    
-                    if authAPIModel.isReloadingError && rememberPassword {
-                        
-                        Text(LocalizedStringKey("ErrorMessage2"))
-                    }
-                    else if authAPIModel.isReloadingError {
-                        
-                        // Big Reload Prompt
-                        Text(LocalizedStringKey("ErrorMessage1"))
-                    }
-                    else {
-                        Text(authAPIModel.errorMessage)
-                    }
-                                    
-                })
-                // MARK: Information Alerts
-                .alert(LocalizedStringKey("InformationTitle"), isPresented: $alertModel.alertLoginInfo, actions: {
-                    
-                    Button(LocalizedStringKey("FAQ"), role: nil, action: {
-                        
-                        if let url = URL(string: Constants.URL.faq) {
-                            UIApplication.shared.open(url)
-                        }
-                        
-                        alertModel.alertLoginInfo = false
-                        
+                    }, message: {
+                        let info = LocalizedStringKey("ResetInfo")
+                        Text(info)
                     })
-                    
-                    Button(LocalizedStringKey("OK"), role: nil, action: {
-                        alertModel.alertLoginInfo = false
-                    })
-                    
-                }, message: {
-                    let info = LocalizedStringKey("Information")
-                    Text(info)
-                })
-                .alert("Invalid login", isPresented: $alertModel.alertBugInfo, actions: {
-                    
-                    Button(LocalizedStringKey("Reset"), role: nil, action: {
-                        
-                        authAPIModel.logOut()
-                        
-                        withAnimation(.easeIn) {
-                            authAPIModel.reloading = false
-                        }
-                        
-                        authAPIModel.isReloadingError = false
-                        
-                        alertModel.alertBugInfo = false
-                    })
-                    
-                    Button(LocalizedStringKey("OK"), role: nil, action: {
-                        alertModel.alertBugInfo = false
-                    })
-                    
-                }, message: {
-                    let info = LocalizedStringKey("ResetInfo")
-                    Text(info)
-                })
                 // SkinCardDetailView Alert
-                .alert(isPresented: $alertModel.alertPriceInfo) { () -> Alert in
-                    Alert(title: Text(LocalizedStringKey("InfoPrice")))
-                }
+                    .alert(isPresented: $alertModel.alertPriceInfo) { () -> Alert in
+                        Alert(title: Text(LocalizedStringKey("InfoPrice")))
+                    }
                 // MARK: ShopTopBarView
-                .alert(LocalizedStringKey("ReviewTitle"), isPresented: $alertModel.alertPromptReview , actions: {
-                    
-                    Button("⭐⭐⭐⭐⭐", role: nil, action: {
+                    .alert(LocalizedStringKey("ReviewTitle"), isPresented: $alertModel.alertPromptReview , actions: {
                         
-                        if let url = URL(string: Constants.URL.review) {
-                            UIApplication.shared.open(url)
-                        }
+                        Button("⭐⭐⭐⭐⭐", role: nil, action: {
+                            
+                            if let url = URL(string: Constants.URL.review) {
+                                UIApplication.shared.open(url)
+                            }
+                            
+                            clickedReview = true
+                            
+                            alertModel.alertPromptReview = false
+                            
+                        })
                         
-                        clickedReview = true
+                        Button(LocalizedStringKey("OpenGitHub"), role: nil, action: {
+                            
+                            if let url = URL(string: Constants.URL.sourceCode) {
+                                UIApplication.shared.open(url)
+                            }
+                            
+                            clickedReview = true
+                            
+                            alertModel.alertPromptReview = false
+                            
+                            
+                        })
                         
-                        alertModel.alertPromptReview = false
+                        Button(LocalizedStringKey("MaybeLater"), role: nil, action: {
+                            
+                            alertModel.alertPromptReview = false
+                        })
+                        
+                        Button(LocalizedStringKey("NeverShowAgain"), role: nil, action: {
+                            
+                            clickedReview = true
+                            
+                            alertModel.alertPromptReview = false
+                            
+                        })
+                        
+                    }, message: {
+                        
+                        Text("ReviewPrompt")
+                        
                         
                     })
-                    
-                    Button(LocalizedStringKey("OpenGitHub"), role: nil, action: {
-                        
-                        if let url = URL(string: Constants.URL.sourceCode) {
-                            UIApplication.shared.open(url)
-                        }
-                        
-                        clickedReview = true
-                        
-                        alertModel.alertPromptReview = false
-                                            
-                        
-                    })
-                    
-                    Button(LocalizedStringKey("MaybeLater"), role: nil, action: {
-                        
-                        alertModel.alertPromptReview = false
-                    })
-                    
-                    Button(LocalizedStringKey("NeverShowAgain"), role: nil, action: {
-                        
-                        clickedReview = true
-                        
-                        alertModel.alertPromptReview = false
-                        
-                    })
-                    
-                }, message: {
-                    
-                    Text("ReviewPrompt")
-                    
-                    
-                })
                 // MARK: TipView Alerts
-                .alert(LocalizedStringKey("ErrorTitle"), isPresented: $alertModel.alertTipError, actions: {
-                    
-                    Button(LocalizedStringKey("OK"), role: nil, action: {
-                        alertModel.alertTipError = false
+                    .alert(LocalizedStringKey("ErrorTitle"), isPresented: $alertModel.alertTipError, actions: {
+                        
+                        Button(LocalizedStringKey("OK"), role: nil, action: {
+                            alertModel.alertTipError = false
+                        })
+                        
+                        
+                    }, message: {
+                        
+                        Text(LocalizedStringKey("ErrorMessage3"))
+                        
                     })
-                    
-                    
-                }, message: {
-                    
-                    Text(LocalizedStringKey("ErrorMessage3"))
-                    
-                })
+            }
         }
-        
     }
 }
 

@@ -28,8 +28,6 @@ struct StrokeModifier: ViewModifier {
     let cornerRadius: CGFloat
     let style: RoundedCornerStyle
     
-    // 自定义的`Modifier`都可以通过`@Environment`获取【所处视图树】下设置的环境变量
-    // 获取当前颜色主题（浅/深色模式）
     @Environment(\.colorScheme) var colorScheme
     
     func body(content: Content) -> some View {

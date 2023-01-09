@@ -11,6 +11,8 @@ struct MultifactorView: View {
     
     @EnvironmentObject private var authAPIModel : AuthAPIModel
     @EnvironmentObject private var skinModel : SkinModel
+    @EnvironmentObject private var networkModel : NetworkModel
+    @EnvironmentObject private var alertModel : AlertModel
     
     var body: some View {
         
@@ -29,9 +31,10 @@ struct MultifactorView: View {
                         .font(.title3)
                         .bold()
                     
-                    if !authAPIModel.failedLogin {
+                    // TODO: implement error message for 2fa failure
+                    if !authAPIModel.authenticationFailure {
                         
-                         Text(authAPIModel.email)
+                         Text(authAPIModel.multifactorEmail)
                             .bold()
                             
                     }else {
@@ -46,7 +49,7 @@ struct MultifactorView: View {
                             Image(systemName: "lock")
                                 .foregroundColor(.white)
                             
-                            TextField(LocalizedStringKey("TwoFactorAuthentication") , text: $authAPIModel.multifactor)
+                            TextField(LocalizedStringKey("TwoFactorAuthentication") , text: $authAPIModel.inputMultifactor)
                                 .keyboardType(.numberPad)
                                 .foregroundColor(.white)
                                 .disableAutocorrection(true)
@@ -57,9 +60,9 @@ struct MultifactorView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(lineWidth: 1)
                             .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                            .shadow(color: authAPIModel.failedLogin ? .red : .white, radius: 2)
+                            .shadow(color: authAPIModel.authenticationFailure ? .red : .white, radius: 2)
                             .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                            .foregroundColor(authAPIModel.failedLogin ? .red : .white)
+                            .foregroundColor(authAPIModel.authenticationFailure ? .red : .white)
                             
                     }
                 }
@@ -70,51 +73,78 @@ struct MultifactorView: View {
                 
                 Spacer()
                 
-                if authAPIModel.multifactor.count >= 6 {
+                if authAPIModel.inputMultifactor.count == 6 {
                     Button {
                         
-                        authAPIModel.enteredMultifactor = true
                         
-                        Task {
-                            await authAPIModel.multifactor(skinModel: skinModel)
+                        if networkModel.isConnected {
+                            
+                            authAPIModel.multifactorAnimation = true
+                            
+                            Task {
+                                await authAPIModel.multifactor(skinModel: skinModel)
+                            }
+                            
+                        }
+                        else {
+                            
+                            withAnimation(.easeIn) {
+                                alertModel.alertNoNetwork = true
+                            }
+                            
                         }
                         
+                        
+                        
                     } label: {
-                        if !authAPIModel.enteredMultifactor {
-                            ZStack {
-                                CircleView(colour: .pink)
+                        
+                        if !authAPIModel.multifactorAnimation {
+                            
+                            ZStack{
+                                RectangleView()
                                     .shadow(color:.pink, radius: 2)
+                                    .cornerRadius(15)
                                 
-                                Image(systemName: "arrow.right")
-                                    .resizable()
-                                    .scaledToFit()
+                                //LOCALIZETEXT
+                                Text("Enter")
+                                    .bold()
                                     .padding(15)
                                     .foregroundColor(.white)
                                 
+                                
                             }
-                            .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
+                            .frame(height: Constants.dimensions.circleButtonSize)
                         }
-                        else {
-                            ProgressView()
-                                .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
-                                .tint(.gray)
+                        else{
+                            
+                            ZStack{
+                                RectangleView()
+                                    .shadow(color:.pink, radius: 2)
+                                    .cornerRadius(15)
+                                
+                                ProgressView()
+                                    .tint(.white)
+                                
+                            }
+                            .frame(height: Constants.dimensions.circleButtonSize)
+
                         }
+                        
                     }
                 }
                 else {
-                    ZStack {
-                        CircleView(colour: .pink)
-                            .shadow(color:.pink, radius: 2)
+                    ZStack{
+                        RectangleView()
+                            .cornerRadius(15)
+                            .preferredColorScheme(.dark)
                         
-                        Image(systemName: "arrow.right")
-                            .resizable()
-                            .scaledToFit()
+                        Text("Enter")
+                            .bold()
                             .padding(15)
                             .foregroundColor(.white)
-                        
+                            
                     }
-                    .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
-                    .opacity(0.5)
+                    .frame(height: Constants.dimensions.circleButtonSize)
                 }
                 
                 

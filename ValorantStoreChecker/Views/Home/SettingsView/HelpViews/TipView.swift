@@ -22,7 +22,7 @@ struct TipView: View {
         
         HStack{
             
-            SettingItemView(itemType: "generic", name: "Show Appreciation", iconBG: .white, iconColour: .red, image: "heart.fill", toggleBool: $dummy)
+            SettingItemView(itemType: "generic", name: "ShowAppreciation", iconBG: .white, iconColour: .red, image: "heart.fill", toggleBool: $dummy)
 
             Spacer()
             
@@ -79,10 +79,9 @@ struct TipView: View {
                 
                 let _ = try await tipModel.purchase(tip)
                 
-            } catch StoreError.failedVerification {
-                alertModel.alertTipError = true
             } catch {
-                print("Failed fuel purchase: \(error)")
+                
+                alertModel.alertTipError = true
             }
         }
         

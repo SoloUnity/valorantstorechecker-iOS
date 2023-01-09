@@ -10,12 +10,12 @@ import SwiftUI
 struct HomeView: View {
 
     @AppStorage("selectedTab") var selectedTab: Tab = .shop
-    @AppStorage("showModal") var showModal = false
     let diffBottomInset: CGFloat = 88
     
     var body: some View  {
-        
+
         ZStack(alignment: .bottom) {
+            
 
             
             // Done this way to preserve scroll state
@@ -42,6 +42,7 @@ struct HomeView: View {
             Color.clear.frame(height: diffBottomInset)
         }
         .dynamicTypeSize(.large ... .xxLarge)
+        
     }
 }
 

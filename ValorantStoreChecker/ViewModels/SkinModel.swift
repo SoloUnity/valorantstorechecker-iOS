@@ -31,7 +31,7 @@ class SkinModel: ObservableObject{
         else if networkType == "cellular" && currentNetworkType == "cellular" {
             getRemote()
         }
-        else if networkType == "both" && (currentNetworkType == "wifi" || currentNetworkType == "cellular") {
+        else if networkType == "both" {
             getRemote()
         }
 

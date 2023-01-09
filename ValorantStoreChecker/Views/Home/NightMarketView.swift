@@ -40,9 +40,9 @@ struct NightMarketView: View {
                                     
                                     
                                     
-                                    if index < authAPIModel.percentOff.count && index < authAPIModel.nightSkins.count && authAPIModel.percentOff.count == authAPIModel.nightSkins.count {
+                                    if index < authAPIModel.nightDiscount.count && index < authAPIModel.nightSkins.count && authAPIModel.nightDiscount.count == authAPIModel.nightSkins.count {
                                         
-                                        let percentOff = authAPIModel.percentOff[index]
+                                        let percentOff = authAPIModel.nightDiscount[index]
                                         SkinCardView(skin: authAPIModel.nightSkins[index], showPrice: true, showPriceTier: true, price: authAPIModel.nightSkins[index].discountedCost ?? "" , originalPrice: false, percentOff: String(percentOff), nightPrice: true)
                                             .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
                                            
@@ -83,7 +83,7 @@ struct NightMarketView: View {
                 .refreshable {
                     
                     withAnimation(.easeIn) {
-                        authAPIModel.reloading = true
+                        authAPIModel.reloadAnimation = true
                     }
                     
                     Task{
