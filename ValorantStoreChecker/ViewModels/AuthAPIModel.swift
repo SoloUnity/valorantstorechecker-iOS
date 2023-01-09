@@ -539,8 +539,6 @@ class AuthAPIModel: ObservableObject {
     @MainActor
     func reload(skinModel: SkinModel, reloadType : String) async {
         do{
-            self.error = true
-            self.errorReloading = true
             
             print("Reloading")
 

@@ -211,12 +211,10 @@ The current way that the reload button requires cookies instead of your username
 "ErrorTitle" = "Error";
 "OK" = "OK";
 "CopyError" = "Copy Error";
-"ErrorMessage1" = "Reloading Error Cases
-3 days has passed since the previous reload. There are 2 options to solve this:
-1) Sign out and sign back in.
-2) The 3 day reload limit can be avoided by turning on remember password in About > Settings. This is an API limitation which I have no control over.";
-"ErrorMessage2" = "Reloading Error
-Wrong password set in Settings";
+"ErrorMessage1" = "Your personal cookies have expired. This is an API limitation which I have no control over. There are 2 options to solve this:
+1) Sign out and Sign in.
+2) Turn on remember password in Settings > Account.";
+"ErrorMessage2" = "Wrong password set in Settings";
 "ErrorMessage3" = "Your purchase could not be verified by the App Store.";
 "InformationTitle" = "Why my Riot Account?";
 "Information" = "While many of your statistics are free to access without your password, your store is an exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through an open source API. Additional information, the source code, and an FAQ can be found in the link below.";

@@ -212,12 +212,10 @@ La façon actuelle dont le bouton de rechargement utilise des cookies à la plac
 "ErrorTitle" = "Erreur";
 "OK" = "OK";
 "CopyError" = "Copier l'erreur";
-"ErrorMessage1" = "Erreur de rechargement
-3 jours se sont écoulés depuis le dernier rechargement. Il y a 2 options pour résoudre ce problème :
+"ErrorMessage1" = "Vos cookies personnels ont expiré. Il s'agit d'une limitation de l'API sur laquelle je n'ai aucun contrôle. Il y a 2 options pour résoudre ce problème :
 1) Déconnectez-vous et reconnectez-vous.
-2) La limite de 3 jours de rechargement peut être évitée en activant la fonction de mémorisation du mot de passe dans À propos > Réglages. Il s'agit d'une limitation de l'API sur laquelle je n'ai aucun contrôle.";
-"ErrorMessage2" = "Erreur de rechargement
-Mauvais mot de passe défini dans Réglages.";
+2) Activez la mémorisation du mot de passe dans Paramètres > Compte.";
+"ErrorMessage2" = "Mauvais mot de passe défini dans Réglages.";
 "ErrorMessage3" = "Votre achat n'a pas pu être vérifié par l'App Store.";
 "InvalidLogin" = "Connexion invalide";
 "Reset" = "Réinitialiser";

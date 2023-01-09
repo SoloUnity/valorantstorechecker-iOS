@@ -98,6 +98,7 @@
 		F8C3C77128E3CBD0002C840D /* ImageAndTextLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C77028E3CBD0002C840D /* ImageAndTextLogo.swift */; };
 		F8D4396228B1AC6D0093595C /* BundleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4396128B1AC6D0093595C /* BundleImageView.swift */; };
 		F8D4D4C128A429E400BDBBFE /* ValorantStoreCheckerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */; };
+		F8F1BC89296BEA8400179714 /* SegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F1BC88296BEA8400179714 /* SegmentControlView.swift */; };
 		F8F4E5C2295D5BFD0087C7A8 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F4E5C1295D5BFD0087C7A8 /* AlertModel.swift */; };
 		F8F4E5C6295D71330087C7A8 /* MediaManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F4E5C5295D71330087C7A8 /* MediaManagementView.swift */; };
 		F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F69D3328A5E159005A73D2 /* TipModel.swift */; };
@@ -203,6 +204,7 @@
 		F8D4396128B1AC6D0093595C /* BundleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleImageView.swift; sourceTree = "<group>"; };
 		F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
 		F8D7CDFD2919CCF7003F66B9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F8F1BC88296BEA8400179714 /* SegmentControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentControlView.swift; sourceTree = "<group>"; };
 		F8F4E5C1295D5BFD0087C7A8 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		F8F4E5C5295D71330087C7A8 /* MediaManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaManagementView.swift; sourceTree = "<group>"; };
 		F8F69D3328A5E159005A73D2 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
@@ -375,7 +377,7 @@
 			children = (
 				F8B9BE8229577F0F0007FDD3 /* HomeView.swift */,
 				F8163ECC28E0C67D00A27103 /* NightMarketView.swift */,
-				F8389391295BBD2200CC8E06 /* NavTabBarViews */,
+				F8389391295BBD2200CC8E06 /* NavTabBar */,
 				F8163ECE28E0CFBD00A27103 /* SkinViews */,
 				8B62AFCD2883A0DC0070173F /* ShopViews */,
 				F87952A428AEA06D005145F6 /* BundleViews */,
@@ -450,14 +452,14 @@
 			path = SkinViews;
 			sourceTree = "<group>";
 		};
-		F8389391295BBD2200CC8E06 /* NavTabBarViews */ = {
+		F8389391295BBD2200CC8E06 /* NavTabBar */ = {
 			isa = PBXGroup;
 			children = (
 				F8B9BE8129577F0F0007FDD3 /* TabBar.swift */,
 				F838938B295ADF2C00CC8E06 /* NavigationBar.swift */,
 				F838938F295B72D400CC8E06 /* NavigationSearchBar.swift */,
 			);
-			path = NavTabBarViews;
+			path = NavTabBar;
 			sourceTree = "<group>";
 		};
 		F8389396295D028700CC8E06 /* Utilities */ = {
@@ -486,6 +488,7 @@
 				F8B9BE44295514480007FDD3 /* VideoView.swift */,
 				F8B9BE46295515E50007FDD3 /* VideoPickerView.swift */,
 				F8B9BE49295524C20007FDD3 /* ChromaView.swift */,
+				F8F1BC88296BEA8400179714 /* SegmentControlView.swift */,
 				F8B9BE4B295525640007FDD3 /* ChromaPickerView.swift */,
 			);
 			path = SkinCardDetailView;
@@ -632,6 +635,7 @@
 				8BF1DB482888B87F004491A1 /* Constants.swift in Sources */,
 				8B9A838B28861C5B009CE268 /* DeluxeEditionView.swift in Sources */,
 				8B9A8385288612DD009CE268 /* SelectEditionView.swift in Sources */,
+				F8F1BC89296BEA8400179714 /* SegmentControlView.swift in Sources */,
 				F8B9BE61295564C90007FDD3 /* RegionName.swift in Sources */,
 				F8A5011528E130BD00D66626 /* DispatchQueue+Extensions.swift in Sources */,
 				8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */,

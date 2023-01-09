@@ -34,16 +34,17 @@ struct ChromaPickerView: View {
                         
                         Rectangle()
                             .fill(.ultraThickMaterial)
-                            .opacity(isSelected ? 0.5 : 0.01)
-                            .cornerRadius(10)
+                            .opacity(isSelected ? 0.7 : 0.01)
+                            .cornerRadius(15)
                             .padding(2)
                             .onTapGesture {
-                                withAnimation(.interactiveSpring(response: 0.2,
+                                withAnimation(.interactiveSpring(response: 0.25,
                                                                  dampingFraction: 2,
-                                                                 blendDuration: 0.5)) {
+                                                                 blendDuration: 0.25)) {
                                     self.selectedChroma = index
                                 }
                             }
+                            .shadow(color: .gray, radius: 1)
                     }
                     .overlay(
                         
@@ -70,14 +71,14 @@ struct ChromaPickerView: View {
                             .fill(.ultraThinMaterial)
                         
                         Rectangle()
+                            .fill(.ultraThinMaterial)
                             .opacity(isSelected ? 1 : 0.01)
-                            .foregroundColor(Color(red: 120/255, green: 120/255, blue: 120/255))
-                            .cornerRadius(10)
+                            .cornerRadius(15)
                             .padding(2)
                             .onTapGesture {
-                                withAnimation(.interactiveSpring(response: 0.2,
+                                withAnimation(.interactiveSpring(response: 0.25,
                                                                  dampingFraction: 2,
-                                                                 blendDuration: 0.5)) {
+                                                                 blendDuration: 0.25)) {
                                     self.selectedChroma = index
                                 }
                             }
@@ -106,7 +107,7 @@ struct ChromaPickerView: View {
                 
             }
         }
-        .cornerRadius(10)
+        .cornerRadius(15)
         .padding()
 
         

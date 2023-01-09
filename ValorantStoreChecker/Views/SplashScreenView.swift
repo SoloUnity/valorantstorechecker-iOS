@@ -9,6 +9,10 @@ import SwiftUI
 
 struct SplashScreenView: View {
     
+    @Environment(\.colorScheme) var colourScheme
+    @AppStorage("dark") var toggleDark = false
+    @AppStorage("autoDark") var auto = false
+    
     @State private var isActive = false
     @State private var size = 0.8
     @State private var opacity = 0.5
@@ -34,7 +38,6 @@ struct SplashScreenView: View {
                     
                     Logo()
                     
-                    
                     Image("textlogo")
                         .resizable()
                         .scaledToFit()
@@ -55,7 +58,7 @@ struct SplashScreenView: View {
                 
             }
             .padding(120)
-            .background(Constants.bgGrey)
+            .background(auto ? (colourScheme == .light ? .white : .black) : (toggleDark ? .black : .white))
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {   // Duration of splash screen
                     withAnimation {

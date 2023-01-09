@@ -107,6 +107,7 @@ struct BundleView: View {
                                 }
                             }
                             .pickerStyle(SegmentedPickerStyle())
+                            .cornerRadius(15)
                             .padding(.horizontal)
                             .onChange(of: index) { _ in
                                 authAPIModel.bundleImage = []
