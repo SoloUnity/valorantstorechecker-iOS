@@ -28,12 +28,12 @@
 
 // ログイン画面
 "Login" = "Riotアカウントにログインする";
-"OK" = "大丈夫";
+"OK" = "OK";
 "OpenLink" = "リンクを開く";
 "InvalidCredentials" = "無効な認証情報";
 "IRead" = "利用規約を読みました";
-"InformationTitle" = "なぜ私のRiotアカウント？";
-"Information" = "あなたの統計の多くはパスワードなしで自由にアクセスできますが、あなたのストアは機密情報とみなされるため例外となります。アプリがあなたのストアにアクセスするためには、オープンソースのAPIを通じてあなたのストアを取得するあなたのログイン情報が必要です。追加情報、ソースコード、およびFAQは、以下のリンクに記載されています。";
+"InformationTitle" = "なぜログインするのですか？";
+"Information" = "あなたの統計の多くはパスワードなしで自由にアクセスできますが、あなたのストアは機密情報とみなされるため例外となります。アプリがあなたのストアにアクセスするためには、オープンソースのAPIを通じてあなたのストアを取得するためにあなたのログイン情報が必要です。追加情報、ソースコード、およびFAQは、以下のリンクに記載されています。";
 
 // LoginBoxView
 "Username" = "ユーザー名";
@@ -49,7 +49,7 @@
 // マルチファクタービュー
 "EnterTheCode" = "送信されたコードを入力してください";
 "InvalidCode" = "無効なコード";
-"TwoFactorAuthentication" = "2ファクタ認証";
+"TwoFactorAuthentication" = "2段階認証";
 
 // TermsView
 "TermsAndConditions" = "利用規約";
@@ -64,16 +64,16 @@
 "SkinIndex" = "スキンインデックス";
 "About" = "バージョン情報";
 
-// ショップトブバービュー
+// ショップタブバービュー
 "AutomaticReload" = "自動リロード";
 "AutomaticReloadInfo" = "利用可能なときに自動的にショップをリロードする";
-"Reloading" = "リローディング";
+"Reloading" = "リロード中";
 "Reload" = "リロード";
 
 // SkinCardDetailView（スキンカードディテールビュー
 "InfoPrice" = "このスキンの価格は、残念ながら私たちのデータベースにはありません。";
 "Cost" = "コスト";
-"ExclusiveSkinMessage" = "これはBattlepass限定、キャラクター限定、限定版のいずれかのスキンです。";
+"ExclusiveSkinMessage" = "これはバトルパス限定、エージェント契約限定、または期間限定版のいずれかのスキンです。";
 "Tier" = "ティア";
 "Default" = "デフォルト";
 "Default1" = "1. デフォルト";
@@ -85,7 +85,7 @@
 
 // AboutView
 // HomeViewの中のAbout
-"MadeWith" = "SwiftUIで作られた";
+"MadeWith" = "Made with SwiftUI";
 "MadeIn" = "🇨🇦製";
 
 // アカウントビュー
@@ -110,12 +110,12 @@
 "WhatsNew" = "新着情報";
 
 // HelpView（ヘルプビュー
-"Help" = "デベロッパーを助けよう";
+"Help" = "アプリ開発に協力する";
 "HelpMessage" = "こんにちは！私は人生を少しでも良くしようと思っている寝不足の大学生です😄。以下の方法で私を助けることを検討してください！";
 "Share" = "アプリを共有する";
 "Review" = "レビューを残す";
 "Star" = "プロジェクトに星をつける";
-"Sponsor" = "付け届け";
+"Sponsor" = "寄付";
 
 // 謝辞の表示
 "Acknowledgements" = "謝辞";
@@ -129,23 +129,23 @@
 // SettingsView
 "Settings" = "設定";
 "RememberPassword" = "パスワードの記憶";
-"RememberPasswordInfo" = "パスワードはKeychainによって保護されています。サインアウトまたはトグルを無効にすると、パスワードは自動的に忘れられます。この機能を有効にすると、APIの時間制限を回避し、ユーザーの代わりに自動サインインが可能になります。";
+"RememberPasswordInfo" = "パスワードはKeychainによって保護されています。サインアウト、またはトグルスイッチを無効にすると、パスワードは自動的に忘れられます。この機能を有効にすると、APIの時間制限を回避し、ユーザーの代わりに自動サインインが可能になります。";
 "Notify" = "ストアリセット通知";
-"NotifyDescription" = "店舗がリセットされたときに通知を受け取る。";
+"NotifyDescription" = "ストアがリセットされたときに通知を受け取る。";
 "ChangeLanguage" = "言語を変更する";
 "Language" = "言語";
 "LanguageDescription" = "アプリの詳細設定を開きます。";
 
 // Skin Index Filter
-"All" = "何れも";
-"Owned" = "かいこみずみ";
+"All" = "すべて";
+"Owned" = "所有済み";
 "Knife" = "ナイフ";
-"Sidearm" = "ピストル";
+"Sidearm" = "ハンドガン";
 "SMGs" = "サブマシンガン";
-"Shotguns" = "散弾銃";
+"Shotguns" = "ショットガン";
 "Rifles" = "ライフル";
-"Sniper" = "狙撃銃";
-"Heavy" = "重機関銃";
+"Sniper" = "スナイパー";
+"Heavy" = "マシンガン";
 "EmptySearch" = "検索条件に一致するものがない";
 "NoOwned" = "ストアを再読み込みするか、スキンを購入してください :)";
 
@@ -169,6 +169,6 @@
 // Review Prompt
 "ReviewTitle" = "VSC を楽しんでいますか?";
 "OpenGitHub" = "GitHub スターを残す";
-"MaybeLater" = "たぶん後で";
+"MaybeLater" = "また後で";
 "NeverShowAgain" = "二度と表示しない";
 "ReviewPrompt" = "GitHub にレビューまたは星を残してください!";
