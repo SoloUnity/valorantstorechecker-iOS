@@ -520,10 +520,6 @@ class AuthAPIModel: ObservableObject {
         }
         catch{
             
-            /*
-            self.errorMessage = "Multifactor error, please enter the correct code."
-            self.isError = true
-            */
             
             // Reset user defaults
             self.multifactorAnimation = false

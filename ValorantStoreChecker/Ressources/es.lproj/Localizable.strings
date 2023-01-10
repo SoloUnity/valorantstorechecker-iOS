@@ -1,0 +1,273 @@
+/*
+Localizable.strings
+ValorantStoreChecker
+
+Created by Gordon on 2022-08-07.
+*/
+
+// Translated using https://github.com/GWesley/auto_localize
+"SignIn" = "Registrarse";
+
+"PrivacyDisclaimer" = "Al hacer clic en Iniciar sesión, usted acepta nuestros Términos y Condiciones y nuestra [Política de privacidad](https://www.craft.do/s/fqxdg6asyp8wak)";
+
+"Login" = "Inicie sesión en su cuenta antidisturbios";
+
+"InvalidCredentials" = "Credenciales no válidas";
+
+"Username" = "Nombre de usuario";
+
+"Password" = "Contraseña";
+
+"SelectRegion" = "Seleccione región";
+
+"Americas" = "América";
+
+"Europe" = "Europa";
+
+"AsiaPacific" = "Asia Pacífico";
+
+"SouthKorea" = "Corea del Sur";
+
+"TermsAndConditions" = "Términos y condiciones";
+
+"MITLicense" = "Licencia de MIT
+Copyright (c) 2022 Gordon Ng
+
+El permiso se otorga, de forma gratuita, a cualquier persona que obtenga una copia de este software y archivos de documentación asociados (el software), para tratar el software sin restricción, incluidos los derechos de usar, copiar, modificar, fusionar, publicar, publicar, publicar, publicar, distribuya, sublicense y/o venda copias del software, y para permitir que las personas a quienes se proporcione el software lo haga, sujeto a las siguientes condiciones: el aviso de derechos de autor anterior y este aviso de permiso se incluirán en todas las copias o sustancialesporciones del software.
+
+El software se proporciona como es, sin garantía de ningún tipo, expreso o implícito, incluidas, entre otros, las garantías de comerciabilidad, idoneidad para un propósito particular y no infracción.En ningún caso los autores o titulares de derechos de autor serán responsables de cualquier reclamo, daños u otra responsabilidad, ya sea en una acción de contrato, agravio o de otro tipo, que surge, de o en relación con el software o el uso u otros tratos en elSOFTWARE.";
+
+"Copyright" = "Derechos de autor";
+
+"CopyrightNotice" = "VSC (Checker de la tienda para Valorant) no está asociado, conectado o respaldado por los juegos de valoras o antidisturbios.Además, Riot Games y Valorant son marcas registradas bajo Riot Games Inc.";
+
+"EnterTheCode" = "Ingrese el código enviado a";
+
+"InvalidCode" = "Codigo invalido";
+
+"TwoFactorAuthentication" = "Autenticación de dos factores";
+
+"DownloadAssets" = "Descargar activos";
+
+"Stuck" = "¿Atascado?Haga clic aquí para intentarlo de nuevo.";
+
+"NightMarket" = "Mercado de la noche";
+
+"Store" = "Tienda";
+
+"Bundle" = "Paquete";
+
+"SkinIndex" = "Índice de piel";
+
+"Settings" = "Ajustes";
+
+"Cancel" = "Cancelar";
+
+"Cost" = "Costo";
+
+"ExclusiveSkinMessage" = "Este es un exclusivo de BattlePass, un personaje exclusivo o una piel de edición limitada.";
+
+"Tier" = "Nivel";
+
+"Default1" = "1. Valor predeterminado";
+
+"Default" = "Por defecto";
+
+"Reloading" = "Recarga";
+
+"Reload" = "Recargar";
+
+"UpdateAvailable" = "Actualización disponible";
+
+"EmptyBundle" = "Refrescar para ver el paquete";
+
+"NoOwned" = "Recargue la tienda o compre algunas pieles :)";
+
+"EmptySearch" = "Nada coincide con tu búsqueda";
+
+"Search" = "Buscar";
+
+"All" = "Todas";
+
+"Knife" = "Cuchillo";
+
+"Sidearm" = "Arma";
+
+"SMGs" = "SMGS";
+
+"Shotguns" = "Escopetas";
+
+"Rifles" = "Rifles";
+
+"Heavy" = "Pesado";
+
+"HelpDev" = "¡Ayuda al desarrollador!";
+
+"AutomaticReload" = "Recarga automática";
+
+"Notify" = "Notificación de reinicio de la tienda";
+
+"Allow" = "Permitir";
+
+"Appearance" = "Apariencia";
+
+"Language" = "Idioma";
+
+"ManageMedia" = "Administrar medios";
+
+"Support" = "Apoyo";
+
+"Community" = "Comunidad";
+
+"Share" = "Comparte la aplicación";
+
+"Acknowledgements" = "Agradecimientos";
+
+"About" = "Acerca de";
+
+"RememberPasswordInfo" = "Su contraseña está asegurada por KeyChain.Registrar o deshabilitar la palanca olvidará automáticamente la contraseña.Habilitar esta característica evita las limitaciones de tiempo de la API y permite iniciar sesión automático en nombre del usuario.";
+
+"SignOut" = "Desconectar";
+
+"Account" = "Cuenta";
+
+"RememberPassword" = "Recordar contraseña";
+
+"Region" = "Región";
+
+"SwitchAccounts" = "Cambiar cuentas";
+
+"HelpMessage" = "¡Hola!Soy un estudiante universitario privado de dormir que solo intenta hacer la vida un poco mejor 😄.¡Considere ayudarme a través de cualquier método a continuación!";
+
+"Review" = "Dejar un comentario";
+
+"Star" = "Estrella el repositorio";
+
+"HelpTranslate" = "Ayuda con la traducción";
+
+"ShowAppreciation" = "Apreciación del espectáculo";
+
+"Sponsor" = "Dame consejos";
+
+"CheckUpdates" = "Verifique las actualizaciones";
+
+"ColourScheme" = "Esquema de color";
+
+"Auto" = "Auto";
+
+"Background" = "Fondo";
+
+"AppIcon" = "Icono de la aplicación";
+
+"DefaultDark" = "Dark predeterminado";
+
+"3DDark" = "3d oscuro";
+
+"Default Light" = "Luz predeterminada";
+
+"3DLight" = "Luz 3d";
+
+"AutoplayVideos" = "Videos de reproducción automática";
+
+"DownloadNewAssets" = "Descargar nuevos activos";
+
+"WifiOnly" = "Sólo wifi";
+
+"CellularOnly" = "Celular";
+
+"Never" = "Nunca";
+
+"ClearAssets" = "Activos claros";
+
+"Create" = "Crear un boleto de soporte";
+
+"FAQ" = "Preguntas más frecuentes";
+
+"SourceCode" = "Código fuente";
+
+"FAQText" = "¿Por qué la aplicación necesita mi información de inicio de sesión?
+                        
+Si bien muchas de sus estadísticas son gratuitas para acceder sin su contraseña, su tienda es una excepción notable, ya que se considera información confidencial.Para que la aplicación acceda a su tienda, necesita su información de inicio de sesión donde obtiene su tienda a través de esta [API de código abierto](https://github.com/heym1ke/ValorantClientapi).
+                        
+¿Cuáles son las medidas establecidas para protegerme?
+
+Además de nunca almacenar su contraseña, la información confidencial, incluida su región, está asegurada detrás de Keychain.La aplicación también es de código abierto, lo que permite que cualquiera y todos accedan al código en todo momento.Su privacidad es una prioridad, y he hecho todo lo que está en mi poder para asegurarla.Para Legal Mumbo Jumbo, ver [aquí](https://www.craft.do/s/fqxdg6asyp8wak).
+
+¿Qué activos se descargan?
+
+Los activos descargados son imágenes que le permiten usar la función de índice de piel de la aplicación en todo momento, incluso cuando fuera de línea.
+
+¿Qué hace la contraseña de recordar?
+
+La forma actual en que el botón Recargar requiere cookies en lugar de su nombre de usuario y contraseña, lo que permite que la aplicación no almacene su contraseña en absoluto.Sin embargo, estas cookies caducan después de un cierto período, lo que requiere que el usuario vuelva a iniciar sesión.Para optimizar este proceso, recuerde que la contraseña permite al usuario guardar su contraseña y permitir el inicio de sesión automático detrás de escena. Si el usuario no desea guardar la contraseña, simplemente puede iniciar sesión y volver a iniciar sesión para crear nuevas cookies.";
+
+"WebAndDisc" = "Sitio web y Bot de Discords";
+
+"DiscordServer" = "Servidor de discordia";
+
+"ThankJulian" = "¡Gracias por su ayuda para responder a mis muchas preguntas!";
+
+"ThankLunac" = "¡Gracias por su continuo apoyo!";
+
+"Version" = "Versión";
+
+"Privacy" = "Política de privacidad";
+
+"WhatsNew" = "Qué hay de nuevo";
+
+"MadeIn" = "Hecho en 🇨🇦";
+
+"NetworkError" = "Sin red";
+
+"InfoPrice" = "Desafortunadamente, el precio de esta piel no está en nuestra base de datos.";
+
+"ErrorTitle" = "Error";
+
+"OK" = "OK";
+
+"CopyError" = "Copiar error";
+
+"ErrorMessage1" = "Tus cookies personales han expirado.Esta es una limitación de API sobre la que no tengo control.Hay 2 opciones para resolver esto:
+1) Inicie sesión e inicie sesión.
+2) Encienda la contraseña Recuerde en Configuración> Cuenta.";
+
+"ErrorMessage2" = "Contraseña incorrecta establecida en la configuración";
+
+"ErrorMessage3" = "Su compra no podría ser verificada por la App Store.";
+
+"InformationTitle" = "¿Por qué mi cuenta antidisturbios?";
+
+"Information" = "Si bien muchas de sus estadísticas son gratuitas para acceder sin su contraseña, su tienda es una excepción, ya que se considera información confidencial.Para que la aplicación acceda a su tienda, necesita su información de inicio de sesión donde obtiene su tienda a través de una API de código abierto.La información adicional, el código fuente y las preguntas frecuentes se pueden encontrar en el enlace a continuación.";
+
+"InvalidLogin" = "Ingreso invalido";
+
+"Reset" = "Reiniciar";
+
+"ResetInfo" = "Ocasionalmente debido a algunos errores, pueden surgir errores.Este botón le permite restablecer la aplicación por completo en caso de estos errores.";
+
+"ReviewTitle" = "¿Disfrutando de VSC?";
+
+"OpenGitHub" = "Deja una estrella de Github";
+
+"MaybeLater" = "Quizas mas tarde";
+
+"NeverShowAgain" = "Nunca lo muestres otra vez";
+
+"ReviewPrompt" = "¡Deje una reseña o una estrella en GitHub!";
+
+"UpdateButton" = "Nueva versión de la aplicación disponible";
+
+"UpdateInstructions1" = "Si no hay opción de actualización, por favor:";
+
+"UpdateInstructions2" = "Ir a la pestaña de casa (hoy)";
+
+"UpdateInstructions3" = "Haga clic en su perfil en la parte superior derecha";
+
+"UpdateInstructions4" = "Deslizar hacia abajo para recargar";
+
+"UpdateInstructions5" = "Desplácese hacia abajo para ver las actualizaciones disponibles";
+
+"UpdateTitle" = "ACTUALIZAR APLICACIÓN";
+
+
+

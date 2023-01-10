@@ -111,6 +111,12 @@ class SkinModel: ObservableObject{
             chosenLanguage = "de-DE"
         case "zh-Hans":
             chosenLanguage = "zh-CN"
+        case "vi":
+            chosenLanguage = "vi-VN"
+        case "es":
+            chosenLanguage = "es-ES"
+        case "pt-PT":
+            chosenLanguage = "pt-BR"
         default:
             chosenLanguage = "en-US"
         }

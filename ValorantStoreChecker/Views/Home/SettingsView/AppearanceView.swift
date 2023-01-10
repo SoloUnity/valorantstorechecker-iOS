@@ -280,7 +280,7 @@ struct AppearanceView: View {
             
             
         }
-        .navigationTitle("Appearance")
+        .navigationTitle(LocalizedStringKey("Appearance"))
         .onAppear {
             if auto {
                 self.colourScheme = 0

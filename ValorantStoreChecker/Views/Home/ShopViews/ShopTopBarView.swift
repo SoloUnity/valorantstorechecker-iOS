@@ -16,6 +16,7 @@ struct ShopTopBarView: View {
     @EnvironmentObject var alertModel : AlertModel
     @AppStorage("autoReload") var autoReload: Bool = false
     @AppStorage("clickedReview") var clickedReview : Bool = false
+    @AppStorage("selectedTab") var selectedTab: Tab = .shop
     @State private var nowDate: Date = Date()
     @State private var update : Bool = false
     
@@ -31,6 +32,8 @@ struct ShopTopBarView: View {
     
     var body: some View {
         
+        let countdown = countDownString(from: referenceDate, nowDate: nowDate)
+        
         HStack {
             
             // MARK: Countdown timer
@@ -39,7 +42,6 @@ struct ShopTopBarView: View {
                 .scaledToFit()
                 .frame(width: 15, height: 15)
             
-            let countdown = countDownString(from: referenceDate, nowDate: nowDate)
             
             Group {
                 if countdown == "Reload" && autoReload {
@@ -80,7 +82,6 @@ struct ShopTopBarView: View {
                     }
                 }
             }
-            
             
             Spacer()
             

@@ -1,178 +1,237 @@
 /*
-  현지화 가능한 문자열
-  바로런트 스토어 체커
+Localizable.strings
+ValorantStoreChecker
 
-  2022-08-07에 Gordon에 의해 작성되었습니다.
-  
+Created by Gordon on 2022-08-07.
 */
-// 오류 및 경고
-"ErrorTitle" = "오류";
-"ErrorMessage1" = "재로드 오류 사례
-1) 잘못된 네트워크 연결입니다.
-2) 전회의 재로드로부터 3일 경과하고 있다. 이 문제를 해결하려면 두 가지 옵션이 있습니다.
-2a) 한 번 로그아웃한 다음 다시 로그인합니다.
-2b) 3일간의 리로드 제한은 버전 정보 > 설정에서 비밀번호 저장을 켜서 피할 수 있습니다. 이것은 API 제한이며 내가 제어 할 수 없습니다 ";
-"ErrorMessage2" = "재로드 오류 사례
-1) 잘못된 네트워크 연결
-2) 설정에 설정된 암호가 잘못되었습니다 ";
-"DownloadAssets" = "애셋 다운로드(75mb)";
-"CopyError" = "복사 오류";
-"Unknown" = "알 수 없음";
-"ErrorMessage3" = "고객의 구매 내역은 App Store에서 확인할 수 없습니다.";
-"NetworkError" = "인터넷 연결을 확인하십시오.";
 
-"Reset" = "리셋";
-"ResetApp" = "앱 재설정";
-"ResetInfo" = "드물게 버그로 인해 오류가 발생할 수 있습니다. 이 버튼을 사용하면 오류가 발생하면 앱을 완전히 재설정할 수 있습니다.";
-"HelpTranslate" = "번역 도움말";
 
-// 로그인 화면
-"Login" = "Riot 계정에 로그인";
-"OK" = "괜찮아";
-"OpenLink" = "링크 열기";
-"InvalidCredentials" = "잘못된 자격 증명";
-"IRead" = "이용 약관을 읽었습니다";
-"InformationTitle" = "왜 내 Riot 계정?";
-"Information" = "통계의 대부분은 비밀번호 없이 자유롭게 액세스할 수 있지만, 스토어는 기밀 정보로 간주되므로 예외가 됩니다. 앱이 스토어에 액세스하려면 오픈 소스 API를 통해 상점을 검색하는 로그인 정보가 필요합니다. 추가 정보, 소스 코드 및 FAQ는 아래 링크에 나와 있습니다.";
+//----------------------------------
+// MARK: Onboarding
+// LoginView
+"SignIn" = "로그인";
+"PrivacyDisclaimer" = "로그인을 클릭하면 당사 이용 약관 및 [개인정보 보호정책](https://www.craft.do/s/fQxdg6aSyp8WAk)에 동의하는 것입니다.";
 
-// LoginBoxView
+// LoginViews -> LoginInfoView
+"Login" = "라이엇 계정에 로그인하세요";
+"InvalidCredentials" = "유효하지 않은 자격 증명";
+
+// LoginViews -> LoginBoxView
 "Username" = "사용자 이름";
 "Password" = "비밀번호";
 
-// RegionSelectorView
+// LoginViews -> RegionSelectorViewa
 "SelectRegion" = "지역 선택";
-"Americas" = "북아메리카";
+"Americas" = "아메리카";
 "Europe" = "유럽";
 "AsiaPacific" = "아시아 태평양";
 "SouthKorea" = "한국";
 
-
-// 멀티팩터 뷰
-"EnterTheCode" = "제출된 코드를 입력하세요";
-"InvalidCode" = "잘못된 코드";
-"TwoFactorAuthentication" = "2 인자 인증";
-
-// TermsView
-"TermsAndConditions" = "이용 약관";
+// LoginViews -> TermsView
+"TermsAndConditions" = "이용약관";
 "MITLicense" = "MIT 라이센스
-Copyright(c) 2022 Gordon Ng
+저작권 (c) 2022 Gordon Ng
 
-소프트웨어 및 관련 문서 파일(이하 소프트웨어))의 복제를 취득한 사용자에게 소프트웨어 사용, 복제, 변경, 결합, 출판, 배포, 서브라이센스 및/또는 복제 의 판매에 관한 권리를 포함하지만 이에 한정되지 않는 무제한의 거래를 하고 본 소프트웨어를 제공받는 자에게 이를 인정하는 허가를 이하의 조건으로 무상으로 부여하는 것이다. 이 경우 다음 조건에 따라 소프트웨어를 제공하는 사람에게 그 사용을 허용해야 합니다.
+사용, 복사, 수정, 병합, 게시할 수 있는 권한을 포함하여 제한 없이 소프트웨어를 제한 없이 처리할 수 있는 권한이 이 소프트웨어 및 관련 문서 파일(소프트웨어)의 사본을 얻는 모든 사람에게 무료로 부여됩니다. , 배포, 2차 라이선스 및/또는 소프트웨어 사본 판매 및 소프트웨어가 제공되는 사람이 그렇게 할 수 있도록 다음 조건에 따라 허용: 위의 저작권 고지 및 이 허가 고지는 모든 사본 또는 실질적인 소프트웨어의 일부.
 
-이 소프트웨어는 상품성, 특정 목적에의 적합성 및 비침해의 보증을 포함하나 이에 국한되지 않는 명시적 또는 묵시적인 어떠한 종류의 보증도 없이 그대로 제공됩니다. 1. 본 소프트웨어의 저작권자 또는 저작권 소유자는 본 소프트웨어 또는 본 소프트웨어의 사용 또는 기타 거래에서 발생하는 계약, 불법 행위 또는 기타 행위에 관계없이 어떠한 청구, 손해 또는 기타 책임에 대해서도 책임을지지 않습니다.";
-"Privacy" = "개인정보 보호정책";
+소프트웨어는 상품성, 특정 목적에의 적합성 및 비침해성에 대한 보증을 포함하되 이에 국한되지 않고 명시적이든 묵시적이든 어떠한 종류의 보증 없이 있는 그대로 제공됩니다. 어떤 경우에도 작성자나 저작권 보유자는 소프트웨어 또는 소프트웨어의 사용 또는 기타 거래로 인해 또는 이와 관련하여 발생하는 계약, 불법 행위 또는 기타 행위에 관계없이 청구, 손해 또는 기타 책임에 대해 책임을 지지 않습니다. 소프트웨어.";
+"Copyright" = "저작권";
+"CopyrightNotice" = "VSC(Store Checker for Valorant)는 Valorant 또는 Riot Games와 연관, 연결 또는 보증되지 않습니다. 또한 Riot Games 및 Valorant는 Riot Games Inc.에서 등록된 상표입니다.";
 
-// 홈뷰
+//----------------------------------
+// MultifactorView
+"EnterTheCode" = "전송된 코드를 입력하십시오";
+"InvalidCode" = "잘못된 코드";
+"TwoFactorAuthentication" = "2단계 인증";
+
+// DownloadView
+"DownloadAssets" = "자산 다운로드";
+"Stuck" = "멈췄습니까? 다시 시도하려면 여기를 클릭하십시오.";
+
+//----------------------------------
+// MARK: Home
+// NightMarketView
+"NightMarket" = "야시장";
+
+//----------------------------------
+// NavTabBar -> TabBar
 "Store" = "스토어";
+"Bundle" = "번들";
 "SkinIndex" = "스킨 인덱스";
-"About" = "버전 정보";
+"Settings" = "설정";
 
-// 상점 바바보기
-"AutomaticReload" = "자동 재로드";
-"AutomaticReloadInfo" = "사용 가능한 경우 자동으로 상점을 다시 로드합니다";
-"Reloading" = "리로딩";
-"Reload" = "리로드";
-
-// SkinCardDetailView(스킨카드 디테일 뷰
-"InfoPrice" = "이 스킨의 가격은 불행히도 우리 데이터베이스에 없습니다.";
-"Cost" = "비용";
-"ExclusiveSkinMessage" = "이것은 Battlepass 한정, 캐릭터 한정, 한정판의 스킨입니다.";
-"Tier" = "티어";
-"Default" = "기본값";
-"Default1" = "1. 기본값";
-"Variant" = "변형";
-
-// 검색 바
-"Search" = "검색";
+// NavTabBar -> NavigationSearchBar
 "Cancel" = "취소";
 
-// AboutView
-// HomeView의 About
-"MadeWith" = "SwiftUI로 만든";
-"MadeIn" = "🇨🇦제";
+//----------------------------------
+// SkinCardDetailView -> PriceView
+"Cost" = "비용";
+"ExclusiveSkinMessage" = "이것은 Battlepass 전용, 캐릭터 전용 또는 한정판 스킨입니다.";
 
-// 계정보기
-"Account" = "계정";
+// SkincardDetailView -> VideoPickerView
+"Tier" = "계층";
+"Default1" = "1. 기본값";
+"Default" = "기본값";
+"Unknown" = "알 수 없음";
+
+//----------------------------------
+// ShopTopBarView
+"Reloading" = "다시 로드 중";
+"Reload" = "다시 로드";
+"UpdateAvailable" = "업데이트 가능";
+
+//----------------------------------
+// BundleView
+"EmptyBundle" = "번들을 보려면 새로 고침";
+
+//----------------------------------
+// SkinListView
+"NoOwned" = "상점을 새로고침하거나 스킨을 구입하세요 :)";
+"EmptySearch" = "검색어와 일치하는 항목이 없습니다.";
+
+
+// SearchBar
+"Search" = "검색";
+
+// FilterView
+"All" = "모두";
+"Owned" = "소유";
+"Knife" = "나이프";
+"Sidearm" = "보조 무기";
+"SMGs" = "기관단총";
+"Shotguns" = "샷건";
+"Rifles" = "소총";
+"Sniper" = "스나이퍼";
+"Heavy" = "무거움";
+
+//----------------------------------
+// SettingsView
+"HelpDev" = "개발자를 도와주세요!";
+"AutomaticReload" = "자동 다시 로드 중";
+"Notify" = "스토어 초기화 알림";
+"Allow" = "허용";
+"Appearance" = "모양";
+"Language" = "언어";
+"ManageMedia" = "미디어 관리";
+"Support" = "지원";
+"Community" = "커뮤니티";
+"Share" = "앱 공유";
+"Acknowledgements" = "승인";
+"About" = "정보";
+
+//----------------------------------
+// AccountViews -> AccountView
+"RememberPasswordInfo" = "비밀번호는 키체인으로 보호됩니다. 로그아웃하거나 토글을 비활성화하면 자동으로 비밀번호를 잊어버립니다. 이 기능을 활성화하면 API 시간 제한을 우회하고 사용자 대신 자동 로그인이 가능합니다.";
 "SignOut" = "로그아웃";
-"Username" = "사용자 이름";
+"Account" = "계정";
+
+// AccountViews -> RememberPasswordView
+"RememberPassword" = "암호 기억";
+
+// AccountViews -> RegionView
 "Region" = "지역";
-// RegionSelectorView의 지역 이름
+
+// AccountViews -> AccountSwitcherView
+"SwitchAccounts" = "계정 전환";
+
+//----------------------------------
+// HelpViews -> HelpView
+"HelpMessage" = "안녕하세요! 저는 삶을 조금 더 낫게 만들고자 노력하는 수면 부족 대학생입니다 😄. 아래 방법을 통해 저를 도와주세요!";
+"Review" = "리뷰를 남겨주세요";
+"Star" = "저장소 별표 표시";
+"HelpTranslate" = "번역 도움말";
+
+// HelpViews -> TipView
+"ShowAppreciation" = "감사 표시";
+"Sponsor" = "팁";
+
+//----------------------------------
+// AppearanceView
+"CheckUpdates" = "업데이트 확인";
+"ColourScheme" = "색상 구성표";
+"Auto" = "자동";
+"Light" = "빛";
+"Dark" = "어둡게";
+"Background" = "배경";
+"AppIcon" = "앱 아이콘";
+"DefaultDark" = "Default Dark";
+"3DDark" = "3D Dark";
+"Default Light" = "Default Light";
+"3DLight" = "3D Light";
+
+// MediaManagementView
+"AutoplayVideos" = "동영상 자동재생";
+"Both" = "둘 다";
+"DownloadNewAssets" = "새로운 자산 다운로드";
+"WifiOnly" = "와이파이 전용";
+"CellularOnly" = "셀룰러만";
+"Never" = "안함";
+"ClearAssets" = "자산 지우기";
+"Clear" = "지우기";
 
 // SupportView
-"Support" = "지원";
-"Create" = "지원 티켓 만들기";
-"FAQ" = "FAQ";
+"Create" = "지원 티켓 생성";
+"FAQ" = "자주 묻는 질문";
 "SourceCode" = "소스 코드";
+"FAQText" = "앱에 내 로그인 정보가 필요한 이유는 무엇입니까?
+                        
+대부분의 통계는 암호 없이 무료로 액세스할 수 있지만 스토어는 민감한 정보로 간주되므로 예외입니다. 앱이 스토어에 액세스하려면 이 [오픈 소스 API](https://github.com/HeyM1ke/ValorantClientAPI)를 통해 스토어를 가져오는 로그인 정보가 필요합니다.
+                        
+나를 보호하기 위한 조치는 무엇입니까?
 
-// 커뮤니티 뷰
-"Community" = "커뮤니티";
-"Website" = "웹사이트";
-"DiscordServer" = "Discord 서버";
+비밀번호를 저장하지 않는 것 외에도 지역을 포함한 민감한 정보는 키체인으로 보호됩니다. 또한 이 앱은 오픈 소스이므로 누구나 언제든지 코드에 액세스할 수 있습니다. 귀하의 개인 정보는 최우선 사항이며 이를 보장하기 위해 최선을 다했습니다. 합법적인 mumbo jumbo는 [여기](https://www.craft.do/s/fQxdg6aSyp8WAk)를 참조하세요.
 
-// WhatsNewView
-"WhatsNew" = "새로운 정보";
+어떤 자산이 다운로드됩니까?
 
-// HelpView(도움말 보기
-"Help" = "개발자를 돕자";
-"HelpMessage" = "안녕하세요! 저는 삶을 조금이라도 하고자 하는 잠이 부족한 대학생입니다 😄.";
-"Share" = "앱 공유";
-"Review" = "리뷰 남기기";
-"Star" = "프로젝트에 별표 표시";
-"Sponsor" = "연결";
+다운로드한 에셋은 오프라인 상태에서도 앱의 스킨 인덱스 기능을 항상 사용할 수 있는 이미지입니다.
 
-// 감사의 표시
-"Acknowledgements" = "감사";
-"ThankJulian" = "많은 질문에 답해 주셔서 감사합니다!"; // juliand665
-"ThankLunac" = "언제나 응원해 주셔서 감사합니다!"; // Lunac
+암호 기억은 무엇을 합니까?
 
-// 저작권 표시
-"Copyright" = "저작권";
-"CopyrightNotice" = "VSC (Store Checker for Valorant)는 Valorant 및 Riot Games와 관련이 없으며 권장되지 않으며 Riot Games 및 Valorant는 Riot Games Inc.에 등록됩니다. 상표입니다";
+새로고침 버튼에 사용자 이름과 비밀번호 대신 쿠키가 필요한 현재 방식으로 앱이 비밀번호를 전혀 저장하지 않도록 합니다. 그러나 이러한 쿠키는 일정 기간이 지나면 만료되므로 사용자가 다시 로그인해야 합니다. 이 프로세스를 간소화하기 위해 암호 기억을 사용하면 사용자가 암호를 저장하고 백그라운드에서 자동 로그인을 허용할 수 있습니다. 사용자가 암호를 저장하지 않으려면 로그아웃했다가 다시 로그인하여 새 쿠키를 만들면 됩니다. ";
 
-// SettingsView
-"Settings" = "설정";
-"RememberPassword" = "비밀번호 저장";
-"RememberPasswordInfo" = "비밀번호는 Keychain에 의해 보호됩니다. 로그아웃 또는 토글을 사용 중지하면 비밀번호가 자동으로 잊어버립니다. 이 기능을 사용하면 API 시간 제한을 피하고 사용자 대신 에 자동 로그인이 가능합니다.";
-"Notify" = "상점 재설정 알림";
-"NotifyDescription" = "상점이 재설정될 때 알림을 받습니다.";
-"ChangeLanguage" = "언어 변경";
-"Language" = "언어";
-"LanguageDescription" = "앱 고급 설정을 엽니다.";
+// 커뮤니티뷰
+"WebAndDisc" = "웹사이트 및 Discord 봇";
+"DiscordServer" = "디스코드 서버";
 
-// Skin Index Filter
-"All" = "모두";
-"Owned" = "카이코미즈미";
-"Knife" = "칼";
-"Sidearm" = "권총";
-"SMGs" = "서브 머신 건";
-"Shotguns" = "산탄총";
-"Rifles" = "소총";
-"Sniper" = "저격총";
-"Heavy" = "중기관총";
-"EmptySearch" = "검색 기준과 일치하지 않음";
-"NoOwned" = "스토어를 다시로드하거나 스킨을 구입하십시오 :)";
+// AcknowledgementsView
+"ThankJulian" = "많은 질문에 답변해 주셔서 감사합니다!";
+"ThankLunac" = "지속적인 지원에 감사드립니다!";
 
-// 번들
-"Bundle" = "번들";
-"EmptyBundle" = "번들 디스플레이 업데이트";
+// AboutView
+"Version" = "버전";
+"Privacy" = "개인 정보 보호 정책";
+"WhatsNew" = "새로운 소식";
+"MadeIn" = "메이드 인 🇨🇦";
 
-//Update Messages
-"UpdateButton" = "사용 가능한 업데이트";
-"UpdateTitle" = "앱 업데이트";
-"Update" = "업데이트";
-"UpdateAvailable" = "Update Available";
-"UpdateInstructions1" = "업데이트 옵션이 없는 경우 다음 단계를 수행하십시오.";
-"UpdateInstructions2" = "홈 (오늘) 탭으로 이동";
-"UpdateInstructions3" = "오른쪽 상단의 프로필 클릭";
-"UpdateInstructions4" = "아래로 스와이프하여 다시 로드";
-"UpdateInstructions5" = "아래로 스크롤하여 사용 가능한 업데이트를 표시합니다";
-
-// Nighmarket
-"NightMarket" = "야간 시장";
-
-// Review prompt
-"ReviewTitle" = "VSC를 즐기고 있습니까?";
-"OpenGitHub" = "GitHub 별표 남기기";
+//----------------------------------
+// MARK: Miscallaneous
+// AlertView
+"NetworkError" = "네트워크 없음";
+"InfoPrice" = "이 스킨의 가격은 유감스럽게도 저희 데이터베이스에 없습니다.";
+"ErrorTitle" = "오류";
+"OK" = "확인";
+"CopyError" = "복사 오류";
+"ErrorMessage1" = "개인 쿠키가 만료되었습니다. 이것은 제가 제어할 수 없는 API 제한입니다. 이 문제를 해결하기 위한 2가지 옵션이 있습니다:
+1) 로그아웃하고 로그인합니다.
+2) 설정 > 계정에서 비밀번호 기억을 켭니다.";
+"ErrorMessage2" = "설정에 잘못된 암호가 설정됨";
+"ErrorMessage3" = "App Store에서 구입을 확인할 수 없습니다.";
+"InformationTitle" = "내 라이엇 계정이 왜 필요한가요?";
+"Information" = "비밀번호 없이 많은 통계에 무료로 액세스할 수 있지만 스토어는 민감한 정보로 간주되므로 예외입니다. 앱이 스토어에 액세스하려면 스토어를 얻는 로그인 정보가 필요합니다. 오픈 소스 API를 통해 추가 정보, 소스 코드 및 FAQ는 아래 링크에서 찾을 수 있습니다.";
+"InvalidLogin" = "유효하지 않은 로그인";
+"Reset" = "재설정";
+"ResetInfo" = "가끔 일부 버그로 인해 오류가 발생할 수 있습니다. 이 버튼을 사용하면 이러한 오류 발생 시 앱을 완전히 재설정할 수 있습니다.";
+"ReviewTitle" = "VSC가 마음에 드십니까?";
+"OpenGitHub" = "GitHub 별 남기기";
 "MaybeLater" = "나중에";
-"NeverShowAgain" = "다시 표시 안 함";
+"NeverShowAgain" = "다시 표시하지 않음";
 "ReviewPrompt" = "GitHub에 리뷰나 별표를 남겨주세요!";
+
+// UpdatesView
+"UpdateButton" = "새로운 앱 버전 사용 가능";
+"UpdateInstructions1" = "업데이트 옵션이 없는 경우 다음을 수행하십시오.";
+"UpdateInstructions2" = "홈(오늘) 탭으로 이동";
+"UpdateInstructions3" = "오른쪽 상단에서 프로필을 클릭하십시오";
+"UpdateInstructions4" = "다시 로드하려면 아래로 스와이프하세요";
+"UpdateInstructions5" = "사용 가능한 업데이트를 보려면 아래로 스크롤하십시오.";
+"UpdateTitle" = "앱 업데이트";

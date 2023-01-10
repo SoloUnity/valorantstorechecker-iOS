@@ -1,179 +1,286 @@
 /*
-  Localizable.strings
-  ValorantStoreChecker
+Localizable.strings
+ValorantStoreChecker
 
-  Created by Gordon on 2022-08-07.
-  
+Created by Gordon on 2022-08-07.
 */
 
+// Translated using https://github.com/GWesley/auto_localize
+"SignIn" = "登入";
 
-// 错误和警报。
-"ErrorTitle" = "错误";
-"ErrorMessage1" = "重新加载错误案例。
-1) 网络连接无效。
-2）自上次重装后已过去三天。 有两个选项可以解决这个问题。
-2a) 签出并再次签入。
-2b) 可以通过在 关于>设置 中打开 记住密码 来规避3天的重新加载限制。 这是API的一个限制，我无法控制它";
-"ErrorMessage2" = "重新加载错误案例。
-1) 无效的网络连接
-2）配置中设置的密码不正确";
-"DownloadAssets" = "下载资产（75mb）";
-"CopyError" = "复制错误";
-"Unknown"="未知";
-"ErrorMessage3" = "您的购买历史无法在App Store进行验证。";
-"NetworkError" = "请检查您的互联网连接。" ;
+"PrivacyDisclaimer" = "通过单击登录，您同意我们的条款和条件以及我们的[隐私政策](https://www.craft.do/s/fqxdg6asyp8wak)";
 
-"Reset"="重置";
-"ResetApp" = "重置应用";
-"ResetInfo" = "在少数情况下，一个错误可能会导致一个错误。 这个按钮允许你在出现错误的情况下完全重置应用程序";
-"HelpTranslate" = "帮助翻译";
+"Login" = "登录您的Riot帐户";
 
-// 登录屏幕。
-"Login"="登录到你的Riot账户";
-"OK"="好的";
-"OpenLink" = "打开链接";
-"InvalidCredentials" = "无效凭证";
-"IRead" = "我已经阅读了使用条款";
-"InformationTitle" = "为什么我的Riot账户？" ;
-"Information" = "你的大部分统计资料无需密码即可自由访问，但你的商店除外，它被认为是敏感信息。 为了让应用程序访问你的商店，它需要你的登录信息，以通过开源API检索你的商店。 其他信息、源代码和常见问题可以在以下链接中找到";
+"InvalidCredentials" = "无效证件";
 
-// LoginBoxView。
 "Username" = "用户名";
-"Password"="密码";
 
-// RegionSelectorView。
+"Password" = "密码";
+
 "SelectRegion" = "选择区域";
-"Americas" = "北美洲";
+
+"Americas" = "美洲";
+
 "Europe" = "欧洲";
-"AsiaPacific" = "亚太";
-"SouthKorea" = "南韩";
 
-// 多因素视图。
-"EnterTheCode" = "输入发送的代码";
-"InvalidCode" = "无效代码";
-"TwoFactorAuthentication" = "双因素认证";
+"AsiaPacific" = "亚太地区";
 
-// TermsView.
+"SouthKorea" = "韩国";
+
 "TermsAndConditions" = "条款和条件";
-"MITLicense" = "MIT许可
-Copyright (c) 2022 Gordon Ng
 
-获得本软件和相关文档文件（软件）副本的人，包括但不限于在不受限制的情况下使用、复制、修改、组合、出版、分发、分许可和/或出售本软件副本的权利。 兹准予免费进行交易，并授权接受该软件的任何人进行交易，但须符合以下条件。 在这种情况下，应允许接受该软件的人根据以下条款和条件使用该软件
+"MITLicense" = "麻省理工学院许可证
+版权 (C) 2022 Gordon ng
 
-本软件按原样提供，没有任何明示或暗示的保证，包括但不限于对适销性、特定用途的适用性和非侵权性的保证。 本软件的版权所有者或版权持有人对因本软件或本软件的使用或其他交易而引起的任何索赔、损害或其他责任，无论是合同、侵权行为还是其他方面，都不承担任何责任。";
-"Privacy"="隐私政策";
+特此免费授予任何获得此软件副本和相关文档文件 (软件) 的人，以无限制处理该软件，包括无限制的使用权，复制，修改，合并，发布，发布，分发，转销和/或出售软件的副本，并允许提供该软件的人，但要遵守以下条件：上述版权通知和此许可通知应包含在所有副本或实质性中软件的部分。
 
-// 主视图。
-"Store" = "商店";
-"SkinIndex" = "皮肤指数";
-"About"="关于";
+该软件是按原样提供的，没有任何形式的明示或暗示保证，包括但不限于适销性，适合特定目的和非侵权的保证。在任何情况下，作者或版权持有人均不应对任何索赔，损害赔偿或其他责任责任，无论是在合同，侵权或其他方面的诉讼中，与软件或与软件或使用或其他交易有关的诉讼或其他责任。软件。";
 
-// ShopTobber视图。
-"AutomaticReload"="自动重新加载";
-"AutomaticReloadInfo" = "当有机会时自动重新加载商店";
-"Reloading"="重装";
-"Reload"="重新装填";
+"Copyright" = "版权";
 
-// SkinCardDetailView。
-"InfoPrice" = "这个皮肤的价格不幸不在我们的数据库中。" ;
-"Cost"="成本";
-"ExclusiveSkinMessage" = "这是一个战斗通行证专属、角色专属或限量版的皮肤。";
-"Tier" = "层";
-"Default"="默认";
-"Default1"="1. 默认";
-"Variant"="变体";
+"CopyrightNotice" = "VSC (Valort的商店检查器) 与Valort或Riot Games无关，连接或认可。此外，Riot Games和Valort是在Riot Games Inc.下注册的商标。";
 
-// 搜索栏。
-"Search"="搜索";
-"Cancel"="取消";
+"EnterTheCode" = "输入发送给的代码";
 
-// AboutView。
-// 在HomeView中关于。
-"MadeWith" = "Made with SwiftUI";
-"MadeIn" = "由🇨🇦制造";
+"InvalidCode" = "无效的代码";
 
-// 帐户视图。
-"Account" = "账户";
-"SignOut" = "签出";
-"Username"="帐号";
-"Region"= "地区";
-// RegionSelectorView中的区域名称。
+"TwoFactorAuthentication" = "两个因素身份验证";
 
-// SupportView。
-"Support"="支持";
-"Create"="创建一张支持票";
-"FAQ"="常见的问题";
-"SourceCode" = "源代码";
+"DownloadAssets" = "下载资产";
 
-// 社区观点。
-"Community"="社区";
-"Website"="网站";
-"DiscordServer" = "Discord 服务器";
+"Stuck" = "卡住？单击此处重试。";
 
-// WhatsNewView。
-"WhatsNew" = "最新消息";
-
-// HelpView。
-"Help"="帮助开发者";
-"HelpMessage" = "Hello! 我是一个睡眠不足的大学生，希望能让自己的生活变得更好一点😄。 请考虑通过以下方式帮助我！";
-"Share"="分享该应用程序";
-"Review"="留下评论";
-"Star"="给项目加一颗星";
-"Sponsor"="附加和交付";
-
-// 鸣谢。
-"Acknowledgements"="鸣谢";
-"ThankJulian" = "谢谢你回答了这么多问题！" ; // juliand665
-"ThankLunac" = "感谢你的支持！" ;//Lunac
-
-// 版权声明。
-"Copyright"="版权";
-"CopyrightNotice" = "VSC (Store Checker for Valorant) 与Valorant或Riot Games没有任何关系，与之有联系，也没有得到其认可。 Riot Games和Valorant也是Riot Games Inc.下注册的商标。";
-
-// SettingsView。
-"Settings"="设置";
-"RememberPassword" = "记住密码";
-"RememberPasswordInfo" = "该密码受到钥匙串的保护。 如果你签出或禁用切换，密码就会自动遗忘。 启用这一功能可以绕过API的时间限制，并允许代表用户自动登录";
-"Notify" = "商店重置通知";
-"NotifyDescription" = "当商店被重置时收到通知。" ;
-"ChangeLanguage"="改变语言";
-"Language"="语言";
-"LanguageDescription" = "打开应用程序的高级设置。" ;
-
-// 皮肤指数过滤器。
-"All"="无";
-"Owned"="拥有";
-"Knife"="刀子";
-"Sidearm"="侧臂";
-"SMGs"="冲锋枪";
-"Shotguns"="霰弹枪";
-"Rifles"="步枪";
-"Sniper"="狙击步枪";
-"Heavy"="重机枪";
-"EmptySearch" = "没有匹配的搜索条件";
-"NoOwned" = "重新加载商店或购买皮肤:)";
-
-// 捆绑。
-"Bundle"="捆绑";
-"EmptyBundle" = "更新捆绑显示";
-
-//更新信息。
-"UpdateButton"="可用的更新";
-"UpdateTitle"="更新应用程序";
-"Update"="更新";
-"UpdateAvailable" = "Update Available";
-"UpdateInstructions1" = "如果没有更新选项，请按照以下步骤操作：";
-"UpdateInstructions2" = "Go to Home (Today) tab";
-"UpdateInstructions3" = "点击右上角的个人资料";
-"UpdateInstructions4"="向下滑动以重新加载";
-"UpdateInstructions5" = "向下滚动以查看可用的更新。";
-
-// Nighmarket
 "NightMarket" = "夜市";
 
-// 审查提示。
-"ReviewTitle" = "你喜欢VSC吗？" ;
-"OpenGitHub" = "留下GitHub之星";
+"Store" = "店铺";
+
+"Bundle" = "捆";
+
+"SkinIndex" = "皮肤索引";
+
+"Settings" = "设置";
+
+"Cancel" = "取消";
+
+"Cost" = "成本";
+
+"ExclusiveSkinMessage" = "这是BattlePass独家，角色独家或限量版皮肤。";
+
+"Tier" = "层";
+
+"Default1" = "1.默认";
+
+"Default" = "默认";
+
+"Unknown" = "未知";
+
+"Reloading" = "重新加载";
+
+"Reload" = "重新加载";
+
+"UpdateAvailable" = "更新可用";
+
+"EmptyBundle" = "刷新看到捆绑包";
+
+"NoOwned" = "请重新加载商店，或购买一些皮肤:)";
+
+"EmptySearch" = "没有什么比您的搜索匹配的";
+
+"Search" = "搜索";
+
+"All" = "全部";
+
+"Owned" = "拥有";
+
+"Knife" = "刀";
+
+"Sidearm" = "侧臂";
+
+"SMGs" = "SMG";
+
+"Shotguns" = "shot弹枪";
+
+"Rifles" = "步枪";
+
+"Sniper" = "狙击手";
+
+"Heavy" = "重的";
+
+"HelpDev" = "帮助开发！";
+
+"AutomaticReload" = "自动重新加载";
+
+"Notify" = "存储重置通知";
+
+"Allow" = "允许";
+
+"Appearance" = "外貌";
+
+"Language" = "语言";
+
+"ManageMedia" = "管理媒体";
+
+"Support" = "支持";
+
+"Community" = "社区";
+
+"Share" = "共享应用程序";
+
+"Acknowledgements" = "致谢";
+
+"About" = "关于";
+
+"RememberPasswordInfo" = "您的密码由钥匙扣确保。签名或禁用切换将自动忘记密码。启用此功能可以绕过API时间限制，并允许在用户代表用户自动登录。";
+
+"SignOut" = "登出";
+
+"Account" = "帐户";
+
+"RememberPassword" = "记住密码";
+
+"Region" = "地区";
+
+"SwitchAccounts" = "开关帐户";
+
+"HelpMessage" = "你好！我是一名睡眠剥夺的大学生，只是试图使生活变得更好。请考虑通过以下任何方法帮助我！";
+
+"Review" = "留下评论";
+
+"Star" = "主演存储库";
+
+"HelpTranslate" = "帮助翻译";
+
+"ShowAppreciation" = "表示赞赏";
+
+"Sponsor" = "给我小费";
+
+"CheckUpdates" = "检查更新";
+
+"ColourScheme" = "配色方案";
+
+"Auto" = "汽车";
+
+"Light" = "光";
+
+"Dark" = "黑暗的";
+
+"Background" = "背景";
+
+"AppIcon" = "应用图标";
+
+"DefaultDark" = "默认黑暗";
+
+"3DDark" = "3D黑暗";
+
+"Default Light" = "默认灯";
+
+"3DLight" = "3D灯";
+
+"AutoplayVideos" = "自动播放视频";
+
+"Both" = "两个都";
+
+"DownloadNewAssets" = "下载新资产";
+
+"WifiOnly" = "仅WiFi";
+
+"CellularOnly" = "细胞";
+
+"Never" = "绝不";
+
+"ClearAssets" = "清晰的资产";
+
+"Clear" = "清除";
+
+"Create" = "创建支持票";
+
+"FAQ" = "常问问题";
+
+"SourceCode" = "源代码";
+
+"FAQText" = "为什么该应用需要我的登录信息？
+                        
+尽管您的许多统计信息无需密码即可自由访问，但您的商店是一个显着的例外，因为它被视为敏感信息。为了使应用程序访问您的商店，它需要您的登录信息，在此信息通过此[开源API 获得商店](https://github.com/heym1ke/valorentclientapi) 。
+                        
+保护我有哪些措施？
+
+除了永远不会存储密码外，包括您的区域在内的敏感信息还在钥匙扣后面。该应用程序也是开源的，允许任何人和所有人始终访问代码。您的隐私是当务之急，我已经竭尽所能确保它。有关合法的Mumbo Jumbo，请参见[此处](https://www.craft.do/s/fqxdg6asyp8wak) 。
+
+下载了哪些资产？
+
+下载的资产是图像，即使在离线时，您也可以始终使用该应用程序的皮肤索引功能。
+
+记得密码做什么？
+
+重新加载按钮需要cookie而不是用户名和密码的当前方式，允许该应用完全不存储密码。但是，这些cookie在一段时间后过期，要求用户再次登录。为了简化此过程，请记住密码允许用户保存其密码并允许自动登录幕后。如果用户希望不保存密码，他们可以简单地登录并重新登录以创建新的cookie。";
+
+"WebAndDisc" = "网站和Discord机器人";
+
+"DiscordServer" = "Discord服务器";
+
+"ThankJulian" = "感谢您在回答我的许多问题时的帮助！";
+
+"ThankLunac" = "感谢您的持续支持！";
+
+"Version" = "版本";
+
+"Privacy" = "隐私政策";
+
+"WhatsNew" = "什么是新的";
+
+"MadeIn" = "制作🇨🇦";
+
+"NetworkError" = "没有网络";
+
+"InfoPrice" = "不幸的是，这种皮肤的价格不在我们的数据库中。";
+
+"ErrorTitle" = "错误";
+
+"OK" = "好的";
+
+"CopyError" = "复制错误";
+
+"ErrorMessage1" = "您的个人饼干已经到期。这是我无法控制的API限制。有2个解决方案的选项：
+1) 登录并登录。
+2) 在设置>帐户中打开记住密码。";
+
+"ErrorMessage2" = "在设置中设置错误的密码";
+
+"ErrorMessage3" = "App Store无法验证您的购买。";
+
+"InformationTitle" = "为什么我的骚乱帐户？";
+
+"Information" = "尽管您的许多统计信息无需密码即可自由访问，但您的商店是一个例外，因为它被视为敏感信息。为了使应用程序访问您的商店，它需要您的登录信息，然后通过开源API获取商店。其他信息，源代码和FAQ可以在下面的链接中找到。";
+
+"InvalidLogin" = "登录无效";
+
+"Reset" = "重置";
+
+"ResetInfo" = "有时由于一些错误，可能会出现错误。此按钮允许您在发生这些错误时完全重置该应用程序。";
+
+"ReviewTitle" = "享受VSC？";
+
+"OpenGitHub" = "留下github星星";
+
 "MaybeLater" = "也许以后";
-"NeverShowAgain"="永不再展示";
-"ReviewPrompt" = "在GitHub上留下评论或星星！" ;
+
+"NeverShowAgain" = "再也不会出现";
+
+"ReviewPrompt" = "请在Github上留下评论或星星！";
+
+"UpdateButton" = "可用的新应用版本";
+
+"UpdateInstructions1" = "如果没有更新选项，请：";
+
+"UpdateInstructions2" = "转到家 (今日) 标签";
+
+"UpdateInstructions3" = "在右上角点击您的个人资料";
+
+"UpdateInstructions4" = "向下滑动以重新加载";
+
+"UpdateInstructions5" = "向下滚动以查看可用的更新";
+
+"UpdateTitle" = "更新应用程序";
+
+

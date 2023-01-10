@@ -1,0 +1,268 @@
+/*
+Localizable.strings
+ValorantStoreChecker
+
+Created by Gordon on 2022-08-07.
+*/
+
+
+// Translated using https://github.com/GWesley/auto_localize
+"SignIn" = "Entrar";
+
+"PrivacyDisclaimer" = "Ao clicar em Entrar, você concorda com nossos Termos e Condições e com nossa [Política de Privacidade](https://www.craft.do/s/fQxdg6aSyp8WAk)";
+
+"Login" = "Faça login na sua conta Riot";
+
+"InvalidCredentials" = "Credenciais inválidas";
+
+"Username" = "Nome do usuário";
+
+"Password" = "Senha";
+
+"SelectRegion" = "Selecione a região";
+
+"Americas" = "Américas";
+
+"Europe" = "Europa";
+
+"AsiaPacific" = "Ásia-Pacífico";
+
+"SouthKorea" = "Coreia do Sul";
+
+"TermsAndConditions" = "Termos e Condições";
+
+"MITLicense" = "MIT Licença
+Copyright (C) 2022 Gordon Ng
+
+A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia deste software e arquivos de documentação associados (o software), para lidar com o software sem restrição, inclusive sem limitação os direitos de uso, copiar, modificar, mesclar, publicar, publicar, publicar, distribua, sublicense e/ou vender cópias do software e permitir que as pessoas a quem o software seja fornecido para fazê -lo, sujeito às seguintes condições: o aviso de direitos autorais acima e esse aviso de permissão serão incluídos em todas as cópias ou substanciaispartes do software.
+
+O software é fornecido como é, sem garantia de qualquer tipo, expresso ou implícito, incluindo, entre outros, as garantias de comercialização, aptidão para uma finalidade específica e não innoculação.Em nenhum caso os autores ou detentores de direitos autorais serão responsabilizados por qualquer reclamação, danos ou outro passivo, seja em uma ação de contrato, delito ou não, decorrente de, fora ou em conexão com o software ou o uso ou outras negociações noPROGRAMAS.";
+
+"Copyright" = "direito autoral";
+
+"CopyrightNotice" = "O VSC (verificador de lojas de valorante) não está associado, conectado ou endossado por jogos de valorante ou tumultos.Além disso, os jogos Riot e a Valorant são marcas comerciais registradas na Riot Games Inc.";
+
+"EnterTheCode" = "Digite o código enviado para";
+
+"InvalidCode" = "Código inválido";
+
+"TwoFactorAuthentication" = "Autenticação de dois fatores";
+
+"DownloadAssets" = "Baixar ativos";
+
+"Stuck" = "Preso?Clique Aqui Para Tentar Novamente.";
+
+"NightMarket" = "Mercado noturno";
+
+"Store" = "Loja";
+
+"Bundle" = "Agrupar";
+
+"SkinIndex" = "Índice de pele";
+
+"Settings" = "Configurações";
+
+"Cancel" = "Cancelar";
+
+"Cost" = "Custo";
+
+"ExclusiveSkinMessage" = "Este é um exclusivo do BattlePass, um personagem exclusivo ou uma pele de edição limitada.";
+
+"Tier" = "Nível";
+
+"Default1" = "1. Padrão";
+
+"Default" = "Predefinição";
+
+"Reloading" = "Recarregar";
+
+"Reload" = "recarregar";
+
+"UpdateAvailable" = "Atualização disponível";
+
+"EmptyBundle" = "Atualize para ver o pacote";
+
+"NoOwned" = "Recarregue a loja ou compre algumas peles :)";
+
+"EmptySearch" = "Nada corresponde à sua pesquisa";
+
+"Search" = "Procurar";
+
+"All" = "Todos";
+
+"Knife" = "Faca";
+
+"Sidearm" = "Lateral";
+
+"SMGs" = "SMGS";
+
+"Shotguns" = "Espingardas";
+
+"Rifles" = "Rifles";
+
+"HelpDev" = "Ajude o dev!";
+
+"AutomaticReload" = "Recarregamento automático";
+
+"Notify" = "Armazenar notificação de redefinição";
+
+"Allow" = "Permitir";
+
+"Appearance" = "Aparência";
+
+"Language" = "Linguagem";
+
+"ManageMedia" = "Gerenciar mídia";
+
+"Support" = "Apoio, suporte";
+
+"Community" = "Comunidade";
+
+"Share" = "Compartilhe o aplicativo";
+
+"Acknowledgements" = "Reconhecimentos";
+
+"About" = "Cerca de";
+
+"RememberPasswordInfo" = "Sua senha é protegida pelo chaveiro.A saída ou desativação da alternância esquecerá automaticamente a senha.A ativação desse recurso ignora as limitações de tempo da API e permite a entrada automática em nome do usuário.";
+
+"SignOut" = "Sair";
+
+"Account" = "Conta";
+
+"RememberPassword" = "Lembre -se de senha";
+
+"Region" = "Região";
+
+"SwitchAccounts" = "Switch Contas";
+
+"HelpMessage" = "Oi!Eu sou um estudante universitário privado de sono, apenas tentando tornar a vida um pouco melhor 😄.Por favor, considere me ajudar por meio de qualquer método abaixo!";
+
+"Review" = "Deixe uma revisão";
+
+"Star" = "Estrela o repositório";
+
+"ShowAppreciation" = "Mostrar apreço";
+
+"Sponsor" = "Me dê uma dica";
+
+"CheckUpdates" = "Verifique se há atualizações";
+
+"ColourScheme" = "Esquema de cores";
+
+"Auto" = "Auto";
+
+"Background" = "Fundo";
+
+"AppIcon" = "Ícone do aplicativo";
+
+"DefaultDark" = "Padrão escuro";
+
+"3DDark" = "3d escuro";
+
+"Default Light" = "Luz padrão";
+
+"3DLight" = "3D luz";
+
+"AutoplayVideos" = "Vídeos de AutoPlay";
+
+"DownloadNewAssets" = "Baixar novos ativos";
+
+"WifiOnly" = "Somente wifi";
+
+"CellularOnly" = "Celularonly";
+
+"Never" = "Nunca";
+
+"ClearAssets" = "Ativos claros";
+
+"Create" = "Crie um tíquete de suporte";
+
+"FAQ" = "Perguntas frequentes";
+
+"SourceCode" = "Código fonte";
+
+"FAQText" = "Por que o aplicativo precisa das minhas informações de login?
+                        
+Embora muitas de suas estatísticas sejam gratuitas para acessar sem sua senha, sua loja é uma exceção notável, pois é considerada informações confidenciais.Para que o aplicativo acesse sua loja, ele precisa de suas informações de login, onde obtém sua loja através desta [API de código aberto](https://github.com/heym1ke/valorantclientapi).
+                        
+Quais são as medidas em vigor para me proteger?
+
+Além de nunca armazenar sua senha, informações confidenciais, incluindo sua região, são protegidas atrás do chaveiro.O aplicativo também é de código aberto, permitindo que qualquer pessoa e todos acessem o código o tempo todo.Sua privacidade é uma prioridade, e eu fiz tudo ao meu alcance para garantir isso.Para Mumbo Jumbo legal, veja [aqui](https://www.craft.do/s/fqxdg6asyp8wak).
+
+Quais ativos são baixados?
+
+Os ativos baixados são imagens que permitem usar o recurso de índice de pele do aplicativo o tempo todo, mesmo quando offline.
+
+O que se lembra da senha?
+
+A maneira atual de recarregar o botão requer cookies em vez do seu nome de usuário e senha, permitindo que o aplicativo não armazene sua senha.No entanto, esses cookies expira após um certo período, exigindo que o usuário faça login novamente.Para otimizar esse processo, lembre -se de que a senha permite que o usuário salve sua senha e permita a entrada automática nos bastidores. Se o usuário desejar não salvar a senha, ele poderá simplesmente sair e entrar novamente para criar novos cookies.";
+
+"WebAndDisc" = "Site e Bot Discord";
+
+"DiscordServer" = "Discord Server";
+
+"ThankJulian" = "Obrigado por sua ajuda para responder minhas muitas perguntas!";
+
+"ThankLunac" = "Obrigado pelo seu apoio contínuo!";
+
+"Version" = "Versão";
+
+"Privacy" = "Política de Privacidade";
+
+"WhatsNew" = "O que há de novo";
+
+"MadeIn" = "Feito em 🇨🇦";
+
+"NetworkError" = "Sem rede";
+
+"InfoPrice" = "Infelizmente, o preço dessa pele não está em nosso banco de dados.";
+
+"ErrorTitle" = "Erro";
+
+"OK" = "OK";
+
+"CopyError" = "Erro de cópia";
+
+"ErrorMessage1" = "Seus cookies pessoais expiraram.Esta é uma limitação da API sobre a qual não tenho controle.Existem 2 opções para resolver isso:
+1) Sair e entrar.
+2) Ligue a senha Lembre -se da senha em Configurações> Conta.";
+
+"ErrorMessage2" = "Senha errada definida nas configurações";
+
+"ErrorMessage3" = "Sua compra não pôde ser verificada pela App Store.";
+
+"InformationTitle" = "Por que minha conta Riot?";
+
+"Information" = "Embora muitas de suas estatísticas sejam gratuitas para acessar sem sua senha, sua loja é uma exceção, pois é considerada informações confidenciais.Para que o aplicativo acesse sua loja, ele precisa de suas informações de login, onde obtém sua loja através de uma API de código aberto.Informações adicionais, o código -fonte e uma FAQ podem ser encontradas no link abaixo.";
+
+"InvalidLogin" = "Login inválido";
+
+"Reset" = "Redefinir";
+
+"ResetInfo" = "Ocasionalmente, devido a alguns bugs, os erros podem surgir.Este botão permite redefinir totalmente o aplicativo no caso desses erros.";
+
+"ReviewTitle" = "Desfrutando do VSC?";
+
+"OpenGitHub" = "Deixe uma estrela do Github";
+
+"MaybeLater" = "Talvez mais tarde";
+
+"NeverShowAgain" = "Nunca mostre novamente";
+
+"ReviewPrompt" = "Por favor, deixe uma revisão ou uma estrela no Github!";
+
+"UpdateButton" = "Nova versão do aplicativo disponível";
+
+"UpdateInstructions1" = "Se não houver opção de atualização, por favor:";
+
+"UpdateInstructions2" = "Vá para a casa (hoje) guia";
+
+"UpdateInstructions3" = "Clique no seu perfil no canto superior direito";
+
+"UpdateInstructions4" = "Deslize para recarregar";
+
+"UpdateInstructions5" = "Role para baixo para ver as atualizações disponíveis";
+
+"UpdateTitle" = "Atualizar aplicativo";
+

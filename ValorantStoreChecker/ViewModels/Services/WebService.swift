@@ -4,7 +4,7 @@
 //
 //  Created by Gordon Ng on 2022-07-24.
 //  Thanks to https://github.com/juliand665 for invaluable insight
-//  ⚠️Documentation: https://github.com/techchrism/valorant-api-docs/tree/trunk/docs⚠️
+//  Documentation: https://github.com/techchrism/valorant-api-docs/tree/trunk/docs
 
 
 import Foundation
@@ -412,6 +412,12 @@ struct WebService {
             chosenLanguage = "de-DE"
         case "zh-Hans":
             chosenLanguage = "zh-CN"
+        case "vi":
+            chosenLanguage = "vi-VN"
+        case "es":
+            chosenLanguage = "es-ES"
+        case "pt-PT":
+            chosenLanguage = "pt-BR"
         default:
             chosenLanguage = "en-US"
         }

@@ -44,7 +44,7 @@ struct MenuItemView: View {
         var baseName = ""
         
         switch language[0] {
-        case "fr","fr-CA","de":
+        case "fr","fr-CA","de","vi" , "es", "pt-PT":
             let list = displayName.split(separator: " ")
             baseName = String(list[0])
         case "ja":
