@@ -69,12 +69,7 @@ Copyright (c) 2022 Gordon Ng
 // SkinCardDetailView -> PriceView
 "Cost" = "コスト";
 "ExclusiveSkinMessage" = "これはバトルパス限定、エージェント契約限定、または期間限定版のいずれかのスキンです。";
-
 // SkincardDetailView -> VideoPickerView
-"Tier" = "ティア";
-"Default" = "デフォルト";
-"Default1" = "1. デフォルト";
-"Unknown" = "不明";
 
 //----------------------------------
 // ShopTopBarView
@@ -241,4 +236,3 @@ Copyright (c) 2022 Gordon Ng
 "UpdateInstructions4" = "下にスワイプしてリロード";
 "UpdateInstructions5" = "下にスクロールして利用可能なアップデートを表示します";
 "UpdateTitle" = "アプリの更新";
-

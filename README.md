@@ -22,23 +22,17 @@ See the [Website](https://valorantstore.net) if you wish to check your store on 
 
 ### Screenshots
 <p align=center>
-  <img width="49%" src="https://user-images.githubusercontent.com/77747704/183316740-c45ca2cc-ed89-4712-be62-2a916a92cd70.png" />
-  <img width="49%" src="https://user-images.githubusercontent.com/77747704/183316723-3c5e6e33-a6d7-44d8-acd3-0740acbf2aef.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/183316740-c45ca2cc-ed89-4712-be62-2a916a92cd70.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/183316723-3c5e6e33-a6d7-44d8-acd3-0740acbf2aef.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/183316785-db7a1716-67cf-4250-a31e-610fc5546035.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/183316789-fa977781-19f3-4e7f-92ee-74d76a3bcb39.png" />
 </p>
 
 <p align=center>
-  <img width="49%" src="https://user-images.githubusercontent.com/77747704/183316785-db7a1716-67cf-4250-a31e-610fc5546035.png" />
-  <img width="49%" src="https://user-images.githubusercontent.com/77747704/183316789-fa977781-19f3-4e7f-92ee-74d76a3bcb39.png" />
-</p>
-
-<p align=center>
-  <img width="49%" src="https://user-images.githubusercontent.com/77747704/189550838-752fcd29-73cc-45aa-b902-1d1563cfa2ba.PNG" />
-  <img width="49%" src="https://user-images.githubusercontent.com/77747704/189550843-97171c12-8a4b-47cf-85ad-8d4b2051c17b.PNG" />
-</p>
-
-<p align=center>
-  <img width="49%" src="https://user-images.githubusercontent.com/77747704/192401293-83bd4415-3ac8-4c72-a756-329ee8ad6df3.png" />
-  <img width="49%" src="https://user-images.githubusercontent.com/77747704/192401299-976c7211-bf2a-4466-a130-4e34235f456f.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/189550838-752fcd29-73cc-45aa-b902-1d1563cfa2ba.PNG" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/189550843-97171c12-8a4b-47cf-85ad-8d4b2051c17b.PNG" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/192401293-83bd4415-3ac8-4c72-a756-329ee8ad6df3.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/192401299-976c7211-bf2a-4466-a130-4e34235f456f.png" />
 </p>
 
 ### Frequently Asked Questions
@@ -49,7 +43,7 @@ While many of your statistics are free to access without your password, your sto
 
 #### What are the measures in place to protect me?
 
-In addition to never storing your password, sensitive information including your region is secured behind Keychain. The app is also open source, allowing anybody and everyone to access the code at all times. Your privacy is a priority, and I have done everything in my power to ensure it. For legal mumbo jumbo, see [here](https://solounity.notion.site/solounity/Valorant-Store-Checker-App-Privacy-Policy-761932ab3fcb4fea95564b2b63d2d5b5).
+In addition to never storing your password, sensitive information including your region is secured behind Keychain. The app is also open source, allowing anybody and everyone to access the code at all times. Your privacy is a priority, and I have done everything in my power to ensure it. For legal mumbo jumbo, see [here](https://www.craft.do/s/fQxdg6aSyp8WAk).
 
 #### What assets are downloaded?
 
@@ -59,16 +53,16 @@ If you are perceptive, you will notice that the app downloads assets on your fir
 The current way that the reload button requires cookies instead of your username and password, allowing the app to not store your password at all. However, these cookies expire after a certain period, requiring the user to sign in again. In order to streamline this process, remember password allows the user to save their password and allow for automatic behind the scenes sign in. If the user wishes to not save the password, they can simply sign out and sign back in to create new cookies.  
 
 ### Roadmap Checklist
-- [x] Korean localization
-- [x] Chinese localization
-- [x] Language localization of all weapons and categories
+- [ ] Vietnamese Localization
 - [ ] Code cleanup
-- [x] Prompt to ask users to review the app
-- [x] Update about tab to include a button to help translation of the app
-- [x] Rework offline data management
-- [x] Streamline automatic skin get and download process to become less laggy on first launch
+- [ ] Add skin chroma videos
+- [ ] Redesign UI for a cohesive feeling
+- [ ] Add valorant news, new skins, previous stores
+- [ ] Improve owned skins
+- [ ] Minimize network calls and data usage
+- [ ] Implement CoreData
+- [x] Have an accurate download bar for downloading skins
 - [ ] Add reference tab for vp price
-- [ ] Rework Skin Index tab for multiple categories including: owned skins, skin index, equip skins, information pane
 - [ ] Widgets
 - [ ] User customization of colour scheme and app icon
 - [ ] Monetization strategy (of new features only, core features are free)
