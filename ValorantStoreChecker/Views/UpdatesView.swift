@@ -43,7 +43,7 @@ struct UpdatesView: View {
                             let defaults = UserDefaults.standard
                             let releaseNotes = defaults.array(forKey: "releaseNotes") as? [String] ?? []
                             
-                            if releaseNotes.count > 0 {
+                            if !releaseNotes.isEmpty {
                                 ForEach(0...releaseNotes.count - 1, id: \.self) { point in
                                     HStack{
                                         Image(systemName: "\(String(point + 1)).circle")

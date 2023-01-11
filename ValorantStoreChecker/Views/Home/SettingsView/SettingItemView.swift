@@ -12,7 +12,7 @@ import SwiftUI
 struct SettingItemView: View {
     
     @Environment(\.colorScheme) var colourScheme
-    @AppStorage("dark") var toggleDark = false
+    @AppStorage("dark") var toggleDark = true
     @AppStorage("autoDark") var auto = false
     
     var itemType : String

@@ -10,7 +10,7 @@ import SwiftUI
 struct ChevronView: View {
     
     @Environment(\.colorScheme) var colourScheme
-    @AppStorage("dark") var toggleDark = false
+    @AppStorage("dark") var toggleDark = true
     @AppStorage("autoDark") var auto = false
     
     @State var dummy = false

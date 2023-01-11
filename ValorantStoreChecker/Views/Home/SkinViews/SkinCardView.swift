@@ -12,7 +12,7 @@ struct SkinCardView: View {
     @EnvironmentObject private var skinModel : SkinModel
     @EnvironmentObject private var authAPIModel : AuthAPIModel
     @Environment(\.colorScheme) var colourScheme
-    @AppStorage("dark") var toggleDark = false
+    @AppStorage("dark") var toggleDark = true
     @AppStorage("autoDark") var auto = false
     @ObservedObject var skin:Skin
     @State var isDetailViewShowing = false
@@ -40,14 +40,29 @@ struct SkinCardView: View {
                 if let imageData = UserDefaults.standard.data(forKey: skin.levels!.first!.id.description) {
                     
                     // MARK: Level Image
-                    let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData )
+                    let decoded = try? PropertyListDecoder().decode(Data.self, from: imageData )
                     
-                    let uiImage = UIImage(data: decoded)
-                    
-                    Image(uiImage: uiImage ?? UIImage())
-                        .resizable()
+                    if decoded != nil {
+                        let uiImage = UIImage(data: decoded!)
+                        
+                        Image(uiImage: uiImage ?? UIImage())
+                            .resizable()
+                            .scaledToFit()
+                            .padding()
+                    }
+                    else if skin.levels!.first!.displayIcon != nil {
+                        // MARK: Async Image
+                        AsyncImage(url: URL(string: skin.levels!.first!.displayIcon!)) { image in
+                            image.resizable()
+                        } placeholder: {
+                            ProgressView()
+                        }
                         .scaledToFit()
                         .padding()
+                        
+                        
+                    }
+                    
                     
                 }
                 else {
@@ -55,14 +70,29 @@ struct SkinCardView: View {
                     // MARK: Chroma Image
                     if let imageData = UserDefaults.standard.data(forKey: skin.chromas![0].id.description) {
                         
-                        let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData)
+                        let decoded = try? PropertyListDecoder().decode(Data.self, from: imageData)
                         
-                        let uiImage = UIImage(data: decoded)
-                        
-                        Image(uiImage: uiImage ?? UIImage())
-                            .resizable()
+                        if decoded != nil {
+                            let uiImage = UIImage(data: decoded!)
+                            
+                            Image(uiImage: uiImage ?? UIImage())
+                                .resizable()
+                                .scaledToFit()
+                                .padding()
+                        }
+                        else if skin.levels!.first!.displayIcon != nil {
+                            // MARK: Async Image
+                            AsyncImage(url: URL(string: skin.levels!.first!.displayIcon!)) { image in
+                                image.resizable()
+                            } placeholder: {
+                                ProgressView()
+                            }
                             .scaledToFit()
                             .padding()
+                            
+                            
+                        }
+                        
                         
                         
                     }

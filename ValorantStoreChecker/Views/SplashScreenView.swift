@@ -10,7 +10,7 @@ import SwiftUI
 struct SplashScreenView: View {
     
     @Environment(\.colorScheme) var colourScheme
-    @AppStorage("dark") var toggleDark = false
+    @AppStorage("dark") var toggleDark = true
     @AppStorage("autoDark") var auto = false
     
     @State private var isActive = false

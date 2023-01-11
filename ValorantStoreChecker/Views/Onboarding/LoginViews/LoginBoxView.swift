@@ -102,11 +102,7 @@ struct LoginBoxView: View {
                 
             }
             .foregroundColor(.pink)
-            .onTapGesture {
-                withAnimation(.easeIn(duration: 0.2)) {
-                    authAPIModel.authenticationFailure = false // Remove error message of authentication
-                }
-            }
+
         }
         else {
             VStack{

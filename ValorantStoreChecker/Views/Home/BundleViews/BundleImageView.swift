@@ -30,9 +30,33 @@ struct BundleImageView: View {
             placeholder: {
                 
                 
-                let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData ?? Data())
+                let decoded = try? PropertyListDecoder().decode(Data.self, from: imageData ?? Data())
                 
-                let uiImage = UIImage(data: decoded)
+                if decoded != nil {
+                    let uiImage = UIImage(data: decoded!)
+
+                    ZStack {
+                        Image(uiImage: uiImage ?? UIImage())
+                            .resizable()
+                            .scaledToFit()
+                            .blur(radius: 10)
+                            .cornerRadius(10)
+                        
+                        ProgressView().tint(.gray)
+                    }
+                }
+                
+                
+                
+            }
+            
+        }
+        else if authAPIModel.reloadBundleAnimation  {
+
+            let decoded = try? PropertyListDecoder().decode(Data.self, from: imageData ?? Data() )
+            
+            if decoded != nil {
+                let uiImage = UIImage(data: decoded!)
                 
                 ZStack {
                     Image(uiImage: uiImage ?? UIImage())
@@ -43,39 +67,26 @@ struct BundleImageView: View {
                     
                     ProgressView().tint(.gray)
                 }
-                
             }
-            
-        }
-        else if authAPIModel.reloadBundleAnimation  {
-
-            let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData ?? Data() )
-            
-            let uiImage = UIImage(data: decoded)
-            
-            ZStack {
-                Image(uiImage: uiImage ?? UIImage())
-                    .resizable()
-                    .scaledToFit()
-                    .blur(radius: 10)
-                    .cornerRadius(10)
-                
+            else {
                 ProgressView().tint(.gray)
             }
+            
             
         }
         else {
             
-            let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData ?? Data() )
+            let decoded = try? PropertyListDecoder().decode(Data.self, from: imageData ?? Data() )
             
-            let uiImage = UIImage(data: decoded)
-            
-            
-            Image(uiImage: uiImage ?? UIImage())
-                .resizable()
-                .scaledToFit()
-                .cornerRadius(10)
-            
+            if decoded != nil {
+                let uiImage = UIImage(data: decoded!)
+                
+                
+                Image(uiImage: uiImage ?? UIImage())
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(10)
+            }
         }
     }
 }

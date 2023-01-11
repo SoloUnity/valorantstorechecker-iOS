@@ -90,6 +90,7 @@ struct LoginView: View {
                         
                         Button {
                             
+                            haptic()
                             
                             if networkModel.isConnected {
                                 

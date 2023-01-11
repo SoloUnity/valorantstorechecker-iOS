@@ -38,8 +38,12 @@ struct AccountView: View {
             Section() {
                 
                 Button {
+                    
+                    haptic()
+                    
                     Task {
                         await authAPIModel.logOut()
+                        
                     }
                     
                     selectedTab = .shop

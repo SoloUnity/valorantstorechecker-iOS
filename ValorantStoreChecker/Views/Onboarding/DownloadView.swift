@@ -84,6 +84,8 @@ struct DownloadView: View {
                 
                 Button {
 
+                    haptic()
+                    
                     if networkModel.isConnected {
                         
                         DispatchQueue.main.async {

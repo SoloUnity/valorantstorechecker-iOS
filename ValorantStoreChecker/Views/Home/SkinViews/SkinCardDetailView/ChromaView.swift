@@ -22,14 +22,28 @@ struct ChromaView: View {
             
             if let imageData = UserDefaults.standard.data(forKey: skin.chromas![selectedChroma].id.description) {
                 
-                let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData)
+                let decoded = try? PropertyListDecoder().decode(Data.self, from: imageData)
                 
-                let uiImage = UIImage(data: decoded)
-                
-                Image(uiImage: uiImage ?? UIImage())
-                    .resizable()
+                if decoded != nil {
+                    let uiImage = UIImage(data: decoded!)
+                    
+                    Image(uiImage: uiImage ?? UIImage())
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                }
+                else if skin.chromas![selectedChroma].fullRender != nil{
+                    
+                    AsyncImage(url: URL(string: skin.chromas![selectedChroma].fullRender!)) { image in
+                        image.resizable()
+                    } placeholder: {
+                        ProgressView()
+                    }
                     .scaledToFit()
                     .padding()
+                    
+                }
+                
                 
             }
             else if skin.chromas![selectedChroma].displayIcon != nil{

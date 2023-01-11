@@ -16,7 +16,7 @@ class UpdateModel: ObservableObject{
     let defaults = UserDefaults.standard
     
     init() {
-        
+                
         if showUpdate {
                         
             let _ = try? isUpdateAvailable {[self] (update, error) in

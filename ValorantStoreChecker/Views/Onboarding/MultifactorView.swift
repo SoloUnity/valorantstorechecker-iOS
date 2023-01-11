@@ -27,12 +27,13 @@ struct MultifactorView: View {
                 // MARK: General info
                 VStack(alignment: .leading){
                     
-                    Text(LocalizedStringKey("EnterTheCode"))
-                        .font(.title3)
-                        .bold()
                     
-                    // TODO: implement error message for 2fa failure
-                    if !authAPIModel.authenticationFailure {
+                    
+                    if !authAPIModel.multifactorFailure {
+                        
+                        Text(LocalizedStringKey("EnterTheCode"))
+                            .font(.title3)
+                            .bold()
                         
                          Text(authAPIModel.multifactorEmail)
                             .bold()
@@ -60,9 +61,8 @@ struct MultifactorView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(lineWidth: 1)
                             .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                            .shadow(color: authAPIModel.authenticationFailure ? .red : .white, radius: 2)
                             .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                            .foregroundColor(authAPIModel.authenticationFailure ? .red : .white)
+                            .foregroundColor(authAPIModel.multifactorFailure ? .red : .white)
                             
                     }
                 }
@@ -76,6 +76,7 @@ struct MultifactorView: View {
                 if authAPIModel.inputMultifactor.count == 6 {
                     Button {
                         
+                        haptic()
                         
                         if networkModel.isConnected {
                             

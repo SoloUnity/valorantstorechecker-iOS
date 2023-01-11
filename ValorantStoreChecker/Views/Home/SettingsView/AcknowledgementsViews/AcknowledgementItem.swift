@@ -26,7 +26,7 @@ struct AcknowledgementItem: View {
                     .resizable()
                     .scaledToFill()
                     .frame(width: 100, height: 100)
-                    .border(.gray)
+                    .shadow(color: .gray, radius: 1)
                     .clipShape(Circle())
                     
                     

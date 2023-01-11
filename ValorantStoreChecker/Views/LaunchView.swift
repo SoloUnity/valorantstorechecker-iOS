@@ -25,7 +25,7 @@ struct LaunchView: View {
             
             
             // Displays login if the user is not authenticated
-            if !isAuthenticated {
+            if !isAuthenticated && !authAPIModel.authenticationState {
                 
                 LoginView()
                     .environment(\.colorScheme, .dark)

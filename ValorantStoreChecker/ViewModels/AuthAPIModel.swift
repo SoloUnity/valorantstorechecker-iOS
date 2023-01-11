@@ -13,6 +13,7 @@ class AuthAPIModel: ObservableObject {
     
     // Authentication
     @AppStorage("authentication") var authentication = false
+    @Published var authenticationState = false
     @Published var authenticationAnimation : Bool = false // Handles loading animation
     @Published var authenticationFailure : Bool = false // Handles login error message
     
@@ -36,6 +37,7 @@ class AuthAPIModel: ObservableObject {
     @Published var multifactor : Bool = false // Show multifactor popout
     @Published var multifactorAnimation : Bool = false // Handle multifactor loading animation
     @Published var multifactorEmail : String = "" // Displayed email for multifactor popout
+    @Published var multifactorFailure : Bool = false // Displays Error for 2fa
     
     // User Information
     @Published var inputUsername: String = "" // Variable used by username box in LoginBoxView
@@ -141,6 +143,10 @@ class AuthAPIModel: ObservableObject {
         
         do{
             
+            withAnimation(.easeIn(duration: 0.2)) {
+                self.authenticationFailure = false
+            }
+            
             if self.rememberPassword {
                 self.inputUsername = keychain.value(forKey: "username") as? String ?? ""
                 self.inputPassword = keychain.value(forKey: "password") as? String ?? ""
@@ -169,9 +175,12 @@ class AuthAPIModel: ObservableObject {
                     // Save authentication state for next launch
                     withAnimation(.easeIn(duration: 0.2)) {
                         self.authentication = true
+                        self.authenticationState = true
                     }
                     
                 }
+                
+                
                 
                 self.inputUsername = ""
                 self.inputPassword = ""
@@ -525,7 +534,9 @@ class AuthAPIModel: ObservableObject {
     @MainActor
     func multifactor(skinModel: SkinModel) async {
         do{
-            
+            withAnimation(.easeIn(duration: 0.2)) {
+                self.multifactorFailure = false
+            }
             
             let token = try await WebService.multifactor(code: self.inputMultifactor)
             
@@ -537,6 +548,7 @@ class AuthAPIModel: ObservableObject {
                 // Save authentication state for next launch
                 withAnimation(.easeIn(duration: 0.2)) {
                     self.authentication = true
+                    self.authenticationState = true
                 }
             }
             
@@ -548,9 +560,12 @@ class AuthAPIModel: ObservableObject {
             
             
             // Reset user defaults
-            self.multifactorAnimation = false
-            self.inputMultifactor = ""
-            self.inputPassword = ""
+            withAnimation(.easeIn) {
+                self.multifactorFailure = true
+                self.multifactorAnimation = false
+                self.inputMultifactor = ""
+                self.inputPassword = ""
+            }
             
             print("Multifactor")
             
@@ -679,9 +694,14 @@ class AuthAPIModel: ObservableObject {
             let _ = self.keychain.remove(forKey: "username")
             let _ = self.keychain.remove(forKey: "password")
             
-            // Unauthenticate user
+            
+            
+        }
+        // Unauthenticate user
+        DispatchQueue.main.async {
             withAnimation(.easeOut(duration: 0.2)) {
-                self.defaults.removeObject(forKey: "authentication")
+                self.authentication = false
+                self.authenticationState = false
             }
         }
     }

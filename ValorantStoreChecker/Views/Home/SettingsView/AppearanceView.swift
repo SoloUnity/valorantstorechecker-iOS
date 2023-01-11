@@ -11,8 +11,8 @@ struct AppearanceView: View {
     
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("systemTheme") var systemTheme : Int = 0
-    @AppStorage("activeIcon") var activeIcon : String = "AppIcon 4"
-    @AppStorage("dark") var toggleDark = false
+    @AppStorage("activeIcon") var activeIcon : String = "AppIcon4"
+    @AppStorage("dark") var toggleDark = true
     @AppStorage("autoDark") var auto = false
     @AppStorage("background") var background = "Background 3"
     @AppStorage("showUpdate") var showUpdate = true
@@ -20,7 +20,7 @@ struct AppearanceView: View {
     @State var dummy = false
     
     let defaults = UserDefaults.standard
-    let customIcons : [String] = ["AppIcon 4", "AppIcon 1", "AppIcon 2", "AppIcon 3"]
+    let customIcons : [String] = ["AppIcon4", "AppIcon1", "AppIcon2", "AppIcon3"]
     
     var body: some View {
         Form {
@@ -243,16 +243,16 @@ struct AppearanceView: View {
                             
                             // LOCALIZETEXT
                             HStack {
-                                if icon == "AppIcon 4" {
+                                if icon == "AppIcon4" {
                                     Text("DefaultDark")
                                 }
-                                else if icon == "AppIcon 1" {
+                                else if icon == "AppIcon1" {
                                     Text("3DDark")
                                 }
-                                else if icon == "AppIcon 2" {
+                                else if icon == "AppIcon2" {
                                     Text("DefaultLight")
                                 }
-                                else if icon == "AppIcon 3" {
+                                else if icon == "AppIcon3" {
                                     Text("3DLight")
                                 }
                             }

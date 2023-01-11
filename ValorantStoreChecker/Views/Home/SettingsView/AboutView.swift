@@ -55,11 +55,13 @@ struct AboutView: View {
                 
             }
             
-            if showUpdate {
+            let releaseNotes = defaults.array(forKey: "releaseNotes") as? [String] ?? []
+            
+            if showUpdate && !releaseNotes.isEmpty {
                 Section(header: Text("WhatsNew")) {
                     
                     
-                    let releaseNotes = defaults.array(forKey: "releaseNotes") as? [String] ?? []
+                    
                     ForEach(1...releaseNotes.count, id: \.self) { index in
                         HStack{
                             Text(String(index) + ".")
@@ -69,7 +71,6 @@ struct AboutView: View {
                             
                         }
                     }
-                    
                 }
             }
             
