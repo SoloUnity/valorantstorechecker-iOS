@@ -4,7 +4,7 @@
 //
 //  Created by Gordon Ng on 2022-07-24.
 //  Thanks to https://github.com/juliand665 for invaluable insight
-//  ⚠️Documentation: https://github.com/techchrism/valorant-api-docs/tree/trunk/docs⚠️
+//  Documentation: https://github.com/techchrism/valorant-api-docs/tree/trunk/docs
 
 
 import Foundation
@@ -155,41 +155,48 @@ struct WebService {
                 
                 // Obtain SSID and TDID for reloading store
                 let field = httpResponse.value(forHTTPHeaderField: "Set-Cookie")
-                let fieldString = String(field!)
-                let fieldStringList = fieldString.split(separator: ";")
                 
-                var cleanedArray: [String] = []
-                
-                for item in fieldStringList {
-                    let newList = item.split(separator: ",")
-                    for thing in newList {
-                        let newString = thing.trimmingCharacters(in: .whitespaces)
-                        cleanedArray.append(newString)
+                if field != nil {
+                    let fieldString = String(field!)
+                    
+                    let fieldStringList = fieldString.split(separator: ";")
+                    
+                    var cleanedArray: [String] = []
+                    
+                    for item in fieldStringList {
+                        let newList = item.split(separator: ",")
+                        for thing in newList {
+                            let newString = thing.trimmingCharacters(in: .whitespaces)
+                            cleanedArray.append(newString)
+                        }
                     }
+                    
+                    // Store securely in keychain
+                    for item in cleanedArray {
+                        if item.contains("tdid") {
+                            let _ = keychain.save(item.split(separator: "=")[1], forKey: "tdid")
+                        }
+                        else if item.contains("ssid") {
+                            let _ = keychain.save(item.split(separator: "=")[1], forKey: "ssid")
+                        }
+                    }
+                    
+                    
+                    guard let uri = authResponse.response?.parameters?.uri else {
+                        throw TokenError.badURI
+                    }
+                    
+                    // Obtain uri and parse for the token
+                    let uriList = uri.split(separator: "&")
+                    for item in uriList {
+                        if item.contains("access_token") {
+                            return [String(item.split(separator: "=")[1])]
+                        }
+                    }
+                    
+                    
                 }
                 
-                // Store securely in keychain
-                for item in cleanedArray {
-                    if item.contains("tdid") {
-                        let _ = keychain.save(item.split(separator: "=")[1], forKey: "tdid")
-                    }
-                    else if item.contains("ssid") {
-                        let _ = keychain.save(item.split(separator: "=")[1], forKey: "ssid")
-                    }
-                }
-                
-                
-                guard let uri = authResponse.response?.parameters?.uri else {
-                    throw TokenError.badURI
-                }
-                
-                // Obtain uri and parse for the token
-                let uriList = uri.split(separator: "&")
-                for item in uriList {
-                    if item.contains("access_token") {
-                        return [String(item.split(separator: "=")[1])]
-                    }
-                }
                 
                 return ["NO TOKEN"]
             }
@@ -351,7 +358,7 @@ struct WebService {
     // MARK: Storefront
     static func getStorefront(token:String, riotEntitlement: String, puuid: String, region: String) async throws -> Storefront {
         
-
+        
         guard let url = URL(string: "https://pd.\(region).a.pvp.net/store/v2/storefront/\(puuid)") else{
             throw StorefrontError.invalidURL
         }
@@ -381,7 +388,7 @@ struct WebService {
         }catch{
             throw StorefrontError.dataTaskError(error.localizedDescription)
         }
-         
+        
     }
     
     
@@ -405,6 +412,12 @@ struct WebService {
             chosenLanguage = "de-DE"
         case "zh-Hans":
             chosenLanguage = "zh-CN"
+        case "vi":
+            chosenLanguage = "vi-VN"
+        case "es":
+            chosenLanguage = "es-ES"
+        case "pt-PT", "pr-BR":
+            chosenLanguage = "pt-BR"
         default:
             chosenLanguage = "en-US"
         }
@@ -416,10 +429,10 @@ struct WebService {
         }
         
         /*
-        guard let url2 = URL(string: "https://api.valorantstore.net/store-featured") else {
-            throw BundleError.invalidURL
-        }
-        */
+         guard let url2 = URL(string: "https://api.valorantstore.net/store-featured") else {
+         throw BundleError.invalidURL
+         }
+         */
         
         do{
             // Create request
@@ -443,34 +456,10 @@ struct WebService {
             if let url = URL(string: bundleResponse1.data.displayIcon) {
                 
                 dataHelper(url: url, key: "bundleDisplayIcon" + currentBundle)
-
+                
             }
             
             return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon]
-            
-            /*
-            var bundleRequest2 = URLRequest(url: url2)
-            bundleRequest2.httpMethod = "GET"
-            
-            let (data2,response2) = try await WebService.session.data(for: bundleRequest2)
-            
-            guard
-                let httpResponse = response2 as? HTTPURLResponse,
-                httpResponse.statusCode == 200
-            else{
-                throw BundleError.invalidResponseStatus
-            }
-            
-            guard let bundleResponse2 = try? JSONDecoder().decode(ValStoreBundle.self, from: data2) else {
-                throw BundleError.badDecode
-            }
-            
-            if !bundleResponse2.data.isEmpty {
-                return [bundleResponse1.data.displayName, bundleResponse1.data.displayIcon, String(bundleResponse2.data.first!.price)]
-            }
-            */
-            
-            
             
         }catch{
             throw BundleError.dataTaskError(error.localizedDescription)
@@ -580,14 +569,14 @@ struct WebService {
             let (_ , response) = try await WebService.session.data(for: cookieReauthRequest)
             
             /*
-            guard
-                let httpResponse = response as? HTTPURLResponse
-            else{
-                print("CookieAuthError.invalidResponseStatus")
-                throw PriceError.invalidResponseStatus
-            }
-            */
-
+             guard
+             let httpResponse = response as? HTTPURLResponse
+             else{
+             print("CookieAuthError.invalidResponseStatus")
+             throw PriceError.invalidResponseStatus
+             }
+             */
+            
             
             guard let urlString = response.url?.absoluteString else{
                 throw CookieAuthError.noData
@@ -600,7 +589,7 @@ struct WebService {
                     return String(item.split(separator: "=")[1])
                 }
             }
-
+            
             return "NO TOKEN"
             
         }catch{
@@ -648,9 +637,6 @@ struct WebService {
     }
     
     
-    
-    
-    
     // MARK: Helper function
     // Configure websession for reloading / reauthentication
     static func setCookie(named name: String, to value: String) async throws -> Void{
@@ -692,39 +678,7 @@ struct WebService {
             }
         }
         dataTask.resume()
-        
     }
-     
-    /*
-    static func dataHelper (url : URL, key : String) async -> Data {
-        
-        do {
-            
-            // Create request
-            let request = URLRequest(url: url)
-            let session = URLSession.shared
-            
-            let (data , response) = try await session.data(for: request)
-            
-            guard
-                let httpResponse = response as? HTTPURLResponse,
-                httpResponse.statusCode == 200
-            else{
-                return Data()
-            }
-            
-            let encoded = try! PropertyListEncoder().encode(data)
-            UserDefaults.standard.set(encoded, forKey: key)
-            
-            return data
-            
-        }
-        catch {
-            return Data()
-        }
-    }
-    */
-    
 }
 
 

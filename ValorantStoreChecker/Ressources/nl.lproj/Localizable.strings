@@ -1,0 +1,241 @@
+/*
+Localizable.strings
+ValorantStoreChecker
+
+Created by Gordon on 2022-08-07.
+*/
+
+
+//----------------------------------
+// MARK: Onboarding
+// LoginView
+"SignIn" = "Sign in";
+"PrivacyDisclaimer" = "By clicking on Sign in, you agree to our Terms and Conditions and to our [Privacy Policy](https://www.craft.do/s/fQxdg6aSyp8WAk)";
+
+// LoginViews -> LoginInfoView
+"Login" = "Sign in to your Riot account";
+"InvalidCredentials" = "Invalid Credentials";
+
+// LoginViews -> LoginBoxView
+"Username" = "Username";
+"Password" = "Password";
+
+// LoginViews -> RegionSelectorViewa
+"SelectRegion" = "Select region";
+"Americas" = "Americas";
+"Europe" = "Europe";
+"AsiaPacific" = "Asia Pacific";
+"SouthKorea" = "South Korea";
+
+// LoginViews -> TermsView
+"TermsAndConditions" = "Terms and Conditions";
+"MITLicense" = "MIT License
+Copyright (c) 2022 Gordon Ng
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the Software), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+";
+"Copyright" = "Copyright";
+"CopyrightNotice" = "VSC (Store Checker for Valorant) is not associated, connected, or endorsed by Valorant or Riot Games. Additionally, Riot Games and Valorant are trademarks registered under Riot Games Inc.";
+
+//----------------------------------
+// MultifactorView
+"EnterTheCode" = "Enter the code sent to";
+"InvalidCode" = "Invalid Code";
+"TwoFactorAuthentication" = "Two Factor Authentication";
+
+// DownloadView
+"DownloadAssets" = "Download Assets";
+"Stuck" = "Stuck? Click here to try again.";
+
+//----------------------------------
+// MARK: Home
+// NightMarketView
+"NightMarket" = "Night Market";
+
+//----------------------------------
+// NavTabBar -> TabBar
+"Store" = "Store";
+"Bundle" = "Bundle";
+"SkinIndex" = "Skin Index";
+"Settings" = "Settings";
+
+// NavTabBar -> NavigationSearchBar
+"Cancel" = "Cancel";
+
+//----------------------------------
+// SkinCardDetailView -> PriceView
+"Cost" = "Cost";
+"ExclusiveSkinMessage" = "This is either a Battlepass exclusive, a character exclusive, or a limited edition skin.";
+
+// SkincardDetailView -> VideoPickerView
+"Tier" = "Tier";
+"Default1" = "1. Default";
+"Default" = "Default";
+"Unknown" = "Unknown";
+
+//----------------------------------
+// ShopTopBarView
+"Reloading" = "Reloading";
+"Reload" = "Reload";
+"UpdateAvailable" = "Update Available";
+
+//----------------------------------
+// BundleView
+"EmptyBundle" = "Refresh to see the bundle";
+
+//----------------------------------
+// SkinListView
+"NoOwned" = "Please reload the store, or buy some skins :)";
+"EmptySearch" = "Nothing matches your search";
+
+// SearchBar
+"Search" = "Search";
+
+// FilterView
+"All" = "All";
+"Owned" = "Owned";
+"Knife" = "Knife";
+"Sidearm" = "Sidearm";
+"SMGs" = "SMGs";
+"Shotguns" = "Shotguns";
+"Rifles" = "Rifles";
+"Sniper" = "Sniper";
+"Heavy" = "Heavy";
+
+//----------------------------------
+// SettingsView
+"HelpDev" = "Help the Dev!";
+"AutomaticReload" = "Automatic Reloading";
+"Notify" = "Store Reset Notification";
+"Allow" = "Allow";
+"Appearance" = "Appearance";
+"Language" = "Language";
+"ManageMedia" = "Manage Media";
+"Support" = "Support";
+"Community" = "Community";
+"Share" = "Share the App";
+"Acknowledgements" = "Acknowledgements";
+"About" = "About";
+
+//----------------------------------
+// AccountViews -> AccountView
+"RememberPasswordInfo" = "Your password is secured by Keychain. Signing out or disabling the toggle will automatically forget the password. Enabling this feature bypasses the API time limitations and allows for automatic sign in on the user's behalf.";
+"SignOut" = "Sign Out";
+"Account" = "Account";
+
+// AccountViews -> RememberPasswordView
+"RememberPassword" = "Remember Password";
+
+// AccountViews -> RegionView
+"Region" = "Region";
+
+// AccountViews -> AccountSwitcherView
+"SwitchAccounts" = "Switch Accounts";
+
+//----------------------------------
+// HelpViews -> HelpView
+"HelpMessage" = "Hi! I'm a sleep deprived university student just trying to make life a little bit better 😄. Please consider helping me out through any method below!";
+"Review" = "Leave a Review";
+"Star" = "Star the Repository";
+"HelpTranslate" = "Help With Translation";
+
+// HelpViews -> TipView
+"ShowAppreciation" = "Show Appreciation";
+"Sponsor" = "Tip Me";
+
+//----------------------------------
+// AppearanceView
+"CheckUpdates" = "Check for Updates";
+"ColourScheme" = "Colour Scheme";
+"Auto" = "Auto";
+"Light" = "Light";
+"Dark" = "Dark";
+"Background" = "Background";
+"AppIcon" = "App Icon";
+"DefaultDark" = "Default Dark";
+"3DDark" = "3D Dark";
+"Default Light" = "Default Light";
+"3DLight" = "3D Light";
+
+// MediaManagementView
+"AutoplayVideos" = "Autoplay Videos";
+"Both" = "Both";
+"DownloadNewAssets" = "Download New Assets";
+"WifiOnly" = "Wifi Only";
+"CellularOnly" = "CellularOnly";
+"Never" = "Never";
+"ClearAssets" = "Clear Assets";
+"Clear" = "Clear";
+
+// SupportView
+"Create" = "Create a Support Ticket";
+"FAQ" = "FAQ";
+"SourceCode" = "Source Code";
+"FAQText" = "Why does the app need my login information?
+                        
+While many of your statistics are free to access without your password, your store is a notable exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through this [open source API](https://github.com/HeyM1ke/ValorantClientAPI).
+                        
+What are the measures in place to protect me?
+
+In addition to never storing your password, sensitive information including your region is secured behind Keychain. The app is also open source, allowing anybody and everyone to access the code at all times. Your privacy is a priority, and I have done everything in my power to ensure it. For legal mumbo jumbo, see [here](https://www.craft.do/s/fQxdg6aSyp8WAk).
+
+What assets are downloaded?
+
+The assets downloaded are images which allow you to use the app's Skin index feature at all times, even when offline.
+
+What does remember password do?
+
+The current way that the reload button requires cookies instead of your username and password, allowing the app to not store your password at all. However, these cookies expire after a certain period, requiring the user to sign in again. In order to streamline this process, remember password allows the user to save their password and allow for automatic behind the scenes sign in. If the user wishes to not save the password, they can simply sign out and sign back in to create new cookies.";
+
+// CommunityView
+"WebAndDisc" = "Website and Discord Bot";
+"DiscordServer" = "Discord Server";
+
+// AcknowledgementsView
+"ThankJulian" = "Thank you for your help in answering my many questions!";
+"ThankLunac" = "Thank you for your continuous support!";
+
+// AboutView
+"Version" = "Version";
+"Privacy" = "Privacy Policy";
+"WhatsNew" = "What's New";
+"MadeIn" = "Made in 🇨🇦";
+
+//----------------------------------
+// MARK: Miscallaneous
+// AlertView
+"NetworkError" = "No Network";
+"InfoPrice" = "The price of this skin is unfortunately not in our database.";
+"ErrorTitle" = "Error";
+"OK" = "OK";
+"CopyError" = "Copy Error";
+"ErrorMessage1" = "Your personal cookies have expired. This is an API limitation which I have no control over. There are 2 options to solve this:
+1) Sign out and Sign in.
+2) Turn on remember password in Settings > Account.";
+"ErrorMessage2" = "Wrong password set in Settings";
+"ErrorMessage3" = "Your purchase could not be verified by the App Store.";
+"InformationTitle" = "Why my Riot Account?";
+"Information" = "While many of your statistics are free to access without your password, your store is an exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through an open source API. Additional information, the source code, and an FAQ can be found in the link below.";
+"InvalidLogin" = "Invalid Login";
+"Reset" = "Reset";
+"ResetInfo" = "Occasionally due to some bugs, errors may arise. This button allows you to reset the app fully in the event of these errors.";
+"ReviewTitle" = "Enjoying VSC?";
+"OpenGitHub" = "Leave a GitHub Star";
+"MaybeLater" = "Maybe Later";
+"NeverShowAgain" = "Never Show Again";
+"ReviewPrompt" = "Please leave a review or a star on GitHub!";
+
+// UpdatesView
+"UpdateButton" = "New App Version Available";
+"UpdateInstructions1" = "If there is no update option, please:";
+"UpdateInstructions2" = "Go to the Home (Today) tab";
+"UpdateInstructions3" = "Click on your profile in the top right";
+"UpdateInstructions4" = "Swipe down to reload";
+"UpdateInstructions5" = "Scroll down to see available updates";
+"UpdateTitle" = "Update App";
+
+
+
+

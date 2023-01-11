@@ -1,4 +1,4 @@
-//  ContentView.swift
+//  HomeView.swift
 //  ValorantStoreChecker
 //
 //  Created by Gordon Ng on 2022-07-15.
@@ -9,121 +9,53 @@ import StoreKit
 
 struct LaunchView: View {
     
-    @EnvironmentObject private var skinModel:SkinModel
     @EnvironmentObject private var authAPIModel:AuthAPIModel
-    //@Environment(\.scenePhase) private var phase
-    
-    
-    
-    
+    @AppStorage("authentication") var isAuthenticated = false
+    @AppStorage("authorizeDownload") var authorizeDownload = false
+    @AppStorage("downloadBarFinish") var downloadBarFinish = false
+    @AppStorage("rememberPassword") var rememberPassword = false
+    @AppStorage("background") var background = "Background 3"
+
     let defaults = UserDefaults.standard
     
     var body: some View {
         
-        ZStack (alignment: .top){
+        ZStack {
+            
+            
             
             // Displays login if the user is not authenticated
-            if !authAPIModel.isAuthenticated && !defaults.bool(forKey: "authentication") {
+            if !isAuthenticated && !authAPIModel.authenticationState {
                 
                 LoginView()
+                    .environment(\.colorScheme, .dark)
                 
             }
-            else if (!defaults.bool(forKey: "authorizeDownload") && !authAPIModel.downloadImagePermission) || (!defaults.bool(forKey: "downloadBarFinish") && !authAPIModel.downloadBarFinish) {
+            else if (!authorizeDownload && !authAPIModel.downloadButtonClicked) || (!downloadBarFinish && !authAPIModel.downloadBarFinish) {
                 
                 DownloadView()
+                    .environment(\.colorScheme, .dark)
                 
             }
             else {
                 
                 HomeView()
-                /*
-                 .onChange(of: phase) { newPhase in
-                 switch newPhase {
-                 case .background: scheduleAppRefresh()
-                 default: break
-                 }
-                 }
-                 */
+                    .background{
+                        Image(background)
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea(.all)
+                    }
             }
             
-
+            AlertView()
             
         }
-        .sheet(isPresented: $authAPIModel.showMultifactor) {
+        .sheet(isPresented: $authAPIModel.multifactor) {
             MultifactorView()
-                .preferredColorScheme(.dark)
+                .environment(\.colorScheme, .dark)
                 .background(Constants.bgGrey)
         }
-        .alert(LocalizedStringKey("ErrorTitle"), isPresented: $authAPIModel.isError, actions: {
-            
-            if authAPIModel.isReloadingError && (authAPIModel.rememberPassword || defaults.bool(forKey: "rememberPassword")) {
-                
-                
-                Button(LocalizedStringKey("OK"), role: nil, action: {
-                    authAPIModel.reloading = false
-                    authAPIModel.isReloadingError = false
-                })
-                
-            }
-            else if authAPIModel.isReloadingError {
-                
-                Button(LocalizedStringKey("SignOut"), role: nil, action: {
-                    
-                    authAPIModel.logOut()
-                    
-                    authAPIModel.reloading = false
-                    authAPIModel.isReloadingError = false
-                })
-                
-                
-                Button(LocalizedStringKey("OK"), role: nil, action: {
-                    authAPIModel.reloading = false
-                    authAPIModel.isReloadingError = false
-                })
-                
-            }
-            else {
-                
-                Button(LocalizedStringKey("CopyError"), role: nil, action: {
-                    
-                    let pasteboard = UIPasteboard.general
-                    pasteboard.string = authAPIModel.errorMessage
-                    
-                    authAPIModel.reloading = false
-                    authAPIModel.isReloadingError = false
-                    
-                })
-                
-                Button(LocalizedStringKey("OK"), role: nil, action: {
-                    authAPIModel.reloading = false
-                    authAPIModel.isReloadingError = false
-                    
-                })
-                
-            }
-            
-        }, message: {
-            
-            if authAPIModel.isReloadingError && (authAPIModel.rememberPassword || defaults.bool(forKey: "rememberPassword")) {
-                
-                Text(LocalizedStringKey("ErrorMessage2"))
-            }
-            else if authAPIModel.isReloadingError {
-                
-                Text(LocalizedStringKey("ErrorMessage1"))
-            }
-            else {
-                Text(authAPIModel.errorMessage)
-            }
-            
-            
-            
-        })
-        
-        
-        
-        
-        
     }
 }
 

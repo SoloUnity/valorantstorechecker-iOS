@@ -16,7 +16,11 @@ class NotificationService {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             
             if success {
-                print("Access granted!")
+
+                withAnimation(.default) {
+                    UserDefaults.standard.set(true, forKey: "requestNotifPerm")
+                }
+                
             }
             else if let error = error {
                 print(error.localizedDescription)
@@ -28,7 +32,7 @@ class NotificationService {
     func sendNotification(date: Date, title: String, body: String) {
         
         var trigger : UNNotificationTrigger?
-        
+                
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
         trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)

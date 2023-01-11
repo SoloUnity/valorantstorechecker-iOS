@@ -1,0 +1,289 @@
+/*
+Localizable.strings
+ValorantStoreChecker
+
+Created by Gordon on 2022-08-07.
+*/
+
+// Translated using https://github.com/GWesley/auto_localize
+"SignIn" = "Đăng nhập";
+
+"PrivacyDisclaimer" = "Bằng cách nhấp vào Đăng nhập, bạn đồng ý với các điều khoản và điều kiện của chúng tôi và [Chính sách bảo mật của chúng tôi](https://www.craft.do/s/fqxdg6asyp8wak)";
+
+"Login" = "Đăng nhập vào tài khoản Riot của bạn";
+
+"InvalidCredentials" = "Thông tin không hợp lệ";
+
+"Username" = "tên tài khoản";
+
+"Password" = "Mật khẩu";
+
+"SelectRegion" = "Chọn địa bàn";
+
+"Americas" = "Châu Mỹ";
+
+"Europe" = "Châu Âu";
+
+"AsiaPacific" = "Châu á Thái Bình Dương";
+
+"SouthKorea" = "Nam Triều Tiên";
+
+"TermsAndConditions" = "Các điều khoản và điều kiện";
+
+"MITLicense" = "Giấy phép MIT
+Bản quyền (c) 2022 Gordon ng
+
+Quyền được cấp, miễn phí, cho bất kỳ ai có được bản sao phần mềm này và các tệp tài liệu liên quan (phần mềm), để giải quyết phần mềm mà không hạn chế, bao gồm không giới hạn quyền sử dụng, sao chép, sửa đổi, hợp nhất, xuất bản, Phân phối, Nhãn hiệu và/hoặc Bán các bản sao của phần mềm và cho phép những người mà phần mềm được cung cấp để làm như vậy, tuân theo các điều kiện sau: Thông báo bản quyền trên và thông báo cho phép này sẽ được đưa vào tất cả các bản sao hoặc đáng kểcác phần của phần mềm.
+
+Phần mềm được cung cấp như là, không có bảo hành dưới bất kỳ hình thức nào, rõ ràng hay ngụ ý, bao gồm nhưng không giới hạn trong các bảo đảm của thương mại, thể lực cho một mục đích cụ thể và không gây nhiễu.Trong mọi trường hợp, các tác giả hoặc chủ bản quyền sẽ phải chịu trách nhiệm đối với bất kỳ khiếu nại, thiệt hại hoặc trách nhiệm nào khác, cho dù trong hành động của hợp đồng, tra tấn hay nói cách khác, phát sinh từ hoặc liên quan đến phần mềm hoặc việc sử dụng hoặc các giao dịch khác trongPHẦN MỀM.";
+
+"Copyright" = "Bản quyền";
+
+"CopyrightNotice" = "VSC (Trình kiểm tra cửa hàng cho Valorant) không được liên kết, kết nối hoặc được chứng thực bởi các trò chơi Valorant hoặc Riot.Ngoài ra, Riot Games và Valorant là các nhãn hiệu được đăng ký theo Riot Games Inc.";
+
+"EnterTheCode" = "Nhập mã được gửi đến";
+
+"InvalidCode" = "Mã không hợp lệ";
+
+"TwoFactorAuthentication" = "Xác thực hai yếu tố";
+
+"DownloadAssets" = "Tải xuống tài sản";
+
+"Stuck" = "Bị mắc kẹt? Bấm vào đây để thử lại.";
+
+"NightMarket" = "Chợ đêm";
+
+"Store" = "Cửa hàng";
+
+"Bundle" = "Bó";
+
+"SkinIndex" = "Chỉ số da";
+
+"Settings" = "Cài đặt";
+
+"Cancel" = "Hủy bỏ";
+
+"Cost" = "Phí tổn";
+
+"ExclusiveSkinMessage" = "Đây là một độc quyền Battlepass, một nhân vật độc quyền hoặc một phiên bản giới hạn.";
+
+"Tier" = "Tầng";
+
+"Default1" = "1. Mặc định";
+
+"Default" = "Vỡ nợ";
+
+"Unknown" = "không xác định";
+
+"Reloading" = "Tải lại";
+
+"Reload" = "Tải lại";
+
+"UpdateAvailable" = "Cập nhật có sẵn";
+
+"EmptyBundle" = "Làm mới để xem gói";
+
+"NoOwned" = "Vui lòng tải lại cửa hàng hoặc mua một số giao diện :)";
+
+"EmptySearch" = "Không có gì phù hợp với tìm kiếm của bạn";
+
+"Search" = "Tìm kiếm";
+
+"All" = "Tất cả các";
+
+"Owned" = "Sở hữu";
+
+"Knife" = "Dao";
+
+"Sidearm" = "SIDEARM";
+
+"SMGs" = "SMG";
+
+"Shotguns" = "Súng ngắn";
+
+"Rifles" = "Súng trường";
+
+"Sniper" = "Kẻ bắn tỉa";
+
+"Heavy" = "Nặng";
+
+"HelpDev" = "Giúp Dev!";
+
+"AutomaticReload" = "Tự động tải lại";
+
+"Notify" = "Lưu trữ thông báo đặt lại";
+
+"Allow" = "Cho phép";
+
+"Appearance" = "Vẻ bề ngoài";
+
+"Language" = "Ngôn ngữ";
+
+"ManageMedia" = "Quản lý phương tiện truyền thông";
+
+"Support" = "Ủng hộ";
+
+"Community" = "Cộng đồng";
+
+"Share" = "Chia sẻ ứng dụng";
+
+"Acknowledgements" = "Sự nhìn nhận";
+
+"About" = "Về";
+
+"RememberPasswordInfo" = "Mật khẩu của bạn được bảo mật bởi Keychain.Đăng nhập hoặc vô hiệu hóa chuyển đổi sẽ tự động quên mật khẩu.Kích hoạt tính năng này bỏ qua các giới hạn thời gian API và cho phép đăng nhập tự động thay mặt người dùng.";
+
+"SignOut" = "Đăng xuất";
+
+"Account" = "Tài khoản";
+
+"RememberPassword" = "Nhớ mật khẩu";
+
+"Region" = "Khu vực";
+
+"SwitchAccounts" = "Chuyển đổi tài khoản";
+
+"HelpMessage" = "Xin chào!Tôi là một sinh viên đại học thiếu ngủ chỉ cố gắng làm cho cuộc sống tốt hơn một chút.Hãy xem xét việc giúp tôi thông qua bất kỳ phương pháp dưới đây!";
+
+"Review" = "Để lại một đánh giá";
+
+"Star" = "Ngôi sao kho lưu trữ";
+
+"HelpTranslate" = "Giúp dịch";
+
+"ShowAppreciation" = "Thể hiện sự trân trọng";
+
+"Sponsor" = "Mẹo cho tôi";
+
+"CheckUpdates" = "Kiểm tra cập nhật";
+
+"ColourScheme" = "Bảng màu";
+
+"Auto" = "Tự động";
+
+"Light" = "Ánh sáng";
+
+"Dark" = "Tối";
+
+"Background" = "Tiểu sử";
+
+"AppIcon" = "Biểu tượng ứng dụng";
+
+"DefaultDark" = "Mặc định tối";
+
+"3DDark" = "3d tối";
+
+"Default Light" = "Ánh sáng mặc định";
+
+"3DLight" = "Ánh sáng 3D";
+
+"AutoplayVideos" = "Video phát tự động";
+
+"Both" = "Cả hai";
+
+"DownloadNewAssets" = "Tải xuống tài sản mới";
+
+"WifiOnly" = "Chỉ wifi";
+
+"CellularOnly" = "Di động";
+
+"Never" = "Chưa từng";
+
+"ClearAssets" = "Tài sản rõ ràng";
+
+"Clear" = "Thông thoáng";
+
+"Create" = "Tạo một vé hỗ trợ";
+
+"FAQ" = "Câu hỏi thường gặp";
+
+"SourceCode" = "Mã nguồn";
+
+"FAQText" = "Tại sao ứng dụng cần thông tin đăng nhập của tôi?
+                        
+Mặc dù nhiều số liệu thống kê của bạn có quyền truy cập miễn phí mà không cần mật khẩu, nhưng cửa hàng của bạn là một ngoại lệ đáng chú ý vì nó được coi là thông tin nhạy cảm.Để ứng dụng truy cập vào cửa hàng của bạn, nó cần thông tin đăng nhập của bạn nơi nó có được cửa hàng của bạn thông qua [API nguồn mở này](https://github.com/heym1ke/valorantclientapi).
+                        
+Các biện pháp tại chỗ để bảo vệ tôi là gì?
+
+Ngoài việc không bao giờ lưu trữ mật khẩu của bạn, thông tin nhạy cảm bao gồm khu vực của bạn được bảo mật phía sau Keychain.Ứng dụng cũng là nguồn mở, cho phép bất kỳ ai và mọi người truy cập mã mọi lúc.Quyền riêng tư của bạn là ưu tiên hàng đầu và tôi đã làm mọi thứ trong khả năng của mình để đảm bảo nó.Để biết mumbo hợp pháp jumbo, xem [tại đây](https://www.craft.do/s/fqxdg6asyp8wak).
+
+Những tài sản nào được tải xuống?
+
+Các tài sản được tải xuống là hình ảnh cho phép bạn sử dụng tính năng chỉ mục da của ứng dụng mọi lúc, ngay cả khi ngoại tuyến.
+
+Ghi nhớ mật khẩu làm gì?
+
+Cách hiện tại mà nút tải lại yêu cầu cookie thay vì tên người dùng và mật khẩu của bạn, cho phép ứng dụng không lưu trữ mật khẩu của bạn.Tuy nhiên, các cookie này hết hạn sau một khoảng thời gian nhất định, yêu cầu người dùng phải đăng nhập lại.Để hợp lý hóa quy trình này, hãy nhớ rằng mật khẩu cho phép người dùng lưu mật khẩu của họ và cho phép tự động sau hậu trường đăng nhập. Nếu người dùng muốn không lưu mật khẩu, họ chỉ có thể đăng nhập và đăng nhập lại để tạo cookie mới.";
+
+"WebAndDisc" = "Trang web và bot bất hòa";
+
+"DiscordServer" = "Máy chủ Discord";
+
+"ThankJulian" = "Cảm ơn bạn đã giúp đỡ trong việc trả lời nhiều câu hỏi của tôi!";
+
+"ThankLunac" = "Cám ơn vì đã tiếp tục giúp đỡ tôi!";
+
+"ThankTranslator" = "Cảm ơn bạn đã giúp bạn dịch ứng dụng!";
+
+"Version" = "Phiên bản";
+
+"Privacy" = "Chính sách bảo mật";
+
+"WhatsNew" = "Có gì mới";
+
+"MadeIn" = "Được thực hiện trong 🇨🇦";
+
+"NetworkError" = "Không có mạng";
+
+"InfoPrice" = "Giá của làn da này không may không có trong cơ sở dữ liệu của chúng tôi.";
+
+"ErrorTitle" = "Lỗi";
+
+"OK" = "VÂNG";
+
+"CopyError" = "Sao chép lỗi";
+
+"ErrorMessage1" = "Cookie cá nhân của bạn đã hết hạn.Đây là một giới hạn API mà tôi không có quyền kiểm soát.Có 2 tùy chọn để giải quyết điều này:
+1) Đăng xuất và đăng nhập.
+2) BẬT Nhớ Mật khẩu trong Cài đặt> Tài khoản.";
+
+"ErrorMessage2" = "Mật khẩu sai đặt trong cài đặt";
+
+"ErrorMessage3" = "Mua hàng của bạn không thể được xác minh bởi App Store.";
+
+"ErrorMessage4" = "Không có gói giảm giá nào, vui lòng thử lại sau.";
+
+"InformationTitle" = "Tại sao tài khoản Riot của tôi?";
+
+"Information" = "Mặc dù nhiều số liệu thống kê của bạn có quyền truy cập miễn phí mà không cần mật khẩu, nhưng cửa hàng của bạn là một ngoại lệ vì nó được coi là thông tin nhạy cảm.Để ứng dụng truy cập cửa hàng của bạn, nó cần thông tin đăng nhập của bạn nơi nó có được cửa hàng của bạn thông qua API nguồn mở.Thông tin bổ sung, mã nguồn và Câu hỏi thường gặp có thể được tìm thấy trong liên kết dưới đây.";
+
+"InvalidLogin" = "Đăng nhập không hợp lệ";
+
+"Reset" = "Cài lại";
+
+"ResetInfo" = "Thỉnh thoảng do một số lỗi, lỗi có thể phát sinh.Nút này cho phép bạn đặt lại ứng dụng đầy đủ trong trường hợp các lỗi này.";
+
+"ReviewTitle" = "Thưởng thức VSC?";
+
+"OpenGitHub" = "Để lại một ngôi sao github";
+
+"MaybeLater" = "Có lẽ sau này";
+
+"NeverShowAgain" = "Không bao giờ hiển thị trở lại";
+
+"ReviewPrompt" = "Vui lòng để lại đánh giá hoặc một ngôi sao trên GitHub!";
+
+"UpdateButton" = "Phiên bản ứng dụng mới có sẵn";
+
+"UpdateInstructions1" = "Nếu không có tùy chọn cập nhật, xin vui lòng:";
+
+"UpdateInstructions2" = "Tab Go Home (hôm nay)";
+
+"UpdateInstructions3" = "Nhấp vào hồ sơ của bạn ở trên cùng bên phải";
+
+"UpdateInstructions4" = "Vuốt xuống để tải lại";
+
+"UpdateInstructions5" = "Cuộn xuống để xem các bản cập nhật có sẵn";
+
+"UpdateTitle" = "Ứng dụng cập nhật";
+

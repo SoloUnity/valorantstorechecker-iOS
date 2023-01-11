@@ -1,98 +1,49 @@
 //
-//  HomeView.swift
+//  ContentView.swift
 //  ValorantStoreChecker
 //
-//  Created by Gordon Ng on 2022-07-16.
-//
+//  Created by Gordon Ng on 2022-12-16.
+//  https://www.youtube.com/watch?v=3psB2i2Ondo
 
 import SwiftUI
 
 struct HomeView: View {
+
+    @AppStorage("selectedTab") var selectedTab: Tab = .shop
+    let diffBottomInset: CGFloat = 88
     
-    @EnvironmentObject private var authAPIModel : AuthAPIModel
-    @EnvironmentObject private var skinModel : SkinModel
-    @State private var tabIndex = 0
-    
-    private let defaults = UserDefaults.standard
-    
-    
-    var body: some View {
-        
-        TabView(selection: $tabIndex) {
-            ShopView()
-                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                .tabItem {
-                    Image(systemName: "cart")
-                    Text(LocalizedStringKey("Store"))
-                }
-                .tag(0)
-                
-            if defaults.bool(forKey: "nightMarket") || authAPIModel.nightMarket {
-                NightMarketView()
-                    .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                    .tabItem{
-                    Image(systemName: "moon.stars")
-                    Text(LocalizedStringKey("NightMarket"))
-                    }
-                    .tag(4)
-            }
+    var body: some View  {
+
+        ZStack(alignment: .bottom) {
             
+
+            
+            // Done this way to preserve scroll state
+            ShopView()
+                .opacity(selectedTab == .shop ? 1 : 0)
             
             BundleView()
-                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                .tabItem{
-                Image(systemName: "archivebox.fill")
-                Text(LocalizedStringKey("Bundle"))
-                }
-                .tag(1)
-
+                .opacity(selectedTab == .bundle ? 1 : 0)
             
             SkinListView()
-                .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-                .tabItem {
-                    Image(systemName: "list.bullet")
-                    Text(LocalizedStringKey("SkinIndex"))
-                }
-                .tag(2)
+                .opacity(selectedTab == .skinList ? 1 : 0)
+            
+            SettingsView()
+                .opacity(selectedTab == .settings ? 1 : 0)
+            
+            NightMarketView()
+                .opacity(selectedTab == .nightMarket ? 1 : 0)
+            
+            
+            TabBar(diffSafeAreaBottomInset: diffBottomInset)
 
-            
-            
-            
-            /*
-             WishListView()
-             .background(LinearGradient(gradient: Constants.bgGradient, startPoint: .top, endPoint: .bottom))
-             .tabItem{
-             Image(systemName: "heart.fill")
-             Text("Wish List")
-             }
-             .tag(2)
-             */
-            
-            AboutView()
-                .tabItem {
-                    Image(systemName: "info.circle.fill")
-                    Text(LocalizedStringKey("About"))
-                }
-                .tag(3)
-
-            
         }
-        .accentColor(.white)
-        .preferredColorScheme(.dark)
-        
-        
-    }
-    
-    func bugFixer() -> Bool {
-        if #available(iOS 15.0, *) {
-            return true
+        .safeAreaInset(edge: .bottom) {
+            Color.clear.frame(height: diffBottomInset)
         }
-        return false
+        .dynamicTypeSize(.large ... .xxLarge)
+        
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+

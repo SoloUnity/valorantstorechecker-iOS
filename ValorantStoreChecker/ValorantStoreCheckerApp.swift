@@ -6,21 +6,20 @@
 ///
 
 import SwiftUI
-//import GoogleMobileAds
 
 @main
 struct ValorantStoreCheckerApp: App {
     
-    /*
-    init() {
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
-    }
-    */
+    @AppStorage("dark") var toggleDark = true
+    @AppStorage("autoDark") var auto = false
     
     var body: some Scene {
         WindowGroup {
+            
             SplashScreenView()
-                .preferredColorScheme(.dark)
+                .preferredColorScheme(auto ? nil : (toggleDark ? .dark : .light))
+                .tint(.pink)
+
         }
     }
 }

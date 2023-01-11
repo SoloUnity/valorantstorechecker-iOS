@@ -6,12 +6,18 @@
 //
 
 import Foundation
+import SwiftUI
 
 class SkinModel: ObservableObject{
     
     @Published var data : [Skin] = []
     @Published var standardSkins : [Skin] = []
-    @Published var errorMessage = "" 
+    @Published var errorMessage = ""
+    @Published var progressNumerator : Double = 0
+    @Published var progressDenominator : Double = 0
+    @AppStorage("networkType") var networkType = "both"
+    @AppStorage("currentNetworkType") var currentNetworkType = ""
+    
     
     let defaults = UserDefaults.standard
     
@@ -19,10 +25,23 @@ class SkinModel: ObservableObject{
         
         getLocalData()
         
-        Task {
-            await getRemoteData()
+        if networkType == "wifi" && currentNetworkType == "wifi" {
+            getRemote()
+        }
+        else if networkType == "cellular" && currentNetworkType == "cellular" {
+            getRemote()
+        }
+        else if networkType == "both" {
+            getRemote()
         }
 
+        
+        func getRemote() {
+            DispatchQueue.global(qos: .background).async {
+                self.getRemoteData()
+            }
+        }
+        
     }
     
     func getLocalData() {
@@ -38,7 +57,7 @@ class SkinModel: ObservableObject{
             self.data = skinDataResponse.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")}).filter({!$0.themeUuid!.contains("0d7a5bfb-4850-098e-1821-d989bbfd58a8")})//Sorts alphabetically and filters out Standard skin
         }
         else {
-
+            
             // Local json file
             let jsonUrl = Bundle.main.url(forResource: "SkinData", withExtension: "json")
             
@@ -66,26 +85,20 @@ class SkinModel: ObservableObject{
             catch{
                 print("Rip JSON doesn't work")
             }
-             
+            
         }
-        
     }
     
-    @MainActor
-    func getRemoteData() async {
+    func getRemoteData() {
         
         let language = Bundle.main.preferredLocalizations
+        var chosenLanguage = ""
         
         if language[0] != defaults.string(forKey: "currentLanguage") {
-            
             defaults.set(language[0], forKey: "currentLanguage")
-            
         }
         
-        
         var urlString = Constants.URL.valAPISkins
-        
-        var chosenLanguage = ""
         
         switch language[0] {
         case "fr","fr-CA":
@@ -98,6 +111,12 @@ class SkinModel: ObservableObject{
             chosenLanguage = "de-DE"
         case "zh-Hans":
             chosenLanguage = "zh-CN"
+        case "vi":
+            chosenLanguage = "vi-VN"
+        case "es":
+            chosenLanguage = "es-ES"
+        case "pt-PT", "pt-BR":
+            chosenLanguage = "pt-BR"
         default:
             chosenLanguage = "en-US"
         }
@@ -106,35 +125,76 @@ class SkinModel: ObservableObject{
         
         let url = URL(string: urlString)
         
-        do {
+        let request = URLRequest(url: url!)
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request){ data, response, error in
             
-            // Create authentication request
-            let skinDataDownload = URLRequest(url: url!)
+            // Check if there is an error
+            guard error == nil || data != nil else{
+                return
+            }
             
-            // API Call
-            let (data , response) = try await WebService.session.data(for: skinDataDownload)
+            guard let httpResponse = response as? HTTPURLResponse else {
+                return
+            }
             
-            // Save the data
-            defaults.set(data, forKey: "skinDataResponse")
-            
-            // Verify server request
-            guard
-                let httpResponse = response as? HTTPURLResponse,
-                httpResponse.statusCode == 200
-            else{
-                throw JSONDownloadError.invalidResponse
+            guard httpResponse.statusCode == 200 else {
+                return
             }
             
             
-            guard let skinDataResponse = try? JSONDecoder().decode(Skins.self, from: data) else {
-                throw JSONDownloadError.invalidJson
-            }
+            // Handle response
+            let jsonDecoder = JSONDecoder()
+            let skinDataResponse = try! jsonDecoder.decode(Skins.self, from: data!)
             
+            self.defaults.set(data!, forKey: "skinDataResponse")
             
+            var totalImages : Double = 0
             
-            if UserDefaults.standard.bool(forKey: "authorizeDownload") {
+            // Get total number of images to download
+            for skin in skinDataResponse.data {
                 
-                let session = URLSession.shared
+                if let _ = self.defaults.data(forKey: skin.levels!.first!.id.description) {
+                    
+                } else {
+                    totalImages += 1
+                }
+                
+                
+                
+                for chroma in skin.chromas! {
+                    
+                    if let _ = self.defaults.data(forKey: chroma.id.description) {
+                        
+                    }
+                    else {
+                        totalImages += 1
+                    }
+                    
+                    if let _ = self.defaults.data(forKey: chroma.id.description + "swatch") {
+                        
+                    }
+                    else if chroma.swatch != nil {
+                        
+                        totalImages += 1
+                        
+                    }
+                }
+            }
+            
+            
+            DispatchQueue.main.async{
+                self.progressDenominator = totalImages
+            }
+            
+            if self.defaults.bool(forKey: "authorizeDownload") {
+                
+                let session: URLSession = {
+                    let configuration = URLSessionConfiguration.ephemeral
+                    configuration.timeoutIntervalForRequest = 240 // seconds
+                    configuration.timeoutIntervalForResource = 240 // seconds
+                    return URLSession(configuration: configuration)
+                }()
                 
                 for skin in skinDataResponse.data {
                     
@@ -144,23 +204,55 @@ class SkinModel: ObservableObject{
                     if skin.displayName.count > 2 && String(Array(skin.displayName)[0..<2]).contains("\n"){
                         skin.displayName = String(Array(skin.displayName)[2...])
                     }
-
                     
                 }
             }
             
+            
             // Background thread
             DispatchQueue.main.async{
-                
                 self.standardSkins = skinDataResponse.data.filter({$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")})
                 
                 self.data = skinDataResponse.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")}).filter({!$0.themeUuid!.contains("0d7a5bfb-4850-098e-1821-d989bbfd58a8")}) //Sorts alphabetically and filters out Standard skin
             }
             
         }
-        catch {
-            return
+        // Kick off data task
+        dataTask.resume()
+        
+        
+        
+        
+    }
+    
+    func deleteData() async {
+        if let skinData = defaults.data(forKey: "skinDataResponse") {
+            
+            let skinDataResponse = try! JSONDecoder().decode(Skins.self, from: skinData)
+            
+            for skin in skinDataResponse.data {
+                
+                if let _ = self.defaults.data(forKey: skin.levels!.first!.id.description) {
+                    self.defaults.removeObject(forKey: skin.levels!.first!.id.description)
+                }
+                
+                
+                
+                for chroma in skin.chromas! {
+                    
+                    if let _ = self.defaults.data(forKey: chroma.id.description) {
+                        self.defaults.removeObject(forKey: chroma.id.description)
+                    }
+
+                    if let _ = self.defaults.data(forKey: chroma.id.description + "swatch") {
+                        self.defaults.removeObject(forKey: chroma.id.description + "swatch")
+                    }
+                }
+            }
         }
+        
+        
+
     }
     
     // Convert image url to data object
@@ -174,17 +266,18 @@ class SkinModel: ObservableObject{
                 dataHelper(url: url, key: skin.levels!.first!.id.description, session: session)
                 
             }
-
+            
         }
     }
-
+    
     func getImageChromaData(skin: Skin, session: URLSession) {
         
         for chroma in skin.chromas! {
             
             if let _ = defaults.data(forKey: chroma.id.description) {
                 
-            } else {
+            }
+            else {
                 if let url = URL(string: "\(Constants.URL.valAPIMedia)weaponskinchromas/\(chroma.id.description.lowercased())/fullrender.png") {
                     
                     dataHelper(url: url, key: chroma.id.description, session: session)
@@ -193,7 +286,8 @@ class SkinModel: ObservableObject{
             
             if let _ = defaults.data(forKey: chroma.id.description + "swatch") {
                 
-            } else {
+            }
+            else {
                 
                 guard let swatchURL = chroma.swatch else {
                     return
@@ -203,19 +297,30 @@ class SkinModel: ObservableObject{
                     
                     dataHelper(url: url, key: chroma.id.description + "swatch", session: session)
                 }
+                
             }
+            
+            
         }
     }
     
+    
     func dataHelper (url : URL, key : String, session: URLSession) {
         // Get a session
+        
+        
         let dataTask = session.dataTask(with: url) { (data, response, error) in
             
             guard
                 let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200
             else{
+                DispatchQueue.main.async{
+                    self.progressNumerator += 1
+                }
+                
                 return
+                
             }
             
             if error == nil {
@@ -226,18 +331,33 @@ class SkinModel: ObservableObject{
                         let encoded = try! PropertyListEncoder().encode(data)
                         UserDefaults.standard.set(encoded, forKey: key)
                         
+                        self.progressNumerator += 1
+                    }
+                    else {
+                        return
                     }
                 }
             }
+            else {
+                return
+            }
+        }
+        
+        let _ : NSKeyValueObservation = dataTask.progress.observe(\.fractionCompleted) { observationProgress, _ in
+            
+            DispatchQueue.main.async{
+                self.progressNumerator += observationProgress.fractionCompleted
+            }
+            
         }
         
         dataTask.resume()
     }
- }
-     
-   
-    
+}
 
 
-    
+
+
+
+
 

@@ -11,6 +11,8 @@ struct MultifactorView: View {
     
     @EnvironmentObject private var authAPIModel : AuthAPIModel
     @EnvironmentObject private var skinModel : SkinModel
+    @EnvironmentObject private var networkModel : NetworkModel
+    @EnvironmentObject private var alertModel : AlertModel
     
     var body: some View {
         
@@ -18,16 +20,24 @@ struct MultifactorView: View {
             VStack{
                 
                 Logo()
-                    .frame(width: geo.size.width / Constants.dimensions.onboardingLogoSize)
+                    .frame(height: 70)
+                
+                Spacer()
                 
                 // MARK: General info
-                VStack{
+                VStack(alignment: .leading){
                     
-                    if !authAPIModel.failedLogin {
+                    
+                    
+                    if !authAPIModel.multifactorFailure {
+                        
                         Text(LocalizedStringKey("EnterTheCode"))
+                            .font(.title3)
                             .bold()
-                        Text(authAPIModel.email)
+                        
+                         Text(authAPIModel.multifactorEmail)
                             .bold()
+                            
                     }else {
                         Text(LocalizedStringKey("InvalidCode"))
                             .bold()
@@ -40,7 +50,7 @@ struct MultifactorView: View {
                             Image(systemName: "lock")
                                 .foregroundColor(.white)
                             
-                            TextField(LocalizedStringKey("TwoFactorAuthentication") , text: $authAPIModel.multifactor)
+                            TextField(LocalizedStringKey("TwoFactorAuthentication") , text: $authAPIModel.inputMultifactor)
                                 .keyboardType(.numberPad)
                                 .foregroundColor(.white)
                                 .disableAutocorrection(true)
@@ -51,64 +61,99 @@ struct MultifactorView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(lineWidth: 1)
                             .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                            .shadow(color: authAPIModel.failedLogin ? .red : .white, radius: 2)
                             .frame(maxWidth:.infinity , minHeight:45, maxHeight: 45)
-                            .foregroundColor(authAPIModel.failedLogin ? .red : .white)
+                            .foregroundColor(authAPIModel.multifactorFailure ? .red : .white)
                             
                     }
                 }
-                .padding(.top, 25)
+                .padding()
+                .background(.ultraThinMaterial)
+                .cornerRadius(20)
+                .offset(y: -50)
                 
                 Spacer()
                 
-                if authAPIModel.multifactor.count >= 6 {
+                if authAPIModel.inputMultifactor.count == 6 {
                     Button {
-                        authAPIModel.enteredMultifactor = true
-                        Task {
-                            await authAPIModel.multifactor(skinModel: skinModel)
+                        
+                        haptic()
+                        
+                        if networkModel.isConnected {
+                            
+                            authAPIModel.multifactorAnimation = true
+                            
+                            Task {
+                                await authAPIModel.multifactor(skinModel: skinModel)
+                            }
+                            
                         }
+                        else {
+                            
+                            withAnimation(.easeIn) {
+                                alertModel.alertNoNetwork = true
+                            }
+                            
+                        }
+                        
+                        
+                        
                     } label: {
-                        if !authAPIModel.enteredMultifactor {
-                            ZStack {
-                                CircleView(colour: .pink)
+                        
+                        if !authAPIModel.multifactorAnimation {
+                            
+                            ZStack{
+                                RectangleView()
                                     .shadow(color:.pink, radius: 2)
+                                    .cornerRadius(15)
                                 
-                                Image(systemName: "arrow.right")
-                                    .resizable()
-                                    .scaledToFit()
+                                //LOCALIZETEXT
+                                Text("Enter")
+                                    .bold()
                                     .padding(15)
                                     .foregroundColor(.white)
                                 
+                                
                             }
-                            .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
+                            .frame(height: Constants.dimensions.circleButtonSize)
                         }
-                        else {
-                            ProgressView()
-                                .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
+                        else{
+                            
+                            ZStack{
+                                RectangleView()
+                                    .shadow(color:.pink, radius: 2)
+                                    .cornerRadius(15)
+                                
+                                ProgressView()
+                                    .tint(.white)
+                                
+                            }
+                            .frame(height: Constants.dimensions.circleButtonSize)
+
                         }
+                        
                     }
                 }
                 else {
-                    ZStack {
-                        CircleView(colour: .pink)
-                            .shadow(color:.pink, radius: 2)
+                    ZStack{
+                        RectangleView()
+                            .cornerRadius(15)
+                            .preferredColorScheme(.dark)
                         
-                        Image(systemName: "arrow.right")
-                            .resizable()
-                            .scaledToFit()
+                        Text("Enter")
+                            .bold()
                             .padding(15)
                             .foregroundColor(.white)
-                        
+                            
                     }
-                    .frame(width: Constants.dimensions.circleButtonSize, height: Constants.dimensions.circleButtonSize)
-                    .opacity(0.5)
+                    .frame(height: Constants.dimensions.circleButtonSize)
                 }
                 
                 
             }
-            .padding(50)
+            .padding()
         }
         .background(Constants.bgGrey)
+        .preferredColorScheme(.dark)
     }
 }
 

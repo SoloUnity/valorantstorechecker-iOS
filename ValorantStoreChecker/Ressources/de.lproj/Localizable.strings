@@ -1,175 +1,243 @@
 /*
-  Localizable.strings
-  ValorantStoreChecker
+Localizable.strings
+ValorantStoreChecker
 
-  Erstellt von Gordon am 2022-08-07.
-  
+Created by Gordon on 2022-08-07.
 */
 
 
-// Fehler und Warnungen
-"ErrorTitle" = "Fehler";
-"ErrorMessage1" = "Fehlerfälle beim Nachladen
-1) Ungültige Netzwerkverbindung.
-2) Seit dem letzten Nachladen sind 3 Tage vergangen. Es gibt 2 Möglichkeiten, dieses Problem zu lösen:
-2a) Melden Sie sich ab und melden Sie sich erneut an.
-2b) Das 3-Tage-Lade-Limit kann umgangen werden, indem Sie unter Über > Einstellungen die Option Passwort merken aktivieren. Dies ist eine API-Beschränkung, über die ich keine Kontrolle habe.";
-"ErrorMessage2" = "Fehlerfälle beim Nachladen
-1) Ungültige Netzwerkverbindung
-2) Falsches Passwort in den Einstellungen festgelegt";
-"DownloadAssets" = "Assets herunterladen (75mb)";
-"CopyError" = "Kopierfehler";
-"Unbekannt" = "Unbekannt";
-"ErrorMessage3" = "Ihr Kauf konnte vom App Store nicht überprüft werden.";
-"NetworkError" = "Bitte überprüfe deine Internetverbindung.";
+//----------------------------------
+// MARK: Onboarding
+// LoginView
+"SignIn" = "Anmelden";
+"PrivacyDisclaimer" = "Indem Sie auf Anmelden klicken, erklären Sie sich mit unseren Allgemeinen Geschäftsbedingungen und unserer [Datenschutzrichtlinie](https://www.craft.do/s/fQxdg6aSyp8WAk) einverstanden";
 
-"Reset" = "Zurücksetzen";
-"ResetApp" = "App zurücksetzen";
-"ResetInfo" = "Gelegentlich können aufgrund von Fehlern Fehler auftreten. Mit dieser Schaltfläche können Sie die App im Falle eines solchen Fehlers vollständig zurücksetzen.";
-"HelpTranslate" = "Hilfe bei der Übersetzung";
-
-// Anmeldebildschirm
+// LoginViews -> LoginInfoView
 "Login" = "Melden Sie sich bei Ihrem Riot-Konto an";
-"OK" = "OK";
-"OpenLink" = "Link öffnen";
 "InvalidCredentials" = "Ungültige Anmeldedaten";
-"IRead" = "Ich habe die Bedingungen und Konditionen gelesen";
-"InformationTitle" = "Warum mein Riot-Konto?";
-"Information" = "Während Sie auf viele Ihrer Statistiken ohne Ihr Passwort zugreifen können, ist Ihr Shop eine Ausnahme, da er als sensible Information gilt. Damit die App auf deinen Shop zugreifen kann, benötigt sie deine Anmeldeinformationen, die sie über eine Open-Source-API erhält. Weitere Informationen, den Quellcode und eine FAQ finden Sie unter folgendem Link.";
 
-// LoginBoxView
+// LoginViews -> LoginBoxView
 "Username" = "Benutzername";
 "Password" = "Passwort";
 
-// RegionSelectorView
+// LoginViews -> RegionSelectorViewa
 "SelectRegion" = "Region auswählen";
-"NorthAmerica" = "Nordamerika";
-"Europe" = "Europa";
+"Americas" = "Amerika";
+"Europa" = "Europa";
 "AsiaPacific" = "Asien-Pazifik";
 "SouthKorea" = "Südkorea";
 
+// LoginViews -> TermsView
+"TermsAndConditions" = "Bedingungen und Konditionen";
+"MITLicense" = "MIT-Lizenz
+Urheberrecht (c) 2022 Gordon Ng
+
+Hiermit wird jeder Person, die eine Kopie dieser Software und der zugehörigen Dokumentationsdateien (die Software) erwirbt, kostenlos die Erlaubnis erteilt, uneingeschränkt mit der Software zu handeln, einschließlich und ohne Einschränkung der Rechte, Kopien der Software zu verwenden, zu kopieren, zu modifizieren, zusammenzuführen, zu veröffentlichen, zu vertreiben, zu unterlizenzieren und/oder zu verkaufen, und Personen, denen die Software zur Verfügung gestellt wird, dies zu gestatten, vorbehaltlich der folgenden Bedingungen: Der obige Copyright-Hinweis und dieser Genehmigungshinweis müssen in allen Kopien oder wesentlichen Teilen der Software enthalten sein.
+
+DIE SOFTWARE WIRD OHNE MÄNGELGEWÄHR UND OHNE JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GARANTIE ZUR VERFÜGUNG GESTELLT, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE GARANTIE DER MARKTGÄNGIGKEIT, DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK UND DER NICHTVERLETZUNG VON RECHTEN. IN KEINEM FALL SIND DIE AUTOREN ODER URHEBERRECHTSINHABER HAFTBAR FÜR JEGLICHE ANSPRÜCHE, SCHÄDEN ODER SONSTIGE HAFTUNG, SEI ES AUS VERTRAG, UNERLAUBTER HANDLUNG ODER ANDERWEITIG, DIE SICH AUS DER SOFTWARE ODER DER NUTZUNG ODER DEM SONSTIGEN UMGANG MIT DER SOFTWARE ERGEBEN ODER DAMIT ZUSAMMENHÄNGEN.";
+
+"Copyright" = "Copyright";
+"CopyrightNotice" = "VSC (Store Checker for Valorant) steht in keiner Verbindung zu Valorant oder Riot Games und wird auch nicht von diesen unterstützt. Außerdem sind Riot Games und Valorant eingetragene Marken von Riot Games Inc.";
+
+//----------------------------------
 // MultifactorView
-"EnterTheCode" = "Geben Sie den Code ein, der an";
+"EnterTheCode" = "Geben Sie den Code ein, der an gesendet wurde";
 "InvalidCode" = "Ungültiger Code";
 "TwoFactorAuthentication" = "Zwei-Faktor-Authentifizierung";
 
-// TermsView
-"TermsAndConditions" = "Bedingungen und Konditionen";
-"MITLicense" = "MIT-Lizenz";
-"CopyrightGordon" = "Copyright (c) 2022 Gordon Ng";
-"Paragraph1" = "Hiermit wird jeder Person, die eine Kopie dieser Software und der zugehörigen Dokumentationsdateien (die Software) erwirbt, kostenlos die Erlaubnis erteilt, uneingeschränkt mit der Software zu handeln, einschließlich und ohne Einschränkung der Rechte, Kopien der Software zu verwenden, zu kopieren, zu modifizieren, zusammenzuführen, zu veröffentlichen, zu vertreiben, unterzulizenzieren und/oder zu verkaufen, und Personen, denen die Software zur Verfügung gestellt wird, dies zu gestatten, vorbehaltlich der folgenden Bedingungen: Der obige Copyright-Hinweis und dieser Genehmigungshinweis müssen in allen Kopien oder wesentlichen Teilen der Software enthalten sein.";
-"Paragraph2" = "DIE SOFTWARE WIRD OHNE MÄNGELGEWÄHR, OHNE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GEWÄHRLEISTUNG JEGLICHER ART, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE GEWÄHRLEISTUNG DER HANDELSÜBLICHKEIT, DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK UND DER NICHTVERLETZUNG VON RECHTEN, ZUR VERFÜGUNG gestellt. UNTER KEINEN UMSTÄNDEN HAFTEN DIE AUTOREN ODER URHEBERRECHTSINHABER FÜR JEGLICHE ANSPRÜCHE, SCHÄDEN ODER SONSTIGE HAFTUNG, SEI ES AUS VERTRAG, UNERLAUBTER HANDLUNG ODER ANDERWEITIG, DIE SICH AUS DER SOFTWARE ODER DER NUTZUNG ODER DEM SONSTIGEN UMGANG MIT DER SOFTWARE ERGEBEN.";
-"Privacy" = "Datenschutzrichtlinie";
+// DownloadView
+"DownloadAssets" = "Assets herunterladen";
+"Stuck" = "Hängengeblieben? Click here to try again.";
 
-// HomeView
-"Store" = "Store";
-"SkinIndex" = "Skin-Index";
-"About" = "Über";
+//----------------------------------
+// MARK: Home
+// NightMarketView
+"NightMarket" = "Nachtmarkt";
 
-// ShopTobBarView
-"AutomaticReload" = "Automatisches Nachladen";
-"AutomaticReloadInfo" = "Lädt den Shop automatisch nach, wenn er verfügbar ist.";
-"Reloading" = "Nachladen";
-"Reload" = "neu laden";
+//----------------------------------
+// NavTabBar -> TabBar
+"Store" = "Laden";
+"Bundle" = "Bündel";
+"SkinIndex" = "Haut-Index";
+"Settings" = "Einstellungen";
 
-// SkinCardDetailView
-"InfoPrice" = "Der Preis dieses Skins ist leider nicht in unserer Datenbank";
-"Cost" = "Kosten";
-"ExclusiveSkinMessage" = "Dies ist entweder ein Battlepass-exklusiver, ein Charakter-exklusiver oder ein limitierter Skin.";
-"Tier" = "Tier";
-"Default" = "Standard";
-"Default1" = "1. Standard";
-"Variant" = "Variant";
-
-// Suchleiste
-"Search" = "Suche";
+// NavTabBar -> NavigationSearchBar
 "Cancel" = "Abbrechen";
 
-// AboutView
-// Über in HomeView
-"MadeWith" = "Hergestellt mit";
-"MadeIn" = "Hergestellt in 🇨🇦";
+//----------------------------------
+// SkinCardDetailView -> PriceView
+"Cost" = "Kosten";
+"ExclusiveSkinMessage" = "This is either a Battlepass exclusive, a character exclusive, or a limited edition skin.";
 
-// AccountView
-"Account" = "Konto";
+// SkincardDetailView -> VideoPickerView
+"Tier" = "Ebene";
+"Default1" = "1. Standard";
+"Default" = "Standard";
+"Unknown" = "Unbekannt";
+
+//----------------------------------
+// ShopTopBarView
+"Reloading" = "Nachladen";
+"Reload" = "Neu laden";
+"UpdateAvailable" = "Update verfügbar";
+
+//----------------------------------
+// BundleView
+"EmptyBundle" = "Aktualisieren, um das Bundle zu sehen";
+
+//----------------------------------
+// SkinListView
+"NoOwned" = "Bitte laden Sie den Shop neu, oder kaufen Sie einige Skins :)";
+"EmptySearch" = "Nichts passt zu Ihrer Suche";
+
+// SearchBar
+"Search" = "Suche";
+
+// FilterView
+"All" = "Alle";
+"Owned" = "Besitzt";
+"Knife" = "Messer";
+"Sidearm" = "Seitenwaffe";
+"SMGs" = "SMGs";
+"Shotguns" = "Schrotflinten";
+"Rifles" = "Gewehre";
+"Sniper" = "Scharfschütze";
+"Heavy" = "Schwer";
+
+//----------------------------------
+// SettingsView
+"HelpDev" = "Helft dem Entwickler!";
+"AutomaticReload" = "Automatisches Nachladen";
+"Notify" = "Benachrichtigung bei Ladenrücksetzung";
+"Allow" = "Erlauben";
+"Appearance" = "Erscheinungsbild";
+"Language" = "Sprache";
+"ManageMedia" = "Medien verwalten";
+"Support" = "Unterstützung";
+"Community" = "Gemeinschaft";
+"Share" = "Die App teilen";
+"Acknowledgements" = "Danksagungen";
+"About" = "Über";
+
+//----------------------------------
+// AccountViews -> AccountView
+"RememberPasswordInfo" = "Ihr Passwort ist durch Keychain gesichert. Wenn Sie sich abmelden oder den Schalter deaktivieren, wird das Passwort automatisch vergessen. Die Aktivierung dieser Funktion umgeht die API-Zeitbeschränkungen und ermöglicht die automatische Anmeldung im Namen des Benutzers.";
 "SignOut" = "Abmelden";
+"Account" = "Konto";
+
+// AccountViews -> RememberPasswordView
+"RememberPassword" = "Passwort merken";
+
+// AccountViews -> RegionView
 "Region" = "Region";
-// Regionennamen in RegionSelectorView
+
+// AccountViews -> AccountSwitcherView
+"SwitchAccounts" = "Konten wechseln";
+
+//----------------------------------
+// HelpViews -> HelpView
+"HelpMessage" = "Hi! Ich bin ein Student mit Schlafentzug, der versucht, sein Leben ein bisschen besser zu machen 😄. Bitte denken Sie darüber nach, mir mit einer der folgenden Methoden zu helfen!";
+"Review" = "Hinterlasse eine Bewertung";
+"Star" = "Gib dem Repository einen Stern";
+"HelpTranslate" = "Hilfe bei der Übersetzung"; "HelpTranslate" = "Hilfe bei der Übersetzung";
+
+// HelpViews -> TipView
+"ShowAppreciation" = "Wertschätzung zeigen";
+"Sponsor" = "Tipp mich";
+
+//----------------------------------
+// AppearanceView
+"CheckUpdates" = "Nach Updates suchen";
+"ColourScheme" = "Farbschema";
+"Auto" = "Auto";
+"Light" = "Hell";
+"Dark" = "Dunkel";
+"Background" = "Hintergrund";
+"AppIcon" = "App-Symbol";
+"DefaultDark" = "Default Dark";
+"3DDark" = "3D Dark";
+"Default Light" = "Default Light";
+"3DLight" = "3D Light";
+
+// MediaManagementView
+"AutoplayVideos" = "Autoplay-Videos";
+"Both" = "Beide";
+"DownloadNewAssets" = "Neue Assets herunterladen";
+"WifiOnly" = "Nur Wifi";
+"CellularOnly" = "Nur Mobilfunk";
+"Never" = "Nie";
+"ClearAssets" = "Assets löschen";
+"Clear" = "Löschen";
 
 // SupportView
-"Support" = "Unterstützung";
 "Create" = "Supportanfrage erstellen";
 "FAQ" = "FAQ";
 "SourceCode" = "Quellcode";
+"FAQText" = "Warum benötigt die App meine Anmeldeinformationen?
+                        
+Während Sie auf viele Ihrer Statistiken ohne Ihr Passwort zugreifen können, stellt Ihr Shop eine bemerkenswerte Ausnahme dar, da er als sensible Information gilt. Damit die App auf Ihren Shop zugreifen kann, benötigt sie Ihre Anmeldeinformationen, die sie über diese [Open Source API](https://github.com/HeyM1ke/ValorantClientAPI) erhält.
+                        
+Welche Maßnahmen gibt es, um mich zu schützen?
 
-// Gemeinschaftsansicht
-"Community" = "Gemeinschaft";
-"Website" = "Website";
+Ihr Kennwort wird nicht gespeichert, und sensible Informationen wie Ihre Region sind hinter Keychain gesichert. Die App ist außerdem quelloffen, so dass jeder jederzeit auf den Code zugreifen kann. Ihre Privatsphäre hat Priorität, und ich habe alles in meiner Macht Stehende getan, um sie zu schützen. Rechtlicher Hokuspokus siehe [hier](https://www.craft.do/s/fQxdg6aSyp8WAk).
+
+Welche Inhalte werden heruntergeladen?
+
+Bei den heruntergeladenen Assets handelt es sich um Bilder, die es Ihnen ermöglichen, die Skin-Index-Funktion der App jederzeit zu nutzen, auch wenn Sie offline sind.
+
+Was bewirkt die Funktion Kennwort speichern?
+
+Die derzeitige Art und Weise, in der die Schaltfläche zum erneuten Laden Cookies anstelle Ihres Benutzernamens und Passworts benötigt, ermöglicht es der App, Ihr Passwort überhaupt nicht zu speichern. Diese Cookies laufen jedoch nach einer bestimmten Zeit ab, so dass sich der Nutzer erneut anmelden muss. Um diesen Prozess zu vereinfachen, kann der Benutzer mit der Funktion Passwort speichern sein Passwort speichern und sich automatisch hinter den Kulissen anmelden. Wenn der Benutzer das Passwort nicht speichern möchte, kann er sich einfach abmelden und erneut anmelden, um neue Cookies zu erstellen.";
+
+// CommunityView
+"WebAndDisc" = "Website und Discord-Bot";
 "DiscordServer" = "Discord Server";
 
-// WhatsNewView
-"WhatsNew" = "Was gibt es Neues";
-
-// HelpView
-"Help" = "Helfen Sie dem Entwickler!";
-"HelpMessage" = "Hi! Ich bin ein Student mit Schlafmangel, der nur versucht, sein Leben ein bisschen besser zu machen 😄. Bitte denken Sie darüber nach, mir mit einer der folgenden Methoden zu helfen!";
-"Share" = "Teilen Sie die App";
-"Review" = "Hinterlassen Sie eine Rezension";
-"Star" = "Starten Sie das Repository";
-"Sponsor" = "Tipp mich";
-
 // AcknowledgementsView
-"Acknowledgements" = "Danksagung";
-"ThankJulian" = "Vielen Dank für die Beantwortung meiner vielen Fragen!"; // juliand665
-"ThankLunac" = "Vielen Dank für deine kontinuierliche Unterstützung!"; // Lunac
+"ThankJulian" = "Vielen Dank für deine Hilfe bei der Beantwortung meiner vielen Fragen!";
+"ThankLunac" = "Vielen Dank für deine kontinuierliche Unterstützung!";
+"ThankTranslator" = "Vielen Dank für Ihre Hilfe beim Übersetzen der App!";
 
-// CopyrightView
-"Copyright" = "Urheberrecht";
-"CopyrightNotice" = "VSC (Store Checker for Valorant) ist nicht mit Valorant oder Riot Games assoziiert, verbunden oder von diesen gebilligt. Außerdem sind Riot Games und Valorant eingetragene Marken von Riot Games Inc";
+// AboutView
+"Version" = "Version";
+"Privacy" = "Datenschutzrichtlinie";
+"WhatsNew" = "Was gibt es Neues";
+"MadeIn" = "Hergestellt in 🇨🇦";
 
-// SettingsView
-"Settings" = "Einstellungen";
-"RememberPassword" = "Passwort merken";
-"RememberPasswordInfo" = "Ihr Passwort ist durch Keychain gesichert. Wenn Sie sich abmelden oder den Schalter deaktivieren, wird das Passwort automatisch vergessen. Die Aktivierung dieser Funktion umgeht die API-Zeitbeschränkungen und ermöglicht die automatische Anmeldung im Namen des Benutzers.";
-"Notify" = "Reset-Benachrichtigung speichern";
-"NotifyDescription" = "Sie erhalten eine Benachrichtigung, wenn das Geschäft zurückgesetzt wird.";
-"ChangeLanguage" = "Sprache ändern";
-"Language" = "Sprache";
-"LanguageDescription" = "Öffnet die erweiterten Einstellungen der App.";
-
-// Skin Index Filter
-"All" = "Alle";
-"Owned" = "Bereits gekauft";
-"Knife" = "Messer";
-"Sidearm" = "Pistole";
-"SMGs" = "Maschinenpistole";
-"Shotguns" = "Schrotflinten";
-"Rifles" = "Gewehre";
-"Sniper" = "Scharfschützengewehr";
-"Heavy" = "Schweres maschinengewehr";
-"EmptySearch" = "Keine Übereinstimmung mit Ihrer Suche";
-"NoOwned" = "Bitte laden Sie den Shop neu, oder kaufen Sie ein paar Skins :)";
-
-// Bundle
-"Bundle" = "Bündel";
-"EmptyBundle" = "Aktualisieren, um das Bündel zu sehen";
-
-//Update Messages
-"UpdateButton" = "Update verfügbar";
-"UpdateTitle" = "App aktualisieren";
-"Update" = "Aktualisieren";
-"UpdateInstructions1" = "Wenn es keine Update-Option gibt, gehen Sie bitte wie folgt vor:";
-"UpdateInstructions2" = "Gehen Sie zur Registerkarte Startseite (Heute)";
-"UpdateInstructions3" = "Klicken Sie oben rechts auf Ihr Profil";
-"UpdateInstructions4" = "Zum Neuladen nach unten wischen";
-"UpdateInstructions5" = "Scrollen Sie nach unten, um verfügbare Updates anzuzeigen";
-
-// Nighmarket
-"NightMarket" = "Nachtmarkt";
-
-// REview prompt
+//----------------------------------
+// MARK: Miscallaneous
+// AlertView
+"NetworkError" = "Kein Netzwerk";
+"InfoPrice" = "Der Preis dieses Skins ist leider nicht in unserer Datenbank.";
+"ErrorTitle" = "Fehler";
+"OK" = "OK";
+"CopyError" = "Kopierfehler";
+"ErrorMessage1" = "Ihre persönlichen Cookies sind abgelaufen. Dies ist eine API-Beschränkung, über die ich keine Kontrolle habe. Es gibt 2 Möglichkeiten, dieses Problem zu lösen:
+1) Melden Sie sich ab und melden Sie sich an.
+2) Aktivieren Sie die Option Passwort speichern unter Einstellungen > Konto.";
+"ErrorMessage2" = "Falsches Passwort in den Einstellungen festgelegt";
+"ErrorMessage3" = "Ihr Kauf konnte vom App Store nicht verifiziert werden.";
+"ErrorMessage4" = "Es ist kein Paket im Angebot, bitte versuchen Sie es später erneut.";
+"InformationTitle" = "Warum mein Riot-Konto?";
+"Information" = "Während Sie auf viele Ihrer Statistiken ohne Ihr Passwort zugreifen können, ist Ihr Store eine Ausnahme, da er als sensible Information gilt. Damit die App auf deinen Shop zugreifen kann, benötigt sie deine Anmeldeinformationen, die sie über eine Open-Source-API erhält. Weitere Informationen, den Quellcode und eine FAQ finden Sie unter folgendem Link.";
+"InvalidLogin" = "Ungültige Anmeldung";
+"Reset" = "Zurücksetzen";
+"ResetInfo" = "Gelegentlich können aufgrund einiger Fehler Fehler auftreten. Mit dieser Schaltfläche können Sie die App im Falle eines solchen Fehlers vollständig zurücksetzen.";
 "ReviewTitle" = "Genießen Sie VSC?";
-"OpenGitHub" = "GitHub-Stern hinterlassen";
+"OpenGitHub" = "Hinterlasse einen GitHub-Stern";
 "MaybeLater" = "Vielleicht später";
 "NeverShowAgain" = "Nie wieder anzeigen";
 "ReviewPrompt" = "Bitte hinterlassen Sie eine Bewertung oder einen Stern auf GitHub!";
+
+// UpdatesView
+"UpdateButton" = "Neue App-Version verfügbar";
+"UpdateInstructions1" = "Wenn es keine Update-Option gibt, bitte:";
+"UpdateInstructions2" = "Gehen Sie zur Registerkarte Home (Heute)";
+"UpdateInstructions3" = "Klicken Sie oben rechts auf Ihr Profil";
+"UpdateInstructions4" = "Wischen Sie nach unten, um neu zu laden";
+"UpdateInstructions5" = "Scrollen Sie nach unten, um verfügbare Updates zu sehen";
+"UpdateTitle" = "App aktualisieren";
+
+
+
+
