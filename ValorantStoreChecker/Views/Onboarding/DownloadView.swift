@@ -11,6 +11,8 @@ struct DownloadView: View {
     
     @EnvironmentObject private var authAPIModel : AuthAPIModel
     @EnvironmentObject private var skinModel : SkinModel
+    @EnvironmentObject private var networkModel : NetworkModel
+    @EnvironmentObject private var alertModel : AlertModel
     
     @State private var percent : Int = 0
     @State private var error : Bool = false
@@ -82,19 +84,29 @@ struct DownloadView: View {
                 
                 Button {
 
-                    DispatchQueue.main.async {
-                        withAnimation(.easeOut(duration: 0.2)) {
-                            UserDefaults.standard.set(true, forKey: "authorizeDownload")
-                            authAPIModel.downloadButtonClicked = true
+                    if networkModel.isConnected {
+                        
+                        DispatchQueue.main.async {
+                            withAnimation(.easeOut(duration: 0.2)) {
+                                UserDefaults.standard.set(true, forKey: "authorizeDownload")
+                                authAPIModel.downloadButtonClicked = true
+                            }
+                        }
+                        
+                        let backgroundQueue = DispatchQueue.global(qos: .background)
+                        
+                        backgroundQueue.async {
+                            skinModel.getRemoteData()
+                        }
+                        
+                    }
+                    else {
+                        
+                        withAnimation(.easeIn) {
+                            alertModel.alertNoNetwork = true
                         }
                     }
-                    
-                    let backgroundQueue = DispatchQueue.global(qos: .background)
-                    
-                    backgroundQueue.async {
-                        skinModel.getRemoteData()
-                    }
-                    
+
                 } label: {
                     
                     ZStack{

@@ -416,7 +416,7 @@ struct WebService {
             chosenLanguage = "vi-VN"
         case "es":
             chosenLanguage = "es-ES"
-        case "pt-PT":
+        case "pt-PT", "pr-BR":
             chosenLanguage = "pt-BR"
         default:
             chosenLanguage = "en-US"

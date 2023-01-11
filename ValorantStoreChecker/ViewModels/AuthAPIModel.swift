@@ -29,7 +29,8 @@ class AuthAPIModel: ObservableObject {
     @Published var downloadBarFinish : Bool = false
     
     // Handles reload
-    @Published var reloadAnimation : Bool = false
+    @Published var reloadStoreAnimation : Bool = false
+    @Published var reloadBundleAnimation : Bool = false
     
     // Multifactor
     @Published var multifactor : Bool = false // Show multifactor popout
@@ -47,6 +48,7 @@ class AuthAPIModel: ObservableObject {
     // Error messages
     @Published var error : Bool = false
     @Published var errorReloading : Bool = false // Specify if the error is of type reloading for custom error message
+    @Published var errorReloadingBundle : Bool = false
     @Published var errorMessage : String = ""
     
     // Owned skins
@@ -310,7 +312,14 @@ class AuthAPIModel: ObservableObject {
             
             // finished loading
             withAnimation(.easeIn) {
-                self.reloadAnimation = false
+                
+                if helperType == "storeReload" {
+                    self.reloadStoreAnimation = false
+                }
+                else if helperType == "bundleReload" {
+                    self.reloadBundleAnimation = false
+                }
+                
             }
         
             self.authenticationAnimation = false
@@ -490,8 +499,23 @@ class AuthAPIModel: ObservableObject {
             
         }
         catch {
-            self.errorMessage = "Login Helper error: \(error.self)"
-            self.error = true
+            
+            let errorMessage = error.localizedDescription
+            
+            if errorMessage.contains("BundleError") {
+                
+                self.error = true
+                self.errorReloadingBundle = true
+                self.errorMessage = "Bundle Login Helper error: \(error.self)"
+                
+            }
+            else {
+                
+                self.errorMessage = "Bundle Login Helper error: \(error.self)"
+                self.error = true
+                
+            }
+            
         }
     }
     
@@ -501,6 +525,8 @@ class AuthAPIModel: ObservableObject {
     @MainActor
     func multifactor(skinModel: SkinModel) async {
         do{
+            
+            
             let token = try await WebService.multifactor(code: self.inputMultifactor)
             
             await getPlayerData(helperType: "login", token: token, skinModel: skinModel)
@@ -551,7 +577,8 @@ class AuthAPIModel: ObservableObject {
                     await login(skinModel: skinModel)
                     
                     withAnimation(.easeIn) {
-                        self.reloadAnimation = false
+                        self.reloadStoreAnimation = false
+                        self.reloadBundleAnimation = false
                     }
 
                 }
@@ -575,7 +602,8 @@ class AuthAPIModel: ObservableObject {
                 await login(skinModel: skinModel)
                 
                 withAnimation(.easeIn) {
-                    self.reloadAnimation = false
+                    self.reloadStoreAnimation = false
+                    self.reloadBundleAnimation = false
                 }
 
             }
@@ -588,6 +616,12 @@ class AuthAPIModel: ObservableObject {
                 if errorMessage.contains("CookieError") {
                     self.error = true
                     self.errorReloading = true
+                }
+                else if errorMessage.contains("BundleError") && errorMessage.contains("2") {
+                    
+                    self.error = true
+                    self.errorReloadingBundle = true
+                    
                 }
                 else {
                     self.errorMessage = "Reload error: \(error.self)"
@@ -602,7 +636,7 @@ class AuthAPIModel: ObservableObject {
     
     // MARK: Log Out
     @MainActor
-    func logOut() {
+    func logOut() async {
         
         // Create a new session
         WebService.session = {
@@ -617,7 +651,7 @@ class AuthAPIModel: ObservableObject {
             // Reset Defaults
             self.authenticationAnimation = false // Handles loading animation
             self.authenticationFailure = false // Handles login error message
-            self.reloadAnimation = false
+            self.reloadStoreAnimation = false
             self.multifactor = false // Show multifactor popout
             self.multifactorAnimation = false // Handle multifactor loading animation
             self.multifactorEmail = "" // Displayed email for multifactor popout

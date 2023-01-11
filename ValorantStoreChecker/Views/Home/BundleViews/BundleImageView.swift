@@ -47,7 +47,7 @@ struct BundleImageView: View {
             }
             
         }
-        else if authAPIModel.reloadAnimation {
+        else if authAPIModel.reloadBundleAnimation  {
 
             let decoded = try! PropertyListDecoder().decode(Data.self, from: imageData ?? Data() )
             

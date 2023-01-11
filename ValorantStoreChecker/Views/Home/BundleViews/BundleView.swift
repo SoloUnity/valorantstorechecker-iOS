@@ -107,7 +107,6 @@ struct BundleView: View {
                                 }
                             }
                             .pickerStyle(SegmentedPickerStyle())
-                            .cornerRadius(15)
                             .padding(.horizontal)
                             .onChange(of: index) { _ in
                                 authAPIModel.bundleImage = []
@@ -151,7 +150,7 @@ struct BundleView: View {
             .refreshable {
                 
                 withAnimation(.easeIn) {
-                    authAPIModel.reloadAnimation = true
+                    authAPIModel.reloadBundleAnimation = true
                 }
                 
                 Task{

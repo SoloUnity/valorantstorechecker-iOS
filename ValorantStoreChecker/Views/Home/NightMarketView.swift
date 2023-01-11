@@ -80,16 +80,6 @@ struct NightMarketView: View {
                 .overlay {
                     NavigationBar(title: "NightMarket", hasScrolled: $hasScrolled)
                 }
-                .refreshable {
-                    
-                    withAnimation(.easeIn) {
-                        authAPIModel.reloadAnimation = true
-                    }
-                    
-                    Task{
-                        await authAPIModel.reload(skinModel: skinModel, reloadType: "nightMarketReload")
-                    }
-                }
                 .onChange(of: selectedTab, perform: { tab in
                     if tab == .nightMarket {
                         

@@ -61,6 +61,7 @@
 		F83893A0295D589F00CC8E06 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838939F295D589F00CC8E06 /* AlertView.swift */; };
 		F843005E28B7BE9C006CFD5C /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = F843005D28B7BE9C006CFD5C /* Products.plist */; };
 		F844AC7128A01BF10009C0C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F844AC7328A01BF10009C0C0 /* Localizable.strings */; };
+		F84D6BD8296F4DD4006C463A /* AcknowledgementItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84D6BD7296F4DD4006C463A /* AcknowledgementItem.swift */; };
 		F858EC75295F900C0023AEA4 /* LoginInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858EC74295F900C0023AEA4 /* LoginInfoView.swift */; };
 		F86713712916E68E00D08471 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86713702916E68E00D08471 /* DownloadView.swift */; };
 		F87952A328ADD7C3005145F6 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87952A228ADD7C3005145F6 /* TipView.swift */; };
@@ -163,6 +164,7 @@
 		F844AC7428A01C080009C0C0 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F844AC7628A037970009C0C0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F844AC7728A0528A0009C0C0 /* ValorantStoreChecker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ValorantStoreChecker.entitlements; sourceTree = "<group>"; };
+		F84D6BD7296F4DD4006C463A /* AcknowledgementItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementItem.swift; sourceTree = "<group>"; };
 		F858EC74295F900C0023AEA4 /* LoginInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfoView.swift; sourceTree = "<group>"; };
 		F86713702916E68E00D08471 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		F86713722916F64C00D08471 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -240,7 +242,7 @@
 				F8F4E5C5295D71330087C7A8 /* MediaManagementView.swift */,
 				8B0AE9EB28998E7600275A30 /* SupportView.swift */,
 				8B0AE9ED28998E9400275A30 /* CommunityView.swift */,
-				8B0AE9F128998EC600275A30 /* AcknowledgementsView.swift */,
+				F84D6BD6296F4DB8006C463A /* AcknowledgementsViews */,
 				8B62AFD92883B53B0070173F /* AboutView.swift */,
 			);
 			path = SettingsView;
@@ -474,6 +476,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		F84D6BD6296F4DB8006C463A /* AcknowledgementsViews */ = {
+			isa = PBXGroup;
+			children = (
+				8B0AE9F128998EC600275A30 /* AcknowledgementsView.swift */,
+				F84D6BD7296F4DD4006C463A /* AcknowledgementItem.swift */,
+			);
+			path = AcknowledgementsViews;
+			sourceTree = "<group>";
+		};
 		F87952A428AEA06D005145F6 /* BundleViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +665,7 @@
 				F8B9BE4C295525640007FDD3 /* ChromaPickerView.swift in Sources */,
 				F892C4D928A412DF007158CB /* NotificationService.swift in Sources */,
 				8B33A5BF2884687C00BCB1F2 /* SkinCardDetailView.swift in Sources */,
+				F84D6BD8296F4DD4006C463A /* AcknowledgementItem.swift in Sources */,
 				F8B9BE722956C2300007FDD3 /* ChevronView.swift in Sources */,
 				8B0AE9F028998EAC00275A30 /* HelpView.swift in Sources */,
 				F8B9BE8329577F0F0007FDD3 /* TabBar.swift in Sources */,

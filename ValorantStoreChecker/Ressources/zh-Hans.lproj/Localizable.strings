@@ -223,6 +223,8 @@ Created by Gordon on 2022-08-07.
 
 "ThankLunac" = "感谢您的持续支持！";
 
+"ThankTranslator" = "感谢您翻译该应用程序的帮助！";
+
 "Version" = "版本";
 
 "Privacy" = "隐私政策";
@@ -248,6 +250,8 @@ Created by Gordon on 2022-08-07.
 "ErrorMessage2" = "在设置中设置错误的密码";
 
 "ErrorMessage3" = "App Store无法验证您的购买。";
+
+"ErrorMessage4" = "没有正在销售的捆绑包，请稍后再试。";
 
 "InformationTitle" = "为什么我的骚乱帐户？";
 

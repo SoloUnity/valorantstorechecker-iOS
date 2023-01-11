@@ -20,7 +20,7 @@ Created by Gordon on 2022-08-07.
 
 "SelectRegion" = "Seleccione región";
 
-"Americas" = "América";
+"Americas" = "Américas";
 
 "Europe" = "Europa";
 
@@ -209,6 +209,8 @@ La forma actual en que el botón Recargar requiere cookies en lugar de su nombre
 
 "ThankLunac" = "¡Gracias por su continuo apoyo!";
 
+"ThankTranslator" = "¡Gracias por su ayuda para traducir la aplicación!";
+
 "Version" = "Versión";
 
 "Privacy" = "Política de privacidad";
@@ -234,6 +236,8 @@ La forma actual en que el botón Recargar requiere cookies en lugar de su nombre
 "ErrorMessage2" = "Contraseña incorrecta establecida en la configuración";
 
 "ErrorMessage3" = "Su compra no podría ser verificada por la App Store.";
+
+"ErrorMessage4" = "No hay ningún paquete a la venta, inténtelo de nuevo más tarde.";
 
 "InformationTitle" = "¿Por qué mi cuenta antidisturbios?";
 

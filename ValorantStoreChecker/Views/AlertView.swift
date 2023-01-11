@@ -62,7 +62,8 @@ struct AlertView: View {
                         Button(LocalizedStringKey("Settings"), role: nil, action: {
                             
                             withAnimation(.easeIn) {
-                                authAPIModel.reloadAnimation = false
+                                authAPIModel.reloadStoreAnimation = false
+                                authAPIModel.reloadBundleAnimation = false
                             }
                             
                             authAPIModel.errorReloading = false
@@ -83,10 +84,14 @@ struct AlertView: View {
                         
                         Button(LocalizedStringKey("SignOut"), role: nil, action: {
                             
-                            authAPIModel.logOut()
+                            Task {
+                                await authAPIModel.logOut()
+                            }
+                            
                             
                             withAnimation(.easeIn) {
-                                authAPIModel.reloadAnimation = false
+                                authAPIModel.reloadStoreAnimation = false
+                                authAPIModel.reloadBundleAnimation = false
                             }
                             
                             authAPIModel.errorReloading = false
@@ -96,7 +101,8 @@ struct AlertView: View {
                         Button(LocalizedStringKey("Settings"), role: nil, action: {
                             
                             withAnimation(.easeIn) {
-                                authAPIModel.reloadAnimation = false
+                                authAPIModel.reloadStoreAnimation = false
+                                authAPIModel.reloadBundleAnimation = false
                             }
                             
                             authAPIModel.errorReloading = false
@@ -128,7 +134,8 @@ struct AlertView: View {
                             pasteboard.string = authAPIModel.errorMessage
                             
                             withAnimation(.easeIn) {
-                                authAPIModel.reloadAnimation = false
+                                authAPIModel.reloadStoreAnimation = false
+                                authAPIModel.reloadBundleAnimation = false
                             }
                             
                             authAPIModel.errorReloading = false
@@ -138,7 +145,8 @@ struct AlertView: View {
                         Button(LocalizedStringKey("OK"), role: nil, action: {
                             
                             withAnimation(.easeIn) {
-                                authAPIModel.reloadAnimation = false
+                                authAPIModel.reloadStoreAnimation = false
+                                authAPIModel.reloadBundleAnimation = false
                             }
                             
                             authAPIModel.errorReloading = false
@@ -157,6 +165,11 @@ struct AlertView: View {
                         
                         // Big Reload Prompt
                         Text(LocalizedStringKey("ErrorMessage1"))
+                        
+                    }
+                    else if authAPIModel.errorReloadingBundle {
+                        
+                        Text(LocalizedStringKey("ErrorMessage4")) + Text("\n\n") + Text(authAPIModel.errorMessage)
                         
                     }
                     else {
@@ -189,11 +202,10 @@ struct AlertView: View {
                     
                     Button(LocalizedStringKey("Reset"), role: nil, action: {
                         
-                        authAPIModel.logOut()
-                        
-                        withAnimation(.easeIn) {
-                            authAPIModel.reloadAnimation = false
+                        Task {
+                            await authAPIModel.logOut()
                         }
+        
                         
                         authAPIModel.errorReloading = false
                         

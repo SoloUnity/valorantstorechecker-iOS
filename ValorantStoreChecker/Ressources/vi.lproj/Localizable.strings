@@ -223,6 +223,8 @@ Cách hiện tại mà nút tải lại yêu cầu cookie thay vì tên người
 
 "ThankLunac" = "Cám ơn vì đã tiếp tục giúp đỡ tôi!";
 
+"ThankTranslator" = "Cảm ơn bạn đã giúp bạn dịch ứng dụng!";
+
 "Version" = "Phiên bản";
 
 "Privacy" = "Chính sách bảo mật";
@@ -248,6 +250,8 @@ Cách hiện tại mà nút tải lại yêu cầu cookie thay vì tên người
 "ErrorMessage2" = "Mật khẩu sai đặt trong cài đặt";
 
 "ErrorMessage3" = "Mua hàng của bạn không thể được xác minh bởi App Store.";
+
+"ErrorMessage4" = "Không có gói giảm giá nào, vui lòng thử lại sau.";
 
 "InformationTitle" = "Tại sao tài khoản Riot của tôi?";
 

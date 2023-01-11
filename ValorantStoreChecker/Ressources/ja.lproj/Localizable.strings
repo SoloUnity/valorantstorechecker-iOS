@@ -200,6 +200,7 @@ Copyright (c) 2022 Gordon Ng
 // AcknowledgementsView
 "ThankJulian" = "たくさんの質問に答えてくれてありがとうございます！"; // juliand665
 "ThankLunac" = "いつも応援ありがとうございます！"; // Lunac
+"ThankTranslator" = "アプリを翻訳してくれてありがとう！";
 
 // AboutView
 "Version" = "バージョン";
@@ -220,6 +221,7 @@ Copyright (c) 2022 Gordon Ng
 2) 設定 > アカウントでパスワードの保存をオンにする。";
 "ErrorMessage2" = "設定で設定されたパスワードが間違っている";
 "ErrorMessage3" = "お客様の購入履歴はApp Storeで確認することができませんでした。";
+"ErrorMessage4" = "販売中のバンドルはありません。後でもう一度試してください。";
 "InformationTitle" = "なぜログインするのですか？";
 "Information" = "あなたの統計の多くはパスワードなしで自由にアクセスできますが、あなたのストアは機密情報とみなされるため例外となります。アプリがあなたのストアにアクセスするためには、オープンソースのAPIを通じてあなたのストアを取得するためにあなたのログイン情報が必要です。追加情報、ソースコード、およびFAQは、以下のリンクに記載されています。";
 "InvalidLogin" = "無効なログイン";

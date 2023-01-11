@@ -115,7 +115,7 @@ class SkinModel: ObservableObject{
             chosenLanguage = "vi-VN"
         case "es":
             chosenLanguage = "es-ES"
-        case "pt-PT":
+        case "pt-PT", "pt-BR":
             chosenLanguage = "pt-BR"
         default:
             chosenLanguage = "en-US"
@@ -315,7 +315,12 @@ class SkinModel: ObservableObject{
                 let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200
             else{
+                DispatchQueue.main.async{
+                    self.progressNumerator += 1
+                }
+                
                 return
+                
             }
             
             if error == nil {

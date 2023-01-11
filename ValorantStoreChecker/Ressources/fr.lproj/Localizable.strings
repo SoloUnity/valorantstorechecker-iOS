@@ -197,6 +197,7 @@ La façon actuelle dont le bouton de rechargement utilise des cookies à la plac
 // AcknowledgementsView
 "ThankJulian" = "Merci de votre aide et d'avoir répondu à mes nombreuses questions.!";
 "ThankLunac" = "Merci pour votre soutien continu!";
+"ThankTranslator" = "Merci pour votre aide à traduire l'application!";
 
 // AboutView
 "Version" = "Version";
@@ -217,6 +218,7 @@ La façon actuelle dont le bouton de rechargement utilise des cookies à la plac
 2) Activez la mémorisation du mot de passe dans Paramètres > Compte.";
 "ErrorMessage2" = "Mauvais mot de passe défini dans Réglages.";
 "ErrorMessage3" = "Votre achat n'a pas pu être vérifié par l'App Store.";
+"ErrorMessage4" = "Aucun pack n'est en vente, veuillez réessayer plus tard.";
 "InvalidLogin" = "Connexion invalide";
 "Reset" = "Réinitialiser";
 "ResetInfo" = "De temps en temps, en raison de certains bugs, des erreurs peuvent survenir. Ce bouton vous permet de réinitialiser complètement l'application en cas de ces erreurs.";

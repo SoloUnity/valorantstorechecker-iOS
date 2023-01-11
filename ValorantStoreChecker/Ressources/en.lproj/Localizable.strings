@@ -196,6 +196,7 @@ The current way that the reload button requires cookies instead of your username
 // AcknowledgementsView
 "ThankJulian" = "Thank you for your help in answering my many questions!";
 "ThankLunac" = "Thank you for your continuous support!";
+"ThankTranslator" = "Thank you for your help translating the app!";
 
 // AboutView
 "Version" = "Version";
@@ -216,6 +217,7 @@ The current way that the reload button requires cookies instead of your username
 2) Turn on remember password in Settings > Account.";
 "ErrorMessage2" = "Wrong password set in Settings";
 "ErrorMessage3" = "Your purchase could not be verified by the App Store.";
+"ErrorMessage4" = "There is no bundle on sale, please try again later.";
 "InformationTitle" = "Why my Riot Account?";
 "Information" = "While many of your statistics are free to access without your password, your store is an exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through an open source API. Additional information, the source code, and an FAQ can be found in the link below.";
 "InvalidLogin" = "Invalid Login";

@@ -39,8 +39,10 @@ struct AccountView: View {
                 
                 Button {
                     Task {
-                        authAPIModel.logOut()
+                        await authAPIModel.logOut()
                     }
+                    
+                    selectedTab = .shop
                     
                 } label: {
                     

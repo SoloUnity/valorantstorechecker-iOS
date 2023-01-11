@@ -196,6 +196,7 @@ Die derzeitige Art und Weise, in der die Schaltfläche zum erneuten Laden Cookie
 // AcknowledgementsView
 "ThankJulian" = "Vielen Dank für deine Hilfe bei der Beantwortung meiner vielen Fragen!";
 "ThankLunac" = "Vielen Dank für deine kontinuierliche Unterstützung!";
+"ThankTranslator" = "Vielen Dank für Ihre Hilfe beim Übersetzen der App!";
 
 // AboutView
 "Version" = "Version";
@@ -216,6 +217,7 @@ Die derzeitige Art und Weise, in der die Schaltfläche zum erneuten Laden Cookie
 2) Aktivieren Sie die Option Passwort speichern unter Einstellungen > Konto.";
 "ErrorMessage2" = "Falsches Passwort in den Einstellungen festgelegt";
 "ErrorMessage3" = "Ihr Kauf konnte vom App Store nicht verifiziert werden.";
+"ErrorMessage4" = "Es ist kein Paket im Angebot, bitte versuchen Sie es später erneut.";
 "InformationTitle" = "Warum mein Riot-Konto?";
 "Information" = "Während Sie auf viele Ihrer Statistiken ohne Ihr Passwort zugreifen können, ist Ihr Store eine Ausnahme, da er als sensible Information gilt. Damit die App auf deinen Shop zugreifen kann, benötigt sie deine Anmeldeinformationen, die sie über eine Open-Source-API erhält. Weitere Informationen, den Quellcode und eine FAQ finden Sie unter folgendem Link.";
 "InvalidLogin" = "Ungültige Anmeldung";

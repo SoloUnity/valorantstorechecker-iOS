@@ -90,7 +90,7 @@ struct ShopView: View {
             .refreshable {
                 
                 withAnimation(.easeIn) {
-                    authAPIModel.reloadAnimation = true
+                    authAPIModel.reloadStoreAnimation = true
                 }
                 
                 Task{

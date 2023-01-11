@@ -66,7 +66,7 @@ struct SkinCardView: View {
                         
                         
                     }
-                    else {
+                    else if skin.levels!.first!.displayIcon != nil {
                         // MARK: Async Image
                         AsyncImage(url: URL(string: skin.levels!.first!.displayIcon!)) { image in
                             image.resizable()
@@ -75,6 +75,7 @@ struct SkinCardView: View {
                         }
                         .scaledToFit()
                         .padding()
+                        
                         
                     }
                     

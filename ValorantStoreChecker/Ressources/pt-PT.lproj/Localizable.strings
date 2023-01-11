@@ -206,6 +206,8 @@ A maneira atual de recarregar o botão requer cookies em vez do seu nome de usu�
 
 "ThankLunac" = "Obrigado pelo seu apoio contínuo!";
 
+"ThankTranslator" = "Obrigado por sua ajuda para traduzir o aplicativo!";
+
 "Version" = "Versão";
 
 "Privacy" = "Política de Privacidade";
@@ -231,6 +233,8 @@ A maneira atual de recarregar o botão requer cookies em vez do seu nome de usu�
 "ErrorMessage2" = "Senha errada definida nas configurações";
 
 "ErrorMessage3" = "Sua compra não pôde ser verificada pela App Store.";
+
+"ErrorMessage4" = "Não há nenhum pacote à venda, tente novamente mais tarde.";
 
 "InformationTitle" = "Por que minha conta Riot?";
 

@@ -32,7 +32,7 @@ struct ShopTopBarView: View {
     
     var body: some View {
         
-        let countdown = countDownString(from: referenceDate, nowDate: nowDate)
+        let countdown = countDownString(from: referenceDate, nowDate: nowDate, autoReload: autoReload, authAPIModel: authAPIModel, skinModel: skinModel, reloadType: reloadType)
         
         HStack {
             
@@ -69,19 +69,8 @@ struct ShopTopBarView: View {
                     
                 }
             }
-            .onAppear {
-                
-                if countdown == "Reload" && autoReload {
-                    Task {
-                        
-                        withAnimation(.easeIn) {
-                            authAPIModel.reloadAnimation = true
-                        }
-                        
-                        await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
-                    }
-                }
-            }
+            
+            
             
             Spacer()
             
@@ -108,7 +97,13 @@ struct ShopTopBarView: View {
                         authAPIModel.bundleImage = []
                         
                         withAnimation(.easeIn) {
-                            authAPIModel.reloadAnimation = true
+                            
+                            if reloadType == "storeReload" {
+                                authAPIModel.reloadStoreAnimation = true
+                            }
+                            else if reloadType == "bundleReload" {
+                                authAPIModel.reloadBundleAnimation = true
+                            }
                         }
                         
                         Task{
@@ -116,7 +111,9 @@ struct ShopTopBarView: View {
                         }
                         
                         if !clickedReview {
+                            
                             reloadCounter(alertModel: alertModel)
+                            
                         }
                         
                     }
@@ -130,7 +127,13 @@ struct ShopTopBarView: View {
                     
                 } label: {
 
-                    if authAPIModel.reloadAnimation {
+                    if authAPIModel.reloadStoreAnimation && reloadType == "storeReload" {
+                        ProgressView()
+                            .frame(width: 15, height: 15)
+                            .tint(.gray)
+
+                    }
+                    else if authAPIModel.reloadBundleAnimation && reloadType == "bundleReload" {
                         ProgressView()
                             .frame(width: 15, height: 15)
                             .tint(.gray)
@@ -142,6 +145,7 @@ struct ShopTopBarView: View {
                             .scaledToFit()
                             .frame(width: 15, height: 15)
                     }
+                    
                 }
             }
             
@@ -154,7 +158,7 @@ struct ShopTopBarView: View {
 }
 
 // MARK: Helper function
-func countDownString(from date: Date, nowDate: Date) -> String {
+func countDownString(from date: Date, nowDate: Date, autoReload : Bool, authAPIModel : AuthAPIModel, skinModel: SkinModel, reloadType: String) -> String {
     
     let calendar = Calendar(identifier: .gregorian)
     
@@ -163,25 +167,51 @@ func countDownString(from date: Date, nowDate: Date) -> String {
                         from: nowDate,
                         to: date)
     
-    if components.day! > 0 && (components.hour! > 0 || components.minute! > 0 || components.second! > 0) {
+    if components.day! > 0 && (components.hour! > 0 || components.minute! > 0 || components.second! >= 0) {
         return String(format: "%02d:%02d:%02d:%02d",
                       components.day ?? 00,
                       components.hour ?? 00,
                       components.minute ?? 00,
                       components.second ?? 00)
     }
-    else if components.hour! > 0 || components.minute! > 0 || components.second! > 0 {
+    else if components.hour! > 0 || components.minute! > 0 || components.second! >= 0 {
         
         return String(format: "%02d:%02d:%02d",
                       components.hour ?? 00,
                       components.minute ?? 00,
                       components.second ?? 00)
     }
-    else {
+    else if date != nowDate {
+        
+        if autoReload && !authAPIModel.reloadStoreAnimation && reloadType == "storeReload" {
+            Task {
+                
+                DispatchQueue.main.async {
+                    withAnimation(.easeIn) {
+                        authAPIModel.reloadStoreAnimation = true
+                    }
+                }
+                
+                await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
+            }
+        }
+        else if autoReload && !authAPIModel.reloadBundleAnimation && reloadType == "bundleReload" {
+            Task {
+                
+                DispatchQueue.main.async {
+                    withAnimation(.easeIn) {
+                        authAPIModel.reloadBundleAnimation = true
+                    }
+                }
+                
+                await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
+            }
+        }
         
         return "Reload"
         
     }
+    return ""
     
 }
 
