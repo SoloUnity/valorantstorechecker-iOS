@@ -23,9 +23,9 @@ See the [Website](https://valorantstore.net) if you wish to check your store on 
 ### Screenshots
 
 <p align=center>
-  <img width="33%" src="https://user-images.githubusercontent.com/77747704/212138466-0d2dcb47-ade3-418a-b249-b99448087a41.png" />
-   <img width="33%" src="https://user-images.githubusercontent.com/77747704/212136317-2f9f4fc7-67d8-4d0b-b433-0f5715ef59c4.png" />
-   <img width="33%" src="https://user-images.githubusercontent.com/77747704/212136635-bc9c4c05-7d04-4911-b4e2-6382236da6d3.png" />
+  <img width="32%" src="https://user-images.githubusercontent.com/77747704/212138466-0d2dcb47-ade3-418a-b249-b99448087a41.png" />
+   <img width="32%" src="https://user-images.githubusercontent.com/77747704/212136317-2f9f4fc7-67d8-4d0b-b433-0f5715ef59c4.png" />
+   <img width="32%" src="https://user-images.githubusercontent.com/77747704/212136635-bc9c4c05-7d04-4911-b4e2-6382236da6d3.png" />
 </p>
 
 <p align=center>
@@ -53,10 +53,10 @@ If you are perceptive, you will notice that the app downloads assets on your fir
 The current way that the reload button requires cookies instead of your username and password, allowing the app to not store your password at all. However, these cookies expire after a certain period, requiring the user to sign in again. In order to streamline this process, remember password allows the user to save their password and allow for automatic behind the scenes sign in. If the user wishes to not save the password, they can simply sign out and sign back in to create new cookies.  
 
 ### Roadmap Checklist
-- [ ] Vietnamese Localization
+- [x] Vietnamese Localization
 - [ ] Code cleanup
 - [ ] Add skin chroma videos
-- [ ] Redesign UI for a cohesive feeling
+- [x] Redesign UI for a cohesive feeling
 - [ ] Add valorant news, new skins, previous stores
 - [ ] Improve owned skins
 - [ ] Minimize network calls and data usage
