@@ -25,12 +25,12 @@ See the [Website](https://valorantstore.net) if you wish to check your store on 
 <p align=center>
   <img width="33%" src="https://user-images.githubusercontent.com/77747704/212138466-0d2dcb47-ade3-418a-b249-b99448087a41.png" />
    <img width="33%" src="https://user-images.githubusercontent.com/77747704/212136317-2f9f4fc7-67d8-4d0b-b433-0f5715ef59c4.png" />
-   <img width="33%" src="https://user-images.githubusercontent.com/77747704/212136315-e59742e9-f84c-4756-b0be-73161d38d0fb.png" />
+   <img width="33%" src="https://user-images.githubusercontent.com/77747704/212136635-bc9c4c05-7d04-4911-b4e2-6382236da6d3.png" />
 </p>
 
 <p align=center>
   <img width="24%" src="https://user-images.githubusercontent.com/77747704/212137194-c5703512-b305-43b7-bb35-425a802ac3ac.png" />
-  <img width="24%" src="https://user-images.githubusercontent.com/77747704/212136635-bc9c4c05-7d04-4911-b4e2-6382236da6d3.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/212136315-e59742e9-f84c-4756-b0be-73161d38d0fb.png" />
   <img width="24%" src="https://user-images.githubusercontent.com/77747704/212136640-e03aaa83-bef1-471e-8179-637b62b56c15.png" />
   <img width="24%" src="https://user-images.githubusercontent.com/77747704/212136630-ff11a448-a1a9-4fe5-b83f-c3b4e9be0755.png" />
 </p>
