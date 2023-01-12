@@ -21,18 +21,20 @@ Join the [Discord](https://discord.gg/vK5mzjvqYM) server to chat around or for s
 See the [Website](https://valorantstore.net) if you wish to check your store on your computer.
 
 ### Screenshots
-<p align=center>
-  <img width="24%" src="https://user-images.githubusercontent.com/77747704/183316740-c45ca2cc-ed89-4712-be62-2a916a92cd70.png" />
-  <img width="24%" src="https://user-images.githubusercontent.com/77747704/183316723-3c5e6e33-a6d7-44d8-acd3-0740acbf2aef.png" />
-  <img width="24%" src="https://user-images.githubusercontent.com/77747704/183316785-db7a1716-67cf-4250-a31e-610fc5546035.png" />
-  <img width="24%" src="https://user-images.githubusercontent.com/77747704/183316789-fa977781-19f3-4e7f-92ee-74d76a3bcb39.png" />
-</p>
 
 <p align=center>
-  <img width="24%" src="https://user-images.githubusercontent.com/77747704/189550838-752fcd29-73cc-45aa-b902-1d1563cfa2ba.PNG" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/212130151-4f5f48e3-644d-42cb-9508-528e48d6e425.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/212130245-b23a0002-d7bb-4459-84c8-555a9534328e.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/212130354-5d0c6848-1008-41b5-9fa8-6fbd072818d9.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/212130456-cd1bec1d-e9e0-43c2-b9b3-36ebf271f6cb.png" />
+</p>
+
+
+<p align=center>
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/212130576-30d2229e-894d-48ac-b360-3453f455d49b.png" />
   <img width="24%" src="https://user-images.githubusercontent.com/77747704/189550843-97171c12-8a4b-47cf-85ad-8d4b2051c17b.PNG" />
-  <img width="24%" src="https://user-images.githubusercontent.com/77747704/192401293-83bd4415-3ac8-4c72-a756-329ee8ad6df3.png" />
-  <img width="24%" src="https://user-images.githubusercontent.com/77747704/192401299-976c7211-bf2a-4466-a130-4e34235f456f.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/212130674-8400832d-e914-4206-a07c-2a3f0f5b1e57.png" />
+  <img width="24%" src="https://user-images.githubusercontent.com/77747704/212130704-047381e2-1261-45ed-a853-c0fbd860f99a.png" />
 </p>
 
 ### Frequently Asked Questions
