@@ -6,8 +6,6 @@
 Valorant Store Checker
 </h1>
 
-![output-onlineimagetools](https://user-images.githubusercontent.com/77747704/191420376-c94d6a26-ef1f-4d1a-b53c-bb216aca9421.png)
-
 ### Description
 VSC (Valorant Store Tracker) is an open source iOS app that allows you to track your store and preview your skins. It allows for easy on the go access to your otherwise unaccessible skin shop as well as a place to easily preview everything before buying. 
 
