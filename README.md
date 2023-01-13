@@ -1,10 +1,11 @@
-<div align="center">
+<div align="left">
+  <h1>
+  Valorant Store Checker
+  </h1>
   <img width="100" alt="VSC-1 (dragged)" src="https://user-images.githubusercontent.com/77747704/183313304-d6343e5b-6679-4783-ad26-f277af996b6b.png">
 </div>
 
-<h1>
-Valorant Store Checker
-</h1>
+
 
 ### Description
 VSC (Valorant Store Tracker) is an open source iOS app that allows you to track your store and preview your skins. It allows for easy on the go access to your otherwise unaccessible skin shop as well as a place to easily preview everything before buying. 
@@ -22,8 +23,8 @@ See the [Website](https://valorantstore.net) if you wish to check your store on 
 
 <p align=center>
   <img width="32%" src="https://user-images.githubusercontent.com/77747704/212138466-0d2dcb47-ade3-418a-b249-b99448087a41.png" />
-   <img width="32%" src="https://user-images.githubusercontent.com/77747704/212136317-2f9f4fc7-67d8-4d0b-b433-0f5715ef59c4.png" />
-   <img width="32%" src="https://user-images.githubusercontent.com/77747704/212136635-bc9c4c05-7d04-4911-b4e2-6382236da6d3.png" />
+  <img width="32%" src="https://user-images.githubusercontent.com/77747704/212136317-2f9f4fc7-67d8-4d0b-b433-0f5715ef59c4.png" />
+  <img width="32%" src="https://user-images.githubusercontent.com/77747704/212136635-bc9c4c05-7d04-4911-b4e2-6382236da6d3.png" />
 </p>
 
 <p align=center>
