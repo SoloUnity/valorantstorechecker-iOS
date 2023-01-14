@@ -1,5 +1,7 @@
+ <p align=center>
  <img width="100" alt="VSC-1 (dragged)" src="https://user-images.githubusercontent.com/77747704/183313304-d6343e5b-6679-4783-ad26-f277af996b6b.png">
 <a href="https://apps.apple.com/app/id1637273546" target="_blank" rel="noreferrer">
+</p>
 
 <h1>
   Valorant Store Checker
