@@ -8,8 +8,10 @@
 VSC (Valorant Store Tracker) is an open source iOS app that allows you to track your store and preview your skins. It allows for easy on the go access to your otherwise unaccessible skin shop as well as a place to easily preview everything before buying. 
    
 ### Community
-[![Discord](https://img.shields.io/discord/781946764168658984?color=rgb%2888%2C101%2C242%29&label=discord&style=for-the-badge)](https://discord.gg/vK5mzjvqYM)
-
+- [![Discord](https://img.shields.io/discord/781946764168658984?color=rgb%2888%2C101%2C242%29&label=discord&style=for-the-badge)](https://discord.gg/vK5mzjvqYM)
+- [Valorant Store Checker](https://valorantstore.net) Website
+- [Valorant Store Checker](https://discord.com/api/oauth2/authorize?client_id=962376379658297375&permissions=274878286912&scope=bot%20applications.commands) Discord Bot
+- [TestFlight](https://testflight.apple.com/join/StWXuCsq) Beta Program
 ### Screenshots
 
 <p align=center>
