@@ -1,11 +1,6 @@
- <p align=center>
- <img width="100" alt="VSC-1 (dragged)" src="https://user-images.githubusercontent.com/77747704/183313304-d6343e5b-6679-4783-ad26-f277af996b6b.png">
-<a href="https://apps.apple.com/app/id1637273546" target="_blank" rel="noreferrer">
-</p>
+ <p align="center"><image src="https://user-images.githubusercontent.com/77747704/183313304-d6343e5b-6679-4783-ad26-f277af996b6b.png" width="196px" height="196px" /></p>
 
-<h1>
-  Valorant Store Checker
-</h1>
+<h1 align="center">Swiftcord • <img src="https://hitsofcode.com/github/SoloUnity/valorant-store-checker-iOS?branch=main" /></h1>
 
 <img height="75" alt="VSC-1 (dragged)" src="https://user-images.githubusercontent.com/77747704/184449890-c3620a49-6303-494e-8bcb-f0fd005b9a6d.png">
 
