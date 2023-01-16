@@ -12,7 +12,7 @@ VSC (Valorant Store Tracker) is an open source iOS app that allows you to track 
 - Valorant Store Checker [Website](https://valorantstore.net) 
 - Valorant Store Checker [Discord Bot](https://discord.com/api/oauth2/authorize?client_id=962376379658297375&permissions=274878286912&scope=bot%20applications.commands) 
 - [TestFlight Beta Program](https://testflight.apple.com/join/StWXuCsq)
--  
+
 ### Screenshots
 
 <p align=center>
