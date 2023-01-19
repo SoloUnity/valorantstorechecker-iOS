@@ -31,9 +31,11 @@ struct WebService {
             if reload {
                 
                 let keychain = Keychain()
+                let tdid = keychain.value(forKey: "tdid")
+                let ssid = keychain.value(forKey: "ssid")
                 
-                try await setCookie(named: "tdid", to: keychain.value(forKey: "tdid") as? String ?? "")
-                try await setCookie(named: "ssid", to: keychain.value(forKey: "ssid") as? String ?? "")
+                try await setCookie(named: "tdid", to: tdid as? String ?? "")
+                try await setCookie(named: "ssid", to: ssid as? String ?? "")
                 
                 let recookieBody = ReAuthCookies()
                 
@@ -634,6 +636,7 @@ struct WebService {
         catch {
             throw OwnedError.dataTaskError(error.localizedDescription)
         }
+        
     }
     
     
@@ -641,12 +644,18 @@ struct WebService {
     // Configure websession for reloading / reauthentication
     static func setCookie(named name: String, to value: String) async throws -> Void{
         
-        WebService.session.configuration.httpCookieStorage!.setCookie(.init(properties: [
-            .name: name,
-            .value: value,
-            .path: "/",
-            .domain: "auth.riotgames.com",
-        ])!)
+        if value != "" {
+            
+            WebService.session.configuration.httpCookieStorage!.setCookie(.init(properties: [
+                .name: name,
+                .value: value,
+                .path: "/",
+                .domain: "auth.riotgames.com",
+            ])!)
+        }
+        else {
+            print("no cookie saved")
+        }
         
     }
     

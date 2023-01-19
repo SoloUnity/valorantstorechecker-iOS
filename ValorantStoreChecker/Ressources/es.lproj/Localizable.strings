@@ -8,7 +8,8 @@ Created by Gordon on 2022-08-07.
 // Translated using https://github.com/GWesley/auto_localize
 "SignIn" = "Registrarse";
 
-"PrivacyDisclaimer" = "Al hacer clic en Iniciar sesión, usted acepta nuestros Términos y Condiciones y nuestra [Política de privacidad](https://www.craft.do/s/fqxdg6asyp8wak)";
+"PrivacyDisclaimer" = "¿No tienes una cuenta?Haga clic aquí para [Regístrese](https://auth.riotgames.com/login).Al hacer clic en Iniciar sesión, usted acepta nuestros Términos y Condiciones y nuestra [Política de privacidad](https://www.craft.do/s/fqxdg6asyp8wak)";
+
 
 "Login" = "Inicie sesión en su cuenta antidisturbios";
 
@@ -131,6 +132,8 @@ El software se proporciona como es, sin garantía de ningún tipo, expreso o imp
 
 "Account" = "Cuenta";
 
+"DeleteAccount" = "Borrar cuenta";
+
 "RememberPassword" = "Recordar contraseña";
 
 "Region" = "Región";
@@ -238,6 +241,8 @@ La forma actual en que el botón Recargar requiere cookies en lugar de su nombre
 "ErrorMessage3" = "Su compra no podría ser verificada por la App Store.";
 
 "ErrorMessage4" = "No hay ningún paquete a la venta, inténtelo de nuevo más tarde.";
+
+"ErrorMessage5" = "Recuerde que la contraseña debe estar encendida para la recarga automática de la tienda.";
 
 "InformationTitle" = "¿Por qué mi cuenta antidisturbios?";
 

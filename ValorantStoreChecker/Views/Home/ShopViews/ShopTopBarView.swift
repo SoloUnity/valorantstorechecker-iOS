@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Keychain
 
 struct ShopTopBarView: View {
     
@@ -32,7 +33,7 @@ struct ShopTopBarView: View {
     
     var body: some View {
         
-        let countdown = countDownString(from: referenceDate, nowDate: nowDate, autoReload: autoReload, authAPIModel: authAPIModel, skinModel: skinModel, reloadType: reloadType)
+        let countdown = countDownString()
         
         HStack {
             
@@ -44,13 +45,16 @@ struct ShopTopBarView: View {
             
             
             Group {
-                if countdown == "Reload" && autoReload {
-                    
-                    // Automatic reloading
+                
+                if authAPIModel.reloadStoreAnimation && reloadType == "storeReload" {
                     Text(LocalizedStringKey("Reloading"))
                         .bold()
                         .font(.caption)
-                    
+                }
+                else if authAPIModel.reloadBundleAnimation && reloadType == "bundleReload" {
+                    Text(LocalizedStringKey("Reloading"))
+                        .bold()
+                        .font(.caption)
                 }
                 else if countdown == "Reload" {
                     
@@ -91,7 +95,9 @@ struct ShopTopBarView: View {
                 
                 // MARK: Store refresh button
                 Button {
-                                                
+                    
+                    haptic()
+                    
                     if networkModel.isConnected {
                         
                         authAPIModel.bundleImage = []
@@ -108,6 +114,14 @@ struct ShopTopBarView: View {
                         
                         Task{
                             await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
+                            
+                            haptic()
+                            Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { timer in
+                                
+                                haptic()
+                                
+                                timer.invalidate()
+                            }
                         }
                         
                         if !clickedReview {
@@ -126,18 +140,18 @@ struct ShopTopBarView: View {
                     }
                     
                 } label: {
-
+                    
                     if authAPIModel.reloadStoreAnimation && reloadType == "storeReload" {
                         ProgressView()
                             .frame(width: 15, height: 15)
                             .tint(.gray)
-
+                        
                     }
                     else if authAPIModel.reloadBundleAnimation && reloadType == "bundleReload" {
                         ProgressView()
                             .frame(width: 15, height: 15)
                             .tint(.gray)
-
+                        
                     }
                     else {
                         Image(systemName: "arrow.clockwise")
@@ -145,7 +159,6 @@ struct ShopTopBarView: View {
                             .scaledToFit()
                             .frame(width: 15, height: 15)
                     }
-                    
                 }
             }
             
@@ -155,65 +168,95 @@ struct ShopTopBarView: View {
         .padding(.top)
         .padding(.bottom, 5)
     }
-}
-
-// MARK: Helper function
-func countDownString(from date: Date, nowDate: Date, autoReload : Bool, authAPIModel : AuthAPIModel, skinModel: SkinModel, reloadType: String) -> String {
     
-    let calendar = Calendar(identifier: .gregorian)
-    
-    let components = calendar
-        .dateComponents([.day, .hour, .minute, .second],
-                        from: nowDate,
-                        to: date)
-    
-    if components.day! > 0 && (components.hour! > 0 || components.minute! > 0 || components.second! >= 0) {
-        return String(format: "%02d:%02d:%02d:%02d",
-                      components.day ?? 00,
-                      components.hour ?? 00,
-                      components.minute ?? 00,
-                      components.second ?? 00)
-    }
-    else if components.hour! > 0 || components.minute! > 0 || components.second! >= 0 {
+    func countDownString() -> String {
         
-        return String(format: "%02d:%02d:%02d",
-                      components.hour ?? 00,
-                      components.minute ?? 00,
-                      components.second ?? 00)
-    }
-    else if date != nowDate {
+        let calendar = Calendar(identifier: .gregorian)
         
-        if autoReload && !authAPIModel.reloadStoreAnimation && reloadType == "storeReload" {
-            Task {
-                
-                DispatchQueue.main.async {
-                    withAnimation(.easeIn) {
-                        authAPIModel.reloadStoreAnimation = true
-                    }
-                }
-                
-                await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
-            }
+        let components = calendar
+            .dateComponents([.day, .hour, .minute, .second],
+                            from: nowDate,
+                            to: referenceDate)
+        
+        if components.day! > 0 && (components.hour! > 0 || components.minute! > 0 || components.second! >= 0) {
+            return String(format: "%02d:%02d:%02d:%02d",
+                          components.day ?? 00,
+                          components.hour ?? 00,
+                          components.minute ?? 00,
+                          components.second ?? 00)
         }
-        else if autoReload && !authAPIModel.reloadBundleAnimation && reloadType == "bundleReload" {
-            Task {
+        else if components.hour! > 0 || components.minute! > 0 || components.second! >= 0 {
+            
+            return String(format: "%02d:%02d:%02d",
+                          components.hour ?? 00,
+                          components.minute ?? 00,
+                          components.second ?? 00)
+        }
+        else if (selectedTab == .shop || selectedTab == .bundle) && (referenceDate != nowDate && autoReload) && !authAPIModel.error {
+            
+            if !authAPIModel.reloadStoreAnimation && reloadType == "storeReload" {
                 
-                DispatchQueue.main.async {
-                    withAnimation(.easeIn) {
-                        authAPIModel.reloadBundleAnimation = true
+                if !defaults.bool(forKey: "rememberPassword") {
+                    
+                    DispatchQueue.main.async {
+                        withAnimation(.easeIn) {
+                            authAPIModel.error = true
+                            authAPIModel.errorAutomaticReload = true
+                        }
+                    }
+
+                }
+                else {
+                    Task {
+                        
+                        DispatchQueue.main.async {
+                            withAnimation(.easeIn) {
+                                authAPIModel.reloadStoreAnimation = true
+                            }
+                        }
+                        
+                        await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
                     }
                 }
                 
-                await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
             }
+            else if !authAPIModel.reloadBundleAnimation && reloadType == "bundleReload" {
+                
+                if !defaults.bool(forKey: "rememberPassword") {
+                    
+                    DispatchQueue.main.async {
+                        withAnimation(.easeIn) {
+                            authAPIModel.error = true
+                            authAPIModel.errorAutomaticReload = true
+                        }
+                    }
+                }
+                else {
+                    Task {
+                        
+                        DispatchQueue.main.async {
+                            withAnimation(.easeIn) {
+                                authAPIModel.reloadBundleAnimation = true
+                            }
+                        }
+                        
+                        await authAPIModel.reload(skinModel: skinModel, reloadType: reloadType)
+                    }
+                }
+                
+            }
+
+            
+            return "Reload"
+            
         }
         
         return "Reload"
-        
     }
-    return ""
-    
 }
+
+// MARK: Helper function
+
 
 func reloadCounter(alertModel : AlertModel) {
     

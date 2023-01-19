@@ -9,7 +9,7 @@ Created by Gordon on 2022-08-07.
 // Translated using https://github.com/GWesley/auto_localize
 "SignIn" = "Entrar";
 
-"PrivacyDisclaimer" = "Ao clicar em Entrar, você concorda com nossos Termos e Condições e com nossa [Política de Privacidade](https://www.craft.do/s/fQxdg6aSyp8WAk)";
+"PrivacyDisclaimer" = "Não tem uma conta?Clique aqui para [inscrever -se](https://auth.riotgames.com/login).Ao clicar em entrar, você concorda com nossos termos e condições e com nossa [Política de Privacidade](https://www.craft.do/s/fqxdg6asyp8wak)";
 
 "Login" = "Faça login na sua conta Riot";
 
@@ -130,6 +130,8 @@ O software é fornecido como é, sem garantia de qualquer tipo, expresso ou impl
 
 "Account" = "Conta";
 
+"DeleteAccount" = "Deletar conta";
+
 "RememberPassword" = "Lembre -se de senha";
 
 "Region" = "Região";
@@ -235,6 +237,8 @@ A maneira atual de recarregar o botão requer cookies em vez do seu nome de usu�
 "ErrorMessage3" = "Sua compra não pôde ser verificada pela App Store.";
 
 "ErrorMessage4" = "Não há nenhum pacote à venda, tente novamente mais tarde.";
+
+"ErrorMessage5" = "Lembre -se da minha função de senha para recarregar a loja automática.";
 
 "InformationTitle" = "Por que minha conta Riot?";
 

@@ -10,7 +10,9 @@ Created by Gordon on 2022-08-07.
 // MARK: Onboarding
 // LoginView
 "SignIn" = "Anmelden";
-"PrivacyDisclaimer" = "Indem Sie auf Anmelden klicken, erklären Sie sich mit unseren Allgemeinen Geschäftsbedingungen und unserer [Datenschutzrichtlinie](https://www.craft.do/s/fQxdg6aSyp8WAk) einverstanden";
+"PrivacyDisclaimer" = "Sie haben kein Konto?Klicken Sie hier, um [anzumelden](https://auth.riotgames.com/login).Durch Klicken auf Anmeldung stimmen Sie unseren Allgemeinen Geschäftsbedingungen und unserer [Datenschutzrichtlinie zu](https://www.craft.do/s/fqxdg6asyp8wak).";
+
+
 
 // LoginViews -> LoginInfoView
 "Login" = "Melden Sie sich bei Ihrem Riot-Konto an";
@@ -124,6 +126,7 @@ DIE SOFTWARE WIRD OHNE MÄNGELGEWÄHR UND OHNE JEGLICHE AUSDRÜCKLICHE ODER STIL
 "RememberPasswordInfo" = "Ihr Passwort ist durch Keychain gesichert. Wenn Sie sich abmelden oder den Schalter deaktivieren, wird das Passwort automatisch vergessen. Die Aktivierung dieser Funktion umgeht die API-Zeitbeschränkungen und ermöglicht die automatische Anmeldung im Namen des Benutzers.";
 "SignOut" = "Abmelden";
 "Account" = "Konto";
+"DeleteAccount" = "Konto löschen";
 
 // AccountViews -> RememberPasswordView
 "RememberPassword" = "Passwort merken";
@@ -218,6 +221,7 @@ Die derzeitige Art und Weise, in der die Schaltfläche zum erneuten Laden Cookie
 "ErrorMessage2" = "Falsches Passwort in den Einstellungen festgelegt";
 "ErrorMessage3" = "Ihr Kauf konnte vom App Store nicht verifiziert werden.";
 "ErrorMessage4" = "Es ist kein Paket im Angebot, bitte versuchen Sie es später erneut.";
+"ErrorMessage5" = "Denken Sie daran, dass das Passwort für das automatische Store -Reload eingeschaltet sein muss.";
 "InformationTitle" = "Warum mein Riot-Konto?";
 "Information" = "Während Sie auf viele Ihrer Statistiken ohne Ihr Passwort zugreifen können, ist Ihr Store eine Ausnahme, da er als sensible Information gilt. Damit die App auf deinen Shop zugreifen kann, benötigt sie deine Anmeldeinformationen, die sie über eine Open-Source-API erhält. Weitere Informationen, den Quellcode und eine FAQ finden Sie unter folgendem Link.";
 "InvalidLogin" = "Ungültige Anmeldung";

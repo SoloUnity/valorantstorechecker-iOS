@@ -11,9 +11,11 @@ import SwiftUI
 
 class AuthAPIModel: ObservableObject {
     
+    
     // Authentication
     @AppStorage("authentication") var authentication = false
     @Published var authenticationState = false
+    @Published var authenticationRmbPass = false
     @Published var authenticationAnimation : Bool = false // Handles loading animation
     @Published var authenticationFailure : Bool = false // Handles login error message
     
@@ -51,6 +53,7 @@ class AuthAPIModel: ObservableObject {
     @Published var error : Bool = false
     @Published var errorReloading : Bool = false // Specify if the error is of type reloading for custom error message
     @Published var errorReloadingBundle : Bool = false
+    @Published var errorAutomaticReload : Bool = false
     @Published var errorMessage : String = ""
     
     // Owned skins
@@ -153,6 +156,7 @@ class AuthAPIModel: ObservableObject {
             }
             else if keychain.value(forKey: "username") == nil { // Save username to keychain
                 let _ = keychain.save(self.inputUsername, forKey: "username")
+                
             }
             
             let _ = try await WebService.getCookies(reload: false)
@@ -324,9 +328,11 @@ class AuthAPIModel: ObservableObject {
                 
                 if helperType == "storeReload" {
                     self.reloadStoreAnimation = false
+                    
                 }
                 else if helperType == "bundleReload" {
                     self.reloadBundleAnimation = false
+                    
                 }
                 
             }
@@ -367,7 +373,7 @@ class AuthAPIModel: ObservableObject {
                 }
             }
             
-            withAnimation(.easeIn(duration: 0.15)) {
+            withAnimation(.easeIn(duration: 0.2)) {
                 self.storefront = tempStore
             }
             

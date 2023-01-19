@@ -54,6 +54,7 @@ struct TabBar: View {
                         Text(LocalizedStringKey(item.text))
                             .font(.caption2)
                             .lineLimit(1)
+                            .minimumScaleFactor(0.4)
                     }
                     .frame(maxWidth: .infinity)
                 }

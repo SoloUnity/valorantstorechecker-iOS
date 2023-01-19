@@ -11,7 +11,7 @@ Translation help from Silveswhy
 // MARK: Onboarding
 // LoginView
 "SignIn" = "Se connecter";
-"PrivacyDisclaimer" = "En cliquant sur S'inscrire, vous acceptez nos conditions générales et notre [Politique de confidentialité](https://www.craft.do/s/fQxdg6aSyp8WAk)";
+"PrivacyDisclaimer" = "Vous n'avez pas de compte?Cliquez ici pour [inscrire](https://auth.riotgames.com/login).En cliquant sur la connexion, vous acceptez nos termes et conditions et notre [politique de confidentialité](https://www.craft.do/s/fqxdg6asyp8wak)";
 
 // LoginViews -> LoginInfoView
 "Login" = "Connectez-vous à votre compte Riot";
@@ -124,6 +124,7 @@ LE LOGICIEL EST FOURNI TEL QUEL, SANS GARANTIE D'AUCUNE SORTE, EXPRESSE OU IMPLI
 "RememberPasswordInfo" = "Votre mot de passe est sécurisé par Keychain. Si vous vous déconnectez ou si vous désactivez le commutateur, le mot de passe sera automatiquement oublié. L'activation de cette fonction permet de contourner les limitations de tempds de l'API et de se connecter automatiquement au nom de l'utilisateur.";
 "SignOut" = "Se déconnecter";
 "Account" = "Compte";
+"DeleteAccount" = "Supprimer le compte";
 
 // AccountViews -> RememberPasswordView
 "RememberPassword" = "Retenir le mot de passe";
@@ -219,6 +220,7 @@ La façon actuelle dont le bouton de rechargement utilise des cookies à la plac
 "ErrorMessage2" = "Mauvais mot de passe défini dans Réglages.";
 "ErrorMessage3" = "Votre achat n'a pas pu être vérifié par l'App Store.";
 "ErrorMessage4" = "Aucun pack n'est en vente, veuillez réessayer plus tard.";
+"ErrorMessage5" = "Retenir le mot de passe doit être mis en place pour un rechargement automatique du shop.";
 "InvalidLogin" = "Connexion invalide";
 "Reset" = "Réinitialiser";
 "ResetInfo" = "De temps en temps, en raison de certains bugs, des erreurs peuvent survenir. Ce bouton vous permet de réinitialiser complètement l'application en cas de ces erreurs.";

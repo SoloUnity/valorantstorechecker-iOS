@@ -10,7 +10,7 @@ Created by Gordon on 2022-08-07.
 // MARK: Onboarding
 // LoginView
 "SignIn" = "Sign in";
-"PrivacyDisclaimer" = "By clicking on Sign in, you agree to our Terms and Conditions and to our [Privacy Policy](https://www.craft.do/s/fQxdg6aSyp8WAk)";
+"PrivacyDisclaimer" = "Don't have an account? Click here to [Sign up](https://auth.riotgames.com/login). By clicking on Sign in, you agree to our Terms and Conditions and to our [Privacy Policy](https://www.craft.do/s/fQxdg6aSyp8WAk)";
 
 // LoginViews -> LoginInfoView
 "Login" = "Sign in to your Riot account";
@@ -124,6 +124,7 @@ THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED
 "RememberPasswordInfo" = "Your password is secured by Keychain. Signing out or disabling the toggle will automatically forget the password. Enabling this feature bypasses the API time limitations and allows for automatic sign in on the user's behalf.";
 "SignOut" = "Sign Out";
 "Account" = "Account";
+"DeleteAccount" = "Delete Account";
 
 // AccountViews -> RememberPasswordView
 "RememberPassword" = "Remember Password";
@@ -165,7 +166,7 @@ THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED
 "Both" = "Both";
 "DownloadNewAssets" = "Download New Assets";
 "WifiOnly" = "Wifi Only";
-"CellularOnly" = "CellularOnly";
+"CellularOnly" = "Cellular Only";
 "Never" = "Never";
 "ClearAssets" = "Clear Assets";
 "Clear" = "Clear";
@@ -219,6 +220,7 @@ The current way that the reload button requires cookies instead of your username
 "ErrorMessage2" = "Wrong password set in Settings";
 "ErrorMessage3" = "Your purchase could not be verified by the App Store.";
 "ErrorMessage4" = "There is no bundle on sale, please try again later.";
+"ErrorMessage5" = "Remember Password is required to be on for Automatic Store Reload.";
 "InformationTitle" = "Why my Riot Account?";
 "Information" = "While many of your statistics are free to access without your password, your store is an exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through an open source API. Additional information, the source code, and an FAQ can be found in the link below.";
 "InvalidLogin" = "Invalid Login";

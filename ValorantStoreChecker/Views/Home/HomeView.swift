@@ -18,6 +18,7 @@ struct HomeView: View {
             
 
             
+            
             // Done this way to preserve scroll state
             ShopView()
                 .opacity(selectedTab == .shop ? 1 : 0)

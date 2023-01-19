@@ -42,15 +42,80 @@ struct SkinListView: View {
                     scrollDetection
                         .id("top") // Id to identify the top for scrolling
 
+                    Group {
+                        
+                        
+                        if search.count == 0 {
+                            // MARK: No search
+                            
+                            HStack {
+                                
+                                Spacer()
+                                
+                                VStack {
+                                    Image(systemName: "photo")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(minWidth: 0, maxWidth: 100)
+                                    
+                                    Text(selectOwned ? LocalizedStringKey("NoOwned") : LocalizedStringKey("EmptySearch"))
+                                        .bold()
+                                }
+                                
+                                Spacer()
+                            }
+                            .padding()
+                            
+                        }
+                        else if selectOwned {
+                            
+                            HStack {
+                                                                
+                                VStack(alignment: .leading) {
+                                    
+                                    Text("Statistics")
+                                        .bold()
+                                    
+                                    HStack {
+                                        
+                                        Text("Total Skin Cost: ")
+                                            .bold()
+
+                                        Image("vp")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 18, height: 18)
+
+                                        
+                                        Text(String(calculateTotal(search: search)))
+                                            .bold()
+                                         
+                                    }
+
+                                }
+                                .font(.subheadline)
+                                .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
+                                padding()
+                                
+                                Spacer()
+                            }
+                            
+                            
+                             
+                        }
+                    }
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
+                    .padding(.horizontal)
+                    .padding(.bottom)
                     
                     if skinModel.data.isEmpty{
                         ProgressView()
                     }
                     else{
                         
+                        
                         // MARK: Content
-                        LazyVStack(){
-                            
+                        LazyVStack(){                            
                             
                             ForEach(0 ..< search.count, id: \.self){ index in
                                 
@@ -109,6 +174,10 @@ struct SkinListView: View {
                                     }
                                 }
                             }
+                            
+                            
+                                
+                            
                         }
                         .animation(.default, value: searchText)
                         .animation(.default, value: selectedFilter)
@@ -119,21 +188,7 @@ struct SkinListView: View {
                         
                     }
                     
-                    if search.count == 0 {
-                        // MARK: No search
-                        VStack {
-                            Image(systemName: "photo")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(minWidth: 0, maxWidth: 100)
-                                .foregroundColor(.white)
-                            
-                            Text(selectOwned ? LocalizedStringKey("NoOwned") : LocalizedStringKey("EmptySearch"))
-                        }
-                        .padding(.top, (UIScreen.main.bounds.height / 4))
-                        .opacity(0.5)
-                        
-                    }
+                    
                 }
                 .coordinateSpace(name: "scroll")
                 .safeAreaInset(edge: .top) {
@@ -141,6 +196,7 @@ struct SkinListView: View {
                 }
                 .overlay {
                     NavigationSearchBar(title: "SkinIndex", hasScrolled: $hasScrolled, searchText: $searchText, savedText: $savedText, selectedFilter: $selectedFilter, filtered: $filtered, selectOwned: $selectOwned, proxy: proxy)
+                    
                 }
                 .onChange(of: selectedTab, perform: { tab in
                     if tab == .skinList {
@@ -192,7 +248,31 @@ struct SkinListView: View {
             }
         }
     }
+    
+    
+    func calculateTotal(search: [Skin]) -> Int {
+        
+        var cost = 0
+        
+        for skin in search {
+            
+            let price = PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin.levels!.first!.id.description.lowercased())
+            
+            if price != "Unknown" {
+                cost += Int(price) ?? 0
+            }
+            
+        }
+        
+        return cost
+    }
+    
 }
+
+
+
+
+ 
 
 struct SkinListView_Previews: PreviewProvider {
     static var previews: some View {

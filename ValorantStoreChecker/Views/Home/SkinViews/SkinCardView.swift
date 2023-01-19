@@ -36,7 +36,6 @@ struct SkinCardView: View {
             ZStack{
                 
                 
-                
                 if let imageData = UserDefaults.standard.data(forKey: skin.levels!.first!.id.description) {
                     
                     // MARK: Level Image

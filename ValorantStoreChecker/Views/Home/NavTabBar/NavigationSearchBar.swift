@@ -55,12 +55,13 @@ struct NavigationSearchBar: View {
                             Logo()
                                 .padding(hasScrolled ? 0 : 6)
                             
+                            
+                            
                             Text(LocalizedStringKey(title))
                                 .animatableFont(size: hasScrolled ? 22 : 34, weight: .bold)
                                 
                                 
                         }
-                            
                         
                         Spacer()
                     }

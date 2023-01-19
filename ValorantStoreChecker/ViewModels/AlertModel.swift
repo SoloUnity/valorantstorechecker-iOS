@@ -25,5 +25,5 @@ class AlertModel : ObservableObject {
     
     // AlertView
     @Published var openAccounts = false
-    
+    @Published var openSupport = false
 }
