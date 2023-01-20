@@ -88,7 +88,8 @@ Created by Gordon on 2022-08-07.
 // SkinListView
 "NoOwned" = "상점을 새로고침하거나 스킨을 구입하세요 :)";
 "EmptySearch" = "검색어와 일치하는 항목이 없습니다.";
-
+"Statistics" = "통계";
+"TotalCollectionCost" = "총 수집 비용";
 
 // SearchBar
 "Search" = "검색";

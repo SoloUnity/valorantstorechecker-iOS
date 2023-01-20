@@ -89,6 +89,8 @@ LE LOGICIEL EST FOURNI TEL QUEL, SANS GARANTIE D'AUCUNE SORTE, EXPRESSE OU IMPLI
 // SkinListView
 "NoOwned" = "Veuillez recharger la boutique, ou acheter des skins :)";
 "EmptySearch" = "Rien ne correspond à votre recherche";
+"Statistics" = "Statistiques";
+"TotalCollectionCost" = "Coût total du collection";
 
 // SearchBar
 "Search" = "Recherche";

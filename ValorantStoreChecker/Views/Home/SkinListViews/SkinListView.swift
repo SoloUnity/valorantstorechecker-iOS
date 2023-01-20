@@ -70,7 +70,9 @@ struct SkinListView: View {
                         else if selectOwned {
                             
                             HStack {
-                                                                
+                                
+                                        
+                                
                                 VStack(alignment: .leading) {
                                     
                                     Text("Statistics")
@@ -78,9 +80,8 @@ struct SkinListView: View {
                                     
                                     HStack {
                                         
-                                        Text("Total Skin Cost: ")
-                                            .bold()
-
+                                        Text("TotalCollectionCost").bold() + Text(":").bold()
+                                            
                                         Image("vp")
                                             .resizable()
                                             .scaledToFit()
@@ -94,15 +95,13 @@ struct SkinListView: View {
 
                                 }
                                 .font(.subheadline)
-                                .frame(height: (UIScreen.main.bounds.height / Constants.dimensions.cardSize))
-                                padding()
-                                
                                 Spacer()
+                                 
                             }
-                            
-                            
-                             
+                            .padding()
+  
                         }
+                        
                     }
                     .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
                     .padding(.horizontal)

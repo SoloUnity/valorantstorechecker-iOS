@@ -91,6 +91,9 @@ DIE SOFTWARE WIRD OHNE MÄNGELGEWÄHR UND OHNE JEGLICHE AUSDRÜCKLICHE ODER STIL
 // SkinListView
 "NoOwned" = "Bitte laden Sie den Shop neu, oder kaufen Sie einige Skins :)";
 "EmptySearch" = "Nichts passt zu Ihrer Suche";
+"Statistics" = "Statistiken";
+"TotalCollectionCost" = "Gesamtkosten";
+
 
 // SearchBar
 "Search" = "Suche";

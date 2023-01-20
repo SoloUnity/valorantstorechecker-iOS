@@ -88,6 +88,8 @@ Copyright (c) 2022 Gordon Ng
 // SkinListView
 "EmptySearch" = "検索条件に一致するものがない";
 "NoOwned" = "ストアを再読み込みするか、スキンを購入してください :)";
+"Statistics" = "統計学";
+"TotalCollectionCost" = "総収集コスト";
 
 // SearchBar
 "Search" = "検索";

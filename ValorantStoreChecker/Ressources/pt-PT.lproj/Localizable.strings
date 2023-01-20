@@ -86,6 +86,10 @@ O software é fornecido como é, sem garantia de qualquer tipo, expresso ou impl
 
 "EmptySearch" = "Nada corresponde à sua pesquisa";
 
+"Statistics" = "Estatisticas";
+
+"TotalCollectionCost" = "Custo Total de Cobrança";
+
 "Search" = "Procurar";
 
 "All" = "Todos";

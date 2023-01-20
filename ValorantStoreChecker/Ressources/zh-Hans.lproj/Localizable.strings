@@ -88,6 +88,10 @@ Created by Gordon on 2022-08-07.
 
 "EmptySearch" = "没有什么比您的搜索匹配的";
 
+"Statistics" = "统计数据";
+
+"TotalCollectionCost" = "总收集成本";
+
 "Search" = "搜索";
 
 "All" = "全部";
