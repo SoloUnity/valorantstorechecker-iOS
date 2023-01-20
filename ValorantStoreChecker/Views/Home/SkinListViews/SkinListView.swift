@@ -44,7 +44,6 @@ struct SkinListView: View {
 
                     Group {
                         
-                        
                         if search.count == 0 {
                             // MARK: No search
                             
