@@ -13,6 +13,9 @@ VSC (Valorant Store Tracker) is an open source iOS app that allows you to track 
 - Valorant Store Checker [Discord Bot](https://discord.com/api/oauth2/authorize?client_id=962376379658297375&permissions=274878286912&scope=bot%20applications.commands) 
 - [TestFlight Beta Program](https://testflight.apple.com/join/StWXuCsq)
 
+### Help Translate
+You can help with translation through a pull request, or just sending the modified file on [Discord](https://discord.gg/vK5mzjvqYM), of the Localizable.strings file from the correct language.lproj folder [here](https://github.com/SoloUnity/Valorant-Store-Checker-App/tree/main/ValorantStoreChecker/Ressources). The majority of these translations were done with DeepL or Google Translate. 
+
 ### Screenshots
 
 <p align=center>
@@ -44,14 +47,11 @@ VSC (Valorant Store Tracker) is an open source iOS app that allows you to track 
 - [ ] Monetization strategy (of new features only, core features are free)
 - [ ] Notify when skin is in shop
 
-### Help Translate
-You can help the translation with a pull request of relevant Localizable.strings file from the correct language.lproj folder [here](https://github.com/SoloUnity/Valorant-Store-Checker-App/tree/main/ValorantStoreChecker/Ressources). The majority of these translations were done with DeepL or Google Translate. 
-
 ### Acknowledgements
 Thank you to the following people and repositories:
 
 - **[juliand665](https://github.com/juliand665)** for their invaluable help in answering my many SwiftUI question.
-- **[Lunac-dev](https://github.com/Lunac-dev)** for his continuous support and creation of the Valorant Store Checker project.
+- **[Lunac-dev](https://github.com/Lunac-dev)** for their continuous support and creation of the Valorant Store Checker project.
 - **[RumbleMike/ValorantClientAPI](https://github.com/RumbleMike/ValorantClientAPI)** for the API that makes it all possible.
 - **[techchrism/valorant-api-docs](https://github.com/techchrism/valorant-api-docs)** for the detailed documentation.
 - **[Valorant-API.com](https://valorant-api.com)** for providing assets.
