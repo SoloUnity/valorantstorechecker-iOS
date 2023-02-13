@@ -42,6 +42,7 @@ struct SplashScreenView: View {
                         .resizable()
                         .scaledToFit()
                         .shadow(color:.red, radius: 3)
+                        .padding(.top)
                     
                     Spacer()
                     

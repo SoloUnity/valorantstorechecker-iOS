@@ -81,7 +81,7 @@ struct AlertView: View {
                         })
                         
                     }
-                    else if authAPIModel.errorReloading {
+                    else if authAPIModel.errorReloading || authAPIModel.errorAutomaticReload {
                         
                         Button(LocalizedStringKey("SignOut"), role: nil, action: {
                             
@@ -126,34 +126,6 @@ struct AlertView: View {
 
                         })
                         
-                    }
-                    else if authAPIModel.errorAutomaticReload {
-                        Button(LocalizedStringKey("Settings"), role: nil, action: {
-                            
-                            withAnimation(.easeIn) {
-                                authAPIModel.reloadStoreAnimation = false
-                                authAPIModel.reloadBundleAnimation = false
-                            }
-                            
-                            
-                            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { timer in
-                                
-                                alertModel.openAccounts = true
-                                
-                                Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { timer in
-                                    
-                                    rememberPassword = true
-                                    
-                                    timer.invalidate()
-                                }
-                                
-                                timer.invalidate()
-                            }
-                            
-                            authAPIModel.errorAutomaticReload = false
-                            selectedTab = .settings
-
-                        })
                     }
                     else {
                         
@@ -299,7 +271,6 @@ struct AlertView: View {
                 }, message: {
                     
                     Text("ReviewPrompt")
-                    
                     
                 })
             // MARK: TipView Alerts

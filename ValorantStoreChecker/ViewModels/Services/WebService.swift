@@ -14,8 +14,8 @@ struct WebService {
     // Common URLSession
     static var session: URLSession = {
         let configuration = URLSessionConfiguration.ephemeral
-        configuration.timeoutIntervalForRequest = 30 // seconds
-        configuration.timeoutIntervalForResource = 30 // seconds
+        configuration.timeoutIntervalForRequest = 5 // seconds
+        configuration.timeoutIntervalForResource = 5 // seconds
         return URLSession(configuration: configuration)
     }()
     
@@ -420,6 +420,8 @@ struct WebService {
             chosenLanguage = "es-ES"
         case "pt-PT", "pr-BR":
             chosenLanguage = "pt-BR"
+        case "pl":
+            chosenLanguage = "pl-PL"
         default:
             chosenLanguage = "en-US"
         }

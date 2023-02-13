@@ -20,6 +20,7 @@ class SkinModel: ObservableObject{
     
     
     let defaults = UserDefaults.standard
+    let network = NetworkModel()
     
     init() {
         
@@ -91,136 +92,135 @@ class SkinModel: ObservableObject{
     
     func getRemoteData() {
         
-        let language = Bundle.main.preferredLocalizations
-        var chosenLanguage = ""
-        
-        if language[0] != defaults.string(forKey: "currentLanguage") {
-            defaults.set(language[0], forKey: "currentLanguage")
-        }
-        
-        var urlString = Constants.URL.valAPISkins
-        
-        switch language[0] {
-        case "fr","fr-CA":
-            chosenLanguage = "fr-FR"
-        case "ja":
-            chosenLanguage = "ja-JP"
-        case "ko":
-            chosenLanguage = "ko-KR"
-        case "de":
-            chosenLanguage = "de-DE"
-        case "zh-Hans":
-            chosenLanguage = "zh-CN"
-        case "vi":
-            chosenLanguage = "vi-VN"
-        case "es":
-            chosenLanguage = "es-ES"
-        case "pt-PT", "pt-BR":
-            chosenLanguage = "pt-BR"
-        default:
-            chosenLanguage = "en-US"
-        }
-        
-        urlString = urlString + "?language=" + chosenLanguage
-        
-        let url = URL(string: urlString)
-        
-        let request = URLRequest(url: url!)
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request){ data, response, error in
+        if network.isConnected {
+            let language = Bundle.main.preferredLocalizations
+            var chosenLanguage = ""
             
-            // Check if there is an error
-            guard error == nil || data != nil else{
-                return
+            if language[0] != defaults.string(forKey: "currentLanguage") {
+                defaults.set(language[0], forKey: "currentLanguage")
             }
             
-            guard let httpResponse = response as? HTTPURLResponse else {
-                return
+            var urlString = Constants.URL.valAPISkins
+            
+            switch language[0] {
+            case "fr","fr-CA":
+                chosenLanguage = "fr-FR"
+            case "ja":
+                chosenLanguage = "ja-JP"
+            case "ko":
+                chosenLanguage = "ko-KR"
+            case "de":
+                chosenLanguage = "de-DE"
+            case "zh-Hans":
+                chosenLanguage = "zh-CN"
+            case "vi":
+                chosenLanguage = "vi-VN"
+            case "es":
+                chosenLanguage = "es-ES"
+            case "pt-PT", "pt-BR":
+                chosenLanguage = "pt-BR"
+            case "pl":
+                chosenLanguage = "pl-PL"
+            default:
+                chosenLanguage = "en-US"
             }
             
-            guard httpResponse.statusCode == 200 else {
-                return
-            }
+            urlString = urlString + "?language=" + chosenLanguage
             
+            let url = URL(string: urlString)
             
-            // Handle response
-            let jsonDecoder = JSONDecoder()
-            let skinDataResponse = try! jsonDecoder.decode(Skins.self, from: data!)
-            
-            self.defaults.set(data!, forKey: "skinDataResponse")
-            
-            var totalImages : Double = 0
-            
-            // Get total number of images to download
-            for skin in skinDataResponse.data {
+            let request = URLRequest(url: url!)
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: request){ data, response, error in
                 
-                if let _ = self.defaults.data(forKey: skin.levels!.first!.id.description) {
-                    
-                } else {
-                    totalImages += 1
+                // Check if there is an error
+                guard error == nil || data != nil else{
+                    return
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    return
+                }
+                
+                guard httpResponse.statusCode == 200 else {
+                    return
                 }
                 
                 
+                // Handle response
+                let jsonDecoder = JSONDecoder()
+                let skinDataResponse = try! jsonDecoder.decode(Skins.self, from: data!)
                 
-                for chroma in skin.chromas! {
-                    
-                    if let _ = self.defaults.data(forKey: chroma.id.description) {
-                        
-                    }
-                    else {
-                        totalImages += 1
-                    }
-                    
-                    if let _ = self.defaults.data(forKey: chroma.id.description + "swatch") {
-                        
-                    }
-                    else if chroma.swatch != nil {
-                        
-                        totalImages += 1
-                        
-                    }
-                }
-            }
-            
-            
-            DispatchQueue.main.async{
-                self.progressDenominator = totalImages
-            }
-            
-            if self.defaults.bool(forKey: "authorizeDownload") {
+                self.defaults.set(data!, forKey: "skinDataResponse")
                 
-                let session: URLSession = {
-                    let configuration = URLSessionConfiguration.ephemeral
-                    configuration.timeoutIntervalForRequest = 240 // seconds
-                    configuration.timeoutIntervalForResource = 240 // seconds
-                    return URLSession(configuration: configuration)
-                }()
+                var totalImages : Double = 0
                 
+                // Get total number of images to download
                 for skin in skinDataResponse.data {
                     
-                    self.getImageLevelData(skin: skin, session: session)
-                    self.getImageChromaData(skin: skin, session: session)
+                    if let _ = self.defaults.data(forKey: skin.levels!.first!.id.description) {
+                        
+                    } else {
+                        totalImages += 1
+                    }
+                                    
+                    for chroma in skin.chromas! {
+                        
+                        if let _ = self.defaults.data(forKey: chroma.id.description) {
+                            
+                        }
+                        else {
+                            totalImages += 1
+                        }
+                        
+                        if let _ = self.defaults.data(forKey: chroma.id.description + "swatch") {
+                            
+                        }
+                        else if chroma.swatch != nil {
+                            
+                            totalImages += 1
+                            
+                        }
+                    }
+                }
+                
+                
+                
+                DispatchQueue.main.async{
+                    self.progressDenominator = totalImages
                     
-                    if skin.displayName.count > 2 && String(Array(skin.displayName)[0..<2]).contains("\n"){
-                        skin.displayName = String(Array(skin.displayName)[2...])
+                    if self.defaults.bool(forKey: "authorizeDownload") {
+                        
+                        let session: URLSession = {
+                            let configuration = URLSessionConfiguration.ephemeral
+                            configuration.timeoutIntervalForRequest = 240 // seconds
+                            configuration.timeoutIntervalForResource = 240 // seconds
+                            return URLSession(configuration: configuration)
+                        }()
+                        
+                        for skin in skinDataResponse.data {
+                            
+                            self.getImageLevelData(skin: skin, session: session)
+                            self.getImageChromaData(skin: skin, session: session)
+                            
+                            if skin.displayName.count > 2 && String(Array(skin.displayName)[0..<2]).contains("\n"){
+                                skin.displayName = String(Array(skin.displayName)[2...])
+                            }
+                                                    
+                        }
                     }
                     
+                    self.standardSkins = skinDataResponse.data.filter({$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")})
+                    
+                    self.data = skinDataResponse.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")}).filter({!$0.themeUuid!.contains("0d7a5bfb-4850-098e-1821-d989bbfd58a8")}) //Sorts alphabetically and filters out Standard skin
                 }
-            }
-            
-            
-            // Background thread
-            DispatchQueue.main.async{
-                self.standardSkins = skinDataResponse.data.filter({$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")})
                 
-                self.data = skinDataResponse.data.sorted(by: {$0.displayName.lowercased() < $1.displayName.lowercased()}).filter({!$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")}).filter({!$0.themeUuid!.contains("0d7a5bfb-4850-098e-1821-d989bbfd58a8")}) //Sorts alphabetically and filters out Standard skin
+                
+                
             }
-            
+            // Kick off data task
+            dataTask.resume()
         }
-        // Kick off data task
-        dataTask.resume()
-        
-        
         
         
     }

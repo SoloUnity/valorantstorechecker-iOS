@@ -16,8 +16,6 @@ struct HomeView: View {
 
         ZStack(alignment: .bottom) {
             
-
-            
             
             // Done this way to preserve scroll state
             ShopView()

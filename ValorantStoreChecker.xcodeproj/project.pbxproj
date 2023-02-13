@@ -203,6 +203,7 @@
 		F8B9BE8629577F680007FDD3 /* PreferenceKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		F8B9BE8B29577FEB0007FDD3 /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		F8C3C77028E3CBD0002C840D /* ImageAndTextLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndTextLogo.swift; sourceTree = "<group>"; };
+		F8C7F95F299AFF8C00FF03F3 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8D4396128B1AC6D0093595C /* BundleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleImageView.swift; sourceTree = "<group>"; };
 		F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
 		F8D7CDFD2919CCF7003F66B9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -606,6 +607,7 @@
 				vi,
 				es,
 				"pt-PT",
+				pl,
 			);
 			mainGroup = 8B29E1E22881C87D0081F69A;
 			packageReferences = (
@@ -750,6 +752,7 @@
 				F8F1BC8A296D4ACB00179714 /* vi */,
 				F8F1BC8B296D4BEA00179714 /* es */,
 				F8F1BC8D296D4CE100179714 /* pt-PT */,
+				F8C7F95F299AFF8C00FF03F3 /* pl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

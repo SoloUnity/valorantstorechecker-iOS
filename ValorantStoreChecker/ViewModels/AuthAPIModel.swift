@@ -662,8 +662,8 @@ class AuthAPIModel: ObservableObject {
         // Create a new session
         WebService.session = {
             let configuration = URLSessionConfiguration.ephemeral
-            configuration.timeoutIntervalForRequest = 30 // seconds
-            configuration.timeoutIntervalForResource = 30 // seconds
+            configuration.timeoutIntervalForRequest = 5 // seconds
+            configuration.timeoutIntervalForResource = 5 // seconds
             return URLSession(configuration: configuration)
         }()
         
