@@ -34,6 +34,7 @@ You can help with translation through a pull request, or just sending the modifi
 </p>
 
 ### Roadmap Checklist
+- [ ] Apply everything I learned and fix my garbage coding practices
 - [x] Vietnamese Localization
 - [ ] Code cleanup
 - [ ] Add skin chroma videos
