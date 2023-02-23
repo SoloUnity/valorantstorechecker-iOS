@@ -6,13 +6,13 @@ Created by Gordon on 2022-08-07.
 */
 
 // Translated using https://github.com/GWesley/auto_localize
-"SignIn" = "登入";
+"SignIn" = "登录";
 
 "PrivacyDisclaimer" = "通过单击登录，您同意我们的条款和条件以及我们的[隐私政策](https://www.craft.do/s/fqxdg6asyp8wak)";
 
 "Login" = "登录您的Riot帐户";
 
-"InvalidCredentials" = "无效证件";
+"InvalidCredentials" = "无效凭证";
 
 "Username" = "用户名";
 
@@ -30,7 +30,7 @@ Created by Gordon on 2022-08-07.
 
 "TermsAndConditions" = "条款和条件";
 
-"MITLicense" = "麻省理工学院许可证
+"MITLicense" = "MIT许可证
 版权 (C) 2022 Gordon ng
 
 特此免费授予任何获得此软件副本和相关文档文件 (软件) 的人，以无限制处理该软件，包括无限制的使用权，复制，修改，合并，发布，发布，分发，转销和/或出售软件的副本，并允许提供该软件的人，但要遵守以下条件：上述版权通知和此许可通知应包含在所有副本或实质性中软件的部分。
@@ -41,21 +41,21 @@ Created by Gordon on 2022-08-07.
 
 "CopyrightNotice" = "VSC (Valort的商店检查器) 与Valort或Riot Games无关，连接或认可。此外，Riot Games和Valort是在Riot Games Inc.下注册的商标。";
 
-"EnterTheCode" = "输入发送给的代码";
+"EnterTheCode" = "输入邮件发送的代码";
 
 "InvalidCode" = "无效的代码";
 
-"TwoFactorAuthentication" = "两个因素身份验证";
+"TwoFactorAuthentication" = "两步验证";
 
-"DownloadAssets" = "下载资产";
+"DownloadAssets" = "资源下载";
 
 "Stuck" = "卡住？单击此处重试。";
 
 "NightMarket" = "夜市";
 
-"Store" = "店铺";
+"Store" = "商店";
 
-"Bundle" = "捆";
+"Bundle" = "捆绑包";
 
 "SkinIndex" = "皮肤索引";
 
@@ -63,11 +63,11 @@ Created by Gordon on 2022-08-07.
 
 "Cancel" = "取消";
 
-"Cost" = "成本";
+"Cost" = "价格";
 
 "ExclusiveSkinMessage" = "这是BattlePass独家，角色独家或限量版皮肤。";
 
-"Tier" = "层";
+"Tier" = "级别";
 
 "Default1" = "1.默认";
 
@@ -75,7 +75,7 @@ Created by Gordon on 2022-08-07.
 
 "Unknown" = "未知";
 
-"Reloading" = "重新加载";
+"Reloading" = "正在重新加载";
 
 "Reload" = "重新加载";
 
@@ -83,43 +83,43 @@ Created by Gordon on 2022-08-07.
 
 "EmptyBundle" = "刷新看到捆绑包";
 
-"NoOwned" = "请重新加载商店，或购买一些皮肤:)";
+"NoOwned" = "请重新加载商店，或先购买一些皮肤:)";
 
-"EmptySearch" = "没有什么比您的搜索匹配的";
+"EmptySearch" = "没有匹配结果";
 
 "Search" = "搜索";
 
 "All" = "全部";
 
-"Owned" = "拥有";
+"Owned" = "已拥有";
 
 "Knife" = "刀";
 
-"Sidearm" = "侧臂";
+"Sidearm" = "随身武器";
 
-"SMGs" = "SMG";
+"SMGs" = "冲锋枪";
 
-"Shotguns" = "shot弹枪";
+"Shotguns" = "霰弹枪";
 
 "Rifles" = "步枪";
 
-"Sniper" = "狙击手";
+"Sniper" = "狙击枪";
 
-"Heavy" = "重的";
+"Heavy" = "机关枪";
 
 "HelpDev" = "帮助开发！";
 
 "AutomaticReload" = "自动重新加载";
 
-"Notify" = "存储重置通知";
+"Notify" = "商店重置通知";
 
 "Allow" = "允许";
 
-"Appearance" = "外貌";
+"Appearance" = "外观";
 
 "Language" = "语言";
 
-"ManageMedia" = "管理媒体";
+"ManageMedia" = "资源管理";
 
 "Support" = "支持";
 
@@ -131,9 +131,9 @@ Created by Gordon on 2022-08-07.
 
 "About" = "关于";
 
-"RememberPasswordInfo" = "您的密码由钥匙扣确保。签名或禁用切换将自动忘记密码。启用此功能可以绕过API时间限制，并允许在用户代表用户自动登录。";
+"RememberPasswordInfo" = "您的密码由钥匙链加密。退出或修改为禁用将自动忘记密码。启用该功能可以绕过API的时间限制，并允许以用户的名义自动登录。";
 
-"SignOut" = "登出";
+"SignOut" = "退出";
 
 "Account" = "帐户";
 
@@ -141,55 +141,55 @@ Created by Gordon on 2022-08-07.
 
 "Region" = "地区";
 
-"SwitchAccounts" = "开关帐户";
+"SwitchAccounts" = "切换账户";
 
-"HelpMessage" = "你好！我是一名睡眠剥夺的大学生，只是试图使生活变得更好。请考虑通过以下任何方法帮助我！";
+"HelpMessage" = "你好！我是一个睡眠不足的大学生，只是想让生活变得更好一点😄。请考虑通过以下任何方法来帮助我!";
 
 "Review" = "留下评论";
 
-"Star" = "主演存储库";
+"Star" = "关注代码库";
 
 "HelpTranslate" = "帮助翻译";
 
-"ShowAppreciation" = "表示赞赏";
+"ShowAppreciation" = "表示感谢";
 
-"Sponsor" = "给我小费";
+"Sponsor" = "赞助";
 
 "CheckUpdates" = "检查更新";
 
 "ColourScheme" = "配色方案";
 
-"Auto" = "汽车";
+"Auto" = "自动";
 
-"Light" = "光";
+"Light" = "浅色";
 
-"Dark" = "黑暗的";
+"Dark" = "深色";
 
 "Background" = "背景";
 
 "AppIcon" = "应用图标";
 
-"DefaultDark" = "默认黑暗";
+"DefaultDark" = "默认深色";
 
-"3DDark" = "3D黑暗";
+"3DDark" = "3D深色";
 
-"Default Light" = "默认灯";
+"Default Light" = "默认浅色";
 
-"3DLight" = "3D灯";
+"3DLight" = "3D浅色";
 
 "AutoplayVideos" = "自动播放视频";
 
-"Both" = "两个都";
+"Both" = "全部";
 
-"DownloadNewAssets" = "下载新资产";
+"DownloadNewAssets" = "下载新资源";
 
 "WifiOnly" = "仅WiFi";
 
-"CellularOnly" = "细胞";
+"CellularOnly" = "仅流量";
 
-"Never" = "绝不";
+"Never" = "从不";
 
-"ClearAssets" = "清晰的资产";
+"ClearAssets" = "清除资源占用";
 
 "Clear" = "清除";
 
@@ -201,39 +201,39 @@ Created by Gordon on 2022-08-07.
 
 "FAQText" = "为什么该应用需要我的登录信息？
                         
-尽管您的许多统计信息无需密码即可自由访问，但您的商店是一个显着的例外，因为它被视为敏感信息。为了使应用程序访问您的商店，它需要您的登录信息，在此信息通过此[开源API 获得商店](https://github.com/heym1ke/valorentclientapi) 。
+尽管您的许多统计信息无需密码即可自由访问，但您的商店是一个明显的例外，因为它被视为敏感信息。为了使应用程序访问您的商店，它需要您的登录信息，在此信息通过此[开源API 获得商店信息](https://github.com/heym1ke/valorentclientapi) 。
                         
-保护我有哪些措施？
+有哪些保护措施？
 
-除了永远不会存储密码外，包括您的区域在内的敏感信息还在钥匙扣后面。该应用程序也是开源的，允许任何人和所有人始终访问代码。您的隐私是当务之急，我已经竭尽所能确保它。有关合法的Mumbo Jumbo，请参见[此处](https://www.craft.do/s/fqxdg6asyp8wak) 。
+除了永远不会存储密码外，包括您的区域在内的敏感信息都会通过密钥链进行加密。该应用程序也是开源的，允许任何人和所有人在任何时候访问代码。您的隐私是当务之急，我已经竭尽所能确保它。有关法律方便的详细内容，请参见[此处](https://www.craft.do/s/fqxdg6asyp8wak) 。
 
-下载了哪些资产？
+下载了哪些资源？
 
-下载的资产是图像，即使在离线时，您也可以始终使用该应用程序的皮肤索引功能。
+下载的资源是图像，即使在离线时，您也可以始终使用该应用程序的皮肤索引功能。
 
 记得密码做什么？
 
-重新加载按钮需要cookie而不是用户名和密码的当前方式，允许该应用完全不存储密码。但是，这些cookie在一段时间后过期，要求用户再次登录。为了简化此过程，请记住密码允许用户保存其密码并允许自动登录幕后。如果用户希望不保存密码，他们可以简单地登录并重新登录以创建新的cookie。";
+重新加载按钮需要cookie而不是用户名和密码的当前方式，允许该应用完全不存储密码。但是，这些cookie在一段时间过期后，需要用户再次登录。为了简化此过程，请记住密码允许用户保存其密码并允许自动登录幕后。如果用户希望不保存密码，他们可以简单地退出并重新登录以创建新的cookie。";
 
 "WebAndDisc" = "网站和Discord机器人";
 
 "DiscordServer" = "Discord服务器";
 
-"ThankJulian" = "感谢您在回答我的许多问题时的帮助！";
+"ThankJulian" = "感谢您帮助回答我的许多问题！";
 
 "ThankLunac" = "感谢您的持续支持！";
 
-"ThankTranslator" = "感谢您翻译该应用程序的帮助！";
+"ThankTranslator" = "感谢您帮助翻译该应用程序！";
 
 "Version" = "版本";
 
 "Privacy" = "隐私政策";
 
-"WhatsNew" = "什么是新的";
+"WhatsNew" = "新特性";
 
 "MadeIn" = "制作🇨🇦";
 
-"NetworkError" = "没有网络";
+"NetworkError" = "网络错误";
 
 "InfoPrice" = "不幸的是，这种皮肤的价格不在我们的数据库中。";
 
@@ -243,8 +243,8 @@ Created by Gordon on 2022-08-07.
 
 "CopyError" = "复制错误";
 
-"ErrorMessage1" = "您的个人饼干已经到期。这是我无法控制的API限制。有2个解决方案的选项：
-1) 登录并登录。
+"ErrorMessage1" = "您的个人Cookie已经到期。这是我无法控制的API限制。有2个解决方案的选项：
+1) 退出并重新登录。
 2) 在设置>帐户中打开记住密码。";
 
 "ErrorMessage2" = "在设置中设置错误的密码";
@@ -253,11 +253,11 @@ Created by Gordon on 2022-08-07.
 
 "ErrorMessage4" = "没有正在销售的捆绑包，请稍后再试。";
 
-"InformationTitle" = "为什么我的骚乱帐户？";
+"InformationTitle" = "为什么是我的Riot帐户？";
 
 "Information" = "尽管您的许多统计信息无需密码即可自由访问，但您的商店是一个例外，因为它被视为敏感信息。为了使应用程序访问您的商店，它需要您的登录信息，然后通过开源API获取商店。其他信息，源代码和FAQ可以在下面的链接中找到。";
 
-"InvalidLogin" = "登录无效";
+"InvalidLogin" = "无效登录";
 
 "Reset" = "重置";
 
@@ -265,11 +265,11 @@ Created by Gordon on 2022-08-07.
 
 "ReviewTitle" = "享受VSC？";
 
-"OpenGitHub" = "留下github星星";
+"OpenGitHub" = "留下Github星星";
 
 "MaybeLater" = "也许以后";
 
-"NeverShowAgain" = "再也不会出现";
+"NeverShowAgain" = "不再显示";
 
 "ReviewPrompt" = "请在Github上留下评论或星星！";
 
@@ -277,7 +277,7 @@ Created by Gordon on 2022-08-07.
 
 "UpdateInstructions1" = "如果没有更新选项，请：";
 
-"UpdateInstructions2" = "转到家 (今日) 标签";
+"UpdateInstructions2" = "转到主页 (今日) 标签";
 
 "UpdateInstructions3" = "在右上角点击您的个人资料";
 
@@ -286,5 +286,3 @@ Created by Gordon on 2022-08-07.
 "UpdateInstructions5" = "向下滚动以查看可用的更新";
 
 "UpdateTitle" = "更新应用程序";
-
-
