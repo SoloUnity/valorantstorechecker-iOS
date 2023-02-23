@@ -50,7 +50,7 @@ Copyright (c) 2022 Gordon Ng
 
 // DownloadView
 "DownloadAssets" = "アセットをダウンロード";
-"Stuck" = "動かない？ここをクリックして再試行してください。";
+"Stuck" = "フリーズしましたか？ここをクリックして再試行してください。";
 
 //----------------------------------
 // MARK: Home
@@ -70,7 +70,7 @@ Copyright (c) 2022 Gordon Ng
 //----------------------------------
 // SkinCardDetailView -> PriceView
 "Cost" = "コスト";
-"ExclusiveSkinMessage" = "これはバトルパス限定、エージェント契約限定、または期間限定版のいずれかのスキンです。";
+"ExclusiveSkinMessage" = "これはバトルパス限定、エージェント契約限定、期間限定版のいずれかのスキンです。";
 // SkincardDetailView -> VideoPickerView
 
 //----------------------------------
@@ -78,15 +78,15 @@ Copyright (c) 2022 Gordon Ng
 
 "Reloading" = "リロード中";
 "Reload" = "リロード";
-"UpdateAvailable" = "アップデートあり";
+"UpdateAvailable" = "アップデートがあります";
 
 //----------------------------------
 // BundleView
-"EmptyBundle" = "バンドル表示を更新する";
+"EmptyBundle" = "バンドルを更新する";
 
 //----------------------------------
 // SkinListView
-"EmptySearch" = "検索条件に一致するものがない";
+"EmptySearch" = "検索条件に一致するものがありません";
 "NoOwned" = "ストアを再読み込みするか、スキンを購入してください :)";
 "Statistics" = "統計学";
 "TotalCollectionCost" = "総収集コスト";
@@ -108,11 +108,11 @@ Copyright (c) 2022 Gordon Ng
 
 //----------------------------------
 // SettingsView
-"HelpDev" = "デベロッパーを助けよう";
-"AutomaticReload" = "自動リロード";
+"HelpDev" = "デベロッパー助ける";
+"AutomaticReload" = "自動更新";
 "Notify" = "ストアリセット通知";
 "Allow" = "許可する";
-"Appearance" = "風貌";
+"Appearance" = "外観";
 "Language" = "言語";
 "ManageMedia" = "メディアを管理する";
 "Support" = "サポート";
@@ -141,7 +141,7 @@ Copyright (c) 2022 Gordon Ng
 // HelpViews -> HelpView
 
 "HelpMessage" = "こんにちは！私は人生を少しでも良くしようと思っている寝不足の大学生です😄。以下の方法で私を助けることを検討してください！";
-"Review" = "レビューを残す";
+"Review" = "レビューする";
 "Star" = "プロジェクトに星をつける";
 "HelpTranslate" = "翻訳のお手伝い";
 
@@ -164,22 +164,22 @@ Copyright (c) 2022 Gordon Ng
 "3DLight" = "3D Light";
 
 // MediaManagementView
-"AutoplayVideos" = "自動再生ビデオ";
+"AutoplayVideos" = "自動ビデオ再生";
 "Both" = "両方";
-"DownloadNewAssets" = "新商品のダウンロード";
+"DownloadNewAssets" = "新スキンのダウンロード";
 "WifiOnly" = "Wifiのみ";
 "CellularOnly" = "携帯電話のみ";
 "Never" = "決して";
-"ClearAssets" = "資産の削除";
-"Clear" = "消す";
+"ClearAssets" = "ダウンロードしたスキンの削除";
+"Clear" = "削除";
 
 // SupportView
 "Create" = "サポートチケットの作成";
 "FAQ" = "よくある質問";
 "SourceCode" = "ソースコード";
-"FAQText" = "なぜアプリは私のログイン情報を必要とするのですか？
+"FAQText" = "どうしてこのアプリは私のログイン情報を必要とするのですか？
                         
-あなたの統計情報の多くは、パスワードなしで自由にアクセスできますが、あなたのストアは機密情報とみなされるため、顕著な例外となります。アプリがあなたのストアにアクセスするためには、この[オープンソースAPI](https://github.com/HeyM1ke/ValorantClientAPI)を通してあなたのストアを取得する、あなたのログイン情報が必要です。
+あなたの統計情報の多くは、パスワードなしで自由にアクセスできますが、あなたのストアは機密情報とみなされるため、例外です。アプリがあなたのストアにアクセスするためには、この[オープンソースAPI](https://github.com/HeyM1ke/ValorantClientAPI)を通してあなたのストアを取得する、あなたのログイン情報が必要です。
                         
 私を保護するためにどのような対策がありますか？
 
