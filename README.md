@@ -1,4 +1,4 @@
-<p align="center"><image src="https://user-images.githubusercontent.com/77747704/212623645-62e578cc-ddb0-4146-8f12-4cfb8c120ed4.png" width="196px" height="196px" /></p>
+<p align="center"><image src="https://user-images.githubusercontent.com/77747704/221028543-65ac17be-28cc-4398-b61c-7cb6097c65a0.png" width="196px" height="196px" /></p>
 
 <h1 align="center">Valorant Store Checker • <img src="https://hitsofcode.com/github/SoloUnity/valorant-store-checker-iOS?branch=main" /></h1>
 
