@@ -133,9 +133,9 @@ struct AppearanceView: View {
                             
                             Image("Background 1")
                                 .resizable()
-                                .scaledToFill()
-                                .cornerRadius(10)
                                 .aspectRatio(CGSize(width: 9, height: 16), contentMode: .fit)
+                                .scaledToFit()
+                                .cornerRadius(10)
                         }
                         .padding(.bottom)
                         

@@ -26,7 +26,7 @@ struct FilterView: View {
                 filtered = false
                 proxy.scrollTo("top", anchor: .top)
             } label: {
-                if selectedFilter == "" && !selectOwned {
+                if !selectOwned {
                     Label(LocalizedStringKey("All"), systemImage: "checkmark")
                 }
                 else {
@@ -48,12 +48,14 @@ struct FilterView: View {
                     Text(LocalizedStringKey("Owned"))
                 }
             }
-            
+                    
+            Divider()
+             
             // MARK: Knife
             
             Button {
                 selectedFilter = "ShooterGame/Content/Equippables/Melee"
-                selectOwned = false
+                //selectOwned = false
                 filtered = true
                 proxy.scrollTo("top", anchor: .top)
             } label: {

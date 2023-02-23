@@ -8,7 +8,8 @@ Created by Gordon on 2022-08-07.
 // Translated using https://github.com/GWesley/auto_localize
 "SignIn" = "登录";
 
-"PrivacyDisclaimer" = "通过单击登录，您同意我们的条款和条件以及我们的[隐私政策](https://www.craft.do/s/fqxdg6asyp8wak)";
+"PrivacyDisclaimer" = "没有帐户？单击此处以[注册](https://auth.riotgames.com/login) 。通过单击登录，您同意我们的条款和条件以及我们的[隐私政策](https://www.craft.do/s/fqxdg6asyp8wak)";
+
 
 "Login" = "登录您的Riot帐户";
 
@@ -87,6 +88,10 @@ Created by Gordon on 2022-08-07.
 
 "EmptySearch" = "没有匹配结果";
 
+"Statistics" = "统计数据";
+
+"TotalCollectionCost" = "总收集成本";
+
 "Search" = "搜索";
 
 "All" = "全部";
@@ -136,6 +141,8 @@ Created by Gordon on 2022-08-07.
 "SignOut" = "退出";
 
 "Account" = "帐户";
+
+"DeleteAccount" = "删除帐户";
 
 "RememberPassword" = "记住密码";
 
@@ -252,6 +259,8 @@ Created by Gordon on 2022-08-07.
 "ErrorMessage3" = "App Store无法验证您的购买。";
 
 "ErrorMessage4" = "没有正在销售的捆绑包，请稍后再试。";
+
+"ErrorMessage5" = "请记住，我的密码功能必须为自动存储重新加载。";
 
 "InformationTitle" = "为什么是我的Riot帐户？";
 

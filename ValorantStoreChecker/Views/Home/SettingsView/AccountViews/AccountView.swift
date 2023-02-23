@@ -34,6 +34,31 @@ struct AccountView: View {
                 //AccountSwitcherView()
             }
             
+            Section() {
+                
+                Button {
+                    
+                    haptic()
+                    
+                    if let url = URL(string: Constants.URL.deleteAccount) {
+                        UIApplication.shared.open(url)
+                    }
+                    
+                } label: {
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Text("DeleteAccount")
+                            .foregroundColor(.pink)
+                        
+                        Spacer()
+                    }
+                    
+                    
+                }
+
+            }
             
             Section() {
                 
@@ -63,6 +88,8 @@ struct AccountView: View {
                 }
 
             }
+            
+            
             
             Section(header: Text("")) {
                 EmptyView()

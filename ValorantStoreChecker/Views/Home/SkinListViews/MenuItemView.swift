@@ -21,7 +21,7 @@ struct MenuItemView: View {
     var body: some View {
         Button {
             selectedFilter = filter
-            selectOwned = false
+            //selectOwned = false
             filtered = true
             proxy.scrollTo("top", anchor: .top)
         } label: {

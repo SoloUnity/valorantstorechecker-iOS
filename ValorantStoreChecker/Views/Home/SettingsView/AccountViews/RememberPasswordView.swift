@@ -18,8 +18,8 @@ struct RememberPasswordView: View {
     
     var body: some View {
         ZStack(alignment: .leading) {
+            
             SettingItemView(itemType: "generic", name: "RememberPassword", iconBG: .gray, iconColour: .white, image: "key.fill", toggleBool: $togglePassword)
-
                 
             HStack {
                 Spacer()
@@ -85,8 +85,6 @@ struct RememberPasswordView: View {
                 .buttonStyle(.plain)
 
             }
-            
-            
         }
     }
 }

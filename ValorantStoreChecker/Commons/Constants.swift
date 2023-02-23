@@ -46,6 +46,8 @@ struct Constants{
         static var privacy = "https://www.craft.do/s/fQxdg6aSyp8WAk"
         static var appStore = "https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546"
         static var translation = "https://github.com/SoloUnity/Valorant-Store-Checker-App#help-translate"
+        static var deleteAccount = "https://support-leagueoflegends.riotgames.com/hc/en-us/articles/360050328454-Deleting-Your-Riot-Account-and-All-Your-Data"
+        
         // Login
         static var googleLogin = "https://www.craft.do/s/ajlY5nYTszlc9H"
         static var valClientAPI = "https://github.com/HeyM1ke/ValorantClientAPI"

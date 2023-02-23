@@ -32,6 +32,7 @@ struct AlertView: View {
                     
                     //LOCALIZETEXT
                     Text("NetworkError")
+                        .bold()
                         .multilineTextAlignment(.center)
                 }
                 .padding(35)
@@ -126,6 +127,34 @@ struct AlertView: View {
                         })
                         
                     }
+                    else if authAPIModel.errorAutomaticReload {
+                        Button(LocalizedStringKey("Settings"), role: nil, action: {
+                            
+                            withAnimation(.easeIn) {
+                                authAPIModel.reloadStoreAnimation = false
+                                authAPIModel.reloadBundleAnimation = false
+                            }
+                            
+                            
+                            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { timer in
+                                
+                                alertModel.openAccounts = true
+                                
+                                Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { timer in
+                                    
+                                    rememberPassword = true
+                                    
+                                    timer.invalidate()
+                                }
+                                
+                                timer.invalidate()
+                            }
+                            
+                            authAPIModel.errorAutomaticReload = false
+                            selectedTab = .settings
+
+                        })
+                    }
                     else {
                         
                         Button(LocalizedStringKey("CopyError"), role: nil, action: {
@@ -157,7 +186,12 @@ struct AlertView: View {
                     
                 }, message: {
                     
-                    if authAPIModel.errorReloading && rememberPassword {
+                    if authAPIModel.errorAutomaticReload {
+                        
+                        Text(LocalizedStringKey("ErrorMessage5"))
+                        
+                    }
+                    else if (authAPIModel.errorReloading && rememberPassword) {
                         
                         Text(LocalizedStringKey("ErrorMessage2"))
                     }
@@ -182,10 +216,7 @@ struct AlertView: View {
                     
                     Button(LocalizedStringKey("FAQ"), role: nil, action: {
                         
-                        if let url = URL(string: Constants.URL.faq) {
-                            UIApplication.shared.open(url)
-                        }
-                        
+                        alertModel.openSupport = true
                         alertModel.alertLoginInfo = false
                         
                     })

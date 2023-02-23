@@ -21,6 +21,10 @@ struct LoginView: View {
             
             ZStack(alignment: .top) {
                 
+                NavigationLink(isActive: $alertModel.openSupport, destination: { SupportView() }, label: {
+                    EmptyView()
+                })
+                
                 if #available(iOS 16, *) {
                     Logo()
                         .frame(height: 70)
@@ -53,15 +57,18 @@ struct LoginView: View {
                         }
                         .padding(.vertical)
                         
-                        
                         RegionSelectorView(regionCheck: $regionCheck)
-                        
+                                                
                         Divider()
                         
+                                                
                         // MARK: Terms and Conditions
                         NavigationLink {
+                            
                             TermsView()
+                            
                         } label: {
+                            
                             HStack {
                                 
                                 // LOCALIZETEXT
@@ -72,6 +79,8 @@ struct LoginView: View {
                             .font(.footnote)
                             .multilineTextAlignment(.leading)
                         }
+                        
+                        
                         
                         
                     }
@@ -169,6 +178,7 @@ struct LoginView: View {
                                 .bold()
                                 .padding(15)
                                 .foregroundColor(.white)
+
                                 
                         }
                         .padding(.horizontal)

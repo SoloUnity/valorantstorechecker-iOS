@@ -8,7 +8,9 @@ Created by Gordon on 2022-08-07.
 // Translated using https://github.com/GWesley/auto_localize
 "SignIn" = "Đăng nhập";
 
-"PrivacyDisclaimer" = "Bằng cách nhấp vào Đăng nhập, bạn đồng ý với các điều khoản và điều kiện của chúng tôi và [Chính sách bảo mật của chúng tôi](https://www.craft.do/s/fqxdg6asyp8wak)";
+"PrivacyDisclaimer" = "Không có tài khoản?Nhấn vào đây để [Đăng ký](https://auth.riotgames.com/login).Bằng cách nhấp vào Đăng nhập, bạn đồng ý với các điều khoản và điều kiện của chúng tôi và [Chính sách bảo mật của chúng tôi](https://www.craft.do/s/fqxdg6asyp8wak)";
+
+
 
 "Login" = "Đăng nhập vào tài khoản Riot của bạn";
 
@@ -87,6 +89,10 @@ Phần mềm được cung cấp như là, không có bảo hành dưới bất 
 
 "EmptySearch" = "Không có gì phù hợp với tìm kiếm của bạn";
 
+"Statistics" = "Số liệu thống kê";
+
+"TotalCollectionCost" = "Tổng chi phí thu thập";
+
 "Search" = "Tìm kiếm";
 
 "All" = "Tất cả các";
@@ -136,6 +142,8 @@ Phần mềm được cung cấp như là, không có bảo hành dưới bất 
 "SignOut" = "Đăng xuất";
 
 "Account" = "Tài khoản";
+
+"DeleteAccount" = "Xóa tài khoản";
 
 "RememberPassword" = "Nhớ mật khẩu";
 
@@ -252,6 +260,8 @@ Cách hiện tại mà nút tải lại yêu cầu cookie thay vì tên người
 "ErrorMessage3" = "Mua hàng của bạn không thể được xác minh bởi App Store.";
 
 "ErrorMessage4" = "Không có gói giảm giá nào, vui lòng thử lại sau.";
+
+"ErrorMessage5" = "Chức năng ghi nhớ mật khẩu của tôi được yêu cầu để tải lại cửa hàng tự động.";
 
 "InformationTitle" = "Tại sao tài khoản Riot của tôi?";
 
