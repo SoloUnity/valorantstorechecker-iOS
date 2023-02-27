@@ -83,7 +83,6 @@ struct RememberPasswordView: View {
                     }
                 }
                 .buttonStyle(.plain)
-
             }
         }
     }

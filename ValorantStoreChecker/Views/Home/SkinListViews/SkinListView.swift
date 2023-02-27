@@ -15,7 +15,6 @@ struct SkinListView: View {
     @State var searchText : String = ""
     @State var savedText : String = ""
     @State var selectedFilter : String  = ""
-    @State var filtered : Bool = false
     @State var selectOwned : Bool = false
     @State var hasScrolled = false
     
@@ -193,7 +192,7 @@ struct SkinListView: View {
                     Color.clear.frame(height: 70)
                 }
                 .overlay {
-                    NavigationSearchBar(title: "SkinIndex", hasScrolled: $hasScrolled, searchText: $searchText, savedText: $savedText, selectedFilter: $selectedFilter, filtered: $filtered, selectOwned: $selectOwned, proxy: proxy)
+                    NavigationSearchBar(title: "SkinIndex", hasScrolled: $hasScrolled, searchText: $searchText, savedText: $savedText, selectedFilter: $selectedFilter, selectOwned: $selectOwned, proxy: proxy)
                     
                 }
                 .onChange(of: selectedTab, perform: { tab in

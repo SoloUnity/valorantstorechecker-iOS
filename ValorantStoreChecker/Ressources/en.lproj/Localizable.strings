@@ -89,6 +89,8 @@ THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED
 // SkinListView
 "NoOwned" = "Please reload the store, or buy some skins :)";
 "EmptySearch" = "Nothing matches your search";
+"Statistics" = "Statistics";
+"TotalCollectionCost" = "Total Collection Worth:";
 
 // SearchBar
 "Search" = "Search";

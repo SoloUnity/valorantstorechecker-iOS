@@ -12,7 +12,6 @@ struct AccountView: View {
     
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @AppStorage("rememberPassword") var togglePassword = false
-    @AppStorage("selectedTab") var selectedTab: Tab = .shop
     
     let keychain = Keychain()
 
@@ -70,9 +69,7 @@ struct AccountView: View {
                         await authAPIModel.logOut()
                         
                     }
-                    
-                    selectedTab = .shop
-                    
+                                        
                 } label: {
                     
                     HStack {

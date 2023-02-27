@@ -156,7 +156,6 @@ class AuthAPIModel: ObservableObject {
             }
             else if keychain.value(forKey: "username") == nil { // Save username to keychain
                 let _ = keychain.save(self.inputUsername, forKey: "username")
-                
             }
             
             let _ = try await WebService.getCookies(reload: false)
@@ -181,13 +180,14 @@ class AuthAPIModel: ObservableObject {
                         self.authentication = true
                         self.authenticationState = true
                     }
-                    
                 }
                 
+                Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { timer in
+                    self.inputUsername = ""
+                    self.inputPassword = ""
+                    timer.invalidate()
+                }
                 
-                
-                self.inputUsername = ""
-                self.inputPassword = ""
             }
             print("Finished login")
             
@@ -227,7 +227,6 @@ class AuthAPIModel: ObservableObject {
     func getPlayerData(helperType: String, token: String, skinModel : SkinModel) async {
         
         do {
-            self.inputPassword = "" // Clear password
             
             let riotEntitlement = try await WebService.getRiotEntitlement(token: token)
             let puuid = try await WebService.getPlayerInfo(token: token)
@@ -482,6 +481,10 @@ class AuthAPIModel: ObservableObject {
                             
                         }
                     }
+                }
+                
+                if tempBundlePrice == 0 && tempBundleItems.count == 1 {
+                    tempBundlePrice += Int(tempBundleItems.first!.discountedCost ?? "0") ?? 0
                 }
                 
                 bundleItems.append(tempBundleItems)

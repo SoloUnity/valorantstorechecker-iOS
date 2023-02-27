@@ -24,7 +24,7 @@ struct VideoView: View {
         ZStack {
             
             AZVideoPlayer(player: player)
-                .cornerRadius(15)
+                .cornerRadius(10)
                 .onAppear{
                     
                     let url  = skin.levels![selectedLevel].streamedVideo

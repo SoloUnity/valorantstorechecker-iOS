@@ -32,8 +32,9 @@ struct NavigationBar: View {
                 
 
                 Text(LocalizedStringKey(title))
-                    .animatableFont(size: hasScrolled ? 22 : 34, weight: .bold)
-                    
+                    .font(.system(size: 34, weight: .bold, design: .default))
+                    .minimumScaleFactor(0.4)
+            
                 
                 
                 Spacer()

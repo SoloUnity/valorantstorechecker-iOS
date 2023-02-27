@@ -99,7 +99,6 @@
 		F8C3C77128E3CBD0002C840D /* ImageAndTextLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C77028E3CBD0002C840D /* ImageAndTextLogo.swift */; };
 		F8D4396228B1AC6D0093595C /* BundleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4396128B1AC6D0093595C /* BundleImageView.swift */; };
 		F8D4D4C128A429E400BDBBFE /* ValorantStoreCheckerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */; };
-		F8F1BC89296BEA8400179714 /* SegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F1BC88296BEA8400179714 /* SegmentControlView.swift */; };
 		F8F4E5C2295D5BFD0087C7A8 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F4E5C1295D5BFD0087C7A8 /* AlertModel.swift */; };
 		F8F4E5C6295D71330087C7A8 /* MediaManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F4E5C5295D71330087C7A8 /* MediaManagementView.swift */; };
 		F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F69D3328A5E159005A73D2 /* TipModel.swift */; };
@@ -207,7 +206,6 @@
 		F8D4396128B1AC6D0093595C /* BundleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleImageView.swift; sourceTree = "<group>"; };
 		F8D4D4C028A429E400BDBBFE /* ValorantStoreCheckerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValorantStoreCheckerApp.swift; sourceTree = "<group>"; };
 		F8D7CDFD2919CCF7003F66B9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		F8F1BC88296BEA8400179714 /* SegmentControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentControlView.swift; sourceTree = "<group>"; };
 		F8F1BC8A296D4ACB00179714 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8F1BC8B296D4BEA00179714 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8F1BC8D296D4CE100179714 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -503,7 +501,6 @@
 				F8B9BE44295514480007FDD3 /* VideoView.swift */,
 				F8B9BE46295515E50007FDD3 /* VideoPickerView.swift */,
 				F8B9BE49295524C20007FDD3 /* ChromaView.swift */,
-				F8F1BC88296BEA8400179714 /* SegmentControlView.swift */,
 				F8B9BE4B295525640007FDD3 /* ChromaPickerView.swift */,
 			);
 			path = SkinCardDetailView;
@@ -654,7 +651,6 @@
 				8BF1DB482888B87F004491A1 /* Constants.swift in Sources */,
 				8B9A838B28861C5B009CE268 /* DeluxeEditionView.swift in Sources */,
 				8B9A8385288612DD009CE268 /* SelectEditionView.swift in Sources */,
-				F8F1BC89296BEA8400179714 /* SegmentControlView.swift in Sources */,
 				F8B9BE61295564C90007FDD3 /* RegionName.swift in Sources */,
 				F8A5011528E130BD00D66626 /* DispatchQueue+Extensions.swift in Sources */,
 				8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */,
@@ -903,7 +899,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -942,7 +938,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

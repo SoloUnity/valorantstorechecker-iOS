@@ -182,6 +182,8 @@ class SkinModel: ObservableObject{
                             
                         }
                     }
+                    
+                    
                 }
                 
                 
@@ -198,16 +200,22 @@ class SkinModel: ObservableObject{
                             return URLSession(configuration: configuration)
                         }()
                         
-                        for skin in skinDataResponse.data {
+                        DispatchQueue.global(qos: .default).async {
                             
-                            self.getImageLevelData(skin: skin, session: session)
-                            self.getImageChromaData(skin: skin, session: session)
-                            
-                            if skin.displayName.count > 2 && String(Array(skin.displayName)[0..<2]).contains("\n"){
-                                skin.displayName = String(Array(skin.displayName)[2...])
+                            for skin in skinDataResponse.data {
+                                
+                                self.getImageLevelData(skin: skin, session: session)
+                                self.getImageChromaData(skin: skin, session: session)
+                                
+                                if skin.displayName.count > 2 && String(Array(skin.displayName)[0..<2]).contains("\n"){
+                                    skin.displayName = String(Array(skin.displayName)[2...])
+                                }
+                                   
                             }
-                                                    
-                        }
+                            
+                            
+                         }
+                        
                     }
                     
                     self.standardSkins = skinDataResponse.data.filter({$0.themeUuid!.contains("5a629df4-4765-0214-bd40-fbb96542941f")})
@@ -331,7 +339,9 @@ class SkinModel: ObservableObject{
                         let encoded = try! PropertyListEncoder().encode(data)
                         UserDefaults.standard.set(encoded, forKey: key)
                         
-                        self.progressNumerator += 1
+                        DispatchQueue.main.async{
+                            self.progressNumerator += 1
+                        }
                     }
                     else {
                         return
