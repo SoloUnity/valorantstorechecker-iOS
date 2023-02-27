@@ -1,0 +1,239 @@
+/*
+Localizable.strings
+ValorantStoreChecker
+
+Created by Gordon on 2022-08-07.
+*/
+
+
+//----------------------------------
+// MARK: Onboarding
+// LoginView
+"SignIn" = "Zaloguj się";
+"PrivacyDisclaimer" = "Po kliknięciu zaloguj się, zgadzasz się na nasze zasady i warunki, oraz naszą [Politykę Prywatności](https://www.craft.do/s/fQxdg6aSyp8WAk)";
+
+// LoginViews -> LoginInfoView
+"Login" = "Zaloguj się do konta Riot";
+"InvalidCredentials" = "Nieprawidłowe dane uwierzytelniające";
+
+// LoginViews -> LoginBoxView
+"Username" = "Nazwa użytkownika";
+"Password" = "Hasło";
+
+// LoginViews -> RegionSelectorViewa
+"SelectRegion" = "Wybierz region";
+"Americas" = "Ameryka";
+"Europe" = "Europa";
+"AsiaPacific" = "Azja";
+"SouthKorea" = "Korea Południowa";
+
+// LoginViews -> TermsView
+"TermsAndConditions" = "Zasady i warunki";
+"MITLicense" = "Licencja MIT
+Prawa autorskie (c) 2022 Gordon Ng
+
+Niniejszym udziela się bezpłatnej zgody każdej osobie, która otrzyma kopię tego oprogramowania i związanych z nim plików dokumentacji (Oprogramowania), na obrót Oprogramowaniem bez ograniczeń, w tym między innymi praw do używania, kopiowania, modyfikowania, łączenia, publikowania rozpowszechniać, udzielać sublicencji i/lub sprzedawać kopie Oprogramowania oraz zezwalać na to osobom, którym Oprogramowanie zostało dostarczone, z zastrzeżeniem następujących warunków: części Oprogramowania.
+
+OPROGRAMOWANIE JEST DOSTARCZANE W STANIE, W JAKIM JEST, BEZ JAKICHKOLWIEK GWARANCJI WYRAŹNYCH LUB DOROZUMIANYCH, W TYM MIĘDZY INNYMI GWARANCJI PRZYDATNOŚCI HANDLOWEJ, PRZYDATNOŚCI DO OKREŚLONEGO CELU I NIENARUSZALNOŚCI PRAW. W ŻADNYM WYPADKU AUTORZY LUB WŁAŚCICIELE PRAW AUTORSKICH NIE BĘDĄ ODPOWIEDZIALNI ZA JAKIEKOLWIEK ROSZCZENIA, SZKODY LUB INNE ODPOWIEDZIALNOŚCI, CZY TO Z CZYNNOŚCI KONTRAKTOWYCH, DELIKATOWYCH LUB W INNY SPOSÓB, WYNIKAJĄCE Z OPROGRAMOWANIA LUB UŻYTKOWANIA LUB INNYCH DZIAŁALNOŚCI W OPROGRAMOWANIE.";
+"Copyright" = "Prawa autorskie";
+"CopyrightNotice" = "VSC (Store Checker for Valorant) nie jest powiązany, połączony ani zatwierdzony przez Valorant ani Riot Games. Ponadto Riot Games i Valorant są znakami towarowymi zarejestrowanymi przez Riot Games Inc.";
+
+//----------------------------------
+// MultifactorView
+"EnterTheCode" = "Wpisz kod wysłany na";
+"InvalidCode" = "Kod nieprawidłowy";
+"TwoFactorAuthentication" = "2 etapowa weryfikacja";
+
+// DownloadView
+"DownloadAssets" = "Pobierz pliki";
+"Stuck" = "Lag? Kliknij by spróbować ponownie";
+
+//----------------------------------
+// MARK: Home
+// NightMarketView
+"NightMarket" = "Nocny Rynek";
+
+//----------------------------------
+// NavTabBar -> TabBar
+"Store" = "Sklep";
+"Bundle" = "Pakiet";
+"SkinIndex" = "Indeks skinów";
+"Settings" = "Ustawienia";
+
+// NavTabBar -> NavigationSearchBar
+"Cancel" = "Anuluj";
+
+//----------------------------------
+// SkinCardDetailView -> PriceView
+"Cost" = "Koszt";
+"ExclusiveSkinMessage" = "Jest to ekskluzywny skin z karnetu, danej postaci lub skin z limitowanej edycji.";
+
+// SkincardDetailView -> VideoPickerView
+"Tier" = "Poziom";
+"Default1" = "1. Domyślny";
+"Default" = "Domyślny";
+"Unknown" = "Nieznany";
+
+//----------------------------------
+// ShopTopBarView
+"Reloading" = "Odświeżanie";
+"Reload" = "Odśwież";
+"UpdateAvailable" = "Dostępna aktualizacja";
+
+//----------------------------------
+// BundleView
+"EmptyBundle" = "Odśwież by zobaczyć pakiet";
+
+//----------------------------------
+// SkinListView
+"NoOwned" = "Proszę odśwież sklep, albo kup troche skinów :)";
+"EmptySearch" = "Nic nie pasuje do Twojego wyszukiwania";
+
+// SearchBar
+"Search" = "Wyszukaj";
+
+// FilterView
+"All" = "Wszystkie";
+"Owned" = "Posiadane";
+"Knife" = "Noże";
+"Sidearm" = "Podręczne";
+"SMGs" = "Pistolety maszynowe";
+"Shotguns" = "Strzelby";
+"Rifles" = "Karabiny";
+"Sniper" = "Snajperki";
+"Heavy" = "Ciężkie";
+
+//----------------------------------
+// SettingsView
+"HelpDev" = "Pomóż deweloperowi!";
+"AutomaticReload" = "Automatyczne odświeżanie";
+"Notify" = "Powiadomienie o odświeżeniu sklepu";
+"Allow" = "Zgoda";
+"Appearance" = "Wygląd";
+"Language" = "Język";
+"ManageMedia" = "Zarządzaj filmami";
+"Support" = "Wsparcie";
+"Community" = "Community";
+"Share" = "Udostępnij aplikację";
+"Acknowledgements" = "Podziękowanie";
+"About" = "O nas";
+
+//----------------------------------
+// AccountViews -> AccountView
+"RememberPasswordInfo" = "Twoje hasło jest zabezpieczone przez Keychain. Wylogowanie lub wyłączenie przełącznika spowoduje automatyczne zapomnienie hasła. Włączenie tej funkcji omija ograniczenia czasowe interfejsu API i umożliwia automatyczne logowanie w imieniu użytkownika.";
+"SignOut" = "Wyloguj się";
+"Account" = "Konto";
+
+// AccountViews -> RememberPasswordView
+"RememberPassword" = "Zapamiętaj hasło";
+
+// AccountViews -> RegionView
+"Region" = "Region";
+
+// AccountViews -> AccountSwitcherView
+"SwitchAccounts" = "Zmień konto";
+
+//----------------------------------
+// HelpViews -> HelpView
+"HelpMessage" = "Cześć! Jestem pozbawionym snu studentem uniwersytetu, który po prostu próbuje uczynić życie trochę lepszym 😄. Proszę rozważyć pomoc mi za pomocą dowolnej metody poniżej!";
+"Review" = "Zostaw opinię";
+"Star" = "Oznacz repozytorium gwiazdką";
+"HelpTranslate" = "Pomóż z tłumaczeniem";
+
+// HelpViews -> TipView
+"ShowAppreciation" = "Okaż uznanie";
+"Sponsor" = "Daj Napiwek";
+
+//----------------------------------
+// AppearanceView
+"CheckUpdates" = "Sprawdź aktualizacje";
+"ColourScheme" = "Schemat kolorów";
+"Auto" = "Automatyczny";
+"Light" = "Jasny";
+"Dark" = "Ciemny";
+"Background" = "Tło";
+"AppIcon" = "Ikona aplikacji";
+"DefaultDark" = "Domyślnie ciemny";
+"DefaultLight" = "Domyślnie jasny";
+"3DDark" = "Ciemny 3D";
+"Default Light" = "Domyślnie jasny";
+"3DLight" = "Jasny 3D";
+
+// MediaManagementView
+"AutoplayVideos" = "Autoodtwarzanie filmów";
+"Both" = "Oba";
+"DownloadNewAssets" = "Pobierz Nowe Pliki";
+"WifiOnly" = "Tylko WiFi";
+"CellularOnly" = "Tylko LTE";
+"Never" = "Nigdy";
+"ClearAssets" = "Wyczyść pliki";
+"Clear" = "Wyczyść";
+
+// SupportView
+"Create" = "Stwórz ticket";
+"FAQ" = "FAQ";
+"SourceCode" = "Kod Źródłowy";
+"FAQText" = "Dlaczego aplikacja potrzebuje moich danych logowania?
+
+Chociaż dostęp do wielu Twoich statystyk jest bezpłatny bez hasła, Twój sklep jest godnym uwagi wyjątkiem, ponieważ jest uważany za informacje wrażliwe. Aby aplikacja mogła uzyskać dostęp do Twojego sklepu, potrzebuje Twoich danych logowania, skąd uzyskuje Twój sklep za pośrednictwem tego [open source API](https://github.com/HeyM1ke/ValorantClientAPI).
+
+Jakie środki są stosowane, aby mnie chronić?
+
+Oprócz tego, że nigdy nie przechowujesz hasła, poufne informacje, w tym Twój region, są zabezpieczone za pomocą pęku kluczy. Aplikacja jest również open source, dzięki czemu każdy i każdy ma dostęp do kodu przez cały czas. Twoja prywatność jest priorytetem i zrobiłem wszystko, co w mojej mocy, aby ją zapewnić. Informacje prawne można znaleźć [tutaj](https://www.craft.do/s/fQxdg6aSyp8WAk).
+
+Jakie zasoby są pobierane?
+
+Pobrane zasoby to obrazy, które umożliwiają korzystanie z funkcji indeksowania skóry w aplikacji przez cały czas, nawet w trybie offline.
+
+Co robi zapamiętywanie hasła?
+
+Obecny sposób, w jaki przycisk ponownego ładowania wymaga plików cookie zamiast nazwy użytkownika i hasła, pozwala aplikacji w ogóle nie przechowywać hasła. Jednak te pliki cookie wygasają po pewnym czasie, co wymaga ponownego zalogowania się użytkownika. Aby usprawnić ten proces, zapamiętaj hasło umożliwia użytkownikowi zapisanie hasła i automatyczne logowanie za kulisami. Jeśli użytkownik nie chce zapisywać hasła, może po prostu wylogować się i zalogować ponownie, aby utworzyć nowe pliki cookie.";
+
+// CommunityView
+"WebAndDisc" = "Strona i bot na Discordzie";
+"DiscordServer" = "Serwer Discord";
+
+// AcknowledgementsView
+"ThankJulian" = "Dziękuję za pomoc w udzieleniu odpowiedzi na moje liczne pytania!";
+"ThankLunac" = "Dziękujemy za nieustanne wsparcie!";
+"ThankTranslator" = "Dziękujemy za pomoc w tłumaczeniu!";
+
+// AboutView
+"Version" = "Wersja";
+"Privacy" = "Polityka Prywatności";
+"WhatsNew" = "Co nowego";
+"MadeIn" = "Stworzone w 🇨🇦";
+
+//----------------------------------
+// MARK: Miscallaneous
+// AlertView
+"NetworkError" = "Brak sieci";
+"InfoPrice" = "Koszt tego skina niestety nie jest w naszej bazie danych.";
+"ErrorTitle" = "Błąd";
+"OK" = "OK";
+"CopyError" = "Błąd kopiowania";
+"ErrorMessage1" = "Twoje osobiste pliki cookie wygasły. Jest to ograniczenie API, nad którym nie mam kontroli. Istnieją 2 możliwości rozwiązania tego:
+1) Wyloguj się i zaloguj.
+2) Włącz zapamiętaj hasło w Ustawieniach > Konto.";
+"ErrorMessage2" = "Błędne hasło ustawione w Ustawieniach";
+"ErrorMessage3" = "Twój zakup nie mógł zostać zweryfikowany przez App Store.";
+"ErrorMessage4" = "Nie ma pakietu na sprzedaż, spróbuj ponownie później.";
+"InformationTitle" = "Dlaczego moje konto Riot?";
+"Information" = "Podczas gdy dostęp do wielu Twoich statystyk jest bezpłatny bez hasła, Twój sklep jest wyjątkiem, ponieważ jest uważany za informację poufną. Aby aplikacja mogła uzyskać dostęp do Twojego sklepu, potrzebuje Twoich danych logowania, skąd uzyskuje Twój sklep za pośrednictwem interfejsu API typu open source. Dodatkowe informacje, kod źródłowy i często zadawane pytania można znaleźć w poniższym linku.";
+"InvalidLogin" = "Nieprawidłowe logowanie";
+"Reset" = "Reset";
+"ResetInfo" = "Czasami z powodu niektórych błędów mogą wystąpić błędy. Ten przycisk umożliwia całkowite zresetowanie aplikacji w przypadku wystąpienia tych błędów.";
+"ReviewTitle" = "Podoba ci się VSC?";
+"OpenGitHub" = "Zostaw gwiazdkę na GitHub";
+"MaybeLater" = "Może później";
+"NeverShowAgain" = "Nigdy nie pokazuj";
+"ReviewPrompt" = "Proszę zostaw opinię albo gwiazdkę na GitHubie";
+
+// UpdatesView
+"UpdateButton" = "Nowa wersja aplikacji jest dostępna.";
+"UpdateInstructions1" = "Jeśli nie ma opcji aktualizacji, proszę:";
+"UpdateInstructions2" = "Przejdź do karty Strona główna (dzisiaj).";
+"UpdateInstructions3" = "Kliknij swój profil w prawym górnym rogu";
+"UpdateInstructions4" = "Przesuń w dół, aby załadować ponownie";
+"UpdateInstructions5" = "Przewiń w dół, aby zobaczyć dostępne aktualizacje";
+"UpdateTitle" = "Zaktualizuj aplikację";

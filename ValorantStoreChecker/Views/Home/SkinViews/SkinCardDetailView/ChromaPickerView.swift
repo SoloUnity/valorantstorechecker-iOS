@@ -13,6 +13,7 @@ struct ChromaPickerView: View {
     @ObservedObject var skin:Skin
     @Binding var selectedChroma : Int
     
+    
     var body: some View {
         
         // Custom picker for images
@@ -34,9 +35,9 @@ struct ChromaPickerView: View {
                                 .fill(.ultraThinMaterial)
                             
                             Rectangle()
-                                .fill(.ultraThickMaterial)
-                                .opacity(isSelected ? 0.7 : 0.01)
-                                .cornerRadius(15)
+                                .fill(.white)
+                                .opacity(isSelected ? 0.3 : 0.01)
+                                .cornerRadius(10)
                                 .padding(2)
                                 .onTapGesture {
                                     withAnimation(.interactiveSpring(response: 0.25,
@@ -69,9 +70,9 @@ struct ChromaPickerView: View {
                                 .fill(.ultraThinMaterial)
                             
                             Rectangle()
-                                .fill(.ultraThinMaterial)
+                                .fill(.white)
                                 .opacity(isSelected ? 1 : 0.01)
-                                .cornerRadius(15)
+                                .cornerRadius(10)
                                 .padding(2)
                                 .onTapGesture {
                                     withAnimation(.interactiveSpring(response: 0.25,
@@ -102,50 +103,10 @@ struct ChromaPickerView: View {
                     }
                     
                 }
-                else if skin.chromas![selectedChroma].swatch != nil{
-                    // Uses async image
-                    ZStack {
-                        Rectangle()
-                            .fill(.ultraThinMaterial)
-                        
-                        Rectangle()
-                            .fill(.ultraThinMaterial)
-                            .opacity(isSelected ? 1 : 0.01)
-                            .cornerRadius(15)
-                            .padding(2)
-                            .onTapGesture {
-                                withAnimation(.interactiveSpring(response: 0.25,
-                                                                 dampingFraction: 2,
-                                                                 blendDuration: 0.25)) {
-                                    self.selectedChroma = index
-                                }
-                            }
-                    }
-                    .overlay(
-                        
-                        ZStack {
-                            
-                            AsyncImage(url: URL(string: skin.chromas![index].swatch!)) { image in
-                                image.resizable()
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            .clipShape(RoundedRectangle(cornerRadius: 5))
-                            .frame(width: 25, height: 25)
-                            
-                            
-                        }
-                        
-                        
-                    )
-                    .frame(height: 35)
-                    
-                    
-                }
                 
             }
         }
-        .cornerRadius(15)
+        .cornerRadius(10)
         .padding()
 
         

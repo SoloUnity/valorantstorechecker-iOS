@@ -12,13 +12,13 @@ struct NavigationSearchBar: View {
     @Environment(\.colorScheme) var colourScheme
     @AppStorage("dark") var toggleDark = true
     @AppStorage("autoDark") var auto = false
-    
+    @AppStorage("filterName") var filterName : String = ""
+
     var title: String = ""
     @Binding var hasScrolled: Bool
     @Binding var searchText : String
     @Binding var savedText : String
     @Binding var selectedFilter : String
-    @Binding var filtered : Bool
     @Binding var selectOwned : Bool
     var proxy : ScrollViewProxy
     @State var isEditing : Bool = false
@@ -56,9 +56,24 @@ struct NavigationSearchBar: View {
                                 .padding(hasScrolled ? 0 : 6)
                             
                             
+                            Group {
+                                if filterName == "" {
+                                    Text(LocalizedStringKey(title))
+                                        .font(.system(size: 34, weight: .bold, design: .default))
+                                        .minimumScaleFactor(0.4)
+                                        .padding(.trailing)
+                                        
+                                }
+                                else {
+                                    Text(LocalizedStringKey(filterName))
+                                        .font(.system(size: 34, weight: .bold, design: .default))
+                                        .minimumScaleFactor(0.4)
+                                        .padding(.trailing)
+                                }
+                            }
+                            .animation(.default, value: filterName)
                             
-                            Text(LocalizedStringKey(title))
-                                .animatableFont(size: hasScrolled ? 22 : 34, weight: .bold)
+                            
                                 
                                 
                         }
@@ -73,7 +88,7 @@ struct NavigationSearchBar: View {
                         }
                     
                     if !showSearch {
-                        FilterView(selectedFilter: $selectedFilter, selectOwned: $selectOwned, filtered: $filtered, hasScrolled: $hasScrolled, proxy: proxy)
+                        FilterView(selectedFilter: $selectedFilter, selectOwned: $selectOwned, filterName: $filterName, hasScrolled: $hasScrolled, proxy: proxy)
                             
                     }
                         

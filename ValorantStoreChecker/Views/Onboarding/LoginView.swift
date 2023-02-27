@@ -14,6 +14,7 @@ struct LoginView: View {
     @EnvironmentObject private var alertModel : AlertModel
     @EnvironmentObject private var networkModel : NetworkModel
     @State private var regionCheck : Bool = false
+    @AppStorage("selectedTab") var selectedTab : Tab = .shop
     
     var body: some View {
         
@@ -108,6 +109,8 @@ struct LoginView: View {
                                 
                                 DispatchQueue.main.async {
                                     
+                                    selectedTab = .shop
+
                                     authAPIModel.authenticationAnimation = true // Start loading animation
                                     
                                 }

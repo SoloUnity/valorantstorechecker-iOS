@@ -88,6 +88,9 @@ struct BundleView: View {
                                         Text(String(price))
                                             .font(.subheadline)
                                             .bold()
+                                        
+                                        
+                                        
                                     }
                                 }
                             }

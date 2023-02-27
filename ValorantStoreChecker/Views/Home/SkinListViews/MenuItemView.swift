@@ -12,7 +12,7 @@ struct MenuItemView: View {
     
     @EnvironmentObject var skinModel : SkinModel
     @Binding var selectedFilter : String
-    @Binding var filtered : Bool
+    @Binding var filterName : String
     var filter : String
     var label : String //useless now but i dont feel like changing all the other code to remove this
     @Binding var selectOwned : Bool
@@ -21,8 +21,7 @@ struct MenuItemView: View {
     var body: some View {
         Button {
             selectedFilter = filter
-            //selectOwned = false
-            filtered = true
+            filterName = labelName()
             proxy.scrollTo("top", anchor: .top)
         } label: {
             if selectedFilter == filter {
@@ -44,7 +43,7 @@ struct MenuItemView: View {
         var baseName = ""
         
         switch language[0] {
-        case "fr","fr-CA","de","vi" , "es","pt-PT","pt-BR":
+        case "fr","fr-CA","de","vi" , "es","pt-PT","pt-BR", "pl":
             let list = displayName.split(separator: " ")
             baseName = String(list[0])
         case "ja":

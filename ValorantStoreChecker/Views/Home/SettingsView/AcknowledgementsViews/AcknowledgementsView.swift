@@ -23,6 +23,10 @@ struct AcknowledgementsView: View {
             
             AcknowledgementItem(image: "xMasaImage", name: "xMasa", message: "ThankTranslator", iconType: "github", url: Constants.URL.xMasa)
             
+            AcknowledgementItem(image: "alavalonImage", name: "Al-Avalon", message: "ThankTranslator", iconType: "github", url: Constants.URL.xMasa)
+            
+            AcknowledgementItem(image: "tzzsImage", name: "tzzs", message: "ThankTranslator", iconType: "github", url: Constants.URL.xMasa)
+            
             Section(header: Text("")) {
                 EmptyView()
                 

@@ -58,7 +58,7 @@ struct AlertView: View {
             // MARK: Error Messages
                 .alert(LocalizedStringKey("ErrorTitle"), isPresented: $authAPIModel.error, actions: {
                     
-                    if authAPIModel.errorReloading && rememberPassword {
+                    if (authAPIModel.errorReloading && rememberPassword) || authAPIModel.errorReloading || authAPIModel.errorAutomaticReload {
                         
                         Button(LocalizedStringKey("Settings"), role: nil, action: {
                             
@@ -79,9 +79,6 @@ struct AlertView: View {
                             
                             authAPIModel.errorReloading = false
                         })
-                        
-                    }
-                    else if authAPIModel.errorReloading {
                         
                         Button(LocalizedStringKey("SignOut"), role: nil, action: {
                             
@@ -98,62 +95,6 @@ struct AlertView: View {
                             authAPIModel.errorReloading = false
                         })
                         
-                        
-                        Button(LocalizedStringKey("Settings"), role: nil, action: {
-                            
-                            withAnimation(.easeIn) {
-                                authAPIModel.reloadStoreAnimation = false
-                                authAPIModel.reloadBundleAnimation = false
-                            }
-                            
-                            authAPIModel.errorReloading = false
-                            selectedTab = .settings
-                            
-                            
-                            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { timer in
-                                
-                                alertModel.openAccounts = true
-                                
-                                Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { timer in
-                                    
-                                    rememberPassword = true
-                                    
-                                    timer.invalidate()
-                                }
-                                
-                                timer.invalidate()
-                            }
-
-                        })
-                        
-                    }
-                    else if authAPIModel.errorAutomaticReload {
-                        Button(LocalizedStringKey("Settings"), role: nil, action: {
-                            
-                            withAnimation(.easeIn) {
-                                authAPIModel.reloadStoreAnimation = false
-                                authAPIModel.reloadBundleAnimation = false
-                            }
-                            
-                            
-                            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { timer in
-                                
-                                alertModel.openAccounts = true
-                                
-                                Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { timer in
-                                    
-                                    rememberPassword = true
-                                    
-                                    timer.invalidate()
-                                }
-                                
-                                timer.invalidate()
-                            }
-                            
-                            authAPIModel.errorAutomaticReload = false
-                            selectedTab = .settings
-
-                        })
                     }
                     else {
                         
@@ -299,7 +240,6 @@ struct AlertView: View {
                 }, message: {
                     
                     Text("ReviewPrompt")
-                    
                     
                 })
             // MARK: TipView Alerts

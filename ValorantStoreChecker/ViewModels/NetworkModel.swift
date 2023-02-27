@@ -17,6 +17,8 @@ class NetworkModel: ObservableObject {
     @AppStorage("isLowData") var isLowData = false
     @AppStorage("currentNetworkType") var networkType = ""
     
+    
+    
     init() {
         monitor.pathUpdateHandler = { path in
             DispatchQueue.main.async {

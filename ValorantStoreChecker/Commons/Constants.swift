@@ -39,14 +39,18 @@ struct Constants{
         static var discord = "https://discord.gg/vK5mzjvqYM"
         static var review = "https://apps.apple.com/app/id1637273546?action=write-review"
         static var donate = "https://paypal.me/SoloUnityNA1?country.x=CA&locale.x=en_US"
-        static var julian = "https://github.com/juliand665"
-        static var lunac = "https://lunac.xyz"
-        static var sivelswhy = "https://github.com/sivelswhy"
-        static var xMasa = "https://github.com/xMasa-1022"
         static var privacy = "https://www.craft.do/s/fQxdg6aSyp8WAk"
         static var appStore = "https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546"
         static var translation = "https://github.com/SoloUnity/Valorant-Store-Checker-App#help-translate"
         static var deleteAccount = "https://support-leagueoflegends.riotgames.com/hc/en-us/articles/360050328454-Deleting-Your-Riot-Account-and-All-Your-Data"
+        
+        // Acknowledgements
+        static var julian = "https://github.com/juliand665"
+        static var lunac = "https://lunac.xyz"
+        static var sivelswhy = "https://github.com/sivelswhy"
+        static var xMasa = "https://github.com/xMasa-1022"
+        static var tzzs = "https://github.com/tzzs"
+        static var alavalon = "https://github.com/AI-Avalon"
         
         // Login
         static var googleLogin = "https://www.craft.do/s/ajlY5nYTszlc9H"

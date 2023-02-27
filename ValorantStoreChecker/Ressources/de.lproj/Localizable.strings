@@ -112,14 +112,14 @@ DIE SOFTWARE WIRD OHNE MÄNGELGEWÄHR UND OHNE JEGLICHE AUSDRÜCKLICHE ODER STIL
 //----------------------------------
 // SettingsView
 "HelpDev" = "Helft dem Entwickler!";
-"AutomaticReload" = "Automatisches Nachladen";
-"Notify" = "Benachrichtigung bei Ladenrücksetzung";
+"AutomaticReload" = "Automatisches Neuladen";
+"Notify" = "Benachrichtigung bei neuem Shop";
 "Allow" = "Erlauben";
 "Appearance" = "Erscheinungsbild";
 "Language" = "Sprache";
 "ManageMedia" = "Medien verwalten";
 "Support" = "Unterstützung";
-"Community" = "Gemeinschaft";
+"Community" = "Community";
 "Share" = "Die App teilen";
 "Acknowledgements" = "Danksagungen";
 "About" = "Über";
