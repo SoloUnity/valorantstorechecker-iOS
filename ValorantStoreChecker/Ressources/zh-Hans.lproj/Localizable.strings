@@ -66,7 +66,7 @@ Created by Gordon on 2022-08-07.
 
 "Cost" = "价格";
 
-"ExclusiveSkinMessage" = "这是BattlePass独家，角色独家或限量版皮肤。";
+"ExclusiveSkinMessage" = "这是战斗通行证限定，角色独家或限量版皮肤。";
 
 "Tier" = "级别";
 
@@ -116,7 +116,7 @@ Created by Gordon on 2022-08-07.
 
 "AutomaticReload" = "自动重新加载";
 
-"Notify" = "商店重置通知";
+"Notify" = "商店更新通知";
 
 "Allow" = "允许";
 
@@ -130,7 +130,7 @@ Created by Gordon on 2022-08-07.
 
 "Community" = "社区";
 
-"Share" = "共享应用程序";
+"Share" = "分享应用程序";
 
 "Acknowledgements" = "致谢";
 
@@ -186,7 +186,7 @@ Created by Gordon on 2022-08-07.
 
 "AutoplayVideos" = "自动播放视频";
 
-"Both" = "全部";
+"Both" = "WiFi/流量";
 
 "DownloadNewAssets" = "下载新资源";
 
@@ -194,7 +194,7 @@ Created by Gordon on 2022-08-07.
 
 "CellularOnly" = "仅流量";
 
-"Never" = "从不";
+"Never" = "禁止";
 
 "ClearAssets" = "清除资源占用";
 
@@ -230,7 +230,7 @@ Created by Gordon on 2022-08-07.
 
 "ThankLunac" = "感谢您的持续支持！";
 
-"ThankTranslator" = "感谢您帮助翻译该应用程序！";
+"ThankTranslator" = "感谢您帮助翻译应用程序！";
 
 "Version" = "版本";
 
