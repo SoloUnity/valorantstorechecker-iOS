@@ -112,6 +112,14 @@ Created by Gordon on 2022-08-07.
 
 "Heavy" = "机关枪";
 
+"TotalSkinCount" = "皮肤总数";
+
+"PriceSort" = "按价格排序";
+
+"LowestFirst" = "最低";
+
+"HighestFirst" = "最高的第一";
+
 "HelpDev" = "帮助开发！";
 
 "AutomaticReload" = "自动重新加载";

@@ -90,6 +90,7 @@ Created by Gordon on 2022-08-07.
 "EmptySearch" = "검색어와 일치하는 항목이 없습니다.";
 "Statistics" = "통계";
 "TotalCollectionCost" = "총 수집 비용";
+"TotalSkinCount" = "총 피부 수";
 
 // SearchBar
 "Search" = "검색";
@@ -104,6 +105,9 @@ Created by Gordon on 2022-08-07.
 "Rifles" = "소총";
 "Sniper" = "스나이퍼";
 "Heavy" = "무거움";
+"PriceSort" = "가격별로 정렬하십시오";
+"LowestFirst" = "가장 낮은 첫 번째";
+"HighestFirst" = "가장 먼저";
 
 //----------------------------------
 // SettingsView

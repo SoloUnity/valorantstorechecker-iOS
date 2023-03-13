@@ -89,7 +89,6 @@ struct LoginView: View {
                     .background(.ultraThinMaterial)
                     .cornerRadius(20)
                     .padding()
-                    .offset(y: -30)
                     
                     Spacer()
                     
@@ -192,6 +191,7 @@ struct LoginView: View {
             }
             .background(Constants.bgGrey)
             .preferredColorScheme(.dark)
+            
             
         }
     }

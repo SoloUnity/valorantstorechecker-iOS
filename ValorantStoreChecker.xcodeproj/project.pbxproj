@@ -54,7 +54,6 @@
 		F8163ED028E0DFF200A27103 /* ThirdPartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8163ECF28E0DFF200A27103 /* ThirdPartyView.swift */; };
 		F818F70E2958505700324AE6 /* TierBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F818F70D2958505700324AE6 /* TierBar.swift */; };
 		F838938C295ADF2C00CC8E06 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838938B295ADF2C00CC8E06 /* NavigationBar.swift */; };
-		F838938E295ADF9400CC8E06 /* AnimatableFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838938D295ADF9400CC8E06 /* AnimatableFontModifier.swift */; };
 		F8389390295B72D400CC8E06 /* NavigationSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838938F295B72D400CC8E06 /* NavigationSearchBar.swift */; };
 		F8389398295D09D200CC8E06 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8389397295D09D200CC8E06 /* HapticFeedback.swift */; };
 		F838939C295D4DFD00CC8E06 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838939B295D4DFD00CC8E06 /* NetworkModel.swift */; };
@@ -153,7 +152,6 @@
 		F818F70D2958505700324AE6 /* TierBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TierBar.swift; sourceTree = "<group>"; };
 		F82CBB0128E3935A00390960 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F838938B295ADF2C00CC8E06 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
-		F838938D295ADF9400CC8E06 /* AnimatableFontModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableFontModifier.swift; sourceTree = "<group>"; };
 		F838938F295B72D400CC8E06 /* NavigationSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSearchBar.swift; sourceTree = "<group>"; };
 		F8389397295D09D200CC8E06 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 		F838939B295D4DFD00CC8E06 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
@@ -394,9 +392,7 @@
 		8B65F84E288CCFD6004282DD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F838938D295ADF9400CC8E06 /* AnimatableFontModifier.swift */,
 				F8A5011428E130BD00D66626 /* DispatchQueue+Extensions.swift */,
-				8B65F84F288CCFF0004282DD /* PriceTier.swift */,
 				F8B9BE69295626F60007FDD3 /* ShareSheet.swift */,
 				F8B9BE8B29577FEB0007FDD3 /* Styles.swift */,
 			);
@@ -469,6 +465,7 @@
 		F8389396295D028700CC8E06 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				8B65F84F288CCFF0004282DD /* PriceTier.swift */,
 				F8B9BE60295564C90007FDD3 /* RegionName.swift */,
 				F8389397295D09D200CC8E06 /* HapticFeedback.swift */,
 			);
@@ -722,7 +719,6 @@
 				8B0AE9EE28998E9400275A30 /* CommunityView.swift in Sources */,
 				8B0AE9E528984AFA00275A30 /* MultifactorView.swift in Sources */,
 				8B9A838F28861C78009CE268 /* UltraEditionView.swift in Sources */,
-				F838938E295ADF9400CC8E06 /* AnimatableFontModifier.swift in Sources */,
 				F858EC75295F900C0023AEA4 /* LoginInfoView.swift in Sources */,
 				F8B9BE43295513430007FDD3 /* TitleView.swift in Sources */,
 				8B65F84A288CA608004282DD /* PriceTierView.swift in Sources */,
@@ -881,7 +877,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = ValorantStoreChecker/ValorantStoreChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
@@ -920,7 +916,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = ValorantStoreChecker/ValorantStoreChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ValorantStoreChecker/Preview Content\"";
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;

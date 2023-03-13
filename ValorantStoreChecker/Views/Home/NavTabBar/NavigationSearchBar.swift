@@ -15,6 +15,7 @@ struct NavigationSearchBar: View {
     @AppStorage("filterName") var filterName : String = ""
 
     var title: String = ""
+    @Binding var priceSort : String
     @Binding var hasScrolled: Bool
     @Binding var searchText : String
     @Binding var savedText : String
@@ -28,6 +29,7 @@ struct NavigationSearchBar: View {
         
         ZStack {
             
+
             if (toggleDark  || (auto && colourScheme == .dark)) && hasScrolled && isEditing {
                 Color.clear
                     .background(.black)
@@ -43,7 +45,6 @@ struct NavigationSearchBar: View {
                     .background(.ultraThinMaterial)
                     .opacity(hasScrolled ? 1 : 0)
             }
-            
             
             
             HStack {
@@ -88,7 +89,7 @@ struct NavigationSearchBar: View {
                         }
                     
                     if !showSearch {
-                        FilterView(selectedFilter: $selectedFilter, selectOwned: $selectOwned, filterName: $filterName, hasScrolled: $hasScrolled, proxy: proxy)
+                        FilterView(priceSort: $priceSort, selectedFilter: $selectedFilter, selectOwned: $selectOwned, filterName: $filterName, hasScrolled: $hasScrolled, proxy: proxy)
                             
                     }
                         
