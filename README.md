@@ -18,6 +18,8 @@
 
 # 🤔 **What's VSC?**
 VSC (Valorant Store Tracker) is an open source iOS app that allows you to track your store and preview your skins. It allows for easy on the go access to your otherwise unaccessible skin shop as well as a place to easily preview everything before buying. 
+
+&nbsp;
    
 # 🦺 **Community Contributions**
 - **[Community Discord Server](https://discord.gg/valorantstore-net)**
@@ -25,12 +27,41 @@ VSC (Valorant Store Tracker) is an open source iOS app that allows you to track 
 - **Valorant Store Checker [Discord Bot](https://discord.com/api/oauth2/authorize?client_id=962376379658297375&permissions=274878286912&scope=bot%20applications.commands) made by [@Lunac-dev](https://github.com/Lunac-dev)**
 - **[TestFlight Beta Program](https://testflight.apple.com/join/StWXuCsq)**
 
-#  **Help Translate**
+&nbsp;
+
+# 🏴 **Help Translate**
 You can help with translation through a pull request, or just sending the modified file on [Discord](https://discord.gg/vK5mzjvqYM), of the Localizable.strings file from the correct language.lproj folder [here](https://github.com/SoloUnity/Valorant-Store-Checker-App/tree/development/ValorantStoreChecker/Ressources). The majority of these translations were done with DeepL or Google Translate. 
 
-# **FAQ**
+&nbsp;
 
-# Screenshots
+# 🧾 **FAQ**
+
+### 1. **Why does the app need my login information?**
+                        
+- While many of your statistics are free to access without your password, your store is a notable exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through this [open source API](https://github.com/HeyM1ke/ValorantClientAPI).
+
+&nbsp;
+
+### 2. **What are the measures in place to protect me?**
+
+- In addition to never storing your password, sensitive information including your region is secured behind Keychain. The app is also open source, allowing anybody and everyone to access the code at all times. Your privacy is a priority, and I have done everything in my power to ensure it. For legal mumbo jumbo, see [here](https://www.craft.do/s/fQxdg6aSyp8WAk).
+
+&nbsp;
+
+### 3. **What assets are downloaded?**
+
+- The assets downloaded are images which allow you to use the app's Skin index feature at all times, even when offline.
+
+&nbsp;
+
+### 4. **What does remember password do?**
+
+- The current way that the reload button requires cookies instead of your username and password, allowing the app to not store your password at all. However, these cookies expire after a certain period, requiring the user to sign in again. In order to streamline this process, remember password allows the user to save their password and allow for automatic behind the scenes sign in. If the user wishes to not save the password, they can simply sign out and sign back in to create new cookies.";
+
+&nbsp;
+
+
+# 📱 **Screenshots**
 
 <p align=center>
   <img width="32%" src="https://user-images.githubusercontent.com/77747704/212138466-0d2dcb47-ade3-418a-b249-b99448087a41.png" />
@@ -46,6 +77,7 @@ You can help with translation through a pull request, or just sending the modifi
 </p>
 
 ### Roadmap Checklist
+- [ ] Switch this Checklist out for a Project board, see [example](https://github.com/users/Lazylllama/projects/2/views/1).
 - [ ] Apply everything I learned and fix my garbage coding practices
 - [x] Vietnamese Localization
 - [ ] Code cleanup
@@ -62,16 +94,16 @@ You can help with translation through a pull request, or just sending the modifi
 - [ ] Monetization strategy (of new features only, core features are free)
 - [ ] Notify when skin is in shop
 
-### Acknowledgements
-Thank you to the following people and repositories:
+# 🌟 **Acknowledgements**
+**Thank you to the following people and repositories:**
 
-- **[juliand665](https://github.com/juliand665)** for their invaluable help in answering my many SwiftUI question.
-- **[Lunac-dev](https://github.com/Lunac-dev)** for their continuous support and creation of the Valorant Store Checker project.
-- **[RumbleMike/ValorantClientAPI](https://github.com/RumbleMike/ValorantClientAPI)** for the API that makes it all possible.
-- **[techchrism/valorant-api-docs](https://github.com/techchrism/valorant-api-docs)** for the detailed documentation.
-- **[Valorant-API.com](https://valorant-api.com)** for providing assets.
+- **[juliand665](https://github.com/juliand665) for their invaluable help in answering my many SwiftUI question.**
+- **[Lunac-dev](https://github.com/Lunac-dev) for their continuous support and creation of the Valorant Store Checker project.**
+- **[RumbleMike/ValorantClientAPI](https://github.com/RumbleMike/ValorantClientAPI) for the API that makes it all possible.**
+- **[techchrism/valorant-api-docs](https://github.com/techchrism/valorant-api-docs) for the detailed documentation.**
+- **[Valorant-API.com](https://valorant-api.com) for providing assets.**
 
-### TOS and Privacy Policy
+# 📚 **TOS and Privacy Policy**
 - **[MIT License](https://github.com/SoloUnity/Valorant-Store-Checker-App/blob/main/License)**
 - **[Privacy Policy](https://www.craft.do/s/fQxdg6aSyp8WAk)**
 
