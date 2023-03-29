@@ -35,7 +35,7 @@ You can help with translation through a pull request, or just sending the modifi
 - [ ] Apply everything I learned and fix my garbage coding practices
 - [x] Vietnamese Localization
 - [ ] Code cleanup
-- [ ] Add skin chroma videos
+- [x] Add skin chroma videos
 - [x] Redesign UI for a cohesive feeling
 - [ ] Add valorant news, new skins, previous stores
 - [ ] Improve owned skins

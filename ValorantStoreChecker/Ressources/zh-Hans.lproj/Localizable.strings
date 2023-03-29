@@ -40,7 +40,7 @@ Created by Gordon on 2022-08-07.
 
 "Copyright" = "版权";
 
-"CopyrightNotice" = "VSC (Valort的商店检查器) 与Valort或Riot Games无关，连接或认可。此外，Riot Games和Valort是在Riot Games Inc.下注册的商标。";
+"CopyrightNotice" = "VSC (Valorant商店查看器) 与Valorant或Riot Games无任何关联、联系与认可关系。此外，Riot Games和Valorant是在Riot Games Inc.下注册的商标。";
 
 "EnterTheCode" = "输入邮件发送的代码";
 
@@ -90,7 +90,7 @@ Created by Gordon on 2022-08-07.
 
 "Statistics" = "统计数据";
 
-"TotalCollectionCost" = "总收集成本";
+"TotalCollectionCost" = "总收集价值";
 
 "Search" = "搜索";
 
@@ -136,9 +136,9 @@ Created by Gordon on 2022-08-07.
 
 "About" = "关于";
 
-"RememberPasswordInfo" = "您的密码由钥匙链加密。退出或修改为禁用将自动忘记密码。启用该功能可以绕过API的时间限制，并允许以用户的名义自动登录。";
+"RememberPasswordInfo" = "您的密码由iCloud钥匙串加密。退出或修改为禁用将自动忘记密码。启用该功能可以绕过API的时间限制，并允许以用户的名义自动登录。";
 
-"SignOut" = "退出";
+"SignOut" = "退出登录";
 
 "Account" = "帐户";
 
@@ -200,7 +200,7 @@ Created by Gordon on 2022-08-07.
 
 "Clear" = "清除";
 
-"Create" = "创建支持票";
+"Create" = "创建请求帮助工单";
 
 "FAQ" = "常问问题";
 
@@ -208,11 +208,11 @@ Created by Gordon on 2022-08-07.
 
 "FAQText" = "为什么该应用需要我的登录信息？
                         
-尽管您的许多统计信息无需密码即可自由访问，但您的商店是一个明显的例外，因为它被视为敏感信息。为了使应用程序访问您的商店，它需要您的登录信息，在此信息通过此[开源API 获得商店信息](https://github.com/heym1ke/valorentclientapi) 。
+尽管您的许多数据信息无需密码即可自由访问，但您每日的商店是一个明显的例外，因为它被视为敏感信息。为了使应用程序访问您的商店，它需要您的登录信息，在此信息通过此[开源API 获得商店信息](https://github.com/heym1ke/valorentclientapi) 。
                         
 有哪些保护措施？
 
-除了永远不会存储密码外，包括您的区域在内的敏感信息都会通过密钥链进行加密。该应用程序也是开源的，允许任何人和所有人在任何时候访问代码。您的隐私是当务之急，我已经竭尽所能确保它。有关法律方便的详细内容，请参见[此处](https://www.craft.do/s/fqxdg6asyp8wak) 。
+除了永远不会存储密码外，包括您的区域在内的敏感信息都会通过Apple钥匙串进行加密。该应用程序也是开源的，允许任何人和所有人在任何时候访问代码。您的隐私是当务之急，我已经竭尽所能确保它。有关法律方便的详细内容，请参见[此处](https://www.craft.do/s/fqxdg6asyp8wak) 。
 
 下载了哪些资源？
 
@@ -220,7 +220,7 @@ Created by Gordon on 2022-08-07.
 
 记得密码做什么？
 
-重新加载按钮需要cookie而不是用户名和密码的当前方式，允许该应用完全不存储密码。但是，这些cookie在一段时间过期后，需要用户再次登录。为了简化此过程，请记住密码允许用户保存其密码并允许自动登录幕后。如果用户希望不保存密码，他们可以简单地退出并重新登录以创建新的cookie。";
+重新加载按钮需要cookie而不是用户名和密码的当前方式，允许该应用完全不存储密码。但是，这些cookie在一段时间过期后，需要用户再次登录。为了简化此过程，请记住密码允许用户保存其密码并允许自动登录幕后。如果用户希望不保存密码，可以简单地退出并重新登录以创建新的cookie。";
 
 "WebAndDisc" = "网站和Discord机器人";
 
@@ -238,17 +238,17 @@ Created by Gordon on 2022-08-07.
 
 "WhatsNew" = "新特性";
 
-"MadeIn" = "制作🇨🇦";
+"MadeIn" = "制作于🇨🇦";
 
 "NetworkError" = "网络错误";
 
-"InfoPrice" = "不幸的是，这种皮肤的价格不在我们的数据库中。";
+"InfoPrice" = "很抱歉，我们的数据库里没有这个皮肤的价格信息";
 
 "ErrorTitle" = "错误";
 
 "OK" = "好的";
 
-"CopyError" = "复制错误";
+"CopyError" = "复制错误信息";
 
 "ErrorMessage1" = "您的个人Cookie已经到期。这是我无法控制的API限制。有2个解决方案的选项：
 1) 退出并重新登录。
@@ -270,9 +270,9 @@ Created by Gordon on 2022-08-07.
 
 "Reset" = "重置";
 
-"ResetInfo" = "有时由于一些错误，可能会出现错误。此按钮允许您在发生这些错误时完全重置该应用程序。";
+"ResetInfo" = "有时候因为一些问题，应用程序可能会出现错误。这个按钮可以让你在遇到这些问题时，完全重置应用程序，帮助你解决错误。";
 
-"ReviewTitle" = "享受VSC？";
+"ReviewTitle" = "喜欢VSC app吗？";
 
 "OpenGitHub" = "留下Github星星";
 
