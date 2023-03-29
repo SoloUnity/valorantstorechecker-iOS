@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546">App Store</a>
   •
-  <a href="https://github.com/Atlas-OS/Atlas/wiki/1.-FAQ#contents">FAQ</a>
+  <a href="#FAQ">FAQ</a>
   •
   <a href="https://discord.gg/valorantstore-net" target="_blank">Discord</a>
   •
@@ -27,6 +27,8 @@ VSC (Valorant Store Tracker) is an open source iOS app that allows you to track 
 
 #  **Help Translate**
 You can help with translation through a pull request, or just sending the modified file on [Discord](https://discord.gg/vK5mzjvqYM), of the Localizable.strings file from the correct language.lproj folder [here](https://github.com/SoloUnity/Valorant-Store-Checker-App/tree/development/ValorantStoreChecker/Ressources). The majority of these translations were done with DeepL or Google Translate. 
+
+# **FAQ**
 
 # Screenshots
 
