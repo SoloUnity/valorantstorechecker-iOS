@@ -2,7 +2,7 @@
 Localizable.strings
 ValorantStoreChecker
 
-Created by Lazyllama on 2023-03-29.
+Created by Gordon on 2022-08-07.
 */
 
 
@@ -91,6 +91,7 @@ THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED
 "EmptySearch" = "Inget matchar din sökning";
 "Statistics" = "Statistik";
 "TotalCollectionCost" = "Total Kollektions Kostnad:";
+"TotalSkinCount" = "Total Mängd Skins";
 
 // SearchBar
 "Search" = "Sökning";
@@ -105,6 +106,9 @@ THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED
 "Rifles" = "Rifles";
 "Sniper" = "Sniper";
 "Heavy" = "Tungt";
+"PriceSort" = "Sort via Pris";
+"LowestFirst" = "Billigast Först";
+"HighestFirst" = "Dyrast Först";
 
 //----------------------------------
 // SettingsView
