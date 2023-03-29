@@ -4,6 +4,16 @@
 
 <h4 align="center">Valorant Store Checker is an open source IOS app that allows you to check your store from anywhere.</h4>
 
+<p align="center">
+  <a href="https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546">App Store</a>
+  •
+  <a href="https://github.com/Atlas-OS/Atlas/wiki/1.-FAQ#contents">FAQ</a>
+  •
+  <a href="https://discord.gg/valorantstore-net" target="_blank">Discord</a>
+  •
+  <a href="https://testflight.apple.com/join/StWXuCsq">TestFlight</a>
+</p>
+
 <p align="center"><a href="https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546"><img height="65" alt="VSC-1 (dragged)" src="https://i.imgur.com/Rsa4mrG.png"></a></p>
 
 ### Description
