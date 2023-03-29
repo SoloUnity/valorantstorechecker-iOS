@@ -1,8 +1,10 @@
-<p align="center"><image src="https://user-images.githubusercontent.com/77747704/221028543-65ac17be-28cc-4398-b61c-7cb6097c65a0.png" width="196px" height="196px" /></p>
+<h1 align="center">
+  <a href="https://valorantstore.net/"><img src="https://i.imgur.com/nNTfAfn.png" alt="Atlas" width="900" style="border-radius: 30px"></a>
+</h1>
 
-<h1 align="center">Valorant Store Checker • <img src="https://hitsofcode.com/github/SoloUnity/valorant-store-checker-iOS?branch=main" /></h1>
+<h4 align="center">Valorant Store Checker is an open source IOS app that allows you to check your store from anywhere.</h4>
 
-<p align="center"><a href="https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546"><img height="65" alt="VSC-1 (dragged)" src="https://user-images.githubusercontent.com/77747704/184449890-c3620a49-6303-494e-8bcb-f0fd005b9a6d.png"></a></p>
+<p align="center"><a href="https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546"><img height="65" alt="VSC-1 (dragged)" src="https://i.imgur.com/Rsa4mrG.png"></a></p>
 
 ### Description
 VSC (Valorant Store Tracker) is an open source iOS app that allows you to track your store and preview your skins. It allows for easy on the go access to your otherwise unaccessible skin shop as well as a place to easily preview everything before buying. 
