@@ -19,11 +19,11 @@
 # 🤔 **What's VSC?**
 VSC (Valorant Store Tracker) is an open source iOS app that allows you to track your store and preview your skins. It allows for easy on the go access to your otherwise unaccessible skin shop as well as a place to easily preview everything before buying. 
    
-# 🦺 **Community**
-- [![Discord](https://img.shields.io/discord/781946764168658984?color=rgb%2888%2C101%2C242%29&label=discord&style=for-the-badge)](https://discord.gg/vK5mzjvqYM)
-- Valorant Store Checker [Website](https://valorantstore.net) made by [@Lunac-dev](https://github.com/Lunac-dev)
-- Valorant Store Checker [Discord Bot](https://discord.com/api/oauth2/authorize?client_id=962376379658297375&permissions=274878286912&scope=bot%20applications.commands) made by [@Lunac-dev](https://github.com/Lunac-dev)
-- [TestFlight Beta Program](https://testflight.apple.com/join/StWXuCsq)
+# 🦺 **Community Contributions**
+- **[Community Discord Server](https://discord.gg/valorantstore-net)**
+- **Valorant Store Checker [Website](https://valorantstore.net) made by [@Lunac-dev](https://github.com/Lunac-dev)**
+- **Valorant Store Checker [Discord Bot](https://discord.com/api/oauth2/authorize?client_id=962376379658297375&permissions=274878286912&scope=bot%20applications.commands) made by [@Lunac-dev](https://github.com/Lunac-dev)**
+- **[TestFlight Beta Program](https://testflight.apple.com/join/StWXuCsq)**
 
 #  **Help Translate**
 You can help with translation through a pull request, or just sending the modified file on [Discord](https://discord.gg/vK5mzjvqYM), of the Localizable.strings file from the correct language.lproj folder [here](https://github.com/SoloUnity/Valorant-Store-Checker-App/tree/development/ValorantStoreChecker/Ressources). The majority of these translations were done with DeepL or Google Translate. 
