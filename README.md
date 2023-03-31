@@ -7,8 +7,10 @@
   • 
   <img src="https://hitsofcode.com/github/SoloUnity/valorant-store-checker-iOS?branch=main" /> 
   •
-  [![Discord](https://img.shields.io/discord/781946764168658984?color=rgb%2888%2C101%2C242%29&label=discord&style=for-the-badge)](https://discord.gg/vK5mzjvqYM)
+  
 </h1>
+
+[![Discord](https://img.shields.io/discord/781946764168658984?color=rgb%2888%2C101%2C242%29&label=discord&style=for-the-badge)](https://discord.gg/vK5mzjvqYM)
 
 <p align="center">
   <a href="https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546">App Store</a>
