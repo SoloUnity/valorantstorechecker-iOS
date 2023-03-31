@@ -37,19 +37,40 @@ struct BundleView: View {
                         
                         ShopTopBarView(reloadType: "bundleReload", referenceDate: defaults.object(forKey: "bundleTimeLeft" + String(index)) as? Date ?? Date())
                         
+                        
                         VStack {
-                            Image(systemName: "photo")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(minWidth: 0, maxWidth: 100)
-                                .foregroundColor(.white)
-                            
-                            Text( LocalizedStringKey("EmptyBundle"))
+                            Spacer()
+                            HStack{
+                                
+                                Spacer()
+                                
+                                VStack {
+                                    Spacer()
+                                    
+                                    Image(systemName: "photo")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(minWidth: 0, maxWidth: 100)
+                                    
+                                    Text( LocalizedStringKey("EmptyBundle"))
+                                    
+                                    Spacer()
+                                }
+                                .opacity(0.5)
+                                
+                                Spacer()
+                                
+                            }
+                            Spacer()
                         }
-                        .padding(.top, (UIScreen.main.bounds.height / 4))
-                        .opacity(0.5)
+                        
+                        
+                        ShopBottomBarView()
+                        
+                        
                         
                     }
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
                 }
                 else{
                     

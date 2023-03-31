@@ -90,6 +90,8 @@ El software se proporciona como es, sin garantía de ningún tipo, expreso o imp
 
 "TotalCollectionCost" = "Costo total de recolección";
 
+"TotalSkinCount" = "Recuento total de la piel";
+
 "Search" = "Buscar";
 
 "All" = "Todas";
@@ -105,6 +107,12 @@ El software se proporciona como es, sin garantía de ningún tipo, expreso o imp
 "Rifles" = "Rifles";
 
 "Heavy" = "Pesado";
+
+"PriceSort" = "Ordenar por precio";
+
+"LowestFirst" = "Más bajo primero";
+
+"HighestFirst" = "Los más altos primero";
 
 "HelpDev" = "¡Ayuda al desarrollador!";
 
