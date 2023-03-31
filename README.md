@@ -4,8 +4,6 @@
 
 <h1 align="center">Valorant Store Checker • <img src="https://hitsofcode.com/github/SoloUnity/valorant-store-checker-iOS?branch=main" /></h1>
 
-<h4 align="center">Valorant Store Checker is an open source IOS app that allows you to check your store from anywhere.</h4>
-
 <p align="center">
   <a href="https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546">App Store</a>
   •
