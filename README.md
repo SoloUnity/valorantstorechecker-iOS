@@ -44,11 +44,11 @@ to expand the answer
 
 <details>
   <summary><b>Why does the app need my login information?</b></summary>
-    While many of your statistics are free to access without your password, your store is a notable exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through this [open source API](https://github.com/HeyM1ke/ValorantClientAPI).
+    While many of your statistics are free to access without your password, your store is a notable exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through this <a href="https://github.com/HeyM1ke/ValorantClientAPI">open source API</a>.
 </details>
 <details>
   <summary><b>What are the measures in place to protect me?</b></summary>
-    In addition to never storing your password, sensitive information including your region is secured behind Keychain. The app is also open source, allowing anybody and everyone to access the code at all times. Your privacy is a priority, and I have done everything in my power to ensure it. For legal mumbo jumbo, see [here](https://www.craft.do/s/fQxdg6aSyp8WAk).
+    In addition to never storing your password, sensitive information including your region is secured behind Keychain. The app is also open source, allowing anybody and everyone to access the code at all times. Your privacy is a priority, and I have done everything in my power to ensure it. For legal mumbo jumbo, see <a href="https://www.craft.do/s/fQxdg6aSyp8WAk">here</a>.
 </details>
 <details>
   <summary><b>What assets are downloaded?</b></summary>
