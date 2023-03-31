@@ -32,16 +32,16 @@ struct Constants{
         static var cookieReauth = "https://auth.riotgames.com/authorize?redirect_uri=https%3A%2F%2Fplayvalorant.com%2Fopt_in&client_id=play-valorant-web-prod&response_type=token%20id_token&nonce=1"
         
         // About page stuff
-        static var supportTicket = "https://discord.com/channels/781946764168658984/983281981368467486"
-        static var faq = "https://github.com/SoloUnity/valorant-store-checker-iOS#frequently-asked-questions"
-        static var sourceCode = "https://github.com/SoloUnity/Valorant-Store-Checker-App"
+        static var supportTicket = "https://discord.gg/vK5mzjvqYM"
+        static var faq = "https://github.com/SoloUnity/valorant-store-checker-iOS#-faq"
+        static var sourceCode = "https://github.com/SoloUnity/valorant-store-checker-iOS"
         static var website = "https://valorantstore.net"
         static var discord = "https://discord.gg/vK5mzjvqYM"
         static var review = "https://apps.apple.com/app/id1637273546?action=write-review"
-        static var donate = "https://paypal.me/SoloUnityNA1?country.x=CA&locale.x=en_US"
+        static var donate = "https://paypal.me/SoloUnityNA1"
         static var privacy = "https://www.craft.do/s/fQxdg6aSyp8WAk"
         static var appStore = "https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546"
-        static var translation = "https://github.com/SoloUnity/Valorant-Store-Checker-App#help-translate"
+        static var translation = "https://github.com/SoloUnity/Valorant-Store-Checker-App#-help-translate"
         static var deleteAccount = "https://support-leagueoflegends.riotgames.com/hc/en-us/articles/360050328454-Deleting-Your-Riot-Account-and-All-Your-Data"
         
         // Acknowledgements
