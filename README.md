@@ -32,34 +32,23 @@ VSC (Valorant Store Tracker) is an open source iOS app that allows you to track 
 # 🏴 **Help Translate**
 You can help with translation through a pull request, or just sending the modified file on [Discord](https://discord.gg/vK5mzjvqYM), of the Localizable.strings file from the correct language.lproj folder [here](https://github.com/SoloUnity/Valorant-Store-Checker-App/tree/development/ValorantStoreChecker/Ressources). The majority of these translations were done with DeepL or Google Translate. Please make your pull request on the development branch as well.
 
-&nbsp;
-
 # 🧾 **FAQ**
 
 ### 1. **Why does the app need my login information?**
                         
 While many of your statistics are free to access without your password, your store is a notable exception as it is considered sensitive information. In order for the app to access your store, it needs your login information where it obtains your store through this [open source API](https://github.com/HeyM1ke/ValorantClientAPI).
 
-&nbsp;
-
 ### 2. **What are the measures in place to protect me?**
 
 In addition to never storing your password, sensitive information including your region is secured behind Keychain. The app is also open source, allowing anybody and everyone to access the code at all times. Your privacy is a priority, and I have done everything in my power to ensure it. For legal mumbo jumbo, see [here](https://www.craft.do/s/fQxdg6aSyp8WAk).
-
-&nbsp;
 
 ### 3. **What assets are downloaded?**
 
 The assets downloaded are images which allow you to use the app's Skin index feature at all times, even when offline.
 
-&nbsp;
-
 ### 4. **What does remember password do?**
 
 The current way that the reload button requires cookies instead of your username and password, allowing the app to not store your password at all. However, these cookies expire after a certain period, requiring the user to sign in again. In order to streamline this process, remember password allows the user to save their password and allow for automatic behind the scenes sign in. If the user wishes to not save the password, they can simply sign out and sign back in to create new cookies.
-
-&nbsp;
-
 
 # 📱 **Screenshots**
 
