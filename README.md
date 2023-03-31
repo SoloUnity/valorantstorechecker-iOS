@@ -1,6 +1,6 @@
-<h1 align="center">
-  <a href="https://valorantstore.net/"><img src="https://i.imgur.com/nNTfAfn.png" alt="Atlas" width="900" style="border-radius: 30px"></a>
-</h1>
+<p align="center">
+  <image src="https://user-images.githubusercontent.com/77747704/221028543-65ac17be-28cc-4398-b61c-7cb6097c65a0.png" width="196px" height="196px" />
+</p>
 
 <h4 align="center">Valorant Store Checker is an open source IOS app that allows you to check your store from anywhere.</h4>
 
