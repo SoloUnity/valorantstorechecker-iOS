@@ -2,7 +2,13 @@
   <image src="https://user-images.githubusercontent.com/77747704/221028543-65ac17be-28cc-4398-b61c-7cb6097c65a0.png" width="196px" height="196px" />
 </p>
 
-<h1 align="center">Valorant Store Checker • <img src="https://hitsofcode.com/github/SoloUnity/valorant-store-checker-iOS?branch=main" /></h1>
+<h1 align="center">
+  Valorant Store Checker 
+  • 
+  <img src="https://hitsofcode.com/github/SoloUnity/valorant-store-checker-iOS?branch=main" /> 
+  •
+  [![Discord](https://img.shields.io/discord/781946764168658984?color=rgb%2888%2C101%2C242%29&label=discord&style=for-the-badge)](https://discord.gg/vK5mzjvqYM)
+</h1>
 
 <p align="center">
   <a href="https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546">App Store</a>
