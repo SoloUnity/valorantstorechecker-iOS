@@ -30,7 +30,7 @@ VSC (Valorant Store Tracker) is an open source iOS app that allows you to track 
 &nbsp;
 
 # 🏴 **Help Translate**
-You can help with translation through a pull request, or just sending the modified file on [Discord](https://discord.gg/vK5mzjvqYM), of the Localizable.strings file from the correct language.lproj folder [here](https://github.com/SoloUnity/Valorant-Store-Checker-App/tree/development/ValorantStoreChecker/Ressources). The majority of these translations were done with DeepL or Google Translate. 
+You can help with translation through a pull request, or just sending the modified file on [Discord](https://discord.gg/vK5mzjvqYM), of the Localizable.strings file from the correct language.lproj folder [here](https://github.com/SoloUnity/Valorant-Store-Checker-App/tree/development/ValorantStoreChecker/Ressources). The majority of these translations were done with DeepL or Google Translate. Please make your pull request on the development branch as well.
 
 &nbsp;
 
@@ -75,24 +75,6 @@ You can help with translation through a pull request, or just sending the modifi
   <img width="24%" src="https://user-images.githubusercontent.com/77747704/212136640-e03aaa83-bef1-471e-8179-637b62b56c15.png" />
   <img width="24%" src="https://user-images.githubusercontent.com/77747704/212136630-ff11a448-a1a9-4fe5-b83f-c3b4e9be0755.png" />
 </p>
-
-### Roadmap Checklist
-- [ ] Switch this Checklist out for a Project board, see [example](https://github.com/users/Lazylllama/projects/2/views/1).
-- [ ] Apply everything I learned and fix my garbage coding practices
-- [x] Vietnamese Localization
-- [ ] Code cleanup
-- [ ] Add skin chroma videos
-- [x] Redesign UI for a cohesive feeling
-- [ ] Add valorant news, new skins, previous stores
-- [ ] Improve owned skins
-- [ ] Minimize network calls and data usage
-- [ ] Implement CoreData
-- [x] Have an accurate download bar for downloading skins
-- [ ] Add reference tab for vp price
-- [ ] Widgets
-- [ ] User customization of colour scheme and app icon
-- [ ] Monetization strategy (of new features only, core features are free)
-- [ ] Notify when skin is in shop
 
 # 🌟 **Acknowledgements**
 **Thank you to the following people and repositories:**
