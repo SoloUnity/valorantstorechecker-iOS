@@ -37,7 +37,7 @@ struct SkinCardDetailView: View {
                     Divider()
                         .padding(.leading)
                     
-                    VideoView(skin: skin, selectedLevel: $selectedLevel)
+                    VideoView(skin: skin, selectedLevel: $selectedLevel, selectedChroma: $selectedChroma)
                         .padding()
                     
                     Divider()
