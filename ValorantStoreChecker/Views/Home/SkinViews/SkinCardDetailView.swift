@@ -40,10 +40,15 @@ struct SkinCardDetailView: View {
                     VideoView(skin: skin, selectedLevel: $selectedLevel, selectedChroma: $selectedChroma)
                         .padding()
                     
-                    Divider()
-                        .padding(.leading)
+                    let url = skin.chromas![selectedChroma].streamedVideo
                     
-                    VideoPickerView(skin: skin, selectedLevel: $selectedLevel)
+                    if selectedChroma == 0 || url == nil {
+                        Divider()
+                            .padding(.leading)
+                        
+                        VideoPickerView(skin: skin, selectedLevel: $selectedLevel)
+                    }
+                    
                 }
                 
                 Divider()

@@ -25,10 +25,7 @@ struct VideoPickerView: View {
                     .padding(-4)
             }
             
-            
-            
             Spacer()
-            
             
             Menu {
                 
@@ -99,9 +96,7 @@ struct VideoPickerView: View {
             }
             else {
                 self.videoName = videoTierName
-            }
-            
-            
+            }            
         }
     }
 }

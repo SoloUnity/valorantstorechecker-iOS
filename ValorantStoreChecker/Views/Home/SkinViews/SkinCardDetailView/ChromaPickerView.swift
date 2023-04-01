@@ -13,8 +13,7 @@ struct ChromaPickerView: View {
     @ObservedObject var skin:Skin
     @Binding var selectedChroma : Int
     
-    
-    var body: some View {
+        var body: some View {
         
         // Custom picker for images
         HStack(spacing: 0) {
@@ -63,45 +62,6 @@ struct ChromaPickerView: View {
                         )
                         .frame(height: 35)
                     }
-                    else {
-                        // Uses async image
-                        ZStack {
-                            Rectangle()
-                                .fill(.ultraThinMaterial)
-                            
-                            Rectangle()
-                                .fill(.white)
-                                .opacity(isSelected ? 1 : 0.01)
-                                .cornerRadius(10)
-                                .padding(2)
-                                .onTapGesture {
-                                    withAnimation(.interactiveSpring(response: 0.25,
-                                                                     dampingFraction: 2,
-                                                                     blendDuration: 0.25)) {
-                                        self.selectedChroma = index
-                                    }
-                                }
-                        }
-                        .overlay(
-                            
-                            ZStack {
-                                
-                                AsyncImage(url: URL(string: skin.chromas![index].swatch!)) { image in
-                                    image.resizable()
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                                .clipShape(RoundedRectangle(cornerRadius: 5))
-                                .frame(width: 25, height: 25)
-                                
-                                
-                            }
-                            
-                            
-                        )
-                        .frame(height: 35)
-                    }
-                    
                 }
                 
             }

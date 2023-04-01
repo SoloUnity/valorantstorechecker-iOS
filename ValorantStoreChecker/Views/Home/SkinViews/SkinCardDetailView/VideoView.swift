@@ -18,7 +18,7 @@ struct VideoView: View {
     @State var noVideo = false
     @Binding var selectedLevel : Int
     @Binding var selectedChroma : Int
-    private let player = AVPlayer()
+    @State private var player = AVPlayer()
     
     var body: some View {
         
@@ -67,24 +67,43 @@ struct VideoView: View {
                     
                 }
                 .onChange(of: selectedChroma) { chroma in
+                                        
+                    if selectedChroma != 0 {
+                        
+                        let url = skin.chromas![selectedChroma].streamedVideo
+                        
+                        if url != nil{
+                            self.noVideo = false
+                            let item = AVPlayerItem(url: URL(string: url!)!)
+                            player.replaceCurrentItem(with: item)
+                            
+                            if autoPlay {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                    player.play() // Autoplay
+                                })
+                            }
+                        }
+                    }
+                    else if skin.chromas!.count > 1 && skin.chromas![1].streamedVideo != nil {
+                        let url = skin.levels![selectedLevel].streamedVideo
+                        
+                        if url == nil {
+                            self.noVideo = true
+                            player.replaceCurrentItem(with: nil)
+                        }
+                        else {
+                            self.noVideo = false
+                            let item = AVPlayerItem(url: URL(string: url!)!)
+                            player.replaceCurrentItem(with: item)
+                        }
+                        
+                        if autoPlay {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                player.play() // Autoplay
+                            })
+                        }
+                    }
                     
-                    let url = selectedChroma == 0 ? skin.levels![selectedLevel].streamedVideo : skin.chromas![selectedChroma].streamedVideo
-
-                    if url == nil {
-                        self.noVideo = true
-                        player.replaceCurrentItem(with: nil)
-                    }
-                    else {
-                        self.noVideo = false
-                        let item = AVPlayerItem(url: URL(string: url!)!)
-                        player.replaceCurrentItem(with: item)
-                    }
-                    
-                    if autoPlay {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                            player.play() // Autoplay
-                        })
-                    }
                 }
                 .overlay {
                     if noVideo {
