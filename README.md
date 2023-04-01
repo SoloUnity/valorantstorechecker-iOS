@@ -5,9 +5,9 @@
 <h1 align="center">
   Valorant Store Checker 
    • 
-   <a href="https://discord.gg/vK5mzjvqYM"><img height="50" alt="Discord" src="https://img.shields.io/discord/781946764168658984?color=rgb%2888%2C101%2C242%29&label=discord&style=for-the-badge"></a>
+   <a href="https://discord.gg/vK5mzjvqYM"><img height="30" alt="Discord" src="https://img.shields.io/discord/781946764168658984?color=rgb%2888%2C101%2C242%29&label=discord&style=for-the-badge"></a>
    • 
-  <img height="50" src="https://hitsofcode.com/github/SoloUnity/valorant-store-checker-iOS?branch=main"/> 
+  <img height="30" src="https://hitsofcode.com/github/SoloUnity/valorant-store-checker-iOS?branch=main"/> 
 </h1>
 
 <p align="center">
