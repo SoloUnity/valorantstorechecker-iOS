@@ -885,7 +885,7 @@
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "/Users/gordon/Documents/Programs/Xcode Apps/iOS/Valorant-Store-Checker-App/ValorantStoreChecker/Info.plist";
+        INFOPLIST_FILE = "/Users/gordon/Documents/Programs/Xcode Apps/iOS/Valorant-Store-Checker-App/ValorantStoreChecker/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Valorant Store";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -924,7 +924,7 @@
 				DEVELOPMENT_TEAM = 56W5CBC8F4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "/Users/gordon/Documents/Programs/Xcode Apps/iOS/Valorant-Store-Checker-App/ValorantStoreChecker/Info.plist";
+        INFOPLIST_FILE = "/Users/gordon/Documents/Programs/Xcode Apps/iOS/Valorant-Store-Checker-App/ValorantStoreChecker/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Valorant Store";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

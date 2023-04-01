@@ -17,6 +17,7 @@ struct VideoView: View {
 
     @State var noVideo = false
     @Binding var selectedLevel : Int
+    @Binding var selectedChroma : Int
     private let player = AVPlayer()
     
     var body: some View {
@@ -64,6 +65,26 @@ struct VideoView: View {
                         })
                     }
                     
+                }
+                .onChange(of: selectedChroma) { chroma in
+                    
+                    let url = selectedChroma == 0 ? skin.levels![selectedLevel].streamedVideo : skin.chromas![selectedChroma].streamedVideo
+
+                    if url == nil {
+                        self.noVideo = true
+                        player.replaceCurrentItem(with: nil)
+                    }
+                    else {
+                        self.noVideo = false
+                        let item = AVPlayerItem(url: URL(string: url!)!)
+                        player.replaceCurrentItem(with: item)
+                    }
+                    
+                    if autoPlay {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                            player.play() // Autoplay
+                        })
+                    }
                 }
                 .overlay {
                     if noVideo {
