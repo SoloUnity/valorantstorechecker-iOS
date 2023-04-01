@@ -401,32 +401,7 @@ struct WebService {
         
         var urlString = Constants.URL.bundle
         
-        var chosenLanguage = ""
-        
-        switch language[0] {
-        case "fr","fr-CA":
-            chosenLanguage = "fr-FR"
-        case "ja":
-            chosenLanguage = "ja-JP"
-        case "ko":
-            chosenLanguage = "ko-KR"
-        case "de":
-            chosenLanguage = "de-DE"
-        case "zh-Hans":
-            chosenLanguage = "zh-CN"
-        case "vi":
-            chosenLanguage = "vi-VN"
-        case "es":
-            chosenLanguage = "es-ES"
-        case "pt-PT", "pr-BR":
-            chosenLanguage = "pt-BR"
-        case "pl":
-            chosenLanguage = "pl-PL"
-        default:
-            chosenLanguage = "en-US"
-        }
-        
-        urlString = urlString + uuid + "?language=" + chosenLanguage
+        urlString = urlString + uuid + "?language=" + getLanguageName(language: language[0])
         
         guard let url1 = URL(string: urlString) else{
             throw BundleError.invalidURL

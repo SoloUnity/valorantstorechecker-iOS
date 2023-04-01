@@ -3,6 +3,7 @@ Localizable.strings
 ValorantStoreChecker
 
 Created by Gordon on 2022-08-07.
+Translation help from Silveswhy
 */
 
 
@@ -90,6 +91,7 @@ LE LOGICIEL EST FOURNI TEL QUEL, SANS GARANTIE D'AUCUNE SORTE, EXPRESSE OU IMPLI
 "EmptySearch" = "Rien ne correspond à votre recherche";
 "Statistics" = "Statistiques";
 "TotalCollectionCost" = "Coût total du collection";
+"TotalSkinCount" = "Nombre total de peau";
 
 // SearchBar
 "Search" = "Recherche";
@@ -104,6 +106,9 @@ LE LOGICIEL EST FOURNI TEL QUEL, SANS GARANTIE D'AUCUNE SORTE, EXPRESSE OU IMPLI
 "Rifles" = "Fusil";
 "Sniper" = "Fusil de sniper";
 "Heavy" = "Mitrailleuse lourde";
+"PriceSort" = "Trier par prix";
+"LowestFirst" = "Le moins cher d'abord";
+"HighestFirst" = "Le plus cher d'abord";
 
 //----------------------------------
 // SettingsView
@@ -126,7 +131,6 @@ LE LOGICIEL EST FOURNI TEL QUEL, SANS GARANTIE D'AUCUNE SORTE, EXPRESSE OU IMPLI
 "SignOut" = "Se déconnecter";
 "Account" = "Compte";
 "DeleteAccount" = "Supprimer le compte";
-
 
 // AccountViews -> RememberPasswordView
 "RememberPassword" = "Retenir le mot de passe";

@@ -54,7 +54,6 @@
 		F8163ED028E0DFF200A27103 /* ThirdPartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8163ECF28E0DFF200A27103 /* ThirdPartyView.swift */; };
 		F818F70E2958505700324AE6 /* TierBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F818F70D2958505700324AE6 /* TierBar.swift */; };
 		F838938C295ADF2C00CC8E06 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838938B295ADF2C00CC8E06 /* NavigationBar.swift */; };
-		F838938E295ADF9400CC8E06 /* AnimatableFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838938D295ADF9400CC8E06 /* AnimatableFontModifier.swift */; };
 		F8389390295B72D400CC8E06 /* NavigationSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838938F295B72D400CC8E06 /* NavigationSearchBar.swift */; };
 		F8389398295D09D200CC8E06 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8389397295D09D200CC8E06 /* HapticFeedback.swift */; };
 		F838939C295D4DFD00CC8E06 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838939B295D4DFD00CC8E06 /* NetworkModel.swift */; };
@@ -70,7 +69,6 @@
 		F888F34728DD22A700F21297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F888F34628DD22A700F21297 /* LaunchScreen.storyboard */; };
 		F892C4D928A412DF007158CB /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F892C4D828A412DF007158CB /* NotificationService.swift */; };
 		F894F59D28D7BCE700C07223 /* UpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F894F59C28D7BCE700C07223 /* UpdatesView.swift */; };
-		F8A5011528E130BD00D66626 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A5011428E130BD00D66626 /* DispatchQueue+Extensions.swift */; };
 		F8A7400228ABD96200717B23 /* Owned.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7400128ABD96200717B23 /* Owned.swift */; };
 		F8B9BE41295511480007FDD3 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9BE40295511480007FDD3 /* PriceView.swift */; };
 		F8B9BE43295513430007FDD3 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9BE42295513430007FDD3 /* TitleView.swift */; };
@@ -102,6 +100,7 @@
 		F8F4E5C2295D5BFD0087C7A8 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F4E5C1295D5BFD0087C7A8 /* AlertModel.swift */; };
 		F8F4E5C6295D71330087C7A8 /* MediaManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F4E5C5295D71330087C7A8 /* MediaManagementView.swift */; };
 		F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F69D3328A5E159005A73D2 /* TipModel.swift */; };
+		F8FC916E29D8AF1B005AB508 /* LanguageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FC916D29D8AF1B005AB508 /* LanguageName.swift */; };
 		F8FDA33F28CD8D9E00D5A9F2 /* UpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FDA33E28CD8D9E00D5A9F2 /* UpdateModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -153,7 +152,6 @@
 		F818F70D2958505700324AE6 /* TierBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TierBar.swift; sourceTree = "<group>"; };
 		F82CBB0128E3935A00390960 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F838938B295ADF2C00CC8E06 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
-		F838938D295ADF9400CC8E06 /* AnimatableFontModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableFontModifier.swift; sourceTree = "<group>"; };
 		F838938F295B72D400CC8E06 /* NavigationSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSearchBar.swift; sourceTree = "<group>"; };
 		F8389397295D09D200CC8E06 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 		F838939B295D4DFD00CC8E06 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 		F888F34628DD22A700F21297 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F892C4D828A412DF007158CB /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		F894F59C28D7BCE700C07223 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
-		F8A5011428E130BD00D66626 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		F8A73FFF28ABC51F00717B23 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8A7400028ABC73600717B23 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8A7400128ABD96200717B23 /* Owned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owned.swift; sourceTree = "<group>"; };
@@ -213,6 +210,8 @@
 		F8F4E5C5295D71330087C7A8 /* MediaManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaManagementView.swift; sourceTree = "<group>"; };
 		F8F69D3328A5E159005A73D2 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		F8F69D3528A5E2F9005A73D2 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		F8FC916C29D88B58005AB508 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F8FC916D29D8AF1B005AB508 /* LanguageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageName.swift; sourceTree = "<group>"; };
 		F8FDA33E28CD8D9E00D5A9F2 /* UpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -295,6 +294,7 @@
 				F838939F295D589F00CC8E06 /* AlertView.swift */,
 				F894F59C28D7BCE700C07223 /* UpdatesView.swift */,
 				8B29E2012881CA440081F69A /* Onboarding */,
+				F8389391295BBD2200CC8E06 /* NavTabBar */,
 				8B62AFD82883B51F0070173F /* Home */,
 			);
 			path = Views;
@@ -381,7 +381,6 @@
 			children = (
 				F8B9BE8229577F0F0007FDD3 /* HomeView.swift */,
 				F8163ECC28E0C67D00A27103 /* NightMarketView.swift */,
-				F8389391295BBD2200CC8E06 /* NavTabBar */,
 				F8163ECE28E0CFBD00A27103 /* SkinViews */,
 				8B62AFCD2883A0DC0070173F /* ShopViews */,
 				F87952A428AEA06D005145F6 /* BundleViews */,
@@ -394,9 +393,6 @@
 		8B65F84E288CCFD6004282DD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F838938D295ADF9400CC8E06 /* AnimatableFontModifier.swift */,
-				F8A5011428E130BD00D66626 /* DispatchQueue+Extensions.swift */,
-				8B65F84F288CCFF0004282DD /* PriceTier.swift */,
 				F8B9BE69295626F60007FDD3 /* ShareSheet.swift */,
 				F8B9BE8B29577FEB0007FDD3 /* Styles.swift */,
 			);
@@ -469,7 +465,9 @@
 		F8389396295D028700CC8E06 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				8B65F84F288CCFF0004282DD /* PriceTier.swift */,
 				F8B9BE60295564C90007FDD3 /* RegionName.swift */,
+				F8FC916D29D8AF1B005AB508 /* LanguageName.swift */,
 				F8389397295D09D200CC8E06 /* HapticFeedback.swift */,
 			);
 			path = Utilities;
@@ -605,6 +603,7 @@
 				es,
 				"pt-PT",
 				pl,
+				sv,
 			);
 			mainGroup = 8B29E1E22881C87D0081F69A;
 			packageReferences = (
@@ -652,7 +651,6 @@
 				8B9A838B28861C5B009CE268 /* DeluxeEditionView.swift in Sources */,
 				8B9A8385288612DD009CE268 /* SelectEditionView.swift in Sources */,
 				F8B9BE61295564C90007FDD3 /* RegionName.swift in Sources */,
-				F8A5011528E130BD00D66626 /* DispatchQueue+Extensions.swift in Sources */,
 				8BF4D7652885A298000404D8 /* SearchBar.swift in Sources */,
 				F8B9BE59295549C80007FDD3 /* UsernameView.swift in Sources */,
 				F8F69D3428A5E159005A73D2 /* TipModel.swift in Sources */,
@@ -700,6 +698,7 @@
 				8B3651542891DCCA00FE762E /* RegionSelectorView.swift in Sources */,
 				8B62AFD12883A1230070173F /* SkinCardView.swift in Sources */,
 				F8B9BE5D29554BE60007FDD3 /* SettingItemView.swift in Sources */,
+				F8FC916E29D8AF1B005AB508 /* LanguageName.swift in Sources */,
 				8B9A838D28861C6E009CE268 /* PremiumEditionView.swift in Sources */,
 				F8B9BE7029565A6D0007FDD3 /* AppearanceView.swift in Sources */,
 				F87952A328ADD7C3005145F6 /* TipView.swift in Sources */,
@@ -722,7 +721,6 @@
 				8B0AE9EE28998E9400275A30 /* CommunityView.swift in Sources */,
 				8B0AE9E528984AFA00275A30 /* MultifactorView.swift in Sources */,
 				8B9A838F28861C78009CE268 /* UltraEditionView.swift in Sources */,
-				F838938E295ADF9400CC8E06 /* AnimatableFontModifier.swift in Sources */,
 				F858EC75295F900C0023AEA4 /* LoginInfoView.swift in Sources */,
 				F8B9BE43295513430007FDD3 /* TitleView.swift in Sources */,
 				8B65F84A288CA608004282DD /* PriceTierView.swift in Sources */,
@@ -749,6 +747,7 @@
 				F8F1BC8B296D4BEA00179714 /* es */,
 				F8F1BC8D296D4CE100179714 /* pt-PT */,
 				F8C7F95F299AFF8C00FF03F3 /* pl */,
+				F8FC916C29D88B58005AB508 /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -887,7 +886,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "/Users/gordon/Documents/Programs/Xcode Apps/iOS/Valorant-Store-Checker-App/ValorantStoreChecker/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = VSC;
+				INFOPLIST_KEY_CFBundleDisplayName = "Valorant Store";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -899,7 +898,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.4;
+				MARKETING_VERSION = 2.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -926,7 +925,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "/Users/gordon/Documents/Programs/Xcode Apps/iOS/Valorant-Store-Checker-App/ValorantStoreChecker/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = VSC;
+				INFOPLIST_KEY_CFBundleDisplayName = "Valorant Store";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -938,7 +937,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.4;
+				MARKETING_VERSION = 2.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.solounity.ValorantStoreChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
