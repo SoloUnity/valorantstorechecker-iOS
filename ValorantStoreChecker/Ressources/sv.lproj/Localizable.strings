@@ -1,0 +1,248 @@
+/*
+Localizable.strings
+ValorantStoreChecker
+
+Created by Gordon on 2022-08-07.
+*/
+
+
+//----------------------------------
+// MARK: Onboarding
+// LoginView
+"SignIn" = "Logga In";
+"PrivacyDisclaimer" = "Har du inget konto? Klicka här för att [skapa konto](https://auth.riotgames.com/login). Genom att klicka på Logga In går du med på våra vilkor samt våran [integritetspolicy](https://www.craft.do/s/fQxdg6aSyp8WAk)";
+
+// LoginViews -> LoginInfoView
+"Login" = "Logga in på ditt Riot Games Konto";
+"InvalidCredentials" = "Felaktiga uppgifter";
+
+// LoginViews -> LoginBoxView
+"Username" = "Användarnamn";
+"Password" = "Lösenord";
+
+// LoginViews -> RegionSelectorViewa
+"SelectRegion" = "Välj region";
+"Americas" = "Americas";
+"Europe" = "Europe";
+"AsiaPacific" = "Asia Pacific";
+"SouthKorea" = "South Korea";
+
+// LoginViews -> TermsView
+"TermsAndConditions" = "Vilkor";
+"MITLicense" = "MIT License
+Copyright (c) 2022 Gordon Ng
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the Software), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+";
+"Copyright" = "Copyright";
+"CopyrightNotice" = "VSC (Store Checker for Valorant) is not associated, connected, or endorsed by Valorant or Riot Games. Additionally, Riot Games and Valorant are trademarks registered under Riot Games Inc.";
+
+//----------------------------------
+// MultifactorView
+"EnterTheCode" = "Enter the code sent to";
+"InvalidCode" = "Ogiltig Kod";
+"TwoFactorAuthentication" = "Två Faktors Autentisering";
+
+// DownloadView
+"DownloadAssets" = "Ladda ner Filer";
+"Stuck" = "Sitter du Fast? Klicka här för att försöka igen.";
+
+//----------------------------------
+// MARK: Home
+// NightMarketView
+"NightMarket" = "Night Market";
+
+//----------------------------------
+// NavTabBar -> TabBar
+"Store" = "Affär";
+"Bundle" = "Kollektion";
+"SkinIndex" = "Skin Arkiv";
+"Settings" = "Inställningar";
+
+// NavTabBar -> NavigationSearchBar
+"Cancel" = "Avbryt";
+
+//----------------------------------
+// SkinCardDetailView -> PriceView
+"Cost" = "Pris";
+"ExclusiveSkinMessage" = "Detta är anting ett Battlepass skin, en karaktärs exklusiv eller ett limited edition skin.";
+
+// SkincardDetailView -> VideoPickerView
+"Tier" = "Level";
+"Default1" = "1. Standard";
+"Default" = "Standard";
+"Unknown" = "Okänd";
+
+//----------------------------------
+// ShopTopBarView
+"Reloading" = "Laddar";
+"Reload" = "Ladda om";
+"UpdateAvailable" = "Uppdatering Tillgänglig";
+
+//----------------------------------
+// BundleView
+"EmptyBundle" = "Ladda om för att se kollektionen";
+
+//----------------------------------
+// SkinListView
+"NoOwned" = "Vänligen ladda om äffären eller köp ett par skins :)";
+"EmptySearch" = "Inget matchar din sökning";
+"Statistics" = "Statistik";
+"TotalCollectionCost" = "Total Kollektions Kostnad:";
+"TotalSkinCount" = "Total Mängd Skins";
+
+// SearchBar
+"Search" = "Sökning";
+
+// FilterView
+"All" = "Alla";
+"Owned" = "Ägda";
+"Knife" = "Kniv";
+"Sidearm" = "Pistol";
+"SMGs" = "SMGs";
+"Shotguns" = "Shotguns";
+"Rifles" = "Rifles";
+"Sniper" = "Sniper";
+"Heavy" = "Tungt";
+"PriceSort" = "Sort via Pris";
+"LowestFirst" = "Billigast Först";
+"HighestFirst" = "Dyrast Först";
+
+//----------------------------------
+// SettingsView
+"HelpDev" = "Hjälp utvecklaren!";
+"AutomaticReload" = "Automatisk omladdning";
+"Notify" = " Affärs Återställnnings Notifikation";
+"Allow" = "Tillåt";
+"Appearance" = "Utseende";
+"Language" = "Språk";
+"ManageMedia" = "Hantera Media";
+"Support" = "Hjälp";
+"Community" = "Gemenskap";
+"Share" = "Dela appen";
+"Acknowledgements" = "Beröm";
+"About" = "Om VSC";
+
+//----------------------------------
+// AccountViews -> AccountView
+"RememberPasswordInfo" = "Ditt lösenord är säkrat tack vare Keychain. Om du loggar ut eller stänger av lösenords sparning så glöms lösenordet automatiskt. Om du sätter igång denna funtion så förbigås API tidsbegränsning och möjliggör automatisk inlogging.";
+"SignOut" = "Logga ut";
+"Account" = "Konto";
+"DeleteAccount" = "Tabort Konto";
+
+// AccountViews -> RememberPasswordView
+"RememberPassword" = "Kom Ihåg Lösenord";
+
+// AccountViews -> RegionView
+"Region" = "Region";
+
+// AccountViews -> AccountSwitcherView
+"SwitchAccounts" = "Byt Konto";
+
+//----------------------------------
+// HelpViews -> HelpView
+"HelpMessage" = "Hej! Jag är en sömnlös universitetsstudent som bara försöker göra livet lite bättre 😄. Om du vill stötta mig så kan di hitta ett par sätt nedanför!";
+"Review" = "Lämna en Recension";
+"Star" = "Gilla Github Sidan";
+"HelpTranslate" = "Hjälp med Översättning";
+
+// HelpViews -> TipView
+"ShowAppreciation" = "Visa Uppskattning";
+"Sponsor" = "Donera";
+
+//----------------------------------
+// AppearanceView
+"CheckUpdates" = "Leta efter Uppdateringar";
+"ColourScheme" = "Färg Pallett";
+"Auto" = "automatisk";
+"Light" = "Ljus";
+"Dark" = "Mörk";
+"Background" = "Bakgrund";
+"AppIcon" = "App Ikon";
+"DefaultDark" = "Standard Mörk";
+"DefaultLight" = "Standard Ljus";
+"3DDark" = "3D Mörk";
+"Default Light" = "Standard Ljus";
+"3DLight" = "3D Ljus";
+
+// MediaManagementView
+"AutoplayVideos" = "Autospela Media";
+"Both" = "Båda";
+"DownloadNewAssets" = "Ladda ner ny Filer";
+"WifiOnly" = "Wi-fi Endast";
+"CellularOnly" = "Surf Endast";
+"Never" = "Aldrig";
+"ClearAssets" = "Rensa Filer";
+"Clear" = "Rensa";
+
+// SupportView
+"Create" = "Skapa Support Ärende";
+"FAQ" = "FAQ";
+"SourceCode" = "App Källkod";
+"FAQText" = "Varför behöver appen min inloggnings information?
+                        
+Även om mycket av din statistik är enkel att komma åt utan ditt lösenord, är din affär ett undantag eftersom det anses vara känslig information. För att appen ska komma åt din butik behöver den din inloggningsinformation där den hämtar din affär genom [ValorantClientAPI](https://github.com/HeyM1ke/ValorantClientAPI).
+                        
+Vilka åtgärder har tagits för att skydda mig?
+
+Förutom att aldrig lagra ditt lösenord, är känslig information inklusive din region säkrad bakom Keychain. Appen är också öppen källkod, vilket gör att vem som helst och alla kan komma åt koden hela tiden. Din integritet är en prioritet, och jag har gjort allt i min makt för att säkerställa det. För juridisk mumbo jumbo, se [här](https://www.craft.do/s/fQxdg6aSyp8WAk).
+
+Vilka filer är nedladdade?
+
+Filerna som är nedladdade är bilder som tillåter dig att använda appens Skin Arkiv även utan internet uppkoppling.
+
+Vad gör kom ihåg lösenords funktionen?
+
+Sättet som appen använder för nuvarandet kröver kakor istället för ditt kontos användarnam och lösenord. Om du tillåter appen att inte spara ditt lösenord alls, så utgår dessa kakor efter en period av tid. Detta leder då till att användaren måste logga in återigen. Komihåg lösenords funktionen tillåter användaren att spara deras lösenord och tillåta appen att automatiskt logga in utan att tänka på det. Om användaren önskar att inte spara lösenordet kan de helt enkelt logga ut och sedan logga in igen för att skapa nya kakor.";
+
+// CommunityView
+"WebAndDisc" = "Hemsida och Discord Bot";
+"DiscordServer" = "Discord Server";
+
+// AcknowledgementsView
+"ThankJulian" = "Tackf ör din hjälp med att besvara många frågor!";
+"ThankLunac" = "Tack för ditt kontinuerliga stöd!";
+"ThankTranslator" = "Tack för din hjälp med att översätta applikationen!";
+
+// AboutView
+"Version" = "Version";
+"Privacy" = "Integritetspolicy";
+"WhatsNew" = "Nyheter";
+"MadeIn" = "Gjord i 🇨🇦";
+
+//----------------------------------
+// MARK: Miscallaneous
+// AlertView
+"NetworkError" = "Inget Nätverk";
+"InfoPrice" = "Priset av detta skin existerar inte i våran databas";
+"ErrorTitle" = "Error";
+"OK" = "OK";
+"CopyError" = "Kopierings Fel";
+"ErrorMessage1" = "Dina kakor har utgått. Detta är en API limitation vilket jag inte har någon kontroll över. Det finns två sätt att lösa detta:
+1) Logga ut och logga in återigen.
+2) Sätt på kom ihåg lösenord i Inställningar > Konto.";
+"ErrorMessage2" = "Fel lösenord satt i Inställningar";
+"ErrorMessage3" = "Ditt köp kunde inte verifieras av App Store.";
+"ErrorMessage4" = "Det finns ingen kollektion till salu, Vänligen försök igen senare.";
+"ErrorMessage5" = "Kom ihåg lösenord är ett krav för att använda Automatisk Affärs Omladdning.";
+"InformationTitle" = "Varför mitt Riot konto?";
+"Information" = "Även om mycket av din statistik är enkel att komma åt utan ditt lösenord, är din affär ett undantag eftersom det anses vara känslig information. För att appen ska komma åt din butik behöver den din inloggningsinformation där den hämtar din affär genom en API. Ytterligare information, källkoden och en FAQ finns i länken nedan.";
+"InvalidLogin" = "Ogiltigt Inlogg";
+"Reset" = "Återställ";
+"ResetInfo" = "Ibland på grund av vissa buggar kan fel uppstå. Den här knappen låter dig återställa appen helt i händelse av dessa fel.";
+"ReviewTitle" = "Gillar du VSC?";
+"OpenGitHub" = "Gillar Github Sidan";
+"MaybeLater" = "Kanske senare";
+"NeverShowAgain" = "Visa aldrig igen";
+"ReviewPrompt" = "Du kan gärna lämna en recension eller gillar Github sidan!";
+
+// UpdatesView
+"UpdateButton" = "Ny App Version är Tillgänglig";
+"UpdateInstructions1" = "Om det inte finns ett uppdaterings val, vänligen:";
+"UpdateInstructions2" = "Gå till Hem (idag) fliken";
+"UpdateInstructions3" = "Klicka på din profil längt upp till höger";
+"UpdateInstructions4" = "Scrolla ner för att ladda om";
+"UpdateInstructions5" = "Scrolla ner för att se tillgängliga uppdateringar";
+"UpdateTitle" = "Uppdatera App";

@@ -39,21 +39,9 @@ struct MenuItemView: View {
         
         let displayName = filterList[0].displayName
         
-        let language = Bundle.main.preferredLocalizations
-        var baseName = ""
+        let language = Bundle.main.preferredLocalizations        
         
-        switch language[0] {
-        case "fr","fr-CA","de","vi" , "es","pt-PT","pt-BR", "pl":
-            let list = displayName.split(separator: " ")
-            baseName = String(list[0])
-        case "ja":
-            baseName = String(Array(displayName)[6...])
-        default:
-            let list = displayName.split(separator: " ")
-            baseName = String(list[1])
-        }
-        
-        return baseName
+        return getLanguageName(language: language[0], displayName: displayName)
     }
     
 }

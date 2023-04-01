@@ -90,6 +90,8 @@ O software é fornecido como é, sem garantia de qualquer tipo, expresso ou impl
 
 "TotalCollectionCost" = "Custo Total de Cobrança";
 
+"TotalSkinCount" = "Contagem total de pele";
+
 "Search" = "Procurar";
 
 "All" = "Todos";
@@ -103,6 +105,12 @@ O software é fornecido como é, sem garantia de qualquer tipo, expresso ou impl
 "Shotguns" = "Espingardas";
 
 "Rifles" = "Rifles";
+
+"PriceSort" = "Classificar por preço";
+
+"LowestFirst" = "Mais baixo primeiro";
+
+"HighestFirst" = "Mais alto primeiro";
 
 "HelpDev" = "Ajude o dev!";
 

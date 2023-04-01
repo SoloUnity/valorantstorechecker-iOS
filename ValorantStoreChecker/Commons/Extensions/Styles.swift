@@ -14,7 +14,7 @@ struct TitleModifier: ViewModifier {
             .foregroundColor(.secondary)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(20)
-            .accessibilityAddTraits(.isHeader) // 声明该[可访问性]元素的类型（可作用于画外音的读取）
+            .accessibilityAddTraits(.isHeader) 
     }
 }
 

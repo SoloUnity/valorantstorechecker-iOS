@@ -113,6 +113,14 @@ Phần mềm được cung cấp như là, không có bảo hành dưới bất 
 
 "Heavy" = "Nặng";
 
+"TotalSkinCount" = "Tổng số da";
+
+"PriceSort" = "Sắp xếp theo giá";
+
+"LowestFirst" = "Thấp nhất đầu tiên";
+
+"HighestFirst" = "Cao nhất trước tiên";
+
 "HelpDev" = "Giúp Dev!";
 
 "AutomaticReload" = "Tự động tải lại";

@@ -94,7 +94,6 @@ class SkinModel: ObservableObject{
         
         if network.isConnected {
             let language = Bundle.main.preferredLocalizations
-            var chosenLanguage = ""
             
             if language[0] != defaults.string(forKey: "currentLanguage") {
                 defaults.set(language[0], forKey: "currentLanguage")
@@ -102,30 +101,7 @@ class SkinModel: ObservableObject{
             
             var urlString = Constants.URL.valAPISkins
             
-            switch language[0] {
-            case "fr","fr-CA":
-                chosenLanguage = "fr-FR"
-            case "ja":
-                chosenLanguage = "ja-JP"
-            case "ko":
-                chosenLanguage = "ko-KR"
-            case "de":
-                chosenLanguage = "de-DE"
-            case "zh-Hans":
-                chosenLanguage = "zh-CN"
-            case "vi":
-                chosenLanguage = "vi-VN"
-            case "es":
-                chosenLanguage = "es-ES"
-            case "pt-PT", "pt-BR":
-                chosenLanguage = "pt-BR"
-            case "pl":
-                chosenLanguage = "pl-PL"
-            default:
-                chosenLanguage = "en-US"
-            }
-            
-            urlString = urlString + "?language=" + chosenLanguage
+            urlString = urlString + "?language=" + getLanguageName(language: language[0])
             
             let url = URL(string: urlString)
             
