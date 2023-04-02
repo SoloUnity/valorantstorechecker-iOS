@@ -12,6 +12,7 @@ struct SkinListView: View {
     @EnvironmentObject var authAPIModel : AuthAPIModel
     @EnvironmentObject var skinModel : SkinModel
     @AppStorage("selectedTab") var selectedTab: Tab = .skinList
+    @State var priceSort : String = ""
     @State var searchText : String = ""
     @State var savedText : String = ""
     @State var selectedFilter : String  = ""
@@ -31,11 +32,33 @@ struct SkinListView: View {
                     .filter({selectedFilter.isEmpty ? true : $0.assetPath!.lowercased().contains(selectedFilter.lowercased())})
                     .filter { one in
                         selectOwned ? authAPIModel.ownedSkins.contains { two in
-                            one.displayName == two
+                            one.levels!.first!.id.uuidString.lowercased() == two
                         } : true
                     }
+                    .sorted { (skin1,skin2) -> Bool in
+                        
+                        if priceSort == "ascending" {
+                            let value1 = Int(PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin1.levels!.first!.id.description.lowercased())) ?? 0
+                            let value2 = Int(PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin2.levels!.first!.id.description.lowercased())) ?? 0
+                            
+                            return value1 < value2
+                        }
+                        else if priceSort == "descending" {
+                            let value1 = Int(PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin1.levels!.first!.id.description.lowercased())) ?? 0
+                            let value2 = Int(PriceTier.getRemotePrice(authAPIModel: authAPIModel, uuid: skin2.levels!.first!.id.description.lowercased())) ?? 0
+                            
+                            return value1 > value2
+                        }
+                        else {
+
+                            return false
+                        }
+                        
+                    }
+
+                 
                     
-                
+
                 ScrollView {
                     
                     scrollDetection
@@ -74,12 +97,15 @@ struct SkinListView: View {
                                 VStack(alignment: .leading) {
                                     
                                     Text("Statistics")
+                                        .font(.title3)
                                         .bold()
                                     
                                     HStack {
                                         
                                         Text("TotalCollectionCost").bold() + Text(":").bold()
                                             
+                                        Spacer()
+                                        
                                         Image("vp")
                                             .resizable()
                                             .scaledToFit()
@@ -88,6 +114,19 @@ struct SkinListView: View {
                                         
                                         Text(String(calculateTotal(search: search)))
                                             .bold()
+                          
+                                         
+                                    }
+                                    
+                                    HStack {
+                                        
+                                        Text("TotalSkinCount").bold() + Text(":").bold()
+                                         
+                                        Spacer()
+                                        
+                                        Text(String(search.count))
+                                            .bold()
+            
                                          
                                     }
 
@@ -179,6 +218,7 @@ struct SkinListView: View {
                         .animation(.default, value: searchText)
                         .animation(.default, value: selectedFilter)
                         .animation(.default, value: selectOwned)
+                        .animation(.default, value: priceSort)
                         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
                         .padding(.horizontal)
                         
@@ -192,7 +232,7 @@ struct SkinListView: View {
                     Color.clear.frame(height: 70)
                 }
                 .overlay {
-                    NavigationSearchBar(title: "SkinIndex", hasScrolled: $hasScrolled, searchText: $searchText, savedText: $savedText, selectedFilter: $selectedFilter, selectOwned: $selectOwned, proxy: proxy)
+                    NavigationSearchBar(title: "SkinIndex", priceSort: $priceSort, hasScrolled: $hasScrolled, searchText: $searchText, savedText: $savedText, selectedFilter: $selectedFilter, selectOwned: $selectOwned, proxy: proxy)
                     
                 }
                 .onChange(of: selectedTab, perform: { tab in
@@ -263,6 +303,7 @@ struct SkinListView: View {
         
         return cost
     }
+    
     
 }
 

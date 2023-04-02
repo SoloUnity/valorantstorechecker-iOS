@@ -36,15 +36,22 @@ struct ShopView: View {
                         ShopTopBarView(reloadType: "storeReload", referenceDate: Date())
                         
                         
-                        HStack{
-                            
+                        VStack {
                             Spacer()
-                            
-                            ProgressView()
-                            
+                            HStack{
+                                
+                                Spacer()
+                                
+                                ProgressView()
+                                    .tint(.gray)
+                                
+                                Spacer()
+                                
+                            }
                             Spacer()
-                            
                         }
+                        ShopBottomBarView()
+                        
                         
                     }
                     else{

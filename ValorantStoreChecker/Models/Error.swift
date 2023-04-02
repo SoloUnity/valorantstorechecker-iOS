@@ -23,8 +23,8 @@ enum CookieError: Error {
 }
 
 enum CookieReloadError: Error {
-    case invalidURL
-    case invalidResponseStatus
+    case invalidURL // 1
+    case invalidResponseStatus 
     case badDecode
     case badURI
     case dataTaskError(String)

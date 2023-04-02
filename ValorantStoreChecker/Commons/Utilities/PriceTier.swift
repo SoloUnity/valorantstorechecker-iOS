@@ -11,13 +11,13 @@ struct PriceTier{
     
     static func getRemotePrice(authAPIModel: AuthAPIModel ,uuid : String) -> String {
         
-        for skin in authAPIModel.storePrice {
-            if uuid == skin.offerID && skin.cost != nil{
-                return String(skin.cost!.price)
-            }
+        if authAPIModel.storePrice[uuid]?.cost?.price != nil {
+            return String((authAPIModel.storePrice[uuid]?.cost!.price)!)
+        }
+        else {
+            return "Unknown"
         }
         
-        return "Unknown"
     }
     
 }

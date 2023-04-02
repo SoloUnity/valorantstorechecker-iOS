@@ -128,7 +128,14 @@ struct SettingsView: View {
                         }
                         
 
-                        // // MARK: Language
+                        // MARK: Asset Management
+                        NavigationLink {
+                            MediaManagementView()
+                        } label: {
+                            SettingItemView(itemType: "generic", name: "ManageMedia", iconBG: .gray, iconColour: .white, image: "photo", toggleBool: $dummy)
+                        }
+                        
+                        // MARK: Language
                         Button {
                             if let appSettings = URL(string: UIApplication.openSettingsURLString) {
                                 UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
@@ -138,12 +145,7 @@ struct SettingsView: View {
                             
                         }
                         
-                        // MARK: Asset Management
-                        NavigationLink {
-                            MediaManagementView()
-                        } label: {
-                            SettingItemView(itemType: "generic", name: "ManageMedia", iconBG: .gray, iconColour: .white, image: "photo", toggleBool: $dummy)
-                        }
+                        
                         //LOCALIZETEXT
 
 

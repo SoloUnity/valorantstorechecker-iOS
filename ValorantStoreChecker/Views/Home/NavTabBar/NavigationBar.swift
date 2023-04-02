@@ -22,9 +22,6 @@ struct NavigationBar: View {
                 .background(.ultraThinMaterial)
                 .opacity(hasScrolled ? 1 : 0)
             
-                
-            
-            
             HStack {
 
                 Logo()

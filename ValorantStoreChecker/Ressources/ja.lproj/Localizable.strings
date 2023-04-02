@@ -90,6 +90,7 @@ Copyright (c) 2022 Gordon Ng
 "NoOwned" = "ストアを再読み込みするか、スキンを購入してください :)";
 "Statistics" = "統計学";
 "TotalCollectionCost" = "総収集コスト";
+"TotalSkinCount" = "合計皮膚数";
 
 // SearchBar
 "Search" = "検索";
@@ -104,7 +105,9 @@ Copyright (c) 2022 Gordon Ng
 "Rifles" = "ライフル";
 "Sniper" = "スナイパー";
 "Heavy" = "マシンガン";
-
+"PriceSort" = "価格で並べ替えます";
+"LowestFirst" = "最低の最初の";
+"HighestFirst" = "最高です";
 
 //----------------------------------
 // SettingsView

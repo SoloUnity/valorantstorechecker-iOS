@@ -21,7 +21,7 @@ class AuthAPIModel: ObservableObject {
     
     // Store
     @Published var storefront : [Skin] = []
-    @Published var storePrice : [Offer] = []
+    @Published var storePrice = [String : Offer]()
     
     // Wallet
     @Published var walletVP : String = ""
@@ -94,8 +94,17 @@ class AuthAPIModel: ObservableObject {
         if let objects = defaults.value(forKey: "storePrice") as? Data {
             let decoder = JSONDecoder()
             if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Offer] {
+                
+                var tempPriceDictionary = [String : Offer]()
+                
+                for offer in objectsDecoded {
+                    if offer.offerID != nil {
+                        tempPriceDictionary[offer.offerID!] = offer
+                    }
+                }
+                
                 DispatchQueue.main.async{
-                    self.storePrice = objectsDecoded
+                    self.storePrice = tempPriceDictionary
                 }
             }
         }
@@ -156,6 +165,8 @@ class AuthAPIModel: ObservableObject {
             }
             else if keychain.value(forKey: "username") == nil { // Save username to keychain
                 let _ = keychain.save(self.inputUsername, forKey: "username")
+                let _ = keychain.save(self.inputPassword, forKey: "password")
+                self.rememberPassword = true
             }
             
             let _ = try await WebService.getCookies(reload: false)
@@ -201,25 +212,25 @@ class AuthAPIModel: ObservableObject {
                 self.error = true
                 self.errorReloading = true
                 
+                self.inputUsername = ""
+                self.inputPassword = ""
             }
             else {
                 
-                self.authenticationAnimation = false
+                await logOut()
                 
-                withAnimation(.easeIn(duration: 0.2)) {
-                    self.authenticationFailure = true
+                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { timer in
+                    withAnimation(.easeIn(duration: 0.2)) {
+                        self.authenticationFailure = true
+                        self.inputUsername = ""
+                        self.inputPassword = ""
+                    }
+                    timer.invalidate()
                 }
-                
-                
-                self.defaults.removeObject(forKey: "authentication")
-                let _ = keychain.remove(forKey: "username")
             }
-            
-            self.inputUsername = ""
-            self.inputPassword = ""
-            
         }
     }
+    
     
     
     // MARK: getPlayerData
@@ -233,26 +244,7 @@ class AuthAPIModel: ObservableObject {
             
             // Match user's store with database
             let storefrontResponse = try await WebService.getStorefront(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
-            
-            // Save list of owned skins
-            let owned = try await WebService.getOwned(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
-            
-            var tempOwned : [String] = []
 
-            for skin in skinModel.data {
-                for item in owned {
-                    let itemUUID = skin.levels!.first!.id.uuidString.lowercased()
-                    if itemUUID == item.itemID {
-                        if !tempOwned.contains(skin.displayName) {
-                            tempOwned.append(skin.displayName)
-                        }
-                    }
-                }
-            }
-            
-            self.ownedSkins = tempOwned
-            defaults.set(tempOwned, forKey: "owned")
-            
             if storefrontResponse.BonusStore != nil {
                 
                 defaults.set(true, forKey: "nightMarket")
@@ -297,7 +289,6 @@ class AuthAPIModel: ObservableObject {
             }
             else {
                 defaults.set(false, forKey: "nightMarket")
-                
             }
             
             if helperType == "storeReload" {
@@ -314,13 +305,20 @@ class AuthAPIModel: ObservableObject {
                 
                 // Placeholder
             }
+            else if helperType == "ownedReload" {
+                
+                await getOwnedSkins(token: token, riotEntitlement: riotEntitlement, puuid: puuid)
+                
+            }
             else if helperType == "login" {
                 
                 await reloadLoginHelper(token: token, skinModel: skinModel, riotEntitlement: riotEntitlement, puuid: puuid, storefrontResponse: storefrontResponse)
                 
                 await bundleLoginHelper(token: token, skinModel: skinModel, riotEntitlement: riotEntitlement, puuid: puuid, storefrontResponse: storefrontResponse)
                 
+                await getOwnedSkins(token: token, riotEntitlement: riotEntitlement, puuid: puuid)
             }
+            
             
             // finished loading
             withAnimation(.easeIn) {
@@ -347,6 +345,34 @@ class AuthAPIModel: ObservableObject {
             
         }
         
+    }
+    
+    // MARK: getOwnedSkins
+    @MainActor
+    func getOwnedSkins(token: String, riotEntitlement: String, puuid: String) async {
+        do {
+            
+            // Save list of owned skins
+            let owned = try await WebService.getOwned(token: token, riotEntitlement: riotEntitlement, puuid: puuid, region: keychain.value(forKey: "region") as? String ?? "na")
+            
+            var tempOwned : [String] = []
+
+            for item in owned {
+                
+                tempOwned.append(item.itemID)
+
+            }
+            
+            self.ownedSkins = tempOwned
+            defaults.set(tempOwned, forKey: "owned")
+            
+            print("Fetched owned skins")
+            
+        }
+        catch {
+            self.errorMessage = "getOwnedSkins error: \(error.self)"
+            self.error = true
+        }
     }
     
     
@@ -396,7 +422,15 @@ class AuthAPIModel: ObservableObject {
             // Get store price
             let storePrice = try await WebService.getStorePrices(token: token, riotEntitlement: riotEntitlement, region: keychain.value(forKey: "region") as? String ?? "na")
             
-            self.storePrice = storePrice
+            var tempPriceDictionary = [String : Offer]()
+            
+            for offer in storePrice {
+                if offer.offerID != nil {
+                    tempPriceDictionary[offer.offerID!] = offer
+                }
+            }
+            
+            self.storePrice = tempPriceDictionary
             
             // Save store prices
             let priceEncoder = JSONEncoder()
@@ -589,7 +623,7 @@ class AuthAPIModel: ObservableObject {
             print("Reloading")
 
             let token = try await WebService.getCookies(reload: true)
-            
+
             // Old way
             //let token = try await WebService.cookieReauth()
             
@@ -615,6 +649,8 @@ class AuthAPIModel: ObservableObject {
             else {
                 await getPlayerData(helperType: reloadType, token: token, skinModel: skinModel)
             }
+            
+            print("Finished Reloading")
 
             
         }catch{
@@ -632,7 +668,6 @@ class AuthAPIModel: ObservableObject {
 
             }
             else {
-                
                 
                 // Bandaid solution
                 let errorMessage = error.localizedDescription
