@@ -85,6 +85,8 @@ to expand the answer
 - **[Valorant-API.com](https://valorant-api.com) for providing assets.**
 
 # 📚 **TOS and Privacy Policy**
+This application is not endorsed by Riot Games in any way.
+Riot Games, Valorant, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
 - **[MIT License](https://github.com/SoloUnity/Valorant-Store-Checker-App/blob/main/License)**
 - **[Privacy Policy](https://www.craft.do/s/fQxdg6aSyp8WAk)**
 
