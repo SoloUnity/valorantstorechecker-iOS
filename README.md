@@ -5,33 +5,26 @@
 </p>
 
 <h1 align="center">
-  Valorant Store Checker 
+  Game Store Checker 
    • 
   <img src="https://hitsofcode.com/github/SoloUnity/valorant-store-checker-iOS?branch=main"/> 
 </h1>
 
 <p align="center">
-  <a href="https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546">App Store</a>
-  •
   <a href="https://github.com/SoloUnity/valorant-store-checker-iOS#-faq">FAQ</a>
   •
   <a href="https://discord.gg/valorantstore-net" target="_blank">Discord</a>
-  •
-  <a href="https://testflight.apple.com/join/StWXuCsq">TestFlight</a>
 </p>
 
 <p align="center"><a href="https://apps.apple.com/ca/app/store-checker-for-valorant/id1637273546"><img height="65" alt="VSC-1 (dragged)" src="https://i.imgur.com/Rsa4mrG.png"></a></p>
 
 # 🤔 **What's VSC?**
-VSC (Valorant Store Tracker) is an open source iOS app that allows you to track your store and preview your skins. It allows for easy on the go access to your otherwise unaccessible skin shop as well as a place to easily preview everything before buying. 
+VSC (Game Store Tracker) is an open source iOS app that allows you to track your store and preview your skins. It allows for easy on the go access to your otherwise unaccessible skin shop as well as a place to easily preview everything before buying. 
 
 &nbsp;
    
 # 🦺 **Community Contributions**
 - **[Community Discord Server](https://discord.gg/valorantstore-net)**
-- **Valorant Store Checker [Website](https://valorantstore.net) made by [@Lunac-dev](https://github.com/Lunac-dev)**
-- **Valorant Store Checker [Discord Bot](https://discord.com/api/oauth2/authorize?client_id=962376379658297375&permissions=274878286912&scope=bot%20applications.commands) made by [@Lunac-dev](https://github.com/Lunac-dev)**
-- **[TestFlight Beta Program](https://testflight.apple.com/join/StWXuCsq)**
 
 &nbsp;
 
