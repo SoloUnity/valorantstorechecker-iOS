@@ -19,21 +19,17 @@
 # 🤔 **What's VSC?**
 VSC (Valorant Store Tracker) is an open source iOS app that allows you to track your store and preview your skins. It allows for easy on the go access to your otherwise unaccessible skin shop as well as a place to easily preview everything before buying. 
 
-&nbsp;
 # 📈 **Statistics**
 <p align=center>
   <img width="49%" src="https://github.com/SoloUnity/valorantstorechecker-iOS/assets/77747704/3e4f273e-412e-4073-b6c8-6cb437fb0b61" />
   <img width="49%" src="https://github.com/SoloUnity/valorantstorechecker-iOS/assets/77747704/c6b9ce2b-39c7-4c93-aaa2-fac7ae4da902" />
 </p>
 
-
 # 🦺 **Community Contributions**
 - **[Community Discord Server](https://discord.gg/valorantstore-net)**
 - **Valorant Store Checker [Website](https://valorantstore.net) made by [@Lunac-dev](https://github.com/Lunac-dev)**
 - **Valorant Store Checker [Discord Bot](https://discord.com/api/oauth2/authorize?client_id=962376379658297375&permissions=274878286912&scope=bot%20applications.commands) made by [@Lunac-dev](https://github.com/Lunac-dev)**
 - **[TestFlight Beta Program](https://testflight.apple.com/join/StWXuCsq)**
-
-&nbsp;
 
 # 🏴 **Help Translate**
 You can help with translation through a pull request, or just sending the modified file on [Discord](https://discord.gg/vK5mzjvqYM), of the Localizable.strings file from the correct language.lproj folder [here](https://github.com/SoloUnity/Valorant-Store-Checker-App/tree/development/ValorantStoreChecker/Ressources). The majority of these translations were done with DeepL or Google Translate. Please make your pull request on the development branch as well.
